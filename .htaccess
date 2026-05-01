@@ -1,4 +1,4 @@
-# Ice & Instinct — Apache config
+# Ice & Instinct - Apache config
 
 <IfModule mod_rewrite.c>
   RewriteEngine On

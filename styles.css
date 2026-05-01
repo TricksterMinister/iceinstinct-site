@@ -1,5 +1,5 @@
 /* =================================================================
-   ICE & INSTINCT — Gotham Night System
+   ICE & INSTINCT - Gotham Night System
    Strict monochrome. Marble. Steel. Stone. No tint, no blur.
    Massive sans display + Fraunces italic accent moments.
    Cocktails are the only colour.
@@ -153,7 +153,7 @@ p { color: var(--c-fg-soft); max-width: 62ch; }
   letter-spacing: -0.005em;
 }
 
-/* Italic Fraunces moments — used selectively for one-or-two-word emphasis,
+/* Italic Fraunces moments - used selectively for one-or-two-word emphasis,
    never for full paragraphs. This is the romantic counter to the heavy sans. */
 .italic, em.serif {
   font-family: var(--font-italic);
@@ -320,7 +320,7 @@ body::after {
 .btn .arrow { display: inline-block; transition: transform var(--d-base) var(--ease); }
 .btn:hover .arrow { transform: translateX(6px); }
 
-/* ===== Hero — Gotham night, crisp, massive type ==================== */
+/* ===== Hero - Gotham night, crisp, massive type ==================== */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -346,11 +346,11 @@ body::after {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  /* HARD BLACK & WHITE — no blur, no soft gradient overlay,
+  /* HARD BLACK & WHITE - no blur, no soft gradient overlay,
      just the city in monochrome saturation */
   filter: grayscale(100%) contrast(1.05);
 }
-/* Single sharp legibility scrim — straight horizontal gradient, no radial blur */
+/* Single sharp legibility scrim - straight horizontal gradient, no radial blur */
 .hero-media::after {
   content: "";
   position: absolute;
@@ -698,7 +698,7 @@ main section.numbered .eyebrow::after {
   max-width: 50ch;
 }
 
-/* ===== Gallery — B&W default, full COLOUR on hover ================ */
+/* ===== Gallery - B&W default, full COLOUR on hover ================ */
 /* This is the only place colour exists on the site. Cocktails are the protagonist. */
 .gallery-strip {
   display: grid;
@@ -748,7 +748,7 @@ main section.numbered .eyebrow::after {
 }
 .gallery-strip a:hover::after { border-color: oklch(100% 0 0 / 0.16); }
 
-/* ===== Final CTA — marble panel =================================== */
+/* ===== Final CTA - marble panel =================================== */
 .final-cta {
   position: relative;
   text-align: center;
@@ -762,7 +762,7 @@ main section.numbered .eyebrow::after {
   isolation: isolate;
   overflow: hidden;
 }
-/* Subtle marble veining — SVG noise tinted dark for stone effect */
+/* Subtle marble veining - SVG noise tinted dark for stone effect */
 .final-cta::before {
   content: "";
   position: absolute;
@@ -874,7 +874,7 @@ main section.numbered .eyebrow::after {
 }
 
 /* =================================================================
-   SCROLL ARCHITECTURE — viewport-locked scenes + scroll-driven motion
+   SCROLL ARCHITECTURE - viewport-locked scenes + scroll-driven motion
    ================================================================= */
 
 /* Each main section is one viewport tall. Content vertically centred.
@@ -1137,7 +1137,7 @@ img.reveal-zoom.is-in { transform: scale(1); }
 }
 .addon p { font-size: var(--t-sm); color: var(--c-fg-soft); }
 
-/* ===== Gallery — The Collection (HORIZONTAL TRACK) ===============
+/* ===== Gallery - The Collection (HORIZONTAL TRACK) ===============
    The collection is a horizontal cinematic track. Swipe / drag / wheel-
    horizontal through twelve cocktails. Each tile takes most of the
    viewport at desktop, full-bleed on mobile. Snap-aligned for
@@ -1517,6 +1517,6 @@ img.reveal-zoom.is-in { transform: scale(1); }
 }
 .legal-body ul { padding-left: 1.2em; list-style: none; }
 .legal-body li { margin-bottom: 6px; padding-left: 1em; position: relative; }
-.legal-body li::before { content: "—"; position: absolute; left: 0; color: var(--c-fg-muted); }
+.legal-body li::before { content: "-"; position: absolute; left: 0; color: var(--c-fg-muted); }
 .legal-body a { color: var(--c-fg); text-decoration: underline; text-underline-offset: 4px; }
 .legal-body strong { color: var(--c-fg); font-weight: 500; }

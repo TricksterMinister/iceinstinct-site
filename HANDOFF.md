@@ -1,27 +1,27 @@
-# Handoff — Ice & Instinct site rebuild
+# Handoff - Ice & Instinct site rebuild
 
 **Read `CLAUDE.md` first**, then this. This file is the live status & next-step checklist.
 
 ---
 
-## Where we are right now (end of chat — 2026-05-01)
+## Where we are right now (end of chat - 2026-05-01)
 
 Three phases are done:
 
-- **Phase 1 — Inventory** (✅ complete)
+- **Phase 1 - Inventory** (✅ complete)
   - Crawled all 6 pages of the live Hostinger site
   - Extracted text + 22 photos
   - Built INVENTORY.md at `/Users/teimurazbenidze/iceinstinct-source/`
 
-- **Phase 2 — Design system + Home page** (✅ complete)
+- **Phase 2 - Design system + Home page** (✅ complete)
   - Initial dark luxury direction (later corrected to strict monochrome)
   - First Home page built, deployed to local preview
 
-- **Phase 3 — All pages built** (✅ complete)
+- **Phase 3 - All pages built** (✅ complete)
   - 12 pages, meta files, robots, sitemap, llms.txt, .htaccess
   - GitHub repo created, 4 commits pushed
 
-- **Phase 4 — Direction correction (monochrome + viewport + scroll)** (✅ complete)
+- **Phase 4 - Direction correction (monochrome + viewport + scroll)** (✅ complete)
   - Stripped blue undertones to pure neutral mono
   - Removed all blur, replaced soft gradients with sharp linears
   - Bumped to massive sans+italic-serif typography (Geist + Fraunces)
@@ -30,6 +30,11 @@ Three phases are done:
   - **Gallery → full horizontal track with progress bar + position counter**
   - Lightbox + B&W default + colour-on-hover for cocktails
   - Rich scroll-driven motion (clip reveals, stagger, view-timeline where supported)
+
+- **Phase 5 - Style cleanup (em/en-dash purge)** (✅ complete)
+  - Replaced 139 em-dashes + 1 en-dash with plain hyphens across 19 files (HTML, CSS, MD, llms.txt, .htaccess, robots.txt)
+  - Verified zero remaining via byte-scan; all 10 JSON-LD blocks re-validated
+  - Added a hard pre-commit grep guard inside CLAUDE.md so the rule never gets violated again
 
 The site at `localhost:8766` should look right per the design commandments.
 
@@ -65,19 +70,19 @@ Pages still pending HTML:
 
 These were left as placeholders pending user input:
 
-**a. Formspree form ID** — user confirmed an existing form already runs on the live site. Get the endpoint (8 chars after `formspree.io/f/`), then:
+**a. Formspree form ID** - user confirmed an existing form already runs on the live site. Get the endpoint (8 chars after `formspree.io/f/`), then:
 
 ```bash
 sed -i '' 's|REPLACE_WITH_FORMSPREE_ID|m________|g' contact/index.html
 ```
 
-**b. Instagram URL** — user confirmed it exists. Replace all `<a href="#" aria-label="Instagram">` in every page footer:
+**b. Instagram URL** - user confirmed it exists. Replace all `<a href="#" aria-label="Instagram">` in every page footer:
 
 ```bash
 grep -rl 'aria-label="Instagram"' --include='*.html' . | xargs sed -i '' 's|<a href="#" aria-label="Instagram"|<a href="https://www.instagram.com/REAL_HANDLE/" target="_blank" rel="noopener" aria-label="Instagram"|g'
 ```
 
-**c. Email address** — `hello@iceinstinct.com` is placeholder. Confirm with user.
+**c. Email address** - `hello@iceinstinct.com` is placeholder. Confirm with user.
 
 ### 3. Other social links
 
@@ -85,10 +90,10 @@ Footer also has placeholder links for Facebook, TikTok, X. User hasn't confirmed
 
 ---
 
-## After content import & config — deploy
+## After content import & config - deploy
 
 1. **Hostinger backup** of current Builder site (export or download via File Manager).
-2. **Switch hosting plan** from Builder to Web Hosting in hPanel (may require a paid plan upgrade — the user is OK with Hostinger).
+2. **Switch hosting plan** from Builder to Web Hosting in hPanel (may require a paid plan upgrade - the user is OK with Hostinger).
 3. **Git auto-deploy**: connect repo, branch `main`, deploy to `public_html`.
 4. Test HTTPS, .htaccess rules, redirects.
 5. **Cache-bust** to a fresh value before the very first deploy:
@@ -115,7 +120,7 @@ If Hostinger Web Hosting can't deliver clean Git deploy, fallback options (in or
 - [ ] All `<a href="#">` social links replaced with real URLs OR removed
 - [ ] Footer copyright `© 2026 Ice & Instinct` correct on every page
 - [ ] No blur anywhere (DevTools → search styles for `backdrop-filter`, should be 0 hits in our CSS)
-- [ ] No coloured tints — all backgrounds and foregrounds use `oklch(N% 0 0)` (zero chroma) or pure neutral grays
+- [ ] No coloured tints - all backgrounds and foregrounds use `oklch(N% 0 0)` (zero chroma) or pure neutral grays
 - [ ] Cocktails on `/gallery/` are B&W default → colour on hover (desktop) and full colour on mobile
 - [ ] Schema validates: https://search.google.com/test/rich-results
 - [ ] Lighthouse mobile performance 80+
@@ -167,9 +172,9 @@ git add -A && git commit -m "..." && git push origin main
 
 ## Reference materials
 
-- INVENTORY.md (in `/Users/teimurazbenidze/iceinstinct-source/`) — full content audit of original site
+- INVENTORY.md (in `/Users/teimurazbenidze/iceinstinct-source/`) - full content audit of original site
 - The user shared **Ignitex Framer template** (https://land-book.com/websites/89951) as direction reference. The core feel: massive sans + italic serif, dense scenes, dark, high-contrast.
-- Live original (still up): https://www.iceinstinct.com — comparison/control during migration
+- Live original (still up): https://www.iceinstinct.com - comparison/control during migration
 
 ---
 
@@ -185,4 +190,4 @@ If continuing this project in a new chat, the user will likely paste the next HT
 6. Commit + push.
 7. Report briefly + ask for the next file.
 
-If he asks something else — defer to it. He's the boss.
+If he asks something else - defer to it. He's the boss.

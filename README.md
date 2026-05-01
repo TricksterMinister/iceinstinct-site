@@ -6,7 +6,7 @@ Private mixology studio website. Static HTML, no framework.
 
 ## Stack
 
-- Pure HTML / CSS / JS — no build step
+- Pure HTML / CSS / JS - no build step
 - **Fraunces** (variable serif) for italic moments
 - **Geist** (variable sans) for display
 - **Inter** for body
@@ -16,7 +16,7 @@ Private mixology studio website. Static HTML, no framework.
 
 ## Design system
 
-Strict monochrome (Gotham night). Cool charcoal `oklch(8% 0 0)` background, chalk-white foreground, brushed-steel mid-tones. **No tint, no blur.** The only colour on the site is on cocktail photography in the gallery — and only on hover.
+Strict monochrome (Gotham night). Cool charcoal `oklch(8% 0 0)` background, chalk-white foreground, brushed-steel mid-tones. **No tint, no blur.** The only colour on the site is on cocktail photography in the gallery - and only on hover.
 
 See `styles.css` for the full token system at the top of the file.
 
@@ -25,10 +25,10 @@ See `styles.css` for the full token system at the top of the file.
 ```
 /                                Home (cinematic hero)
 /offerings/                      Tier hub + add-ons
-/offerings/foundation/           Tier i — from $400
-/offerings/simplicity/           Tier ii — from $750
-/offerings/bespoke/              Tier iii — from $1,500
-/offerings/omakase/              Tier iv — from $3,000
+/offerings/foundation/           Tier i - from $400
+/offerings/simplicity/           Tier ii - from $750
+/offerings/bespoke/              Tier iii - from $1,500
+/offerings/omakase/              Tier iv - from $3,000
 /concierge/                      Bespoke private concierge service
 /my-story/                       Founder bio
 /gallery/                        Cocktail compositions
@@ -72,7 +72,7 @@ handles HTTP → HTTPS and apex → www redirects.
 
 ## Source repo
 
-GitHub: (TBD — to be created)
+GitHub: (TBD - to be created)
 
 ## Photo assets
 
