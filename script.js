@@ -29,6 +29,48 @@
     targets.forEach(t => t.classList.add('is-in'));
   }
 
+  // ----- Lightbox for gallery (desktop only) -----
+  const lightbox = document.getElementById('lightbox');
+  if (lightbox) {
+    const lbImage = document.getElementById('lightbox-image');
+    const lbTitle = document.getElementById('lightbox-title');
+    const lbClose = lightbox.querySelector('.lightbox-close');
+    const tiles = document.querySelectorAll('.gallery-tile');
+
+    const openLightbox = (src, title) => {
+      if (!src) return;
+      lbImage.src = src;
+      lbImage.alt = title || '';
+      lbTitle.textContent = title || '';
+      lightbox.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeLightbox = () => {
+      lightbox.classList.remove('is-open');
+      document.body.style.overflow = '';
+      // Defer src clear so closing animation can finish
+      setTimeout(() => { lbImage.src = ''; }, 300);
+    };
+
+    tiles.forEach(tile => {
+      tile.addEventListener('click', (e) => {
+        // On touch / no-hover devices we keep simple click behaviour with no overlay,
+        // but the lightbox is still useful for closer inspection.
+        const src = tile.getAttribute('data-src');
+        const title = tile.getAttribute('data-title');
+        openLightbox(src, title);
+      });
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+    });
+  }
+
   // ----- Pre-fill package select on /contact/ from ?package=...&service=... -----
   const params = new URLSearchParams(window.location.search);
   const pkg = params.get('package') || params.get('service');
