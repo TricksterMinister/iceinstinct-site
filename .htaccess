@@ -1,0 +1,55 @@
+# Ice & Instinct — Apache config
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Force HTTPS
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Force www (canonical) - use this OR the non-www version, not both
+  RewriteCond %{HTTP_HOST} ^iceinstinct\.com$ [NC]
+  RewriteRule ^(.*)$ https://www.iceinstinct.com/$1 [L,R=301]
+
+  # Strip trailing /index.html to keep clean URLs
+  RewriteCond %{THE_REQUEST} \s/+(.*)/index\.html[\s?] [NC]
+  RewriteRule ^ /%1/ [L,R=301]
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' https://videos.pexels.com https://*.pexels.com; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'self'; base-uri 'self'; upgrade-insecure-requests"
+</IfModule>
+
+# Caching
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+  ExpiresByType text/html "access plus 1 hour"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+</IfModule>
+
+# Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/xml image/svg+xml
+</IfModule>
+
+# Hide dotfiles
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# Custom 404
+ErrorDocument 404 /404.html
