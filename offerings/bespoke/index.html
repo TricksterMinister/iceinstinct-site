@@ -5,14 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0a0a0a">
 
-<title>Bespoke Design & Artistry - Ice & Instinct</title>
-<meta name="description" content="Bespoke Design & Artistry: Signature cocktails tailored to your event's theme and vision. Your story, crafted into every glass. From $1,500.">
+<title>Bespoke Design & Artistry - Ice & Instinct, from $1,500</title>
+<meta name="description" content="The Architect tier from Ice & Instinct. Signature cocktails designed around your event's theme, color palette, and story. From $1,500, up to 15 guests, 4 hours.">
 
-<meta property="og:title" content="Bespoke Design & Artistry - Ice & Instinct">
-<meta property="og:description" content="Signature cocktails tailored to your event's theme and vision. Your story, crafted into every glass. From $1,500.">
+<meta property="og:title" content="Bespoke Design & Artistry - Ice & Instinct, from $1,500">
+<meta property="og:description" content="Your vision, crafted into every glass. Storytelling. Visual impact. Mixology as creative collaboration.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.iceinstinct.com/offerings/bespoke/">
-<meta property="og:site_name" content="Ice & Instinct">
 <meta property="og:image" content="https://www.iceinstinct.com/assets/photos/generated-image-december-02-2025---5_51pm-J5sLYZUT5l6RkRlI.jpeg">
 
 <link rel="canonical" href="https://www.iceinstinct.com/offerings/bespoke/">
@@ -28,18 +27,25 @@
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Ice & Instinct - Bespoke Design & Artistry",
-  "serviceType": "Private mixology service",
-  "provider": { "@type": "LocalBusiness", "@id": "https://www.iceinstinct.com/#organization", "name": "Ice & Instinct" },
-  "description": "Signature cocktails tailored to your event's theme and vision. Your story, crafted into every glass.",
-  "areaServed": "New York City",
+  "@id": "https://www.iceinstinct.com/offerings/bespoke/#service",
+  "serviceType": "Custom Cocktail Design Service",
+  "name": "Bespoke Design & Artistry - Ice & Instinct",
+  "alternateName": ["The Architect", "Bespoke tier"],
+  "url": "https://www.iceinstinct.com/offerings/bespoke/",
+  "provider": { "@type": "LocalBusiness", "@id": "https://www.iceinstinct.com/#organization" },
+  "areaServed": { "@type": "City", "name": "New York City" },
+  "description": "Signature cocktails tailored to your event's theme, color palette, and story. Mixology as creative collaboration.",
   "offers": {
-    "@type": "Offer",
-    "name": "Bespoke Design & Artistry",
-    "price": "1500",
+    "@type": "AggregateOffer",
     "priceCurrency": "USD",
-    "availability": "https://schema.org/InStock",
-    "url": "https://www.iceinstinct.com/contact/?package=bespoke"
+    "lowPrice": "1500",
+    "highPrice": "2000",
+    "offerCount": "3",
+    "offers": [
+      { "@type": "Offer", "name": "Tier A - The Intimate (up to 15 guests)", "price": "1500", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Tier B - The Social (16-30 guests)", "price": "2000", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Tier C - The Grand (31+ guests, custom quote)", "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "USD", "minPrice": "2000" } }
+    ]
   }
 }
 </script>
@@ -75,61 +81,229 @@
 
 <main>
 
+<!-- HERO -->
 <section class="page-hero">
   <div class="container">
-    <span class="eyebrow"><a href="/offerings/" style="color:inherit">← Offerings</a></span>
+    <span class="eyebrow"><a href="/offerings/" style="color:inherit">&larr; Offerings</a></span>
     <div class="tier-hero">
       <div class="tier-hero-text">
-        <span class="eyebrow">iii. Bespoke</span>
+        <span class="eyebrow">iii. Bespoke &middot; The Architect</span>
         <h1>Bespoke Design <span class="it">&amp; Artistry.</span></h1>
-        <p class="lead">Signature cocktails tailored to your event's theme and vision. Your story, crafted into every glass.</p>
-        <div class="price">From $1,500 USD<small>Up to 15 guests · 4 hours · Manhattan</small></div>
+        <p class="lead">Your vision, crafted into every glass. Custom cocktails designed specifically for your theme, your colors, your story. Mixology as creative collaboration.</p>
+        <div class="price">From $1,500 USD<small>Up to 15 guests &middot; 4 hours &middot; Manhattan</small></div>
         <div class="meta-row" style="margin-top:var(--s-sm)">
-          <a href="/contact/?package=bespoke" class="btn btn-primary">Inquire <span class="arrow">→</span></a>
+          <a href="/contact/?package=bespoke" class="btn btn-primary">Inquire <span class="arrow">&rarr;</span></a>
         </div>
       </div>
       <div class="tier-mood">
-        <img src="/assets/photos/generated-image-december-02-2025---5_51pm-J5sLYZUT5l6RkRlI.jpeg" alt="Bespoke tier mood">
+        <img src="/assets/photos/generated-image-december-02-2025---5_51pm-J5sLYZUT5l6RkRlI.jpeg" alt="Bespoke tier mood" loading="lazy">
       </div>
     </div>
   </div>
 </section>
 
-<section class="numbered">
+<!-- I. OVERVIEW -->
+<section class="tier-section" id="overview">
   <div class="container-narrow">
-    <div class="section-head reveal">
-      <span class="eyebrow">What's included</span>
-      <h2 class="display-heading">Cocktails written<br>for <span class="it">your evening.</span></h2>
-    </div>
-    <ol class="inclusion-list reveal">
-      <li><span class="num">01</span><span class="text"><strong>A custom menu, designed for the occasion.</strong> <small>Four to six original signature drinks, each named for the occasion, themed to the room or person. Drafted, tasted, refined before the event.</small></span></li>
-      <li><span class="num">02</span><span class="text"><strong>A pre-event tasting session.</strong> <small>Optional in-person or video session to taste the proposed menu and refine.</small></span></li>
-      <li><span class="num">03</span><span class="text"><strong>Custom garnish, glassware, and presentation.</strong> <small>Sourced or commissioned to fit the design language of the evening.</small></span></li>
-      <li><span class="num">04</span><span class="text"><strong>Printed menu cards.</strong> <small>Letterpress or hand-set, your name on the cocktails, the cocktails on the table.</small></span></li>
-      <li><span class="num">05</span><span class="text"><strong>Solo bartender, full attention.</strong> <small>One alchemist, four hours, every drink built fresh in front of the guest.</small></span></li>
-      <li><span class="num">06</span><span class="text"><strong>Post-event recipe book.</strong> <small>You keep the recipes. The drinks were yours from the start.</small></span></li>
-    </ol>
-  </div>
-</section>
-
-<section class="numbered">
-  <div class="container-narrow">
-    <div class="section-head reveal">
-      <span class="eyebrow">When it fits</span>
-      <h2 class="display-heading">For evenings that<br>need a <span class="it">soundtrack.</span></h2>
-      <p class="lead">Birthdays. Anniversaries. Brand launches. Private dinners with a story. When the cocktails are not an afterthought but a chapter - Bespoke is how that chapter is written.</p>
+    <header class="tier-section-head reveal">
+      <span class="tier-roman">I.</span>
+      <h2>Overview</h2>
+    </header>
+    <div class="tier-prose reveal">
+      <p>For those who seek something beyond the classics. Your celebration deserves a cocktail menu as unique as the occasion itself - drinks designed specifically for your theme, your colors, your story.</p>
+      <p>This is mixology as creative collaboration. Together, we design a bespoke menu of signature cocktails tailored to your event's atmosphere and aesthetic. Whether for a milestone birthday, a brand launch, or an engagement, each cocktail becomes a conversation piece.</p>
+      <p>Your private mixologist arrives with the creative vision to transform your ideas into liquid art. Guests don't just drink - they experience your story through thoughtfully crafted flavors, artful presentations, and photographically striking compositions.</p>
     </div>
   </div>
 </section>
 
-<section id="final-cta" class="numbered">
+<!-- II. THE MENU PROTOCOL -->
+<section class="tier-section" id="menu-protocol">
+  <div class="container-narrow">
+    <header class="tier-section-head reveal">
+      <span class="tier-roman">II.</span>
+      <h2>The Menu Protocol</h2>
+      <p class="tier-section-intro">Custom Design. Your Story. Liquid Form.</p>
+    </header>
+    <div class="tier-prose reveal">
+      <p>This experience is dedicated to creation. We translate your inspiration into a sensory experience.</p>
+      <div class="tier-subsection">
+        <h3>The Selection</h3>
+        <p>Two weeks prior, we collaborate to create a bespoke menu of 5-6 signature cocktails.</p>
+      </div>
+      <div class="tier-subsection">
+        <h3>The Focus</h3>
+        <p>Full creative license. We develop custom cocktail names, unique flavor profiles, and theatrical presentation elements (smoke, specialty ice, botanical garnishes) designed to photograph beautifully and spark conversation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- III. SCALABILITY & INVESTMENT -->
+<section class="tier-section" id="scaling">
+  <div class="container-narrow">
+    <header class="tier-section-head reveal">
+      <span class="tier-roman">III.</span>
+      <h2>Scalability &amp; Investment</h2>
+      <p class="tier-section-intro">Service capacity includes complex preparation and theatrical execution.</p>
+    </header>
+
+    <div class="tier-scale-grid reveal-stagger reveal">
+      <article class="tier-scale-card">
+        <span class="tier-scale-label">Tier A</span>
+        <h3>The Intimate</h3>
+        <p class="tier-scale-cap">Up to 15 guests</p>
+        <ul class="tier-scale-meta">
+          <li><strong>Personnel</strong>1 Master Mixologist (custom design &amp; execution)</li>
+          <li><strong>Focus</strong>Detailed storytelling and visual perfection.</li>
+        </ul>
+        <p class="tier-scale-price">From $1,500</p>
+      </article>
+
+      <article class="tier-scale-card">
+        <span class="tier-scale-label">Tier B</span>
+        <h3>The Social</h3>
+        <p class="tier-scale-cap">16 to 30 guests</p>
+        <ul class="tier-scale-meta">
+          <li><strong>Personnel</strong>1 Master Mixologist + 1 Shadow (bar support)</li>
+          <li><strong>Focus</strong>Maintaining service speed and presentation quality for larger groups.</li>
+        </ul>
+        <p class="tier-scale-price">From $2,000</p>
+      </article>
+
+      <article class="tier-scale-card">
+        <span class="tier-scale-label">Tier C</span>
+        <h3>The Grand</h3>
+        <p class="tier-scale-cap">31+ guests</p>
+        <ul class="tier-scale-meta">
+          <li><strong>Personnel</strong>Custom team configuration</li>
+          <li><strong>Focus</strong>High-volume theatrical service.</li>
+        </ul>
+        <p class="tier-scale-price">Custom Quote</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- IV. WHAT'S INCLUDED -->
+<section class="tier-section" id="included">
+  <div class="container-narrow">
+    <header class="tier-section-head reveal">
+      <span class="tier-roman">IV.</span>
+      <h2>What's Included</h2>
+      <p class="tier-section-intro">The specific milestones of your experience.</p>
+    </header>
+    <div class="tier-prose reveal">
+      <div class="tier-subsection">
+        <h3>In-Depth Design Consultation</h3>
+        <p>Two weeks prior, we discuss your theme, color palette, and inspiration to design your signature menu.</p>
+      </div>
+      <div class="tier-subsection">
+        <h3>The Procurement Specification</h3>
+        <p>You receive a detailed shopping list for premium spirits, artisanal mixers, fresh ingredients, and unique garnishes required for your specific design.</p>
+      </div>
+      <div class="tier-subsection">
+        <h3>Four Hours of Masterful Execution</h3>
+        <p>We arrive with professional tools and specialty ingredients to bring your vision to life.</p>
+      </div>
+      <div class="tier-subsection">
+        <h3>Theatrical Presentation</h3>
+        <p>Implementation of visual elements such as smoke, dry ice, or floral aesthetics where appropriate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- V. STANDARD INCLUSIONS -->
+<section class="tier-section" id="standard-inclusions">
+  <div class="container-narrow">
+    <header class="tier-section-head reveal">
+      <span class="tier-roman">V.</span>
+      <h2>Standard Inclusions</h2>
+      <p class="tier-section-intro">Every Ice &amp; Instinct experience, regardless of tier, includes the foundation of our craft.</p>
+    </header>
+    <div class="tier-prose reveal">
+      <div class="tier-subsection">
+        <h3>Private Master Mixologist</h3>
+        <p>A dedicated professional with a quarter-century of global hospitality expertise.</p>
+      </div>
+      <div class="tier-subsection">
+        <h3>Professional Tooling</h3>
+        <p>A compact, aesthetic case of gold-standard mixology tools. No bulky equipment, no portable bars.</p>
+      </div>
+      <div class="tier-subsection">
+        <h3>On-Site Ritual Performance</h3>
+        <p>The visual elegance of proper stirring, shaking, and pouring.</p>
+      </div>
+      <div class="tier-subsection">
+        <h3>Setup &amp; Breakdown</h3>
+        <p>Complete organization of the immediate working area.</p>
+      </div>
+      <div class="tier-subsection">
+        <h3>Custom Recipe Documentation</h3>
+        <p>Following the event, you receive a digital cocktail book featuring your bespoke menu with full recipes, garnish specifications, and presentation notes for future recreation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VI. WHAT THE HOST PROVIDES -->
+<section class="tier-section" id="host-provides">
+  <div class="container-narrow">
+    <header class="tier-section-head reveal">
+      <span class="tier-roman">VI.</span>
+      <h2>What the Host Provides</h2>
+      <p class="tier-section-intro">To ensure the integrity of the service, the host provides the following canvas.</p>
+    </header>
+    <div class="tier-prose reveal">
+      <div class="tier-subsection">
+        <h3>Spirits, Mixers &amp; Garnishes</h3>
+        <p>All alcohol and fresh ingredients must be on-site prior to arrival, based on the provided Specification.</p>
+      </div>
+      <div class="tier-subsection">
+        <h3>Glassware</h3>
+        <p>Proper vessels for the selected cocktails (or rental via <a href="/concierge/">The Curator</a> add-on).</p>
+      </div>
+      <div class="tier-subsection">
+        <h3>Infrastructure</h3>
+        <p>A dedicated work surface (kitchen counter, dining table, or existing bar), access to running water, and electricity.</p>
+      </div>
+      <div class="tier-subsection">
+        <h3>Ice Supply</h3>
+        <p>Quantity and formats as specified in the consultation.</p>
+      </div>
+      <div class="tier-subsection">
+        <h3>Floor Service Boundary</h3>
+        <p>Ice &amp; Instinct focuses exclusively on production within the bar perimeter. For passing drinks, clearing glassware from the room, or general venue tidying, separate floor staff is required.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VII. EXPERIENCE EXTENSIONS -->
+<section class="tier-section" id="extensions">
+  <div class="container-narrow">
+    <header class="tier-section-head reveal">
+      <span class="tier-roman">VII.</span>
+      <h2>Experience Extensions</h2>
+      <p class="tier-section-intro">In addition to the core elements of your chosen experience, select extensions may be introduced to further refine the structure, pacing, or technical execution of the evening.</p>
+    </header>
+    <div class="tier-prose reveal">
+      <p>A full range of additional services - including curated glassware, specialty ice, logistical coordination, and presentation oversight - is available on the <a href="/concierge/">Concierge</a> page and may be incorporated as needed.</p>
+      <p>Should the rhythm of the event call for a longer presence, service time may continue beyond the initial framework. All such considerations are aligned during the private design consultation to ensure balance, clarity, and control.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="final-cta" class="tier-section">
   <div class="container-narrow">
     <div class="final-cta reveal">
-      <span class="ornament" aria-hidden="true">✦</span>
-      <h2>Commission the <span class="it">menu.</span></h2>
-      <p>Tell me the occasion, the guest of honour, and what you want them to feel. We will design the cocktails for the night.</p>
+      <span class="ornament" aria-hidden="true">&#x2726;</span>
+      <h2>Translate your vision <span class="it">into liquid art.</span></h2>
+      <p>Tell us the date, the theme, and the headcount. We will return with a tailored design proposal within one business day.</p>
       <div class="final-cta-actions">
-        <a href="/contact/?package=bespoke" class="btn btn-primary">Inquire <span class="arrow">→</span></a>
+        <a href="/contact/?package=bespoke" class="btn btn-primary">Inquire <span class="arrow">&rarr;</span></a>
         <a href="/offerings/" class="btn btn-ghost">All tiers</a>
       </div>
     </div>
@@ -147,7 +321,7 @@
       </a>
       <div class="socials"><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9V14.9H8v-2.9h2.4V9.8c0-2.4 1.4-3.7 3.6-3.7 1 0 2.1.2 2.1.2v2.3h-1.2c-1.2 0-1.5.7-1.5 1.5v1.8h2.6l-.4 2.9h-2.2v6.9A10 10 0 0022 12z"/></svg></a><a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg></a><a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a></div>
       <div class="footer-legal"><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></div>
-      <span class="copy">© 2026 Ice &amp; Instinct · Designed in NYC</span>
+      <span class="copy">© 2026 Ice &amp; Instinct &middot; Designed in NYC</span>
     </div>
   </div>
 </footer>
