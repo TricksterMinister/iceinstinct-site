@@ -166,9 +166,7 @@ p { color: var(--c-fg-soft); max-width: 62ch; }
 
 /* Mono editorial label */
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
+  display: inline-block;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 400;
@@ -176,12 +174,6 @@ p { color: var(--c-fg-soft); max-width: 62ch; }
   text-transform: uppercase;
   color: var(--c-fg-muted);
   margin-bottom: var(--s-md);
-}
-.eyebrow::before {
-  content: "";
-  flex: 0 0 36px;
-  height: 1px;
-  background: var(--c-silver-line);
 }
 
 .muted { color: var(--c-fg-muted); }
@@ -750,10 +742,9 @@ main section.numbered .eyebrow::after {
   margin-bottom: clamp(28px, 4vw, 44px);
 }
 .manifesto-brand .eyebrow {
-  justify-content: center;
-}
-.manifesto-brand .eyebrow::before {
-  flex-basis: 24px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .manifesto-h2 {
   font-size: clamp(2.4rem, 1.7rem + 3.6vw, 5rem);
@@ -1802,12 +1793,6 @@ img.reveal-zoom.is-in { transform: scale(1); }
   align-items: center;
   gap: var(--s-sm);
 }
-.story-divider {
-  width: 88px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--c-silver-line), transparent);
-  display: block;
-}
 .story-slogan {
   font-family: var(--font-italic);
   font-style: italic;
@@ -2069,7 +2054,23 @@ img.reveal-zoom.is-in { transform: scale(1); }
   color: var(--c-fg-soft);
 }
 .legal-body ul { padding-left: 1.2em; list-style: none; }
-.legal-body li { margin-bottom: 6px; padding-left: 1em; position: relative; }
-.legal-body li::before { content: "-"; position: absolute; left: 0; color: var(--c-fg-muted); }
+.legal-body li {
+  margin-bottom: 8px;
+  padding-left: 1.6em;
+  position: relative;
+}
+.legal-body li::before {
+  /* Diamond marker echoes the brand mark SVG (see .brand-mark in header).
+     Placeholder until a real ice-cube SVG arrives from the user. */
+  content: "";
+  position: absolute;
+  left: 0.2em;
+  top: 0.7em;
+  width: 7px;
+  height: 7px;
+  background: var(--c-silver);
+  transform: rotate(45deg);
+  opacity: 0.85;
+}
 .legal-body a { color: var(--c-fg); text-decoration: underline; text-underline-offset: 4px; }
 .legal-body strong { color: var(--c-fg); font-weight: 500; }
