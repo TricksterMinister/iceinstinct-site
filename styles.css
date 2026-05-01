@@ -837,6 +837,127 @@ main section.numbered .eyebrow::after {
   margin-bottom: var(--s-2xs);
 }
 
+/* ===== Concierge add-on cards =====================================
+   5 enhancement services that augment any tier. Inline SVG icons
+   serve as placeholders until proper monochrome imagery is delivered. */
+
+.addon-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-md);
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.addon-card {
+  background: var(--c-bg-soft);
+  border: 1px solid var(--c-border);
+  padding: clamp(28px, 4vw, 48px);
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: clamp(20px, 3vw, 36px);
+  align-items: start;
+  transition: border-color var(--d-base) var(--ease), background var(--d-base) var(--ease);
+}
+.addon-card:hover {
+  border-color: var(--c-border-bright);
+  background: var(--c-bg-elev);
+}
+
+@media (max-width: 640px) {
+  .addon-card {
+    grid-template-columns: 1fr;
+    gap: var(--s-sm);
+  }
+}
+
+.addon-icon {
+  width: 96px;
+  height: 96px;
+  background: var(--c-bg);
+  border: 1px solid var(--c-border-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-fg);
+}
+.addon-icon svg {
+  width: 56px;
+  height: 56px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.addon-body { min-width: 0; }
+
+.addon-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-sm);
+  margin-bottom: var(--s-2xs);
+  flex-wrap: wrap;
+}
+.addon-card h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 1.1rem + 1.2vw, 2rem);
+  font-weight: 600;
+  color: var(--c-fg);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.addon-price {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: var(--c-fg);
+  white-space: nowrap;
+}
+
+.addon-tag {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-variation-settings: 'opsz' 96, 'SOFT' 50, 'WONK' 0;
+  font-size: var(--t-base);
+  color: var(--c-fg);
+  font-weight: 350;
+  margin-bottom: var(--s-sm);
+  display: block;
+}
+
+.addon-prose {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-sm);
+  font-size: var(--t-base);
+  line-height: 1.7;
+  color: var(--c-fg-soft);
+  font-weight: 300;
+}
+.addon-prose p { max-width: 60ch; }
+
+.addon-note {
+  margin-top: var(--s-sm);
+  padding: var(--s-xs) var(--s-sm);
+  background: var(--c-bg);
+  border-left: 2px solid var(--c-fg-faint);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--c-fg-muted);
+  line-height: 1.6;
+}
+.addon-note strong {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-fg);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
 /* ===== Manifesto - brand voice anchor =============================
    Floating cocktail composition above a sharp dark panel.
    No blur. No gold. Chalk and platinum only.
