@@ -6,13 +6,13 @@
 <meta name="theme-color" content="#0a0a0a">
 
 <title>My Story - Ice & Instinct, by Teimuraz Benidze</title>
-<meta name="description" content="Teimuraz Benidze, founder and flavor architect of Ice & Instinct. The story behind the studio: where ritual meets instinct, high above the city.">
+<meta name="description" content="Teimuraz Benidze, founder and flavor architect of Ice & Instinct. From Georgia to New York City: where ritual meets instinct, high above the city.">
 
 <meta property="og:title" content="My Story - Teimuraz Benidze, Ice & Instinct">
 <meta property="og:description" content="Founder and flavor architect of Ice & Instinct. Where ritual meets instinct.">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://www.iceinstinct.com/my-story/">
-<meta property="og:image" content="https://www.iceinstinct.com/assets/photos/founder-teimuraz.png">
+<meta property="og:image" content="https://www.iceinstinct.com/assets/photos/founder-storyhero.png">
 
 <link rel="canonical" href="https://www.iceinstinct.com/my-story/">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
@@ -30,10 +30,47 @@
   "@id": "https://www.iceinstinct.com/#founder",
   "name": "Teimuraz Benidze",
   "jobTitle": "Founder & Flavor Architect",
-  "image": "https://www.iceinstinct.com/assets/photos/founder-teimuraz.png",
+  "image": "https://www.iceinstinct.com/assets/photos/founder-storyhero.png",
   "url": "https://www.iceinstinct.com/my-story/",
+  "nationality": "Georgian",
+  "knowsLanguage": ["English", "Portuguese", "Russian", "Georgian"],
   "worksFor": { "@type": "LocalBusiness", "@id": "https://www.iceinstinct.com/#organization", "name": "Ice & Instinct" },
-  "knowsAbout": ["Modern mixology", "Bespoke cocktail design", "Omakase mixology", "Spirits sourcing"]
+  "knowsAbout": ["Modern mixology", "Bespoke cocktail design", "Omakase mixology", "Spirits sourcing", "Fine wine", "Hospitality", "Ritual design"]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How far in advance should I reserve?", "acceptedAnswer": { "@type": "Answer", "text": "Most clients reserve 2-4 weeks ahead. Every evening is built as a one-of-one ritual, and preparation begins the moment we speak." } },
+    { "@type": "Question", "name": "Do you bring all ingredients and tools?", "acceptedAnswer": { "@type": "Answer", "text": "I arrive with a compact case of precision tools. All ingredients, spirits, and glassware are sourced by the host - I'll provide a tailored shopping list to match your chosen experience." } },
+    { "@type": "Question", "name": "Can we choose specific cocktails?", "acceptedAnswer": { "@type": "Answer", "text": "For Simplicity and Bespoke, yes - we collaborate to refine a curated menu together. For Omakase, there is no menu - each creation emerges spontaneously in the moment, tailored to individual guests and the evening's flow." } },
+    { "@type": "Question", "name": "Do you provide a bar setup?", "acceptedAnswer": { "@type": "Answer", "text": "By default, I use your existing space. A full portable bar setup or premium glassware rental can be arranged upon request as an enhancement through The Curator add-on." } },
+    { "@type": "Question", "name": "Do you travel outside NYC and New Jersey?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, upon request. Travel fees and accommodations are arranged according to distance and event scale - subject to availability." } },
+    { "@type": "Question", "name": "What about postponements?", "acceptedAnswer": { "@type": "Answer", "text": "Your deposit can transfer to a new date within six months, depending on availability. One reschedule is included; further changes or peak dates may incur a fee." } },
+    { "@type": "Question", "name": "How many guests can you accommodate?", "acceptedAnswer": { "@type": "Answer", "text": "Simplicity accommodates up to 12 guests. Bespoke up to 15 guests. Omakase can serve up to 25 guests; Foundation scales up to 40 with added bar staff. Larger events can be arranged with additional staff through custom consultation." } },
+    { "@type": "Question", "name": "Can you create non-alcoholic drinks?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. The ritual is about balance and craft, not alcohol. Every composition can be crafted spirit-free with the same precision, complexity, and emotion." } },
+    { "@type": "Question", "name": "Payment and deposit process", "acceptedAnswer": { "@type": "Answer", "text": "A $1,000 deposit secures your date and is applied toward your final balance. Once your package is confirmed, the total is adjusted: if your total exceeds $1,000, you pay the difference; if it is less, the remainder is refunded. The balance is due at least 14 days before the event." } },
+    { "@type": "Question", "name": "NDA and insurance", "acceptedAnswer": { "@type": "Answer", "text": "Confidentiality is part of the ethos. NDAs are available upon request. Certificates of insurance can be issued for venues that require coverage." } }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://www.iceinstinct.com/my-story/#webpage",
+  "url": "https://www.iceinstinct.com/my-story/",
+  "name": "My Story - Ice & Instinct",
+  "isPartOf": { "@id": "https://www.iceinstinct.com/#website" },
+  "about": { "@id": "https://www.iceinstinct.com/#founder" },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".philosophy-quote", ".final-statement"]
+  }
 }
 </script>
 
@@ -68,39 +105,171 @@
 
 <main>
 
+<!-- ================ HERO ================ -->
 <section class="page-hero">
   <div class="container">
     <span class="eyebrow">My Story</span>
     <h1>Teimuraz <span class="it">Benidze.</span></h1>
-    <p class="lead" style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.32em;text-transform:uppercase;color:var(--c-fg-muted);max-width:none">Founder &amp; Flavor Architect</p>
+    <p class="page-hero-role">Founder &amp; Flavor Architect</p>
   </div>
 </section>
 
-<section class="numbered">
+<!-- ================ PORTRAIT + INTRO CARD (from live "story" header) ================ -->
+<section class="numbered" id="story-intro">
   <div class="container">
-    <div class="story">
-      <div class="story-portrait reveal">
-        <img src="/assets/photos/founder-teimuraz.png" alt="Teimuraz Benidze, behind the bar">
-      </div>
-      <div class="story-body reveal">
-        <p>My journey began not behind a bar, but in the pursuit of perfection.</p>
-
-        <p class="pull">Where ritual meets instinct.</p>
-
-        <p>Ice &amp; Instinct is the culmination of years spent refining the dialogue between nature's raw ingredients and the precision of modern luxury. The brand began as a private practice - making cocktails for friends in penthouses where the view of Manhattan made any drink feel ceremonial - and it stayed private by design.</p>
-
-        <p>I do not run a bar. I do not own a venue. I bring the studio to you. Every glass that leaves my hand has been considered for the room, the guest, the temperature outside, the music in the next room. There is no menu I serve twice without thought.</p>
-
-        <p>The four service tiers - Foundation, Simplicity, Bespoke, Omakase - exist because evenings differ. Some need a quiet professional with a classics menu. Some need a custom-written cocktail named for the host. Some need the bar to disappear entirely, and the drinks to arrive as if from instinct alone.</p>
-
-        <p>What does not change is the standard. Crystal-clear ice. Spirits worth the price you pay. A discreet presence behind the bar. The drink served, not announced.</p>
-
-        <p>If you are reading this, you are someone who has had a great cocktail, and noticed. We will get on well.</p>
-      </div>
+    <div class="story-hero">
+      <figure class="story-hero-photo reveal reveal-zoom">
+        <img src="/assets/photos/founder-storyhero.png" alt="Teimuraz Benidze portrait" loading="lazy" width="1344" height="768">
+      </figure>
+      <article class="story-hero-card reveal">
+        <span class="story-divider" aria-hidden="true"></span>
+        <h2 class="story-slogan"><span class="it">Where Ritual Meets Instinct</span></h2>
+        <p class="story-lede">My journey began not behind a bar, but in the pursuit of perfection.</p>
+        <p class="story-brand-mark">Ice &amp; Instinct</p>
+        <p class="story-lede">is the culmination of years spent refining the dialogue between nature's raw ingredients and the precision of modern luxury.</p>
+      </article>
     </div>
   </div>
 </section>
 
+<!-- ================ NARRATIVE (Georgia -> NYC) ================ -->
+<section class="numbered" id="story-narrative">
+  <div class="container-narrow">
+    <div class="story-narrative reveal">
+      <p class="lead-paragraph"><span class="drop-cap" aria-hidden="true">I</span><span class="visually-hidden">I </span>was born in Georgia, a country where every celebration begins with a toast and ends in silence - where wine carries memory, and ritual defines grace.</p>
+
+      <p>That sense of presence has never left me.</p>
+
+      <p>My journey took me across continents - from Lisbon to Moscow, from the Caucasus mountains to New York City - refining not only my craft but my philosophy. I learned that the essence of hospitality is not performance, but perception: to read a room the way one reads a language, to feel timing as rhythm, to turn precision into art.</p>
+
+      <p>For over two decades, I lived within the world of fine wine, resorts, and restaurants - the architecture of service. Today, I've distilled all of it into something smaller, rarer, more personal: private mixology as ritual.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================ PHILOSOPHY QUOTE (Ice / Instinct - scroll-revealed) ================ -->
+<section class="numbered" id="philosophy">
+  <div class="container-narrow">
+    <blockquote class="philosophy-quote reveal">
+      <p class="philosophy-line">
+        <strong class="philosophy-word">Ice</strong>
+        is discipline - the order, the preparation, the patience of craft.
+      </p>
+      <p class="philosophy-line">
+        <strong class="philosophy-word">Instinct</strong>
+        is intuition - the pulse, the moment, the whisper that changes everything.
+      </p>
+      <footer class="philosophy-divider">Between them, every experience is shaped.</footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ================ AFTER-PHILOSOPHY (podcast + languages) ================ -->
+<section class="numbered">
+  <div class="container-narrow">
+    <div class="story-narrative reveal">
+      <p>Outside of my work, I host a podcast exploring human nature - the quiet motives, contradictions, and emotional undercurrents that define who we are. That same curiosity guides my creative process: each drink becomes a question, each flavor a possible answer.</p>
+
+      <p>Fluent in English, Portuguese, Russian, and Georgian, I move easily between worlds - not just linguistic, but emotional. Every culture has its way of raising a glass, and I've learned to listen before I pour.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================ FINALE ================ -->
+<section class="numbered" id="story-finale">
+  <div class="container-narrow">
+    <div class="narrative-finale reveal">
+      <p class="finale-prose">When I arrive at your space, I bring nothing but my tools and attention. No menu, no routine. The evening unfolds in dialogue - between liquid and light, memory and desire.</p>
+      <h3 class="final-statement">This is not bartending.<br>This is <span class="it">Ice &amp; Instinct.</span></h3>
+    </div>
+  </div>
+</section>
+
+<!-- ================ FAQ ACCORDION ================ -->
+<section class="numbered" id="faq">
+  <div class="container-narrow">
+    <div class="section-head reveal">
+      <span class="eyebrow">Understanding the ritual</span>
+      <h2 class="display-heading">The ritual<br><span class="it">explained.</span></h2>
+    </div>
+
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary>How far in advance should I reserve?</summary>
+        <div class="faq-answer">
+          <p>Most clients reserve 2-4 weeks ahead. Every evening is built as a one-of-one ritual, and preparation begins the moment we speak.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you bring all ingredients and tools?</summary>
+        <div class="faq-answer">
+          <p>I arrive with a compact case of precision tools. All ingredients, spirits, and glassware are sourced by the host - I'll provide a tailored shopping list to match your chosen experience.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can we choose specific cocktails?</summary>
+        <div class="faq-answer">
+          <p>For Simplicity and Bespoke, yes - we collaborate to refine a curated menu together. For Omakase, there is no menu - each creation emerges spontaneously in the moment, tailored to individual guests and the evening's flow.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you provide a bar setup?</summary>
+        <div class="faq-answer">
+          <p>By default, I use your existing space. A full portable bar setup or premium glassware rental can be arranged upon request as an enhancement through <a href="/concierge/">The Curator</a> add-on.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you travel outside NYC and New Jersey?</summary>
+        <div class="faq-answer">
+          <p>Yes, upon request. Travel fees and accommodations are arranged according to distance and event scale - subject to availability.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What about postponements?</summary>
+        <div class="faq-answer">
+          <p>Your deposit can transfer to a new date within six months, depending on availability. One reschedule is included; further changes or peak dates may incur a fee.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How many guests can you accommodate?</summary>
+        <div class="faq-answer">
+          <p><a href="/offerings/simplicity/">Simplicity</a> accommodates up to 12 guests. <a href="/offerings/bespoke/">Bespoke</a> up to 15. <a href="/offerings/omakase/">Omakase</a> can serve up to 25; <a href="/offerings/foundation/">Foundation</a> scales up to 40 with added bar staff. Larger events can be arranged with additional staff through custom consultation.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can you create non-alcoholic drinks?</summary>
+        <div class="faq-answer">
+          <p>Absolutely. The ritual is about balance and craft, not alcohol. Every composition can be crafted spirit-free with the same precision, complexity, and emotion.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Payment and deposit process</summary>
+        <div class="faq-answer">
+          <p>A $1,000 deposit secures your date and is applied toward your final balance. Once your package is confirmed, the total is adjusted: if your total exceeds $1,000, you pay the difference; if it is less, the remainder is refunded. The balance is due at least 14 days before the event.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>NDA and insurance</summary>
+        <div class="faq-answer">
+          <p>Confidentiality is part of the ethos. NDAs are available upon request. Certificates of insurance can be issued for venues that require coverage.</p>
+        </div>
+      </details>
+    </div>
+
+    <p class="faq-coda">Each experience is a living dialogue - between craft, instinct, and atmosphere.</p>
+  </div>
+</section>
+
+<!-- ================ FINAL CTA ================ -->
 <section id="final-cta" class="numbered">
   <div class="container-narrow">
     <div class="final-cta reveal">
