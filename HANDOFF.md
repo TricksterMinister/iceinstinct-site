@@ -35,6 +35,18 @@ Three phases are done:
   - Replaced 139 em-dashes + 1 en-dash with plain hyphens across 19 files (HTML, CSS, MD, llms.txt, .htaccess, robots.txt)
   - Verified zero remaining via byte-scan; all 10 JSON-LD blocks re-validated
   - Added a hard pre-commit grep guard inside CLAUDE.md so the rule never gets violated again
+  - Plus: global Claude Code hook at `~/.claude/hooks/no-dashes.sh` blocks any future Write/Edit containing em or en dashes across all projects
+
+- **Phase 6 - GA4 install** (✅ complete, 2026-05-01)
+  - Installed `G-KBVETWTVVH` gtag.js snippet on all 12 HTML pages just before `</head>`
+  - Idempotent: re-runs are no-ops (re-verified)
+  - Maintains analytics continuity at Hostinger cutover
+
+- **Content import staging** (✅ in progress)
+  - User delivered 10 source fragments covering: home manifesto, global stylesheet (reference), full My Story page (founder bio + narrative + FAQ), all 4 service-package pages with rich I-VII structure, all 5 add-on services
+  - All staged in `/Users/teimurazbenidze/iceinstinct-source/import-from-user/`
+  - Master integration plan: `~/.claude/plans/hi-indexed-wilkinson.md` (approved)
+  - Build sequence: 10 phases, currently on Phase 2 (manifesto section)
 
 The site at `localhost:8766` should look right per the design commandments.
 
