@@ -630,6 +630,213 @@ main section.numbered .eyebrow::after {
 .tier-card .tier-link .arrow { transition: transform var(--d-base) var(--ease); }
 .tier-card:hover .tier-link .arrow { transform: translateX(6px); }
 
+/* ===== Tier detail pages - I-VII section structure ================
+   Reused by /offerings/foundation, simplicity, bespoke, omakase.
+   Lifts the live site's I-VII sectional rhetoric (Overview, Menu Protocol,
+   Scalability & Investment, What's Included, Standard Inclusions,
+   What the Host Provides, Experience Notes) into the monochrome system. */
+
+.tier-section {
+  padding: clamp(48px, 7vw, 96px) 0;
+}
+.tier-section + .tier-section {
+  border-top: 1px solid var(--c-border-soft);
+}
+
+.tier-section-head {
+  margin-bottom: var(--s-md);
+  max-width: 720px;
+}
+
+.tier-roman {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--c-fg-muted);
+  margin-bottom: var(--s-xs);
+}
+
+.tier-section-head h2 {
+  font-size: clamp(1.8rem, 1.4rem + 1.8vw, 2.8rem);
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  color: var(--c-fg);
+  margin-bottom: var(--s-xs);
+  font-weight: 600;
+}
+
+.tier-section-intro {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-variation-settings: 'opsz' 96, 'SOFT' 50, 'WONK' 0;
+  font-size: var(--t-lg);
+  color: var(--c-fg);
+  font-weight: 350;
+  margin-top: var(--s-2xs);
+  max-width: 56ch;
+  line-height: 1.4;
+}
+
+.tier-prose {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-sm);
+  font-size: var(--t-base);
+  line-height: 1.7;
+  color: var(--c-fg-soft);
+  max-width: 64ch;
+}
+.tier-prose > p { max-width: none; font-weight: 300; }
+
+.tier-prose .emph {
+  font-family: var(--font-display);
+  font-size: var(--t-lg);
+  line-height: 1.45;
+  color: var(--c-fg);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  background: var(--c-bg-soft);
+  padding: var(--s-sm) var(--s-md);
+  margin-top: var(--s-sm);
+}
+.tier-prose .emph strong { color: var(--c-fg); font-weight: 600; }
+
+.tier-subsection {
+  margin-top: var(--s-sm);
+}
+.tier-subsection h3 {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-fg);
+  margin-bottom: var(--s-2xs);
+}
+.tier-subsection p {
+  font-size: var(--t-base);
+  line-height: 1.7;
+  color: var(--c-fg-soft);
+  font-weight: 300;
+  max-width: 64ch;
+}
+
+/* III. Scalability ladder cards (reused across 4 tier pages) */
+.tier-scale-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-sm);
+  margin-top: var(--s-md);
+  max-width: none;
+}
+@media (max-width: 880px) {
+  .tier-scale-grid {
+    grid-template-columns: 1fr;
+    gap: var(--s-xs);
+  }
+}
+
+.tier-scale-card {
+  background: var(--c-bg-soft);
+  border: 1px solid var(--c-border);
+  padding: var(--s-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2xs);
+  transition: border-color var(--d-base) var(--ease), background var(--d-base) var(--ease);
+}
+.tier-scale-card:hover {
+  border-color: var(--c-border-bright);
+  background: var(--c-bg-elev);
+}
+
+.tier-scale-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--c-fg-muted);
+}
+
+.tier-scale-card h3 {
+  font-family: var(--font-display);
+  font-size: var(--t-lg);
+  font-weight: 600;
+  color: var(--c-fg);
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.tier-scale-cap {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-fg);
+  margin: 0;
+}
+
+.tier-scale-meta {
+  list-style: none;
+  margin: var(--s-xs) 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-xs);
+}
+.tier-scale-meta li {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--c-fg-soft);
+  font-weight: 300;
+}
+.tier-scale-meta li strong {
+  color: var(--c-fg-muted);
+  font-weight: 500;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.tier-scale-price {
+  margin-top: auto;
+  padding-top: var(--s-sm);
+  font-family: var(--font-display);
+  font-size: var(--t-lg);
+  font-weight: 700;
+  color: var(--c-fg);
+  letter-spacing: -0.01em;
+}
+
+.tier-scale-card.is-not-recommended {
+  opacity: 0.7;
+  border-style: dashed;
+}
+.tier-scale-card.is-not-recommended .tier-scale-price {
+  color: var(--c-fg-muted);
+}
+
+/* "Mandatory inclusion" callout used on Omakase Ice Ritual */
+.tier-mandatory {
+  background: var(--c-bg-soft);
+  border-left: 2px solid var(--c-fg);
+  padding: var(--s-sm) var(--s-md);
+  margin-top: var(--s-sm);
+}
+.tier-mandatory h3 {
+  font-family: var(--font-display);
+  font-size: var(--t-base);
+  font-weight: 600;
+  color: var(--c-fg);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--s-2xs);
+}
+
 /* ===== Manifesto - brand voice anchor =============================
    Floating cocktail composition above a sharp dark panel.
    No blur. No gold. Chalk and platinum only.
