@@ -79,6 +79,23 @@
 }
 </script>
 
+<!-- Speakable schema: flag the manifesto block for AI voice search extraction -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://www.iceinstinct.com/#webpage",
+  "url": "https://www.iceinstinct.com/",
+  "name": "Ice & Instinct - Private Mixology in Manhattan Penthouses",
+  "isPartOf": { "@id": "https://www.iceinstinct.com/#website" },
+  "about": { "@id": "https://www.iceinstinct.com/#organization" },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".manifesto-brand .lead", ".manifesto-author .author-credit"]
+  }
+}
+</script>
+
 <!-- Google tag (gtag.js) - GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KBVETWTVVH"></script>
 <script>
@@ -152,6 +169,49 @@
   </div>
 
   <span class="hero-scroll-hint" aria-hidden="true">Scroll</span>
+</section>
+
+<!-- ================ MANIFESTO ================ -->
+<section id="manifesto" class="scene numbered">
+  <div class="container scene-content">
+    <div class="manifesto">
+      <a href="/gallery/" class="manifesto-figure reveal reveal-zoom" aria-label="View The Collection of twelve signature cocktails">
+        <img src="/assets/photos/manifesto-cocktails.png"
+             alt="Three signature cocktails composed in motion - the studio's working palette"
+             loading="lazy" width="1344" height="768">
+        <span class="manifesto-figure-link" aria-hidden="true">View The Collection &rarr;</span>
+      </a>
+
+      <article class="manifesto-card reveal">
+        <header class="manifesto-brand">
+          <span class="eyebrow">The Brand</span>
+          <h2 class="manifesto-h2">
+            Ice <span class="amp">&amp;</span> <span class="it">Instinct</span>
+          </h2>
+          <p class="lead">
+            is a private mixology experience where each encounter becomes a living performance - an alchemical dialogue between spirit, ice, and intention.
+          </p>
+        </header>
+
+        <div class="manifesto-author">
+          <span class="author-label">Created and led by flavor alchemist</span>
+          <div class="author-name"><span class="it">Teimuraz Benidze</span></div>
+          <p class="author-credit">
+            this experience transforms modern mixology into an art form - refined, intimate, and deeply sensory.
+          </p>
+        </div>
+
+        <div class="manifesto-body">
+          <p>
+            Every ritual unfolds through precision and emotion: each cocktail crafted in real time, each gesture measured by instinct, each sip designed to leave a memory rather than a taste.
+          </p>
+          <p>
+            From private penthouse gatherings to rooftop ceremonies and exclusive brand events, <strong class="brand-emph">Ice &amp; Instinct</strong> brings a rare synthesis of minimalism, theatre, and silent luxury - redefining what it means to serve a drink.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
 </section>
 
 <!-- ================ PROMISE / TIERS ================ -->

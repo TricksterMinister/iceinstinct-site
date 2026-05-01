@@ -638,6 +638,228 @@ main section.numbered .eyebrow::after {
 .tier-card .tier-link .arrow { transition: transform var(--d-base) var(--ease); }
 .tier-card:hover .tier-link .arrow { transform: translateX(6px); }
 
+/* ===== Manifesto - brand voice anchor =============================
+   Floating cocktail composition above a sharp dark panel.
+   No blur. No gold. Chalk and platinum only.
+   Source: live iceinstinct.com home manifesto block,
+   monochrome-translated per design commandments. */
+
+#manifesto {
+  background: var(--c-bg);
+  padding-top: var(--s-2xl);
+  padding-bottom: var(--s-xl);
+}
+
+.manifesto {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-top: clamp(20px, 4vh, 60px);
+}
+
+.manifesto-figure {
+  position: relative;
+  width: 100%;
+  max-width: 940px;
+  aspect-ratio: 1344 / 768;
+  margin-bottom: clamp(-100px, -10vw, -60px);
+  z-index: 2;
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+}
+.manifesto-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.05);
+  transition: filter var(--d-very-slow) var(--ease), transform var(--d-very-slow) var(--ease);
+  animation: manifesto-breathe 9s ease-in-out infinite;
+}
+@media (hover: hover) {
+  .manifesto-figure:hover img {
+    filter: grayscale(60%) contrast(1.05);
+    transform: scale(1.015);
+  }
+  .manifesto-figure:hover .manifesto-figure-link {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes manifesto-breathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.012); }
+}
+
+/* "View The Collection ->" appears on hover (improvement f) */
+.manifesto-figure-link {
+  position: absolute;
+  bottom: clamp(28px, 5vw, 56px);
+  left: 50%;
+  transform: translate(-50%, 8px);
+  opacity: 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--c-fg);
+  background: oklch(8% 0 0 / 0.7);
+  padding: 12px 20px;
+  border: 1px solid var(--c-border-bright);
+  transition: opacity var(--d-base) var(--ease), transform var(--d-base) var(--ease);
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 5;
+}
+
+/* Sharp linear vignette - replaces radial blur from the original */
+.manifesto-figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 60%,
+    var(--c-bg) 100%
+  );
+  pointer-events: none;
+  z-index: 3;
+}
+
+.manifesto-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 860px;
+  background: var(--c-bg-soft);
+  border: 1px solid var(--c-border);
+  border-top: 1px solid var(--c-border-bright);
+  padding: clamp(70px, 8vw, 100px) clamp(28px, 5vw, 64px) clamp(40px, 5vw, 60px);
+  text-align: center;
+  box-shadow:
+    0 30px 80px oklch(0% 0 0 / 0.6),
+    0 60px 160px oklch(0% 0 0 / 0.4);
+}
+
+.manifesto-brand {
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+.manifesto-brand .eyebrow {
+  justify-content: center;
+}
+.manifesto-brand .eyebrow::before {
+  flex-basis: 24px;
+}
+.manifesto-h2 {
+  font-size: clamp(2.4rem, 1.7rem + 3.6vw, 5rem);
+  letter-spacing: -0.04em;
+  margin-bottom: var(--s-md);
+  line-height: 0.95;
+}
+.manifesto-h2 .amp {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-weight: 350;
+  font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 0;
+  font-size: 0.85em;
+  color: var(--c-fg-soft);
+  margin: 0 0.05em;
+}
+.manifesto-brand .lead {
+  margin: 0 auto;
+  text-align: center;
+  font-size: var(--t-lg);
+  max-width: 52ch;
+}
+
+/* Hairline-bound author credit block */
+.manifesto-author {
+  position: relative;
+  padding: clamp(24px, 4vw, 36px) 0;
+  margin-bottom: clamp(28px, 4vw, 44px);
+  border-top: 1px solid var(--c-border);
+  border-bottom: 1px solid var(--c-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-2xs);
+}
+
+.author-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--c-fg-muted);
+}
+.author-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 1.3rem + 2.2vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  color: var(--c-fg);
+  margin: 4px 0 var(--s-xs);
+}
+.author-name .it {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-weight: 350;
+  font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
+  letter-spacing: -0.02em;
+}
+.author-credit {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-weight: 350;
+  font-variation-settings: 'opsz' 96, 'SOFT' 50, 'WONK' 0;
+  font-size: var(--t-base);
+  color: var(--c-fg-soft);
+  max-width: 46ch;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.manifesto-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-sm);
+}
+.manifesto-body p {
+  font-size: var(--t-base);
+  line-height: 1.7;
+  color: var(--c-fg-soft);
+  font-weight: 300;
+  max-width: 56ch;
+  margin: 0 auto;
+  text-align: center;
+}
+.manifesto-body .brand-emph {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--c-fg);
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .manifesto-figure {
+    margin-bottom: clamp(-60px, -15vw, -40px);
+  }
+  .manifesto-card {
+    padding: 60px 24px 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .manifesto-figure img { animation: none; }
+}
+
 /* ===== Founder section ============================================ */
 .founder {
   display: grid;
