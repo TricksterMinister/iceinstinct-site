@@ -29,6 +29,42 @@
     targets.forEach(t => t.classList.add('is-in'));
   }
 
+  // ----- Gallery horizontal track: progress + wheel translation -----
+  const track = document.getElementById('gallery-track');
+  const progress = document.getElementById('gallery-progress');
+  const posLabel = document.getElementById('gallery-pos');
+  if (track) {
+    const tiles = track.querySelectorAll('.gallery-tile');
+    const updateProgress = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      const pct = max > 0 ? (track.scrollLeft / max) * 100 : 0;
+      if (progress) progress.style.setProperty('--progress', Math.max(8, pct) + '%');
+      if (posLabel && tiles.length) {
+        // Find which tile is most centred in the viewport
+        const trackRect = track.getBoundingClientRect();
+        const trackCentre = trackRect.left + trackRect.width / 2;
+        let closest = 0, closestDist = Infinity;
+        tiles.forEach((tile, i) => {
+          const r = tile.getBoundingClientRect();
+          const d = Math.abs((r.left + r.width / 2) - trackCentre);
+          if (d < closestDist) { closestDist = d; closest = i; }
+        });
+        posLabel.textContent = String(closest + 1).padStart(2, '0');
+      }
+    };
+    track.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    // Translate vertical mousewheel to horizontal scroll inside the track
+    // (only if user actually scrolls the track itself)
+    track.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        track.scrollLeft += e.deltaY;
+      }
+    }, { passive: false });
+  }
+
   // ----- Lightbox for gallery (desktop only) -----
   const lightbox = document.getElementById('lightbox');
   if (lightbox) {

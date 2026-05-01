@@ -51,8 +51,9 @@
   --t-2xl:   clamp(2rem, 1.7rem + 1.5vw, 2.8rem);
   --t-3xl:   clamp(2.8rem, 2.3rem + 2.5vw, 4.5rem);
   --t-4xl:   clamp(3.5rem, 2.8rem + 3.5vw, 6rem);
-  --t-display: clamp(5rem, 3.5rem + 8vw, 11rem);
-  --t-mega:    clamp(6rem, 3.5rem + 12vw, 18rem);
+  --t-display: clamp(3rem, 2rem + 5.5vw, 7rem);
+  --t-display-big: clamp(3.5rem, 2.4rem + 6.5vw, 8.5rem);
+  --t-mega:    clamp(5rem, 3rem + 11vw, 14rem);
 
   /* --- Layout --- */
   --container: 1320px;
@@ -441,7 +442,7 @@ body::after {
 
 .hero-scroll-hint {
   position: absolute;
-  bottom: var(--s-md);
+  bottom: 18px;
   right: var(--gutter);
   font-family: var(--font-mono);
   font-size: 0.65rem;
@@ -451,6 +452,9 @@ body::after {
   display: inline-flex;
   align-items: center;
   gap: 12px;
+}
+@media (max-width: 720px) {
+  .hero-scroll-hint { display: none; }
 }
 .hero-scroll-hint::after {
   content: "";
@@ -480,14 +484,17 @@ body::after {
 
 /* ===== Section base =============================================== */
 section {
-  padding: var(--s-2xl) 0;
+  padding: var(--s-lg) 0;
   position: relative;
 }
 section + section { border-top: 1px solid var(--c-border); }
 
-.section-head { max-width: 920px; margin-bottom: var(--s-lg); }
-.section-head h2 { margin-bottom: var(--s-sm); }
-.section-head .lead { margin-top: var(--s-sm); }
+.section-head { max-width: 920px; margin-bottom: var(--s-md); }
+.section-head h2 { margin-bottom: var(--s-xs); }
+.section-head .lead { margin-top: var(--s-xs); font-size: var(--t-base); max-width: 56ch; }
+@media (min-width: 1024px) {
+  .section-head .lead { font-size: var(--t-lg); }
+}
 
 main { counter-reset: section; }
 main section.numbered { counter-increment: section; }
@@ -498,13 +505,15 @@ main section.numbered .eyebrow::after {
   color: var(--c-fg-muted);
 }
 
-/* Display heading utility for breakout moments */
+/* Display heading utility for breakout moments
+   Default size suits inner sections (.section-head). Hero gets a bigger
+   override below. */
 .display-heading {
   font-family: var(--font-display);
-  font-size: var(--t-display);
+  font-size: clamp(2.2rem, 1.6rem + 3.5vw, 4.5rem);
   font-weight: 700;
-  line-height: 0.92;
-  letter-spacing: -0.05em;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
   color: var(--c-fg);
 }
 .display-heading .it {
@@ -512,10 +521,16 @@ main section.numbered .eyebrow::after {
   font-style: italic;
   font-weight: 350;
   font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.035em;
+}
+/* Page-hero on inner pages can scale up */
+.page-hero h1 {
+  font-size: clamp(2.6rem, 1.8rem + 4.5vw, 5.5rem);
 }
 
-/* ===== Tier preview grid ========================================== */
+/* ===== Tier preview grid (viewport-locked) ========================
+   Desktop: 4 columns in a row inside one viewport scene.
+   Mobile (<=720px): horizontal snap-scroll - swipe through tiers. */
 .promise-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -523,26 +538,62 @@ main section.numbered .eyebrow::after {
   border: 1px solid var(--c-border);
 }
 .promise-grid > *:nth-child(n+2) { border-left: 1px solid var(--c-border); }
-@media (max-width: 1080px) {
-  .promise-grid { grid-template-columns: repeat(2, 1fr); }
-  .promise-grid > *:nth-child(n+2) { border-left: 0; }
-  .promise-grid > *:nth-child(2n) { border-left: 1px solid var(--c-border); }
-  .promise-grid > *:nth-child(n+3) { border-top: 1px solid var(--c-border); }
+
+/* Tablet: keep 4 columns, just narrower cards. Saves vertical space. */
+@media (max-width: 1080px) and (min-width: 721px) {
+  .promise-grid { grid-template-columns: repeat(4, 1fr); }
+  .tier-card { padding: var(--s-sm); gap: 6px; }
+  .tier-card h3 { font-size: 1.25rem; }
+  .tier-card .tier-blurb { font-size: 0.82rem; }
+  .tier-card .tier-meta { font-size: 0.66rem; }
 }
-@media (max-width: 600px) {
-  .promise-grid { grid-template-columns: 1fr; }
-  .promise-grid > *:nth-child(n+2) { border-left: 0; border-top: 1px solid var(--c-border); }
+
+/* Mobile: horizontal swipe row. Each card ~78vw, snap-aligned. */
+@media (max-width: 720px) {
+  .promise-grid {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    border: 0;
+    gap: 1px;
+    background: var(--c-border);
+    padding: 1px;
+    scrollbar-width: none;
+  }
+  .promise-grid::-webkit-scrollbar { display: none; }
+  .promise-grid > * {
+    flex: 0 0 78vw;
+    scroll-snap-align: center;
+    border-left: 0 !important;
+    border-top: 0 !important;
+  }
+  .promise-grid + .swipe-hint {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--s-sm);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--c-fg-muted);
+  }
 }
+.swipe-hint { display: none; }
 
 .tier-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--s-sm);
-  padding: var(--s-md) var(--s-md) var(--s-lg);
+  gap: var(--s-2xs);
+  padding: var(--s-sm) var(--s-sm) var(--s-md);
   background: var(--c-bg);
   transition: background var(--d-base) var(--ease);
-  min-height: 380px;
+  min-height: 0;
+}
+@media (min-width: 721px) {
+  .tier-card { padding: var(--s-md) var(--s-md) var(--s-md); gap: var(--s-xs); }
 }
 .tier-card:hover { background: var(--c-bg-soft); }
 .tier-card .tier-num {
@@ -822,13 +873,114 @@ main section.numbered .eyebrow::after {
   color: var(--c-fg-muted);
 }
 
-/* ===== Reveal-on-scroll =========================================== */
+/* =================================================================
+   SCROLL ARCHITECTURE — viewport-locked scenes + scroll-driven motion
+   ================================================================= */
+
+/* Each main section is one viewport tall. Content vertically centred.
+   Generous on top so sticky header doesn't overlap. */
+html { scroll-snap-type: y proximity; }
+.scene {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(80px, 12vh, 110px) 0 var(--s-md);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+}
+.scene-content { width: 100%; }
+section.scene + section.scene { border-top: 1px solid var(--c-border); }
+
+/* On very tall content (legal pages, long story) opt out of scene */
+.scene.scene-flex-end { justify-content: flex-end; }
+.scene.no-snap { scroll-snap-align: none; }
+
+/* ===== Reveal classic (IntersectionObserver-driven fallback) ======= */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity var(--d-very-slow) var(--ease), transform var(--d-very-slow) var(--ease);
+  transform: translateY(40px);
+  transition: opacity 1100ms var(--ease-out), transform 1100ms var(--ease-out);
 }
 .reveal.is-in { opacity: 1; transform: translateY(0); }
+
+/* Reveal variants */
+.reveal-clip {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1300ms var(--ease-out);
+}
+.reveal-clip.is-in { clip-path: inset(0 0 0 0); }
+
+.reveal-zoom img,
+img.reveal-zoom {
+  transform: scale(1.08);
+  transition: transform 1800ms var(--ease-out), filter var(--d-slow) var(--ease);
+}
+.reveal-zoom.is-in img,
+img.reveal-zoom.is-in { transform: scale(1); }
+
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 900ms var(--ease-out), transform 900ms var(--ease-out);
+}
+.reveal-stagger.is-in > * { opacity: 1; transform: translateY(0); }
+.reveal-stagger.is-in > *:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger.is-in > *:nth-child(2) { transition-delay: 120ms; }
+.reveal-stagger.is-in > *:nth-child(3) { transition-delay: 240ms; }
+.reveal-stagger.is-in > *:nth-child(4) { transition-delay: 360ms; }
+.reveal-stagger.is-in > *:nth-child(5) { transition-delay: 480ms; }
+.reveal-stagger.is-in > *:nth-child(6) { transition-delay: 600ms; }
+
+/* Words (split-text inline) - mask wipe-up reveal */
+.split-words .word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.split-words .word > span {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 1100ms var(--ease-out);
+}
+.split-words.is-in .word > span { transform: translateY(0); }
+.split-words.is-in .word:nth-child(1) > span { transition-delay: 0ms; }
+.split-words.is-in .word:nth-child(2) > span { transition-delay: 80ms; }
+.split-words.is-in .word:nth-child(3) > span { transition-delay: 160ms; }
+.split-words.is-in .word:nth-child(4) > span { transition-delay: 240ms; }
+.split-words.is-in .word:nth-child(5) > span { transition-delay: 320ms; }
+.split-words.is-in .word:nth-child(6) > span { transition-delay: 400ms; }
+.split-words.is-in .word:nth-child(7) > span { transition-delay: 480ms; }
+.split-words.is-in .word:nth-child(8) > span { transition-delay: 560ms; }
+.split-words.is-in .word:nth-child(9) > span { transition-delay: 640ms; }
+
+/* ===== Modern scroll-driven (CSS view-timeline) =================== */
+@supports (animation-timeline: view()) {
+  /* Hero parallax-out: media zooms slightly + content fades as user
+     scrolls past hero. Browsers without support get static feel. */
+  .hero-media video,
+  .hero-media img {
+    animation: hero-zoom linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+  @keyframes hero-zoom {
+    from { transform: scale(1); }
+    to   { transform: scale(1.12); }
+  }
+
+  /* Scene headings rise as scene enters viewport */
+  .scene .scene-title {
+    animation: scene-title-rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 35%;
+  }
+  @keyframes scene-title-rise {
+    from { opacity: 0; transform: translateY(60px); letter-spacing: 0; }
+    to   { opacity: 1; transform: translateY(0); letter-spacing: -0.04em; }
+  }
+}
 
 /* ===== Inner-page hero (compact, no video) ======================== */
 .page-hero {
@@ -985,9 +1137,71 @@ main section.numbered .eyebrow::after {
 }
 .addon p { font-size: var(--t-sm); color: var(--c-fg-soft); }
 
-/* ===== Gallery — The Collection ==================================
-   3-column grid of portrait tiles. B&W default. Hover releases colour
-   AND shows the cocktail's name. Click opens lightbox. */
+/* ===== Gallery — The Collection (HORIZONTAL TRACK) ===============
+   The collection is a horizontal cinematic track. Swipe / drag / wheel-
+   horizontal through twelve cocktails. Each tile takes most of the
+   viewport at desktop, full-bleed on mobile. Snap-aligned for
+   precision. Progress bar shows how far through the collection. */
+.gallery-track-wrap {
+  position: relative;
+  margin-left: calc(var(--gutter) * -1);
+  margin-right: calc(var(--gutter) * -1);
+}
+.gallery-track {
+  display: flex;
+  gap: 12px;
+  padding: 0 var(--gutter);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.gallery-track::-webkit-scrollbar { display: none; }
+
+.gallery-track .gallery-tile {
+  flex: 0 0 auto;
+  width: clamp(280px, 38vw, 480px);
+  height: clamp(380px, 65dvh, 600px);
+  aspect-ratio: auto;
+  scroll-snap-align: center;
+}
+@media (max-width: 720px) {
+  .gallery-track .gallery-tile {
+    width: 78vw;
+    height: 70dvh;
+  }
+}
+
+.gallery-progress {
+  position: relative;
+  height: 1px;
+  background: var(--c-border);
+  margin-top: var(--s-md);
+  overflow: hidden;
+}
+.gallery-progress::after {
+  content: "";
+  position: absolute;
+  top: -1px; bottom: -1px;
+  left: 0;
+  width: var(--progress, 8%);
+  background: var(--c-fg);
+  transition: width 200ms linear;
+}
+.gallery-meta-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--s-xs);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-fg-muted);
+}
+.gallery-meta-row .pos { color: var(--c-fg); font-variant-numeric: tabular-nums; }
+
+/* Compatibility wrapper for old grid markup (kept for sub-pages if needed) */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
