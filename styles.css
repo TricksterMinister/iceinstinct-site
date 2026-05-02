@@ -641,16 +641,26 @@ main section.numbered .eyebrow::after {
    What the Host Provides, Experience Notes) into the monochrome system. */
 
 .tier-section {
-  /* Each tier-section is now a viewport-snap scene - resolves design
-     commandment #5 ("each section fits one viewport"). */
+  /* Each tier-section is exactly one viewport. Content density
+     is compressed (multi-col subsections, tight prose) so even the
+     longest section (IV/V/VI with 5 subsections) fits.
+     Use BOTH min and max-height pinned to dvh + overflow safety. */
   min-height: 100dvh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(80px, 12vh, 110px) 0 var(--s-md);
+  padding: clamp(56px, 8vh, 84px) 0 var(--s-sm);
   scroll-snap-align: start;
   scroll-snap-stop: always;
   position: relative;
+  overflow: hidden;
+}
+/* Sections that genuinely cannot compress further (very rare) opt out */
+.tier-section.tier-section-tall {
+  height: auto;
+  min-height: 100dvh;
+  overflow: visible;
 }
 
 /* Tier hero is also a scene */
@@ -662,14 +672,17 @@ main section.numbered .eyebrow::after {
    full viewport between tier sections. Chapter divider for the eye. */
 .editorial-pause {
   min-height: 100dvh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: clamp(80px, 12vh, 110px) clamp(24px, 5vw, 80px) var(--s-md);
+  padding: clamp(56px, 8vh, 84px) clamp(24px, 5vw, 80px) var(--s-md);
   scroll-snap-align: start;
+  scroll-snap-stop: always;
   position: relative;
+  overflow: hidden;
 }
 .editorial-pause-text {
   font-family: var(--font-italic);
@@ -781,7 +794,7 @@ main section.numbered .eyebrow::after {
    (set inline because each card has different name). */
 
 .tier-section-head {
-  margin-bottom: var(--s-md);
+  margin-bottom: var(--s-sm);
   max-width: 720px;
 }
 
@@ -819,13 +832,26 @@ main section.numbered .eyebrow::after {
 .tier-prose {
   display: flex;
   flex-direction: column;
-  gap: var(--s-sm);
+  gap: var(--s-xs);
   font-size: var(--t-base);
-  line-height: 1.7;
+  line-height: 1.55;
   color: var(--c-fg-soft);
   max-width: 64ch;
 }
-.tier-prose > p { max-width: none; font-weight: 300; }
+.tier-prose > p { max-width: none; font-weight: 300; margin-bottom: 0; }
+
+/* Two-column subsection grid - used in dense sections (IV/V/VI) so
+   they fit one viewport while preserving the editorial typography. */
+.tier-prose-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-md) var(--s-lg);
+  max-width: none;
+}
+@media (max-width: 880px) {
+  .tier-prose-grid { grid-template-columns: 1fr; gap: var(--s-sm); }
+}
+.tier-prose-grid .tier-subsection { margin-top: 0; }
 
 .tier-prose .emph {
   font-family: var(--font-display);
@@ -841,23 +867,23 @@ main section.numbered .eyebrow::after {
 .tier-prose .emph strong { color: var(--c-fg); font-weight: 600; }
 
 .tier-subsection {
-  margin-top: var(--s-sm);
+  margin-top: var(--s-xs);
 }
 .tier-subsection h3 {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--c-fg);
-  margin-bottom: var(--s-2xs);
+  margin-bottom: 6px;
 }
 .tier-subsection p {
   font-size: var(--t-base);
-  line-height: 1.7;
+  line-height: 1.55;
   color: var(--c-fg-soft);
   font-weight: 300;
-  max-width: 64ch;
+  max-width: 56ch;
 }
 
 /* III. Scalability ladder cards (reused across 4 tier pages) */
@@ -1681,8 +1707,18 @@ img.reveal-zoom.is-in { transform: scale(1); }
 /* ===== Inner-page hero (compact, no video) ======================== */
 .page-hero {
   position: relative;
-  padding: clamp(140px, 18vh, 220px) 0 var(--s-lg);
-  border-bottom: 1px solid var(--c-border);
+  padding: clamp(120px, 16vh, 180px) 0 var(--s-md);
+  /* Removed decorative border-bottom (the "lazy designer" hairline). */
+}
+/* Tier pages: page-hero IS the tier hero - constrain to one viewport */
+.page-hero:has(.tier-hero) {
+  min-height: 100dvh;
+  height: 100dvh;
+  padding: clamp(96px, 12vh, 140px) 0 var(--s-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
 }
 .page-hero h1 {
   font-family: var(--font-display);
@@ -1720,10 +1756,12 @@ img.reveal-zoom.is-in { transform: scale(1); }
 /* ===== Tier detail page =========================================== */
 .tier-hero {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--s-xl);
-  align-items: end;
-  padding: clamp(140px, 18vh, 220px) 0 var(--s-lg);
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--s-lg);
+  align-items: center;
+  /* No padding here - parent .page-hero handles hero spacing.
+     Doubling padded the hero past viewport. */
+  padding: 0;
 }
 @media (max-width: 880px) {
   .tier-hero { grid-template-columns: 1fr; gap: var(--s-md); }
@@ -1784,7 +1822,11 @@ img.reveal-zoom.is-in { transform: scale(1); }
 /* Tier image / mood */
 .tier-mood {
   position: relative;
-  aspect-ratio: 4 / 5;
+  /* Landscape ratio fits hero in viewport better than portrait 4/5.
+     Cap height to 70dvh as safety so tall portrait video can't push
+     the whole hero past the viewport. */
+  aspect-ratio: 4 / 3;
+  max-height: 64dvh;
   overflow: hidden;
   background: var(--c-bg-soft);
   isolation: isolate;
