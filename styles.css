@@ -17,7 +17,7 @@
   --c-fg:          oklch(98% 0 0);    /* near-white chalk */
   --c-fg-soft:     oklch(78% 0 0);    /* steel */
   --c-fg-muted:    oklch(58% 0 0);    /* brushed steel */
-  --c-fg-faint:    oklch(40% 0 0);    /* hairline labels */
+  --c-fg-faint:    oklch(56% 0 0);    /* hairline labels - bumped to AA contrast */
 
   /* --- Single neutral accent: silver --- */
   --c-silver:      oklch(82% 0 0);
@@ -105,11 +105,15 @@ ul, ol { list-style: none; }
 ::selection { background: var(--c-fg); color: var(--c-bg); }
 
 :focus-visible {
-  outline: 1px solid var(--c-fg);
-  outline-offset: 4px;
+  /* Double-stroke focus ring: 1px gap (bg-color spacer) + 2px chalk outer.
+     box-shadow gives crisper edges than outline + outline-offset combo. */
+  outline: none;
+  box-shadow:
+    0 0 0 1px var(--c-bg),
+    0 0 0 3px var(--c-fg);
   border-radius: 1px;
 }
-:focus:not(:focus-visible) { outline: none; }
+:focus:not(:focus-visible) { outline: none; box-shadow: none; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -637,11 +641,144 @@ main section.numbered .eyebrow::after {
    What the Host Provides, Experience Notes) into the monochrome system. */
 
 .tier-section {
-  padding: clamp(48px, 7vw, 96px) 0;
+  /* Each tier-section is now a viewport-snap scene - resolves design
+     commandment #5 ("each section fits one viewport"). */
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(80px, 12vh, 110px) 0 var(--s-md);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
 }
-.tier-section + .tier-section {
-  border-top: 1px solid var(--c-border-soft);
+
+/* Tier hero is also a scene */
+.page-hero {
+  scroll-snap-align: start;
 }
+
+/* Editorial pause inserts - one Fraunces italic quote that takes the
+   full viewport between tier sections. Chapter divider for the eye. */
+.editorial-pause {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: clamp(80px, 12vh, 110px) clamp(24px, 5vw, 80px) var(--s-md);
+  scroll-snap-align: start;
+  position: relative;
+}
+.editorial-pause-text {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-weight: 350;
+  font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
+  font-size: clamp(2.4rem, 1.6rem + 4vw, 5.5rem);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: var(--c-fg);
+  max-width: 18ch;
+  margin: 0 auto;
+  opacity: 0.45;
+  transition: opacity var(--d-slow) var(--ease);
+}
+
+/* Scroll-driven reveal where supported (Chrome). Word fades to full chalk
+   as the pause crosses the viewport. Falls back to static dim on Safari. */
+@supports (animation-timeline: view()) {
+  .editorial-pause-text {
+    animation: editorial-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 30% cover 60%;
+  }
+  @keyframes editorial-reveal {
+    from { opacity: 0.35; letter-spacing: -0.02em; transform: translateY(12px); }
+    to   { opacity: 1;    letter-spacing: -0.045em; transform: translateY(0); }
+  }
+}
+
+.editorial-pause-mark {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--c-fg-muted);
+  margin-top: var(--s-md);
+}
+
+/* Sticky tier-page navigator (right-rail I-VII chips). Desktop only. */
+.tier-nav {
+  position: fixed;
+  top: 50%;
+  right: clamp(12px, 2vw, 28px);
+  transform: translateY(-50%);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-mono);
+  pointer-events: none;
+}
+.tier-nav a {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  color: var(--c-fg-muted);
+  text-decoration: none;
+  border: 1px solid transparent;
+  background: oklch(8% 0 0 / 0.45);
+  backdrop-filter: none;
+  transition: color var(--d-fast) var(--ease), border-color var(--d-fast) var(--ease), transform var(--d-fast) var(--ease);
+}
+.tier-nav a:hover,
+.tier-nav a.is-current {
+  color: var(--c-fg);
+  border-color: var(--c-fg);
+  transform: scale(1.08);
+}
+.tier-nav a .tier-nav-label {
+  position: absolute;
+  right: 100%;
+  margin-right: 12px;
+  white-space: nowrap;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-fg);
+  opacity: 0;
+  transition: opacity var(--d-fast) var(--ease);
+  pointer-events: none;
+}
+.tier-nav a:hover .tier-nav-label,
+.tier-nav a.is-current .tier-nav-label { opacity: 1; }
+
+@media (max-width: 880px) { .tier-nav { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .editorial-pause-text { animation: none; opacity: 1; }
+}
+
+/* View Transitions API - shared element morph from /offerings/ tier card
+   to detail page hero. Chromium honors it; Safari ignores gracefully. */
+@view-transition {
+  navigation: auto;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 380ms;
+  animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Offerings hub: each tier card declares a unique view-transition-name
+   (set inline because each card has different name). */
 
 .tier-section-head {
   margin-bottom: var(--s-md);
@@ -1450,7 +1587,7 @@ html { scroll-snap-type: y proximity; }
   position: relative;
 }
 .scene-content { width: 100%; }
-section.scene + section.scene { border-top: 1px solid var(--c-border); }
+/* No hairlines between scenes - spacing alone separates. */
 
 /* On very tall content (legal pages, long story) opt out of scene */
 .scene.scene-flex-end { justify-content: flex-end; }

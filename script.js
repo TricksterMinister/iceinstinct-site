@@ -4,6 +4,27 @@
 (function () {
   'use strict';
 
+  // ----- Tier-page right-rail navigator (active state on scroll) -----
+  const tierNav = document.querySelector('.tier-nav');
+  if (tierNav && 'IntersectionObserver' in window) {
+    const navLinks = Array.from(tierNav.querySelectorAll('a[data-section]'));
+    const sectionIds = navLinks.map(a => a.dataset.section).filter(Boolean);
+    const setActive = (id) => {
+      navLinks.forEach(a => a.classList.toggle('is-current', a.dataset.section === id));
+    };
+    const tierIo = new IntersectionObserver((entries) => {
+      // Pick the entry closest to the top of the viewport that's visible
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      if (visible.length) setActive(visible[0].target.id);
+    }, { rootMargin: '-40% 0px -40% 0px', threshold: 0.01 });
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) tierIo.observe(el);
+    });
+  }
+
   // ----- Header scroll state -----
   const header = document.querySelector('.header');
   if (header) {
