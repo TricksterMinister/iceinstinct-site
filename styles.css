@@ -641,12 +641,10 @@ main section.numbered .eyebrow::after {
    What the Host Provides, Experience Notes) into the monochrome system. */
 
 .tier-section {
-  /* Each tier-section is exactly one viewport. Content density
-     is compressed (multi-col subsections, tight prose) so even the
-     longest section (IV/V/VI with 5 subsections) fits.
-     Use BOTH min and max-height pinned to dvh + overflow safety. */
+  /* min-height ensures each section reaches one viewport for the snap
+     rhythm; content can grow taller if absolutely needed (no clipping).
+     Density is compacted via .tier-prose-grid for sections IV/V/VI. */
   min-height: 100dvh;
-  height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -654,13 +652,6 @@ main section.numbered .eyebrow::after {
   scroll-snap-align: start;
   scroll-snap-stop: always;
   position: relative;
-  overflow: hidden;
-}
-/* Sections that genuinely cannot compress further (very rare) opt out */
-.tier-section.tier-section-tall {
-  height: auto;
-  min-height: 100dvh;
-  overflow: visible;
 }
 
 /* Tier hero is also a scene */
@@ -669,10 +660,10 @@ main section.numbered .eyebrow::after {
 }
 
 /* Editorial pause inserts - one Fraunces italic quote that takes the
-   full viewport between tier sections. Chapter divider for the eye. */
+   full viewport between tier sections. Chapter divider for the eye.
+   Content is intentionally minimal so this naturally fits one screen. */
 .editorial-pause {
   min-height: 100dvh;
-  height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -682,7 +673,6 @@ main section.numbered .eyebrow::after {
   scroll-snap-align: start;
   scroll-snap-stop: always;
   position: relative;
-  overflow: hidden;
 }
 .editorial-pause-text {
   font-family: var(--font-italic);
@@ -1166,7 +1156,9 @@ main section.numbered .eyebrow::after {
   width: 100%;
   max-width: 940px;
   aspect-ratio: 1344 / 768;
-  margin-bottom: clamp(-100px, -10vw, -60px);
+  /* Cap image height so the manifesto scene fits one viewport */
+  max-height: 32dvh;
+  margin-bottom: clamp(-80px, -8vw, -50px);
   z-index: 2;
   overflow: hidden;
   display: block;
@@ -1240,7 +1232,7 @@ main section.numbered .eyebrow::after {
   background: var(--c-bg-soft);
   border: 1px solid var(--c-border);
   border-top: 1px solid var(--c-border-bright);
-  padding: clamp(70px, 8vw, 100px) clamp(28px, 5vw, 64px) clamp(40px, 5vw, 60px);
+  padding: clamp(56px, 6vw, 80px) clamp(28px, 5vw, 56px) clamp(28px, 4vw, 40px);
   text-align: center;
   box-shadow:
     0 30px 80px oklch(0% 0 0 / 0.6),
@@ -1248,7 +1240,7 @@ main section.numbered .eyebrow::after {
 }
 
 .manifesto-brand {
-  margin-bottom: clamp(28px, 4vw, 44px);
+  margin-bottom: clamp(20px, 3vw, 32px);
 }
 .manifesto-brand .eyebrow {
   display: block;
@@ -1256,10 +1248,10 @@ main section.numbered .eyebrow::after {
   margin-right: auto;
 }
 .manifesto-h2 {
-  font-size: clamp(2.4rem, 1.7rem + 3.6vw, 5rem);
+  font-size: clamp(2rem, 1.4rem + 2.6vw, 3.6rem);
   letter-spacing: -0.04em;
-  margin-bottom: var(--s-md);
-  line-height: 0.95;
+  margin-bottom: var(--s-sm);
+  line-height: 0.96;
 }
 .manifesto-h2 .amp {
   font-family: var(--font-italic);
@@ -1280,8 +1272,8 @@ main section.numbered .eyebrow::after {
 /* Hairline-bound author credit block */
 .manifesto-author {
   position: relative;
-  padding: clamp(24px, 4vw, 36px) 0;
-  margin-bottom: clamp(28px, 4vw, 44px);
+  padding: clamp(18px, 3vw, 28px) 0;
+  margin-bottom: clamp(18px, 3vw, 28px);
   border-top: 1px solid var(--c-border);
   border-bottom: 1px solid var(--c-border);
   display: flex;
@@ -1299,11 +1291,11 @@ main section.numbered .eyebrow::after {
 }
 .author-name {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 1.3rem + 2.2vw, 3rem);
+  font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.2rem);
   font-weight: 500;
   letter-spacing: -0.025em;
   color: var(--c-fg);
-  margin: 4px 0 var(--s-xs);
+  margin: 2px 0 var(--s-2xs);
 }
 .author-name .it {
   font-family: var(--font-italic);
@@ -1328,11 +1320,11 @@ main section.numbered .eyebrow::after {
 .manifesto-body {
   display: flex;
   flex-direction: column;
-  gap: var(--s-sm);
+  gap: var(--s-xs);
 }
 .manifesto-body p {
   font-size: var(--t-base);
-  line-height: 1.7;
+  line-height: 1.55;
   color: var(--c-fg-soft);
   font-weight: 300;
   max-width: 56ch;
@@ -1374,6 +1366,7 @@ main section.numbered .eyebrow::after {
   position: relative;
   overflow: hidden;
   aspect-ratio: 4 / 5;
+  max-height: 70dvh;
   background: var(--c-bg-soft);
 }
 .founder-portrait img {
@@ -1389,10 +1382,10 @@ main section.numbered .eyebrow::after {
 }
 .founder-text h2 {
   font-family: var(--font-display);
-  font-size: var(--t-4xl);
+  font-size: clamp(2.4rem, 1.8rem + 2.4vw, 4rem);
   font-weight: 700;
   letter-spacing: -0.04em;
-  line-height: 0.94;
+  line-height: 0.96;
 }
 .founder-text .role {
   font-family: var(--font-mono);
@@ -1400,22 +1393,23 @@ main section.numbered .eyebrow::after {
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--c-fg-muted);
-  margin: var(--s-xs) 0 var(--s-sm);
+  margin: var(--s-2xs) 0 var(--s-xs);
 }
 .founder-text .quote {
   font-family: var(--font-italic);
-  font-size: var(--t-xl);
+  font-size: var(--t-lg);
   font-style: italic;
   color: var(--c-fg);
   font-variation-settings: 'opsz' 96, 'SOFT' 100, 'WONK' 1, 'wght' 350;
   line-height: 1.25;
-  margin-bottom: var(--s-sm);
+  margin-bottom: var(--s-xs);
   max-width: 26ch;
   letter-spacing: -0.025em;
 }
 .founder-text .bio {
-  margin-bottom: var(--s-md);
+  margin-bottom: var(--s-sm);
   font-size: var(--t-base);
+  line-height: 1.55;
   color: var(--c-fg-soft);
   max-width: 50ch;
 }
@@ -1603,19 +1597,22 @@ main section.numbered .eyebrow::after {
    Generous on top so sticky header doesn't overlap. */
 html { scroll-snap-type: y proximity; }
 .scene {
+  /* Min-height: 100dvh ensures each scene is at least one viewport
+     for the snap rhythm. Content is compacted per-section so it
+     actually fits without clipping. NEVER overflow:hidden here -
+     that would silently cut content. */
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(80px, 12vh, 110px) 0 var(--s-md);
+  padding: clamp(56px, 8vh, 84px) 0 var(--s-sm);
   scroll-snap-align: start;
   scroll-snap-stop: always;
   position: relative;
 }
 .scene-content { width: 100%; }
-/* No hairlines between scenes - spacing alone separates. */
 
-/* On very tall content (legal pages, long story) opt out of scene */
+/* Opt-out modifiers */
 .scene.scene-flex-end { justify-content: flex-end; }
 .scene.no-snap { scroll-snap-align: none; }
 
@@ -1710,15 +1707,13 @@ img.reveal-zoom.is-in { transform: scale(1); }
   padding: clamp(120px, 16vh, 180px) 0 var(--s-md);
   /* Removed decorative border-bottom (the "lazy designer" hairline). */
 }
-/* Tier pages: page-hero IS the tier hero - constrain to one viewport */
+/* Tier pages: page-hero IS the tier hero - aim for one viewport */
 .page-hero:has(.tier-hero) {
   min-height: 100dvh;
-  height: 100dvh;
   padding: clamp(96px, 12vh, 140px) 0 var(--s-md);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden;
 }
 .page-hero h1 {
   font-family: var(--font-display);
