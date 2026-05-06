@@ -4,51 +4,62 @@
 
 ---
 
-## Where we are right now (end of chat - 2026-05-01)
+## Where we are right now (end of chat - 2026-05-05)
 
-Three phases are done:
+Site is **18 phases deep**, last commit `01bd6d2` on `main` of `TricksterMinister/iceinstinct-site`. Local server lives at `http://localhost:8766/` (one URL, full site - user navigates via header nav).
 
-- **Phase 1 - Inventory** (✅ complete)
-  - Crawled all 6 pages of the live Hostinger site
-  - Extracted text + 22 photos
-  - Built INVENTORY.md at `/Users/teimurazbenidze/iceinstinct-source/`
+### Phases shipped this build window (2026-05-01 to 2026-05-05)
 
-- **Phase 2 - Design system + Home page** (✅ complete)
-  - Initial dark luxury direction (later corrected to strict monochrome)
-  - First Home page built, deployed to local preview
+| # | Commit | What |
+|---|---|---|
+| 1 | `8e35de0` | GA4 (`G-KBVETWTVVH`) on all 12 HTML pages |
+| 2 | `35ba3e8` | Home manifesto section (overlapping image + sharp dark panel, no blur, speakable schema) |
+| 3+4 | `4171253` | My Story full rebuild: drop-cap narrative, philosophy quote with scroll-driven word reveal, native `<details>/<summary>` FAQ accordion, FAQPage + Person + Speakable schema |
+| lint | `d962278` | Removed `eyebrow::before` hairlines globally, removed `.story-divider`, swapped legal `<li>` `-` markers for tiny rotated diamonds |
+| 5 | `5f59512` | Foundation tier rebuilt with full I-VII structure (Overview / Menu Protocol / Scalability + A/B/C ladder / What's Included / Standard Inclusions / Host Provides / Notes) + Service AggregateOffer schema |
+| 6 | `e4421dd` | Simplicity tier - same I-VII pattern |
+| 7 | `52a48f3` | Bespoke tier - same, plus Custom Recipe Documentation inclusion |
+| 8 | `be82e87` | Omakase tier - same, plus Ice Ritual mandatory callout + Tier C "Not recommended" treatment |
+| 9 | `c3689b3` | Concierge full rebuild: 5 enhancement cards (Cigar Curator $500 / Bar Staff $350 / The Curator $350 / Glassware $250 / Ice & Temperature $250) with inline SVG placeholder icons + ItemList schema |
+| 10 | `c5209d4` | Contact form: enhancement multi-checkbox group + new CSS for custom monochrome checkboxes |
+| photo | `94253cc` | Founder portrait swapped: AI placeholder → real `ICE-TEMO.jpg` (1920x1071, 472KB optimized via sips) |
+| photo | `ea25f50` | Concierge ice cube: SVG placeholder → real `ice.jpg` photo (256x256, 14.7KB), monochrome filter |
+| 11-15 | `1e203cb` | Lint pass + editorial Fraunces pauses between I-II / III-IV / V-VI on each tier (12 unique quotes from source copy) + vertical scroll-snap viewport on tier-section + sticky right-rail tier navigator (I/II/III/IV/V/VI/VII chips, IntersectionObserver active) + View Transitions API morph from `/offerings/` cards to detail hero |
+| 16 | `592d5d9` | Ambient slow-motion cocktail-pour video in each tier hero (Pexels CDN, 1080p, monochrome) |
+| 17 | `f636d73` | Tier-page viewport compaction: removed doubled hero padding, video aspect 4/5→4/3, 2-column subsection grid for sections IV/V/VI (`.tier-prose-grid`), tightened line-height 1.7→1.55, removed `border-top` between tier-sections |
+| 18 | `01bd6d2` | Same compaction applied to home page `.scene` blocks (founder-preview was still overflowing). `--c-fg-faint` bumped 40%→56% L for AA contrast. Custom focus-ring (double-stroke box-shadow). |
 
-- **Phase 3 - All pages built** (✅ complete)
-  - 12 pages, meta files, robots, sitemap, llms.txt, .htaccess
-  - GitHub repo created, 4 commits pushed
+### Source materials staging (still in `/Users/teimurazbenidze/iceinstinct-source/import-from-user/`)
 
-- **Phase 4 - Direction correction (monochrome + viewport + scroll)** (✅ complete)
-  - Stripped blue undertones to pure neutral mono
-  - Removed all blur, replaced soft gradients with sharp linears
-  - Bumped to massive sans+italic-serif typography (Geist + Fraunces)
-  - Refactored sections to fit one viewport (`.scene` pattern, 100dvh)
-  - Mobile tier preview → horizontal swipe-scroll
-  - **Gallery → full horizontal track with progress bar + position counter**
-  - Lightbox + B&W default + colour-on-hover for cocktails
-  - Rich scroll-driven motion (clip reveals, stagger, view-timeline where supported)
+10 files documenting every page of the live Hostinger site, plus `_PAGE-GROUPS.md`. All content from those was integrated into the rebuild.
 
-- **Phase 5 - Style cleanup (em/en-dash purge)** (✅ complete)
-  - Replaced 139 em-dashes + 1 en-dash with plain hyphens across 19 files (HTML, CSS, MD, llms.txt, .htaccess, robots.txt)
-  - Verified zero remaining via byte-scan; all 10 JSON-LD blocks re-validated
-  - Added a hard pre-commit grep guard inside CLAUDE.md so the rule never gets violated again
-  - Plus: global Claude Code hook at `~/.claude/hooks/no-dashes.sh` blocks any future Write/Edit containing em or en dashes across all projects
+### Active thread (interrupted mid-fix at handoff)
 
-- **Phase 6 - GA4 install** (✅ complete, 2026-05-01)
-  - Installed `G-KBVETWTVVH` gtag.js snippet on all 12 HTML pages just before `</head>`
-  - Idempotent: re-runs are no-ops (re-verified)
-  - Maintains analytics continuity at Hostinger cutover
+User reported: real lead **Pavel Tsineuski** (Seven Eagles relocation, May 4) submitted to **TCS Web - Contact** form on Formspree, ended up in spam folder. Walked user through:
+- ✅ Marked Pavel's submission as not-spam (now in Inbox)
+- ⏳ **Next step user is on**: turn OFF the Formshield toggle in Spam Protection (sensitivity slider is locked behind $20/mo Pro plan, so toggle off is the workaround)
+- ⏳ Then: respond to Pavel via WhatsApp `9176050737`
+- ⏳ Then: do the same for the other form (**ALCHEMY & ICE Inquiry Form**) preventively
 
-- **Content import staging** (✅ in progress)
-  - User delivered 10 source fragments covering: home manifesto, global stylesheet (reference), full My Story page (founder bio + narrative + FAQ), all 4 service-package pages with rich I-VII structure, all 5 add-on services
-  - All staged in `/Users/teimurazbenidze/iceinstinct-source/import-from-user/`
-  - Master integration plan: `~/.claude/plans/hi-indexed-wilkinson.md` (approved)
-  - Build sequence: 10 phases, currently on Phase 2 (manifesto section)
+User has TWO Formspree forms:
+1. **TCS Web - Contact** - form ID `mlgaqwod` - for a different project (relocation services)
+2. **ALCHEMY & ICE Inquiry Form** - form ID NOT YET CAPTURED - this is the one we need for `/contact/index.html` of THIS project (placeholder is `REPLACE_WITH_FORMSPREE_ID`)
 
-The site at `localhost:8766` should look right per the design commandments.
+### What's pending (waiting for user input)
+
+1. **Formspree ID for ALCHEMY & ICE Inquiry Form** - user to capture from Formspree dashboard. Then sed-replace `REPLACE_WITH_FORMSPREE_ID` in `contact/index.html`
+2. **Better tier-mood photos** - user said current AI-generated `whisk_*` and `generated-image-december-*` placeholders are temporary. Will swap on the same pattern as `ICE-TEMO.jpg` swap (drop file on Desktop, name "Ice [Tiername]", I optimize via sips + replace refs in 1 commit)
+3. **Better manifesto cocktail photo** (`/assets/photos/manifesto-cocktails.png`) - user not satisfied with current quality
+4. **4 of 5 add-on illustrations** still inline SVG placeholders (only Ice & Temperature has real image now) - cigar, bar staff, curator, glassware
+5. **YouCanBookMe integration** - user has YCBM linked to current iceinstinct.com. Need decision on placement model: full replacement of inquiry form / dual placement (form + YCBM link) / private link sent after qualification
+6. **Hostinger deployment** - new site only on GitHub. Live `iceinstinct.com` still serves old Hostinger Builder.
+7. **Instagram URL** + email + other social URLs (still placeholders)
+
+### What's done that wasn't in the original plan
+
+- Global Claude Code hook at `~/.claude/hooks/no-dashes.sh` (blocks Write/Edit with em or en dashes across ALL projects, not just this one)
+- Plan file: `~/.claude/plans/hi-indexed-wilkinson.md`
+- Site is `localhost:8766` accessible via single URL `http://localhost:8766/` - user clicks header nav to reach all pages
 
 ---
 
