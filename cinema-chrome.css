@@ -465,7 +465,7 @@ body.cinema-chrome.vp-split .vp-shelf .vp-meta .pos { color: var(--c-accent); }
    Pure geometry - no outer frame, only thin champagne dividers
    between panels (mirrors gallery tiles touching with a hairline). ---- */
 body.cinema-chrome.vp-split .vp-shelf .promise-grid.vp-track {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(var(--vp-cols, 4), 1fr);
   border: 0;
   background: transparent;
 }
