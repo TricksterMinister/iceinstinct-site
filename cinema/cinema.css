@@ -84,12 +84,12 @@ body::after {
   font-weight: 800;
   font-size: clamp(12rem, 28vmin, 34rem);
   line-height: 1;
-  color: oklch(28% 0.05 95);
+  color: oklch(78% 0.05 95 / 0.18);
   letter-spacing: -0.04em;
   white-space: nowrap;
   user-select: none;
   pointer-events: none;
-  z-index: 0;
+  z-index: 6;
 }
 .section-bg-word.top { bottom: auto; top: -3vh; }
 .section-bg-word.left { left: 0; transform: none; padding-left: 2vw; }
@@ -177,7 +177,7 @@ a { color: inherit; text-decoration: none; }
 /* ========== CHAPTER (MANIFESTO) ========== */
 .chapter { position: relative; height: 100dvh; padding: clamp(5rem, 9vh, 8rem) 2.2rem clamp(3rem, 6vh, 5rem) clamp(2.2rem, 5vw, 6rem); isolation: isolate; overflow: hidden; display: grid; place-content: center; }
 .chapter-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-.chapter-bg-text { position: absolute; bottom: -2vh; left: 50%; transform: translateX(-50%); font-family: var(--f-display); font-weight: 700; font-size: clamp(14rem, 32vmin, 38rem); line-height: 1; color: oklch(28% 0.05 95); letter-spacing: 0.08em; white-space: nowrap; user-select: none; }
+.chapter-bg-text { position: absolute; bottom: -2vh; left: 50%; transform: translateX(-50%); z-index: 6; pointer-events: none; font-family: var(--f-display); font-weight: 700; font-size: clamp(14rem, 32vmin, 38rem); line-height: 1; color: oklch(78% 0.05 95 / 0.18); letter-spacing: 0.08em; white-space: nowrap; user-select: none; }
 
 .chapter-grid { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: clamp(1.5rem, 3vw, 3rem); width: 100%; }
 .chapter-num { display: none; }
