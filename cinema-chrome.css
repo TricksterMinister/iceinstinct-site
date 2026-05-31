@@ -180,14 +180,61 @@ body.cinema-chrome main > section:first-of-type::before {
   .va-close { top: 1rem; right: 1rem; width: 48px; height: 48px; }
 }
 
-/* GALLERY-PAGE SPECIFIC: tighten page-hero, scale tiles bigger on wide screens */
-body.cinema-chrome.is-gallery .page-hero { padding-top: clamp(4rem, 8vh, 6rem); padding-bottom: clamp(2rem, 4vh, 3rem); position: relative; }
-body.cinema-chrome.is-gallery .page-hero .lead { color: var(--c-fg-mute, oklch(60% 0 0)); }
-body.cinema-chrome.is-gallery .gallery-track .gallery-tile {
-  width: clamp(280px, 42vw, 720px);
-  height: clamp(380px, 78dvh, 880px);
+/* GALLERY-PAGE SPECIFIC: two viewport-locked sections
+   VP1 (100dvh) = hero (50dvh top) + tiles (50dvh bottom)
+   VP2 (100dvh) = final-cta + footer combined */
+
+/* VP1 part A: hero, 50dvh top half */
+body.cinema-chrome.is-gallery .page-hero {
+  position: relative;
+  height: 50dvh;
+  overflow: hidden;
+  padding: clamp(2.5rem, 5vh, 4rem) 0;
+  display: flex; flex-direction: column; justify-content: center;
+}
+body.cinema-chrome.is-gallery .page-hero h1 { margin-bottom: 0.6rem; }
+body.cinema-chrome.is-gallery .page-hero .lead {
+  color: var(--c-fg-mute, oklch(60% 0 0));
+  margin-top: 0.6rem;
 }
 body.cinema-chrome.is-gallery .page-hero h1 .it,
 body.cinema-chrome.is-gallery #final-cta h2 .it {
   color: var(--c-accent);
+}
+
+/* VP1 part B: tile-track section, 50dvh bottom half. The section
+   after page-hero in /gallery/index.html holds the gallery-track-wrap. */
+body.cinema-chrome.is-gallery main > section:nth-of-type(2) {
+  height: 50dvh;
+  overflow: hidden;
+  padding: 0 0 0.8rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+body.cinema-chrome.is-gallery main > section:nth-of-type(2) .container {
+  display: flex; flex-direction: column; justify-content: center; height: 100%;
+}
+body.cinema-chrome.is-gallery .gallery-track-wrap { display: flex; flex-direction: column; gap: 0.6rem; }
+body.cinema-chrome.is-gallery .gallery-track { padding-bottom: 0.4rem; }
+body.cinema-chrome.is-gallery .gallery-track .gallery-tile {
+  width: clamp(260px, 33vw, 560px);
+  height: clamp(260px, 40dvh, 560px);
+}
+body.cinema-chrome.is-gallery .gallery-meta-row { padding-top: 0.4rem; }
+
+/* VP2: final-cta + footer = one 100dvh segment */
+body.cinema-chrome.is-gallery #final-cta {
+  min-height: calc(100dvh - var(--gv-footer, 4.5rem));
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative;
+  padding: 0 0 0;
+}
+body.cinema-chrome.is-gallery .footer {
+  padding: clamp(0.6rem, 1.5vh, 1.4rem) 0;
+}
+
+@media (max-width: 720px) {
+  /* On mobile, drop the 50/50 lock; let content breathe vertically */
+  body.cinema-chrome.is-gallery .page-hero { height: auto; min-height: 60dvh; }
+  body.cinema-chrome.is-gallery main > section:nth-of-type(2) { height: auto; min-height: 70dvh; }
+  body.cinema-chrome.is-gallery #final-cta { min-height: 60dvh; }
 }
