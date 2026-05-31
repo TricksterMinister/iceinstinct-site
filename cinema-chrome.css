@@ -543,3 +543,41 @@ body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-link { color: var(--c-acc
   body.cinema-chrome.vp-split .vp-shelf .tier-card { height: auto; }
   body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-figure { font-size: 6rem; }
 }
+
+/* ============================================================
+   Concierge detail: one enhancement card per viewport.
+   Each #enhancements card is a full-viewport scroll-snap target,
+   so scrolling lands on one complete card at a time - no fragments
+   of the neighbouring cards bleeding in above or below.
+   Proximity snap only engages around these cards; the rest of the
+   page (and every other page) is unaffected since nothing else
+   carries scroll-snap-align.
+   ============================================================ */
+html { scroll-snap-type: y proximity; }
+
+body.cinema-chrome.vp-split #enhancements { padding: 0; }
+body.cinema-chrome.vp-split #enhancements > .container { max-width: none; padding: 0; }
+body.cinema-chrome.vp-split #enhancements .addon-grid { gap: 0; max-width: none; margin: 0; }
+
+body.cinema-chrome.vp-split #enhancements .addon-card {
+  min-height: 100dvh;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  align-items: center;
+  align-content: center;
+  max-width: var(--container, 1100px);
+  margin: 0 auto;
+  padding: clamp(2rem, 6vh, 4rem) var(--gutter, 1.5rem);
+  border-left: 0; border-right: 0;
+}
+
+@media (max-width: 720px) {
+  /* Long prose on a narrow column can exceed one viewport - release the
+     lock so cards scroll naturally rather than clipping. */
+  html { scroll-snap-type: none; }
+  body.cinema-chrome.vp-split #enhancements .addon-card {
+    min-height: auto;
+    scroll-snap-align: none;
+    padding: clamp(2rem, 8vh, 3.5rem) var(--gutter, 1.5rem);
+  }
+}
