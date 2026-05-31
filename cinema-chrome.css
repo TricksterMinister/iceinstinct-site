@@ -486,66 +486,48 @@ body.cinema-chrome.vp-split .vp-shelf .tier-card {
 body.cinema-chrome.vp-split .vp-shelf .tier-card:hover {
   background: oklch(88% 0.06 95 / 0.05);
 }
-/* ---- Luxe editorial card typography (non-standard, oversized) ----
-   The roman numeral is promoted from a faint watermark to a large
-   visible champagne index at the top of the panel. Titles are set in
-   Fraunces display (serif) - a deliberate non-standard contrast to the
-   sans used everywhere else, giving each panel a magazine-page feel. */
+/* ---- Card typography: clean and restrained ----
+   One subtle numeral per panel (faint watermark, lower corner). Titles
+   stay in the site display font (Geist), just larger. No serif headlines,
+   no second numeral, no extra eyebrow label - keeps the panel uncluttered
+   and the font set at four (Geist, Inter, JetBrains Mono, Fraunces). */
 
-/* A faint oversized numeral still ghosts the lower corner for depth */
-body.cinema-chrome.vp-split .vp-shelf .tier-card::after {
-  content: "";
-  position: absolute; inset: 0; z-index: -1;
-  pointer-events: none;
-}
-/* Big visible index numeral, top of the panel */
+/* Single faint numeral watermark, low corner - depth only, not a label */
 body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-figure {
-  position: static;
-  display: block;
+  position: absolute;
+  z-index: -1;
+  right: -0.1rem; bottom: -1.2rem;
   font-family: var(--font-italic);
   font-style: italic;
   font-weight: 300;
-  font-variation-settings: 'opsz' 144, 'SOFT' 0, 'WONK' 0;
-  font-size: clamp(2.6rem, 1.4rem + 3vw, 4.6rem);
-  line-height: 0.85;
-  letter-spacing: -0.02em;
+  font-size: clamp(4.5rem, 9vw, 7.5rem);
+  line-height: 1;
   color: var(--c-accent);
-  opacity: 0.9;
-  margin: 0 0 0.35rem -0.04em;
-  transition: transform var(--d-base, 0.4s) var(--ease, ease), opacity var(--d-base, 0.4s) var(--ease, ease);
+  opacity: 0.08;
+  pointer-events: none;
+  transition: opacity var(--d-base, 0.4s) var(--ease, ease);
 }
-body.cinema-chrome.vp-split .vp-shelf .tier-card:hover .tier-figure {
-  transform: translateY(-3px);
-  opacity: 1;
-}
-/* Small mono category label under the numeral */
-body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-num {
-  color: var(--c-accent);
-  font-size: 0.62rem;
-  letter-spacing: 0.3em;
-  opacity: 0.7;
-}
-/* Title in Fraunces display - oversized, the focal point */
+body.cinema-chrome.vp-split .vp-shelf .tier-card:hover .tier-figure { opacity: 0.14; }
+/* Drop the small roman/category label - the title carries it */
+body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-num { display: none; }
+/* Title in Geist display, larger - the focal point, no invented font */
 body.cinema-chrome.vp-split .vp-shelf .tier-card h3 {
-  font-family: var(--font-italic);
-  font-style: normal;
-  font-weight: 400;
-  font-variation-settings: 'opsz' 144, 'SOFT' 0, 'WONK' 0;
-  font-size: clamp(1.55rem, 1.0rem + 1.6vw, 2.5rem);
-  line-height: 1.0;
-  letter-spacing: -0.015em;
-  margin-top: 0.15rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 1.05rem + 1.3vw, 2.25rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
   color: var(--c-fg);
 }
 body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-meta {
   color: var(--c-accent);
   opacity: 0.92;
-  margin-top: 0.1rem;
+  margin-top: 0.2rem;
 }
 body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-blurb {
   color: oklch(70% 0 0);
   font-size: var(--t-sm);
-  margin-top: 0.15rem;
+  margin-top: 0.2rem;
 }
 body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-link { color: var(--c-accent); }
 
