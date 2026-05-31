@@ -417,16 +417,10 @@ body.cinema-chrome.vp-split .page-hero {
   margin: 0;
   display: flex; flex-direction: column; justify-content: center;
 }
-body.cinema-chrome.vp-split .page-hero h1 {
-  font-size: clamp(1.9rem, 1.1rem + 2.4vw, 3.1rem);
-  line-height: 1.04;
-  margin: 0;
-}
-body.cinema-chrome.vp-split .page-hero .lead {
-  margin-top: clamp(0.5rem, 1.4vh, 1rem);
-  font-size: clamp(0.92rem, 0.85rem + 0.3vw, 1.05rem);
-  max-width: 58ch;
-}
+/* Hero typography inherits the base .page-hero sizing - identical to the
+   gallery (h1 ~111px, lead ~23px). Do NOT clamp it down; matching the
+   gallery's type scale is the point. Only spacing is tuned for the 50dvh. */
+body.cinema-chrome.vp-split .page-hero .lead { margin-top: clamp(0.5rem, 1.4vh, 1rem); }
 body.cinema-chrome.vp-split .page-hero .meta-row { margin-top: clamp(0.6rem, 1.6vh, 1.2rem); }
 body.cinema-chrome.vp-split .page-hero h1 .it { color: var(--c-accent); }
 
