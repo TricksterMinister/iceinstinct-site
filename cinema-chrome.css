@@ -206,34 +206,49 @@ body.cinema-chrome.is-gallery #final-cta h2 .it {
   color: var(--c-accent);
 }
 
-/* VP1 part B: tile-track section, 50dvh bottom half. The section
-   after page-hero in /gallery/index.html holds the gallery-track-wrap.
-   Tiles are 3:4 portrait to match source image aspect so full
-   cocktail (top garnish to base) shows without crop. */
+/* VP1 part B: tile-track section, 50dvh bottom half, geometry-locked.
+   Tiles fill the entire vertical space (50dvh minus 1px progress + meta row).
+   Tiles are 3:4 portrait matching source image aspect; no crop. */
 body.cinema-chrome.is-gallery main > section:nth-of-type(2) {
   height: 50dvh;
   min-height: 50dvh;
   max-height: 50dvh;
   overflow: hidden;
-  padding: 0 0 0.6rem;
-  display: flex; flex-direction: column; justify-content: center;
+  padding: 0;
+  margin: 0;
+  display: flex; flex-direction: column;
 }
-body.cinema-chrome.is-gallery main > section:nth-of-type(2) .container {
-  display: flex; flex-direction: column; justify-content: center; height: 100%;
+body.cinema-chrome.is-gallery main > section:nth-of-type(2) > .container {
+  display: flex; flex-direction: column; height: 100%;
+  padding: 0 var(--gutter, 1.5rem); margin: 0; max-width: none;
 }
-body.cinema-chrome.is-gallery .gallery-track-wrap { display: flex; flex-direction: column; gap: 0.5rem; height: 100%; justify-content: center; }
-body.cinema-chrome.is-gallery .gallery-track { padding-bottom: 0.2rem; }
+body.cinema-chrome.is-gallery .gallery-track-wrap {
+  display: flex; flex-direction: column;
+  gap: 0; height: 100%; margin: 0;
+}
+body.cinema-chrome.is-gallery .gallery-track {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 0;
+  align-items: stretch;
+  gap: 0.5rem;
+}
 body.cinema-chrome.is-gallery .gallery-track .gallery-tile {
   width: auto;
+  height: 100%;
   aspect-ratio: 3 / 4;
-  height: clamp(220px, 38dvh, 560px);
   flex: 0 0 auto;
 }
 body.cinema-chrome.is-gallery .gallery-track .gallery-tile img {
   object-fit: cover;
   object-position: center;
 }
-body.cinema-chrome.is-gallery .gallery-meta-row { padding-top: 0.2rem; }
+body.cinema-chrome.is-gallery .gallery-progress { margin: 0; flex: 0 0 1px; }
+body.cinema-chrome.is-gallery .gallery-meta-row {
+  flex: 0 0 auto;
+  padding: 0.3rem var(--gutter, 1.5rem) 0.3rem;
+  margin: 0;
+}
 
 /* VP2: final-cta + footer = one 100dvh segment */
 body.cinema-chrome.is-gallery #final-cta {
