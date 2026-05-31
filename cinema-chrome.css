@@ -185,6 +185,7 @@ body.cinema-chrome main > section:first-of-type::before {
    VP2 (100dvh) = final-cta + footer combined */
 
 /* VP1 part A: hero, 50dvh top half (hard lock + tight padding so content fits) */
+body.cinema-chrome.is-gallery main { padding: 0; margin: 0; }
 body.cinema-chrome.is-gallery .page-hero {
   position: relative;
   height: 50dvh;
@@ -192,6 +193,7 @@ body.cinema-chrome.is-gallery .page-hero {
   max-height: 50dvh;
   overflow: hidden;
   padding: clamp(2rem, 4vh, 3rem) 0;
+  margin: 0;
   display: flex; flex-direction: column; justify-content: center;
 }
 body.cinema-chrome.is-gallery .page-hero h1 { margin-bottom: 0.5rem; }
