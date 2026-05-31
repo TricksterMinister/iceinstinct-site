@@ -2813,144 +2813,149 @@ img.reveal-zoom.is-in { transform: scale(1); }
 .legal-body a { color: var(--c-fg); text-decoration: underline; text-underline-offset: 4px; }
 .legal-body strong { color: var(--c-fg); font-weight: 500; }
 
+
 /* =================================================================
-   THE COMMISSION CARD - inquiry form (contact page)
-   Non-standard: numbered fields on champagne underlines (no boxes),
-   tier + enhancement choices as toggle chips. Reads like signing a
-   private commission, not filling a generic form.
+   THE NOTE - inquiry as a short personal letter (contact page)
+   High-end and sparse: a few large lines with inline fill-in blanks,
+   one open field, one confident send. The surrounding prose is muted;
+   what the guest writes lights up. No grids, no chips, no density.
    ================================================================= */
-.inquire { padding: clamp(2rem, 6vh, 4.5rem) 0 clamp(3rem, 8vh, 6rem); }
-.inquire-wrap {
-  max-width: var(--container, 1500px);
+.inquire {
+  padding: clamp(2rem, 7vh, 6rem) 0 clamp(4rem, 12vh, 9rem);
+}
+.note {
+  max-width: 46rem;
   margin: 0 auto;
   padding: 0 var(--gutter, 1.5rem);
   display: grid;
-  grid-template-columns: minmax(0, 0.62fr) minmax(0, 1fr);
-  gap: clamp(2rem, 6vw, 6rem);
-  align-items: start;
+  gap: clamp(2.4rem, 6vh, 4.2rem);
 }
-@media (max-width: 900px) { .inquire-wrap { grid-template-columns: 1fr; gap: clamp(2rem, 6vh, 3rem); } }
 
-/* Left rail */
-.inquire-aside { position: relative; }
-.inquire-key {
-  font-family: var(--font-mono);
-  font-size: 0.66rem; letter-spacing: 0.34em; text-transform: uppercase;
-  color: var(--c-accent); margin: 0 0 1rem;
+/* The letter lines */
+.note-letter { display: grid; gap: clamp(0.8rem, 2vh, 1.4rem); }
+.note-line {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+  color: oklch(50% 0 0);            /* muted prose */
 }
-.inquire-lead {
-  font-family: var(--font-italic); font-style: italic; font-weight: 350;
-  font-variation-settings: 'opsz' 40, 'SOFT' 60, 'WONK' 0;
-  font-size: clamp(1.2rem, 1rem + 0.7vw, 1.6rem);
-  line-height: 1.4; color: oklch(82% 0 0);
-  max-width: 28ch; margin: 0 0 clamp(1.6rem, 4vh, 2.6rem);
-}
-.inquire-channels { display: grid; gap: 0; }
-.inquire-channel {
-  display: grid; gap: 0.15rem;
-  padding: 0.85rem 0;
-  border-top: 1px solid oklch(100% 0 0 / 0.08);
-  text-decoration: none; color: inherit;
-  transition: padding-left 0.4s var(--ease-out-expo, cubic-bezier(0.19,1,0.22,1));
-}
-.inquire-channel:last-child { border-bottom: 1px solid oklch(100% 0 0 / 0.08); }
-a.inquire-channel:hover { padding-left: 0.6rem; }
-.inquire-channel .ch-k {
-  font-family: var(--font-mono); font-size: 0.62rem;
-  letter-spacing: 0.28em; text-transform: uppercase; color: oklch(55% 0 0);
-}
-a.inquire-channel:hover .ch-k { color: var(--c-accent); }
-.inquire-channel .ch-v { font-size: 0.95rem; color: oklch(80% 0 0); }
 
-/* The card */
-.commission { display: grid; gap: clamp(1.5rem, 3.5vh, 2.4rem); }
-.cm-head {
-  font-family: var(--font-mono); font-size: 0.62rem;
-  letter-spacing: 0.34em; text-transform: uppercase; color: var(--c-accent);
-  margin: 0; padding-bottom: clamp(1rem, 2.5vh, 1.6rem);
-  border-bottom: 1px solid color-mix(in oklch, var(--c-accent) 24%, transparent);
+/* Inline fill-in blanks - the bright words.
+   The .ink is an inline-grid whose ::after sizer (mirroring value or
+   placeholder via data-val) sets the width; the input stretches to it,
+   so the field grows to fit its content in the inherited big type. */
+.note .ink {
+  display: inline-grid;
+  vertical-align: baseline;
+  border-bottom: 2px solid color-mix(in oklch, var(--c-accent) 45%, transparent);
+  transition: border-color 0.4s var(--ease, ease);
 }
-.cm-pair { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.4rem, 3vw, 2.4rem); }
-@media (max-width: 560px) { .cm-pair { grid-template-columns: 1fr; } }
-
-/* Numbered underline field */
-.cm-field { position: relative; display: grid; gap: 0.5rem; }
-.cm-no {
-  position: absolute; top: 0.1rem; right: 0;
-  font-family: var(--font-mono); font-size: 0.66rem;
-  letter-spacing: 0.18em; color: var(--c-accent); opacity: 0.55;
+.note .ink::after {
+  content: attr(data-val);
+  grid-area: 1 / 1;
+  white-space: pre;
+  visibility: hidden;
+  font: inherit;
+  letter-spacing: inherit;
+  padding: 0 0.12em;
+  min-width: 2.5ch;
 }
-.cm-field label,
-.cm-choice legend {
-  font-family: var(--font-mono); font-size: 0.64rem;
-  letter-spacing: 0.26em; text-transform: uppercase; color: oklch(70% 0 0);
-}
-.cm-field label em,
-.cm-choice legend em {
-  font-family: var(--font-mono); font-style: normal;
-  letter-spacing: 0.18em; color: oklch(48% 0 0); text-transform: none;
-}
-.cm-choice legend em a { color: oklch(62% 0 0); text-underline-offset: 3px; }
-.cm-choice legend em a:hover { color: var(--c-accent); }
-
-.cm-field input,
-.cm-field textarea {
+.note .ink input {
+  grid-area: 1 / 1;
   width: 100%;
+  min-width: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  color: var(--c-fg);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0 0.12em 0.04em;
+  caret-color: var(--c-accent);
+}
+.note .ink input::placeholder { color: oklch(46% 0 0); }
+.note .ink:focus-within { border-bottom-color: var(--c-accent); }
+.note .ink input:focus { outline: none; }
+.note .ink input:focus-visible { box-shadow: none; }
+
+/* The open field */
+.note-body { display: grid; gap: 0.9rem; }
+.note-body-key {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+}
+.note-body textarea {
+  width: 100%;
+  min-height: 5.5em;
   background: transparent;
   border: 0;
   border-bottom: 1px solid oklch(100% 0 0 / 0.16);
   border-radius: 0;
-  padding: 0.55rem 0;
+  padding: 0 0 0.8rem;
   font-family: var(--font-body, "Inter", sans-serif);
-  font-size: 1.02rem;
+  font-size: clamp(1.05rem, 1rem + 0.4vw, 1.3rem);
+  line-height: 1.7;
   color: var(--c-fg);
   color-scheme: dark;
+  resize: vertical;
   transition: border-color 0.4s var(--ease, ease);
 }
-.cm-field textarea { resize: vertical; min-height: 3.2em; line-height: 1.6; }
-.cm-field input::placeholder,
-.cm-field textarea::placeholder { color: oklch(46% 0 0); }
-.cm-field input:focus,
-.cm-field textarea:focus { outline: none; border-bottom-color: var(--c-accent); }
-/* Keyboard focus: champagne underline instead of the global box ring */
-.cm-field input:focus-visible,
-.cm-field textarea:focus-visible {
-  box-shadow: none;
-  border-bottom-color: var(--c-accent);
-  border-bottom-width: 2px;
-  padding-bottom: calc(0.55rem - 1px);
-}
-.cm-field input:not(:placeholder-shown):not([type=date]) { border-bottom-color: oklch(100% 0 0 / 0.3); }
+.note-body textarea::placeholder { color: oklch(46% 0 0); }
+.note-body textarea:focus { outline: none; border-bottom-color: var(--c-accent); }
+.note-body textarea:focus-visible { box-shadow: none; border-bottom-color: var(--c-accent); }
 
-/* Choice groups */
-.cm-choice { border: 0; padding: 0; margin: 0; display: grid; gap: 0.9rem; }
-.cm-choice legend { padding: 0; margin-bottom: 0.2rem; }
-.cm-choice legend .cm-no { position: static; opacity: 0.55; margin-right: 0.5rem; }
-.cm-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.cm-chip { position: relative; cursor: pointer; }
-.cm-chip input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
-.cm-chip span {
-  display: inline-flex; align-items: baseline; gap: 0.45rem;
-  padding: 0.5rem 0.9rem;
-  border: 1px solid oklch(100% 0 0 / 0.16);
-  font-size: 0.9rem; color: oklch(78% 0 0);
-  transition: border-color 0.3s var(--ease, ease), color 0.3s var(--ease, ease), background 0.3s var(--ease, ease);
+/* Send - one confident action */
+.note-send {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.2rem, 4vw, 2.4rem);
+  flex-wrap: wrap;
 }
-.cm-chip span i {
-  font-family: var(--font-mono); font-style: normal;
-  font-size: 0.68rem; letter-spacing: 0.1em; color: oklch(58% 0 0);
-}
-.cm-chip:hover span { border-color: oklch(100% 0 0 / 0.32); color: var(--c-fg); }
-.cm-chip:has(input:checked) span {
-  background: var(--c-accent); border-color: var(--c-accent);
+.note-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9em;
+  padding: clamp(1rem, 2.4vh, 1.4rem) clamp(1.8rem, 4vw, 2.8rem);
+  background: var(--c-accent);
   color: oklch(18% 0.02 90);
+  border: 1px solid var(--c-accent);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.1rem);
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background 0.4s var(--ease, ease), color 0.4s var(--ease, ease);
 }
-.cm-chip:has(input:checked) span i { color: oklch(30% 0.02 90); }
-.cm-chip input:focus-visible + span { outline: 1px solid var(--c-accent); outline-offset: 3px; }
+.note-btn .arrow { transition: transform 0.4s var(--ease-out-expo, cubic-bezier(0.19,1,0.22,1)); }
+.note-btn:hover { background: transparent; color: var(--c-accent); }
+.note-btn:hover .arrow { transform: translateX(6px); }
+.note-btn:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 4px; box-shadow: none; }
+.note-sla {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: oklch(54% 0 0);
+}
 
-/* Actions */
-.cm-actions { display: flex; align-items: center; gap: clamp(1rem, 3vw, 1.8rem); flex-wrap: wrap; margin-top: 0.4rem; }
-.cm-sla {
-  font-family: var(--font-mono); font-size: 0.66rem;
-  letter-spacing: 0.2em; text-transform: uppercase; color: oklch(52% 0 0);
+/* Quiet alternative line */
+.note-alt {
+  margin: 0;
+  font-size: 0.95rem;
+  color: oklch(58% 0 0);
+}
+.note-alt a { color: oklch(82% 0 0); text-decoration: none; border-bottom: 1px solid color-mix(in oklch, var(--c-accent) 40%, transparent); padding-bottom: 1px; transition: color 0.3s var(--ease, ease), border-color 0.3s var(--ease, ease); }
+.note-alt a:hover { color: var(--c-accent); border-bottom-color: var(--c-accent); }
+.note-alt b { color: oklch(40% 0 0); font-weight: 400; margin: 0 0.3em; }
+
+@media (max-width: 560px) {
+  .note-line { line-height: 1.9; }
+  .note-send { gap: 1rem; }
 }
