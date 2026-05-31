@@ -1541,50 +1541,156 @@ main section.numbered .eyebrow::after {
 }
 
 /* ===== Footer ===================================================== */
+/* =================================================================
+   FOOTER - "The Colophon"
+   Editorial sign-off: a ghost wordmark behind, the diamond mark and an
+   italic credo at left, three mono index columns at right, and a thin
+   base line of socials + provenance. One global footer, mirrored on
+   every page via _footer.html + _sync-footer.py.
+   ================================================================= */
 .footer {
-  padding: var(--s-lg) 0 var(--s-md);
-  border-top: 1px solid var(--c-border);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(2rem, 5vh, 3.4rem) var(--gutter, 1.5rem) clamp(1rem, 2.4vh, 1.6rem);
+  border-top: 1px solid color-mix(in oklch, var(--c-accent) 22%, transparent);
+  background:
+    radial-gradient(140% 120% at 12% 0%, oklch(16% 0.008 92 / 0.7), transparent 60%),
+    var(--c-bg);
 }
-.footer-row {
+
+/* Ghost wordmark, low and huge behind the content */
+.footer-glow {
+  position: absolute;
+  left: 50%;
+  bottom: -0.22em;
+  transform: translateX(-50%);
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(5rem, 19vw, 17rem);
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+  color: oklch(78% 0.05 95 / 0.05);
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.footer-inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container, 1500px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: clamp(2rem, 6vw, 6rem);
+  flex-wrap: wrap;
+}
+
+/* Left: mark + name + credo */
+.footer-sign { display: grid; gap: 0.6rem; max-width: 30ch; }
+.footer-mark {
+  display: inline-flex; width: 30px; height: 30px;
+  color: var(--c-accent);
+}
+.footer-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  color: var(--c-fg);
+}
+.footer-tag {
+  margin: 0;
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-weight: 350;
+  font-variation-settings: 'opsz' 40, 'SOFT' 60, 'WONK' 0;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  color: oklch(66% 0 0);
+}
+.footer-tag em { color: var(--c-accent); font-style: italic; }
+
+/* Right: index columns */
+.footer-nav {
+  display: flex;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  flex-wrap: wrap;
+}
+.footer-col { display: grid; gap: 0.55rem; align-content: start; }
+.footer-key {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  opacity: 0.85;
+  margin-bottom: 0.2rem;
+}
+.footer-col a,
+.footer-col .footer-static {
+  font-size: 0.92rem;
+  color: oklch(72% 0 0);
+  text-decoration: none;
+  width: max-content;
+  position: relative;
+  transition: color 0.35s var(--ease, ease);
+}
+.footer-col a::after {
+  content: "";
+  position: absolute; left: 0; bottom: -2px;
+  width: 100%; height: 1px;
+  background: var(--c-accent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s var(--ease-out-expo, cubic-bezier(0.19,1,0.22,1));
+}
+.footer-col a:hover { color: var(--c-fg); }
+.footer-col a:hover::after { transform: scaleX(1); }
+.footer-col .footer-static { color: oklch(52% 0 0); }
+
+/* Base line: socials + provenance */
+.footer-base {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container, 1500px);
+  margin: clamp(1.6rem, 4vh, 2.6rem) auto 0;
+  padding-top: clamp(0.9rem, 2vh, 1.4rem);
+  border-top: 1px solid oklch(100% 0 0 / 0.07);
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: var(--s-sm);
   flex-wrap: wrap;
 }
-.footer .brand-name { font-size: 0.85rem; }
-.footer .socials { display: inline-flex; gap: var(--s-2xs); }
-.footer .socials a {
-  width: 38px; height: 38px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--c-border);
-  color: var(--c-fg-muted);
-  transition: color var(--d-base) var(--ease), border-color var(--d-base) var(--ease), background var(--d-base) var(--ease);
+.footer-socials { display: inline-flex; gap: 0.5rem; }
+.footer-socials a {
+  width: 34px; height: 34px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid oklch(100% 0 0 / 0.12);
+  color: oklch(62% 0 0);
+  transition: color 0.35s var(--ease, ease), border-color 0.35s var(--ease, ease), background 0.35s var(--ease, ease);
 }
-.footer .socials a:hover {
+.footer-socials a:hover {
   color: var(--c-bg);
-  border-color: var(--c-fg);
-  background: var(--c-fg);
+  border-color: var(--c-accent);
+  background: var(--c-accent);
 }
-.footer .socials svg { width: 14px; height: 14px; }
-.footer-legal {
-  display: inline-flex;
-  gap: var(--s-sm);
+.footer-socials svg { width: 14px; height: 14px; }
+.footer-meta {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
+  color: oklch(52% 0 0);
 }
-.footer-legal a { color: var(--c-fg-muted); transition: color var(--d-base) var(--ease); }
-.footer-legal a:hover { color: var(--c-fg); }
-.footer .copy {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--c-fg-muted);
+
+@media (max-width: 720px) {
+  .footer-inner { gap: 2rem; }
+  .footer-base { flex-direction: row-reverse; justify-content: space-between; }
 }
 
 /* =================================================================

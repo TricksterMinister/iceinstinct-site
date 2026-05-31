@@ -85,4 +85,18 @@
       });
     });
   }
+
+  /* ---------- CLOSER FIT: keep CTA + footer = one viewport ----------
+     On pages with body.closer the last segment locks CTA + footer to
+     100dvh. The footer height is fluid, so measure it and expose it as
+     --gv-footer; the CTA's min-height calc subtracts exactly that. */
+  if (document.body.classList.contains("closer")) {
+    var footer = document.querySelector(".footer");
+    var setFooterVar = function () {
+      if (footer) document.body.style.setProperty("--gv-footer", footer.offsetHeight + "px");
+    };
+    setFooterVar();
+    window.addEventListener("resize", setFooterVar);
+    window.addEventListener("load", setFooterVar);
+  }
 })();
