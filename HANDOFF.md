@@ -1,216 +1,247 @@
 # Handoff - Ice & Instinct site rebuild
 
-**Read `CLAUDE.md` first**, then this. This file is the live status & next-step checklist.
+**Read in this order before doing ANY work:**
+1. `/CLAUDE.md` - design commandments + brand context (locked)
+2. `/DESIGN.md` - canonical design system (locked, includes magazine-flip-pages architecture decision)
+3. `/STORYBOARD.md` - narrative spine of cinema homepage
+4. `/CONTENT-MAP.md` - source-line mapping for every block on cinema home (proves no hallucinated copy)
+5. This file - live status + next-step checklist
 
 ---
 
-## Where we are right now (end of chat - 2026-05-05)
+## Where we are right now (end of session 2026-05-08)
 
-Site is **18 phases deep**, last commit `01bd6d2` on `main` of `TricksterMinister/iceinstinct-site`. Local server lives at `http://localhost:8766/` (one URL, full site - user navigates via header nav).
+Site lives at `http://localhost:8766/` via `python3 -m http.server 8766` (background process; restart if port closed). Last commit `5068ad1` on `main` of `TricksterMinister/iceinstinct-site` (NOT pushed to remote yet - user has not asked).
 
-### Phases shipped this build window (2026-05-01 to 2026-05-05)
+### What was built this session (2026-05-08, ~24 commits)
 
-| # | Commit | What |
+**Architecture / system locks:**
+- `/accent.css` - **single source of truth** for site-wide accent color. Currently Champagne Gold `oklch(88% 0.06 95)`. Linked from all 13 HTML pages BEFORE main stylesheet. Edit only this file to swap accent everywhere.
+- `/DESIGN.md` (~380 lines) - canonical design system. Includes Risk 1 architecture decision: **magazine flip-pages** for homepage (vertical-scroll cinema implementation is current precursor; flip-page rebuild pending).
+- `/STORYBOARD.md` - six-chapter cinema-homepage narrative
+- `/CONTENT-MAP.md` - source-line mapping (transparency on what copy came from where)
+- `/CLAUDE.md` - appended with routing block pointing to DESIGN.md as required pre-read
+
+**Cinema homepage (`/index.html`):**
+- Promoted cinema prototype to `/`. Old flat home backed up as `/home-classic.html`.
+- Six chapters, vertical-scroll-locked (each 100dvh): Bridge (hero), The Brand (manifesto with "RITUAL" ghost-word), Offerings (horizontal-pin 4-tier rail + Concierge tail), The Alchemist (founder), The Collection (gallery teaser - 5 tiles), Inquire (closing marble panel)
+- Vanish menu: champagne circle top-right + full-screen overlay with 6 chapter links + "Read in full" deep-page links + ESC close
+- Pager dots 01-06 on left margin (mix-blend-difference)
+- Magnetic cursor (dot + ring)
+- Lenis smooth-scroll + GSAP ScrollTrigger
+- Film grain `body::after` (opacity 0.05, mix-blend overlay)
+- Ghost-words per chapter (`RITUAL`, `OFFERINGS`, `ALCHEMIST`, `COLLECTION`, `BEGIN`) with parallax via ScrollTrigger
+- Hero "Ice & Instinct." on ONE line desktop, two lines mobile; italic Fraunces accent
+- Slogan "Where ritual meets instinct, high above the city." in italic Fraunces, champagne color, large
+- Champagne hairlines between chapters
+
+**Media added/fixed:**
+- 8 new high-res ALCHEMY&ICE cocktail shots copied to `/assets/photos/` with cocktail-name slugs:
+  - `calipso-cream.jpeg`, `basil-in-my-mind.jpeg`, `belladonna.jpeg`, `rose-garden.jpeg`, `1001-nights.jpeg`, `white-lotus.png`, `white-lotus-pour.png`, `persimmon-saffron-sour.png`, `aureliano.png`
+- 3 prior 404s fixed in `/gallery/`: White Lotus, Persimmon Saffron Sour, Aureliano
+- Home gallery teaser uses 5 high-res new shots (Belladonna, Rose Garden, Persimmon Saffron, Basil in my mind, White Lotus) for color-palette balance
+
+**`/gallery/` deep page upgraded (Cinema treatment):**
+- Body class `cinema-chrome is-gallery` switches in `/cinema-chrome.css`
+- Classic horizontal header hidden, Vanish circle + overlay applied
+- Magnetic cursor, film grain, `COLLECTION` ghost-word with parallax
+- Two viewport-locked segments: VP1 (50dvh hero + 50dvh tile track) + VP2 (Commission a ritual + footer combined)
+- Tiles are 3:4 portrait (matches source image aspect), height 100% of track flex
+- 5-6 tiles fit horizontally on 32" monitor
+
+**New shared chrome files:**
+- `/cinema-chrome.css` - Vanish nav + grain + cursor + ghost-word + hide-old-header. Scoped via `body.cinema-chrome`.
+- `/cinema-chrome.js` - Vanish open/close + magnetic cursor + ScrollTrigger ghost-word parallax. Optional GSAP detection.
+
+**Picker tool (dev only, gitignored):**
+- `/picker/` directory at `/picker/index.html`. Visual selection grid with 333 thumbnails from across user's drives (ALCHEMY&ICE + TUMAN + LAST_IMAGE_GEN + TEMO-AI-FOTO + iceinstinct-source/media).
+- LocalStorage-backed shortlist + EXPORT button. Used this session to pick 10 cocktail shots.
+- Can be regenerated: `find` candidate folders → `sips`/`ffmpeg` thumbnails → `meta.json` → grid HTML.
+- Added to `.gitignore`.
+
+---
+
+## Pending work (priority order)
+
+### High priority - architectural
+
+1. **Implement magazine flip-pages on `/` (Risk 1 from DESIGN.md).** Current homepage is vertical-scroll cinema, conceptual precursor. DESIGN.md locks the form factor:
+   - Each chapter = 100dvh page with `rotateY` 3D transform
+   - GSAP ScrollTrigger pin + scrub translates vertical wheel into horizontal page-flip
+   - `transform-style: preserve-3d`, `perspective: 1500px`, `transform-origin: left center`
+   - Duration 800-1100ms `expo.out`
+   - Z-index management: incoming page raises above outgoing
+   - Mobile <= 720px: disable flip, native vertical scroll
+   - `prefers-reduced-motion`: instant chapter swap
+   - Keyboard: ArrowDown/Space/PageDown = next, ArrowUp/PageUp = prev, Home/End = first/last
+   - Tier rail (chapter 3) keeps horizontal-pin sub-scroll inside the parent chapter
+   - **Recommended:** prototype in `/cinema-flip/index.html` FIRST. Compare side-by-side with `/`. Promote if successful.
+
+2. **Migrate other 10 deep pages to cinema chrome.** `/gallery/` is done. Remaining:
+   - `/offerings/` + 4 tier pages (foundation/simplicity/bespoke/omakase)
+   - `/concierge/`
+   - `/my-story/`
+   - `/contact/`
+   - `/privacy/`, `/terms/`
+   - For each: add `<link rel="stylesheet" href="/cinema-chrome.css">`, body class `cinema-chrome`, add Vanish HTML markup, add cursor markup, add `<script src="/cinema-chrome.js" defer>`. Hero ghost-word optional.
+   - Tier pages need own ghost-word per tier (FOUNDATION / SIMPLICITY / BESPOKE / OMAKASE).
+   - Concierge gets `CONCIERGE` or `RITUAL`.
+   - My Story gets `ALCHEMIST` or `STORY`.
+   - Contact gets `INQUIRE`.
+
+### Medium priority - content / config
+
+3. **Formspree form ID** still `REPLACE_WITH_FORMSPREE_ID` in `/contact/index.html` line 88. User has Formspree account; needs ID from `formspree.io/forms/`.
+4. **Email** `hello@iceinstinct.com` is placeholder in `/contact/index.html`, `/privacy/index.html`, `/terms/index.html`. Confirm real address with user.
+5. **Social URLs** in all footers are `href="#"`. Replace Instagram, Facebook, TikTok, X.
+6. **Logo.** User said he will supply. Current SVG diamond mark in nav + footer is placeholder. Specs in DESIGN.md.
+
+### Medium priority - remaining gallery media
+
+7. **5 cocktail tiles in `/gallery/` still reference old low-res Whisk files.** Could swap to new high-res ALCHEMY&ICE versions for:
+   - Aviation (uses `generated-image-...7_41pm-NBbxW61xks4izMLg.jpeg`, no high-res alternative chosen)
+   - Black Truffle Martini (uses `generated-image-...6_43pm-bHcjO1So1iA225II.jpeg`, already in repo)
+   - Rose Garden Rendezvous (low-res file; high-res `rose-garden.jpeg` exists in repo, swap it)
+   - Basil in my mind (`basil-in-my-mind.jpeg` exists in repo, swap)
+   - 1001 Nights (`1001-nights.jpeg` exists, swap)
+   - Call Me By Your Name (no replacement, keep current)
+   - Calipso Cream (high-res `calipso-cream.jpeg` exists, swap)
+   - Bésame (no replacement)
+
+### Low priority - generation pipeline (when user adds Higgsfield credits OR uses video skill)
+
+8. **Generate 4 distinct tier pour-videos via `~/.claude/skills/video/`** (Veo 3.1, key in `/Users/teimurazbenidze/.claude/skills/video/.env`):
+   - Foundation: `genre: intimate, slow_motion: true`
+   - Simplicity: `genre: noir, marble stir`
+   - Bespoke: `genre: spectacle, smoke + floral garnish`
+   - Omakase: `genre: dramatic, flaming peel`
+   - Plan via skill's hard rules: keyframes (Nano Banana, ~$0.04 each) FIRST as mockup → user approves → Veo i2v (~$3-6 per 8s clip).
+   - Replace current shared Pexels `videos.pexels.com/video-files/4765778/4765778-hd_1920_1080_25fps.mp4` in `/cinema/cinema.css` tier-bg video sources + tier pages.
+
+9. **Hero alternate footage.** User likes Brooklyn Bridge. Optional Veo 3.1 alternative if needed later. Not urgent.
+
+10. **Founder character ID via Soul Cast (Higgsfield).** Once user buys Higgsfield credits; upload existing `founder-temo.jpg` as reference, generate consistent founder shots across scenes.
+
+---
+
+## Files of record
+
+- `/CLAUDE.md` - brand commandments + tech stack
+- `/DESIGN.md` - canonical design system (READ FIRST)
+- `/STORYBOARD.md` - narrative spine
+- `/CONTENT-MAP.md` - source-line mapping
+- `/HANDOFF.md` - this file
+- `/accent.css` - single accent token (edit to swap site-wide accent)
+- `/styles.css` - main stylesheet for deep pages
+- `/cinema-chrome.css` + `/cinema-chrome.js` - shared atmosphere for deep pages (loaded after styles.css when body has class `cinema-chrome`)
+- `/cinema/cinema.css` + `/cinema/cinema.js` - homepage cinema styles + JS (vertical-scroll cinema; pending flip-page rebuild)
+- `/index.html` - homepage (cinema). `/cinema/index.html` is duplicate for backward URL.
+- `/home-classic.html` - backup of original flat home (NOT linked, recovery only)
+
+---
+
+## Local dev quick start (next session)
+
+```bash
+# 1. Verify server alive
+curl -sI http://localhost:8766/ | head -2
+
+# 2. If dead, restart from project root:
+cd /Users/teimurazbenidze/iceinstinct-site && python3 -m http.server 8766 > /tmp/iceinstinct-server.log 2>&1 &
+
+# 3. Open
+open http://localhost:8766/
+
+# 4. Test pages
+open http://localhost:8766/gallery/      # cinema chrome already applied
+open http://localhost:8766/offerings/    # still on old horizontal header (migration pending)
+open http://localhost:8766/my-story/     # still on old horizontal header
+```
+
+## Cinema chrome quick-apply recipe (for migrating remaining 10 deep pages)
+
+In `<head>`, AFTER `/styles.css` link:
+```html
+<link rel="stylesheet" href="/cinema-chrome.css?v=20260508e">
+```
+
+Replace `<body>` with:
+```html
+<body class="cinema-chrome">
+```
+
+After opening `<body>`, BEFORE the existing `<header class="header">`:
+```html
+<div class="cursor" aria-hidden="true">
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+</div>
+
+<button class="va-trigger" aria-label="Open menu">
+  <span class="va-trigger-ring"></span>
+  <span class="va-trigger-icon"><span></span><span></span><span></span></span>
+</button>
+
+<div class="va-overlay" aria-hidden="true">
+  <button class="va-close" aria-label="Close menu"><span></span><span></span></button>
+  <div class="va-stage">
+    <p class="va-eyebrow">Ice &amp; Instinct / Index</p>
+    <ul class="va-list">
+      <li><a href="/"><i>01</i><b>Home</b><em>The opening view</em></a></li>
+      <li><a href="/offerings/"><i>02</i><b>Offerings</b><em>Four levels, one standard</em></a></li>
+      <li><a href="/concierge/"><i>03</i><b>Concierge</b><em>Five enhancements</em></a></li>
+      <li><a href="/my-story/"><i>04</i><b>My Story</b><em>Teimuraz Benidze</em></a></li>
+      <li><a href="/gallery/"><i>05</i><b>The Collection</b><em>Twelve compositions</em></a></li>
+      <li><a href="/contact/"><i>06</i><b>Inquire</b><em>Begin the conversation</em></a></li>
+    </ul>
+    <footer class="va-foot">
+      <span>Manhattan / By Appointment</span>
+      <span>EST. 2024</span>
+    </footer>
+  </div>
+</div>
+```
+
+Before `</body>`:
+```html
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="/cinema-chrome.js?v=20260508a" defer></script>
+```
+
+Optional: in the first `<section>`, add `<div class="section-bg-word" aria-hidden="true">PAGE_WORD_HERE</div>` for ghost-word backdrop.
+
+---
+
+## Decisions log (this session only)
+
+| Time | Decision | Why |
 |---|---|---|
-| 1 | `8e35de0` | GA4 (`G-KBVETWTVVH`) on all 12 HTML pages |
-| 2 | `35ba3e8` | Home manifesto section (overlapping image + sharp dark panel, no blur, speakable schema) |
-| 3+4 | `4171253` | My Story full rebuild: drop-cap narrative, philosophy quote with scroll-driven word reveal, native `<details>/<summary>` FAQ accordion, FAQPage + Person + Speakable schema |
-| lint | `d962278` | Removed `eyebrow::before` hairlines globally, removed `.story-divider`, swapped legal `<li>` `-` markers for tiny rotated diamonds |
-| 5 | `5f59512` | Foundation tier rebuilt with full I-VII structure (Overview / Menu Protocol / Scalability + A/B/C ladder / What's Included / Standard Inclusions / Host Provides / Notes) + Service AggregateOffer schema |
-| 6 | `e4421dd` | Simplicity tier - same I-VII pattern |
-| 7 | `52a48f3` | Bespoke tier - same, plus Custom Recipe Documentation inclusion |
-| 8 | `be82e87` | Omakase tier - same, plus Ice Ritual mandatory callout + Tier C "Not recommended" treatment |
-| 9 | `c3689b3` | Concierge full rebuild: 5 enhancement cards (Cigar Curator $500 / Bar Staff $350 / The Curator $350 / Glassware $250 / Ice & Temperature $250) with inline SVG placeholder icons + ItemList schema |
-| 10 | `c5209d4` | Contact form: enhancement multi-checkbox group + new CSS for custom monochrome checkboxes |
-| photo | `94253cc` | Founder portrait swapped: AI placeholder → real `ICE-TEMO.jpg` (1920x1071, 472KB optimized via sips) |
-| photo | `ea25f50` | Concierge ice cube: SVG placeholder → real `ice.jpg` photo (256x256, 14.7KB), monochrome filter |
-| 11-15 | `1e203cb` | Lint pass + editorial Fraunces pauses between I-II / III-IV / V-VI on each tier (12 unique quotes from source copy) + vertical scroll-snap viewport on tier-section + sticky right-rail tier navigator (I/II/III/IV/V/VI/VII chips, IntersectionObserver active) + View Transitions API morph from `/offerings/` cards to detail hero |
-| 16 | `592d5d9` | Ambient slow-motion cocktail-pour video in each tier hero (Pexels CDN, 1080p, monochrome) |
-| 17 | `f636d73` | Tier-page viewport compaction: removed doubled hero padding, video aspect 4/5→4/3, 2-column subsection grid for sections IV/V/VI (`.tier-prose-grid`), tightened line-height 1.7→1.55, removed `border-top` between tier-sections |
-| 18 | `01bd6d2` | Same compaction applied to home page `.scene` blocks (founder-preview was still overflowing). `--c-fg-faint` bumped 40%→56% L for AA contrast. Custom focus-ring (double-stroke box-shadow). |
-
-### Source materials staging (still in `/Users/teimurazbenidze/iceinstinct-source/import-from-user/`)
-
-10 files documenting every page of the live Hostinger site, plus `_PAGE-GROUPS.md`. All content from those was integrated into the rebuild.
-
-### Active thread (interrupted mid-fix at handoff)
-
-User reported: real lead **Pavel Tsineuski** (Seven Eagles relocation, May 4) submitted to **TCS Web - Contact** form on Formspree, ended up in spam folder. Walked user through:
-- ✅ Marked Pavel's submission as not-spam (now in Inbox)
-- ⏳ **Next step user is on**: turn OFF the Formshield toggle in Spam Protection (sensitivity slider is locked behind $20/mo Pro plan, so toggle off is the workaround)
-- ⏳ Then: respond to Pavel via WhatsApp `9176050737`
-- ⏳ Then: do the same for the other form (**ALCHEMY & ICE Inquiry Form**) preventively
-
-User has TWO Formspree forms:
-1. **TCS Web - Contact** - form ID `mlgaqwod` - for a different project (relocation services)
-2. **ALCHEMY & ICE Inquiry Form** - form ID NOT YET CAPTURED - this is the one we need for `/contact/index.html` of THIS project (placeholder is `REPLACE_WITH_FORMSPREE_ID`)
-
-### What's pending (waiting for user input)
-
-1. **Formspree ID for ALCHEMY & ICE Inquiry Form** - user to capture from Formspree dashboard. Then sed-replace `REPLACE_WITH_FORMSPREE_ID` in `contact/index.html`
-2. **Better tier-mood photos** - user said current AI-generated `whisk_*` and `generated-image-december-*` placeholders are temporary. Will swap on the same pattern as `ICE-TEMO.jpg` swap (drop file on Desktop, name "Ice [Tiername]", I optimize via sips + replace refs in 1 commit)
-3. **Better manifesto cocktail photo** (`/assets/photos/manifesto-cocktails.png`) - user not satisfied with current quality
-4. **4 of 5 add-on illustrations** still inline SVG placeholders (only Ice & Temperature has real image now) - cigar, bar staff, curator, glassware
-5. **YouCanBookMe integration** - user has YCBM linked to current iceinstinct.com. Need decision on placement model: full replacement of inquiry form / dual placement (form + YCBM link) / private link sent after qualification
-6. **Hostinger deployment** - new site only on GitHub. Live `iceinstinct.com` still serves old Hostinger Builder.
-7. **Instagram URL** + email + other social URLs (still placeholders)
-
-### What's done that wasn't in the original plan
-
-- Global Claude Code hook at `~/.claude/hooks/no-dashes.sh` (blocks Write/Edit with em or en dashes across ALL projects, not just this one)
-- Plan file: `~/.claude/plans/hi-indexed-wilkinson.md`
-- Site is `localhost:8766` accessible via single URL `http://localhost:8766/` - user clicks header nav to reach all pages
+| Session start | Run `/design-consultation` skill to formalize design system | User wanted canonical reference; prior session was iterative |
+| Phase 3 (proposal) | Risk 1 architecture upgraded to **magazine flip-pages** | Direct execution of user's stated "обложка журнала + перелистывание страниц" metaphor |
+| Picker tool | Built `/picker/` with 333 thumbnails to solve Finder browsing pain | User couldn't easily compare candidates in Finder; localStorage shortlist persists |
+| Media | Used 8 ALCHEMY&ICE high-res shots + 1 Aureliano | User picked via picker EXPORT; matched to live `/gallery/` 12-cocktail collection |
+| `/gallery/` | Promoted to Cinema chrome treatment (option C of 3 offered) | User picked "C" - full cinema language migration |
+| Gallery layout | Split into VP1 (hero+tiles 50/50) + VP2 (cta+footer) | User: each viewport segment should be self-contained, no tile clipping |
+| Tiles | Aspect-ratio 3/4 portrait, height 100% of track flex | Source images are 3:4; matching aspect means no top/bottom crop on cocktail glassware |
 
 ---
 
-## Active blockers (resolve in next session)
+## Continue-from-here prompt for next chat
 
-### 1. Awaiting user's HTML files for content import
-
-Status: gallery imported (12 cocktail names + tagline). Other 9 pages still use Claude-written copy.
-
-User said: **"Я буду по очереди кидать прямо сюда буду ждать тебя. Кину, буду ждать, пока ты поработаешь с этим конкретным файлом, потом пойдем дальше."**
-
-Workflow:
-1. User pastes one HTML file
-2. Read it carefully for: copy, image references, structure, microcopy, internal patterns
-3. Rewrite the corresponding page in our design system using the exact text where possible
-4. Commit + push
-5. Tell user "ready for next file"
-
-Pages still pending HTML:
-- Home (`/index.html`)
-- Offerings hub (`/offerings/index.html`)
-- Foundation tier (`/offerings/foundation/`)
-- Simplicity tier (`/offerings/simplicity/`)
-- Bespoke tier (`/offerings/bespoke/`)
-- Omakase tier (`/offerings/omakase/`)
-- Concierge (`/concierge/`)
-- My Story (`/my-story/`)
-- Contact (`/contact/`)
-
-### 2. Three pieces of config need real values
-
-These were left as placeholders pending user input:
-
-**a. Formspree form ID** - user confirmed an existing form already runs on the live site. Get the endpoint (8 chars after `formspree.io/f/`), then:
-
-```bash
-sed -i '' 's|REPLACE_WITH_FORMSPREE_ID|m________|g' contact/index.html
-```
-
-**b. Instagram URL** - user confirmed it exists. Replace all `<a href="#" aria-label="Instagram">` in every page footer:
-
-```bash
-grep -rl 'aria-label="Instagram"' --include='*.html' . | xargs sed -i '' 's|<a href="#" aria-label="Instagram"|<a href="https://www.instagram.com/REAL_HANDLE/" target="_blank" rel="noopener" aria-label="Instagram"|g'
-```
-
-**c. Email address** - `hello@iceinstinct.com` is placeholder. Confirm with user.
-
-### 3. Other social links
-
-Footer also has placeholder links for Facebook, TikTok, X. User hasn't confirmed which actually exist. Ask, then either populate with real URLs or remove the icon entirely (clean is fine).
-
----
-
-## After content import & config - deploy
-
-1. **Hostinger backup** of current Builder site (export or download via File Manager).
-2. **Switch hosting plan** from Builder to Web Hosting in hPanel (may require a paid plan upgrade - the user is OK with Hostinger).
-3. **Git auto-deploy**: connect repo, branch `main`, deploy to `public_html`.
-4. Test HTTPS, .htaccess rules, redirects.
-5. **Cache-bust** to a fresh value before the very first deploy:
-   ```bash
-   cd /Users/teimurazbenidze/iceinstinct-site
-   today=$(date +%Y%m%d)
-   grep -rl 'v=20260501' --include='*.html' . | xargs sed -i '' "s|v=20260501|v=$today|g"
-   git add -A && git commit -m "Cache-bust on launch"
-   git push
-   ```
-
-If Hostinger Web Hosting can't deliver clean Git deploy, fallback options (in order of preference): Cloudflare Pages, Netlify, GitHub Pages.
-
----
-
-## Test checklist before launch
-
-- [ ] Each section on home fits in 100dvh on 1440×900 desktop and 390×844 phone
-- [ ] Gallery horizontal track snaps cleanly on touch + wheel + drag
-- [ ] Tier cards swipe horizontally on mobile (<=720px) with visible "← Swipe →" hint
-- [ ] Lightbox works on `/gallery/` (Esc, backdrop, X close)
-- [ ] Form submits successfully (test send)
-- [ ] All 12 pages have correct title/description in `<head>`
-- [ ] All `<a href="#">` social links replaced with real URLs OR removed
-- [ ] Footer copyright `© 2026 Ice & Instinct` correct on every page
-- [ ] No blur anywhere (DevTools → search styles for `backdrop-filter`, should be 0 hits in our CSS)
-- [ ] No coloured tints - all backgrounds and foregrounds use `oklch(N% 0 0)` (zero chroma) or pure neutral grays
-- [ ] Cocktails on `/gallery/` are B&W default → colour on hover (desktop) and full colour on mobile
-- [ ] Schema validates: https://search.google.com/test/rich-results
-- [ ] Lighthouse mobile performance 80+
-
----
-
-## Style preferences locked-in (DO NOT SECOND-GUESS)
-
-These came from explicit user feedback. Don't drift back from them in any future session:
-
-- **Strict monochrome.** Black, white, gray, silver, steel. No yellow gold, no champagne, no blue, no purple. The only colour on the entire site appears on cocktail photography in the gallery (and only on hover/mobile).
-- **No blur.** No `backdrop-filter`, no soft radial gradients, no motion blur. All edges sharp.
-- **Massive typography.** Geist sans + Fraunces italic mix. Single italic word per heading max.
-- **Each major section = one viewport.** `.scene` class enforces 100dvh.
-- **Mobile is co-priority with desktop.** All viewports must work down to 360px.
-- **Gallery is horizontal-scroll**, not vertical grid.
-- **Inquiry-only**, never e-commerce checkout.
-- **No em-dashes.** Plain hyphens only.
-- **No religious expressions.** User is atheist.
-
----
-
-## Useful commands
-
-```bash
-# Start local server
-cd /Users/teimurazbenidze/iceinstinct-site
-python3 -m http.server 8766
-
-# Stop local server
-pkill -f "http.server 8766"
-
-# Validate JSON-LD
-python3 -c "
-import re, json
-for f in ['index.html','offerings/index.html','gallery/index.html']:
-  s = open(f).read()
-  for i, m in enumerate(re.findall(r'<script type=\"application/ld\\+json\">(.*?)</script>', s, re.DOTALL)):
-    try: json.loads(m); print(f, i+1, 'OK')
-    except Exception as e: print(f, i+1, 'FAIL', str(e)[:80])
-"
-
-# Quick deploy after edits
-cd /Users/teimurazbenidze/iceinstinct-site
-git add -A && git commit -m "..." && git push origin main
-```
-
----
-
-## Reference materials
-
-- INVENTORY.md (in `/Users/teimurazbenidze/iceinstinct-source/`) - full content audit of original site
-- The user shared **Ignitex Framer template** (https://land-book.com/websites/89951) as direction reference. The core feel: massive sans + italic serif, dense scenes, dark, high-contrast.
-- Live original (still up): https://www.iceinstinct.com - comparison/control during migration
-
----
-
-## Next-session opening message template
-
-If continuing this project in a new chat, the user will likely paste the next HTML file. Acknowledge briefly, then:
-
-1. Read `CLAUDE.md` and this `HANDOFF.md` (you should already have done this).
-2. Read the HTML he sent.
-3. Identify which page it corresponds to.
-4. Identify what new copy / structure / images can be lifted.
-5. Edit the corresponding page in our codebase, preserving our design system (no blur, monochrome, massive type, viewport-fit, etc.).
-6. Commit + push.
-7. Report briefly + ask for the next file.
-
-If he asks something else - defer to it. He's the boss.
+> Ice & Instinct site rebuild. Last session ended 2026-05-08, last commit `5068ad1`.
+>
+> Read in this order:
+> 1. `/Users/teimurazbenidze/iceinstinct-site/CLAUDE.md`
+> 2. `/Users/teimurazbenidze/iceinstinct-site/DESIGN.md`
+> 3. `/Users/teimurazbenidze/iceinstinct-site/STORYBOARD.md` and `CONTENT-MAP.md`
+> 4. `/Users/teimurazbenidze/iceinstinct-site/HANDOFF.md` (this file - check Pending work section for next priorities)
+>
+> Local server runs at `http://localhost:8766/`. Restart with `cd /Users/teimurazbenidze/iceinstinct-site && python3 -m http.server 8766 > /tmp/iceinstinct-server.log 2>&1 &` if dead.
+>
+> Next priorities (per HANDOFF Pending work):
+> - High: implement magazine flip-pages on `/` (Risk 1 from DESIGN.md); prototype in `/cinema-flip/` first
+> - High: migrate Vanish chrome to remaining 10 deep pages (recipe in HANDOFF)
+> - Medium: replace 5 low-res Whisk gallery tiles with new high-res versions already in `/assets/photos/`
+> - Medium: real Formspree form ID, real email, real social URLs, real logo (user-supplied)
+> - Low: generate 4 distinct tier pour-videos via `~/.claude/skills/video/` (Veo 3.1 + Nano Banana keyframes), key already in skill `.env`
