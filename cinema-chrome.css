@@ -417,12 +417,12 @@ body.cinema-chrome.vp-split .page-hero {
   margin: 0;
   display: flex; flex-direction: column; justify-content: center;
 }
-/* Hero typography inherits the base .page-hero sizing - identical to the
-   gallery (h1 ~111px, lead ~23px). Do NOT clamp it down; matching the
-   gallery's type scale is the point. Only spacing is tuned for the 50dvh. */
-body.cinema-chrome.vp-split .page-hero .lead { margin-top: clamp(0.5rem, 1.4vh, 1rem); }
-body.cinema-chrome.vp-split .page-hero .meta-row { margin-top: clamp(0.6rem, 1.6vh, 1.2rem); }
+/* Hero typography AND spacing inherit the base .page-hero rhythm -
+   identical to the gallery (h1 ~111px, lead ~23px, h1->lead gap ~8px).
+   Do NOT clamp size or override the lead gap; the hero must read as a
+   pixel mirror of the gallery: eyebrow + h1 + lead only, no meta-row. */
 body.cinema-chrome.vp-split .page-hero h1 .it { color: var(--c-accent); }
+body.cinema-chrome.vp-split .page-hero .lead { margin-top: 0.4rem; }
 
 /* Shelf half - holds the component track at full height */
 body.cinema-chrome.vp-split .vp-shelf {
