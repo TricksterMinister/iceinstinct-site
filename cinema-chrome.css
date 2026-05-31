@@ -437,32 +437,46 @@ body.cinema-chrome.vp-split .vp-shelf {
   padding: 0; margin: 0;
   display: flex; flex-direction: column;
 }
+/* Full-bleed: mirror the gallery band exactly (no centered max-width,
+   gutter only). The component track runs edge to edge. */
 body.cinema-chrome.vp-split .vp-shelf > .container {
   display: flex; flex-direction: column;
   height: 100%; width: 100%;
-  max-width: var(--container, 1500px);
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   padding: 0 var(--gutter, 1.5rem);
 }
-body.cinema-chrome.vp-split .vp-shelf .section-head {
-  flex: 0 0 auto;
-  margin: 0;
-  padding: clamp(0.55rem, 1.5vh, 1.1rem) 0 0.5rem;
-}
+/* Track fills the shelf top-to-meta with near-zero gap to the hero above,
+   just like the gallery's tile track (gap ~11px). */
 body.cinema-chrome.vp-split .vp-shelf .vp-track {
   flex: 1 1 auto;
   min-height: 0;
-  margin-bottom: clamp(0.6rem, 1.6vh, 1.2rem);
+  margin: 0;
 }
+/* Bottom meta-row, pinned to the floor, full width - mirrors gallery's
+   "01 / 12  ·  DRAG · SCROLL · SWIPE" row. */
+body.cinema-chrome.vp-split .vp-shelf .vp-meta {
+  flex: 0 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.45rem 0 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: oklch(58% 0 0);
+}
+body.cinema-chrome.vp-split .vp-shelf .vp-meta .pos { color: var(--c-accent); }
 
-/* ---- Offerings tier shelf: 4 full-height museum panels ---- */
+/* ---- Offerings tier shelf: 4 full-height museum panels.
+   Pure geometry - no outer frame, only thin champagne dividers
+   between panels (mirrors gallery tiles touching with a hairline). ---- */
 body.cinema-chrome.vp-split .vp-shelf .promise-grid.vp-track {
   grid-template-columns: repeat(4, 1fr);
-  border: 1px solid oklch(58% 0.08 90 / 0.24);
+  border: 0;
   background: transparent;
 }
 body.cinema-chrome.vp-split .vp-shelf .promise-grid.vp-track > *:nth-child(n+2) {
-  border-left: 1px solid oklch(58% 0.08 90 / 0.18);
+  border-left: 1px solid oklch(58% 0.08 90 / 0.16);
 }
 body.cinema-chrome.vp-split .vp-shelf .tier-card {
   position: relative;
