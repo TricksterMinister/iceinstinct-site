@@ -22,7 +22,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&family=Geist:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" fetchpriority="high">
 
 <link rel="stylesheet" href="/accent.css?v=20260507a">
-  <link rel="stylesheet" href="/styles.css?v=20260531k">
+  <link rel="stylesheet" href="/styles.css?v=20260531l">
   <link rel="stylesheet" href="/cinema-chrome.css?v=20260508e">
 
 <!-- Google tag (gtag.js) - GA4 -->
@@ -97,113 +97,108 @@
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="contact-grid">
+<section class="inquire">
+  <div class="inquire-wrap">
 
-      <aside class="contact-side reveal">
-        <h3>Direct channels</h3>
-        <p>For most inquiries, the form is the cleanest path. If you prefer to write directly, here are the alternatives.</p>
-        <div class="contact-channels">
-          <a class="contact-channel" href="mailto:hello@iceinstinct.com">
-            Email <small>hello@iceinstinct.com</small>
-          </a>
-          <a class="contact-channel" href="https://www.instagram.com/" target="_blank" rel="noopener">
-            Instagram DM <small>Discreet, fastest for visual reference</small>
-          </a>
-          <span class="contact-channel" style="cursor:default">
-            Booking window <small>By appointment only · Manhattan &amp; surrounds</small>
-          </span>
-          <span class="contact-channel" style="cursor:default">
-            Response time <small>Within one business day</small>
-          </span>
+    <aside class="inquire-aside reveal">
+      <p class="inquire-key">Private Commission</p>
+      <p class="inquire-lead">The form is the cleanest path. If you would rather write in your own hand, here are the direct lines.</p>
+      <div class="inquire-channels">
+        <a class="inquire-channel" href="mailto:hello@iceinstinct.com">
+          <span class="ch-k">Email</span>
+          <span class="ch-v">hello@iceinstinct.com</span>
+        </a>
+        <a class="inquire-channel" href="https://www.instagram.com/" target="_blank" rel="noopener">
+          <span class="ch-k">Instagram</span>
+          <span class="ch-v">Discreet, fastest for visual reference</span>
+        </a>
+        <span class="inquire-channel is-static">
+          <span class="ch-k">Booking</span>
+          <span class="ch-v">By appointment only &middot; Manhattan</span>
+        </span>
+        <span class="inquire-channel is-static">
+          <span class="ch-k">Reply</span>
+          <span class="ch-v">Within one business day, personally</span>
+        </span>
+      </div>
+    </aside>
+
+    <form class="commission reveal" action="https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID" method="POST">
+      <input type="hidden" name="_subject" value="Ice & Instinct - new inquiry">
+      <input type="hidden" name="_source" value="iceinstinct.com / contact">
+
+      <p class="cm-head">The commission card</p>
+
+      <div class="cm-pair">
+        <div class="cm-field">
+          <span class="cm-no">01</span>
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" required autocomplete="name" placeholder="As you would like to be addressed">
         </div>
-      </aside>
-
-      <form class="form reveal" action="https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID" method="POST">
-        <input type="hidden" name="_subject" value="Ice & Instinct - new inquiry">
-        <input type="hidden" name="_source" value="iceinstinct.com / contact">
-
-        <div class="form-row">
-          <label for="name">Your name <span class="req">*</span></label>
-          <input id="name" name="name" type="text" required placeholder="As you would like to be addressed">
+        <div class="cm-field">
+          <span class="cm-no">02</span>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" placeholder="Where should we reply?">
         </div>
+      </div>
 
-        <div class="form-row">
-          <label for="email">Email <span class="req">*</span></label>
-          <input id="email" name="email" type="email" required placeholder="Where should we reply?">
+      <div class="cm-field">
+        <span class="cm-no">03</span>
+        <label for="phone">Phone or WhatsApp <em>optional</em></label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="For a faster, more personal response">
+      </div>
+
+      <fieldset class="cm-choice">
+        <legend><span class="cm-no">04</span> The evening you have in mind</legend>
+        <div class="cm-chips" role="radiogroup">
+          <label class="cm-chip"><input type="radio" name="package" value="foundation"><span>The Foundation</span></label>
+          <label class="cm-chip"><input type="radio" name="package" value="simplicity"><span>Simplicity</span></label>
+          <label class="cm-chip"><input type="radio" name="package" value="bespoke"><span>Bespoke</span></label>
+          <label class="cm-chip"><input type="radio" name="package" value="omakase"><span>Omakase</span></label>
+          <label class="cm-chip"><input type="radio" name="package" value="concierge"><span>Concierge</span></label>
+          <label class="cm-chip"><input type="radio" name="package" value="other"><span>Still deciding</span></label>
         </div>
+      </fieldset>
 
-        <div class="form-row">
-          <label for="phone">Phone or WhatsApp</label>
-          <input id="phone" name="phone" type="tel" placeholder="Optional, for faster response">
-        </div>
-
-        <div class="form-row">
-          <label for="package">Service of interest</label>
-          <select id="package" name="package">
-            <option value="">Choose one (or leave open)</option>
-            <option value="foundation">i. The Foundation - from $400</option>
-            <option value="simplicity">ii. Perfection in Simplicity - from $750</option>
-            <option value="bespoke">iii. Bespoke Design &amp; Artistry - from $1,500</option>
-            <option value="omakase">iv. Omakase Improvisation - from $3,000</option>
-            <option value="concierge">Private Concierge</option>
-            <option value="other">Something else</option>
-          </select>
-        </div>
-
-        <div class="form-row">
-          <label for="event_date">Event date</label>
+      <div class="cm-pair">
+        <div class="cm-field">
+          <span class="cm-no">05</span>
+          <label for="event_date">Event date <em>if known</em></label>
           <input id="event_date" name="event_date" type="date">
         </div>
-
-        <div class="form-row">
+        <div class="cm-field">
+          <span class="cm-no">06</span>
           <label for="guests">Guests &amp; location</label>
-          <input id="guests" name="guests" type="text" placeholder="e.g. 14 guests, Tribeca penthouse">
+          <input id="guests" name="guests" type="text" placeholder="14 guests, Tribeca penthouse">
         </div>
+      </div>
 
-        <fieldset class="form-row form-checkgroup">
-          <legend>Enhancements you'd like to discuss</legend>
-          <small class="form-hint">Optional. <a href="/concierge/">See full descriptions</a>.</small>
-          <div class="form-checks">
-            <label class="form-check">
-              <input type="checkbox" name="enhancements" value="Bespoke Cigar Curator ($500)">
-              <span class="form-check-text">Bespoke Cigar Curator <span class="form-check-meta">$500</span></span>
-            </label>
-            <label class="form-check">
-              <input type="checkbox" name="enhancements" value="Additional Bar Staff ($350)">
-              <span class="form-check-text">Additional Bar Staff <span class="form-check-meta">$350</span></span>
-            </label>
-            <label class="form-check">
-              <input type="checkbox" name="enhancements" value="The Curator ($350)">
-              <span class="form-check-text">The Curator <span class="form-check-meta">$350</span></span>
-            </label>
-            <label class="form-check">
-              <input type="checkbox" name="enhancements" value="Glassware &amp; Vessels ($250)">
-              <span class="form-check-text">Glassware &amp; Vessels <span class="form-check-meta">$250</span></span>
-            </label>
-            <label class="form-check">
-              <input type="checkbox" name="enhancements" value="Ice &amp; Temperature ($250)">
-              <span class="form-check-text">Ice &amp; Temperature <span class="form-check-meta">$250</span></span>
-            </label>
-          </div>
-        </fieldset>
-
-        <div class="form-row">
-          <label for="message">Tell us about the evening <span class="req">*</span></label>
-          <textarea id="message" name="message" required placeholder="The occasion, the mood, anything that should not be forgotten."></textarea>
+      <fieldset class="cm-choice">
+        <legend><span class="cm-no">07</span> Enhancements to discuss <em>optional &middot; <a href="/concierge/">see all</a></em></legend>
+        <div class="cm-chips">
+          <label class="cm-chip"><input type="checkbox" name="enhancements" value="Bespoke Cigar Curator ($500)"><span>Cigar Curator <i>$500</i></span></label>
+          <label class="cm-chip"><input type="checkbox" name="enhancements" value="Additional Bar Staff ($350)"><span>Bar Staff <i>$350</i></span></label>
+          <label class="cm-chip"><input type="checkbox" name="enhancements" value="The Curator ($350)"><span>The Curator <i>$350</i></span></label>
+          <label class="cm-chip"><input type="checkbox" name="enhancements" value="Glassware &amp; Vessels ($250)"><span>Glassware <i>$250</i></span></label>
+          <label class="cm-chip"><input type="checkbox" name="enhancements" value="Ice &amp; Temperature ($250)"><span>Ice &amp; Temp <i>$250</i></span></label>
         </div>
+      </fieldset>
 
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary">Send <span class="arrow">→</span></button>
-          <span class="muted" style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase">A response within one business day</span>
-        </div>
+      <div class="cm-field cm-field--area">
+        <span class="cm-no">08</span>
+        <label for="message">In your words</label>
+        <textarea id="message" name="message" required rows="3" placeholder="The occasion, the mood, anything that should not be forgotten."></textarea>
+      </div>
 
-        <div class="form-success" id="form-success">Received. A response within one business day, personally - Teimuraz.</div>
-        <div class="form-error" id="form-error" role="alert"></div>
-      </form>
+      <div class="cm-actions">
+        <button type="submit" class="btn btn-primary">Send the inquiry <span class="arrow">→</span></button>
+        <span class="cm-sla">A response within one business day</span>
+      </div>
 
-    </div>
+      <div class="form-success" id="form-success">Received. A response within one business day, personally - Teimuraz.</div>
+      <div class="form-error" id="form-error" role="alert"></div>
+    </form>
+
   </div>
 </section>
 
