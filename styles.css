@@ -19,10 +19,8 @@
   --c-fg-muted:    oklch(58% 0 0);    /* brushed steel */
   --c-fg-faint:    oklch(56% 0 0);    /* hairline labels - bumped to AA contrast */
 
-  /* --- Single neutral accent: silver --- */
-  --c-silver:      oklch(82% 0 0);
-  --c-silver-soft: oklch(68% 0 0);
-  --c-silver-line: oklch(45% 0 0);
+  /* --- Single accent: defined in /accent.css (loaded before this file).
+         To change the site-wide accent, edit /accent.css ONLY. --- */
 
   /* --- Borders: hairlines --- */
   --c-border:        oklch(22% 0 0);
@@ -456,7 +454,7 @@ body::after {
   content: "";
   width: 36px;
   height: 1px;
-  background: var(--c-silver-line);
+  background: var(--c-accent-line);
   animation: scroll-line 2.6s var(--ease-out) infinite;
 }
 @keyframes scroll-line {
@@ -2014,8 +2012,8 @@ img.reveal-zoom.is-in { transform: scale(1); }
   font-size: 0.65rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--c-silver);
-  border-bottom: 1px solid var(--c-silver-line);
+  color: var(--c-accent);
+  border-bottom: 1px solid var(--c-accent-line);
   padding-bottom: 4px;
 }
 
@@ -2118,7 +2116,7 @@ img.reveal-zoom.is-in { transform: scale(1); }
   transition: color var(--d-base) var(--ease);
 }
 .contact-channel:last-child { border-bottom: 1px solid var(--c-border); }
-.contact-channel:hover { color: var(--c-silver); }
+.contact-channel:hover { color: var(--c-accent); }
 .contact-channel small {
   display: block;
   margin-top: 6px;
@@ -2702,7 +2700,7 @@ img.reveal-zoom.is-in { transform: scale(1); }
   top: 0.7em;
   width: 7px;
   height: 7px;
-  background: var(--c-silver);
+  background: var(--c-accent);
   transform: rotate(45deg);
   opacity: 0.85;
 }

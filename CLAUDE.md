@@ -339,3 +339,21 @@ Last commit on `main`: `c03db65 Viewport architecture: scene pattern + horizonta
 Last user feedback: positive on the viewport refactor + horizontal gallery direction. He has not visually verified yet. Awaiting next HTML file from him.
 
 See `HANDOFF.md` for the precise next-session checklist.
+
+---
+
+## Design System (added 2026-05-08)
+
+**Always read `/DESIGN.md` before making any visual or UI decision on this site.**
+All font choices, colors, spacing, layout architecture, navigation pattern, motion language, and aesthetic direction are formally locked there.
+
+Quick rules baked into DESIGN.md (do not deviate without explicit approval):
+- Display type = Geist 700 + Fraunces italic accent. No Marcellus, Playfair, Cormorant, Italiana, or any other display font.
+- Accent color = Champagne Gold via `/accent.css`. Single source of truth. Edit ONLY `/accent.css` to swap site-wide.
+- Strict monochrome neutrals `oklch(N% 0 0)`. No blue/yellow/brass/cream/peach/purple/pink/red/green undertones.
+- No blur, no `backdrop-filter`, no radial soft scrims.
+- Homepage = magazine flip-pages (6 chapters, viewport-locked). Inner pages keep deep editorial structure.
+- Vanish menu (champagne circle top-right) is the homepage navigation. No horizontal navbar on home.
+- Mobile is co-priority. Every clamp() must validate at 390x844.
+
+If a request you receive conflicts with DESIGN.md, stop and ask Teimuraz. Do not silently break a rule.
