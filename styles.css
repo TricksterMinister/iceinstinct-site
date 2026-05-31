@@ -2815,147 +2815,168 @@ img.reveal-zoom.is-in { transform: scale(1); }
 
 
 /* =================================================================
-   THE NOTE - inquiry as a short personal letter (contact page)
-   High-end and sparse: a few large lines with inline fill-in blanks,
-   one open field, one confident send. The surrounding prose is muted;
-   what the guest writes lights up. No grids, no chips, no density.
+   INQUIRE PAGE - one segment: hero (50dvh) + [invitation + footer]
+   The bottom half splits into the full-scale footer and, above it, an
+   editorial-minimum invitation that opens the full form in a modal.
+   Proportions are fixed; the form never crowds the page.
    ================================================================= */
-.inquire {
-  padding: clamp(2rem, 7vh, 6rem) 0 clamp(4rem, 12vh, 9rem);
-}
-.note {
-  max-width: 46rem;
-  margin: 0 auto;
+body.is-inquire .inquire-invite {
+  height: calc(50dvh - var(--gv-footer, 4.5rem));
+  min-height: 160px;
+  display: flex;
+  align-items: center;
   padding: 0 var(--gutter, 1.5rem);
-  display: grid;
-  gap: clamp(2.4rem, 6vh, 4.2rem);
 }
-
-/* The letter lines */
-.note-letter { display: grid; gap: clamp(0.8rem, 2vh, 1.4rem); }
-.note-line {
+.invite-inner {
+  max-width: var(--container, 1500px);
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  gap: clamp(1rem, 2.5vh, 1.8rem);
+  justify-items: start;
+}
+.invite-kicker {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  opacity: 0.85;
+}
+.invite-line {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem);
-  line-height: 1.7;
-  letter-spacing: -0.01em;
-  color: oklch(50% 0 0);            /* muted prose */
-}
-
-/* Inline fill-in blanks - the bright words.
-   The .ink is an inline-grid whose ::after sizer (mirroring value or
-   placeholder via data-val) sets the width; the input stretches to it,
-   so the field grows to fit its content in the inherited big type. */
-.note .ink {
-  display: inline-grid;
-  vertical-align: baseline;
-  border-bottom: 2px solid color-mix(in oklch, var(--c-accent) 45%, transparent);
-  transition: border-color 0.4s var(--ease, ease);
-}
-.note .ink::after {
-  content: attr(data-val);
-  grid-area: 1 / 1;
-  white-space: pre;
-  visibility: hidden;
-  font: inherit;
-  letter-spacing: inherit;
-  padding: 0 0.12em;
-  min-width: 2.5ch;
-}
-.note .ink input {
-  grid-area: 1 / 1;
-  width: 100%;
-  min-width: 0;
-  font: inherit;
-  letter-spacing: inherit;
+  font-size: clamp(1.9rem, 1.2rem + 2.6vw, 3.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
   color: var(--c-fg);
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  padding: 0 0.12em 0.04em;
-  caret-color: var(--c-accent);
 }
-.note .ink input::placeholder { color: oklch(46% 0 0); }
-.note .ink:focus-within { border-bottom-color: var(--c-accent); }
-.note .ink input:focus { outline: none; }
-.note .ink input:focus-visible { box-shadow: none; }
-
-/* The open field */
-.note-body { display: grid; gap: 0.9rem; }
-.note-body-key {
-  font-family: var(--font-mono);
-  font-size: 0.66rem;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
+.invite-line .it {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-weight: 350;
+  font-variation-settings: 'opsz' 144;
   color: var(--c-accent);
 }
-.note-body textarea {
-  width: 100%;
-  min-height: 5.5em;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid oklch(100% 0 0 / 0.16);
-  border-radius: 0;
-  padding: 0 0 0.8rem;
-  font-family: var(--font-body, "Inter", sans-serif);
-  font-size: clamp(1.05rem, 1rem + 0.4vw, 1.3rem);
-  line-height: 1.7;
-  color: var(--c-fg);
-  color-scheme: dark;
-  resize: vertical;
-  transition: border-color 0.4s var(--ease, ease);
-}
-.note-body textarea::placeholder { color: oklch(46% 0 0); }
-.note-body textarea:focus { outline: none; border-bottom-color: var(--c-accent); }
-.note-body textarea:focus-visible { box-shadow: none; border-bottom-color: var(--c-accent); }
-
-/* Send - one confident action */
-.note-send {
-  display: flex;
-  align-items: center;
-  gap: clamp(1.2rem, 4vw, 2.4rem);
-  flex-wrap: wrap;
-}
-.note-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.9em;
-  padding: clamp(1rem, 2.4vh, 1.4rem) clamp(1.8rem, 4vw, 2.8rem);
+.invite-actions { display: flex; align-items: center; gap: clamp(1.2rem, 4vw, 2.4rem); flex-wrap: wrap; }
+.invite-cta {
+  display: inline-flex; align-items: center; gap: 0.9em;
+  padding: clamp(0.9rem, 2.2vh, 1.25rem) clamp(1.8rem, 4vw, 2.6rem);
   background: var(--c-accent);
   color: oklch(18% 0.02 90);
   border: 1px solid var(--c-accent);
   font-family: var(--font-display);
   font-weight: 500;
   font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.1rem);
-  letter-spacing: 0.01em;
   cursor: pointer;
   touch-action: manipulation;
   transition: background 0.4s var(--ease, ease), color 0.4s var(--ease, ease);
 }
-.note-btn .arrow { transition: transform 0.4s var(--ease-out-expo, cubic-bezier(0.19,1,0.22,1)); }
-.note-btn:hover { background: transparent; color: var(--c-accent); }
-.note-btn:hover .arrow { transform: translateX(6px); }
-.note-btn:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 4px; box-shadow: none; }
-.note-sla {
+.invite-cta .arrow { transition: transform 0.4s var(--ease-out-expo, cubic-bezier(0.19,1,0.22,1)); }
+.invite-cta:hover { background: transparent; color: var(--c-accent); }
+.invite-cta:hover .arrow { transform: translateX(6px); }
+.invite-cta:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 4px; box-shadow: none; }
+.invite-alt { font-size: 0.95rem; color: oklch(58% 0 0); }
+.invite-alt a { color: oklch(82% 0 0); text-decoration: none; border-bottom: 1px solid color-mix(in oklch, var(--c-accent) 40%, transparent); padding-bottom: 1px; transition: color 0.3s var(--ease, ease), border-color 0.3s var(--ease, ease); }
+.invite-alt a:hover { color: var(--c-accent); border-bottom-color: var(--c-accent); }
+
+/* ---------- The modal ---------- */
+.iq-modal {
+  position: fixed; inset: 0; z-index: 200;
+  display: grid; place-items: center;
+  padding: clamp(1rem, 4vh, 3rem) clamp(1rem, 4vw, 3rem);
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.5s var(--ease-out-expo, cubic-bezier(0.19,1,0.22,1)), visibility 0.5s;
+}
+.iq-modal.is-open { opacity: 1; visibility: visible; }
+.iq-scrim { position: absolute; inset: 0; background: oklch(5% 0 0 / 0.86); }
+.iq-panel {
+  position: relative;
+  width: min(680px, 100%);
+  max-height: 90dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background:
+    radial-gradient(120% 80% at 50% 0%, oklch(15% 0.008 92 / 0.9), transparent 60%),
+    oklch(9% 0 0);
+  border: 1px solid color-mix(in oklch, var(--c-accent) 26%, transparent);
+  padding: clamp(2rem, 5vw, 3.6rem);
+  transform: translateY(18px);
+  transition: transform 0.55s var(--ease-out-expo, cubic-bezier(0.19,1,0.22,1));
+}
+.iq-modal.is-open .iq-panel { transform: translateY(0); }
+.iq-panel::-webkit-scrollbar { width: 0; }
+.iq-close {
+  position: absolute; top: 1rem; right: 1rem;
+  width: 46px; height: 46px;
+  display: grid; place-items: center;
+  background: transparent; border: 1px solid color-mix(in oklch, var(--c-accent) 40%, transparent);
+  border-radius: 50%; cursor: pointer;
+  transition: transform 0.5s var(--ease-out-expo, cubic-bezier(0.19,1,0.22,1)), background 0.4s;
+}
+.iq-close:hover { transform: rotate(90deg); background: oklch(100% 0 0 / 0.05); }
+.iq-close span { position: absolute; width: 18px; height: 1px; background: var(--c-accent); }
+.iq-close span:nth-child(1) { transform: rotate(45deg); }
+.iq-close span:nth-child(2) { transform: rotate(-45deg); }
+
+.iq-head { margin-bottom: clamp(1.6rem, 4vh, 2.4rem); }
+.iq-eyebrow {
+  margin: 0 0 0.7rem;
   font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: oklch(54% 0 0);
+  font-size: 0.62rem; letter-spacing: 0.34em; text-transform: uppercase; color: var(--c-accent);
 }
-
-/* Quiet alternative line */
-.note-alt {
+.iq-head h2 {
   margin: 0;
-  font-size: 0.95rem;
-  color: oklch(58% 0 0);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.9rem, 1.4rem + 1.8vw, 2.8rem);
+  line-height: 1.0; letter-spacing: -0.03em; color: var(--c-fg);
 }
-.note-alt a { color: oklch(82% 0 0); text-decoration: none; border-bottom: 1px solid color-mix(in oklch, var(--c-accent) 40%, transparent); padding-bottom: 1px; transition: color 0.3s var(--ease, ease), border-color 0.3s var(--ease, ease); }
-.note-alt a:hover { color: var(--c-accent); border-bottom-color: var(--c-accent); }
-.note-alt b { color: oklch(40% 0 0); font-weight: 400; margin: 0 0.3em; }
+.iq-head h2 .it { font-family: var(--font-italic); font-style: italic; font-weight: 350; font-variation-settings: 'opsz' 144; color: var(--c-accent); }
 
-@media (max-width: 560px) {
-  .note-line { line-height: 1.9; }
-  .note-send { gap: 1rem; }
+.iq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.3rem, 3vh, 2rem) clamp(1.4rem, 3vw, 2.2rem); }
+.iq-field { display: grid; gap: 0.6rem; }
+.iq-field--wide { grid-column: 1 / -1; }
+@media (max-width: 560px) { .iq-grid { grid-template-columns: 1fr; } }
+.iq-field label {
+  font-family: var(--font-mono);
+  font-size: 0.64rem; letter-spacing: 0.24em; text-transform: uppercase; color: oklch(70% 0 0);
+}
+.iq-field label em { font-style: normal; letter-spacing: 0.16em; color: oklch(48% 0 0); text-transform: none; }
+.iq-field input,
+.iq-field textarea {
+  width: 100%;
+  background: transparent;
+  border: 0; border-bottom: 1px solid oklch(100% 0 0 / 0.18);
+  border-radius: 0;
+  padding: 0.5rem 0;
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: 1.05rem; color: var(--c-fg); color-scheme: dark;
+  transition: border-color 0.4s var(--ease, ease);
+}
+.iq-field textarea { resize: vertical; min-height: 3.4em; line-height: 1.6; }
+.iq-field input::placeholder, .iq-field textarea::placeholder { color: oklch(44% 0 0); }
+.iq-field input:focus, .iq-field textarea:focus { outline: none; border-bottom-color: var(--c-accent); }
+.iq-field input:focus-visible, .iq-field textarea:focus-visible { box-shadow: none; border-bottom-color: var(--c-accent); border-bottom-width: 2px; }
+
+.iq-foot { display: flex; align-items: center; gap: clamp(1rem, 3vw, 1.8rem); flex-wrap: wrap; margin-top: clamp(1.8rem, 4vh, 2.6rem); }
+.iq-submit {
+  display: inline-flex; align-items: center; gap: 0.9em;
+  padding: 1rem 2.2rem;
+  background: var(--c-accent); color: oklch(18% 0.02 90); border: 1px solid var(--c-accent);
+  font-family: var(--font-display); font-weight: 500; font-size: 1rem; cursor: pointer;
+  touch-action: manipulation;
+  transition: background 0.4s var(--ease, ease), color 0.4s var(--ease, ease);
+}
+.iq-submit .arrow { transition: transform 0.4s var(--ease-out-expo, cubic-bezier(0.19,1,0.22,1)); }
+.iq-submit:hover { background: transparent; color: var(--c-accent); }
+.iq-submit:hover .arrow { transform: translateX(6px); }
+.iq-submit:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 4px; box-shadow: none; }
+.iq-sla { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: oklch(52% 0 0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .iq-modal, .iq-panel { transition: none; }
+  .iq-panel { transform: none; }
 }
