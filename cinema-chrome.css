@@ -267,3 +267,131 @@ body.cinema-chrome.is-gallery .footer {
   body.cinema-chrome.is-gallery main > section:nth-of-type(2) { height: auto; min-height: 70dvh; }
   body.cinema-chrome.is-gallery #final-cta { min-height: 60dvh; }
 }
+
+/* ============================================================
+   Commission a ritual - luxe closing panel (gallery only)
+   Scoped under .is-gallery so the 8 shared light .final-cta
+   panels on other pages stay untouched.
+   ============================================================ */
+body.cinema-chrome.is-gallery #final-cta {
+  background:
+    radial-gradient(125% 85% at 50% 14%, oklch(17% 0.012 92 / 0.95), transparent 62%),
+    radial-gradient(150% 130% at 50% 120%, oklch(22% 0.04 92 / 0.45), transparent 55%),
+    var(--c-bg);
+}
+
+body.cinema-chrome.is-gallery .final-cta--luxe {
+  background: transparent;
+  color: var(--c-fg);
+  padding: clamp(2.6rem, 6.5vh, 5.5rem) clamp(1.6rem, 6vw, 5rem);
+  gap: clamp(0.85rem, 2vh, 1.5rem);
+  border: 1px solid oklch(58% 0.08 90 / 0.30);
+  border-radius: 2px;
+  overflow: visible;
+  box-shadow:
+    0 0 0 1px oklch(0% 0 0 / 0.45),
+    0 48px 130px -45px oklch(0% 0 0 / 0.85),
+    inset 0 1px 0 oklch(88% 0.06 95 / 0.07);
+}
+
+/* Dark champagne-tinted marble vein (screen blend on dark) */
+body.cinema-chrome.is-gallery .final-cta--luxe::before {
+  opacity: 0.45;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='m'><feTurbulence type='fractalNoise' baseFrequency='0.011 0.035' numOctaves='3' seed='7'/><feColorMatrix values='0 0 0 0 0.91  0 0 0 0 0.86  0 0 0 0 0.72  0 0 0 0.9 -0.32'/></filter><rect width='100%25' height='100%25' filter='url(%23m)'/></svg>");
+  background-size: 1100px 1100px;
+}
+
+/* Champagne shimmer hairline along the top edge */
+body.cinema-chrome.is-gallery .final-cta--luxe::after {
+  content: "";
+  position: absolute;
+  top: -1px; left: 12%; right: 12%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--c-accent), transparent);
+  opacity: 0.5;
+  animation: cta-shimmer 6s ease-in-out infinite;
+}
+@keyframes cta-shimmer {
+  0%, 100% { opacity: 0.25; }
+  50%      { opacity: 0.7; }
+}
+
+/* Corner ticks - thin champagne L-brackets */
+body.cinema-chrome.is-gallery .final-cta--luxe .cta-corner {
+  position: absolute;
+  width: 16px; height: 16px;
+  border: 1px solid var(--c-accent);
+  opacity: 0.5;
+  pointer-events: none;
+}
+body.cinema-chrome.is-gallery .final-cta--luxe .cta-corner--tl { top: 12px; left: 12px; border-right: 0; border-bottom: 0; }
+body.cinema-chrome.is-gallery .final-cta--luxe .cta-corner--tr { top: 12px; right: 12px; border-left: 0; border-bottom: 0; }
+body.cinema-chrome.is-gallery .final-cta--luxe .cta-corner--bl { bottom: 12px; left: 12px; border-right: 0; border-top: 0; }
+body.cinema-chrome.is-gallery .final-cta--luxe .cta-corner--br { bottom: 12px; right: 12px; border-left: 0; border-top: 0; }
+
+/* Eyebrow microtype */
+body.cinema-chrome.is-gallery .final-cta--luxe .cta-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  opacity: 0.82;
+  margin: 0;
+}
+
+/* Ornament + headline + lead recolored for dark stage */
+body.cinema-chrome.is-gallery .final-cta--luxe .ornament {
+  color: var(--c-accent);
+  font-size: 1.55rem;
+}
+body.cinema-chrome.is-gallery .final-cta--luxe h2 {
+  color: var(--c-fg);
+  font-size: clamp(2.3rem, 5.2vw, 3.6rem);
+  line-height: 1.02;
+}
+body.cinema-chrome.is-gallery .final-cta--luxe h2 .it {
+  color: var(--c-accent);
+}
+body.cinema-chrome.is-gallery .final-cta--luxe .cta-lead {
+  color: oklch(80% 0 0);
+  max-width: 46ch;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+body.cinema-chrome.is-gallery .final-cta--luxe .cta-foot {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: oklch(55% 0 0);
+  margin: 0.4rem 0 0;
+}
+
+/* Buttons tuned for champagne-on-black */
+body.cinema-chrome.is-gallery .final-cta--luxe .btn-primary {
+  background: var(--c-accent);
+  color: oklch(18% 0.02 90);
+  border-color: var(--c-accent);
+}
+body.cinema-chrome.is-gallery .final-cta--luxe .btn-primary:hover {
+  background: transparent;
+  color: var(--c-accent);
+}
+body.cinema-chrome.is-gallery .final-cta--luxe .btn-ghost {
+  border-color: oklch(58% 0.08 90 / 0.5);
+  color: var(--c-accent);
+}
+body.cinema-chrome.is-gallery .final-cta--luxe .btn-ghost:hover {
+  background: var(--c-accent);
+  color: oklch(18% 0.02 90);
+  border-color: var(--c-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.cinema-chrome.is-gallery .final-cta--luxe::after { animation: none; opacity: 0.5; }
+}
+
+@media (max-width: 720px) {
+  body.cinema-chrome.is-gallery .final-cta--luxe .cta-corner { width: 11px; height: 11px; }
+}
