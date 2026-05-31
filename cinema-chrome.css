@@ -395,3 +395,133 @@ body.cinema-chrome.is-gallery .final-cta--luxe .btn-ghost:hover {
 @media (max-width: 720px) {
   body.cinema-chrome.is-gallery .final-cta--luxe .cta-corner { width: 11px; height: 11px; }
 }
+
+/* ============================================================
+   Inner-Page First-Segment Standard - VP1 split (SHARED)
+   Adopters add body class "vp-split". The first segment becomes
+   one viewport (100dvh) split 50/50:
+     - hero half  = section.page-hero  (top 50dvh)
+     - shelf half = section.vp-shelf   (bottom 50dvh)
+   The component row inside the shelf carries class .vp-track.
+   Generalized from the gallery reference (.is-gallery) so any
+   page can opt in. See DESIGN.md "Gallery Standard".
+   ============================================================ */
+body.cinema-chrome.vp-split main { padding: 0; margin: 0; }
+
+/* Hero half - identical rhythm everywhere */
+body.cinema-chrome.vp-split .page-hero {
+  position: relative;
+  height: 50dvh; min-height: 50dvh; max-height: 50dvh;
+  overflow: hidden;
+  padding: clamp(1.8rem, 4vh, 3rem) 0;
+  margin: 0;
+  display: flex; flex-direction: column; justify-content: center;
+}
+body.cinema-chrome.vp-split .page-hero h1 {
+  font-size: clamp(1.9rem, 1.1rem + 2.4vw, 3.1rem);
+  line-height: 1.04;
+  margin: 0;
+}
+body.cinema-chrome.vp-split .page-hero .lead {
+  margin-top: clamp(0.5rem, 1.4vh, 1rem);
+  font-size: clamp(0.92rem, 0.85rem + 0.3vw, 1.05rem);
+  max-width: 58ch;
+}
+body.cinema-chrome.vp-split .page-hero .meta-row { margin-top: clamp(0.6rem, 1.6vh, 1.2rem); }
+body.cinema-chrome.vp-split .page-hero h1 .it { color: var(--c-accent); }
+
+/* Shelf half - holds the component track at full height */
+body.cinema-chrome.vp-split .vp-shelf {
+  height: 50dvh; min-height: 50dvh; max-height: 50dvh;
+  overflow: hidden;
+  padding: 0; margin: 0;
+  display: flex; flex-direction: column;
+}
+body.cinema-chrome.vp-split .vp-shelf > .container {
+  display: flex; flex-direction: column;
+  height: 100%; width: 100%;
+  max-width: var(--container, 1500px);
+  margin: 0 auto;
+  padding: 0 var(--gutter, 1.5rem);
+}
+body.cinema-chrome.vp-split .vp-shelf .section-head {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: clamp(0.55rem, 1.5vh, 1.1rem) 0 0.5rem;
+}
+body.cinema-chrome.vp-split .vp-shelf .vp-track {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin-bottom: clamp(0.6rem, 1.6vh, 1.2rem);
+}
+
+/* ---- Offerings tier shelf: 4 full-height museum panels ---- */
+body.cinema-chrome.vp-split .vp-shelf .promise-grid.vp-track {
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid oklch(58% 0.08 90 / 0.24);
+  background: transparent;
+}
+body.cinema-chrome.vp-split .vp-shelf .promise-grid.vp-track > *:nth-child(n+2) {
+  border-left: 1px solid oklch(58% 0.08 90 / 0.18);
+}
+body.cinema-chrome.vp-split .vp-shelf .tier-card {
+  position: relative;
+  height: 100%;
+  justify-content: flex-start;
+  gap: 0.4rem;
+  padding: clamp(1rem, 2.6vh, 1.9rem) clamp(0.95rem, 1.4vw, 1.7rem);
+  background: transparent;
+  overflow: hidden;
+  isolation: isolate;
+  transition: background var(--d-base, 0.4s) var(--ease, ease);
+}
+body.cinema-chrome.vp-split .vp-shelf .tier-card:hover {
+  background: oklch(88% 0.06 95 / 0.05);
+}
+/* Ghost roman numeral watermark */
+body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-figure {
+  position: absolute;
+  z-index: -1;
+  right: -0.2rem; bottom: -1.4rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(5rem, 11vw, 9rem);
+  line-height: 1;
+  color: var(--c-accent);
+  opacity: 0.07;
+  pointer-events: none;
+  transition: opacity var(--d-base, 0.4s) var(--ease, ease), transform var(--d-base, 0.4s) var(--ease, ease);
+}
+body.cinema-chrome.vp-split .vp-shelf .tier-card:hover .tier-figure {
+  opacity: 0.13;
+  transform: translateY(-0.3rem);
+}
+body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-num { color: var(--c-accent); }
+body.cinema-chrome.vp-split .vp-shelf .tier-card h3 {
+  font-size: clamp(1.45rem, 1.05rem + 1vw, 2.05rem);
+  margin-top: 0.25rem;
+  color: var(--c-fg);
+}
+body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-meta {
+  color: var(--c-accent);
+  opacity: 0.92;
+}
+body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-blurb {
+  color: oklch(72% 0 0);
+  font-size: var(--t-sm);
+}
+body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-link { color: var(--c-accent); }
+
+/* Mobile: unlock the 50/50 lock, let content breathe vertically.
+   The existing .promise-grid mobile swipe rules take over the track. */
+@media (max-width: 720px) {
+  body.cinema-chrome.vp-split .page-hero {
+    height: auto; min-height: 56dvh; max-height: none; overflow: visible;
+  }
+  body.cinema-chrome.vp-split .vp-shelf {
+    height: auto; min-height: auto; max-height: none; overflow: visible;
+  }
+  body.cinema-chrome.vp-split .vp-shelf .tier-card { height: auto; }
+  body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-figure { font-size: 6rem; }
+}
