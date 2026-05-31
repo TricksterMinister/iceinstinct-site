@@ -139,6 +139,61 @@ This is a **direct execution of Teimuraz's stated metaphor** ("обложка ж
 
 ---
 
+## Inner-Page First-Segment Standard (the "Gallery Standard") - LOCKED
+
+The canonical opening segment for every inner (deep) page, where the page has
+an illustratable set of components. The `/gallery/` page is the reference
+implementation; copy its geometry, do not re-invent it.
+
+**Concept.** The first segment of an inner page is one viewport tall (`100dvh`)
+and split horizontally into two equal halves:
+
+```
++-----------------------------------------------+
+|  TOP 50dvh  - HERO HALF                        |
+|  eyebrow . h1 (Fraunces, italic accent) .     |
+|  lead. Centered vertically. Ghost-word         |
+|  backdrop. Identical rhythm across all pages.  |
++-----------------------------------------------+
+|  BOTTOM 50dvh - COMPONENT HALF                 |
+|  the page's components, full vertical height   |
+|  of the half, symmetric. Scroll only if they   |
+|  overflow horizontally.                         |
++-----------------------------------------------+
+```
+
+**Hero half (top 50dvh) - standardized, identical everywhere:**
+- `<section class="page-hero">` hard-locked to `height/min/max: 50dvh`, `overflow: hidden`.
+- `display: flex; flex-direction: column; justify-content: center;` so content sits vertically centered.
+- Contents in order: `.section-bg-word` ghost-word backdrop, `.eyebrow`, `<h1>` (with `<span class="it">` accent in champagne italic Fraunces), `.lead`.
+- Padding `clamp(2rem, 4vh, 3rem) 0`. `<main>` itself carries zero padding/margin.
+
+**Component half (bottom 50dvh) - symmetric, count-driven:**
+- Second `<section>` hard-locked to `height/min/max: 50dvh`, `overflow: hidden`, `display: flex; flex-direction: column;`.
+- The component track fills the full vertical height of the half (`flex: 1 1 auto; min-height: 0`). Each component is `height: 100%`, `flex: 0 0 auto`, with a fixed `aspect-ratio` so nothing crops.
+- **Two distribution modes, chosen by component count:**
+  - **Scroll mode** - when components exceed the viewport width (gallery: 12 cocktails). Horizontal track, wheel/drag/swipe converts to horizontal scroll, position counter plus progress bar (`01 / N`).
+  - **Symmetric-fit mode** - when components fit (concierge: 5, offerings: 4). No scroll. Distribute the N components evenly across the full width (`justify-content` space or equal `flex`), each at full half-height. The set is read in one glance, balanced, no overflow.
+- A thin meta/progress row may sit at the bottom of the half (gallery uses `01 / 12` plus "Drag . scroll . swipe"). In symmetric-fit mode the meta row is optional.
+
+**Component counts per page (drives the mode):**
+| Page | Components | Mode |
+|---|---|---|
+| `/gallery/` | 12 cocktail tiles | Scroll |
+| `/concierge/` | 5 enhancement cards | Symmetric-fit |
+| `/offerings/` | 4 tier cards | Symmetric-fit |
+| `/my-story/` | 1 portrait (or N/A) | Hero-led, no rail |
+| `/contact/` | form (not a rail) | Exempt - hero half plus form |
+| `/privacy/`, `/terms/` | legal prose | Exempt |
+
+**Mobile (`<= 720px`):** drop the 50/50 lock. Hero becomes `min-height: 60dvh` auto, component half `min-height: 70dvh` auto, content breathes vertically; scroll mode stays horizontal, symmetric-fit may wrap to a vertical stack.
+
+**Reference CSS:** `cinema-chrome.css` block `body.cinema-chrome.is-gallery` (VP1 part A plus part B). Generalize by promoting these rules off the `.is-gallery` modifier onto a shared `.vp-split` (or equivalent) class as more pages adopt the standard. Keep the hard `50dvh` locks and the `aspect-ratio` component sizing intact - that is what makes the segment feel standardized.
+
+**Why locked:** every inner page opens with the same cinematic beat - a centered hero over a symmetric shelf of that page's substance. Consistency is the luxury signal; the page's content count, not its layout, is what varies.
+
+---
+
 ## Motion (Risk 1 architecture demands ambitious motion)
 
 - **Approach:** Expressive but disciplined.
@@ -251,6 +306,9 @@ All of these are defined in `/cinema/cinema.css`. Inner-page components are in `
 | 2026-05-08 | **Risk 1 architecture upgraded: magazine flip-pages** | Direct execution of Teimuraz's stated "обложка журнала который потом по страницам навигации листает" metaphor. Replaces current vertical-scroll cinema with horizontal page-flip transitions. Implementation pending. |
 | 2026-05-08 | Risk 2 (Vanish nav), Risk 3 (Champagne accent), Risk 4 (founder-front Chapter 04) all kept | All survived the Phase 4 wilder-risks check |
 | 2026-05-08 | DESIGN.md created as canonical reference | Future Claude sessions must read this before any visual decision |
+| 2026-05-31 | Cinema chrome migrated to all 10 deep pages; 5 gallery tiles swapped to high-res | Vanish nav + grain + cursor + ghost-word now site-wide on deep pages |
+| 2026-05-31 | **Inner-Page First-Segment Standard ("Gallery Standard") locked** | Teimuraz directive: every inner page opens with a 100dvh segment split 50/50 - standardized hero half on top, symmetric component half below. Scroll mode when components overflow (gallery 12), symmetric-fit when they do not (concierge 5, offerings 4). Gallery is the reference implementation. |
+| 2026-05-31 | Gallery "Commission a ritual" closing panel recast light marble to dark champagne luxe | Light panel broke the dark cinema flow at the climax; scoped to `.is-gallery` so shared light CTAs elsewhere untouched. Card treatment to revisit later per Teimuraz. |
 
 ---
 
