@@ -184,18 +184,20 @@ body.cinema-chrome main > section:first-of-type::before {
    VP1 (100dvh) = hero (50dvh top) + tiles (50dvh bottom)
    VP2 (100dvh) = final-cta + footer combined */
 
-/* VP1 part A: hero, 50dvh top half */
+/* VP1 part A: hero, 50dvh top half (hard lock + tight padding so content fits) */
 body.cinema-chrome.is-gallery .page-hero {
   position: relative;
   height: 50dvh;
+  min-height: 50dvh;
+  max-height: 50dvh;
   overflow: hidden;
-  padding: clamp(2.5rem, 5vh, 4rem) 0;
+  padding: clamp(2rem, 4vh, 3rem) 0;
   display: flex; flex-direction: column; justify-content: center;
 }
-body.cinema-chrome.is-gallery .page-hero h1 { margin-bottom: 0.6rem; }
+body.cinema-chrome.is-gallery .page-hero h1 { margin-bottom: 0.5rem; }
 body.cinema-chrome.is-gallery .page-hero .lead {
   color: var(--c-fg-mute, oklch(60% 0 0));
-  margin-top: 0.6rem;
+  margin-top: 0.4rem;
 }
 body.cinema-chrome.is-gallery .page-hero h1 .it,
 body.cinema-chrome.is-gallery #final-cta h2 .it {
@@ -203,23 +205,33 @@ body.cinema-chrome.is-gallery #final-cta h2 .it {
 }
 
 /* VP1 part B: tile-track section, 50dvh bottom half. The section
-   after page-hero in /gallery/index.html holds the gallery-track-wrap. */
+   after page-hero in /gallery/index.html holds the gallery-track-wrap.
+   Tiles are 3:4 portrait to match source image aspect so full
+   cocktail (top garnish to base) shows without crop. */
 body.cinema-chrome.is-gallery main > section:nth-of-type(2) {
   height: 50dvh;
+  min-height: 50dvh;
+  max-height: 50dvh;
   overflow: hidden;
-  padding: 0 0 0.8rem;
+  padding: 0 0 0.6rem;
   display: flex; flex-direction: column; justify-content: center;
 }
 body.cinema-chrome.is-gallery main > section:nth-of-type(2) .container {
   display: flex; flex-direction: column; justify-content: center; height: 100%;
 }
-body.cinema-chrome.is-gallery .gallery-track-wrap { display: flex; flex-direction: column; gap: 0.6rem; }
-body.cinema-chrome.is-gallery .gallery-track { padding-bottom: 0.4rem; }
+body.cinema-chrome.is-gallery .gallery-track-wrap { display: flex; flex-direction: column; gap: 0.5rem; height: 100%; justify-content: center; }
+body.cinema-chrome.is-gallery .gallery-track { padding-bottom: 0.2rem; }
 body.cinema-chrome.is-gallery .gallery-track .gallery-tile {
-  width: clamp(260px, 33vw, 560px);
-  height: clamp(260px, 40dvh, 560px);
+  width: auto;
+  aspect-ratio: 3 / 4;
+  height: clamp(220px, 38dvh, 560px);
+  flex: 0 0 auto;
 }
-body.cinema-chrome.is-gallery .gallery-meta-row { padding-top: 0.4rem; }
+body.cinema-chrome.is-gallery .gallery-track .gallery-tile img {
+  object-fit: cover;
+  object-position: center;
+}
+body.cinema-chrome.is-gallery .gallery-meta-row { padding-top: 0.2rem; }
 
 /* VP2: final-cta + footer = one 100dvh segment */
 body.cinema-chrome.is-gallery #final-cta {
