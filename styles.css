@@ -1559,20 +1559,19 @@ main section.numbered .eyebrow::after {
     var(--c-bg);
 }
 
-/* Ghost wordmark, low behind the content */
+/* Ghost wordmark, low behind the content - anchored hard right */
 .footer-glow {
   position: absolute;
-  left: 50%;
+  right: -1.5rem;
   bottom: -0.16em;
-  transform: translateX(-50%);
   margin: 0;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(3.4rem, 12vw, 9.5rem);
+  font-size: clamp(4rem, 14vw, 12rem);
   line-height: 0.8;
   letter-spacing: -0.05em;
   white-space: nowrap;
-  color: oklch(78% 0.05 95 / 0.045);
+  color: oklch(78% 0.05 95 / 0.05);
   user-select: none;
   pointer-events: none;
   z-index: 0;
@@ -1628,6 +1627,7 @@ main section.numbered .eyebrow::after {
   align-items: center;
   gap: clamp(2rem, 5vw, 4rem);
   padding-left: clamp(1.5rem, 5vw, 5rem);
+  transform: translateY(0.7rem);
 }
 .footer-col { display: grid; gap: 0.7rem; align-content: center; }
 .footer-key {
