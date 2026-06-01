@@ -22,7 +22,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&family=Geist:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" fetchpriority="high">
 
 <link rel="stylesheet" href="/accent.css?v=20260507a">
-  <link rel="stylesheet" href="/styles.css?v=20260601a">
+  <link rel="stylesheet" href="/styles.css?v=20260601b">
   <link rel="stylesheet" href="/footer.css?v=20260531t">
   <link rel="stylesheet" href="/cinema-chrome.css?v=20260508e">
 
@@ -170,29 +170,29 @@
       <span class="eyebrow">The Journey</span>
       <h2 class="display-heading">Four cities,<br><span class="it">one standard.</span></h2>
     </div>
-    <ol class="journey-rail">
-      <li class="journey-stop">
+    <ol class="journey-rail" data-journey-rail>
+      <li class="journey-stop" data-img="/assets/photos/journey-georgia.jpg">
         <span class="journey-no">01</span>
         <div class="journey-body">
           <span class="journey-city">Georgia</span>
           <p class="journey-note">Born where every celebration begins with a toast and ends in silence. Wine carries memory; ritual defines grace - and that sense of presence has never left.</p>
         </div>
       </li>
-      <li class="journey-stop">
+      <li class="journey-stop" data-img="/assets/photos/journey-lisbon.jpg">
         <span class="journey-no">02</span>
         <div class="journey-body">
           <span class="journey-city">Lisbon</span>
           <p class="journey-note">From the Caucasus outward, across continents - new palates, a slower light, the patience of aged things.</p>
         </div>
       </li>
-      <li class="journey-stop">
+      <li class="journey-stop" data-img="/assets/photos/journey-moscow.jpg">
         <span class="journey-no">03</span>
         <div class="journey-body">
           <span class="journey-city">Moscow</span>
           <p class="journey-note">Hospitality as perception: to read a room the way one reads a language, to feel timing as rhythm, to turn precision into art.</p>
         </div>
       </li>
-      <li class="journey-stop">
+      <li class="journey-stop" data-img="/assets/photos/journey-newyork.jpg">
         <span class="journey-no">04</span>
         <div class="journey-body">
           <span class="journey-city">New York</span>
@@ -200,6 +200,7 @@
         </div>
       </li>
     </ol>
+    <figure class="journey-reveal" aria-hidden="true"><img alt=""></figure>
   </div>
 </section>
 
@@ -406,6 +407,6 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="/script.js" defer></script>
 <script src="/cinema-chrome.js?v=20260531k" defer></script>
-<script src="/my-story.js?v=20260601b" defer></script>
+<script src="/my-story.js?v=20260601c" defer></script>
 </body>
 </html>

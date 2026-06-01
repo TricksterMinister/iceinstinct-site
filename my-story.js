@@ -43,6 +43,28 @@
       .from(stop.querySelector('.journey-city'), { y: 18, opacity: 0, duration: 0.8, ease: EXPO }, 0.12);
   });
 
+  /* ---------- JOURNEY: cursor-following image reveal ---------- */
+  var rail = document.querySelector('[data-journey-rail]');
+  var reveal = document.querySelector('.journey-reveal');
+  if (rail && reveal && window.matchMedia('(hover: hover)').matches) {
+    var rimg = reveal.querySelector('img');
+    gsap.set(reveal, { xPercent: -50, yPercent: -50, scale: 0.65, opacity: 0 });
+    var rx = gsap.quickTo(reveal, 'x', { duration: 0.6, ease: 'power3.out' });
+    var ry = gsap.quickTo(reveal, 'y', { duration: 0.6, ease: 'power3.out' });
+    rail.addEventListener('mousemove', function (e) { rx(e.clientX); ry(e.clientY); });
+    rail.querySelectorAll('.journey-stop').forEach(function (stop) {
+      stop.addEventListener('mouseenter', function () {
+        var src = stop.getAttribute('data-img');
+        if (!src) return;
+        if (rimg.getAttribute('src') !== src) rimg.setAttribute('src', src);
+        gsap.to(reveal, { opacity: 1, scale: 1, duration: 0.5, ease: EXPO });
+      });
+    });
+    rail.addEventListener('mouseleave', function () {
+      gsap.to(reveal, { opacity: 0, scale: 0.65, duration: 0.4, ease: 'power3.out' });
+    });
+  }
+
   /* ---------- PHILOSOPHY: the two words land with weight ---------- */
   gsap.utils.toArray('.philosophy-line').forEach(function (line, i) {
     gsap.from(line, {
