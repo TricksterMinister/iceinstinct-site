@@ -2846,3 +2846,101 @@ body.is-inquire .inquire-invite {
   .iq-modal, .iq-panel { transition: none; }
   .iq-panel { transform: none; }
 }
+
+/* =================================================================
+   MY STORY - COVER (full-bleed portrait hero, Concept "The Frame")
+   The founder portrait IS the opening frame. Name a quiet top-left
+   credit; ALCHEMIST a single giant champagne signature, bottom-right.
+   ================================================================= */
+.story-cover {
+  position: relative;
+  height: 100dvh;
+  min-height: 600px;
+  overflow: hidden;
+  isolation: isolate;
+}
+.story-cover-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+  filter: grayscale(100%) contrast(1.06);
+  z-index: -2;
+}
+.story-cover-scrim {
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(to bottom, oklch(8% 0 0 / 0.6) 0%, transparent 24%, transparent 52%, oklch(8% 0 0 / 0.88) 100%),
+    radial-gradient(130% 90% at 82% 104%, oklch(8% 0 0 / 0.65), transparent 58%);
+}
+.story-cover-ghost {
+  position: absolute;
+  right: -0.5rem; bottom: -0.14em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(4rem, 17vw, 17rem);
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+  color: oklch(88% 0.06 95 / 0.16);
+  user-select: none;
+  pointer-events: none;
+}
+.story-cover-id {
+  position: absolute;
+  top: clamp(5rem, 15vh, 9.5rem);
+  left: clamp(1.5rem, 6vw, 5rem);
+  display: grid;
+  gap: 0.55rem;
+  max-width: 90vw;
+}
+.story-cover-id .eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.66rem; letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--c-accent);
+}
+.story-cover-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 1.4rem + 3vw, 4.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: var(--c-fg);
+}
+.story-cover-name .it {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-weight: 350;
+  font-variation-settings: 'opsz' 144;
+  color: var(--c-accent);
+}
+.story-cover-role {
+  margin: 0.3rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: oklch(76% 0 0);
+}
+
+/* Opening statement under the cover */
+.story-open { display: grid; gap: clamp(1rem, 3vh, 1.8rem); }
+.story-open .story-slogan {
+  margin: 0;
+  font-family: var(--font-italic);
+  font-style: italic; font-weight: 350;
+  font-variation-settings: 'opsz' 144, 'SOFT' 40;
+  font-size: clamp(1.8rem, 1.2rem + 2.4vw, 3.2rem);
+  line-height: 1.1; letter-spacing: -0.01em;
+  color: var(--c-accent);
+}
+.story-open .story-lede {
+  margin: 0; max-width: 56ch;
+  font-size: clamp(1.05rem, 1rem + 0.4vw, 1.3rem);
+  line-height: 1.7; color: oklch(80% 0 0);
+}
+.story-open .story-lede strong { color: var(--c-fg); font-weight: 500; }
+
+@media (max-width: 720px) {
+  .story-cover-id { top: clamp(4rem, 12vh, 6rem); }
+  .story-cover-ghost { font-size: clamp(3.2rem, 22vw, 8rem); }
+}
