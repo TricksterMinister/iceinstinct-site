@@ -1585,26 +1585,26 @@ main section.numbered .eyebrow::after {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: clamp(1.5rem, 4vw, 3.5rem);
+  gap: clamp(2rem, 5vw, 4.5rem);
   flex-wrap: wrap;
 }
 
 /* Left: logo placeholder slot + wordmark + short credo */
-.footer-sign { display: flex; align-items: center; gap: 0.85rem; }
+.footer-sign { display: flex; align-items: center; gap: 1rem; flex: 0 0 auto; }
 .footer-mark {
   /* LOGO PLACEHOLDER - reserved slot; the new logo drops in here */
   display: inline-flex; align-items: center; justify-content: center;
-  width: 34px; height: 34px; flex: 0 0 auto;
+  width: 42px; height: 42px; flex: 0 0 auto;
   color: var(--c-accent);
 }
-.footer-sign-text { display: grid; gap: 0.1rem; }
+.footer-mark svg { width: 100%; height: 100%; }
+.footer-sign-text { display: grid; gap: 0.18rem; }
 .footer-name {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.3rem, 1.1rem + 0.7vw, 1.7rem);
+  letter-spacing: -0.02em;
   color: var(--c-fg);
 }
 .footer-tag {
@@ -1613,20 +1613,23 @@ main section.numbered .eyebrow::after {
   font-style: italic;
   font-weight: 350;
   font-variation-settings: 'opsz' 30, 'SOFT' 60, 'WONK' 0;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   line-height: 1.2;
   color: oklch(62% 0 0);
 }
 .footer-tag em { color: var(--c-accent); font-style: italic; }
 
-/* Centre: index columns, evenly distributed */
+/* Index columns stretched across the full remaining width, weighted
+   right; each column's links breathe so nothing sticks to the top. */
 .footer-nav {
+  flex: 1 1 auto;
   display: flex;
-  gap: clamp(1.6rem, 4vw, 3.4rem);
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding-left: clamp(1.5rem, 5vw, 5rem);
 }
-.footer-col { display: grid; gap: 0.38rem; align-content: start; }
+.footer-col { display: grid; gap: 0.7rem; align-content: center; }
 .footer-key {
   font-family: var(--font-mono);
   font-size: 0.58rem;
@@ -1634,11 +1637,11 @@ main section.numbered .eyebrow::after {
   text-transform: uppercase;
   color: var(--c-accent);
   opacity: 0.85;
-  margin-bottom: 0.12rem;
+  margin-bottom: 0.35rem;
 }
 .footer-col a,
 .footer-col .footer-static {
-  font-size: 0.84rem;
+  font-size: 0.86rem;
   color: oklch(70% 0 0);
   text-decoration: none;
   width: max-content;
