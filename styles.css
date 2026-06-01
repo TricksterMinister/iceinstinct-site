@@ -3009,3 +3009,29 @@ body.is-inquire .inquire-invite {
   font-size: clamp(1rem, 0.95rem + 0.2vw, 1.12rem);
   line-height: 1.6; color: oklch(74% 0 0);
 }
+
+/* =================================================================
+   MY STORY - animation layer (/animate): smooth FAQ + journey hover
+   ================================================================= */
+/* FAQ: JS sets an explicit height to animate; transition makes it smooth
+   across all browsers (native <details> otherwise snaps). */
+.faq-answer { transition: height 0.42s cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* Journey rows answer the cursor - a quiet slide-right + lift */
+.journey-stop .journey-no,
+.journey-stop .journey-city,
+.journey-stop .journey-note {
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              color 0.4s var(--ease, ease),
+              opacity 0.4s var(--ease, ease);
+}
+.journey-stop:hover .journey-no { transform: translateX(5px); opacity: 1; }
+.journey-stop:hover .journey-city { transform: translateX(9px); }
+.journey-stop:hover .journey-note { transform: translateX(9px); color: oklch(82% 0 0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-answer { transition: none; }
+  .journey-stop .journey-no,
+  .journey-stop .journey-city,
+  .journey-stop .journey-note { transition: none; }
+}

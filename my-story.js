@@ -63,3 +63,45 @@
     btn.addEventListener('mouseleave', function () { qx(0); qy(0); });
   });
 })();
+
+/* =====================================================================
+   FAQ - smooth accordion (no GSAP needed). Animates the answer height
+   so <details> opens/closes fluidly across all browsers. With
+   reduced-motion, native instant toggle is left untouched.
+   ===================================================================== */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    var summary = item.querySelector('summary');
+    var answer = item.querySelector('.faq-answer');
+    if (!summary || !answer) return;
+    summary.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (answer.dataset.busy === '1') return;
+      answer.dataset.busy = '1';
+      var done = function (ev) {
+        if (ev.propertyName !== 'height') return;
+        answer.removeEventListener('transitionend', done);
+        answer.style.height = '';
+        answer.dataset.busy = '';
+      };
+      if (item.open) {
+        answer.style.height = answer.scrollHeight + 'px';
+        answer.addEventListener('transitionend', function close(ev) {
+          if (ev.propertyName !== 'height') return;
+          answer.removeEventListener('transitionend', close);
+          item.open = false;
+          answer.style.height = '';
+          answer.dataset.busy = '';
+        });
+        requestAnimationFrame(function () { answer.style.height = '0px'; });
+      } else {
+        item.open = true;
+        var h = answer.scrollHeight;
+        answer.style.height = '0px';
+        answer.addEventListener('transitionend', done);
+        requestAnimationFrame(function () { answer.style.height = h + 'px'; });
+      }
+    });
+  });
+})();
