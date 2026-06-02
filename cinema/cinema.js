@@ -223,6 +223,7 @@
     hero: ".hero",
     manifesto: ".chapter",
     tiers: ".tiers",
+    concierge: ".concierge",
     founder: ".founder",
     gallery: ".gallery",
     closing: ".closing"

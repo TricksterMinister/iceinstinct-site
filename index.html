@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Geist:wght@300..900&family=Inter:wght@300..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/accent.css?v=20260507a">
-  <link rel="stylesheet" href="/cinema/cinema.css?v=20260508f">
+  <link rel="stylesheet" href="/cinema/cinema.css?v=20260601i">
   <link rel="stylesheet" href="/footer.css?v=20260531t">
 </head>
 <body>
@@ -22,9 +22,10 @@
     <button class="pager-dot is-active" data-pager="hero"><span>01</span></button>
     <button class="pager-dot" data-pager="manifesto"><span>02</span></button>
     <button class="pager-dot" data-pager="tiers"><span>03</span></button>
-    <button class="pager-dot" data-pager="founder"><span>04</span></button>
-    <button class="pager-dot" data-pager="gallery"><span>05</span></button>
-    <button class="pager-dot" data-pager="closing"><span>06</span></button>
+    <button class="pager-dot" data-pager="concierge"><span>04</span></button>
+    <button class="pager-dot" data-pager="founder"><span>05</span></button>
+    <button class="pager-dot" data-pager="gallery"><span>06</span></button>
+    <button class="pager-dot" data-pager="closing"><span>07</span></button>
   </aside>
 
   <!-- ====== VANISH HEADER (single mark, full-screen overlay menu) ====== -->
@@ -45,9 +46,10 @@
         <li><a href="#hero" data-cursor="link"><i>01</i><b>Bridge</b><em>The opening view</em></a></li>
         <li><a href="#manifesto" data-cursor="link"><i>02</i><b>The Brand</b><em>Not a bar. A studio.</em></a></li>
         <li><a href="#tiers" data-cursor="link"><i>03</i><b>Offerings</b><em>Four levels, one standard</em></a></li>
-        <li><a href="#founder" data-cursor="link"><i>04</i><b>The Alchemist</b><em>Teimuraz Benidze</em></a></li>
-        <li><a href="#gallery" data-cursor="link"><i>05</i><b>The Collection</b><em>Twelve compositions</em></a></li>
-        <li><a href="#closing" data-cursor="link"><i>06</i><b>Inquire</b><em>Begin the conversation</em></a></li>
+        <li><a href="#concierge" data-cursor="link"><i>04</i><b>Concierge</b><em>Five enhancements</em></a></li>
+        <li><a href="#founder" data-cursor="link"><i>05</i><b>The Alchemist</b><em>Teimuraz Benidze</em></a></li>
+        <li><a href="#gallery" data-cursor="link"><i>06</i><b>The Collection</b><em>Twelve compositions</em></a></li>
+        <li><a href="#closing" data-cursor="link"><i>07</i><b>Inquire</b><em>Begin the conversation</em></a></li>
       </ul>
       <nav class="va-deep" aria-label="Deep pages">
         <span class="va-deep-eyebrow">Read in full</span>
@@ -150,9 +152,7 @@
 
       <article class="tier" data-tier="i">
         <div class="tier-bg">
-          <video autoplay muted loop playsinline preload="auto">
-            <source src="https://videos.pexels.com/video-files/4765778/4765778-hd_1920_1080_25fps.mp4" type="video/mp4">
-          </video>
+          <img src="../assets/photos/tier-foundation.jpg" alt="Bartender's hands stirring a crystal mixing glass, Manhattan night beyond" loading="lazy" decoding="async">
           <div class="tier-bg-scrim"></div>
         </div>
         <div class="tier-body">
@@ -171,9 +171,7 @@
 
       <article class="tier" data-tier="ii">
         <div class="tier-bg">
-          <video autoplay muted loop playsinline preload="auto">
-            <source src="https://videos.pexels.com/video-files/4765778/4765778-hd_1920_1080_25fps.mp4" type="video/mp4">
-          </video>
+          <img src="../assets/photos/tier-simplicity.jpg" alt="A lone bartender in profile, a single cocktail lit on a sparse bar" loading="lazy" decoding="async">
           <div class="tier-bg-scrim"></div>
         </div>
         <div class="tier-body">
@@ -192,9 +190,7 @@
 
       <article class="tier" data-tier="iii">
         <div class="tier-bg">
-          <video autoplay muted loop playsinline preload="auto">
-            <source src="https://videos.pexels.com/video-files/4765778/4765778-hd_1920_1080_25fps.mp4" type="video/mp4">
-          </video>
+          <img src="../assets/photos/tier-bespoke.jpg" alt="A flamed citrus peel sparking over a sculptural signature cocktail" loading="lazy" decoding="async">
           <div class="tier-bg-scrim"></div>
         </div>
         <div class="tier-body">
@@ -213,9 +209,7 @@
 
       <article class="tier" data-tier="iv">
         <div class="tier-bg">
-          <video autoplay muted loop playsinline preload="auto">
-            <source src="https://videos.pexels.com/video-files/4765778/4765778-hd_1920_1080_25fps.mp4" type="video/mp4">
-          </video>
+          <img src="../assets/photos/tier-omakase.jpg" alt="A bartender improvising in smoke, a guest watching across the bar" loading="lazy" decoding="async">
           <div class="tier-bg-scrim"></div>
         </div>
         <div class="tier-body">
@@ -232,27 +226,33 @@
         </div>
       </article>
 
-      <article class="tier" data-tier="v">
-        <div class="tier-bg">
-          <video autoplay muted loop playsinline preload="auto">
-            <source src="https://videos.pexels.com/video-files/4765778/4765778-hd_1920_1080_25fps.mp4" type="video/mp4">
-          </video>
-          <div class="tier-bg-scrim"></div>
-        </div>
-        <div class="tier-body">
-          <div class="tier-rank">V</div>
-          <span class="tier-name">Concierge &amp; Enhancements</span>
-          <h3 class="tier-title">Augment any <span class="it">experience.</span></h3>
-          <p class="tier-blurb">Five enhancements that deepen the ritual: cigars, additional staff, the curator, glassware, ice and temperature. Pair with any tier.</p>
-          <ul class="tier-spec">
-            <li><span>From</span><b>$250</b></li>
-            <li><span>Pair with</span><b>any tier</b></li>
-            <li><span>Sourced</span><b>personally</b></li>
-          </ul>
-          <a class="tier-link" href="/concierge/" data-cursor="link">Read the chapter <span aria-hidden="true">&rarr;</span></a>
-        </div>
-      </article>
+    </div>
+  </section>
 
+  <!-- ====== CONCIERGE (enhancements - add-on layer, not a tier) ====== -->
+  <section class="concierge" id="concierge">
+    <div class="section-bg-word right" aria-hidden="true">ENHANCE</div>
+    <div class="concierge-stage">
+      <div class="concierge-text">
+        <span class="concierge-eyebrow">Beyond the four levels</span>
+        <h2 class="concierge-headline">The <span class="it">Concierge.</span></h2>
+        <p class="concierge-lead">Five quiet enhancements that deepen the ritual. Each one pairs with any level - sourced personally, never bundled.</p>
+        <ol class="concierge-index">
+          <li><i>01</i><b>Bespoke Cigar Curator</b></li>
+          <li><i>02</i><b>Additional Bar Staff</b></li>
+          <li><i>03</i><b>The Curator</b></li>
+          <li><i>04</i><b>Glassware &amp; Vessels</b></li>
+          <li><i>05</i><b>Ice &amp; Temperature</b></li>
+        </ol>
+        <a class="concierge-link" href="/concierge/" data-cursor="link">Explore the concierge <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <div class="concierge-image" data-parallax>
+        <video class="concierge-video" autoplay muted loop playsinline preload="auto" poster="../assets/video/concierge-poster.webp">
+          <source src="../assets/video/concierge-loop.webm?v=2" type="video/webm">
+          <source src="../assets/video/concierge-loop.mp4?v=2" type="video/mp4">
+        </video>
+        <div class="concierge-image-scrim"></div>
+      </div>
     </div>
   </section>
 
@@ -260,7 +260,10 @@
     <div class="section-bg-word right" aria-hidden="true">ALCHEMIST</div>
     <div class="founder-stage">
       <div class="founder-image" data-parallax>
-        <img src="../assets/photos/alchemist-teaser.jpg" alt="A figure at the bar, the Manhattan skyline beyond" loading="lazy">
+        <video class="founder-video" autoplay muted loop playsinline preload="auto" poster="../assets/video/alchemist-poster.webp">
+          <source src="../assets/video/alchemist-loop.webm?v=2" type="video/webm">
+          <source src="../assets/video/alchemist-loop.mp4?v=2" type="video/mp4">
+        </video>
         <div class="founder-image-scrim"></div>
       </div>
 
@@ -363,6 +366,6 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.16/dist/lenis.min.js"></script>
-  <script src="/cinema/cinema.js?v=20260508b"></script>
+  <script src="/cinema/cinema.js?v=20260601a"></script>
 </body>
 </html>
