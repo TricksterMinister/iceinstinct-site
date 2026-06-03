@@ -15,8 +15,8 @@
 /* The gate: full-height champagne seam + a centered diamond medallion holding the ampersand (echoes the brand diamond mark) */
 .duality-portal { position: absolute; inset: 0; z-index: 3; pointer-events: none; transition: opacity 0.5s; }
 .duality-seam { position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; transform: translateX(-50%); background: linear-gradient(180deg, transparent 0%, oklch(88% 0.06 95 / 0.55) 18%, oklch(88% 0.06 95 / 0.55) 82%, transparent 100%); }
-.duality-gate { position: absolute; top: 50%; left: 50%; width: clamp(104px, 12vmin, 168px); height: clamp(104px, 12vmin, 168px); transform: translate(-50%, -50%) rotate(45deg); border: 1px solid var(--c-accent); background: var(--c-bg); box-shadow: 0 0 0 7px var(--c-bg), 0 0 40px oklch(88% 0.06 95 / 0.22); }
-.duality-amp-char { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; transform: rotate(-45deg); font-family: var(--f-italic); font-style: italic; font-size: clamp(2.6rem, 5.5vmin, 4.6rem); line-height: 1; color: var(--c-accent); }
+.duality-gate { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; justify-content: center; }
+.duality-amp-char { display: flex; align-items: center; justify-content: center; font-family: var(--f-italic); font-style: italic; font-weight: 350; font-size: clamp(4rem, 9vmin, 8rem); line-height: 1; color: var(--c-accent); text-shadow: 0 0 14px oklch(88% 0.06 95 / 0.55), 0 0 44px oklch(88% 0.06 95 / 0.35); }
 .duality-cue { position: absolute; bottom: 2.4rem; left: 50%; transform: translateX(-50%); z-index: 3; font-family: var(--f-mono); font-size: var(--t-step--2); letter-spacing: 0.3em; text-transform: uppercase; color: var(--c-fg-faint); pointer-events: none; }
 @media (max-width: 820px) {
   .duality { flex-direction: column; height: auto; min-height: 100dvh; }
