@@ -192,11 +192,7 @@
     });
   }
 
-  /* ---------- CLOSING marble panel reveal ---------- */
-  gsap.fromTo(".closing-marble", { scaleY: 0.4 }, {
-    scaleY: 1, ease: "expo.out",
-    scrollTrigger: { trigger: ".closing", start: "top 80%", end: "top 30%", scrub: 0.6 }
-  });
+  /* ---------- CLOSING CTA reveal ---------- */
   gsap.fromTo(".closing-stage > *", { y: 30, opacity: 0 }, {
     y: 0, opacity: 1, duration: 0.9, stagger: 0.08, ease: "expo.out",
     scrollTrigger: { trigger: ".closing-stage", start: "top 75%" }
