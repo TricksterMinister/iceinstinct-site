@@ -1,6 +1,6 @@
-/* Split-worlds hover reveal - mechanic ported 1:1 from orbis.restaurant
-   (flex 0.9s easeOutExpo, ~66/34 expand, dim inactive, per-side editorial world,
-   moving champagne laser divider). Skin = our monochrome + champagne, ice/ember walls. */
+/* Split-screen hover reveal - mechanic ported 1:1 from reference (easeOutExpo 0.9s,
+   65/35 panel expand, restrained diverging title, moving champagne laser divider,
+   per-side content reveal). Skin = our monochrome + champagne, ice/ember walls. */
 .duality {
   --dur: 0.9s;
   --bz: cubic-bezier(0.16, 1, 0.3, 1);
@@ -8,85 +8,87 @@
   overflow: hidden; isolation: isolate; background: var(--c-bg);
 }
 
-/* panels: flex-grow driven (not width) */
-.d-panel { position: relative; flex: 1 1 50%; height: 100%; overflow: hidden; cursor: pointer;
-  display: flex; align-items: center; transition: flex var(--dur) var(--bz);
-  z-index: 1; }
-.d-left { justify-content: flex-start; }
-.d-right { justify-content: flex-end; }
-
+/* panels */
+.d-panel { position: relative; width: 50%; height: 100%; overflow: hidden; cursor: pointer;
+  transition: width var(--dur) var(--bz); z-index: 1; }
 .d-media { position: absolute; inset: 0; z-index: 0; }
-.d-media img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(1.05) brightness(0.34);
+.d-media img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(1.05) brightness(0.32);
   transition: filter var(--dur) var(--bz), transform var(--dur) var(--bz); transform: scale(1.04); will-change: filter, transform; }
 .d-scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 45%, rgba(0,0,0,0.7) 100%); }
+  background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, transparent 38%, rgba(0,0,0,0.6) 100%); }
 
-/* the split */
-.duality.hover-left  .d-left  { flex-grow: 1.95; }
-.duality.hover-left  .d-right { flex-grow: 1; }
-.duality.hover-right .d-right { flex-grow: 1.95; }
-.duality.hover-right .d-left  { flex-grow: 1; }
+/* expand / dim on hover (the split) */
+.duality.hover-left  .d-left  { width: 65%; }
+.duality.hover-left  .d-right { width: 35%; }
+.duality.hover-right .d-right { width: 65%; }
+.duality.hover-right .d-left  { width: 35%; }
 .duality.hover-left  .d-left  .d-media img,
-.duality.hover-right .d-right .d-media img { filter: grayscale(100%) contrast(1.06) brightness(0.62); transform: scale(1); }
+.duality.hover-right .d-right .d-media img { filter: grayscale(100%) contrast(1.06) brightness(0.6); transform: scale(1); }
 .duality.hover-left  .d-right .d-media img,
-.duality.hover-right .d-left  .d-media img { filter: grayscale(100%) contrast(1) brightness(0.14); }
+.duality.hover-right .d-left  .d-media img { filter: grayscale(100%) contrast(1) brightness(0.16); }
 
-/* champagne laser divider tracking the seam */
+/* champagne laser divider that tracks the seam */
 .d-divider { position: absolute; top: 0; left: 50%; width: 1px; height: 100%; z-index: 5; pointer-events: none;
   background: linear-gradient(180deg, transparent, oklch(88% 0.06 95 / 0.18) 20%, oklch(88% 0.06 95 / 0.18) 80%, transparent);
   transition: left var(--dur) var(--bz); }
 .d-divider::after { content: ''; position: absolute; top: 30%; left: -1px; width: 3px; height: 40%; border-radius: 5px;
   background: linear-gradient(180deg, transparent, var(--c-accent), transparent);
-  box-shadow: 0 0 16px oklch(88% 0.06 95 / 0.5); opacity: 0.45; transition: opacity 0.4s ease, box-shadow var(--dur) var(--bz); }
-.duality.hover-left  .d-divider { left: 66%; }
-.duality.hover-right .d-divider { left: 34%; }
+  box-shadow: 0 0 16px oklch(88% 0.06 95 / 0.5); opacity: 0.4; transition: opacity 0.4s ease, box-shadow var(--dur) var(--bz); }
+.duality.hover-left  .d-divider { left: 65%; }
+.duality.hover-right .d-divider { left: 35%; }
 .duality.hover-left  .d-divider::after,
 .duality.hover-right .d-divider::after { opacity: 1; box-shadow: 0 0 26px oklch(88% 0.06 95 / 0.7); }
 
-/* per-side editorial world */
-.d-content { position: relative; z-index: 3; max-width: 38ch; padding: 0 clamp(2.4rem, 5vw, 6rem);
-  transition: opacity var(--dur) var(--bz), transform var(--dur) var(--bz); }
-.d-right .d-content { text-align: right; margin-left: auto; }
-/* dim the inactive side's words while one is open */
-.duality.hover-left  .d-right .d-content,
-.duality.hover-right .d-left  .d-content { opacity: 0.3; }
-
-.d-eyebrow { display: block; font-family: var(--f-mono); font-size: var(--t-step--2); letter-spacing: 0.32em;
-  text-transform: uppercase; color: var(--c-fg-faint); margin-bottom: clamp(1rem, 2vh, 1.6rem); }
-.d-panel.d-left:hover .d-eyebrow, .d-panel.d-right:hover .d-eyebrow,
-.duality.hover-left .d-left .d-eyebrow, .duality.hover-right .d-right .d-eyebrow { color: var(--c-accent); }
-.d-word { margin: 0; line-height: 0.88; }
+/* centred diverging wordmark: rest = "Ice & Instinct" */
+.d-title { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100vw; z-index: 10;
+  display: inline-flex; align-items: center; justify-content: center; gap: clamp(0.5rem, 1.4vw, 1.6rem);
+  text-align: center; pointer-events: none; user-select: none; }
+.d-part { display: inline-block; line-height: 0.9; white-space: nowrap; will-change: transform;
+  transition: transform var(--dur) var(--bz), opacity var(--dur) var(--bz), text-shadow var(--dur) var(--bz); }
 .d-ice { font-family: var(--f-display); font-weight: 700; text-transform: uppercase; letter-spacing: -0.04em;
-  font-size: clamp(4rem, 11vmin, 10rem); color: var(--c-fg); }
+  font-size: clamp(3.5rem, 11vw, 11rem); color: var(--c-fg); transform-origin: right center; }
 .d-instinct { font-family: var(--f-italic); font-style: italic; font-weight: 350;
-  font-size: clamp(4rem, 11vmin, 10rem); color: var(--c-accent); }
-.d-line { font-family: var(--f-italic); font-style: italic; font-size: var(--t-step-1); line-height: 1.3;
-  color: var(--c-fg); margin: clamp(1rem, 2vh, 1.6rem) 0 0; }
-.d-body { font-size: var(--t-step-0); line-height: 1.6; color: var(--c-fg-mute); margin: 1rem 0 0;
-  opacity: 0; transform: translateY(12px); transition: opacity var(--dur) var(--bz), transform var(--dur) var(--bz); }
-.d-enter { display: inline-block; margin-top: clamp(1.4rem, 3vh, 2.2rem); font-family: var(--f-mono);
-  font-size: var(--t-step--2); letter-spacing: 0.28em; text-transform: uppercase; color: var(--c-accent);
-  border-bottom: 1px solid oklch(88% 0.06 95 / 0.4); padding-bottom: 0.4rem;
-  opacity: 0; transform: translateY(12px); transition: opacity var(--dur) var(--bz), transform var(--dur) var(--bz); }
-/* reveal body + enter only for the active side */
-.duality.hover-left  .d-left  .d-body, .duality.hover-left  .d-left  .d-enter,
-.duality.hover-right .d-right .d-body, .duality.hover-right .d-right .d-enter { opacity: 1; transform: none; }
+  font-size: clamp(3.5rem, 11vw, 11rem); color: var(--c-accent); transform-origin: left center; }
+.d-amp { font-family: var(--f-italic); font-style: italic; font-weight: 350; font-size: clamp(2.4rem, 6vw, 5.5rem);
+  line-height: 1; color: var(--c-accent); text-shadow: 0 0 14px oklch(88% 0.06 95 / 0.5), 0 0 44px oklch(88% 0.06 95 / 0.35);
+  transition: opacity var(--dur) var(--bz), transform var(--dur) var(--bz); will-change: opacity, transform; }
+
+.duality.hover-left  .d-ice { transform: translateX(-44px) scale(1.05); text-shadow: 0 0 44px oklch(88% 0.06 95 / 0.55); }
+.duality.hover-left  .d-instinct { transform: translateX(22px) scale(0.95); opacity: 0.32; }
+.duality.hover-right .d-instinct { transform: translateX(44px) scale(1.05); text-shadow: 0 0 44px oklch(88% 0.06 95 / 0.55); }
+.duality.hover-right .d-ice { transform: translateX(-22px) scale(0.95); opacity: 0.32; }
+.duality.hover-left  .d-amp,
+.duality.hover-right .d-amp { opacity: 0.35; transform: scale(0.8); }
+
+/* per-side content (eyebrow + line) - hidden at rest, revealed for the active side */
+.d-content { position: absolute; bottom: clamp(4rem, 14vh, 10rem); left: 0; right: 0; z-index: 3; padding: 0 4vw;
+  text-align: center; opacity: 0; transform: translateY(16px); pointer-events: none;
+  transition: opacity var(--dur) var(--bz), transform var(--dur) var(--bz); }
+.duality.hover-left  .d-left  .d-content,
+.duality.hover-right .d-right .d-content { opacity: 1; transform: none; }
+.d-eyebrow { display: block; font-family: var(--f-mono); font-size: var(--t-step--2); letter-spacing: 0.34em;
+  text-transform: uppercase; color: var(--c-accent); margin-bottom: 1rem; }
+.d-sub { font-family: var(--f-mono); font-size: var(--t-step--1); letter-spacing: 0.16em; text-transform: uppercase;
+  line-height: 1.6; color: var(--c-fg-mute); max-width: 34ch; margin: 0 auto; }
 
 .duality-eyebrow { position: absolute; top: clamp(2rem, 5vh, 3.6rem); left: 50%; transform: translateX(-50%); z-index: 11;
-  margin: 0; font-family: var(--f-mono); font-size: var(--t-step--2); letter-spacing: 0.3em; text-transform: uppercase;
-  color: var(--c-fg-faint); white-space: nowrap; pointer-events: none; }
+  margin: 0; font-family: var(--f-mono); font-size: var(--t-step--2); letter-spacing: 0.34em; text-transform: uppercase;
+  color: var(--c-fg-faint); pointer-events: none; }
+.duality-cue { position: absolute; bottom: 2.4rem; left: 50%; transform: translateX(-50%); z-index: 11;
+  font-family: var(--f-mono); font-size: var(--t-step--2); letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--c-fg-faint); pointer-events: none; }
 
+/* mobile: stacked, no hover */
 @media (max-width: 820px) {
   .duality { flex-direction: column; height: auto; min-height: 100dvh; }
-  .d-panel { flex: none !important; width: 100%; height: 50dvh; }
-  .d-left, .d-right { justify-content: center; }
-  .d-content, .d-right .d-content { text-align: center; margin: 0 auto; }
-  .d-media img { filter: grayscale(100%) brightness(0.5) !important; }
+  .d-panel { width: 100% !important; height: 50dvh; }
+  .d-media img { brightness: 0.4; }
   .d-divider { display: none; }
-  .d-body { opacity: 1; transform: none; }
-  .d-enter { opacity: 1; transform: none; }
-  .d-word { font-size: clamp(3rem, 14vw, 5rem); }
+  .d-title { position: absolute; flex-direction: column; gap: 0.3rem; width: 100%; }
+  .d-ice, .d-instinct { font-size: clamp(3rem, 12vw, 5rem); }
+  .d-amp { font-size: clamp(2rem, 7vw, 3rem); }
+  .d-content { bottom: 2rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .d-panel, .d-media img, .d-divider, .d-content, .d-body, .d-enter { transition: none; }
+  .d-panel, .d-media img, .d-divider, .d-part, .d-amp, .d-content { transition: none; }
 }
