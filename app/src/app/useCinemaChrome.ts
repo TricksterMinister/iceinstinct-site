@@ -1,17 +1,14 @@
 /* ================================================
    useCinemaChrome - React port of cinema-chrome.js
    Vanish nav + magnetic cursor + ghost-word parallax.
-   Loaded on deep pages. Depends on optional global GSAP.
+   Loaded on deep pages. Uses the npm gsap package.
    ================================================ */
 
 import { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-declare global {
-  interface Window {
-    gsap?: any;
-    ScrollTrigger?: any;
-  }
-}
+gsap.registerPlugin(ScrollTrigger);
 
 export function useCinemaChrome(): void {
   useEffect(() => {
@@ -87,18 +84,16 @@ export function useCinemaChrome(): void {
       vaOverlay.classList.add('is-open');
       vaOverlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-      if (window.gsap) {
-        window.gsap.fromTo(
-          '.va-list li',
-          { y: 40, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.7, stagger: 0.06, ease: 'expo.out', delay: 0.1 }
-        );
-        window.gsap.fromTo(
-          '.va-eyebrow, .va-foot',
-          { y: 16, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.6, ease: 'expo.out', delay: 0.05 }
-        );
-      }
+      gsap.fromTo(
+        '.va-list li',
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.7, stagger: 0.06, ease: 'expo.out', delay: 0.1 }
+      );
+      gsap.fromTo(
+        '.va-eyebrow, .va-foot',
+        { y: 16, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, ease: 'expo.out', delay: 0.05 }
+      );
     }
     function closeOverlay() {
       if (!vaOverlay) return;
@@ -120,11 +115,10 @@ export function useCinemaChrome(): void {
     document.addEventListener('keydown', onKeydown);
     cleanups.push(() => document.removeEventListener('keydown', onKeydown));
 
-    /* ---------- GHOST-WORD PARALLAX (if GSAP+ScrollTrigger present) ---------- */
-    if (window.gsap && window.ScrollTrigger && !reduced) {
-      window.gsap.registerPlugin(window.ScrollTrigger);
-      window.gsap.utils.toArray('.section-bg-word').forEach((el: HTMLElement) => {
-        window.gsap.to(el, {
+    /* ---------- GHOST-WORD PARALLAX ---------- */
+    if (!reduced) {
+      gsap.utils.toArray<HTMLElement>('.section-bg-word').forEach((el) => {
+        gsap.to(el, {
           yPercent: -22,
           xPercent: -6,
           ease: 'none',
