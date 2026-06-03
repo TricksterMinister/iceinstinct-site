@@ -18,6 +18,8 @@ export default defineConfig({
         offerings: r('offerings/index.html'),
         foundation: r('offerings/foundation/index.html'),
         simplicity: r('offerings/simplicity/index.html'),
+        bespoke: r('offerings/bespoke/index.html'),
+        omakase: r('offerings/omakase/index.html'),
       },
     },
   },
