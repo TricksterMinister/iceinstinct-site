@@ -13,6 +13,8 @@ export default defineConfig({
       input: {
         home: r('index.html'),
         privacy: r('privacy/index.html'),
+        terms: r('terms/index.html'),
+        contact: r('contact/index.html'),
       },
     },
   },
