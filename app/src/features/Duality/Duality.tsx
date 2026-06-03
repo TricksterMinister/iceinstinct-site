@@ -34,7 +34,10 @@ export function Duality({ onCommit }: { onCommit?: (t: Temperament) => void }) {
         <div className="d-scrim" />
         <div className="d-content">
           <span className="d-eyebrow">The cold craft</span>
-          <p className="d-sub">Discipline. Order. The patience of craft.</p>
+          <h2 className="d-word d-ice">Ice</h2>
+          <p className="d-line">Order, clarity, the patience of the stir.</p>
+          <p className="d-body">The classics, built without shortcuts. Measured, exact, quietly perfect.</p>
+          <span className="d-enter">Begin in stillness <span aria-hidden="true">&rarr;</span></span>
         </div>
       </section>
 
@@ -50,19 +53,14 @@ export function Duality({ onCommit }: { onCommit?: (t: Temperament) => void }) {
         <div className="d-scrim" />
         <div className="d-content">
           <span className="d-eyebrow">The living fire</span>
-          <p className="d-sub">Intuition. The pulse. The whisper that changes everything.</p>
+          <h2 className="d-word d-instinct">Instinct</h2>
+          <p className="d-line">The spark that changes everything.</p>
+          <p className="d-body">No menu, no net. Created in the moment, in dialogue with the room. Unrepeatable.</p>
+          <span className="d-enter">Enter the fire <span aria-hidden="true">&rarr;</span></span>
         </div>
       </section>
 
-      <p className="duality-eyebrow" aria-hidden="true">A private mixology ritual</p>
-
-      <div className="d-title" aria-hidden="true">
-        <span className="d-part d-ice">Ice</span>
-        <span className="d-amp">&amp;</span>
-        <span className="d-part d-instinct">Instinct</span>
-      </div>
-
-      <div className="duality-cue" aria-hidden="true">Choose your nature</div>
+      <p className="duality-eyebrow" aria-hidden="true">Ice &amp; Instinct - a private mixology ritual</p>
     </section>
   );
 }
