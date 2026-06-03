@@ -5,6 +5,18 @@ Read it fully before touching code.
 
 ---
 
+## ⚡ ACTIVE WORK IS ON BRANCH `react-shell` (updated 2026-06-03)
+
+You are on `main` (the current vanilla site). The **active project is a React migration on the `react-shell` branch**, NOT here. Do this first:
+
+```
+git checkout react-shell
+```
+
+Then read `CLAUDE.md` and `REACT-MIGRATION-HANDOFF.md` on that branch for the real current state. `main` stays as-is until the migration is finished and cut over. Do not start new work on `main`.
+
+---
+
 ## Who, what, where
 
 - **Brand:** Ice & Instinct - a private mixology studio in Manhattan
