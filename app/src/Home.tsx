@@ -5,7 +5,7 @@ import { VanishHeader } from './app/VanishHeader';
 import { useGsap } from './app/useGsap';
 import { initHomeGsap } from './lib/gsapHome';
 import { Hero } from './sections/Hero';
-import { Manifesto } from './sections/Manifesto';
+import { Duality } from './features/Duality/Duality';
 import { Tiers } from './sections/Tiers';
 import { Concierge } from './sections/Concierge';
 import { Founder } from './sections/Founder';
@@ -24,7 +24,7 @@ function HomeContent() {
       <VanishHeader />
       <Pager />
       <Hero />
-      <Manifesto />
+      <Duality />
       <Tiers />
       <Concierge />
       <Founder />

@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
  */
 const pagerMap: Record<string, string> = {
   hero: '.hero',
-  manifesto: '.chapter',
+  manifesto: '.duality',
   tiers: '.tiers',
   concierge: '.concierge',
   founder: '.founder',

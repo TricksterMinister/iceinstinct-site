@@ -6,6 +6,12 @@ const r = (p: string) => resolve(__dirname, p);
 
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    // motion v11 ships its own React import path; dedupe so the dev-server
+    // dependency optimizer does not load a second React copy (which causes
+    // "Invalid hook call" when motion hooks run).
+    dedupe: ['react', 'react-dom'],
+  },
   build: {
     outDir: 'dist',
     assetsDir: 'assets-build',
