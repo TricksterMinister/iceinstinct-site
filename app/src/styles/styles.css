@@ -200,7 +200,9 @@ body::after {
 }
 
 /* ===== Header / nav =============================================== */
-.header {
+/* Flat top header removed site-wide per direction (2026-06-03). */
+.header { display: none !important; }
+.header--keep {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 50;
@@ -1866,7 +1868,8 @@ img.reveal-zoom.is-in { transform: scale(1); }
 @media (max-width: 720px) {
   .gallery-track .gallery-tile {
     width: 78vw;
-    height: 70dvh;
+    height: auto;
+    aspect-ratio: 3 / 4;
   }
 }
 

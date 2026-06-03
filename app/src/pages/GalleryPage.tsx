@@ -1,6 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
+import { PalateProfiler } from '../features/Profiler/PalateProfiler';
+import type { Selections } from '../features/Profiler/profilerData';
 
 export function GalleryPage() {
   // Live deep page sets <body class="cinema-chrome is-gallery closer">. React mounts
@@ -14,6 +16,18 @@ export function GalleryPage() {
 
   useCinemaChrome();
   useDeepScripts();
+
+  const [profilerOpen, setProfilerOpen] = useState(false);
+
+  // Phase 3 will pre-fill a real Inquiry modal. For now, carry the created
+  // cocktail to the contact page via query params.
+  const commission = (name: string, sel: Selections) => {
+    const params = new URLSearchParams({ cocktail: name });
+    if (sel.identity) params.set('identity', sel.identity);
+    if (sel.taste) params.set('taste', sel.taste);
+    if (sel.accord) params.set('accord', sel.accord);
+    window.location.href = `/contact/?${params.toString()}`;
+  };
 
   return (
     <>
@@ -338,6 +352,25 @@ export function GalleryPage() {
           </div>
         </section>
 
+        <section className="pp-band">
+          <div className="container-narrow">
+            <div className="pp-band-inner">
+              <span className="pp-band-eyebrow">The thirteenth composition</span>
+              <h2 className="pp-band-title">
+                Not on the wall yet. <span className="it">Compose your own.</span>
+              </h2>
+              <p className="pp-band-lead">
+                The twelve above were each built for one evening. Answer three sensory questions and the alchemist
+                composes a signature for yours - named, poured, and ready to commission.
+              </p>
+              <button className="pp-band-cta" type="button" onClick={() => setProfilerOpen(true)}>
+                <span>Compose your signature</span>
+                <span className="arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
         <section id="final-cta" className="numbered">
           <div className="container-narrow">
             <div className="final-cta final-cta--luxe reveal">
@@ -373,7 +406,7 @@ export function GalleryPage() {
           &times;
         </button>
         <div className="lightbox-frame">
-          <img id="lightbox-image" src="" alt="" />
+          <img id="lightbox-image" alt="" />
           <div className="lightbox-title" id="lightbox-title"></div>
         </div>
       </div>
@@ -460,6 +493,8 @@ export function GalleryPage() {
           <span className="footer-meta">Manhattan &middot; Est. 2024 &middot; © 2026 Ice &amp; Instinct</span>
         </div>
       </footer>
+
+      <PalateProfiler open={profilerOpen} onClose={() => setProfilerOpen(false)} onCommission={commission} />
     </>
   );
 }

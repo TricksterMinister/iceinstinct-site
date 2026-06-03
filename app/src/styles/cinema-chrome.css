@@ -264,7 +264,29 @@ body.cinema-chrome.closer .footer {
 @media (max-width: 720px) {
   /* On mobile, drop the 50/50 lock; let content breathe vertically */
   body.cinema-chrome.is-gallery .page-hero { height: auto; min-height: 60dvh; }
-  body.cinema-chrome.is-gallery main > section:nth-of-type(2) { height: auto; min-height: 70dvh; }
+
+  /* Gallery filmstrip: on mobile the height:100% chain off an auto-height
+     section blows the tiles up to ~1800px. Reset the chain and size tiles by a
+     fixed swipe width + 3:4 aspect, so it reads as a luxurious horizontal
+     swipe carousel. */
+  body.cinema-chrome.is-gallery main > section:nth-of-type(2) {
+    height: auto; min-height: 0; max-height: none; overflow: visible;
+  }
+  body.cinema-chrome.is-gallery main > section:nth-of-type(2) > .container { height: auto; }
+  body.cinema-chrome.is-gallery .gallery-track-wrap { height: auto; }
+  body.cinema-chrome.is-gallery .gallery-track {
+    height: auto;
+    align-items: flex-start;
+    padding-bottom: 0.5rem;
+    scroll-snap-type: x mandatory;
+  }
+  body.cinema-chrome.is-gallery .gallery-track .gallery-tile {
+    width: 76vw;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    scroll-snap-align: center;
+  }
+
   body.cinema-chrome.closer #final-cta { min-height: 60dvh; }
 }
 
@@ -540,8 +562,29 @@ body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-link { color: var(--c-acc
   body.cinema-chrome.vp-split .vp-shelf {
     height: auto; min-height: auto; max-height: none; overflow: visible;
   }
-  body.cinema-chrome.vp-split .vp-shelf .tier-card { height: auto; }
+  body.cinema-chrome.vp-split .vp-shelf .tier-card { height: auto; min-height: 46dvh; }
   body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-figure { font-size: 6rem; }
+
+  /* The 4-col grid is more specific than the base .promise-grid mobile swipe
+     rule, so it must be unlocked here too - otherwise the tiers squash into
+     four clipped columns. Becomes a full-width horizontal swipe. */
+  body.cinema-chrome.vp-split .vp-shelf .promise-grid.vp-track {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  body.cinema-chrome.vp-split .vp-shelf .promise-grid.vp-track::-webkit-scrollbar { display: none; }
+  body.cinema-chrome.vp-split .vp-shelf .promise-grid.vp-track > * {
+    flex: 0 0 82vw;
+    scroll-snap-align: center;
+  }
+  body.cinema-chrome.vp-split .vp-shelf .promise-grid.vp-track > *:nth-child(n+2) {
+    border-left: 1px solid oklch(58% 0.08 90 / 0.16);
+  }
 }
 
 /* ============================================================
