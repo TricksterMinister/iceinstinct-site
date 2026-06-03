@@ -5,6 +5,18 @@ Read it fully before touching code.
 
 ---
 
+## ⚡ CURRENT STATE - READ THIS FIRST (updated 2026-06-03)
+
+**Active work = React migration. NOTHING is deployed. Live site (vanilla on `main`) is untouched and still serving.**
+
+1. **Branch:** work happens on **`react-shell`** (pushed to origin). `main` = old vanilla site; do NOT merge/deploy into it yet.
+2. **READ NOW:** open **`REACT-MIGRATION-HANDOFF.md`** (repo root) - exact phase status, what's done, what's next. Do NOT rely on the auto session-digest; it gets truncated. This file + the handoff are the source of truth.
+3. **React app lives in `app/`** (Vite + React 19 + TS). Run: `cd app && npm run dev` -> http://localhost:5173/
+4. **Status:** Phase 0 (React shell, full parity) = DONE. Phase 1 (Duality, chapter 02) = PARKED - Temo unhappy with the portal interaction, do NOT re-touch unprompted. Phase 2 (Palate Profiler) = next.
+5. **Do not deploy / cutover** until all feature phases are done and a prerender/SSG decision is made (see handoff). Deploy-model note: live iceinstinct.com is on Hostinger's site builder, NOT serving this repo - confirm the real deploy path before any cutover.
+
+---
+
 ## Who, what, where
 
 - **Brand:** Ice & Instinct - a private mixology studio in Manhattan
