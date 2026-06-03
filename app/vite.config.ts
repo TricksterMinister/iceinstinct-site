@@ -16,6 +16,8 @@ export default defineConfig({
         terms: r('terms/index.html'),
         contact: r('contact/index.html'),
         offerings: r('offerings/index.html'),
+        conciergePage: r('concierge/index.html'),
+        gallery: r('gallery/index.html'),
         foundation: r('offerings/foundation/index.html'),
         simplicity: r('offerings/simplicity/index.html'),
         bespoke: r('offerings/bespoke/index.html'),
