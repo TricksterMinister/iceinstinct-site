@@ -1,3 +1,6 @@
+import './styles/accent.css';
+import './styles/cinema.css';
+import './styles/footer.css';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Home } from './Home';
