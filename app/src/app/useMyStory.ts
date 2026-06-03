@@ -21,6 +21,9 @@ export function useMyStory(): void {
 
     const cleanups: Array<() => void> = [];
 
+    /* All GSAP creation runs inside a context so every tween + ScrollTrigger
+       reverts on cleanup (prevents StrictMode double-mount duplicate triggers). */
+    const ctx = gsap.context(() => {
     /* =====================================================================
        MY STORY - cinematic scroll choreography (agency-tier, brand-safe)
        ===================================================================== */
@@ -184,9 +187,11 @@ export function useMyStory(): void {
         cleanups.push(() => summary.removeEventListener('click', onSummaryClick));
       });
     }
+    });
 
     return () => {
       cleanups.forEach((fn) => fn());
+      ctx.revert();
     };
   }, []);
 }

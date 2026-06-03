@@ -16,7 +16,7 @@ import { Footer } from './sections/Footer';
 function HomeContent() {
   // Runs after the section DOM is mounted and inside LenisProvider (so window.lenis
   // is exposed first). Wrapped in a gsap.context that reverts on unmount.
-  useGsap(() => { initHomeGsap(); });
+  useGsap(() => initHomeGsap());
 
   return (
     <>

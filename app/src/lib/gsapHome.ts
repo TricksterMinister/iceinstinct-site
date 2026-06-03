@@ -17,10 +17,14 @@ gsap.registerPlugin(ScrollTrigger);
  *   - vanish header        -> app/VanishHeader.tsx
  *   - Lenis smooth scroll  -> app/LenisProvider.tsx
  *
- * Run inside a gsap.context (via useGsap) so everything reverts on unmount.
+ * Run inside a gsap.context (via useGsap) so every tween + ScrollTrigger reverts
+ * on unmount. The context does NOT clean up the raw window/element listeners this
+ * adds (gallery wheel/drag + post-load refresh), so we collect their removers and
+ * return a cleanup function the caller must run on unmount (StrictMode hygiene).
  */
-export function initHomeGsap(): void {
+export function initHomeGsap(): () => void {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const listenerCleanups: Array<() => void> = [];
 
   /* ---------- HERO INTRO TIMELINE ---------- */
   // explicit initial states. y:0 wipes any read-from-CSS pixel offset before yPercent applies.
@@ -139,23 +143,31 @@ export function initHomeGsap(): void {
   // wheel: convert vertical scroll to horizontal track if pointer is over track
   const galleryTrack = document.querySelector<HTMLElement>('[data-gallery-track]');
   if (galleryTrack) {
-    galleryTrack.addEventListener('wheel', (e) => {
+    const onWheel = (e: WheelEvent) => {
       if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
         galleryTrack.scrollLeft += e.deltaY;
         e.preventDefault();
       }
-    }, { passive: false });
+    };
+    galleryTrack.addEventListener('wheel', onWheel, { passive: false });
+    listenerCleanups.push(() => galleryTrack.removeEventListener('wheel', onWheel));
 
     // drag to scroll (mouse)
     let isDown = false, startX = 0, startLeft = 0;
-    galleryTrack.addEventListener('mousedown', (e) => {
+    const onMouseDown = (e: MouseEvent) => {
       isDown = true; startX = e.pageX; startLeft = galleryTrack.scrollLeft; galleryTrack.style.cursor = 'grabbing';
-    });
-    window.addEventListener('mouseup', () => { isDown = false; galleryTrack.style.cursor = ''; });
-    galleryTrack.addEventListener('mousemove', (e) => {
+    };
+    const onMouseUp = () => { isDown = false; galleryTrack.style.cursor = ''; };
+    const onMouseMove = (e: MouseEvent) => {
       if (!isDown) return;
       galleryTrack.scrollLeft = startLeft - (e.pageX - startX);
-    });
+    };
+    galleryTrack.addEventListener('mousedown', onMouseDown);
+    window.addEventListener('mouseup', onMouseUp);
+    galleryTrack.addEventListener('mousemove', onMouseMove);
+    listenerCleanups.push(() => galleryTrack.removeEventListener('mousedown', onMouseDown));
+    listenerCleanups.push(() => window.removeEventListener('mouseup', onMouseUp));
+    listenerCleanups.push(() => galleryTrack.removeEventListener('mousemove', onMouseMove));
   }
 
   /* ---------- CLOSING CTA reveal ---------- */
@@ -181,5 +193,11 @@ export function initHomeGsap(): void {
   });
 
   /* ---------- refresh after assets load (videos shift layout) ---------- */
-  window.addEventListener('load', () => ScrollTrigger.refresh());
+  const onLoad = () => ScrollTrigger.refresh();
+  window.addEventListener('load', onLoad);
+  listenerCleanups.push(() => window.removeEventListener('load', onLoad));
+
+  return () => {
+    listenerCleanups.forEach((fn) => fn());
+  };
 }

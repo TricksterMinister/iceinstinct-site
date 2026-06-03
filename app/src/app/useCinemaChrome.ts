@@ -17,6 +17,10 @@ export function useCinemaChrome(): void {
     const cleanups: Array<() => void> = [];
     let rafId = 0;
 
+    /* GSAP context so the ghost-word parallax ScrollTriggers and the vanish-nav
+       stagger tweens revert on cleanup (StrictMode double-mount hygiene). */
+    const ctx = gsap.context(() => {});
+
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
@@ -84,16 +88,18 @@ export function useCinemaChrome(): void {
       vaOverlay.classList.add('is-open');
       vaOverlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-      gsap.fromTo(
-        '.va-list li',
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.7, stagger: 0.06, ease: 'expo.out', delay: 0.1 }
-      );
-      gsap.fromTo(
-        '.va-eyebrow, .va-foot',
-        { y: 16, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6, ease: 'expo.out', delay: 0.05 }
-      );
+      ctx.add(() => {
+        gsap.fromTo(
+          '.va-list li',
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.7, stagger: 0.06, ease: 'expo.out', delay: 0.1 }
+        );
+        gsap.fromTo(
+          '.va-eyebrow, .va-foot',
+          { y: 16, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.6, ease: 'expo.out', delay: 0.05 }
+        );
+      });
     }
     function closeOverlay() {
       if (!vaOverlay) return;
@@ -117,17 +123,19 @@ export function useCinemaChrome(): void {
 
     /* ---------- GHOST-WORD PARALLAX ---------- */
     if (!reduced) {
-      gsap.utils.toArray<HTMLElement>('.section-bg-word').forEach((el) => {
-        gsap.to(el, {
-          yPercent: -22,
-          xPercent: -6,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: el.closest('section, main') || el.parentElement,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true,
-          },
+      ctx.add(() => {
+        gsap.utils.toArray<HTMLElement>('.section-bg-word').forEach((el) => {
+          gsap.to(el, {
+            yPercent: -22,
+            xPercent: -6,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: el.closest('section, main') || el.parentElement,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: true,
+            },
+          });
         });
       });
     }
@@ -150,6 +158,7 @@ export function useCinemaChrome(): void {
 
     return () => {
       cleanups.forEach((fn) => fn());
+      ctx.revert();
     };
   }, []);
 }
