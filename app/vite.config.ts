@@ -12,6 +12,12 @@ export default defineConfig({
     // "Invalid hook call" when motion hooks run).
     dedupe: ['react', 'react-dom'],
   },
+  optimizeDeps: {
+    // Co-bundle React with motion so the dev optimizer pre-bundles them against
+    // ONE React instance. Without this, motion's hooks (useSpring/useTransform)
+    // run against a separate React dispatcher -> "Invalid hook call".
+    include: ['react', 'react-dom', 'react/jsx-runtime', 'motion', 'motion/react'],
+  },
   build: {
     outDir: 'dist',
     assetsDir: 'assets-build',
