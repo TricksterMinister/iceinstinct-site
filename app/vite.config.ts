@@ -22,6 +22,7 @@ export default defineConfig({
         simplicity: r('offerings/simplicity/index.html'),
         bespoke: r('offerings/bespoke/index.html'),
         omakase: r('offerings/omakase/index.html'),
+        mystory: r('my-story/index.html'),
       },
     },
   },
