@@ -18,7 +18,14 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
     const raf = (time: number) => { lenis.raf(time * 1000); };
     gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
-    return () => { gsap.ticker.remove(raf); lenis.destroy(); };
+    // Expose the Lenis instance globally so the ported Pager and VanishHeader use
+    // smooth Lenis scrolling (duration 1.4) exactly like the live site.
+    ;(window as unknown as { lenis?: Lenis }).lenis = lenis;
+    return () => {
+      gsap.ticker.remove(raf);
+      lenis.destroy();
+      delete (window as unknown as { lenis?: Lenis }).lenis;
+    };
   }, []);
   return <>{children}</>;
 }

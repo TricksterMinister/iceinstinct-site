@@ -44,7 +44,9 @@ export function Pager() {
       const target = sel ? document.querySelector(sel) : null;
       if (target) {
         const top = target.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo({ top, behavior: 'smooth' });
+        const lenis = (window as unknown as { lenis?: { scrollTo(target: number, opts?: { duration?: number }): void } }).lenis;
+        if (lenis) lenis.scrollTo(top, { duration: 1.4 });
+        else window.scrollTo({ top, behavior: 'smooth' });
       }
     };
 
