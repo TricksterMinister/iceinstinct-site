@@ -55,8 +55,8 @@ export function Duality({ onCommit }: { onCommit?: (t: Temperament) => void }) {
       >
         <div className="duality-media">
           <img
-            src="/assets/photos/tier-foundation.jpg"
-            alt="Ice - the discipline of craft"
+            src="/assets/photos/duality-ice.jpg"
+            alt="Ice - a wall of clear ice"
             loading="lazy"
           />
         </div>
@@ -76,8 +76,8 @@ export function Duality({ onCommit }: { onCommit?: (t: Temperament) => void }) {
       >
         <div className="duality-media">
           <img
-            src="/assets/photos/tier-bespoke.jpg"
-            alt="Instinct - the spark of intuition"
+            src="/assets/photos/duality-fire.jpg"
+            alt="Instinct - a wall of embers"
             loading="lazy"
           />
         </div>
@@ -90,13 +90,19 @@ export function Duality({ onCommit }: { onCommit?: (t: Temperament) => void }) {
         </div>
       </motion.div>
 
+      <p className="duality-eyebrow" aria-hidden="true">A private mixology ritual</p>
+
       <div
-        className="duality-amp"
+        className="duality-portal"
         aria-hidden="true"
         style={{ opacity: hovered || committed ? 0 : 1 }}
       >
-        &amp;
+        <span className="duality-seam" />
+        <span className="duality-gate">
+          <span className="duality-amp-char">&amp;</span>
+        </span>
       </div>
+
       <div className="duality-cue" aria-hidden="true">
         Choose your nature
       </div>
