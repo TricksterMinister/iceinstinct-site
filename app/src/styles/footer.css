@@ -23,7 +23,8 @@
 /* Ghost wordmark, low behind the content - anchored hard right */
 .footer-glow {
   position: absolute;
-  right: -1.5rem;
+  left: -1.5rem;
+  right: auto;
   bottom: -0.16em;
   margin: 0;
   font-family: var(--font-display);

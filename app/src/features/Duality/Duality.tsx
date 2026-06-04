@@ -1,68 +1,60 @@
 import { useState } from 'react';
 import { funnel, type Temperament } from '../../app/funnelStore';
 
-type Side = 'left' | 'right';
+// Split-screen "choose your nature" accordion. Mechanic ported 1:1 from Temo's
+// approved prototype: two panels, hover expands one and shrinks the other, the
+// shrinking panel's word flips from horizontal to vertical, the ampersand fades.
+// Skin = our brand: ICE in Geist (white), Instinct in Fraunces italic (champagne).
+// The expand/flip is pure CSS (matches the reference); click commits the nature.
+
+const ICE = 'ICE'.split('');
+const INSTINCT = 'Instinct'.split('');
 
 export function Duality({ onCommit }: { onCommit?: (t: Temperament) => void }) {
-  const [side, setSide] = useState<Side | null>(null);
-  const [committed, setCommitted] = useState(false);
+  const [committed, setCommitted] = useState<Temperament>(null);
 
-  const enter = (s: Side) => () => { if (!committed) setSide(s); };
-  const leave = () => { if (!committed) setSide(null); };
-  const commit = (t: Temperament, s: Side) => () => {
+  const commit = (t: Temperament) => () => {
     if (committed) return;
-    setCommitted(true);
-    setSide(s);
+    setCommitted(t);
     funnel.setTemperament(t);
-    setTimeout(() => onCommit?.(t), 700);
+    onCommit?.(t);
   };
 
   const cls =
     'duality' +
-    (side === 'left' ? ' hover-left' : side === 'right' ? ' hover-right' : '') +
-    (committed ? ' is-committed' : '');
+    (committed === 'ice' ? ' is-ice' : committed === 'instinct' ? ' is-instinct' : '');
 
   return (
-    <section className={cls} id="manifesto" aria-label="Ice and Instinct">
-      <section
-        className="d-panel d-left"
-        onMouseEnter={enter('left')}
-        onMouseLeave={leave}
-        onClick={commit('ice', 'left')}
-      >
-        <div className="d-media"><img src="/assets/photos/duality-ice.jpg" alt="Ice - a wall of clear ice" loading="lazy" /></div>
-        <div className="d-scrim" />
-        <div className="d-content">
-          <span className="d-eyebrow">The cold craft</span>
-          <p className="d-sub">Discipline. Order. The patience of craft.</p>
-        </div>
-      </section>
+    <section className={cls} id="manifesto" aria-label="Ice and Instinct - choose your nature">
+      <span className="d-tlabel">A Private Mixology Ritual</span>
+      <span className="d-blabel">Choose Your Nature</span>
 
-      <div className="d-divider" aria-hidden="true" />
+      {/* The connector - large, centred on the seam, binding the two worlds */}
+      <span className="d-amp" aria-hidden="true">&amp;</span>
 
-      <section
-        className="d-panel d-right"
-        onMouseEnter={enter('right')}
-        onMouseLeave={leave}
-        onClick={commit('instinct', 'right')}
-      >
-        <div className="d-media"><img src="/assets/photos/duality-fire.jpg" alt="Instinct - a wall of embers" loading="lazy" /></div>
-        <div className="d-scrim" />
-        <div className="d-content">
-          <span className="d-eyebrow">The living fire</span>
-          <p className="d-sub">Intuition. The pulse. The whisper that changes everything.</p>
-        </div>
-      </section>
+      <button type="button" className="d-panel pi" onClick={commit('ice')} aria-label="Ice - the cold craft">
+        <span className="d-media" aria-hidden="true"><img src="/assets/photos/duality-ice.jpg" alt="" loading="lazy" /></span>
+        <span className="word-h ice-h">Ice</span>
+        <span className="word-v ice-v" aria-hidden="true">
+          {ICE.map((c, i) => <span key={i}>{c}</span>)}
+        </span>
+        <span className="d-sub">
+          <span className="d-sub-title">The Cold Craft</span>
+          <span className="d-sub-body">Discipline. Order.<br />The patience of craft.</span>
+        </span>
+      </button>
 
-      <p className="duality-eyebrow" aria-hidden="true">A private mixology ritual</p>
-
-      <div className="d-title" aria-hidden="true">
-        <span className="d-part d-ice">Ice</span>
-        <span className="d-amp">&amp;</span>
-        <span className="d-part d-instinct">Instinct</span>
-      </div>
-
-      <div className="duality-cue" aria-hidden="true">Choose your nature</div>
+      <button type="button" className="d-panel pn" onClick={commit('instinct')} aria-label="Instinct - the living fire">
+        <span className="d-media" aria-hidden="true"><img src="/assets/photos/duality-fire.jpg" alt="" loading="lazy" /></span>
+        <span className="word-h inst-h">Instinct</span>
+        <span className="word-v inst-v" aria-hidden="true">
+          {INSTINCT.map((c, i) => <span key={i}>{c}</span>)}
+        </span>
+        <span className="d-sub">
+          <span className="d-sub-title">The Living Fire</span>
+          <span className="d-sub-body">Intuition. The pulse.<br />The whisper that changes everything.</span>
+        </span>
+      </button>
     </section>
   );
 }

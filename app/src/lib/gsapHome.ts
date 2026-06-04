@@ -95,27 +95,14 @@ export function initHomeGsap(): () => void {
         },
       });
 
-      // each tier: subtle inward zoom of bg + parallax of body as it crosses center
-      gsap.utils.toArray<HTMLElement>('.tier').forEach((tier) => {
-        const bg = tier.querySelector('.tier-bg video');
-        const body = tier.querySelector('.tier-body');
-        gsap.fromTo(bg, { scale: 1.18, xPercent: 6 }, {
-          scale: 1.02, xPercent: -4, ease: 'none',
-          scrollTrigger: {
-            // VERBATIM from cinema.js: no ScrollTrigger has id 'tiersRail', so this is
-            // always undefined at runtime (per-tier parallax uses the vertical trigger).
-            trigger: tier, containerAnimation: (ScrollTrigger.getById('tiersRail') as unknown as gsap.core.Animation) || undefined,
-            start: 'left right', end: 'right left', scrub: true,
-            horizontal: false,
-          },
-        });
-        gsap.fromTo(body, { yPercent: 8, opacity: 0.4 }, {
-          yPercent: 0, opacity: 1, ease: 'power2.out',
-          scrollTrigger: {
-            trigger: tier, start: 'left 80%', end: 'left 30%', scrub: true,
-          },
-        });
-      });
+      // NOTE: removed the old per-tier parallax. It used VERTICAL ScrollTriggers
+      // (trigger: tier, start 'left 80%') on tiers that actually move HORIZONTALLY
+      // inside this pin, with no containerAnimation -> they fired erratically during
+      // the pinned horizontal scroll, yanking .tier-body down (yPercent 8) and
+      // dimming it (opacity 0.4) on a sub-pixel-transformed layer = the "segment
+      // jerks down + text blurs/dims" report. (The .tier-bg tween targeted
+      // `.tier-bg video`, but the tiers use <img>, so it was a no-op regardless.)
+      // Text now holds still, fully opaque and crisp through the whole scroll.
     }
   }
 

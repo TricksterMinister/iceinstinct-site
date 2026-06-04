@@ -1,7 +1,7 @@
 export function Closing() {
   return (
     <section className="closing" id="closing">
-      <div className="section-bg-word top" aria-hidden="true">BEGIN</div>
+      <div className="section-bg-word top right" aria-hidden="true">BEGIN</div>
       <div className="closing-stage">
         <div className="closing-frame">
           <span className="closing-corner tl" aria-hidden="true"></span>

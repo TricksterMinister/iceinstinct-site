@@ -29,8 +29,11 @@ function HomeContent() {
       <Concierge />
       <Founder />
       <GalleryTeaser />
-      <Closing />
-      <Footer />
+      {/* Begin CTA + Footer read as ONE final segment, one viewport. */}
+      <div className="closing-segment">
+        <Closing />
+        <Footer />
+      </div>
     </>
   );
 }
