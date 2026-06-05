@@ -244,14 +244,21 @@ export function Omakase() {
           </div>
         </section>
 
-        {/* Editorial pause */}
-        <section className="editorial-pause" aria-hidden="true">
-          <p className="editorial-pause-text">
-            Performance art
-            <br />
-            for <em>cocktails.</em>
-          </p>
-          <span className="editorial-pause-mark">iv &middot; Omakase</span>
+        {/* WIDE CINEMATIC MEDIA BAND - movement I */}
+        <section className="oma-reel">
+          <div className="oma-reel-media">
+            <img src="/assets/photos/white-lotus-pour.png" alt="A cocktail captured mid-pour" loading="lazy" />
+          </div>
+          <span className="oma-reel-scrim" aria-hidden="true"></span>
+          <span className="oma-reel-ghost" aria-hidden="true">OMAKASE</span>
+          <div className="oma-reel-inner">
+            <p className="oma-reel-quote">
+              Performance art
+              <br />
+              for <span className="it">cocktails.</span>
+            </p>
+            <span className="oma-reel-mark">iv &middot; Omakase</span>
+          </div>
         </section>
 
         {/* II. THE MENU PROTOCOL */}
@@ -350,105 +357,152 @@ export function Omakase() {
           </div>
         </section>
 
-        {/* Editorial pause */}
-        <section className="editorial-pause" aria-hidden="true">
-          <p className="editorial-pause-text">
-            The highest form
-            <br />
-            of <em>trust.</em>
-          </p>
-          <span className="editorial-pause-mark">iv &middot; Omakase</span>
-        </section>
-
-        {/* IV. WHAT'S INCLUDED */}
-        <section className="tier-section" id="included">
-          <div className="container-narrow">
-            <header className="tier-section-head reveal">
-              <span className="tier-roman">IV.</span>
-              <h2>What's Included</h2>
-              <p className="tier-section-intro">The specific milestones of your experience.</p>
-            </header>
-            <div className="tier-prose tier-prose-grid reveal">
-              <div className="tier-subsection">
-                <h3>Pre-Event Discovery Session</h3>
-                <p>
-                  Two to three weeks prior, we conduct a comprehensive consultation and home bar assessment. This is not
-                  menu planning - it is understanding the canvas before the performance begins.
-                </p>
-              </div>
-              <div className="tier-subsection">
-                <h3>The Alchemist's Kit</h3>
-                <p>
-                  I arrive with specialty technique equipment, rare ingredients, proprietary tinctures, and unique
-                  garnishes not available commercially.
-                </p>
-              </div>
-              <div className="tier-mandatory">
-                <h3>The Ice Ritual (mandatory inclusion)</h3>
-                <p>
-                  Ice selection is determined exclusively by the Master Mixologist. All ice used for this experience is
-                  professionally sourced, ordered, and quality-controlled by Ice &amp; Instinct. The host covers the cost
-                  of ice as a separate line item, finalized during the consultation. For optimal tempering and
-                  performance readiness, ice delivery is scheduled to arrive{' '}
-                  <strong>prior to the Master Mixologist's arrival</strong>. Ice quality is non-negotiable and cannot be
-                  substituted, supplied, or sourced by the host.
-                </p>
-              </div>
-              <div className="tier-subsection">
-                <h3>4-6 Hours of Improvisational Service</h3>
-                <p>
-                  Flexible service duration, guided by the rhythm of the evening. Every cocktail is a singular event.
-                </p>
-              </div>
-              <div className="tier-subsection">
-                <h3>Station Restoration</h3>
-                <p>Upon conclusion, your space is returned to order.</p>
-              </div>
-            </div>
+        {/* WIDE CINEMATIC MEDIA BAND - movement II */}
+        <section className="oma-reel">
+          <div className="oma-reel-media">
+            <img src="/assets/photos/tier-omakase.jpg" alt="The Alchemist at the station" loading="lazy" />
+          </div>
+          <span className="oma-reel-scrim" aria-hidden="true"></span>
+          <span className="oma-reel-ghost" aria-hidden="true">ALCHEMY</span>
+          <div className="oma-reel-inner">
+            <p className="oma-reel-quote">
+              The highest form
+              <br />
+              of <span className="it">trust.</span>
+            </p>
+            <span className="oma-reel-mark">iv &middot; Omakase</span>
           </div>
         </section>
 
-        {/* V. STANDARD INCLUSIONS */}
-        <section className="tier-section" id="standard-inclusions">
-          <div className="container-narrow">
-            <header className="tier-section-head reveal">
-              <span className="tier-roman">V.</span>
-              <h2>Standard Inclusions</h2>
-              <p className="tier-section-intro">
-                Every Ice &amp; Instinct experience, regardless of tier, includes the foundation of our craft.
-              </p>
-            </header>
-            <div className="tier-prose tier-prose-grid reveal">
-              <div className="tier-subsection">
-                <h3>Private Master Mixologist</h3>
-                <p>A dedicated professional with a quarter-century of global hospitality expertise.</p>
-              </div>
-              <div className="tier-subsection">
-                <h3>Educational Engagement</h3>
-                <p>
-                  Conversations about terroir, fermentation, technique, and cocktail history emerge naturally. Your
-                  gathering becomes a living masterclass.
+        {/* ===== LIGHT BREATH: ivory interlude (approved variant B) wrapping What's Included + Standard Inclusions. Content unchanged; only the surface flips to light to break the dark page. ===== */}
+        <div className="oma-breath">
+          <div className="oma-il-wrap">
+            {/* IV. WHAT'S INCLUDED */}
+            <section className="oma-il" id="included">
+              <header className="oma-il-head reveal">
+                <span className="oma-il-roman">IV &middot; The Experience</span>
+                <h2>
+                  What&apos;s <span className="it">Included</span>
+                </h2>
+                <p className="oma-il-intro">
+                  The specific milestones of your evening - from the first consultation to the final pour.
                 </p>
+              </header>
+              <div className="oma-il-list reveal">
+                <article className="oma-il-item">
+                  <span className="oma-il-num">01</span>
+                  <div>
+                    <h3>Pre-Event Discovery Session</h3>
+                    <p>
+                      Two to three weeks prior, a comprehensive consultation and home bar assessment. Not menu planning -
+                      understanding the canvas before the performance begins.
+                    </p>
+                  </div>
+                </article>
+                <article className="oma-il-item">
+                  <span className="oma-il-num">02</span>
+                  <div>
+                    <h3>The Alchemist&apos;s Kit</h3>
+                    <p>
+                      Specialty technique equipment, rare ingredients, proprietary tinctures, and unique garnishes not
+                      available commercially.
+                    </p>
+                  </div>
+                </article>
+                <article className="oma-il-item is-feature">
+                  <span className="oma-il-tag">Mandatory Inclusion</span>
+                  <h3>The Ice Ritual</h3>
+                  <p>
+                    Ice selection is determined exclusively by the Master Mixologist. All ice is professionally sourced,
+                    ordered, and quality-controlled by Ice &amp; Instinct, scheduled to arrive{' '}
+                    <strong>prior to the Master Mixologist&apos;s arrival</strong>. Ice quality is non-negotiable and
+                    cannot be substituted or sourced by the host.
+                  </p>
+                </article>
+                <article className="oma-il-item">
+                  <span className="oma-il-num">04</span>
+                  <div>
+                    <h3>4-6 Hours of Improvisational Service</h3>
+                    <p>Flexible duration, guided by the rhythm of the evening. Every cocktail a singular event.</p>
+                  </div>
+                </article>
+                <article className="oma-il-item">
+                  <span className="oma-il-num">05</span>
+                  <div>
+                    <h3>Station Restoration</h3>
+                    <p>Upon conclusion, your space is returned to order.</p>
+                  </div>
+                </article>
               </div>
-              <div className="tier-subsection">
-                <h3>Professional Tooling</h3>
-                <p>A compact case of gold-standard mixology tools, plus advanced technique equipment.</p>
-              </div>
-              <div className="tier-subsection">
-                <h3>Setup &amp; Breakdown</h3>
-                <p>Complete organization of the immediate working area.</p>
-              </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-        {/* Editorial pause */}
-        <section className="editorial-pause" aria-hidden="true">
-          <p className="editorial-pause-text">
-            Every cocktail,
-            <br />a <em>singular event.</em>
-          </p>
-          <span className="editorial-pause-mark">iv &middot; Omakase</span>
+            <div className="oma-il-rule" aria-hidden="true">
+              <span>&#10022;</span>
+            </div>
+
+            {/* V. STANDARD INCLUSIONS */}
+            <section className="oma-il" id="standard-inclusions">
+              <header className="oma-il-head reveal">
+                <span className="oma-il-roman">V &middot; The Foundation</span>
+                <h2>
+                  Standard <span className="it">Inclusions</span>
+                </h2>
+                <p className="oma-il-intro">
+                  Every Ice &amp; Instinct experience, regardless of tier, includes the foundation of our craft.
+                </p>
+              </header>
+              <div className="oma-il-list reveal">
+                <article className="oma-il-item">
+                  <span className="oma-il-num">01</span>
+                  <div>
+                    <h3>Private Master Mixologist</h3>
+                    <p>A dedicated professional with a quarter-century of global hospitality expertise.</p>
+                  </div>
+                </article>
+                <article className="oma-il-item">
+                  <span className="oma-il-num">02</span>
+                  <div>
+                    <h3>Educational Engagement</h3>
+                    <p>
+                      Conversations about terroir, fermentation, technique, and history emerge naturally. Your gathering
+                      becomes a living masterclass.
+                    </p>
+                  </div>
+                </article>
+                <article className="oma-il-item">
+                  <span className="oma-il-num">03</span>
+                  <div>
+                    <h3>Professional Tooling</h3>
+                    <p>A compact case of gold-standard mixology tools, plus advanced technique equipment.</p>
+                  </div>
+                </article>
+                <article className="oma-il-item">
+                  <span className="oma-il-num">04</span>
+                  <div>
+                    <h3>Setup &amp; Breakdown</h3>
+                    <p>Complete organization of the immediate working area.</p>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </div>
+        </div>
+        {/* ===== end light breath ===== */}
+
+        {/* WIDE CINEMATIC MEDIA BAND - movement III */}
+        <section className="oma-reel">
+          <div className="oma-reel-media">
+            <img src="/assets/photos/concierge-still.jpg" alt="Smoke rising over the station" loading="lazy" />
+          </div>
+          <span className="oma-reel-scrim" aria-hidden="true"></span>
+          <span className="oma-reel-ghost" aria-hidden="true">RITUAL</span>
+          <div className="oma-reel-inner">
+            <p className="oma-reel-quote">
+              Every cocktail,
+              <br />a <span className="it">singular event.</span>
+            </p>
+            <span className="oma-reel-mark">iv &middot; Omakase</span>
+          </div>
         </section>
 
         {/* VI. WHAT THE HOST PROVIDES */}
@@ -517,34 +571,47 @@ export function Omakase() {
           </div>
         </section>
 
-        {/* FINAL CTA */}
-        <section id="final-cta" className="tier-section">
-          <div className="container-narrow">
-            <div className="final-cta reveal">
-              <span className="ornament" aria-hidden="true">
-                &#x2726;
-              </span>
-              <h2>
-                Surrender to <span className="it">improvisation.</span>
-              </h2>
-              <p>
-                Tell us the date, the room, and your spirits collection. We will return with a tailored consultation
-                framework within one business day.
-              </p>
-              <div className="final-cta-actions">
-                <a href="/contact/?package=omakase" className="btn btn-primary">
-                  Inquire <span className="arrow">&rarr;</span>
-                </a>
-                <a href="/offerings/" className="btn btn-ghost">
-                  All tiers
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
 
-      <footer className="footer" role="contentinfo">
+      {/* FINAL CTA - СВЕТ-1 "Framed CTA / Begin" + dark footer = ONE full-viewport unit (canon Свет-1) */}
+      <div className="closing-segment">
+        <section className="closing" id="final-cta">
+            <div className="section-bg-word top right" aria-hidden="true">
+              OMAKASE
+            </div>
+            <div className="closing-stage">
+              <div className="closing-frame">
+                <span className="closing-corner tl" aria-hidden="true"></span>
+                <span className="closing-corner tr" aria-hidden="true"></span>
+                <span className="closing-corner bl" aria-hidden="true"></span>
+                <span className="closing-corner br" aria-hidden="true"></span>
+                <span className="closing-eyebrow">Ice &amp; Instinct / By appointment</span>
+                <h2 className="closing-title">
+                  Surrender to <span className="it">improvisation.</span>
+                </h2>
+                <p className="closing-lead">
+                  Tell us the date, the room, and your spirits collection. We return with a tailored consultation
+                  framework within one business day.
+                </p>
+                <div className="closing-cta">
+                  <a className="btn-primary" href="/contact/?package=omakase" data-cursor="link">
+                    <span className="btn-label">Inquire</span>
+                    <span className="btn-arr" aria-hidden="true">&rarr;</span>
+                  </a>
+                  <a className="btn-ghost" href="/offerings/" data-cursor="link">
+                    Explore the offerings
+                  </a>
+                </div>
+              </div>
+              <p className="closing-meta">
+                <span>By appointment only</span>
+                <span>New York Metropolitan Area</span>
+                <span>Est. 2024</span>
+              </p>
+            </div>
+        </section>
+
+        <footer className="footer" role="contentinfo">
         <div className="footer-glow" aria-hidden="true">
           Ice &amp; Instinct
         </div>
@@ -625,7 +692,8 @@ export function Omakase() {
         <div className="footer-base">
           <span className="footer-meta">New York Metropolitan Area &middot; Est. 2024 &middot; © 2026 Ice &amp; Instinct</span>
         </div>
-      </footer>
+        </footer>
+      </div>
     </>
   );
 }
