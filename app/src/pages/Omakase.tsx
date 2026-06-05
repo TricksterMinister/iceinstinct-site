@@ -81,7 +81,7 @@ export function Omakase() {
             </li>
           </ul>
           <footer className="va-foot">
-            <span>Manhattan / By Appointment</span>
+            <span>New York Metropolitan Area / By Appointment</span>
             <span>EST. 2024</span>
           </footer>
         </div>
@@ -178,7 +178,7 @@ export function Omakase() {
                   time, for each guest.
                 </p>
                 <div className="price">
-                  From $3,000 USD<small>Up to 25 guests &middot; 4-6 hours &middot; Manhattan</small>
+                  From $3,000 USD<small>Up to 25 guests &middot; 4-6 hours &middot; New York Metropolitan Area</small>
                 </div>
                 <div className="meta-row" style={{ marginTop: 'var(--s-sm)' }}>
                   <a href="/contact/?package=omakase" className="btn btn-primary">
@@ -623,7 +623,7 @@ export function Omakase() {
         </div>
 
         <div className="footer-base">
-          <span className="footer-meta">Manhattan &middot; Est. 2024 &middot; © 2026 Ice &amp; Instinct</span>
+          <span className="footer-meta">New York Metropolitan Area &middot; Est. 2024 &middot; © 2026 Ice &amp; Instinct</span>
         </div>
       </footer>
     </>

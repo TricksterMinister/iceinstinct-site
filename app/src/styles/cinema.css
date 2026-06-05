@@ -148,28 +148,38 @@ a { color: inherit; text-decoration: none; }
 .hero-title .row { display: flex; align-items: baseline; justify-content: center; column-gap: 0.32em; }
 .hero-title .word { display: inline-block; overflow: hidden; padding: 0 0.04em 0.12em; }
 .hero-title .word .ink { display: inline-block; will-change: transform; }
-.hero-title .amp .ink { color: var(--c-fg); font-style: italic; font-family: var(--f-italic); text-transform: none; font-weight: 300; font-size: 0.92em; vertical-align: 0.04em; }
+.hero-title .amp .ink { color: var(--c-accent); font-style: italic; font-family: var(--f-italic); text-transform: none; font-weight: 300; font-size: 0.92em; vertical-align: 0.04em; }
+/* the title carries the duality: Ice stays cold white, "& Instinct" goes warm champagne */
+.hero-title .it { color: var(--c-accent); }
 
 .hero-sub {
-  margin-top: clamp(2rem, 4.5vh, 4rem);
+  margin-top: clamp(1.6rem, 3.5vh, 3rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
   font-family: var(--f-italic);
   font-style: italic;
   font-weight: 500;
   font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
-  font-size: clamp(2.4rem, 5vw, 6rem);
-  letter-spacing: -0.015em;
-  line-height: 1.05;
+  font-size: clamp(1.9rem, 3.8vw, 3.4rem);
+  letter-spacing: -0.012em;
+  line-height: 1.12;
   color: var(--c-accent);
   text-transform: none;
   text-align: center;
+  /* dense shadow (same technique as text over photos) so it reads over the video */
+  text-shadow: 0 1px 3px rgba(0,0,0,0.92), 0 2px 16px rgba(0,0,0,0.85), 0 0 42px rgba(0,0,0,0.6);
 }
 .hero-sub .reveal-line { display: block; overflow: hidden; }
 .hero-sub .reveal-line > span { display: inline-block; }
 
-.hero-cue { position: absolute; bottom: 2.4rem; left: 4.4rem; z-index: 6; opacity: 0; }
-.hero-cue span { font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--c-fg-mute); display: none; }
-.hero-cue .cue-line { display: none; }
-.hero-cue::before { content: ""; display: block; width: 56px; height: 56px; border: 1px solid rgba(255,255,255,0.35); border-radius: 50%; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='14' height='14' fill='none' stroke='%23ffffff' stroke-width='1.4'><path d='M12 5 L12 19 M5 12 L12 19 L19 12'/></svg>"); background-repeat: no-repeat; background-position: center; }
+/* Minimal scroll cue - no circle. A thin champagne line that pulses, under a label. */
+.hero-cue { position: absolute; bottom: 2.4rem; left: 4.4rem; z-index: 6; opacity: 0; display: flex; flex-direction: column; align-items: center; gap: 0.7rem; }
+.hero-cue span { display: block; font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--c-fg-mute); text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
+.hero-cue .cue-line { display: block; width: 1px; height: 44px; background: linear-gradient(var(--c-accent), transparent); overflow: hidden; position: relative; }
+.hero-cue .cue-line::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 40%; background: var(--c-accent); animation: cue-fall 1.8s var(--ease-out-quart) infinite; }
+@keyframes cue-fall { 0% { transform: translateY(-100%); opacity: 0; } 40% { opacity: 1; } 100% { transform: translateY(250%); opacity: 0; } }
 
 @media (max-width: 720px) {
   .hero-meta-tl { left: 1.2rem; }
@@ -178,6 +188,30 @@ a { color: inherit; text-decoration: none; }
 
 /* ========== CHAPTER (MANIFESTO) ========== */
 .chapter { position: relative; height: 100dvh; padding: clamp(5rem, 9vh, 8rem) 2.2rem clamp(3rem, 6vh, 5rem) clamp(2.2rem, 5vw, 6rem); isolation: isolate; overflow: hidden; display: grid; place-content: center; }
+
+/* ---- Light champagne segment: a warm "paper" rest in the dark run.
+        Warm off-white ground, ink text, deepened champagne accent. ---- */
+.seg-light { background: oklch(94.5% 0.018 95); }
+.seg-light::before { background: linear-gradient(90deg, transparent, oklch(58% 0.09 85) 30%, oklch(58% 0.09 85) 70%, transparent); }
+.seg-light .chapter-bg-text { color: oklch(70% 0.06 90 / 0.22); }
+.seg-light .chapter-title { color: oklch(20% 0.01 80); }
+.seg-light .chapter-title .it,
+.seg-light .author-name .it { color: oklch(52% 0.1 82); }
+.seg-light .chapter-lead { color: oklch(24% 0.01 80); }
+.seg-light .author-eyebrow { color: oklch(46% 0.03 88); }
+.seg-light .author-credit { color: oklch(40% 0.01 80); }
+.seg-light .chapter-author { border-color: oklch(80% 0.02 90); }
+.seg-light .chapter-body { color: oklch(38% 0.01 80); }
+
+/* Editorial layout: title + lead span the full width; the supporting copy
+   (author + body) drops to a tight column at the left edge. */
+.seg-light.chapter { place-content: center start; }
+.seg-light .chapter-grid { max-width: none; margin: 0; gap: clamp(1.2rem, 2.6vh, 2.2rem); }
+.seg-light .chapter-prose { max-width: none; width: 100%; text-align: left; }
+.seg-light .chapter-title { max-width: none; font-size: clamp(3rem, 11vw, 12rem); line-height: 0.94; }
+.seg-light .chapter-lead { max-width: none; width: 100%; font-size: clamp(1.4rem, 3.6vw, 3.1rem); line-height: 1.18; }
+.seg-light .chapter-author { max-width: 46ch; }
+.seg-light .chapter-body { max-width: 46ch; }
 .chapter-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
 .chapter-bg-text { position: absolute; bottom: -2vh; left: 50%; transform: translateX(-50%); z-index: 6; pointer-events: none; font-family: var(--f-display); font-weight: 700; font-size: clamp(14rem, 32vmin, 38rem); line-height: 1; color: oklch(78% 0.05 95 / 0.18); letter-spacing: 0.08em; white-space: nowrap; user-select: none; }
 
@@ -236,9 +270,10 @@ a { color: inherit; text-decoration: none; }
 .tier-body { position: relative; z-index: 1; max-width: 38rem; }
 .tier-rank { font-family: var(--f-display); font-weight: 700; font-size: clamp(5rem, 12vmin, 12rem); line-height: 0.9; letter-spacing: -0.04em; color: var(--c-accent); margin-bottom: 0.6rem; text-transform: uppercase; }
 .tier-name { font-family: var(--f-mono); font-size: var(--t-step--2); letter-spacing: 0.28em; text-transform: uppercase; color: var(--c-fg-mute); display: block; margin-bottom: 0.8rem; }
-.tier-title { font-family: var(--f-display); font-weight: 700; font-size: var(--t-step-3); line-height: 1.04; letter-spacing: -0.03em; margin-bottom: 1.2rem; color: var(--c-fg); }
+.tier-title { font-family: var(--f-display); font-weight: 700; font-size: var(--t-step-4); line-height: 1.0; letter-spacing: -0.035em; margin-bottom: 1.6rem; color: var(--c-fg); max-width: 16ch; }
 .tier-title .it { font-family: var(--f-italic); font-style: italic; text-transform: none; font-weight: 350; color: var(--c-accent); letter-spacing: 0; }
-.tier-blurb { font-size: var(--t-step-0); line-height: 1.5; color: var(--c-fg-mute); margin-bottom: 1.2rem; max-width: 44ch; }
+/* blurb paragraph removed - the title carries it; cards read sparse and premium */
+.tier-blurb { display: none; }
 .tier-spec { list-style: none; display: flex; gap: clamp(1.2rem, 2.4vw, 2.4rem); margin-bottom: 1.2rem; flex-wrap: wrap; }
 .tier-spec li { display: flex; flex-direction: column; gap: 0.15rem; font-family: var(--f-mono); }
 .tier-spec li span { font-size: var(--t-step--2); letter-spacing: 0.22em; text-transform: uppercase; color: var(--c-fg-faint); }
@@ -263,7 +298,7 @@ a { color: inherit; text-decoration: none; }
 
 .founder-text { order: 2; display: flex; flex-direction: column; justify-content: center; height: 100%; padding: clamp(3rem, 7vh, 6rem) clamp(3rem, 5vw, 6rem) clamp(3rem, 7vh, 6rem) clamp(2.4rem, 4vw, 4.5rem); gap: clamp(0.4rem, 1vh, 0.9rem); }
 .founder-text .label { color: var(--c-fg-mute); margin-bottom: 0.4rem; }
-.founder-quote { font-family: var(--f-display); font-weight: 700; font-size: var(--t-step-3); line-height: 1.05; letter-spacing: -0.03em; max-width: 22ch; color: var(--c-fg); }
+.founder-quote { font-family: var(--f-display); font-weight: 700; font-size: var(--t-step-4); line-height: 1.0; letter-spacing: -0.035em; max-width: 16ch; color: var(--c-fg); }
 .founder-quote .line { display: block; overflow: hidden; }
 .founder-quote .line > span { display: inline-block; }
 .founder-quote .line:nth-child(3) > span,
@@ -348,6 +383,26 @@ a { color: inherit; text-decoration: none; }
 .closing-segment { min-height: 100dvh; display: flex; flex-direction: column; }
 .closing-segment .closing { height: auto; flex: 1 1 auto; min-height: 0; padding-block: clamp(2.5rem, 6vh, 5rem); }
 .closing-segment .footer { flex: 0 0 auto; }
+
+/* Light "invitation" segment: warm champagne paper, a light pressed card, ink
+   text, deep-champagne accents. (The footer below stays dark.) */
+.closing-segment .closing { background: oklch(94.5% 0.018 95); }
+.closing-segment .closing-frame { background: oklch(97% 0.012 96); border-color: oklch(80% 0.04 90); }
+.closing-segment .closing-corner { border-color: oklch(56% 0.09 85); }
+.closing-segment .closing-eyebrow { color: oklch(46% 0.03 88); }
+.closing-segment .closing-eyebrow::after { background: linear-gradient(90deg, transparent, oklch(58% 0.09 85), transparent); }
+.closing-segment .closing-title { color: oklch(20% 0.01 80); }
+.closing-segment .closing-title .it { color: oklch(52% 0.1 82); }
+.closing-segment .closing-lead { color: oklch(40% 0.01 80); }
+.closing-segment .closing-meta { color: oklch(42% 0.01 80); }
+.closing-segment .closing .section-bg-word { color: oklch(62% 0.07 88 / 0.16); }
+/* buttons inverted for the light field */
+.closing-segment .closing .btn-primary { color: oklch(22% 0 0); border-color: oklch(34% 0.02 85); }
+.closing-segment .closing .btn-primary::before { background: oklch(22% 0 0); }
+.closing-segment .closing .btn-primary:hover { color: oklch(96% 0.02 95); }
+.closing-segment .closing .btn-ghost { color: oklch(42% 0.01 80); }
+.closing-segment .closing .btn-ghost::after { background: oklch(56% 0.09 85); }
+.closing-segment .closing .btn-ghost:hover { color: oklch(20% 0 0); }
 .closing-stage { position: relative; z-index: 1; width: 100%; max-width: 900px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: clamp(1.6rem, 4vh, 2.6rem); color: var(--c-fg); }
 
 /* framed CTA card with cinema corner ticks */
@@ -429,32 +484,28 @@ a { color: inherit; text-decoration: none; }
    ====  VANISH HEADER (locked-in)
    ======================================================== */
 
+/* Minimal menu mark - no flat circle. Two thin champagne lines, top-right. */
 .va-trigger {
-  position: fixed; top: 1.6rem; right: 1.6rem; z-index: 95;
-  width: 64px; height: 64px;
-  background: transparent; border: none; padding: 0;
+  position: fixed; top: 1.8rem; right: 2rem; z-index: 95;
+  width: auto; height: auto;
+  background: transparent; border: none; padding: 0.6rem;
   display: grid; place-items: center;
   isolation: isolate;
 }
-.va-trigger-ring {
-  position: absolute; inset: 0;
-  border: 1px solid var(--c-accent);
-  border-radius: 50%;
-  transition: transform 0.6s var(--ease-out-expo), border-color 0.4s, background 0.4s;
-}
-.va-trigger:hover .va-trigger-ring { transform: scale(1.06); background: rgba(255,255,255,0.06); }
+.va-trigger-ring { display: none; }
 .va-trigger-icon {
-  position: relative; width: 22px; height: 14px;
-  display: grid; gap: 4px; align-content: center;
+  position: relative; width: 30px; height: 10px;
+  display: grid; gap: 7px; align-content: center;
 }
 .va-trigger-icon span {
-  display: block; height: 1px; background: var(--c-accent);
+  display: block; height: 1.5px; background: var(--c-accent);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.45);
   transition: transform 0.5s var(--ease-out-expo), opacity 0.3s, width 0.5s var(--ease-out-expo);
   transform-origin: right center;
 }
 .va-trigger-icon span:nth-child(1) { width: 100%; }
-.va-trigger-icon span:nth-child(2) { width: 70%; margin-left: auto; }
-.va-trigger-icon span:nth-child(3) { width: 100%; }
+.va-trigger-icon span:nth-child(2) { width: 60%; margin-left: auto; }
+.va-trigger-icon span:nth-child(3) { display: none; }
 .va-trigger:hover .va-trigger-icon span:nth-child(2) { width: 100%; }
 
 .va-overlay {

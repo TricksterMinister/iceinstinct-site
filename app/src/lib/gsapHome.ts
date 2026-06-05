@@ -26,6 +26,20 @@ export function initHomeGsap(): () => void {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const listenerCleanups: Array<() => void> = [];
 
+  // Reduced motion: reveal everything in its final state, create no scroll
+  // animations or pins. The page is fully readable, just still.
+  if (reduced) {
+    gsap.set(
+      ['.hero-title .word .ink', '.hero-sub .reveal-line > span', '.chapter-title .line > *', '.founder-quote .line > *'],
+      { yPercent: 0, y: 0, opacity: 1 },
+    );
+    gsap.set(
+      ['.hero-eyebrow', '.hero-meta', '.hero-cue', '[data-stagger]', '.chapter-body p'],
+      { opacity: 1, y: 0, yPercent: 0, clearProps: 'transform' },
+    );
+    return () => {};
+  }
+
   /* ---------- HERO INTRO TIMELINE ---------- */
   // explicit initial states. y:0 wipes any read-from-CSS pixel offset before yPercent applies.
   gsap.set('.hero-title .word .ink', { y: 0, yPercent: 110 });

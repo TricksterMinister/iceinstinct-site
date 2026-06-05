@@ -25,7 +25,7 @@ export function Duality({ onCommit }: { onCommit?: (t: Temperament) => void }) {
     (committed === 'ice' ? ' is-ice' : committed === 'instinct' ? ' is-instinct' : '');
 
   return (
-    <section className={cls} id="manifesto" aria-label="Ice and Instinct - choose your nature">
+    <section className={cls} id="duality" aria-label="Ice and Instinct - choose your nature">
       <span className="d-tlabel">A Private Mixology Ritual</span>
       <span className="d-blabel">Choose Your Nature</span>
 

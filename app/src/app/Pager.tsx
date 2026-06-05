@@ -11,22 +11,24 @@ gsap.registerPlugin(ScrollTrigger);
  */
 const pagerMap: Record<string, string> = {
   hero: '.hero',
-  manifesto: '.duality',
-  tiers: '.tiers',
-  concierge: '.concierge',
+  manifesto: '#manifesto',
   founder: '.founder',
   gallery: '.gallery',
-  closing: '.closing',
+  tiers: '.tiers',
+  concierge: '.concierge',
+  duality: '.duality',
+  closing: '.closing-segment',
 };
 
 const dotDefs: { key: string; label: string }[] = [
   { key: 'hero', label: '01' },
   { key: 'manifesto', label: '02' },
-  { key: 'tiers', label: '03' },
-  { key: 'concierge', label: '04' },
-  { key: 'founder', label: '05' },
-  { key: 'gallery', label: '06' },
-  { key: 'closing', label: '07' },
+  { key: 'founder', label: '03' },
+  { key: 'gallery', label: '04' },
+  { key: 'tiers', label: '05' },
+  { key: 'concierge', label: '06' },
+  { key: 'duality', label: '07' },
+  { key: 'closing', label: '08' },
 ];
 
 export function Pager() {

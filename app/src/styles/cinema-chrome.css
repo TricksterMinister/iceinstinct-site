@@ -37,33 +37,31 @@ body.cinema-chrome::after {
 @media (hover: hover) and (pointer: fine) { body.cinema-chrome, body.cinema-chrome a, body.cinema-chrome button { cursor: none; } }
 
 /* VANISH TRIGGER (champagne circle, top-right) */
+/* Editorial "Index" menu - a vertical champagne wordmark on a hairline tick.
+   No hamburger, no circle. The tick grows and the letters spread on hover. */
 .va-trigger {
-  position: fixed; top: 1.6rem; right: 1.6rem; z-index: 95;
-  width: 64px; height: 64px;
-  background: transparent; border: none; padding: 0;
-  display: grid; place-items: center;
-  isolation: isolate;
+  position: fixed; top: 2rem; right: 2.4rem; z-index: 95;
+  width: auto; height: auto;
+  background: transparent; border: none; padding: 0.4rem 0.3rem;
+  display: flex; flex-direction: column; align-items: center; gap: 0.7rem;
+  isolation: isolate; cursor: pointer;
 }
-.va-trigger-ring {
-  position: absolute; inset: 0;
-  border: 1px solid var(--c-accent);
-  border-radius: 50%;
-  transition: transform 0.6s var(--ease-out-expo), background 0.4s;
+.va-trigger-ring, .va-trigger-icon { display: none; }
+.va-trigger::before {
+  content: ""; width: 1px; height: 24px;
+  background: linear-gradient(var(--c-accent), oklch(88% 0.06 95 / 0.15));
+  transition: height 0.55s var(--ease-out-expo);
 }
-.va-trigger:hover .va-trigger-ring { transform: scale(1.06); background: rgba(255,255,255,0.06); }
-.va-trigger-icon {
-  position: relative; width: 22px; height: 14px;
-  display: grid; gap: 4px; align-content: center;
+.va-trigger::after {
+  content: "Index";
+  writing-mode: vertical-rl; text-orientation: mixed;
+  font-family: var(--font-mono); font-weight: 500; font-size: 0.72rem;
+  letter-spacing: 0.42em; text-transform: uppercase;
+  color: var(--c-accent); text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+  transition: letter-spacing 0.55s var(--ease-out-expo);
 }
-.va-trigger-icon span {
-  display: block; height: 1px; background: var(--c-accent);
-  transition: width 0.5s var(--ease-out-expo);
-  transform-origin: right center;
-}
-.va-trigger-icon span:nth-child(1) { width: 100%; }
-.va-trigger-icon span:nth-child(2) { width: 70%; margin-left: auto; }
-.va-trigger-icon span:nth-child(3) { width: 100%; }
-.va-trigger:hover .va-trigger-icon span:nth-child(2) { width: 100%; }
+.va-trigger:hover::before { height: 36px; }
+.va-trigger:hover::after { letter-spacing: 0.62em; }
 
 .va-overlay {
   position: fixed; inset: 0; z-index: 110;

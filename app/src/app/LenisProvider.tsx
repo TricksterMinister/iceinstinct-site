@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 // The seven full-viewport chapters of the homepage. Each becomes a snap point so
 // the scroll settles on one segment at a time and the guest can take it in.
-const SECTIONS = ['.hero', '.duality', '.tiers', '.concierge', '.founder', '.gallery', '.closing-segment'];
+const SECTIONS = ['.hero', '#manifesto', '.founder', '.gallery', '.tiers', '.concierge', '.duality', '.closing-segment'];
 
 export function LenisProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {

@@ -1,6 +1,6 @@
 export function Manifesto() {
   return (
-    <section className="chapter" id="manifesto" data-pin="">
+    <section className="chapter seg-light" id="manifesto" data-pin="">
       <div className="chapter-bg">
         <div className="chapter-bg-text" aria-hidden="true">RITUAL</div>
       </div>

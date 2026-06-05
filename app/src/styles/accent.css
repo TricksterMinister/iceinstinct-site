@@ -10,3 +10,15 @@
   --c-accent-deep: oklch(78% 0.07 92);   /* deeper for italic Fraunces, hairlines, hover states */
   --c-accent-line: oklch(58% 0.08 90);   /* darkest, used for thin separators on dark bg */
 }
+
+/* Accessibility: respect prefers-reduced-motion site-wide. Loaded on every
+   page, so this neutralises all CSS animations/transitions for users who ask
+   for reduced motion. (GSAP/Lenis motion is gated separately in JS.) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
