@@ -72,3 +72,17 @@ real file, never in-chat previews).
   precision - a perfect stir/Martini, quiet luxury.
 - Bespoke / The Architect: design-forward, custom presentation - sculptural
   garnish, considered composition, still inside the speakeasy.
+
+## Added layer (Temo 2026-06-06): ingredient storytelling / alchemical still-life
+
+Beyond water and condensation, frame the cocktail's CHARACTER. Each image should
+tell the specific drink's flavor, aroma and personality through real props in
+frame: fresh fruits, flowers and herbs, vials of bitters and house elixirs, the
+correct bartender tools (jigger, tweezers, mixing glass, hand-carved ice), a
+wisp of smoke. Metaphor and allegory - the real process and profile of making
+THAT drink, composed as an alchemical speakeasy still-life. Mega-realism always.
+
+This is essential for Category 3 (regenerating Temo's real cocktails): every
+cocktail tile is a small story of its ingredients, not just a glass. It also
+enriches Bridge images. Keep it tasteful and real - cooler, more meaningful
+compositions, never cluttered or staged-looking.

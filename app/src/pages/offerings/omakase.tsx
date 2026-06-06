@@ -15,9 +15,9 @@ export const omakaseContent: OfferingContent = {
     price: 'From $3,000 USD',
     priceMeta: 'Up to 25 guests · 4-6 hours · New York Metropolitan Area',
     video: {
-      poster: '/assets/photos/generated-image-december-02-2025---7_35pm-m2uzeLtAYCNCf3tZ.jpeg',
-      src: 'https://videos.pexels.com/video-files/4765778/4765778-hd_1920_1080_25fps.mp4',
-      alt: 'Omakase tier mood',
+      poster: '/assets/photos/omakase-hero-poster.png',
+      src: '/assets/media/omakase-hero.mp4',
+      alt: 'A finished Omakase cocktail, vapor rising, in a dim speakeasy',
     },
   },
 
@@ -41,8 +41,8 @@ export const omakaseContent: OfferingContent = {
   },
 
   bridge: {
-    photo: '/assets/photos/white-lotus-pour.png',
-    photoAlt: 'A cocktail composed in real time',
+    photo: '/assets/photos/omakase-bridge.png',
+    photoAlt: 'A lone cocktail under a brass lamp in a dim speakeasy bar',
     selection: {
       title: (
         <>
