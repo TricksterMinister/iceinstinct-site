@@ -313,8 +313,10 @@ export function Omakase() {
                 Scalability &amp; <span className="it">Investment.</span>
               </h2>
               <p className="oma-ledger-desc">
-                Intentionally limited to preserve the focus that spontaneous, omakase-style creation demands. The Master
-                Mixologist is the sole creative force.
+                The Alchemist experience is intentionally limited to preserve the focus required for spontaneous,
+                omakase-style creation. The Master Mixologist is the sole creative force. A dedicated logistical
+                assistant is present to preserve focus, flow, and the integrity of the ritual - their role is strictly
+                operational and never part of the creative act.
               </p>
             </div>
             <div className="oma-ledger-rows reveal">
@@ -322,7 +324,9 @@ export function Omakase() {
                 <span className="lbl">A</span>
                 <span className="info">
                   <span className="nm">The Soloist</span>
-                  <span className="cap">Up to 15 guests &middot; Master + assistant</span>
+                  <span className="cap">Up to 15 guests</span>
+                  <span className="det"><b>Personnel</b> 1 Master Mixologist + 1 Logistical Assistant</span>
+                  <span className="det"><b>Focus</b> Deep engagement and complex, individual creation</span>
                 </span>
                 <span className="pr">From $3,000</span>
               </div>
@@ -330,7 +334,9 @@ export function Omakase() {
                 <span className="lbl">B</span>
                 <span className="info">
                   <span className="nm">The Ensemble</span>
-                  <span className="cap">16-25 guests &middot; hard limit</span>
+                  <span className="cap">16 to 25 guests &middot; hard limit</span>
+                  <span className="det"><b>Personnel</b> 1 Master Mixologist + 1 Shadow (logistical)</span>
+                  <span className="det"><b>Focus</b> Critical logistical support so the Master remains fully immersed in improvisation</span>
                 </span>
                 <span className="pr">From $3,500</span>
               </div>
@@ -338,9 +344,11 @@ export function Omakase() {
                 <span className="lbl">C</span>
                 <span className="info">
                   <span className="nm">Beyond Limits</span>
-                  <span className="cap">Over 25 guests &middot; compromises the ritual</span>
+                  <span className="cap">Over 25 guests</span>
+                  <span className="det"><b>Personnel</b> Custom inquiry only</span>
+                  <span className="det"><b>Focus</b> This scale compromises the core omakase experience</span>
                 </span>
-                <span className="pr">Upon request</span>
+                <span className="pr">Not recommended</span>
               </div>
             </div>
           </div>
@@ -360,23 +368,23 @@ export function Omakase() {
             <div className="oma-grid">
               <div className="cell">
                 <span className="n">01</span>
-                <h3>Pre-Event Discovery</h3>
-                <p>A comprehensive consultation and home bar assessment, two to three weeks prior.</p>
+                <h3>Pre-Event Discovery Session</h3>
+                <p>Two to three weeks prior, we conduct a comprehensive consultation and home bar assessment. This is not menu planning - it is understanding the canvas before the performance begins.</p>
               </div>
               <div className="cell">
                 <span className="n">02</span>
                 <h3>The Alchemist&apos;s Kit</h3>
-                <p>Specialty equipment, rare ingredients, proprietary tinctures, unique garnishes.</p>
+                <p>I arrive with specialty technique equipment, rare ingredients, proprietary tinctures, and unique garnishes not available commercially.</p>
               </div>
-              <div className="cell">
+              <div className="cell is-wide">
                 <span className="n">03</span>
-                <h3>The Ice Ritual</h3>
-                <p>Professionally sourced, quality-controlled ice. Non-negotiable, never substituted.</p>
+                <h3>The Ice Ritual <span className="cell-tag">mandatory inclusion</span></h3>
+                <p>Ice selection is determined exclusively by the Master Mixologist. All ice used for this experience is professionally sourced, ordered, and quality-controlled by Ice &amp; Instinct. The host covers the cost of ice as a separate line item, finalized during the consultation. For optimal tempering and performance readiness, ice delivery is scheduled to arrive prior to the Master Mixologist&apos;s arrival. Ice quality is non-negotiable and cannot be substituted, supplied, or sourced by the host.</p>
               </div>
               <div className="cell">
                 <span className="n">04</span>
-                <h3>4-6 Hours of Service</h3>
-                <p>Flexible duration, guided by the rhythm of the evening. Every cocktail a singular event.</p>
+                <h3>4-6 Hours of Improvisational Service</h3>
+                <p>Flexible service duration, guided by the rhythm of the evening. Every cocktail is a singular event.</p>
               </div>
               <div className="cell">
                 <span className="n">05</span>
@@ -415,7 +423,7 @@ export function Omakase() {
               <div className="cell">
                 <span className="n">02</span>
                 <h3>Educational Engagement</h3>
-                <p>Terroir, fermentation, technique, history. Your gathering becomes a living masterclass.</p>
+                <p>Conversations about terroir, fermentation, technique, and cocktail history emerge naturally. Your gathering becomes a living masterclass.</p>
               </div>
               <div className="cell">
                 <span className="n">03</span>
@@ -446,17 +454,17 @@ export function Omakase() {
               <div className="cell">
                 <span className="n">01</span>
                 <h3>Existing Spirits &amp; Inventory</h3>
-                <p>The host's spirit collection and home bar form the primary palette for the evening.</p>
+                <p>The host's spirit collection and home bar inventory form the primary palette for the evening.</p>
               </div>
-              <div className="cell">
+              <div className="cell is-wide">
                 <span className="n">02</span>
-                <h3>Curated Glassware</h3>
-                <p>Large-format stemware, sculptural coupes, elegant rocks glasses. The vessel is part of the performance.</p>
+                <h3>Curated Glassware Collection</h3>
+                <p>This experience assumes thoughtfully selected, high-quality glassware. Large-format stemware, sculptural coupes, elegant rocks glasses, and varied vessels allow each creation to fully express its character. The vessel is not an accessory - it is part of the performance.</p>
               </div>
               <div className="cell">
                 <span className="n">03</span>
                 <h3>Infrastructure</h3>
-                <p>A suitable work surface, access to running water, and electricity.</p>
+                <p>A suitable work surface with adequate space for technique work, access to running water, and electricity.</p>
               </div>
               <div className="cell">
                 <span className="n">04</span>
@@ -476,14 +484,22 @@ export function Omakase() {
             </h2>
             <div className="oma-mani-grid">
               <p>
-                The Alchemist is a focused, solo improvisational performance. The Master Mixologist remains the sole
-                creative force throughout the evening; operational support is scaled internally to preserve flow and
-                uninterrupted focus.
+                The Alchemist experience is intentionally designed as a focused, solo improvisational performance. The
+                Master Mixologist remains the sole creative force throughout the evening.
               </p>
               <p>
-                Certain elements required at the highest level - professional ice formats, specialty glassware, select
-                atmospheric components - may be arranged through the <a href="/concierge/">Concierge</a>. When the room
-                calls for it, the evening may continue beyond its frame as a natural continuation of the ritual.
+                Operational support is scaled internally based on the number of guests to preserve flow, cleanliness, and
+                uninterrupted creative focus. The size and structure of the supporting team are determined exclusively by
+                the mixologist and are included as part of the experience.
+              </p>
+              <p>
+                Certain material elements required to execute the ritual at the highest level - such as professional ice
+                formats, specialty glassware, or select atmospheric components - may be arranged separately through the{' '}
+                <a href="/concierge/">Concierge</a>. These elements support the performance without altering its nature.
+              </p>
+              <p>
+                When the energy of the room calls for it, the experience may continue beyond its initial frame as a
+                natural continuation of the ritual itself.
               </p>
             </div>
           </div>

@@ -886,3 +886,17 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .oma-close-base{flex-direction:column;gap:4px;text-align:center}
   .oma-close-base > span,.oma-close-base > span:last-child{text-align:center}
 }
+
+/* Content-fidelity additions (full original copy restored into the new design) */
+/* III ledger: Personnel / Focus detail lines under each tier */
+.oma-ledger-row .det{font-family:var(--font-body);font-weight:350;font-size:clamp(.82rem,1vw,.92rem);line-height:1.45;color:var(--oma-ink-soft);max-width:46ch}
+.oma-ledger-row .det b{font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.14em;font-size:.6rem;color:var(--oma-champ-deep);margin-right:.55rem}
+.oma-ledger-row.is-muted .det{color:var(--oma-ink-faint)}
+.oma-ledger-row{align-items:start}
+.oma-ledger-row .pr{padding-top:.1rem}
+
+/* IV / VI: a long-copy cell spans the full grid width so it reads as a clause */
+.oma-grid .cell.is-wide{grid-column:1 / -1}
+.oma-grid .cell.is-wide p{max-width:none}
+.cell-tag{font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:.54rem;color:var(--c-accent);border:1px solid currentColor;padding:.16rem .45rem;border-radius:2px;vertical-align:middle;margin-left:.6rem}
+.oma-panel.light .cell-tag{color:var(--oma-champ-deep)}
