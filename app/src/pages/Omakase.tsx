@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
+import { useOmakaseSnap } from '../app/useOmakaseSnap';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,6 +17,7 @@ export function Omakase() {
 
   useCinemaChrome();
   useDeepScripts();
+  useOmakaseSnap();
 
   /* HELD STAGE - pin the photo bridge and scrub The Selection -> The Focus. */
   const holdRef = useRef<HTMLElement>(null);
