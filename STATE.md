@@ -16,3 +16,22 @@ PROCESS LOCK (Temo): do NOT hand-invent mechanics - pull the proven best-in-worl
 Then Phase 3 Inquiry->YouCanBook.me, Phase 4 Four Cities, Phase 5 Gallery recipe-drawer (click a tile -> full recipe card, same card language as profiler result), then prerender + cutover.
 
 **LOCKS:** strict monochrome + single champagne accent; no blur/glass, no neon, no AI-looking imagery (hyperreal only), no em-dashes. (Note: CLAUDE.md commandment #1 still says "silver, no champagne" - that is STALE; champagne is the real accent per DESIGN.md.)
+
+---
+## SESSION 2026-06-05 (Omakase page rebuild - PARTIAL, on react-shell, NOT deployed)
+Last commit: 5bbbb3f. Page = /offerings/omakase/ (app/src/pages/Omakase.tsx + app/src/styles/omakase.css).
+
+DONE (Omakase only, as the master template for the 4 offering pages):
+- Hard rule: EVERY segment = exactly one viewport (100svh), clear champagne-hairline boundary, no overflow. Desktop-first but mobile must stay clean.
+- ONE photo on the whole page = the "photo bridge" (no other photos; removed 3 cinematic reels). Hero media TBD (will regenerate).
+- HERO: copied the Concierge 50/50 technique 1:1 (class `.concierge*`, tokens scoped in omakase.css). Text left, video fills right half full height. Ghost "OMAKASE" top-left. DO NOT reinvent - copy existing techniques (Concierge / home Founder "The Hand Behind the Ritual").
+- II Menu Protocol = "HELD STAGE" pinned photo bridge (GSAP ScrollTrigger pin+scrub in Omakase.tsx). ONE whole photo, never cut (no seam). scrub:1.4 inertia, long dwell. Reduced-motion -> static fallback.
+- Light/dark rhythm, each its own viewport: Hero(D) I Overview(D Monument, ghost word + gold shine on pull) II Bridge(D) III Scalability(L Ledger) IV Included(D panel grid) V Standard(D panel grid) VI Host(L panel grid) VII Notes(D Manifesto) CTA(L Свет-1 framed + footer = one viewport).
+- ALL eyebrow kicker labels removed site-wide on this page (Temo hates them). Overview ghost removed; hero ghost kept.
+- Components in omakase.css: .concierge (hero), .oma-hold (held stage), .oma-fmt3 (Monument), .oma-ledger (light), .oma-panel .dark/.light + .oma-grid, .oma-mani (manifesto), .closing/.closing-segment (Свет-1 CTA, copied from cinema.css).
+
+OPEN / NEXT:
+- Temo wants scroll-snap ("shuffle scroll") between the viewport segments - soft (proximity), test with Lenis. Not done yet.
+- Regenerate real media (the one bridge photo + hero video) via banana/veo. Current media = placeholders.
+- Then copy the whole Omakase structure to Foundation / Simplicity / Bespoke (same standard, different copy).
+- Temo's mood: wants me to COPY existing proven components, NOT invent. Show live (localhost), he sees only real render.
