@@ -909,3 +909,17 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .oma-step-n{font-family:var(--font-mono);font-weight:500;font-size:clamp(1rem,1.5vw,1.35rem);letter-spacing:.08em;color:var(--c-accent);line-height:1;padding-top:.35rem;font-variant-numeric:tabular-nums}
 .oma-step-body h3{font-family:var(--font-display);font-weight:600;letter-spacing:-.01em;font-size:clamp(1.15rem,1.8vw,1.5rem);line-height:1.12;color:var(--c-fg);margin:0 0 .55rem;display:flex;align-items:center;flex-wrap:wrap;gap:.5rem}
 .oma-step-body p{font-family:var(--font-body);font-weight:350;line-height:1.6;color:var(--c-fg-soft);font-size:clamp(.96rem,1.2vw,1.06rem);margin:0;max-width:74ch}
+
+/* VI on the LIGHT panel: timeline ink colours */
+.oma-panel.light .oma-step{border-color:var(--oma-line)}
+.oma-panel.light .oma-step-n{color:var(--oma-champ-deep)}
+.oma-panel.light .oma-step-body h3{color:var(--oma-ink)}
+.oma-panel.light .oma-step-body p{color:var(--oma-ink-soft)}
+
+/* VII Experience Notes - single editorial column, roman markers, hairlines */
+.oma-notes{list-style:none;margin:clamp(2rem,4vw,3.2rem) 0 0;padding:0;max-width:920px;width:100%}
+.oma-note{display:grid;grid-template-columns:clamp(2.4rem,4vw,3.4rem) 1fr;gap:clamp(1rem,2.6vw,2.2rem);align-items:start;padding:clamp(1.2rem,2.4vh,1.8rem) 0;border-top:1px solid rgba(243,240,234,.14)}
+.oma-note:last-child{border-bottom:1px solid rgba(243,240,234,.14)}
+.oma-note-i{font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;color:var(--c-accent);line-height:1;padding-top:.4rem}
+.oma-note p{font-family:var(--font-body);font-weight:350;line-height:1.7;color:var(--c-fg-soft);font-size:clamp(.98rem,1.2vw,1.12rem);margin:0;max-width:70ch}
+.oma-note a{color:var(--c-accent);text-decoration:none;border-bottom:1px solid rgba(243,240,234,.3)}

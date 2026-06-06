@@ -461,58 +461,78 @@ export function Omakase() {
               </h2>
               <p className="oma-panel-intro">To enable pure improvisation, the host provides the canvas.</p>
             </header>
-            <div className="oma-grid">
-              <div className="cell">
-                <span className="n">01</span>
-                <h3>Existing Spirits &amp; Inventory</h3>
-                <p>The host's spirit collection and home bar inventory form the primary palette for the evening.</p>
-              </div>
-              <div className="cell is-wide">
-                <span className="n">02</span>
-                <h3>Curated Glassware Collection</h3>
-                <p>This experience assumes thoughtfully selected, high-quality glassware. Large-format stemware, sculptural coupes, elegant rocks glasses, and varied vessels allow each creation to fully express its character. The vessel is not an accessory - it is part of the performance.</p>
-              </div>
-              <div className="cell">
-                <span className="n">03</span>
-                <h3>Infrastructure</h3>
-                <p>A suitable work surface with adequate space for technique work, access to running water, and electricity.</p>
-              </div>
-              <div className="cell">
-                <span className="n">04</span>
-                <h3>Openness to the Unexpected</h3>
-                <p>Complete trust in the Master Mixologist's spontaneous creative vision.</p>
-              </div>
-            </div>
+            <ol className="oma-steps">
+              <li className="oma-step">
+                <span className="oma-step-n">01</span>
+                <div className="oma-step-body">
+                  <h3>Existing Spirits &amp; Inventory</h3>
+                  <p>The host's spirit collection and home bar inventory form the primary palette for the evening.</p>
+                </div>
+              </li>
+              <li className="oma-step">
+                <span className="oma-step-n">02</span>
+                <div className="oma-step-body">
+                  <h3>Curated Glassware Collection</h3>
+                  <p>This experience assumes thoughtfully selected, high-quality glassware. Large-format stemware, sculptural coupes, elegant rocks glasses, and varied vessels allow each creation to fully express its character. The vessel is not an accessory - it is part of the performance.</p>
+                </div>
+              </li>
+              <li className="oma-step">
+                <span className="oma-step-n">03</span>
+                <div className="oma-step-body">
+                  <h3>Infrastructure</h3>
+                  <p>A suitable work surface with adequate space for technique work, access to running water, and electricity.</p>
+                </div>
+              </li>
+              <li className="oma-step">
+                <span className="oma-step-n">04</span>
+                <div className="oma-step-body">
+                  <h3>Openness to the Unexpected</h3>
+                  <p>Complete trust in the Master Mixologist's spontaneous creative vision.</p>
+                </div>
+              </li>
+            </ol>
           </div>
         </section>
 
         {/* VII. EXPERIENCE NOTES - DARK Manifesto viewport panel */}
         <section className="oma-panel dark" id="notes">
           <div className="oma-mani reveal">
-            <span className="oma-mani-eye">VII &middot; The Fine Print</span>
             <h2 className="oma-mani-h">
               Experience <span className="it">notes.</span>
             </h2>
-            <div className="oma-mani-grid">
-              <p>
-                The Alchemist experience is intentionally designed as a focused, solo improvisational performance. The
-                Master Mixologist remains the sole creative force throughout the evening.
-              </p>
-              <p>
-                Operational support is scaled internally based on the number of guests to preserve flow, cleanliness, and
-                uninterrupted creative focus. The size and structure of the supporting team are determined exclusively by
-                the mixologist and are included as part of the experience.
-              </p>
-              <p>
-                Certain material elements required to execute the ritual at the highest level - such as professional ice
-                formats, specialty glassware, or select atmospheric components - may be arranged separately through the{' '}
-                <a href="/concierge/">Concierge</a>. These elements support the performance without altering its nature.
-              </p>
-              <p>
-                When the energy of the room calls for it, the experience may continue beyond its initial frame as a
-                natural continuation of the ritual itself.
-              </p>
-            </div>
+            <ol className="oma-notes">
+              <li className="oma-note">
+                <span className="oma-note-i" aria-hidden="true">i</span>
+                <p>
+                  The Alchemist experience is intentionally designed as a focused, solo improvisational performance. The
+                  Master Mixologist remains the sole creative force throughout the evening.
+                </p>
+              </li>
+              <li className="oma-note">
+                <span className="oma-note-i" aria-hidden="true">ii</span>
+                <p>
+                  Operational support is scaled internally based on the number of guests to preserve flow, cleanliness,
+                  and uninterrupted creative focus. The size and structure of the supporting team are determined
+                  exclusively by the mixologist and are included as part of the experience.
+                </p>
+              </li>
+              <li className="oma-note">
+                <span className="oma-note-i" aria-hidden="true">iii</span>
+                <p>
+                  Certain material elements required to execute the ritual at the highest level - such as professional
+                  ice formats, specialty glassware, or select atmospheric components - may be arranged separately through
+                  the <a href="/concierge/">Concierge</a>. These elements support the performance without altering its
+                  nature.
+                </p>
+              </li>
+              <li className="oma-note">
+                <span className="oma-note-i" aria-hidden="true">iv</span>
+                <p>
+                  When the energy of the room calls for it, the experience may continue beyond its initial frame as a
+                  natural continuation of the ritual itself.
+                </p>
+              </li>
+            </ol>
           </div>
         </section>
 
