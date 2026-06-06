@@ -1,6 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function Omakase() {
   // Live deep page sets <body class="cinema-chrome">. React mounts into #root,
@@ -12,6 +16,54 @@ export function Omakase() {
 
   useCinemaChrome();
   useDeepScripts();
+
+  /* HELD STAGE - pin the photo bridge and scrub The Selection -> The Focus. */
+  const holdRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const el = holdRef.current;
+    if (!el) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) {
+      el.classList.add('is-static');
+      return;
+    }
+    const ctx = gsap.context(() => {
+      const stage = el.querySelector('.oma-hold-stage');
+      gsap.set('.oma-hold-text.is-a', { autoAlpha: 1, yPercent: 0 });
+      gsap.set('.oma-hold-text.is-b', { autoAlpha: 0, yPercent: 6 });
+      // Timeline laid out on a 0..1 progress with generous DWELL on each text so
+      // it can be read before it leaves. scrub:1.4 adds buttery inertia (lags
+      // slightly behind the scroll) for a smooth, luxurious feel.
+      const tl = gsap.timeline({
+        defaults: { ease: 'power1.inOut' },
+        scrollTrigger: {
+          trigger: el,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 1.4,
+          pin: stage,
+          pinSpacing: false,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
+      // photo: slow continuous push the whole way
+      tl.fromTo('.oma-hold-photo img', { scale: 1.0 }, { scale: 1.08, ease: 'none', duration: 1 }, 0);
+      // scan line travels the whole way
+      tl.fromTo('.oma-hold-scan', { top: '0%' }, { top: '100%', ease: 'none', duration: 1 }, 0);
+      // A: hold (read) ~0..0.34, then ease out 0.34..0.5
+      tl.to('.oma-hold-text.is-a', { autoAlpha: 0, yPercent: -6, duration: 0.16 }, 0.34);
+      // B: ease in 0.54..0.7, then hold (read) to the end
+      tl.fromTo(
+        '.oma-hold-text.is-b',
+        { autoAlpha: 0, yPercent: 6 },
+        { autoAlpha: 1, yPercent: 0, duration: 0.16 },
+        0.54
+      );
+    }, el);
+    ScrollTrigger.refresh();
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>
@@ -157,55 +209,48 @@ export function Omakase() {
         </nav>
 
         {/* HERO */}
-        <section className="page-hero" style={{ viewTransitionName: 'tier-hero-omakase' }}>
-          <div className="section-bg-word" aria-hidden="true">
-            OMAKASE
-          </div>
-          <div className="container">
-            <span className="eyebrow">
-              <a href="/offerings/" style={{ color: 'inherit' }}>
+        {/* HERO - copied 1:1 from the Concierge 50/50 technique (text left, video
+            fills the right half full height). Only the copy + scale differ. */}
+        <section className="concierge" style={{ viewTransitionName: 'tier-hero-omakase' }}>
+          <div className="oma-hero-ghost" aria-hidden="true">OMAKASE</div>
+          <div className="concierge-stage">
+            <div className="concierge-text">
+              <a href="/offerings/" className="concierge-back">
                 &larr; Offerings
               </a>
-            </span>
-            <div className="tier-hero">
-              <div className="tier-hero-text">
-                <span className="eyebrow">iv. Omakase &middot; The Alchemist</span>
-                <h1>
-                  Omakase <span className="it">Improvisation.</span>
-                </h1>
-                <p className="lead">
-                  Pure creation. No menu. Unrepeatable moments. Complete trust. Cocktails created spontaneously, in real
-                  time, for each guest.
-                </p>
-                <div className="price">
-                  From $3,000 USD<small>Up to 25 guests &middot; 4-6 hours &middot; New York Metropolitan Area</small>
-                </div>
-                <div className="meta-row" style={{ marginTop: 'var(--s-sm)' }}>
-                  <a href="/contact/?package=omakase" className="btn btn-primary">
-                    Inquire <span className="arrow">&rarr;</span>
-                  </a>
-                </div>
-              </div>
-              <div className="tier-mood">
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  poster="/assets/photos/generated-image-december-02-2025---7_35pm-m2uzeLtAYCNCf3tZ.jpeg"
-                  aria-label="Cocktail being poured, slow motion"
-                >
-                  <source
-                    src="https://videos.pexels.com/video-files/4765778/4765778-hd_1920_1080_25fps.mp4"
-                    type="video/mp4"
-                  />
-                  <img
-                    src="/assets/photos/generated-image-december-02-2025---7_35pm-m2uzeLtAYCNCf3tZ.jpeg"
-                    alt="Omakase tier mood"
-                  />
-                </video>
-                <span className="tier-mood-scrim" aria-hidden="true"></span>
-              </div>
+              <h1 className="concierge-headline">
+                Omakase <span className="it">Improvisation.</span>
+              </h1>
+              <p className="concierge-lead">
+                Pure creation. No menu. Unrepeatable moments. Complete trust. Cocktails created spontaneously, in real
+                time, for each guest.
+              </p>
+              <span className="price">
+                From $3,000 USD<small>Up to 25 guests &middot; 4-6 hours &middot; New York Metropolitan Area</small>
+              </span>
+              <a href="/contact/?package=omakase" className="concierge-link">
+                Inquire <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+            <div className="concierge-image">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster="/assets/photos/generated-image-december-02-2025---7_35pm-m2uzeLtAYCNCf3tZ.jpeg"
+                aria-label="Cocktail being poured, slow motion"
+              >
+                <source
+                  src="https://videos.pexels.com/video-files/4765778/4765778-hd_1920_1080_25fps.mp4"
+                  type="video/mp4"
+                />
+                <img
+                  src="/assets/photos/generated-image-december-02-2025---7_35pm-m2uzeLtAYCNCf3tZ.jpeg"
+                  alt="Omakase tier mood"
+                />
+              </video>
+              <div className="concierge-image-scrim"></div>
             </div>
           </div>
         </section>
@@ -245,34 +290,37 @@ export function Omakase() {
           </div>
         </section>
 
-        {/* II. THE MENU PROTOCOL - 50/50 PHOTO BRIDGE (one per page). ONE whole
-            cocktail photo, never cut, sits between two text halves. Its top half
-            falls into the first viewport, its bottom half into the next. No seam. */}
-        <div className="oma-bridge" id="menu-protocol">
-          <div className="oma-bridge-text reveal">
-            <span className="oma-seg-eye">II &middot; The Menu Protocol</span>
-            <h2 className="oma-seg-h">
-              The <span className="it">Selection.</span>
-            </h2>
-            <p className="oma-seg-lead">
-              No menu. No recipe cards, no pre-event design. Cocktails are created spontaneously for each guest - based on
-              real-time dialogue, intuition, and the resources available in your bar.
-            </p>
+        {/* II. THE MENU PROTOCOL - "HELD STAGE" pinned photo bridge (the one photo).
+            The photo pins full-screen while The Selection crosses out and The Focus
+            crosses in over it. GSAP scrub in this component; static fallback for RM. */}
+        <section className="oma-hold" id="menu-protocol" ref={holdRef}>
+          <div className="oma-hold-stage">
+            <figure className="oma-hold-photo">
+              <img src="/assets/photos/white-lotus-pour.png" alt="A cocktail composed in real time" loading="lazy" />
+            </figure>
+            <span className="oma-hold-scan" aria-hidden="true"></span>
+            <div className="oma-hold-text is-a">
+              <span className="oma-seg-eye">II &middot; The Menu Protocol</span>
+              <h2 className="oma-seg-h">
+                The <span className="it">Selection.</span>
+              </h2>
+              <p className="oma-seg-lead">
+                No menu. No recipe cards, no pre-event design. Cocktails are created spontaneously for each guest, based on
+                real-time dialogue, intuition, and the resources in your bar.
+              </p>
+            </div>
+            <div className="oma-hold-text is-b" id="menu-focus">
+              <span className="oma-seg-eye">II &middot; The Focus</span>
+              <h2 className="oma-seg-h">
+                Advanced <span className="it">technique.</span>
+              </h2>
+              <p className="oma-seg-lead">
+                Smoke infusion, fat washing, rapid infusion, temperature layering, molecular garnish - methods reserved for
+                world-class bars, executed intimately in your home.
+              </p>
+            </div>
           </div>
-          <figure className="oma-bridge-photo">
-            <img src="/assets/photos/white-lotus-pour.png" alt="A cocktail composed in real time" loading="lazy" />
-          </figure>
-          <div className="oma-bridge-text reveal" id="menu-focus">
-            <span className="oma-seg-eye">II &middot; The Focus</span>
-            <h2 className="oma-seg-h">
-              Advanced <span className="it">technique.</span>
-            </h2>
-            <p className="oma-seg-lead">
-              Smoke infusion, fat washing, rapid infusion, temperature layering, molecular garnish - methods reserved for
-              world-class bars, executed intimately in your home.
-            </p>
-          </div>
-        </div>
+        </section>
 
         {/* III. SCALABILITY & INVESTMENT - LIGHT Ledger Split (light breath 1) */}
         <section className="oma-ledger" id="scaling">
