@@ -211,13 +211,17 @@ export function Omakase() {
         </section>
 
         {/* I. OVERVIEW */}
-        <section className="tier-section" id="overview">
-          <div className="container-narrow">
-            <header className="tier-section-head reveal">
-              <span className="tier-roman">I.</span>
-              <h2>Overview</h2>
+        <section className="tier-section oma-fmt3" id="overview">
+          <div className="oma-fmt3-ghost" aria-hidden="true">Overview</div>
+          <div className="oma-fmt3-wrap reveal">
+            <div className="oma-fmt3-rule" aria-hidden="true"></div>
+            <header className="oma-fmt3-head">
+              <span className="oma-fmt3-eyebrow">I &middot; Overview</span>
+              <h2 className="oma-fmt3-title">
+                Performance <span className="it">art.</span>
+              </h2>
             </header>
-            <div className="tier-prose reveal">
+            <div className="oma-fmt3-cols">
               <p>
                 For the true connoisseur who understands that the highest form of craft is improvisation. This is omakase
                 for cocktails - a ritual reserved for those who collect spirits, cultivate home bars, and seek
@@ -233,307 +237,191 @@ export function Omakase() {
                 witness cocktails being born - techniques you've never seen, flavor structures that challenge
                 assumptions.
               </p>
-              <p className="emph">
-                <strong>This is not bartending.</strong>
-                <br />
-                <strong>This is performance art.</strong>
-                <br />
-                Guests do not observe - they participate in the creation itself.
-              </p>
             </div>
-          </div>
-        </section>
-
-        {/* WIDE CINEMATIC MEDIA BAND - movement I */}
-        <section className="oma-reel">
-          <div className="oma-reel-media">
-            <img src="/assets/photos/white-lotus-pour.png" alt="A cocktail captured mid-pour" loading="lazy" />
-          </div>
-          <span className="oma-reel-scrim" aria-hidden="true"></span>
-          <span className="oma-reel-ghost" aria-hidden="true">OMAKASE</span>
-          <div className="oma-reel-inner">
-            <p className="oma-reel-quote">
-              Performance art
-              <br />
-              for <span className="it">cocktails.</span>
+            <p className="oma-fmt3-pull">
+              This is not bartending. <span className="it">This is performance art.</span>
             </p>
-            <span className="oma-reel-mark">iv &middot; Omakase</span>
+            <p className="oma-fmt3-foot">Guests do not observe - they participate in the creation itself.</p>
           </div>
         </section>
 
-        {/* II. THE MENU PROTOCOL */}
-        <section className="tier-section" id="menu-protocol">
-          <div className="container-narrow">
-            <header className="tier-section-head reveal">
-              <span className="tier-roman">II.</span>
-              <h2>The Menu Protocol</h2>
-              <p className="tier-section-intro">Pure Improvisation. The Highest Form of Trust.</p>
-            </header>
-            <div className="tier-prose reveal">
-              <p>We use your existing spirits, your collection, and the energy of the room as our canvas.</p>
-              <div className="tier-subsection">
-                <h3>The Selection</h3>
-                <p>
-                  No recipe cards. No pre-event design. Cocktails are created spontaneously for each guest, based on
-                  real-time dialogue, intuition, and the resources available in your bar.
-                </p>
-              </div>
-              <div className="tier-subsection">
-                <h3>The Focus</h3>
-                <p>
-                  Advanced technique showcase. Smoke infusion, fat washing, rapid infusion, temperature layering, and
-                  molecular garnishes - methods typically reserved for world-class cocktail bars, executed intimately in
-                  your home.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* III. SCALABILITY & INVESTMENT */}
-        <section className="tier-section" id="scaling">
-          <div className="container-narrow">
-            <header className="tier-section-head reveal">
-              <span className="tier-roman">III.</span>
-              <h2>Scalability &amp; Investment</h2>
-              <p className="tier-section-intro">
-                The Alchemist experience is intentionally limited to preserve the focus required for spontaneous,
-                omakase-style creation.
-              </p>
-            </header>
-            <p className="tier-prose reveal" style={{ maxWidth: '64ch' }}>
-              The Master Mixologist is the sole creative force. A dedicated logistical assistant is present for all
-              Alchemist experiences to preserve focus, flow, and the integrity of the ritual. Their role is strictly
-              operational and never part of the creative act.
+        {/* II. THE MENU PROTOCOL - 50/50 PHOTO BRIDGE (one per page). ONE whole
+            cocktail photo, never cut, sits between two text halves. Its top half
+            falls into the first viewport, its bottom half into the next. No seam. */}
+        <div className="oma-bridge" id="menu-protocol">
+          <div className="oma-bridge-text reveal">
+            <span className="oma-seg-eye">II &middot; The Menu Protocol</span>
+            <h2 className="oma-seg-h">
+              The <span className="it">Selection.</span>
+            </h2>
+            <p className="oma-seg-lead">
+              No menu. No recipe cards, no pre-event design. Cocktails are created spontaneously for each guest - based on
+              real-time dialogue, intuition, and the resources available in your bar.
             </p>
-
-            <div className="tier-scale-grid reveal-stagger reveal">
-              <article className="tier-scale-card">
-                <span className="tier-scale-label">Tier A</span>
-                <h3>The Soloist</h3>
-                <p className="tier-scale-cap">Up to 15 guests</p>
-                <ul className="tier-scale-meta">
-                  <li>
-                    <strong>Personnel</strong>1 Master Mixologist + 1 Logistical Assistant
-                  </li>
-                  <li>
-                    <strong>Focus</strong>Deep engagement and complex, individual creation
-                  </li>
-                </ul>
-                <p className="tier-scale-price">From $3,000</p>
-              </article>
-
-              <article className="tier-scale-card">
-                <span className="tier-scale-label">Tier B</span>
-                <h3>The Ensemble</h3>
-                <p className="tier-scale-cap">16 to 25 guests &middot; hard limit</p>
-                <ul className="tier-scale-meta">
-                  <li>
-                    <strong>Personnel</strong>1 Master Mixologist + 1 Shadow (logistical)
-                  </li>
-                  <li>
-                    <strong>Focus</strong>Critical logistical support so the Master remains fully immersed in
-                    improvisation
-                  </li>
-                </ul>
-                <p className="tier-scale-price">From $3,500</p>
-              </article>
-
-              <article className="tier-scale-card is-not-recommended">
-                <span className="tier-scale-label">Tier C</span>
-                <h3>Beyond Limits</h3>
-                <p className="tier-scale-cap">Over 25 guests</p>
-                <ul className="tier-scale-meta">
-                  <li>
-                    <strong>Personnel</strong>Custom inquiry only
-                  </li>
-                  <li>
-                    <strong>Focus</strong>This scale compromises the core omakase experience
-                  </li>
-                </ul>
-                <p className="tier-scale-price">Not recommended</p>
-              </article>
-            </div>
           </div>
-        </section>
-
-        {/* WIDE CINEMATIC MEDIA BAND - movement II */}
-        <section className="oma-reel">
-          <div className="oma-reel-media">
-            <img src="/assets/photos/tier-omakase.jpg" alt="The Alchemist at the station" loading="lazy" />
-          </div>
-          <span className="oma-reel-scrim" aria-hidden="true"></span>
-          <span className="oma-reel-ghost" aria-hidden="true">ALCHEMY</span>
-          <div className="oma-reel-inner">
-            <p className="oma-reel-quote">
-              The highest form
-              <br />
-              of <span className="it">trust.</span>
+          <figure className="oma-bridge-photo">
+            <img src="/assets/photos/white-lotus-pour.png" alt="A cocktail composed in real time" loading="lazy" />
+          </figure>
+          <div className="oma-bridge-text reveal" id="menu-focus">
+            <span className="oma-seg-eye">II &middot; The Focus</span>
+            <h2 className="oma-seg-h">
+              Advanced <span className="it">technique.</span>
+            </h2>
+            <p className="oma-seg-lead">
+              Smoke infusion, fat washing, rapid infusion, temperature layering, molecular garnish - methods reserved for
+              world-class bars, executed intimately in your home.
             </p>
-            <span className="oma-reel-mark">iv &middot; Omakase</span>
-          </div>
-        </section>
-
-        {/* ===== LIGHT BREATH: ivory interlude (approved variant B) wrapping What's Included + Standard Inclusions. Content unchanged; only the surface flips to light to break the dark page. ===== */}
-        <div className="oma-breath">
-          <div className="oma-il-wrap">
-            {/* IV. WHAT'S INCLUDED */}
-            <section className="oma-il" id="included">
-              <header className="oma-il-head reveal">
-                <span className="oma-il-roman">IV &middot; The Experience</span>
-                <h2>
-                  What&apos;s <span className="it">Included</span>
-                </h2>
-                <p className="oma-il-intro">
-                  The specific milestones of your evening - from the first consultation to the final pour.
-                </p>
-              </header>
-              <div className="oma-il-list reveal">
-                <article className="oma-il-item">
-                  <span className="oma-il-num">01</span>
-                  <div>
-                    <h3>Pre-Event Discovery Session</h3>
-                    <p>
-                      Two to three weeks prior, a comprehensive consultation and home bar assessment. Not menu planning -
-                      understanding the canvas before the performance begins.
-                    </p>
-                  </div>
-                </article>
-                <article className="oma-il-item">
-                  <span className="oma-il-num">02</span>
-                  <div>
-                    <h3>The Alchemist&apos;s Kit</h3>
-                    <p>
-                      Specialty technique equipment, rare ingredients, proprietary tinctures, and unique garnishes not
-                      available commercially.
-                    </p>
-                  </div>
-                </article>
-                <article className="oma-il-item is-feature">
-                  <span className="oma-il-tag">Mandatory Inclusion</span>
-                  <h3>The Ice Ritual</h3>
-                  <p>
-                    Ice selection is determined exclusively by the Master Mixologist. All ice is professionally sourced,
-                    ordered, and quality-controlled by Ice &amp; Instinct, scheduled to arrive{' '}
-                    <strong>prior to the Master Mixologist&apos;s arrival</strong>. Ice quality is non-negotiable and
-                    cannot be substituted or sourced by the host.
-                  </p>
-                </article>
-                <article className="oma-il-item">
-                  <span className="oma-il-num">04</span>
-                  <div>
-                    <h3>4-6 Hours of Improvisational Service</h3>
-                    <p>Flexible duration, guided by the rhythm of the evening. Every cocktail a singular event.</p>
-                  </div>
-                </article>
-                <article className="oma-il-item">
-                  <span className="oma-il-num">05</span>
-                  <div>
-                    <h3>Station Restoration</h3>
-                    <p>Upon conclusion, your space is returned to order.</p>
-                  </div>
-                </article>
-              </div>
-            </section>
-
-            <div className="oma-il-rule" aria-hidden="true">
-              <span>&#10022;</span>
-            </div>
-
-            {/* V. STANDARD INCLUSIONS */}
-            <section className="oma-il" id="standard-inclusions">
-              <header className="oma-il-head reveal">
-                <span className="oma-il-roman">V &middot; The Foundation</span>
-                <h2>
-                  Standard <span className="it">Inclusions</span>
-                </h2>
-                <p className="oma-il-intro">
-                  Every Ice &amp; Instinct experience, regardless of tier, includes the foundation of our craft.
-                </p>
-              </header>
-              <div className="oma-il-list reveal">
-                <article className="oma-il-item">
-                  <span className="oma-il-num">01</span>
-                  <div>
-                    <h3>Private Master Mixologist</h3>
-                    <p>A dedicated professional with a quarter-century of global hospitality expertise.</p>
-                  </div>
-                </article>
-                <article className="oma-il-item">
-                  <span className="oma-il-num">02</span>
-                  <div>
-                    <h3>Educational Engagement</h3>
-                    <p>
-                      Conversations about terroir, fermentation, technique, and history emerge naturally. Your gathering
-                      becomes a living masterclass.
-                    </p>
-                  </div>
-                </article>
-                <article className="oma-il-item">
-                  <span className="oma-il-num">03</span>
-                  <div>
-                    <h3>Professional Tooling</h3>
-                    <p>A compact case of gold-standard mixology tools, plus advanced technique equipment.</p>
-                  </div>
-                </article>
-                <article className="oma-il-item">
-                  <span className="oma-il-num">04</span>
-                  <div>
-                    <h3>Setup &amp; Breakdown</h3>
-                    <p>Complete organization of the immediate working area.</p>
-                  </div>
-                </article>
-              </div>
-            </section>
           </div>
         </div>
-        {/* ===== end light breath ===== */}
 
-        {/* WIDE CINEMATIC MEDIA BAND - movement III */}
-        <section className="oma-reel">
-          <div className="oma-reel-media">
-            <img src="/assets/photos/concierge-still.jpg" alt="Smoke rising over the station" loading="lazy" />
-          </div>
-          <span className="oma-reel-scrim" aria-hidden="true"></span>
-          <span className="oma-reel-ghost" aria-hidden="true">RITUAL</span>
-          <div className="oma-reel-inner">
-            <p className="oma-reel-quote">
-              Every cocktail,
-              <br />a <span className="it">singular event.</span>
-            </p>
-            <span className="oma-reel-mark">iv &middot; Omakase</span>
+        {/* III. SCALABILITY & INVESTMENT - LIGHT Ledger Split (light breath 1) */}
+        <section className="oma-ledger" id="scaling">
+          <div className="oma-ledger-wrap">
+            <div className="oma-ledger-left reveal">
+              <span className="oma-ledger-eye">III &middot; Scalability</span>
+              <h2>
+                Scalability &amp; <span className="it">Investment.</span>
+              </h2>
+              <p className="oma-ledger-desc">
+                Intentionally limited to preserve the focus that spontaneous, omakase-style creation demands. The Master
+                Mixologist is the sole creative force.
+              </p>
+            </div>
+            <div className="oma-ledger-rows reveal">
+              <div className="oma-ledger-row">
+                <span className="lbl">A</span>
+                <span className="info">
+                  <span className="nm">The Soloist</span>
+                  <span className="cap">Up to 15 guests &middot; Master + assistant</span>
+                </span>
+                <span className="pr">From $3,000</span>
+              </div>
+              <div className="oma-ledger-row">
+                <span className="lbl">B</span>
+                <span className="info">
+                  <span className="nm">The Ensemble</span>
+                  <span className="cap">16-25 guests &middot; hard limit</span>
+                </span>
+                <span className="pr">From $3,500</span>
+              </div>
+              <div className="oma-ledger-row is-muted">
+                <span className="lbl">C</span>
+                <span className="info">
+                  <span className="nm">Beyond Limits</span>
+                  <span className="cap">Over 25 guests &middot; compromises the ritual</span>
+                </span>
+                <span className="pr">Upon request</span>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* VI. WHAT THE HOST PROVIDES */}
-        <section className="tier-section" id="host-provides">
-          <div className="container-narrow">
-            <header className="tier-section-head reveal">
-              <span className="tier-roman">VI.</span>
-              <h2>What the Host Provides</h2>
-              <p className="tier-section-intro">To enable pure improvisation, the host provides the following canvas.</p>
+        {/* IV. WHAT'S INCLUDED - DARK viewport panel, numbered grid */}
+        <section className="oma-panel dark" id="included">
+          <div className="oma-panel-wrap reveal">
+            <header className="oma-panel-head">
+              <div className="oma-panel-rule" aria-hidden="true"></div>
+              <span className="oma-panel-eye">IV &middot; The Experience</span>
+              <h2 className="oma-panel-h">
+                What&apos;s <span className="it">Included.</span>
+              </h2>
+              <p className="oma-panel-intro">The specific milestones of your evening, from first consultation to final pour.</p>
             </header>
-            <div className="tier-prose tier-prose-grid reveal">
-              <div className="tier-subsection">
+            <div className="oma-grid">
+              <div className="cell">
+                <span className="n">01</span>
+                <h3>Pre-Event Discovery</h3>
+                <p>A comprehensive consultation and home bar assessment, two to three weeks prior.</p>
+              </div>
+              <div className="cell">
+                <span className="n">02</span>
+                <h3>The Alchemist&apos;s Kit</h3>
+                <p>Specialty equipment, rare ingredients, proprietary tinctures, unique garnishes.</p>
+              </div>
+              <div className="cell">
+                <span className="n">03</span>
+                <h3>The Ice Ritual</h3>
+                <p>Professionally sourced, quality-controlled ice. Non-negotiable, never substituted.</p>
+              </div>
+              <div className="cell">
+                <span className="n">04</span>
+                <h3>4-6 Hours of Service</h3>
+                <p>Flexible duration, guided by the rhythm of the evening. Every cocktail a singular event.</p>
+              </div>
+              <div className="cell">
+                <span className="n">05</span>
+                <h3>Station Restoration</h3>
+                <p>Upon conclusion, your space is returned to order.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* V. STANDARD INCLUSIONS - DARK viewport panel, numbered grid */}
+        <section className="oma-panel dark" id="standard-inclusions">
+          <div className="oma-panel-wrap reveal">
+            <header className="oma-panel-head">
+              <div className="oma-panel-rule" aria-hidden="true"></div>
+              <span className="oma-panel-eye">V &middot; The Foundation</span>
+              <h2 className="oma-panel-h">
+                Standard <span className="it">Inclusions.</span>
+              </h2>
+              <p className="oma-panel-intro">Every Ice &amp; Instinct experience, regardless of tier, includes the foundation of our craft.</p>
+            </header>
+            <div className="oma-grid">
+              <div className="cell">
+                <span className="n">01</span>
+                <h3>Private Master Mixologist</h3>
+                <p>A dedicated professional with a quarter-century of global hospitality expertise.</p>
+              </div>
+              <div className="cell">
+                <span className="n">02</span>
+                <h3>Educational Engagement</h3>
+                <p>Terroir, fermentation, technique, history. Your gathering becomes a living masterclass.</p>
+              </div>
+              <div className="cell">
+                <span className="n">03</span>
+                <h3>Professional Tooling</h3>
+                <p>A compact case of gold-standard mixology tools, plus advanced technique equipment.</p>
+              </div>
+              <div className="cell">
+                <span className="n">04</span>
+                <h3>Setup &amp; Breakdown</h3>
+                <p>Complete organization of the immediate working area.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* VI. WHAT THE HOST PROVIDES - LIGHT viewport panel (light breath 2) */}
+        <section className="oma-panel light" id="host-provides">
+          <div className="oma-panel-wrap reveal">
+            <header className="oma-panel-head">
+              <div className="oma-panel-rule" aria-hidden="true"></div>
+              <span className="oma-panel-eye">VI &middot; The Canvas</span>
+              <h2 className="oma-panel-h">
+                What the Host <span className="it">Provides.</span>
+              </h2>
+              <p className="oma-panel-intro">To enable pure improvisation, the host provides the canvas.</p>
+            </header>
+            <div className="oma-grid">
+              <div className="cell">
+                <span className="n">01</span>
                 <h3>Existing Spirits &amp; Inventory</h3>
-                <p>The host's spirit collection and home bar inventory form the primary palette for the evening.</p>
+                <p>The host's spirit collection and home bar form the primary palette for the evening.</p>
               </div>
-              <div className="tier-subsection">
-                <h3>Curated Glassware Collection</h3>
-                <p>
-                  This experience assumes thoughtfully selected, high-quality glassware. Large-format stemware,
-                  sculptural coupes, elegant rocks glasses, and varied vessels allow each creation to fully express its
-                  character. The vessel is not an accessory - it is part of the performance.
-                </p>
+              <div className="cell">
+                <span className="n">02</span>
+                <h3>Curated Glassware</h3>
+                <p>Large-format stemware, sculptural coupes, elegant rocks glasses. The vessel is part of the performance.</p>
               </div>
-              <div className="tier-subsection">
+              <div className="cell">
+                <span className="n">03</span>
                 <h3>Infrastructure</h3>
-                <p>
-                  A suitable work surface with adequate space for technique work, access to running water, and
-                  electricity.
-                </p>
+                <p>A suitable work surface, access to running water, and electricity.</p>
               </div>
-              <div className="tier-subsection">
+              <div className="cell">
+                <span className="n">04</span>
                 <h3>Openness to the Unexpected</h3>
                 <p>Complete trust in the Master Mixologist's spontaneous creative vision.</p>
               </div>
@@ -541,31 +429,23 @@ export function Omakase() {
           </div>
         </section>
 
-        {/* VII. EXPERIENCE NOTES */}
-        <section className="tier-section" id="notes">
-          <div className="container-narrow">
-            <header className="tier-section-head reveal">
-              <span className="tier-roman">VII.</span>
-              <h2>Experience Notes</h2>
-            </header>
-            <div className="tier-prose reveal">
+        {/* VII. EXPERIENCE NOTES - DARK Manifesto viewport panel */}
+        <section className="oma-panel dark" id="notes">
+          <div className="oma-mani reveal">
+            <span className="oma-mani-eye">VII &middot; The Fine Print</span>
+            <h2 className="oma-mani-h">
+              Experience <span className="it">notes.</span>
+            </h2>
+            <div className="oma-mani-grid">
               <p>
-                The Alchemist experience is intentionally designed as a focused, solo improvisational performance. The
-                Master Mixologist remains the sole creative force throughout the evening.
+                The Alchemist is a focused, solo improvisational performance. The Master Mixologist remains the sole
+                creative force throughout the evening; operational support is scaled internally to preserve flow and
+                uninterrupted focus.
               </p>
               <p>
-                Operational support is scaled internally based on the number of guests to preserve flow, cleanliness, and
-                uninterrupted creative focus. The size and structure of the supporting team are determined exclusively by
-                the mixologist and are included as part of the experience.
-              </p>
-              <p>
-                Certain material elements required to execute the ritual at the highest level - such as professional ice
-                formats, specialty glassware, or select atmospheric components - may be arranged separately through the{' '}
-                <a href="/concierge/">Concierge</a>. These elements support the performance without altering its nature.
-              </p>
-              <p>
-                When the energy of the room calls for it, the experience may continue beyond its initial frame as a
-                natural continuation of the ritual itself.
+                Certain elements required at the highest level - professional ice formats, specialty glassware, select
+                atmospheric components - may be arranged through the <a href="/concierge/">Concierge</a>. When the room
+                calls for it, the evening may continue beyond its frame as a natural continuation of the ritual.
               </p>
             </div>
           </div>
