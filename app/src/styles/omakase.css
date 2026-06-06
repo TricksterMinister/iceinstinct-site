@@ -798,3 +798,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .concierge-text{z-index:2}
 /* OMAKASE ghost = TOP layer: the video must NOT cover it (Temo). */
 .concierge .section-bg-word{z-index:9}
+
+/* Ethereal haze background (experimental) - champagne-tinted living mist behind
+   the Standard Inclusions panel. Sits at z0; content lifts above it. */
+.oma-panel.has-ether > .oma-panel-wrap{position:relative;z-index:1}
+.oma-ether{position:absolute;inset:0;z-index:0;pointer-events:none}

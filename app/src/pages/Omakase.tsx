@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
 import { useOmakaseSnap } from '../app/useOmakaseSnap';
+import { EtherealShadow } from '../components/EtherealShadow';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -408,7 +409,15 @@ export function Omakase() {
         </section>
 
         {/* V. STANDARD INCLUSIONS - DARK viewport panel, numbered grid */}
-        <section className="oma-panel dark" id="standard-inclusions">
+        <section className="oma-panel dark has-ether" id="standard-inclusions">
+          <EtherealShadow
+            className="oma-ether"
+            sizing="fill"
+            color="oklch(88% 0.06 95 / 0.16)"
+            animation={{ scale: 36, speed: 28 }}
+            noise={{ opacity: 0.18, scale: 1.1 }}
+            style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none' }}
+          />
           <div className="oma-panel-wrap reveal">
             <header className="oma-panel-head">
               <div className="oma-panel-rule" aria-hidden="true"></div>
