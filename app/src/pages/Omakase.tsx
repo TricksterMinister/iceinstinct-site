@@ -413,7 +413,7 @@ export function Omakase() {
           <EtherealShadow
             className="oma-ether"
             sizing="fill"
-            color="oklch(88% 0.08 95 / 0.38)"
+            color="oklch(90% 0.10 84 / 0.40)"
             animation={{ scale: 68, speed: 92 }}
             noise={{ opacity: 0.12, scale: 1.1 }}
             style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none' }}
