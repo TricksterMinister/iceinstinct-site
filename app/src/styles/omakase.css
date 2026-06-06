@@ -802,4 +802,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
 /* Ethereal haze background (experimental) - champagne-tinted living mist behind
    the Standard Inclusions panel. Sits at z0; content lifts above it. */
 .oma-panel.has-ether > .oma-panel-wrap{position:relative;z-index:1}
-.oma-ether{position:absolute;inset:0;z-index:0;pointer-events:none}
+.oma-ether{position:absolute;inset:0;z-index:0;pointer-events:none;animation:oma-ether-breathe 9s ease-in-out infinite}
+@keyframes oma-ether-breathe{0%,100%{transform:scale(1);opacity:.92}50%{transform:scale(1.06);opacity:1}}
+@media (prefers-reduced-motion:reduce){.oma-ether{animation:none}}

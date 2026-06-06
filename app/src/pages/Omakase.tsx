@@ -413,9 +413,9 @@ export function Omakase() {
           <EtherealShadow
             className="oma-ether"
             sizing="fill"
-            color="oklch(88% 0.06 95 / 0.16)"
-            animation={{ scale: 36, speed: 28 }}
-            noise={{ opacity: 0.18, scale: 1.1 }}
+            color="oklch(88% 0.08 95 / 0.38)"
+            animation={{ scale: 68, speed: 92 }}
+            noise={{ opacity: 0.12, scale: 1.1 }}
             style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none' }}
           />
           <div className="oma-panel-wrap reveal">
