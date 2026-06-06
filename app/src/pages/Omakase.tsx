@@ -504,6 +504,7 @@ export function Omakase() {
           </a>
         </div>
 
+        <div className="oma-close-bottom">
         <div className="oma-close-marquee" aria-hidden="true">
           <div className="oma-close-track">
             <span>Ice &amp; <em>Instinct</em></span>
@@ -540,6 +541,7 @@ export function Omakase() {
             <span>Est. 2024 &middot; © 2026 Ice &amp; Instinct</span>
           </div>
         </footer>
+        </div>
       </div>
     </>
   );
