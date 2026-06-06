@@ -68,6 +68,36 @@ export function Omakase() {
     return () => ctx.revert();
   }, []);
 
+  /* Section rail polish: hide the I-VII rail on the hero and the closing (it is
+     only useful between them); darken its champagne numerals over light panels
+     so they stay legible. */
+  useEffect(() => {
+    const hideEls = document.querySelectorAll('.concierge, .oma-close');
+    const lightEls = document.querySelectorAll('.oma-panel.light, .oma-ledger');
+    if (!hideEls.length && !lightEls.length) return;
+    const visHide = new Set<Element>();
+    const visLight = new Set<Element>();
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          const isLight = e.target.classList.contains('oma-ledger') || e.target.classList.contains('light');
+          const set = isLight ? visLight : visHide;
+          if (e.intersectionRatio > 0.5) set.add(e.target);
+          else set.delete(e.target);
+        });
+        document.body.classList.toggle('rail-hide', visHide.size > 0);
+        document.body.classList.toggle('rail-onlight', visLight.size > 0 && visHide.size === 0);
+      },
+      { threshold: [0, 0.5, 1] }
+    );
+    hideEls.forEach((el) => io.observe(el));
+    lightEls.forEach((el) => io.observe(el));
+    return () => {
+      io.disconnect();
+      document.body.classList.remove('rail-hide', 'rail-onlight');
+    };
+  }, []);
+
   return (
     <>
       <div className="cursor" aria-hidden="true">
@@ -266,7 +296,8 @@ export function Omakase() {
               </p>
             </div>
             <p className="oma-fmt3-pull">
-              This is not bartending. <span className="it">This is performance art.</span>
+              <span className="line">This is not bartending.</span>
+              <span className="line it">This is performance art.</span>
             </p>
             <p className="oma-fmt3-foot">Guests do not observe - they participate in the creation itself.</p>
           </div>
