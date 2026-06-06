@@ -900,3 +900,12 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .oma-grid .cell.is-wide p{max-width:none}
 .cell-tag{font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:.54rem;color:var(--c-accent);border:1px solid currentColor;padding:.16rem .45rem;border-radius:2px;vertical-align:middle;margin-left:.6rem}
 .oma-panel.light .cell-tag{color:var(--oma-champ-deep)}
+
+/* IV "What's Included" - vertical numbered timeline (replaces the 5-item grid:
+   symmetric, sequential 01->05, holds the long Ice Ritual clause cleanly). */
+.oma-steps{list-style:none;margin:0 auto;padding:0;max-width:980px;width:100%;counter-reset:none}
+.oma-step{display:grid;grid-template-columns:clamp(3rem,6vw,5.5rem) 1fr;gap:clamp(1.2rem,3vw,2.6rem);align-items:start;padding:clamp(1.3rem,2.6vh,2rem) 0;border-top:1px solid rgba(243,240,234,.14)}
+.oma-step:last-child{border-bottom:1px solid rgba(243,240,234,.14)}
+.oma-step-n{font-family:var(--font-mono);font-weight:500;font-size:clamp(1rem,1.5vw,1.35rem);letter-spacing:.08em;color:var(--c-accent);line-height:1;padding-top:.35rem;font-variant-numeric:tabular-nums}
+.oma-step-body h3{font-family:var(--font-display);font-weight:600;letter-spacing:-.01em;font-size:clamp(1.15rem,1.8vw,1.5rem);line-height:1.12;color:var(--c-fg);margin:0 0 .55rem;display:flex;align-items:center;flex-wrap:wrap;gap:.5rem}
+.oma-step-body p{font-family:var(--font-body);font-weight:350;line-height:1.6;color:var(--c-fg-soft);font-size:clamp(.96rem,1.2vw,1.06rem);margin:0;max-width:74ch}

@@ -287,8 +287,9 @@ export function Omakase() {
                 The <span className="it">Selection.</span>
               </h2>
               <p className="oma-seg-lead">
-                No menu. No recipe cards, no pre-event design. Cocktails are created spontaneously for each guest, based on
-                real-time dialogue, intuition, and the resources in your bar.
+                We use your existing spirits, your collection, and the energy of the room as our canvas. No recipe cards,
+                no pre-event design. Cocktails are created spontaneously for each guest, based on real-time dialogue,
+                intuition, and the resources available in your bar.
               </p>
             </div>
             <div className="oma-hold-text is-b" id="menu-focus">
@@ -365,33 +366,43 @@ export function Omakase() {
               </h2>
               <p className="oma-panel-intro">The specific milestones of your evening, from first consultation to final pour.</p>
             </header>
-            <div className="oma-grid">
-              <div className="cell">
-                <span className="n">01</span>
-                <h3>Pre-Event Discovery Session</h3>
-                <p>Two to three weeks prior, we conduct a comprehensive consultation and home bar assessment. This is not menu planning - it is understanding the canvas before the performance begins.</p>
-              </div>
-              <div className="cell">
-                <span className="n">02</span>
-                <h3>The Alchemist&apos;s Kit</h3>
-                <p>I arrive with specialty technique equipment, rare ingredients, proprietary tinctures, and unique garnishes not available commercially.</p>
-              </div>
-              <div className="cell is-wide">
-                <span className="n">03</span>
-                <h3>The Ice Ritual <span className="cell-tag">mandatory inclusion</span></h3>
-                <p>Ice selection is determined exclusively by the Master Mixologist. All ice used for this experience is professionally sourced, ordered, and quality-controlled by Ice &amp; Instinct. The host covers the cost of ice as a separate line item, finalized during the consultation. For optimal tempering and performance readiness, ice delivery is scheduled to arrive prior to the Master Mixologist&apos;s arrival. Ice quality is non-negotiable and cannot be substituted, supplied, or sourced by the host.</p>
-              </div>
-              <div className="cell">
-                <span className="n">04</span>
-                <h3>4-6 Hours of Improvisational Service</h3>
-                <p>Flexible service duration, guided by the rhythm of the evening. Every cocktail is a singular event.</p>
-              </div>
-              <div className="cell">
-                <span className="n">05</span>
-                <h3>Station Restoration</h3>
-                <p>Upon conclusion, your space is returned to order.</p>
-              </div>
-            </div>
+            <ol className="oma-steps">
+              <li className="oma-step">
+                <span className="oma-step-n">01</span>
+                <div className="oma-step-body">
+                  <h3>Pre-Event Discovery Session</h3>
+                  <p>Two to three weeks prior, we conduct a comprehensive consultation and home bar assessment. This is not menu planning - it is understanding the canvas before the performance begins.</p>
+                </div>
+              </li>
+              <li className="oma-step">
+                <span className="oma-step-n">02</span>
+                <div className="oma-step-body">
+                  <h3>The Alchemist&apos;s Kit</h3>
+                  <p>I arrive with specialty technique equipment, rare ingredients, proprietary tinctures, and unique garnishes not available commercially.</p>
+                </div>
+              </li>
+              <li className="oma-step">
+                <span className="oma-step-n">03</span>
+                <div className="oma-step-body">
+                  <h3>The Ice Ritual <span className="cell-tag">mandatory inclusion</span></h3>
+                  <p>Ice selection is determined exclusively by the Master Mixologist. All ice used for this experience is professionally sourced, ordered, and quality-controlled by Ice &amp; Instinct. The host covers the cost of ice as a separate line item, finalized during the consultation. For optimal tempering and performance readiness, ice delivery is scheduled to arrive prior to the Master Mixologist&apos;s arrival. Ice quality is non-negotiable and cannot be substituted, supplied, or sourced by the host.</p>
+                </div>
+              </li>
+              <li className="oma-step">
+                <span className="oma-step-n">04</span>
+                <div className="oma-step-body">
+                  <h3>4-6 Hours of Improvisational Service</h3>
+                  <p>Flexible service duration, guided by the rhythm of the evening. Every cocktail is a singular event.</p>
+                </div>
+              </li>
+              <li className="oma-step">
+                <span className="oma-step-n">05</span>
+                <div className="oma-step-body">
+                  <h3>Station Restoration</h3>
+                  <p>Upon conclusion, your space is returned to order.</p>
+                </div>
+              </li>
+            </ol>
           </div>
         </section>
 
