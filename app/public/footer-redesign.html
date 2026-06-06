@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ice &amp; Instinct - Footer redesign / 3 directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --c-bg:        oklch(8%  0 0);
+    --c-bg-soft:   oklch(13% 0 0);
+    --c-fg:        oklch(98% 0 0);
+    --c-fg-soft:   oklch(78% 0 0);
+    --c-fg-muted:  oklch(58% 0 0);
+    --c-accent:    oklch(88% 0.06 95);
+    --c-accent-deep:oklch(78% 0.07 92);
+    --c-accent-line:oklch(58% 0.08 90);
+    --font-display:'Geist','Inter',system-ui,sans-serif;
+    --font-italic: 'Fraunces','Times New Roman',serif;
+    --font-body:   'Inter',system-ui,sans-serif;
+    --font-mono:   'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--c-bg);color:var(--c-fg-soft);
+    font-family:var(--font-body);line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* grain overlay - breaks digital flatness, brand-allowed film grain */
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .page-head{
+    max-width:1320px;margin:0 auto;padding:64px 40px 12px;
+  }
+  .page-head h1{
+    font-family:var(--font-display);font-weight:600;color:var(--c-fg);
+    font-size:clamp(1.3rem,2.4vw,2rem);letter-spacing:-.02em;
+  }
+  .page-head p{color:var(--c-fg-muted);font-size:.9rem;margin-top:.5rem;max-width:60ch}
+  .tag{
+    font-family:var(--font-mono);font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--c-accent);
+  }
+  .specimen{position:relative;border-top:1px solid oklch(100% 0 0 / .07)}
+  .specimen-label{
+    max-width:1320px;margin:0 auto;padding:48px 40px 0;
+    display:flex;align-items:baseline;gap:16px;
+  }
+  .specimen-label .num{font-family:var(--font-mono);color:var(--c-fg-muted);font-size:.7rem}
+  .specimen-label .name{font-family:var(--font-display);color:var(--c-fg);font-weight:500;font-size:1rem}
+  .specimen-label .desc{color:var(--c-fg-muted);font-size:.82rem;margin-left:auto;max-width:42ch;text-align:right}
+
+  /* ============ shared footer shell ============ */
+  footer{position:relative;overflow:hidden}
+  .fwrap{max-width:1320px;margin:0 auto;padding:40px}
+  a{color:inherit;text-decoration:none}
+
+  /* link underline grow */
+  .lnk{position:relative;color:var(--c-fg-soft);transition:color .25s ease}
+  .lnk::after{content:"";position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:var(--c-accent);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+  .lnk:hover{color:var(--c-fg)}
+  .lnk:hover::after{transform:scaleX(1)}
+
+  /* ============================================================
+     A - COLOPHON (editorial masthead)
+     ============================================================ */
+  .a{background:var(--c-bg);padding-bottom:0}
+  .a .fwrap{padding-bottom:0}
+  .a-top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;padding-bottom:34px;border-bottom:1px solid oklch(100% 0 0 / .08)}
+  .a-cta{max-width:30ch}
+  .a-cta .eyebrow{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.3em;text-transform:uppercase;color:var(--c-fg-muted)}
+  .a-cta h3{font-family:var(--font-display);font-weight:500;color:var(--c-fg);font-size:clamp(1.5rem,2.6vw,2.3rem);letter-spacing:-.02em;line-height:1.05;margin:.6rem 0 0}
+  .a-cta h3 em{font-family:var(--font-italic);font-style:italic;color:var(--c-accent);font-weight:400}
+  .a-cols{display:flex;gap:clamp(28px,5vw,72px);font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em}
+  .a-cols .col{display:grid;gap:.6rem;align-content:start}
+  .a-cols .k{color:var(--c-fg-muted);font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;margin-bottom:.2rem}
+  .a-meta{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:var(--font-mono);font-size:.66rem;letter-spacing:.06em;color:var(--c-fg-muted);padding:18px 0 6px;font-variant-numeric:tabular-nums}
+  .a-word{
+    font-family:var(--font-display);font-weight:600;color:transparent;
+    -webkit-text-stroke:1px oklch(88% 0.06 95 / .5);
+    font-size:clamp(3rem,15.5vw,15rem);line-height:.8;letter-spacing:-.04em;white-space:nowrap;
+    transform:translateY(22%);user-select:none;
+  }
+  .a-word b{font-weight:600;font-family:var(--font-italic);font-style:italic;-webkit-text-stroke:1px oklch(88% 0.06 95 / .5)}
+
+  /* ============================================================
+     B - KINETIC MARQUEE
+     ============================================================ */
+  .b{background:linear-gradient(180deg,var(--c-bg),oklch(11% 0 0))}
+  .b-marquee{overflow:hidden;border-block:1px solid oklch(100% 0 0 / .07);padding:.4rem 0;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .b-track{display:inline-flex;gap:.5em;white-space:nowrap;animation:bslide 28s linear infinite;will-change:transform}
+  .b-track span{
+    font-family:var(--font-display);font-weight:700;font-size:clamp(3.4rem,10vw,9rem);letter-spacing:-.03em;
+    color:transparent;-webkit-text-stroke:1.2px oklch(88% 0.06 95 / .42);
+  }
+  .b-track span em{font-family:var(--font-italic);font-style:italic;color:var(--c-accent);-webkit-text-stroke:0}
+  @keyframes bslide{to{transform:translateX(-50%)}}
+  .b-grid{display:grid;grid-template-columns:1.3fr .7fr .7fr;gap:40px;align-items:start;padding-top:38px}
+  @media(max-width:760px){.b-grid{grid-template-columns:1fr}}
+  .b-lead h3{font-family:var(--font-display);font-weight:500;color:var(--c-fg);font-size:clamp(1.6rem,2.8vw,2.4rem);letter-spacing:-.02em;line-height:1.04}
+  .b-lead h3 em{font-family:var(--font-italic);font-style:italic;color:var(--c-accent);font-weight:400}
+  .b-btn{
+    display:inline-flex;align-items:center;gap:.7rem;margin-top:1.3rem;
+    font-family:var(--font-mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--c-bg);
+    background:var(--c-accent);padding:.85rem 1.4rem;border-radius:2px;
+    transition:transform .2s ease,background .25s ease;
+  }
+  .b-btn:hover{background:var(--c-fg);transform:translateY(-2px)}
+  .b-btn:active{transform:translateY(0) scale(.98)}
+  .b-col{display:grid;gap:.65rem;font-family:var(--font-mono);font-size:.78rem}
+  .b-col .k{color:var(--c-fg-muted);font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;margin-bottom:.25rem}
+  .b-base{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:34px;padding-top:18px;border-top:1px solid oklch(100% 0 0 / .07);font-family:var(--font-mono);font-size:.64rem;letter-spacing:.06em;color:var(--c-fg-muted);font-variant-numeric:tabular-nums}
+
+  /* ============================================================
+     C - VAULT PLATE (architectural framed)
+     ============================================================ */
+  .c{background:oklch(10% 0 0);padding:54px 40px}
+  .c-plate{position:relative;max-width:1240px;margin:0 auto;border:1px solid oklch(88% 0.06 95 / .22);padding:clamp(34px,5vw,62px)}
+  .c-corner{position:absolute;width:14px;height:14px;border:1px solid var(--c-accent)}
+  .c-corner.tl{top:-1px;left:-1px;border-right:0;border-bottom:0}
+  .c-corner.tr{top:-1px;right:-1px;border-left:0;border-bottom:0}
+  .c-corner.bl{bottom:-1px;left:-1px;border-right:0;border-top:0}
+  .c-corner.br{bottom:-1px;right:-1px;border-left:0;border-top:0}
+  .c-watermark{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;overflow:hidden;
+  }
+  .c-watermark span{
+    font-family:var(--font-display);font-weight:700;color:oklch(88% 0.06 95 / .05);
+    font-size:clamp(4rem,16vw,15rem);letter-spacing:-.04em;white-space:nowrap;line-height:1;
+  }
+  .c-inner{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  @media(max-width:720px){.c-inner{grid-template-columns:1fr;gap:28px}}
+  .c-sign{display:grid;gap:.5rem}
+  .c-sign .mark{font-family:var(--font-display);font-weight:600;color:var(--c-fg);font-size:clamp(1.5rem,2.4vw,2rem);letter-spacing:-.01em}
+  .c-sign .tagline{font-family:var(--font-italic);font-style:italic;color:var(--c-fg-muted);font-size:1.05rem}
+  .c-sign .tagline em{color:var(--c-accent)}
+  .c-sign .cta{margin-top:1rem;font-family:var(--font-mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--c-accent);display:inline-flex;gap:.6rem;align-items:center;width:max-content}
+  .c-sign .cta:hover{color:var(--c-fg)}
+  .c-nav{display:grid;grid-template-columns:1fr 1fr;gap:24px 40px;font-family:var(--font-mono);font-size:.8rem}
+  .c-nav .col{display:grid;gap:.7rem;align-content:start}
+  .c-nav .k{color:var(--c-fg-muted);font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;margin-bottom:.2rem}
+  .c-base{position:relative;max-width:1240px;margin:18px auto 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.06em;color:var(--c-fg-muted);font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+  <header class="page-head">
+    <span class="tag">Ice &amp; Instinct / Footer redesign</span>
+    <h1>Three directions for the footer</h1>
+    <p>The giant <strong style="color:var(--c-fg)">Ice &amp; Instinct</strong> wordmark stays in every version - the rest of the structure changes. Strict monochrome + single champagne accent, no blur, no glass. Scroll through all three, then tell me the letter.</p>
+  </header>
+
+  <!-- ============ A ============ -->
+  <section class="specimen">
+    <div class="specimen-label">
+      <span class="num">A</span><span class="name">Colophon</span>
+      <span class="desc">Editorial masthead. Quiet, asymmetric, print-grade typography. The wordmark sits the page like a book's closing plate.</span>
+    </div>
+    <footer class="a">
+      <div class="fwrap">
+        <div class="a-top">
+          <div class="a-cta">
+            <span class="eyebrow">By appointment</span>
+            <h3>Begin the <em>conversation.</em></h3>
+          </div>
+          <nav class="a-cols">
+            <div class="col"><span class="k">Explore</span>
+              <a class="lnk" href="#">Offerings</a><a class="lnk" href="#">Concierge</a><a class="lnk" href="#">The Collection</a><a class="lnk" href="#">My Story</a>
+            </div>
+            <div class="col"><span class="k">Begin</span>
+              <a class="lnk" href="#">Inquire</a><a class="lnk" href="#">Instagram</a><a class="lnk" href="#">Index</a>
+            </div>
+          </nav>
+        </div>
+        <div class="a-meta">
+          <span>New York Metropolitan Area</span>
+          <span>Est. 2024</span>
+          <span>© 2026 Ice &amp; Instinct</span>
+        </div>
+        <div class="a-word" aria-hidden="true">Ice &amp; <b>Instinct.</b></div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ============ B ============ -->
+  <section class="specimen">
+    <div class="specimen-label">
+      <span class="num">B</span><span class="name">Kinetic Marquee</span>
+      <span class="desc">The wordmark drifts as a slow champagne outline ribbon. Modern, motion-forward, one decisive call to action.</span>
+    </div>
+    <footer class="b">
+      <div class="b-marquee" aria-hidden="true">
+        <div class="b-track">
+          <span>Ice &amp; <em>Instinct</em></span><span>Ice &amp; <em>Instinct</em></span><span>Ice &amp; <em>Instinct</em></span><span>Ice &amp; <em>Instinct</em></span>
+        </div>
+      </div>
+      <div class="fwrap">
+        <div class="b-grid">
+          <div class="b-lead">
+            <h3>Tell us the date, the room, your <em>spirits.</em></h3>
+            <a class="b-btn" href="#">Inquire <span aria-hidden="true">&rarr;</span></a>
+          </div>
+          <nav class="b-col"><span class="k">Explore</span>
+            <a class="lnk" href="#">Offerings</a><a class="lnk" href="#">Concierge</a><a class="lnk" href="#">The Collection</a><a class="lnk" href="#">My Story</a>
+          </nav>
+          <nav class="b-col"><span class="k">Connect</span>
+            <a class="lnk" href="#">Instagram</a><a class="lnk" href="#">Privacy</a><a class="lnk" href="#">Terms</a>
+          </nav>
+        </div>
+        <div class="b-base">
+          <span>By appointment only · New York Metropolitan Area</span>
+          <span>Est. 2024 · © 2026 Ice &amp; Instinct</span>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ============ C ============ -->
+  <section class="specimen">
+    <div class="specimen-label">
+      <span class="num">C</span><span class="name">Vault Plate</span>
+      <span class="desc">A framed champagne plate with corner ticks, the wordmark a watermark behind. Architectural, structured, reuses the closing-frame language already on the page.</span>
+    </div>
+    <footer class="c">
+      <div class="c-plate">
+        <span class="c-corner tl"></span><span class="c-corner tr"></span><span class="c-corner bl"></span><span class="c-corner br"></span>
+        <div class="c-watermark" aria-hidden="true"><span>Ice &amp; Instinct</span></div>
+        <div class="c-inner">
+          <div class="c-sign">
+            <span class="mark">Ice &amp; Instinct</span>
+            <span class="tagline">Where ritual meets <em>instinct.</em></span>
+            <a class="cta" href="#">Begin the conversation <span aria-hidden="true">&rarr;</span></a>
+          </div>
+          <nav class="c-nav">
+            <div class="col"><span class="k">Explore</span>
+              <a class="lnk" href="#">Offerings</a><a class="lnk" href="#">Concierge</a><a class="lnk" href="#">The Collection</a><a class="lnk" href="#">My Story</a>
+            </div>
+            <div class="col"><span class="k">Begin</span>
+              <a class="lnk" href="#">Inquire</a><a class="lnk" href="#">Instagram</a><a class="lnk" href="#">Privacy</a><a class="lnk" href="#">Terms</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="c-base">
+        <span>New York Metropolitan Area</span>
+        <span>Est. 2024 · © 2026 Ice &amp; Instinct</span>
+      </div>
+    </footer>
+  </section>
+</body>
+</html>
