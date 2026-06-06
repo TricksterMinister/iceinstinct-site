@@ -791,3 +791,10 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .concierge .concierge-lead{font-size:clamp(1.1rem,1.5vw,1.45rem);max-width:50ch;color:var(--c-fg-mute)}
 .concierge .price{font-size:clamp(1.7rem,2.4vw,2.4rem)}
 .concierge .price small{font-size:.62rem}
+
+/* hero ghost = standard .section-bg-word (same as sibling tier pages), placed
+   BEHIND the text + video for this 50/50 hero. */
+.concierge-image{z-index:1}
+.concierge-text{z-index:2}
+/* OMAKASE ghost = TOP layer: the video must NOT cover it (Temo). */
+.concierge .section-bg-word{z-index:9}

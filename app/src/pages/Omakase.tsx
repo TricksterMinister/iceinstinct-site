@@ -212,7 +212,7 @@ export function Omakase() {
         {/* HERO - copied 1:1 from the Concierge 50/50 technique (text left, video
             fills the right half full height). Only the copy + scale differ. */}
         <section className="concierge" style={{ viewTransitionName: 'tier-hero-omakase' }}>
-          <div className="oma-hero-ghost" aria-hidden="true">OMAKASE</div>
+          <div className="section-bg-word" aria-hidden="true">OMAKASE</div>
           <div className="concierge-stage">
             <div className="concierge-text">
               <a href="/offerings/" className="concierge-back">
