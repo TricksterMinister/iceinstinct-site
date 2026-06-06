@@ -805,3 +805,40 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .oma-ether{position:absolute;inset:0;z-index:0;pointer-events:none;animation:oma-ether-breathe 9s ease-in-out infinite}
 @keyframes oma-ether-breathe{0%,100%{transform:scale(1);opacity:.92}50%{transform:scale(1.06);opacity:1}}
 @media (prefers-reduced-motion:reduce){.oma-ether{animation:none}}
+
+/* =========================================================================
+   TASTING SPINE - section rail redesign (Omakase master template).
+   Kills the dark tablets + the floating uppercase labels (those read as a
+   stray eyebrow over the hero/overview). Just whisper-faint champagne-gold
+   roman numerals; the active section glows gold with a short leading tick.
+   ========================================================================= */
+.tier-nav::before{display:none}            /* drop the through-line */
+.tier-nav{gap:clamp(14px,2vh,24px)}
+.tier-nav a{
+  position:relative;
+  background:transparent;                   /* no tablet */
+  padding:0;
+  font-size:.66rem;
+  letter-spacing:.16em;
+  color:oklch(90% 0.08 84 / 0.30);          /* faint champagne gold */
+  text-shadow:none;
+  transition:color var(--d-base) var(--ease), letter-spacing var(--d-base) var(--ease);
+}
+.tier-nav a:hover,
+.tier-nav a.is-current{
+  color:oklch(90% 0.10 84 / 1);             /* full champagne gold */
+  letter-spacing:.16em;
+  text-shadow:0 0 16px oklch(90% 0.10 84 / 0.45);
+}
+/* short champagne tick pointing at the active section */
+.tier-nav a.is-current::before{
+  content:"";
+  position:absolute;
+  right:100%;
+  top:50%;
+  width:16px;
+  height:1px;
+  margin-right:9px;
+  background:oklch(90% 0.10 84 / 0.9);
+  transform:translateY(-50%);
+}

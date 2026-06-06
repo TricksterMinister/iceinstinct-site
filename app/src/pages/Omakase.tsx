@@ -181,34 +181,13 @@ export function Omakase() {
       <main>
         {/* Sticky I-VII navigator (desktop) */}
         <nav className="tier-nav" aria-label="Sections of this tier">
-          <a href="#overview" data-section="overview">
-            <span>I</span>
-            <span className="tier-nav-label">Overview</span>
-          </a>
-          <a href="#menu-protocol" data-section="menu-protocol">
-            <span>II</span>
-            <span className="tier-nav-label">Menu Protocol</span>
-          </a>
-          <a href="#scaling" data-section="scaling">
-            <span>III</span>
-            <span className="tier-nav-label">Scalability</span>
-          </a>
-          <a href="#included" data-section="included">
-            <span>IV</span>
-            <span className="tier-nav-label">What's Included</span>
-          </a>
-          <a href="#standard-inclusions" data-section="standard-inclusions">
-            <span>V</span>
-            <span className="tier-nav-label">Standard Inclusions</span>
-          </a>
-          <a href="#host-provides" data-section="host-provides">
-            <span>VI</span>
-            <span className="tier-nav-label">Host Provides</span>
-          </a>
-          <a href="#notes" data-section="notes">
-            <span>VII</span>
-            <span className="tier-nav-label">Notes</span>
-          </a>
+          <a href="#overview" data-section="overview" aria-label="Overview"><span>I</span></a>
+          <a href="#menu-protocol" data-section="menu-protocol" aria-label="Menu Protocol"><span>II</span></a>
+          <a href="#scaling" data-section="scaling" aria-label="Scalability"><span>III</span></a>
+          <a href="#included" data-section="included" aria-label="What's Included"><span>IV</span></a>
+          <a href="#standard-inclusions" data-section="standard-inclusions" aria-label="Standard Inclusions"><span>V</span></a>
+          <a href="#host-provides" data-section="host-provides" aria-label="Host Provides"><span>VI</span></a>
+          <a href="#notes" data-section="notes" aria-label="Notes"><span>VII</span></a>
         </nav>
 
         {/* HERO */}
