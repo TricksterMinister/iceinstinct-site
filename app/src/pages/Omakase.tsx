@@ -98,6 +98,32 @@ export function Omakase() {
     };
   }, []);
 
+  /* Hero ghost "OMAKASE": a champagne light follows the cursor and lights the
+     letters under it (the word breathes awake on hover). Listen on the whole
+     hero so the ghost stays pointer-events:none and never blocks the CTA. */
+  useEffect(() => {
+    const hero = document.querySelector<HTMLElement>('.concierge');
+    const word = hero?.querySelector<HTMLElement>('.section-bg-word');
+    if (!hero || !word) return;
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    const onMove = (e: PointerEvent) => {
+      const r = word.getBoundingClientRect();
+      const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+      word.classList.toggle('is-lit', inside);
+      if (inside) {
+        word.style.setProperty('--mx', `${((e.clientX - r.left) / r.width) * 100}%`);
+        word.style.setProperty('--my', `${((e.clientY - r.top) / r.height) * 100}%`);
+      }
+    };
+    const onLeave = () => word.classList.remove('is-lit');
+    hero.addEventListener('pointermove', onMove);
+    hero.addEventListener('pointerleave', onLeave);
+    return () => {
+      hero.removeEventListener('pointermove', onMove);
+      hero.removeEventListener('pointerleave', onLeave);
+    };
+  }, []);
+
   return (
     <>
       <div className="cursor" aria-hidden="true">
@@ -224,7 +250,10 @@ export function Omakase() {
         {/* HERO - copied 1:1 from the Concierge 50/50 technique (text left, video
             fills the right half full height). Only the copy + scale differ. */}
         <section className="concierge" style={{ viewTransitionName: 'tier-hero-omakase' }}>
-          <div className="section-bg-word" aria-hidden="true">OMAKASE</div>
+          <div className="section-bg-word hero-ghost" aria-hidden="true">
+            <span className="hg-base">OMAKASE</span>
+            <span className="hg-glow">OMAKASE</span>
+          </div>
           <div className="concierge-stage">
             <div className="concierge-text">
               <a href="/offerings/" className="concierge-back">

@@ -956,3 +956,28 @@ body.rail-onlight .tier-nav a{color:oklch(50% 0.09 72 / .55)}
 body.rail-onlight .tier-nav a:hover,
 body.rail-onlight .tier-nav a.is-current{color:oklch(45% 0.1 70);text-shadow:none}
 body.rail-onlight .tier-nav a.is-current::before{background:oklch(45% 0.1 70 / .9)}
+
+/* Hero ghost OMAKASE - cursor-follow champagne light (Temo "удиви меня").
+   Default: faint ghost. On hover a champagne glow tracks the cursor and lights
+   the letters beneath it; the word gives a subtle breath. pointer-events stay
+   off (the hero listens, not the word) so the CTA is never blocked. */
+.concierge .section-bg-word.hero-ghost{pointer-events:none;transition:transform .7s cubic-bezier(.22,1,.36,1)}
+.hero-ghost .hg-base{display:block;color:oklch(78% 0.05 95 / 0.18);transition:color .6s ease}
+.hero-ghost .hg-glow{
+  position:absolute;inset:0;display:block;
+  background:radial-gradient(circle 30vmin at var(--mx,50%) var(--my,50%),
+    oklch(96% 0.07 92 / 1) 0%,
+    oklch(89% 0.07 94 / .7) 24%,
+    oklch(86% 0.06 95 / 0) 52%);
+  -webkit-background-clip:text;background-clip:text;
+  color:transparent;-webkit-text-fill-color:transparent;
+  opacity:0;transition:opacity .55s ease;
+  filter:drop-shadow(0 0 22px oklch(88% 0.06 95 / .35));
+}
+.concierge .section-bg-word.hero-ghost.is-lit{transform:scale(1.012)}
+.concierge .section-bg-word.hero-ghost.is-lit .hg-glow{opacity:1}
+.concierge .section-bg-word.hero-ghost.is-lit .hg-base{color:oklch(80% 0.06 95 / .28)}
+@media (prefers-reduced-motion:reduce){
+  .concierge .section-bg-word.hero-ghost.is-lit{transform:none}
+  .hero-ghost .hg-glow{transition:none}
+}
