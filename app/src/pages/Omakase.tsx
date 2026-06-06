@@ -491,125 +491,54 @@ export function Omakase() {
 
       </main>
 
-      {/* FINAL CTA - СВЕТ-1 "Framed CTA / Begin" + dark footer = ONE full-viewport unit (canon Свет-1) */}
-      <div className="closing-segment">
-        <section className="closing" id="final-cta">
-            <div className="section-bg-word top right" aria-hidden="true">
-              OMAKASE
-            </div>
-            <div className="closing-stage">
-              <div className="closing-frame">
-                <span className="closing-corner tl" aria-hidden="true"></span>
-                <span className="closing-corner tr" aria-hidden="true"></span>
-                <span className="closing-corner bl" aria-hidden="true"></span>
-                <span className="closing-corner br" aria-hidden="true"></span>
-                <span className="closing-eyebrow">Ice &amp; Instinct / By appointment</span>
-                <h2 className="closing-title">
-                  Surrender to <span className="it">improvisation.</span>
-                </h2>
-                <p className="closing-lead">
-                  Tell us the date, the room, and your spirits collection. We return with a tailored consultation
-                  framework within one business day.
-                </p>
-                <div className="closing-cta">
-                  <a className="btn-primary" href="/contact/?package=omakase" data-cursor="link">
-                    <span className="btn-label">Inquire</span>
-                    <span className="btn-arr" aria-hidden="true">&rarr;</span>
-                  </a>
-                  <a className="btn-ghost" href="/offerings/" data-cursor="link">
-                    Explore the offerings
-                  </a>
-                </div>
+      {/* CLOSING - Begin + Footer fused into ONE segment (direction B: Kinetic Marquee) */}
+      <div className="closing-segment oma-close" id="final-cta">
+        <div className="oma-close-begin">
+          <span className="oma-close-eye">Ice &amp; Instinct / By appointment</span>
+          <h2 className="oma-close-title">
+            Surrender to <span className="it">improvisation.</span>
+          </h2>
+          <a className="oma-close-btn" href="/contact/?package=omakase" data-cursor="link">
+            <span>Inquire</span>
+            <span className="arr" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+
+        <div className="oma-close-marquee" aria-hidden="true">
+          <div className="oma-close-track">
+            <span>Ice &amp; <em>Instinct</em></span>
+            <span>Ice &amp; <em>Instinct</em></span>
+            <span>Ice &amp; <em>Instinct</em></span>
+            <span>Ice &amp; <em>Instinct</em></span>
+          </div>
+        </div>
+
+        <footer className="oma-close-foot" role="contentinfo">
+          <div className="oma-close-foot-top">
+            <nav className="oma-close-cols" aria-label="Footer">
+              <div className="col">
+                <span className="k">Explore</span>
+                <a className="lnk" href="/offerings/">Offerings</a>
+                <a className="lnk" href="/concierge/">Concierge</a>
+                <a className="lnk" href="/gallery/">The Collection</a>
+                <a className="lnk" href="/my-story/">My Story</a>
               </div>
-              <p className="closing-meta">
-                <span>By appointment only</span>
-                <span>New York Metropolitan Area</span>
-                <span>Est. 2024</span>
-              </p>
-            </div>
-        </section>
-
-        <footer className="footer" role="contentinfo">
-        <div className="footer-glow" aria-hidden="true">
-          Ice &amp; Instinct
-        </div>
-        <div className="footer-inner">
-          <div className="footer-sign">
-            <a href="/" className="footer-mark" data-logo-slot aria-label="Ice & Instinct - home">
-              <svg width="32" height="32" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17 4 L23 11 L17 18 L11 11 Z" stroke="currentColor" strokeWidth="1" fill="none" />
-                <path
-                  d="M9 14 L17 23 L25 14"
-                  stroke="currentColor"
-                  strokeWidth="1"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <line x1="17" y1="23" x2="17" y2="29" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-                <line x1="13" y1="29" x2="21" y2="29" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-              </svg>
-            </a>
-            <div className="footer-sign-text">
-              <p className="footer-name">Ice &amp; Instinct</p>
-              <p className="footer-tag">
-                Where ritual meets <em>instinct.</em>
-              </p>
-            </div>
-          </div>
-
-          <nav className="footer-nav" aria-label="Footer">
-            <div className="footer-col">
-              <span className="footer-key">Explore</span>
-              <a href="/offerings/">Offerings</a>
-              <a href="/concierge/">Concierge</a>
-              <a href="/gallery/">The Collection</a>
-              <a href="/my-story/">My Story</a>
-            </div>
-            <div className="footer-col">
-              <span className="footer-key">Begin</span>
-              <a href="/contact/">Inquire</a>
-              <a href="#" aria-label="Instagram">
-                Instagram
-              </a>
-              <span className="footer-static">By appointment</span>
-            </div>
-            <div className="footer-col">
-              <span className="footer-key">Index</span>
-              <a href="/privacy/">Privacy</a>
-              <a href="/terms/">Terms</a>
-            </div>
-          </nav>
-
-          <div className="footer-socials" aria-label="Social profiles">
-            <a href="#" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                <rect x="3" y="3" width="18" height="18" rx="5" />
-                <circle cx="12" cy="12" r="4" />
-                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
-              </svg>
-            </a>
-            <a href="#" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M22 12a10 10 0 10-11.6 9.9V14.9H8v-2.9h2.4V9.8c0-2.4 1.4-3.7 3.6-3.7 1 0 2.1.2 2.1.2v2.3h-1.2c-1.2 0-1.5.7-1.5 1.5v1.8h2.6l-.4 2.9h-2.2v6.9A10 10 0 0022 12z" />
-              </svg>
-            </a>
-            <a href="#" aria-label="TikTok">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z" />
-              </svg>
-            </a>
-            <a href="#" aria-label="X">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
+              <div className="col">
+                <span className="k">Begin</span>
+                <a className="lnk" href="/contact/">Inquire</a>
+                <a className="lnk" href="#" aria-label="Instagram">Instagram</a>
+                <a className="lnk" href="/privacy/">Privacy</a>
+                <a className="lnk" href="/terms/">Terms</a>
+              </div>
+            </nav>
+            <a className="oma-close-sign" href="/" data-logo-slot aria-label="Ice & Instinct - home">
+              Where ritual meets <em>instinct.</em>
             </a>
           </div>
-        </div>
-
-        <div className="footer-base">
-          <span className="footer-meta">New York Metropolitan Area &middot; Est. 2024 &middot; © 2026 Ice &amp; Instinct</span>
-        </div>
+          <div className="oma-close-base">
+            <span>By appointment only &middot; New York Metropolitan Area</span>
+            <span>Est. 2024 &middot; © 2026 Ice &amp; Instinct</span>
+          </div>
         </footer>
       </div>
     </>
