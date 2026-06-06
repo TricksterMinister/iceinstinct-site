@@ -348,7 +348,7 @@
 .closing-eyebrow::after { content: ""; width: 46px; height: 1px; background: linear-gradient(90deg, transparent, var(--c-accent), transparent); }
 .closing-title { font-family: var(--f-display); font-weight: 700; font-size: var(--t-step-5); line-height: 0.98; letter-spacing: -0.03em; color: var(--c-fg); }
 .closing-title .it { font-family: var(--f-italic); font-style: italic; text-transform: none; font-weight: 350; color: var(--c-accent); letter-spacing: 0; }
-.closing-lead { font-size: var(--t-step-0); line-height: 1.6; color: var(--c-fg-mute); max-width: 48ch; }
+.closing-lead { font-size: var(--t-step-0); line-height: 1.6; color: var(--c-fg-mute); max-width: 68ch; }
 .closing-cta { display: flex; gap: clamp(0.6rem, 1.6vw, 1.2rem); margin-top: 0.6rem; flex-wrap: wrap; justify-content: center; align-items: center; }
 .closing .btn-primary { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; gap: 0.7rem; font-family: var(--f-mono); font-size: var(--t-step--2); letter-spacing: 0.28em; text-transform: uppercase; padding: 1.05rem 1.9rem; color: var(--c-accent); background: transparent; border: 1px solid var(--c-accent); transition: color 0.45s; }
 .closing .btn-primary::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--c-accent); transform: scaleX(0); transform-origin: left; transition: transform 0.5s cubic-bezier(0.22,1,0.36,1); }
@@ -982,3 +982,14 @@ body.rail-onlight .tier-nav a.is-current::before{background:oklch(45% 0.1 70 / .
   .concierge .section-bg-word.hero-ghost.is-lit{transform:none}
   .hero-ghost .hg-glow{transition:none}
 }
+
+/* Centered text: balance lines so phrases never break into ugly half-lines
+   (Temo). Applies to the standout centered strings across all offering pages. */
+.oma-fmt3-title,.oma-fmt3-pull,.oma-fmt3-foot,
+.oma-panel-h,.oma-panel-intro,
+.closing-title,.closing-lead{text-wrap:balance}
+
+/* Overview foot is a single tagline -> keep it on one line on desktop (wrap only
+   on small screens). Prevents an article/noun split like "the / difference". */
+.oma-fmt3-foot{white-space:nowrap}
+@media (max-width:760px){.oma-fmt3-foot{white-space:normal}}

@@ -399,7 +399,9 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
               <span className="closing-corner br" aria-hidden="true"></span>
               <span className="closing-eyebrow">Ice &amp; Instinct / By appointment</span>
               <h2 className="closing-title">{content.closing.title}</h2>
-              <p className="closing-lead">{content.closing.lead}</p>
+              <p className="closing-lead">
+                {content.closing.lead.split(/(?<=\.)\s+/).flatMap((s, i) => (i === 0 ? [s] : [<br key={i} />, s]))}
+              </p>
               <div className="closing-cta">
                 <a className="btn-primary" href={pkg} data-cursor="link">
                   <span className="btn-label">Inquire</span>
