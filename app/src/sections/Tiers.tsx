@@ -16,7 +16,7 @@ export function Tiers() {
 
         <article className="tier" data-tier="i">
           <div className="tier-bg">
-            <img src="/assets/photos/tier-foundation.jpg" alt="Bartender's hands stirring a crystal mixing glass, Manhattan night beyond" loading="lazy" decoding="async" />
+            <img src="/assets/photos/foundation-hero-poster.png" alt="The Foundation - a classic cocktail under a brass lamp in a dim speakeasy" loading="lazy" decoding="async" />
             <div className="tier-bg-scrim"></div>
           </div>
           <div className="tier-body">
@@ -35,7 +35,7 @@ export function Tiers() {
 
         <article className="tier" data-tier="ii">
           <div className="tier-bg">
-            <img src="/assets/photos/tier-simplicity.jpg" alt="A lone bartender in profile, a single cocktail lit on a sparse bar" loading="lazy" decoding="async" />
+            <img src="/assets/photos/simplicity-hero-poster.png" alt="Perfection in Simplicity - an ice-cold Martini in a dim speakeasy" loading="lazy" decoding="async" />
             <div className="tier-bg-scrim"></div>
           </div>
           <div className="tier-body">
@@ -54,7 +54,7 @@ export function Tiers() {
 
         <article className="tier" data-tier="iii">
           <div className="tier-bg">
-            <img src="/assets/photos/tier-bespoke.jpg" alt="A flamed citrus peel sparking over a sculptural signature cocktail" loading="lazy" decoding="async" />
+            <img src="/assets/photos/bespoke-hero-poster.png" alt="Bespoke Design - a sculptural cocktail with dry-ice fog in a dim speakeasy" loading="lazy" decoding="async" />
             <div className="tier-bg-scrim"></div>
           </div>
           <div className="tier-body">
@@ -73,7 +73,7 @@ export function Tiers() {
 
         <article className="tier" data-tier="iv">
           <div className="tier-bg">
-            <img src="/assets/photos/tier-omakase.jpg" alt="A bartender improvising in smoke, a guest watching across the bar" loading="lazy" decoding="async" />
+            <img src="/assets/photos/omakase-hero-poster.png" alt="Omakase Improvisation - a lone cocktail with rising vapor in a dim speakeasy" loading="lazy" decoding="async" />
             <div className="tier-bg-scrim"></div>
           </div>
           <div className="tier-body">
