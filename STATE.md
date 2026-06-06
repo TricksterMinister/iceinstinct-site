@@ -31,7 +31,7 @@ DONE (Omakase only, as the master template for the 4 offering pages):
 - Components in omakase.css: .concierge (hero), .oma-hold (held stage), .oma-fmt3 (Monument), .oma-ledger (light), .oma-panel .dark/.light + .oma-grid, .oma-mani (manifesto), .closing/.closing-segment (Свет-1 CTA, copied from cinema.css).
 
 OPEN / NEXT:
-- Temo wants scroll-snap ("shuffle scroll") between the viewport segments - soft (proximity), test with Lenis. Not done yet.
+- scroll-snap ("shuffle scroll") = DONE (commit 30ac661, react-shell, NOT deployed). `app/src/app/useOmakaseSnap.ts` = Lenis smooth wheel + PROXIMITY Snap on the 9 viewport segments; suspends snap while `.oma-hold` is pinned (same guard as home over `.tiers`); wide-only, off under reduced-motion; exposes window.lenis. Verified headless: Lenis attaches, 9/9 segments, 0 console errors. AWAITING Temo feel-check at localhost.
 - Regenerate real media (the one bridge photo + hero video) via banana/veo. Current media = placeholders.
 - Then copy the whole Omakase structure to Foundation / Simplicity / Bespoke (same standard, different copy).
 - Temo's mood: wants me to COPY existing proven components, NOT invent. Show live (localhost), he sees only real render.
