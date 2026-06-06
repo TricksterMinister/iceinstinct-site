@@ -491,56 +491,72 @@ export function Omakase() {
 
       </main>
 
-      {/* CLOSING - Begin + Footer fused into ONE segment (direction B: Kinetic Marquee) */}
+      {/* CLOSING - top 70% = original Свет-1 framed CTA (restored), bottom 30% =
+          marquee 60% + footer links 40% */}
       <div className="closing-segment oma-close" id="final-cta">
-        <div className="oma-close-begin">
-          <span className="oma-close-eye">Ice &amp; Instinct / By appointment</span>
-          <h2 className="oma-close-title">
-            Surrender to <span className="it">improvisation.</span>
-          </h2>
-          <a className="oma-close-btn" href="/contact/?package=omakase" data-cursor="link">
-            <span>Inquire</span>
-            <span className="arr" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
+        <section className="closing">
+          <div className="section-bg-word top right" aria-hidden="true">OMAKASE</div>
+          <div className="closing-stage">
+            <div className="closing-frame">
+              <span className="closing-corner tl" aria-hidden="true"></span>
+              <span className="closing-corner tr" aria-hidden="true"></span>
+              <span className="closing-corner bl" aria-hidden="true"></span>
+              <span className="closing-corner br" aria-hidden="true"></span>
+              <span className="closing-eyebrow">Ice &amp; Instinct / By appointment</span>
+              <h2 className="closing-title">
+                Surrender to <span className="it">improvisation.</span>
+              </h2>
+              <p className="closing-lead">
+                Tell us the date, the room, and your spirits collection. We return with a tailored consultation
+                framework within one business day.
+              </p>
+              <div className="closing-cta">
+                <a className="btn-primary" href="/contact/?package=omakase" data-cursor="link">
+                  <span className="btn-label">Inquire</span>
+                  <span className="btn-arr" aria-hidden="true">&rarr;</span>
+                </a>
+                <a className="btn-ghost" href="/offerings/" data-cursor="link">
+                  Explore the offerings
+                </a>
+              </div>
+            </div>
+            <p className="closing-meta">
+              <span>By appointment only</span>
+              <span>New York Metropolitan Area</span>
+              <span>Est. 2024</span>
+            </p>
+          </div>
+        </section>
 
         <div className="oma-close-bottom">
-        <div className="oma-close-marquee" aria-hidden="true">
-          <div className="oma-close-track">
-            <span>Ice &amp; <em>Instinct</em></span>
-            <span>Ice &amp; <em>Instinct</em></span>
-            <span>Ice &amp; <em>Instinct</em></span>
-            <span>Ice &amp; <em>Instinct</em></span>
+          <div className="oma-close-marquee" aria-hidden="true">
+            <div className="oma-close-track">
+              <span>Ice &amp; <em>Instinct</em></span>
+              <span>Ice &amp; <em>Instinct</em></span>
+              <span>Ice &amp; <em>Instinct</em></span>
+              <span>Ice &amp; <em>Instinct</em></span>
+            </div>
           </div>
-        </div>
 
-        <footer className="oma-close-foot" role="contentinfo">
-          <div className="oma-close-foot-top">
-            <nav className="oma-close-cols" aria-label="Footer">
-              <div className="col">
-                <span className="k">Explore</span>
-                <a className="lnk" href="/offerings/">Offerings</a>
-                <a className="lnk" href="/concierge/">Concierge</a>
-                <a className="lnk" href="/gallery/">The Collection</a>
-                <a className="lnk" href="/my-story/">My Story</a>
-              </div>
-              <div className="col">
-                <span className="k">Begin</span>
-                <a className="lnk" href="/contact/">Inquire</a>
-                <a className="lnk" href="#" aria-label="Instagram">Instagram</a>
-                <a className="lnk" href="/privacy/">Privacy</a>
-                <a className="lnk" href="/terms/">Terms</a>
-              </div>
+          <footer className="oma-close-foot" role="contentinfo">
+            <nav className="oma-close-nav" aria-label="Footer">
+              <a className="lnk" href="/offerings/">Offerings</a>
+              <a className="lnk" href="/concierge/">Concierge</a>
+              <a className="lnk" href="/gallery/">The Collection</a>
+              <a className="lnk" href="/my-story/">My Story</a>
+              <a className="lnk" href="/contact/">Inquire</a>
+              <a className="lnk" href="#" aria-label="Instagram">Instagram</a>
+              <a className="lnk" href="/privacy/">Privacy</a>
+              <a className="lnk" href="/terms/">Terms</a>
             </nav>
-            <a className="oma-close-sign" href="/" data-logo-slot aria-label="Ice & Instinct - home">
-              Where ritual meets <em>instinct.</em>
-            </a>
-          </div>
-          <div className="oma-close-base">
-            <span>By appointment only &middot; New York Metropolitan Area</span>
-            <span>Est. 2024 &middot; © 2026 Ice &amp; Instinct</span>
-          </div>
-        </footer>
+            <div className="oma-close-base">
+              <span>By appointment only &middot; New York Metropolitan Area</span>
+              <a className="oma-close-sign" href="/" data-logo-slot aria-label="Ice & Instinct - home">
+                Where ritual meets <em>instinct.</em>
+              </a>
+              <span>Est. 2024 &middot; © 2026 Ice &amp; Instinct</span>
+            </div>
+          </footer>
         </div>
       </div>
     </>
