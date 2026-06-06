@@ -1,0 +1,197 @@
+import type { OfferingContent } from './types';
+
+// NOTE (phase 2): hero video + bridge photo reuse Omakase assets as placeholders;
+// pricing transcribed from offerings/bespoke/index.html, to be confirmed.
+export const bespokeContent: OfferingContent = {
+  slug: 'bespoke',
+  name: 'Bespoke',
+  ghost: 'BESPOKE',
+
+  hero: {
+    headline: (
+      <>
+        Bespoke Design <span className="it">&amp; Artistry.</span>
+      </>
+    ),
+    lead: 'Your vision, crafted into every glass. Custom cocktails designed specifically for your theme, your colors, your story. Mixology as creative collaboration.',
+    price: 'From $1,500 USD',
+    priceMeta: 'Up to 15 guests · 4 hours · New York Metropolitan Area',
+    video: {
+      poster: '/assets/photos/generated-image-december-02-2025---7_35pm-m2uzeLtAYCNCf3tZ.jpeg',
+      src: 'https://videos.pexels.com/video-files/4765778/4765778-hd_1920_1080_25fps.mp4',
+      alt: 'Bespoke tier mood',
+    },
+  },
+
+  overview: {
+    title: (
+      <>
+        Mixology as <span className="it">collaboration.</span>
+      </>
+    ),
+    paras: [
+      'For those who seek something beyond the classics. Your celebration deserves a cocktail menu as unique as the occasion itself - drinks designed specifically for your theme, your colors, your story.',
+      'This is mixology as creative collaboration. Together, we design a bespoke menu of signature cocktails tailored to your event’s atmosphere and aesthetic. Whether for a milestone birthday, a brand launch, or an engagement, each cocktail becomes a conversation piece.',
+      "Your private mixologist arrives with the creative vision to transform your ideas into liquid art. Guests don't just drink - they experience your story through thoughtfully crafted flavors, artful presentations, and photographically striking compositions.",
+    ],
+    pull: (
+      <>
+        Each cocktail, <span className="it">a conversation piece.</span>
+      </>
+    ),
+    foot: 'Your story, in liquid form.',
+  },
+
+  bridge: {
+    photo: '/assets/photos/white-lotus-pour.png',
+    photoAlt: 'A bespoke cocktail designed as liquid art',
+    selection: {
+      title: (
+        <>
+          The <span className="it">selection.</span>
+        </>
+      ),
+      lead: 'Two weeks prior, we collaborate to create a bespoke menu of 5-6 signature cocktails.',
+    },
+    focus: {
+      title: (
+        <>
+          The <span className="it">focus.</span>
+        </>
+      ),
+      lead: 'Full creative license. We develop custom cocktail names, unique flavor profiles, and theatrical presentation elements (smoke, specialty ice, botanical garnishes) designed to photograph beautifully and spark conversation.',
+    },
+  },
+
+  scaling: {
+    desc: 'Service capacity includes complex preparation and theatrical execution.',
+    tiers: [
+      {
+        label: 'A',
+        name: 'The Intimate',
+        meta: 'Up to 15 guests',
+        personnel: '1 Master Mixologist (custom design & execution)',
+        focus: 'Detailed storytelling and visual perfection.',
+        price: 'From $1,500',
+      },
+      {
+        label: 'B',
+        name: 'The Social',
+        meta: '16 to 30 guests',
+        personnel: '1 Master Mixologist + 1 Shadow (bar support)',
+        focus: 'Maintaining service speed and presentation quality for larger groups.',
+        price: 'From $2,000',
+      },
+      {
+        label: 'C',
+        name: 'The Grand',
+        meta: '31+ guests',
+        personnel: 'Custom team configuration',
+        focus: 'High-volume theatrical service.',
+        price: 'Custom Quote',
+      },
+    ],
+  },
+
+  included: {
+    intro: 'The specific milestones of your experience.',
+    steps: [
+      {
+        title: 'In-Depth Design Consultation',
+        body: 'Two weeks prior, we discuss your theme, color palette, and inspiration to design your signature menu.',
+      },
+      {
+        title: 'The Procurement Specification',
+        body: 'You receive a detailed shopping list for premium spirits, artisanal mixers, fresh ingredients, and unique garnishes required for your specific design.',
+      },
+      {
+        title: 'Four Hours of Masterful Execution',
+        body: 'We arrive with professional tools and specialty ingredients to bring your vision to life.',
+      },
+      {
+        title: 'Theatrical Presentation',
+        body: 'Implementation of visual elements such as smoke, dry ice, or floral aesthetics where appropriate.',
+      },
+    ],
+  },
+
+  standard: {
+    intro: 'Every Ice & Instinct experience, regardless of tier, includes the foundation of our craft.',
+    items: [
+      {
+        title: 'Private Master Mixologist',
+        body: 'A dedicated professional with a quarter-century of global hospitality expertise.',
+      },
+      {
+        title: 'Professional Tooling',
+        body: 'A compact, aesthetic case of gold-standard mixology tools. No bulky equipment, no portable bars.',
+      },
+      {
+        title: 'On-Site Ritual Performance',
+        body: 'The visual elegance of proper stirring, shaking, and pouring.',
+      },
+      {
+        title: 'Setup & Breakdown',
+        body: 'Complete organization of the immediate working area.',
+      },
+      {
+        title: 'Custom Recipe Documentation',
+        body: 'Following the event, you receive a digital cocktail book featuring your bespoke menu with full recipes, garnish specifications, and presentation notes for future recreation.',
+      },
+    ],
+  },
+
+  host: {
+    intro: 'To ensure the integrity of the service, the host provides the following canvas.',
+    steps: [
+      {
+        title: 'Spirits, Mixers & Garnishes',
+        body: 'All alcohol and fresh ingredients must be on-site prior to arrival, based on the provided Specification.',
+      },
+      {
+        title: 'Glassware',
+        body: 'Proper vessels for the selected cocktails (or rental via The Curator add-on).',
+      },
+      {
+        title: 'Infrastructure',
+        body: 'A dedicated work surface (kitchen counter, dining table, or existing bar), access to running water, and electricity.',
+      },
+      {
+        title: 'Ice Supply',
+        body: 'Quantity and formats as specified in the consultation.',
+      },
+      {
+        title: 'Floor Service Boundary',
+        body: 'Ice & Instinct focuses exclusively on production within the bar perimeter. For passing drinks, clearing glassware from the room, or general venue tidying, separate floor staff is required.',
+      },
+    ],
+  },
+
+  notes: {
+    title: (
+      <>
+        Experience <span className="it">extensions.</span>
+      </>
+    ),
+    items: [
+      'In addition to the core elements of your chosen experience, select extensions may be introduced to further refine the structure, pacing, or technical execution of the evening.',
+      <>
+        A full range of additional services - including curated glassware, specialty ice, logistical coordination, and
+        presentation oversight - is available on the <a href="/concierge/">Concierge</a> page and may be incorporated as
+        needed.
+      </>,
+      'Should the rhythm of the event call for a longer presence, service time may continue beyond the initial framework. All such considerations are aligned during the private design consultation to ensure balance, clarity, and control.',
+    ],
+  },
+
+  navLabels: ['Overview', 'Menu Protocol', 'Scalability', "What's Included", 'Standard Inclusions', 'Host Provides', 'Extensions'],
+
+  closing: {
+    title: (
+      <>
+        Translate your vision into <span className="it">liquid art.</span>
+      </>
+    ),
+    lead: 'Tell us the date, the theme, and the headcount. We will return with a tailored design proposal within one business day.',
+  },
+};
