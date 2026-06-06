@@ -31,6 +31,12 @@ DONE (Omakase only, as the master template for the 4 offering pages):
 - Components in omakase.css: .concierge (hero), .oma-hold (held stage), .oma-fmt3 (Monument), .oma-ledger (light), .oma-panel .dark/.light + .oma-grid, .oma-mani (manifesto), .closing/.closing-segment (Свет-1 CTA, copied from cinema.css).
 
 OPEN / NEXT:
+- OFFERING PAGES STANDARDIZED (phase 1 DONE, commits up to 854c3e3, react-shell, NOT deployed). All 4 (omakase/foundation/simplicity/bespoke) now render the ONE approved design via a data-driven template:
+  - `app/src/pages/OfferingPage.tsx` = template (hero cursor-light ghost, held-stage shimmer bridge, ledger tiers, IV/VI numbered timelines, V grid + champagne wave, VII notes, 70/30 closing marquee, rail + snap).
+  - `app/src/pages/offerings/{types.ts,omakase,foundation,simplicity,bespoke}.tsx` = per-page content (full verbatim live copy). `Omakase/Foundation/Simplicity/Bespoke.tsx` = thin wrappers.
+  - `app/src/styles/omakase.css` renamed -> `offering.css`, imported by all 4 main-*.tsx. `#included` + `#host-provides` carry viewport-compaction (5-step pages fit).
+  - Verified: all sections fit one viewport, lenis/ether/marquee present, correct ghost per page, 0 console errors, `npm run build` emits all 4.
+  - PHASE 2 (deferred per Temo): real per-page hero video + bridge photo (currently reuse Omakase placeholders); confirm pricing/guests/hours vs originals. Then prerender + cutover.
 - scroll-snap = DONE (30ac661). useOmakaseSnap.ts = Lenis proximity Snap on 9 segments, pin-guard over .oma-hold, wide-only, RM off.
 - closing segment = DONE (Temo approved): direction B "Kinetic Marquee". Top 70% = ORIGINAL Свет-1 framed CTA (restored 1:1), bottom 30% = champagne marquee 60% + centered footer links 40%. Eyebrows stay REMOVED. "New York Metropolitan Area" KEPT (not Manhattan). Mockups compare page at app/public/footer-redesign.html (A/C kept for history; remove before cutover).
 - CONTENT FIDELITY = DONE (56aa5e5): full original live copy poured back into the new design (III tier Personnel/Focus, IV Ice Ritual verbatim + tag, V/VI full, VII 4 paragraphs). Source of truth for original copy = repo root offerings/omakase/index.html (live www URL 404'd this session; apex serves home). Some sections now grow past one viewport (min-height, no clip) - acceptable, content > strict 100svh.
