@@ -654,7 +654,22 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .oma-hold-photo{position:absolute;inset:0;margin:0;overflow:hidden}
 .oma-hold-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92) contrast(1.03);will-change:transform;transform-origin:center}
 .oma-hold-photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.25) 32%,rgba(0,0,0,.25) 68%,rgba(0,0,0,.6))}
-.oma-hold-scan{position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--c-accent),transparent);opacity:.6;z-index:3;pointer-events:none}
+.oma-hold-scan{
+  position:absolute;left:0;right:0;top:0;height:2px;z-index:3;pointer-events:none;opacity:.95;
+  background:linear-gradient(90deg,
+    transparent 0%,
+    oklch(88% 0.06 95 / .22) 22%,
+    oklch(95% 0.05 95 / .9) 46%,
+    oklch(100% 0 0 / 1) 50%,
+    oklch(95% 0.05 95 / .9) 54%,
+    oklch(88% 0.06 95 / .22) 78%,
+    transparent 100%);
+  background-size:230% 100%;
+  background-repeat:no-repeat;
+  animation:oma-scan-shimmer 2.6s linear infinite;
+  box-shadow:0 0 12px oklch(88% 0.06 95 / .55), 0 0 26px oklch(88% 0.06 95 / .22);
+}
+@keyframes oma-scan-shimmer{0%{background-position:125% 0}100%{background-position:-25% 0}}
 .oma-hold-text{position:absolute;left:0;right:0;z-index:2;text-align:center;padding:0 clamp(1.5rem,6vw,7rem);display:flex;flex-direction:column;align-items:center;will-change:transform,opacity}
 .oma-hold-text.is-b{opacity:0}
 /* static fallback (reduced motion): normal flow, no pin */
