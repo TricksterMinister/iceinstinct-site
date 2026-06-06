@@ -17,8 +17,8 @@ export const bespokeContent: OfferingContent = {
     price: 'From $1,500 USD',
     priceMeta: 'Up to 15 guests · 4 hours · New York Metropolitan Area',
     video: {
-      poster: '/assets/photos/generated-image-december-02-2025---7_35pm-m2uzeLtAYCNCf3tZ.jpeg',
-      src: 'https://videos.pexels.com/video-files/4765778/4765778-hd_1920_1080_25fps.mp4',
+      poster: '/assets/photos/bespoke-hero-poster.png',
+      src: '/assets/media/bespoke-hero.mp4',
       alt: 'Bespoke tier mood',
     },
   },
@@ -43,7 +43,7 @@ export const bespokeContent: OfferingContent = {
   },
 
   bridge: {
-    photo: '/assets/photos/white-lotus-pour.png',
+    photo: '/assets/photos/bespoke-bridge.png',
     photoAlt: 'A bespoke cocktail designed as liquid art',
     selection: {
       title: (

@@ -17,8 +17,8 @@ export const simplicityContent: OfferingContent = {
     price: 'From $750 USD',
     priceMeta: 'Up to 12 guests · 4 hours · New York Metropolitan Area',
     video: {
-      poster: '/assets/photos/generated-image-december-02-2025---7_35pm-m2uzeLtAYCNCf3tZ.jpeg',
-      src: 'https://videos.pexels.com/video-files/4765778/4765778-hd_1920_1080_25fps.mp4',
+      poster: '/assets/photos/simplicity-hero-poster.png',
+      src: '/assets/media/simplicity-hero.mp4',
       alt: 'Simplicity tier mood',
     },
   },
@@ -43,7 +43,7 @@ export const simplicityContent: OfferingContent = {
   },
 
   bridge: {
-    photo: '/assets/photos/white-lotus-pour.png',
+    photo: '/assets/photos/simplicity-bridge.png',
     photoAlt: 'A timeless classic, perfectly executed',
     selection: {
       title: (

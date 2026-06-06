@@ -17,8 +17,8 @@ export const foundationContent: OfferingContent = {
     price: 'From $400 USD',
     priceMeta: 'Up to 40 guests · 3 hours · New York Metropolitan Area',
     video: {
-      poster: '/assets/photos/generated-image-december-02-2025---7_35pm-m2uzeLtAYCNCf3tZ.jpeg',
-      src: 'https://videos.pexels.com/video-files/4765778/4765778-hd_1920_1080_25fps.mp4',
+      poster: '/assets/photos/foundation-hero-poster.png',
+      src: '/assets/media/foundation-hero.mp4',
       alt: 'Foundation tier mood',
     },
   },
@@ -43,7 +43,7 @@ export const foundationContent: OfferingContent = {
   },
 
   bridge: {
-    photo: '/assets/photos/white-lotus-pour.png',
+    photo: '/assets/photos/foundation-bridge.png',
     photoAlt: 'A classic cocktail, executed with precision',
     selection: {
       title: (
