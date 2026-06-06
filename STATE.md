@@ -31,7 +31,10 @@ DONE (Omakase only, as the master template for the 4 offering pages):
 - Components in omakase.css: .concierge (hero), .oma-hold (held stage), .oma-fmt3 (Monument), .oma-ledger (light), .oma-panel .dark/.light + .oma-grid, .oma-mani (manifesto), .closing/.closing-segment (Свет-1 CTA, copied from cinema.css).
 
 OPEN / NEXT:
-- scroll-snap ("shuffle scroll") = DONE (commit 30ac661, react-shell, NOT deployed). `app/src/app/useOmakaseSnap.ts` = Lenis smooth wheel + PROXIMITY Snap on the 9 viewport segments; suspends snap while `.oma-hold` is pinned (same guard as home over `.tiers`); wide-only, off under reduced-motion; exposes window.lenis. Verified headless: Lenis attaches, 9/9 segments, 0 console errors. AWAITING Temo feel-check at localhost.
+- scroll-snap = DONE (30ac661). useOmakaseSnap.ts = Lenis proximity Snap on 9 segments, pin-guard over .oma-hold, wide-only, RM off.
+- closing segment = DONE (Temo approved): direction B "Kinetic Marquee". Top 70% = ORIGINAL Свет-1 framed CTA (restored 1:1), bottom 30% = champagne marquee 60% + centered footer links 40%. Eyebrows stay REMOVED. "New York Metropolitan Area" KEPT (not Manhattan). Mockups compare page at app/public/footer-redesign.html (A/C kept for history; remove before cutover).
+- CONTENT FIDELITY = DONE (56aa5e5): full original live copy poured back into the new design (III tier Personnel/Focus, IV Ice Ritual verbatim + tag, V/VI full, VII 4 paragraphs). Source of truth for original copy = repo root offerings/omakase/index.html (live www URL 404'd this session; apex serves home). Some sections now grow past one viewport (min-height, no clip) - acceptable, content > strict 100svh.
+- LOCKED decisions (Temo, this session): eyebrows removed; NY Metropolitan Area; closing B approved; champagne-gold haze (hue 84) on Standard Inclusions kept; tasting-spine rail (no tablets) kept.
 - Regenerate real media (the one bridge photo + hero video) via banana/veo. Current media = placeholders.
-- Then copy the whole Omakase structure to Foundation / Simplicity / Bespoke (same standard, different copy).
+- Then copy the whole Omakase structure to Foundation / Simplicity / Bespoke (same standard, different copy) - AND port real content per page (don't repeat the trim mistake).
 - Temo's mood: wants me to COPY existing proven components, NOT invent. Show live (localhost), he sees only real render.
