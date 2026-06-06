@@ -923,3 +923,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .oma-note-i{font-family:var(--font-mono);font-weight:500;text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;color:var(--c-accent);line-height:1;padding-top:.4rem}
 .oma-note p{font-family:var(--font-body);font-weight:350;line-height:1.7;color:var(--c-fg-soft);font-size:clamp(.98rem,1.2vw,1.12rem);margin:0;max-width:70ch}
 .oma-note a{color:var(--c-accent);text-decoration:none;border-bottom:1px solid rgba(243,240,234,.3)}
+
+/* IV must fit ONE viewport (Temo). Compact the timeline rhythm on #included only. */
+#included{padding-block:clamp(1.6rem,3.5vh,2.6rem)}
+#included .oma-panel-head{margin-bottom:clamp(1.1rem,2.6vh,1.8rem)}
+#included .oma-panel-rule{margin-bottom:1rem}
+#included .oma-step{padding:clamp(.7rem,1.5vh,1.05rem) 0}
+#included .oma-step-body h3{margin-bottom:.3rem;font-size:clamp(1.05rem,1.5vw,1.3rem)}
+#included .oma-step-body p{font-size:clamp(.9rem,1.05vw,1rem);line-height:1.5}
