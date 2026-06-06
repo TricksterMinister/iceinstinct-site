@@ -296,8 +296,7 @@ export function Omakase() {
               </p>
             </div>
             <p className="oma-fmt3-pull">
-              <span className="line">This is not bartending.</span>
-              <span className="line it">This is performance art.</span>
+              This is not bartending. <span className="it">This is performance art.</span>
             </p>
             <p className="oma-fmt3-foot">Guests do not observe - they participate in the creation itself.</p>
           </div>

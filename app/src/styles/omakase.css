@@ -472,7 +472,7 @@
   margin: clamp(2.6rem, 6vw, 4.6rem) auto 0;
   max-width: min(1300px, 86vw);
 }
-.oma-fmt3-pull .line { display: block; }   /* two semantic lines, not an awkward wrap */
+.oma-fmt3-pull { text-wrap: balance; }     /* keep it on one line, balanced if it must wrap */
 .oma-fmt3-pull .it { color: var(--c-accent); }
 .oma-fmt3-foot {
   font-family: var(--font-mono);
