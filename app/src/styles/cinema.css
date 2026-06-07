@@ -353,9 +353,11 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 880px) {
   .founder { height: auto; min-height: 100dvh; padding: 0; }
-  .founder-stage { grid-template-columns: 1fr; gap: 0; align-items: stretch; }
-  .founder-text { order: 2; height: auto; padding: clamp(2.5rem, 5vh, 4rem) 1.4rem; }
-  .founder-image { order: 1; height: 42dvh; }
+  /* Stack the photo and text snug (top-packed) instead of stretching two rows
+     across the viewport, which left a dead gap in the middle. */
+  .founder-stage { grid-template-columns: 1fr; gap: 0; align-items: stretch; align-content: start; }
+  .founder-text { order: 2; height: auto; justify-content: flex-start; padding: clamp(1.8rem, 3.5vh, 2.6rem) 1.4rem clamp(2rem, 4vh, 3rem); }
+  .founder-image { order: 1; height: 50dvh; }
   .founder-image-scrim { background: linear-gradient(180deg, transparent 55%, var(--c-bg) 100%); }
 }
 
@@ -471,8 +473,11 @@ a { color: inherit; text-decoration: none; }
   .tier { min-height: 100dvh; padding: 4.5rem 1.2rem 2rem 1.2rem; }
   .tiers-intro { padding: 5.5rem 1.2rem 2rem; min-height: 70dvh; }
 
-  .founder-text { padding: 4.5rem 1.2rem 2.5rem; }
-  .founder-image { height: 34dvh; }
+  /* Phone: big photo on top, text snug right under it (near the water/hands),
+     filling the viewport with no dead gap in the middle. */
+  .founder-stage { grid-template-rows: 52dvh 1fr; }
+  .founder-image { height: 52dvh; }
+  .founder-text { justify-content: flex-start; padding: clamp(1.6rem, 3.2vh, 2.3rem) 1.2rem 2.5rem; }
   .founder-link { padding: 0.7rem 1.1rem; }
 
   .gallery { padding: 4.5rem 0 2.5rem; gap: 1.6rem; }
