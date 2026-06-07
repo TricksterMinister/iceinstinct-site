@@ -102,19 +102,6 @@ export function VanishHeader() {
             <li><a href="#gallery" data-cursor="link"><i>06</i><b>The Collection</b><em>Twelve compositions</em></a></li>
             <li><a href="#closing" data-cursor="link"><i>07</i><b>Inquire</b><em>Begin the conversation</em></a></li>
           </ul>
-          <nav className="va-deep" aria-label="Deep pages">
-            <span className="va-deep-eyebrow">Read in full</span>
-            <ul>
-              <li><a href="/offerings/foundation/" data-cursor="link">i. The Foundation</a></li>
-              <li><a href="/offerings/simplicity/" data-cursor="link">ii. Perfection in Simplicity</a></li>
-              <li><a href="/offerings/bespoke/" data-cursor="link">iii. Bespoke Design &amp; Artistry</a></li>
-              <li><a href="/offerings/omakase/" data-cursor="link">iv. Omakase Improvisation</a></li>
-              <li><a href="/concierge/" data-cursor="link">Concierge &amp; Enhancements</a></li>
-              <li><a href="/my-story/" data-cursor="link">My Story</a></li>
-              <li><a href="/gallery/" data-cursor="link">The Collection</a></li>
-              <li><a href="/contact/" data-cursor="link">Inquire</a></li>
-            </ul>
-          </nav>
           <footer className="va-foot">
             <span>Manhattan / By Appointment</span>
             <span>EST. 2024</span>
