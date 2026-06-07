@@ -160,6 +160,24 @@ body.cinema-chrome::after {
   will-change: transform;
 }
 
+/* Phones: the ghost word is far wider than the screen, so static it only ever
+   shows a fragment. Turn it into a slow continuous sweep so the WHOLE word
+   passes through and can be read - same marquee language as the footer. The
+   parent (.page-hero) clips horizontally, so this never widens the page. */
+@keyframes ghost-word-sweep {
+  from { transform: translateX(100vw); }
+  to   { transform: translateX(-100%); }
+}
+@media (max-width: 720px) {
+  .section-bg-word {
+    left: 0; padding-left: 0;
+    animation: ghost-word-sweep 26s linear infinite;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .section-bg-word { animation: none; }
+}
+
 /* CHAMPAGNE HAIRLINE at top of page-hero */
 body.cinema-chrome main > section:first-of-type::before {
   content: "";

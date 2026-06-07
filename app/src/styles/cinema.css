@@ -633,3 +633,22 @@ a { color: inherit; text-decoration: none; }
   .hero-meta-tl .hm-appt { display: none; }
   .hero-meta-tr { display: none; }
 }
+
+/* Phones: ghost section words are far wider than the screen, so static they
+   only ever show a fragment. Sweep them slowly so the whole word passes through
+   and reads - same marquee language as the footer. Sections clip horizontally,
+   so this never widens the page. */
+@keyframes ghost-word-sweep {
+  from { transform: translateX(100vw); }
+  to   { transform: translateX(-100%); }
+}
+@media (max-width: 720px) {
+  .section-bg-word, .chapter-bg-text {
+    left: 0; right: auto; padding: 0;
+    animation: ghost-word-sweep 26s linear infinite;
+  }
+  .section-bg-word.right, .section-bg-word.left { left: 0; right: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .section-bg-word, .chapter-bg-text { animation: none; }
+}
