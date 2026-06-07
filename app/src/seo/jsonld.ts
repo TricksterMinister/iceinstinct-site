@@ -32,7 +32,7 @@ export function cocktailItemList(): object {
     "1001 Nights",
     "Call Me By Your Name",
     "Calipso Cream",
-    "Besame",
+    "Bésame",
   ];
   return {
     "@context": "https://schema.org",

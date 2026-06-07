@@ -97,11 +97,18 @@ function buildHead(seo, hasExistingJsonLd) {
 function stripManagedHeadTags(head) {
   return head
     .replace(/<title>[\s\S]*?<\/title>\s*/gi, '')
-    .replace(/<meta[^>]*name=["']description["'][^>]*>\s*/gi, '')
-    .replace(/<link[^>]*rel=["']canonical["'][^>]*>\s*/gi, '')
-    .replace(/<link[^>]*rel=["']icon["'][^>]*>\s*/gi, '')
-    .replace(/<meta[^>]*property=["']og:[^"']*["'][^>]*>\s*/gi, '')
-    .replace(/<meta[^>]*name=["']twitter:[^"']*["'][^>]*>\s*/gi, '');
+    // Managed <meta> tags: match regardless of attribute order. The lookahead
+    // requires the tag to carry name="description" / og:* / twitter:* (via
+    // either name= or property=), then consumes the whole tag.
+    .replace(
+      /<meta\b(?=[^>]*\b(?:name|property)=["'](?:description|og:[\w:]+|twitter:[\w:]+)["'])[^>]*>\s*/gi,
+      '',
+    )
+    // Managed <link> tags: canonical or icon, attribute order independent.
+    .replace(
+      /<link\b(?=[^>]*\brel=["'](?:canonical|icon)["'])[^>]*>\s*/gi,
+      '',
+    );
 }
 
 function injectHead(html, seo) {
@@ -114,19 +121,45 @@ function injectHead(html, seo) {
   const headBlock = buildHead(seo, hasExistingJsonLd);
 
   const newHead = `${cleanedHead.replace(/\s*$/, '')}\n  ${headBlock}\n`;
+  // Use a REPLACER FUNCTION so the dynamic content (URLs, JSON-LD, descriptions)
+  // is inserted literally. A replacement STRING would interpret `$&`, `$1`,
+  // `$\`` etc. inside the content and corrupt the output.
   return html.replace(
     /<head[^>]*>[\s\S]*?<\/head>/i,
-    `<head>${newHead}</head>`,
+    () => `<head>${newHead}</head>`,
   );
 }
 
 function injectRoot(html, appHtml) {
-  // Match the empty root div produced by Vite (allow attribute order / spacing).
-  const re = /<div id="root">\s*<\/div>/;
-  if (!re.test(html)) {
-    throw new Error('prerender: could not find empty <div id="root"></div>');
+  // Match the root div produced by Vite. Tolerate attribute order, whitespace,
+  // and comments inside the open form, plus the self-closing form.
+  const open = /<div\s+id="root"[^>]*>[\s\S]*?<\/div>/i;
+  const selfClosing = /<div\s+id="root"[^>]*\/>/i;
+  // Replacer functions keep appHtml literal (no $-substitution corruption).
+  if (open.test(html)) {
+    return html.replace(
+      open,
+      () => `<div id="root" data-prerendered="1">${appHtml}</div>`,
+    );
   }
-  return html.replace(re, `<div id="root">${appHtml}</div>`);
+  if (selfClosing.test(html)) {
+    return html.replace(
+      selfClosing,
+      () => `<div id="root" data-prerendered="1">${appHtml}</div>`,
+    );
+  }
+  // Neither form found: fail loud.
+  throw new Error('prerender: could not find <div id="root">');
+}
+
+// True when the dist html was already prerendered: either the marker attribute
+// is present, or #root already holds non-whitespace children. Guards against a
+// stray re-run double-injecting content.
+function alreadyPrerendered(html) {
+  if (/<div\s+id="root"[^>]*\bdata-prerendered=/i.test(html)) return true;
+  const m = html.match(/<div\s+id="root"[^>]*>([\s\S]*?)<\/div>/i);
+  if (m && m[1].trim() !== '') return true;
+  return false;
 }
 
 async function main() {
@@ -157,6 +190,10 @@ async function main() {
     const appHtml = renderRoute(route);
     const file = r('dist', htmlRel);
     let html = readFileSync(file, 'utf8');
+    if (alreadyPrerendered(html)) {
+      console.log(`  skipped (already prerendered) ${route} -> dist/${htmlRel}`);
+      continue;
+    }
     html = injectRoot(html, appHtml);
     html = injectHead(html, seo);
     writeFileSync(file, html, 'utf8');

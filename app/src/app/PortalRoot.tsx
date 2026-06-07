@@ -11,7 +11,7 @@ export function PortalRoot({ children }: { children: React.ReactNode }) {
     node.id = 'overlay-root';
     document.body.appendChild(node);
     setEl(node);
-    return () => { document.body.removeChild(node); };
+    return () => { if (node.isConnected) document.body.removeChild(node); };
   }, []);
   if (!el) return null;
   return createPortal(children, el);
