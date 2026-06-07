@@ -153,8 +153,7 @@ export function GalleryPage() {
               to awaken <span className="it">the spirit.</span>
             </h1>
             <p className="lead">
-              Twelve signature compositions, each built once. Hover any tile to release its colour. Click for the full
-              image.
+              Twelve signature compositions, each built once. Select any tile to view it in full.
             </p>
           </div>
         </section>

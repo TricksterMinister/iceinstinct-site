@@ -216,7 +216,7 @@ export function Offerings() {
               <span>
                 <span className="pos">04</span> Tiers
               </span>
-              <span>Hover any tier to explore</span>
+              <span>Explore each tier</span>
             </div>
           </div>
         </section>
