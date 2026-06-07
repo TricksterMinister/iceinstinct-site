@@ -135,7 +135,9 @@ a { color: inherit; text-decoration: none; }
 
 .hero-meta { position: absolute; z-index: 5; font-family: var(--f-mono); font-size: var(--t-step--2); letter-spacing: 0.24em; text-transform: uppercase; color: var(--c-fg-mute); display: flex; align-items: center; gap: 0.6rem; opacity: 0; transform: translateY(8px); }
 .hero-meta-tl { top: 5.2rem; left: 4.4rem; }
-.hero-meta-tr { top: 5.2rem; right: 2.2rem; }
+/* EST. 2024 corner tag removed from the hero (reads as clutter; it still lives
+   in the footer). */
+.hero-meta-tr { display: none; }
 .hero-meta .dot { width: 6px; height: 6px; background: #fff; border-radius: 50%; box-shadow: 0 0 12px rgba(255,255,255,0.4); }
 
 .hero-stage { position: relative; z-index: 6; padding: 0 2.2rem; max-width: 1500px; width: 100%; text-align: center; }
@@ -468,7 +470,14 @@ a { color: inherit; text-decoration: none; }
   .hero-title { font-size: clamp(5.2rem, 23vw, 9rem); flex-direction: column; white-space: normal; }
   .hero-title .row { display: flex; align-items: baseline; column-gap: 0.32em; justify-content: center; }
   /* The elegant champagne italic tagline - readable, not a 10px flea. */
-  .hero-sub { margin-top: clamp(1rem, 2.6vh, 1.7rem); font-size: clamp(1.3rem, 6vw, 2rem); letter-spacing: -0.01em; }
+  /* Tagline moves to the bottom-right corner - an elegant counterweight to the
+     SCROLL cue at bottom-left, leaving the wordmark to stand alone up top. */
+  .hero-sub {
+    position: absolute; right: 1.4rem; bottom: 2.2rem; top: auto; left: auto;
+    margin: 0; align-items: flex-end; text-align: right;
+    max-width: 74vw;
+    font-size: clamp(1.05rem, 4.6vw, 1.5rem); letter-spacing: -0.01em;
+  }
 
   .tier { min-height: 100dvh; padding: 4.5rem 1.2rem 2rem 1.2rem; }
   .tiers-intro { padding: 5.5rem 1.2rem 2rem; min-height: 70dvh; }
@@ -498,26 +507,24 @@ a { color: inherit; text-decoration: none; }
 /* Minimal menu mark - no flat circle. Two thin champagne lines, top-right. */
 .va-trigger {
   position: fixed; top: 1.8rem; right: 2rem; z-index: 95;
-  width: auto; height: auto;
-  background: transparent; border: none; padding: 0.6rem;
-  display: grid; place-items: center;
-  isolation: isolate;
+  width: 46px; height: 46px;
+  background: transparent; border: 1px solid oklch(88% 0.06 95 / 0.45); border-radius: 50%;
+  display: grid; place-items: center; padding: 0;
+  isolation: isolate; cursor: pointer;
+  transition: background 0.4s var(--ease-out-expo), border-color 0.4s;
 }
+.va-trigger:hover { background: oklch(88% 0.06 95 / 0.08); border-color: var(--c-accent); }
 .va-trigger-ring { display: none; }
-.va-trigger-icon {
-  position: relative; width: 30px; height: 10px;
-  display: grid; gap: 7px; align-content: center;
+/* Ice-cube glyph - the navigation mark site-wide (replaces the hamburger) */
+.va-trigger-icon { position: relative; width: 24px; height: 24px; display: block; }
+.va-trigger-icon span { display: none; }
+.va-trigger-icon::before {
+  content: ""; position: absolute; inset: 0; background: var(--c-accent);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23000'%20stroke-width='1.4'%20stroke-linejoin='round'%20stroke-linecap='round'%3E%3Cpath%20d='M12%202.6L20.4%207.3L20.4%2016.7L12%2021.4L3.6%2016.7L3.6%207.3Z'/%3E%3Cpath%20d='M3.6%207.3L12%2012L20.4%207.3'/%3E%3Cpath%20d='M12%2012L12%2021.4'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23000'%20stroke-width='1.4'%20stroke-linejoin='round'%20stroke-linecap='round'%3E%3Cpath%20d='M12%202.6L20.4%207.3L20.4%2016.7L12%2021.4L3.6%2016.7L3.6%207.3Z'/%3E%3Cpath%20d='M3.6%207.3L12%2012L20.4%207.3'/%3E%3Cpath%20d='M12%2012L12%2021.4'/%3E%3C/svg%3E") center/contain no-repeat;
+  transition: transform 0.55s var(--ease-out-expo);
 }
-.va-trigger-icon span {
-  display: block; height: 1.5px; background: var(--c-accent);
-  box-shadow: 0 1px 6px rgba(0,0,0,0.45);
-  transition: transform 0.5s var(--ease-out-expo), opacity 0.3s, width 0.5s var(--ease-out-expo);
-  transform-origin: right center;
-}
-.va-trigger-icon span:nth-child(1) { width: 100%; }
-.va-trigger-icon span:nth-child(2) { width: 60%; margin-left: auto; }
-.va-trigger-icon span:nth-child(3) { display: none; }
-.va-trigger:hover .va-trigger-icon span:nth-child(2) { width: 100%; }
+.va-trigger:hover .va-trigger-icon::before { transform: rotate(-14deg); }
 
 .va-overlay {
   position: fixed; inset: 0; z-index: 110;

@@ -41,27 +41,24 @@ body.cinema-chrome::after {
    No hamburger, no circle. The tick grows and the letters spread on hover. */
 .va-trigger {
   position: fixed; top: 2rem; right: 2.4rem; z-index: 95;
-  width: auto; height: auto;
-  background: transparent; border: none; padding: 0.4rem 0.3rem;
-  display: flex; flex-direction: column; align-items: center; gap: 0.7rem;
+  width: 46px; height: 46px;
+  background: transparent; border: 1px solid oklch(88% 0.06 95 / 0.45); border-radius: 50%;
+  display: grid; place-items: center; padding: 0;
   isolation: isolate; cursor: pointer;
+  transition: background 0.4s var(--ease-out-expo), border-color 0.4s;
 }
-.va-trigger-ring, .va-trigger-icon { display: none; }
-.va-trigger::before {
-  content: ""; width: 1px; height: 24px;
-  background: linear-gradient(var(--c-accent), oklch(88% 0.06 95 / 0.15));
-  transition: height 0.55s var(--ease-out-expo);
+.va-trigger:hover { background: oklch(88% 0.06 95 / 0.08); border-color: var(--c-accent); }
+.va-trigger-ring { display: none; }
+/* Ice-cube glyph - the navigation mark site-wide (replaces the "Index" tick) */
+.va-trigger-icon { position: relative; width: 24px; height: 24px; display: block; }
+.va-trigger-icon span { display: none; }
+.va-trigger-icon::before {
+  content: ""; position: absolute; inset: 0; background: var(--c-accent);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23000'%20stroke-width='1.4'%20stroke-linejoin='round'%20stroke-linecap='round'%3E%3Cpath%20d='M12%202.6L20.4%207.3L20.4%2016.7L12%2021.4L3.6%2016.7L3.6%207.3Z'/%3E%3Cpath%20d='M3.6%207.3L12%2012L20.4%207.3'/%3E%3Cpath%20d='M12%2012L12%2021.4'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23000'%20stroke-width='1.4'%20stroke-linejoin='round'%20stroke-linecap='round'%3E%3Cpath%20d='M12%202.6L20.4%207.3L20.4%2016.7L12%2021.4L3.6%2016.7L3.6%207.3Z'/%3E%3Cpath%20d='M3.6%207.3L12%2012L20.4%207.3'/%3E%3Cpath%20d='M12%2012L12%2021.4'/%3E%3C/svg%3E") center/contain no-repeat;
+  transition: transform 0.55s var(--ease-out-expo);
 }
-.va-trigger::after {
-  content: "Index";
-  writing-mode: vertical-rl; text-orientation: mixed;
-  font-family: var(--font-mono); font-weight: 500; font-size: 0.72rem;
-  letter-spacing: 0.42em; text-transform: uppercase;
-  color: var(--c-accent); text-shadow: 0 1px 8px rgba(0,0,0,0.6);
-  transition: letter-spacing 0.55s var(--ease-out-expo);
-}
-.va-trigger:hover::before { height: 36px; }
-.va-trigger:hover::after { letter-spacing: 0.62em; }
+.va-trigger:hover .va-trigger-icon::before { transform: rotate(-14deg); }
 
 .va-overlay {
   position: fixed; inset: 0; z-index: 110;

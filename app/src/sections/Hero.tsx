@@ -25,11 +25,12 @@ export function Hero() {
             <span className="word"><span className="ink it">Instinct.</span></span>
           </span>
         </h1>
-        <p className="hero-sub">
-          <span className="reveal-line">Where ritual meets instinct,</span>
-          <span className="reveal-line">high above the city.</span>
-        </p>
       </div>
+
+      <p className="hero-sub">
+        <span className="reveal-line">Where ritual meets instinct,</span>
+        <span className="reveal-line">high above the city.</span>
+      </p>
 
       <div className="hero-cue">
         <span>Scroll</span>
