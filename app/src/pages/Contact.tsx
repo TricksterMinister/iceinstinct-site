@@ -213,10 +213,7 @@ export function Contact() {
             <span></span>
           </button>
 
-          <form className="iq-form" action="https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID" method="POST">
-            <input type="hidden" name="_subject" value="Ice & Instinct - new inquiry" />
-            <input type="hidden" name="_source" value="iceinstinct.com / contact" />
-
+          <div className="iq-form">
             <header className="iq-head">
               <p className="iq-eyebrow">Private Commission</p>
               <h2 id="iq-title">
@@ -224,66 +221,26 @@ export function Contact() {
               </h2>
             </header>
 
-            <div className="iq-grid">
-              <div className="iq-field">
-                <label htmlFor="iq-name">Your name</label>
-                <input
-                  id="iq-name"
-                  name="name"
-                  type="text"
-                  required
-                  autoComplete="name"
-                  placeholder="As you would like to be addressed"
-                />
-              </div>
-              <div className="iq-field">
-                <label htmlFor="iq-email">Email</label>
-                <input
-                  id="iq-email"
-                  name="email"
-                  type="email"
-                  required
-                  autoComplete="email"
-                  placeholder="Where we should reply"
-                />
-              </div>
-              <div className="iq-field">
-                <label htmlFor="iq-guests">Guests &amp; location</label>
-                <input id="iq-guests" name="guests" type="text" placeholder="14 guests, Tribeca" />
-              </div>
-              <div className="iq-field">
-                <label htmlFor="iq-date">
-                  Event date <em>if known</em>
-                </label>
-                <input id="iq-date" name="event_date" type="text" placeholder="Late June" />
-              </div>
-              <div className="iq-field iq-field--wide">
-                <label htmlFor="iq-message">In your words</label>
-                <textarea
-                  id="iq-message"
-                  name="message"
-                  required
-                  rows={3}
-                  placeholder="The occasion, the mood, the room. Anything that should be considered."
-                ></textarea>
-              </div>
-            </div>
+            <p className="iq-lead">
+              Choose a time for a private consultation and we will walk through the date, the room,
+              and the guest count together. A personal confirmation follows.
+            </p>
 
             <div className="iq-foot">
-              <button type="submit" className="iq-submit">
-                <span>Send the inquiry</span>
-                <span className="arrow" aria-hidden="true">
-                  &#8594;
+              <a
+                className="btn-primary"
+                href="https://enter-ritual.youcanbook.me/"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor="link"
+              >
+                <span className="btn-label">Reserve a consultation</span>
+                <span className="btn-arr" aria-hidden="true">
+                  &rarr;
                 </span>
-              </button>
-              <span className="iq-sla">A reply within one business day, personally</span>
+              </a>
             </div>
-
-            <div className="form-success" id="form-success">
-              Received. A reply within one business day, personally - Teimuraz.
-            </div>
-            <div className="form-error" id="form-error" role="alert"></div>
-          </form>
+          </div>
         </div>
       </div>
     </>
