@@ -211,7 +211,7 @@ body.cinema-chrome main > section:first-of-type::before {
     color: oklch(60% 0 0);
   }
   .va-list a:hover { padding-left: 0; }
-  .va-foot { font-size: 0.62rem; letter-spacing: 0.18em; gap: 0.5rem; flex-wrap: wrap; }
+  .va-foot { font-size: 0.72rem; letter-spacing: 0.18em; gap: 0.5rem; flex-wrap: wrap; }
 }
 
 /* GALLERY-PAGE SPECIFIC: two viewport-locked sections
