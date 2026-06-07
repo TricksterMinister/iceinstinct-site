@@ -219,8 +219,9 @@
   /* Compact link band so the marquee stays the dominant element (~60%) */
   .oma-close-foot{gap:clamp(.55rem,1.6vh,.9rem);padding-block:clamp(.7rem,2.2vh,1.2rem)}
   .oma-close-nav{gap:.3rem 1.2rem;font-size:.76rem}
-  .oma-close-nav .lnk{padding:.38rem .1rem;display:inline-block}
-  .oma-close-base{flex-direction:column;gap:4px;text-align:center;font-size:.6rem}
+  .oma-close-nav .lnk{padding:.72rem .1rem;display:inline-block}
+  .oma-close-sign{padding:.45rem 0}
+  .oma-close-base{flex-direction:column;gap:4px;text-align:center;font-size:.7rem}
   .oma-close-base > span,.oma-close-base > span:last-child{text-align:center}
   .oma-close-sign{font-size:.9rem}
 }

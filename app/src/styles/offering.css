@@ -975,7 +975,7 @@ body.rail-onlight .tier-nav a.is-current::before{background:oklch(45% 0.1 70 / .
 
 /* Mobile tap target for the "back to offerings" link */
 @media (max-width:720px){
-  .concierge-back{ display:inline-block; padding:.45rem 0; }
+  .concierge-back{ display:inline-block; padding:.6rem 0; }
 }
 
 /* Mobile: the closing CTA used a rigid 7fr/3fr grid, so a taller footer forced

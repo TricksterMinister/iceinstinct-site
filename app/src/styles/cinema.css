@@ -475,6 +475,8 @@ a { color: inherit; text-decoration: none; }
   .hero { align-content: start; padding-top: 13vh; }
   .hero-title { font-size: clamp(5.2rem, 23vw, 9rem); flex-direction: column; white-space: normal; }
   .hero-title .row { display: flex; align-items: baseline; column-gap: 0.32em; justify-content: center; }
+  /* Tap target for the home tier "Explore" link (was 19px tall) */
+  .tier-link { padding-top: 0.95rem; padding-bottom: 0.85rem; }
   /* The elegant champagne italic tagline - readable, not a 10px flea. */
   /* Tagline moves to the bottom-right corner - an elegant counterweight to the
      SCROLL cue at bottom-left, leaving the wordmark to stand alone up top. */
