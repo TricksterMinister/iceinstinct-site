@@ -9,7 +9,7 @@ export function Hero() {
 
       <div className="hero-meta hero-meta-tl">
         <span className="dot"></span>
-        <span>New York Metropolitan Area &middot; By Appointment</span>
+        <span>New York Metropolitan Area<span className="hm-appt"> &middot; By Appointment</span></span>
       </div>
       <div className="hero-meta hero-meta-tr">
         <span>EST. 2024</span>

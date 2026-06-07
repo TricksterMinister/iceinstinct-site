@@ -641,6 +641,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
 @media(max-width:820px){
   .oma-mani-grid{grid-template-columns:1fr;gap:1.4rem}
   .oma-panel-h{font-size:clamp(2rem,9vw,2.8rem)}
+  /* The panel is display:grid place-items:center, so its single auto track
+     was sizing to the inner grid's max-content (~936px) and spilling cells off
+     the right edge on phones. Constrain the track to the viewport so the inner
+     .oma-grid auto-fit collapses to one column instead of clipping. */
+  .oma-panel{grid-template-columns:minmax(0,1fr)}
 }
 
 /* =========================================================================
@@ -967,3 +972,8 @@ body.rail-onlight .tier-nav a.is-current::before{background:oklch(45% 0.1 70 / .
    on small screens). Prevents an article/noun split like "the / difference". */
 .oma-fmt3-foot{white-space:nowrap}
 @media (max-width:760px){.oma-fmt3-foot{white-space:normal}}
+
+/* Mobile tap target for the "back to offerings" link */
+@media (max-width:720px){
+  .concierge-back{ display:inline-block; padding:.45rem 0; }
+}

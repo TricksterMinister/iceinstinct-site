@@ -1669,6 +1669,10 @@ img.reveal-zoom.is-in { transform: scale(1); }
   position: relative;
   padding: clamp(120px, 16vh, 180px) 0 var(--s-md);
   /* Removed decorative border-bottom (the "lazy designer" hairline). */
+  /* Clip the oversized decorative ghost word (.section-bg-word, 192px nowrap)
+     so it bleeds to the hero edge as intended but never widens the page on
+     mobile. overflow-x:clip keeps vertical scroll/sticky intact. */
+  overflow-x: clip;
 }
 /* Tier pages: page-hero IS the tier hero - aim for one viewport */
 .page-hero:has(.tier-hero) {
@@ -2838,6 +2842,8 @@ body.is-inquire .inquire-invite {
 .iq-field input::placeholder, .iq-field textarea::placeholder { color: oklch(44% 0 0); }
 .iq-field input:focus, .iq-field textarea:focus { outline: none; border-bottom-color: var(--c-accent); }
 .iq-field input:focus-visible, .iq-field textarea:focus-visible { box-shadow: none; border-bottom-color: var(--c-accent); border-bottom-width: 2px; }
+/* Roomier inquiry fields on phones for a comfortable tap target. */
+@media (max-width: 720px) { .iq-field input { padding: 0.8rem 0; } }
 
 .iq-foot { display: flex; align-items: center; gap: clamp(1rem, 3vw, 1.8rem); flex-wrap: wrap; margin-top: clamp(1.8rem, 4vh, 2.6rem); }
 .iq-submit {
@@ -3071,3 +3077,11 @@ body.is-inquire .inquire-invite {
 }
 @media (max-width: 900px), (hover: none) { .journey-reveal { display: none; } }
 @media (prefers-reduced-motion: reduce) { .journey-reveal { display: none; } }
+
+/* ---------------------------------------------------------------------------
+   MOBILE TAP TARGETS - give the key card / shelf actions a comfortable touch
+   area on phones (luxury + a11y). Inline prose links are left untouched.
+   --------------------------------------------------------------------------- */
+@media (max-width: 720px) {
+  .tier-card .tier-link { padding: 0.5rem 0; display: inline-flex; align-items: center; gap: 0.4em; }
+}

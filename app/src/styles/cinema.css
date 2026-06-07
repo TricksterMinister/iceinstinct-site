@@ -622,3 +622,11 @@ a { color: inherit; text-decoration: none; }
   .chapter-body p { opacity: 1; transform: none; }
   .closing-marble { transform: none; }
 }
+
+/* Narrow phones: the hero kicker corner-tags collided with each other and the
+   menu trigger. Keep a single clean "New York Metropolitan Area" tag top-left
+   and drop the appointment clause + EST. tag (both still live in the footer). */
+@media (max-width: 480px) {
+  .hero-meta-tl .hm-appt { display: none; }
+  .hero-meta-tr { display: none; }
+}

@@ -206,4 +206,8 @@
 @media(max-width:640px){
   .oma-close-base{flex-direction:column;gap:4px;text-align:center}
   .oma-close-base > span,.oma-close-base > span:last-child{text-align:center}
+  /* comfortable tap targets for the wrapped footer nav on phones */
+  .oma-close-nav{gap:.2rem 1.4rem;font-size:.8rem}
+  .oma-close-nav .lnk{padding:.5rem .1rem;display:inline-block}
+  .oma-close-foot{gap:clamp(.9rem,2.4vh,1.4rem)}
 }

@@ -555,10 +555,14 @@ body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-link { color: var(--c-acc
    The existing .promise-grid mobile swipe rules take over the track. */
 @media (max-width: 720px) {
   body.cinema-chrome.vp-split .page-hero {
-    height: auto; min-height: 56dvh; max-height: none; overflow: visible;
+    height: auto; min-height: 56dvh; max-height: none;
+    /* clip the oversized decorative ghost word horizontally so it cannot widen
+       the page on mobile; keep vertical free so nothing is cut. */
+    overflow-x: clip; overflow-y: visible;
   }
   body.cinema-chrome.vp-split .vp-shelf {
-    height: auto; min-height: auto; max-height: none; overflow: visible;
+    height: auto; min-height: auto; max-height: none;
+    overflow-x: clip; overflow-y: visible;
   }
   body.cinema-chrome.vp-split .vp-shelf .tier-card { height: auto; min-height: 46dvh; }
   body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-figure { font-size: 6rem; }
