@@ -230,14 +230,8 @@ export function ConciergePage() {
             <div className="addon-grid reveal-stagger reveal">
               {/* 1. Bespoke Cigar Curator */}
               <article className="addon-card" id="cigar-curator">
-                <div className="addon-icon" aria-hidden="true">
-                  <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="6" y="26" width="38" height="8" rx="2" />
-                    <line x1="44" y1="30" x2="50" y2="30" />
-                    <path d="M14 22 C 16 18, 14 16, 16 12" strokeLinecap="round" opacity="0.6" />
-                    <path d="M22 22 C 24 18, 22 16, 24 12" strokeLinecap="round" opacity="0.6" />
-                    <path d="M30 22 C 32 18, 30 16, 32 12" strokeLinecap="round" opacity="0.6" />
-                  </svg>
+                <div className="addon-icon addon-icon-photo" aria-hidden="true">
+                  <img src="/assets/photos/icon-cigar.jpg" alt="" loading="lazy" width="256" height="256" />
                 </div>
                 <div className="addon-body">
                   <header className="addon-head">
@@ -267,13 +261,8 @@ export function ConciergePage() {
 
               {/* 2. Additional Bar Staff */}
               <article className="addon-card" id="additional-staff">
-                <div className="addon-icon" aria-hidden="true">
-                  <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="20" cy="18" r="6" />
-                    <path d="M10 44 C 10 34, 14 30, 20 30 C 26 30, 30 34, 30 44" strokeLinecap="round" />
-                    <circle cx="38" cy="22" r="5" opacity="0.55" />
-                    <path d="M30 44 C 30 36, 33 32, 38 32 C 43 32, 46 36, 46 44" strokeLinecap="round" opacity="0.55" />
-                  </svg>
+                <div className="addon-icon addon-icon-photo" aria-hidden="true">
+                  <img src="/assets/photos/icon-staff.jpg" alt="" loading="lazy" width="256" height="256" />
                 </div>
                 <div className="addon-body">
                   <header className="addon-head">
@@ -304,13 +293,8 @@ export function ConciergePage() {
 
               {/* 3. The Curator */}
               <article className="addon-card" id="the-curator">
-                <div className="addon-icon" aria-hidden="true">
-                  <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
-                    <ellipse cx="28" cy="22" rx="22" ry="4" />
-                    <path d="M10 22 C 10 14, 18 8, 28 8 C 38 8, 46 14, 46 22" />
-                    <line x1="28" y1="26" x2="28" y2="40" strokeLinecap="round" />
-                    <line x1="14" y1="44" x2="42" y2="44" strokeLinecap="round" />
-                  </svg>
+                <div className="addon-icon addon-icon-photo" aria-hidden="true">
+                  <img src="/assets/photos/icon-curator.jpg" alt="" loading="lazy" width="256" height="256" />
                 </div>
                 <div className="addon-body">
                   <header className="addon-head">
@@ -345,12 +329,8 @@ export function ConciergePage() {
 
               {/* 4. Glassware & Vessels */}
               <article className="addon-card" id="glassware">
-                <div className="addon-icon" aria-hidden="true">
-                  <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14 12 L42 12 L30 28 L26 28 Z" strokeLinejoin="round" />
-                    <line x1="28" y1="28" x2="28" y2="44" strokeLinecap="round" />
-                    <line x1="18" y1="48" x2="38" y2="48" strokeLinecap="round" />
-                  </svg>
+                <div className="addon-icon addon-icon-photo" aria-hidden="true">
+                  <img src="/assets/photos/icon-glassware.jpg" alt="" loading="lazy" width="256" height="256" />
                 </div>
                 <div className="addon-body">
                   <header className="addon-head">
