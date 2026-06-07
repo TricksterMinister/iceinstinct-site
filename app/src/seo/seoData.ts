@@ -26,11 +26,11 @@ const SITE = "https://www.iceinstinct.com";
 
 export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   '/': {
-    title: "Ice & Instinct - Private Mixology Studio, Manhattan",
+    title: "Ice & Instinct - Private Mixology Studio, New York",
     description:
-      "A private mixology studio in Manhattan. Signature cocktails, omakase improvisation, and concierge service for the highest-tier private hosts. By appointment only.",
+      "A private mixology studio in New York. Signature cocktails, omakase improvisation, and concierge service for the highest-tier private hosts. By appointment only.",
     canonical: `${SITE}/`,
-    ogTitle: "Ice & Instinct - Private Mixology Studio, Manhattan",
+    ogTitle: "Ice & Instinct - Private Mixology Studio, New York",
     ogDescription:
       "Signature cocktails and omakase improvisation for the highest-tier private hosts. By appointment only.",
     ogImage: "/assets/photos/hero-cocktails.png",
@@ -40,7 +40,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   '/offerings/': {
     title: "Offerings - Ice & Instinct",
     description:
-      "Four levels of private mixology service in Manhattan, from intimate solos to omakase improvisation. Plus curated add-ons for the most demanding evenings.",
+      "Four levels of private mixology service in New York, from intimate solos to omakase improvisation. Plus curated add-ons for the most demanding evenings.",
     canonical: `${SITE}/offerings/`,
     ogTitle: "Offerings - Ice & Instinct",
     ogDescription: "Four levels of private mixology service. Plus curated add-ons.",
@@ -51,7 +51,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   '/offerings/foundation/': {
     title: "The Foundation - Ice & Instinct, from $400",
     description:
-      "The Essential service tier from Ice & Instinct. Impeccable drinks, professional bartender from our trained collective. From $400, up to 40 guests, 3 hours. Manhattan.",
+      "The Essential service tier from Ice & Instinct. Impeccable drinks, professional bartender from our trained collective. From $400, up to 40 guests, 3 hours. New York.",
     canonical: `${SITE}/offerings/foundation/`,
     ogTitle: "The Foundation - Ice & Instinct, from $400",
     ogDescription:
