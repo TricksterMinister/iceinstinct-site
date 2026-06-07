@@ -12,7 +12,7 @@ import { Concierge } from './sections/Concierge';
 import { Founder } from './sections/Founder';
 import { GalleryTeaser } from './sections/GalleryTeaser';
 import { Closing } from './sections/Closing';
-import { Footer } from './sections/Footer';
+import { SiteFooter } from './sections/SiteFooter';
 
 function HomeContent() {
   // Runs after the section DOM is mounted and inside LenisProvider (so window.lenis
@@ -36,7 +36,7 @@ function HomeContent() {
       {/* Begin CTA + Footer read as ONE final segment, one viewport. */}
       <div className="closing-segment">
         <Closing />
-        <Footer />
+        <SiteFooter />
       </div>
     </>
   );

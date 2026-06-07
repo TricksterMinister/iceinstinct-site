@@ -5,6 +5,7 @@ import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
 import { useOmakaseSnap } from '../app/useOmakaseSnap';
 import { EtherealShadow } from '../components/EtherealShadow';
+import { SiteFooter } from '../sections/SiteFooter';
 import type { OfferingContent } from './offerings/types';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -420,36 +421,7 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
           </div>
         </section>
 
-        <div className="oma-close-bottom">
-          <div className="oma-close-marquee" aria-hidden="true">
-            <div className="oma-close-track">
-              <span>Ice &amp; <em>Instinct</em></span>
-              <span>Ice &amp; <em>Instinct</em></span>
-              <span>Ice &amp; <em>Instinct</em></span>
-              <span>Ice &amp; <em>Instinct</em></span>
-            </div>
-          </div>
-
-          <footer className="oma-close-foot" role="contentinfo">
-            <nav className="oma-close-nav" aria-label="Footer">
-              <a className="lnk" href="/offerings/">Offerings</a>
-              <a className="lnk" href="/concierge/">Concierge</a>
-              <a className="lnk" href="/gallery/">The Collection</a>
-              <a className="lnk" href="/my-story/">My Story</a>
-              <a className="lnk" href="/contact/">Inquire</a>
-              <a className="lnk" href="#" aria-label="Instagram">Instagram</a>
-              <a className="lnk" href="/privacy/">Privacy</a>
-              <a className="lnk" href="/terms/">Terms</a>
-            </nav>
-            <div className="oma-close-base">
-              <span>By appointment only &middot; New York Metropolitan Area</span>
-              <a className="oma-close-sign" href="/" data-logo-slot aria-label="Ice & Instinct - home">
-                Where ritual meets <em>instinct.</em>
-              </a>
-              <span>Est. 2024 &middot; © 2026 Ice &amp; Instinct</span>
-            </div>
-          </footer>
-        </div>
+        <SiteFooter embedded />
       </div>
     </>
   );
