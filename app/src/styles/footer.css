@@ -204,10 +204,22 @@
 .oma-close .lnk:hover::after{transform:scaleX(1)}
 
 @media(max-width:640px){
-  .oma-close-base{flex-direction:column;gap:4px;text-align:center}
+  /* Standalone footer: size to its content (no fixed 38vh of mostly-empty
+     space) and let the giant scrolling wordmark dominate (~60% of the band),
+     with the links + base kept compact below the hairline. */
+  .site-footer{min-height:auto}
+  .site-footer > .oma-close-bottom{min-height:auto;grid-template-rows:auto auto}
+
+  /* GIANT marquee - the hero of the mobile footer (standalone + offering closing) */
+  .oma-close-marquee{padding-block:clamp(1.5rem,5.5vh,3rem)}
+  .oma-close-track{gap:.32em}
+  .oma-close-track span{font-size:clamp(6rem,51vw,14rem);letter-spacing:-.04em}
+
+  /* Compact link band so the marquee stays the dominant element (~60%) */
+  .oma-close-foot{gap:clamp(.55rem,1.6vh,.9rem);padding-block:clamp(.7rem,2.2vh,1.2rem)}
+  .oma-close-nav{gap:.3rem 1.2rem;font-size:.76rem}
+  .oma-close-nav .lnk{padding:.38rem .1rem;display:inline-block}
+  .oma-close-base{flex-direction:column;gap:4px;text-align:center;font-size:.6rem}
   .oma-close-base > span,.oma-close-base > span:last-child{text-align:center}
-  /* comfortable tap targets for the wrapped footer nav on phones */
-  .oma-close-nav{gap:.2rem 1.4rem;font-size:.8rem}
-  .oma-close-nav .lnk{padding:.5rem .1rem;display:inline-block}
-  .oma-close-foot{gap:clamp(.9rem,2.4vh,1.4rem)}
+  .oma-close-sign{font-size:.9rem}
 }

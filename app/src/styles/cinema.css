@@ -460,10 +460,13 @@ a { color: inherit; text-decoration: none; }
   .hero-meta { font-size: 0.62rem; letter-spacing: 0.18em; }
   .hero-cue { left: 1.2rem; bottom: 1.2rem; }
   .hero-cue::before { width: 44px; height: 44px; }
-  /* Mobile: BACK to two lines (Ice & / Instinct.) */
-  .hero-title { font-size: clamp(4.4rem, 19vmin, 7rem); flex-direction: column; white-space: normal; }
+  /* Mobile: BACK to two lines (Ice & / Instinct.), pushed high so the wordmark
+     sits over the bright skyline near the top, not floating in dead centre. */
+  .hero { align-content: start; padding-top: 13vh; }
+  .hero-title { font-size: clamp(5.2rem, 23vw, 9rem); flex-direction: column; white-space: normal; }
   .hero-title .row { display: flex; align-items: baseline; column-gap: 0.32em; justify-content: center; }
-  .hero-sub { font-size: 0.65rem; letter-spacing: 0.22em; }
+  /* The elegant champagne italic tagline - readable, not a 10px flea. */
+  .hero-sub { margin-top: clamp(1rem, 2.6vh, 1.7rem); font-size: clamp(1.3rem, 6vw, 2rem); letter-spacing: -0.01em; }
 
   .tier { min-height: 100dvh; padding: 4.5rem 1.2rem 2rem 1.2rem; }
   .tiers-intro { padding: 5.5rem 1.2rem 2rem; min-height: 70dvh; }
