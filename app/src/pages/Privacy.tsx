@@ -220,7 +220,7 @@ export function Privacy() {
 
               <h2>9. Contact</h2>
               <p>
-                For privacy questions or data requests, write to us via the <a href="/contact/">contact form</a>.
+                For privacy questions or data requests, write to us via the <a href="/contact/">contact page</a>.
               </p>
             </div>
           </div>

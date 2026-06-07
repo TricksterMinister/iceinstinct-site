@@ -2,7 +2,7 @@
    useDeepScripts - React port of script.js
    Ice & Instinct - minimal deep-page behaviour.
    Reveal-on-scroll, header scroll state, gallery track + lightbox,
-   tier-nav active state, contact pre-fill, Formspree submit handler.
+   tier-nav active state, contact pre-fill.
    Every querySelector is guarded so it no-ops on pages lacking the element.
    ================================================ */
 
@@ -177,82 +177,6 @@ export function useDeepScripts(): void {
         const valid = Array.from(sel.options).some((o) => o.value === pkg);
         if (valid) sel.value = pkg;
       }
-    }
-
-    // ----- Formspree submit handler -----
-    const form = document.querySelector<HTMLFormElement>('form[action*="formspree.io"]');
-    const success = document.getElementById('form-success');
-    const errorBox = document.getElementById('form-error');
-
-    if (form) {
-      const onSubmit = async (e: SubmitEvent) => {
-        e.preventDefault();
-        const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
-        const originalText = submitBtn ? submitBtn.innerHTML : 'Send';
-        const data = new FormData(form);
-
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.innerHTML = 'Sending…';
-        }
-        if (errorBox) {
-          errorBox.classList.remove('show');
-          errorBox.textContent = '';
-        }
-
-        const showError = (msg: string) => {
-          if (errorBox) {
-            errorBox.textContent = msg;
-            errorBox.classList.add('show');
-          } else {
-            alert(msg);
-          }
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalText;
-          }
-        };
-
-        // Guard: form must be wired to a real Formspree ID
-        if (form.action.includes('REPLACE_WITH_FORMSPREE_ID')) {
-          showError('Form not configured yet. Please write to hello@iceinstinct.com directly.');
-          return;
-        }
-
-        try {
-          const res = await fetch(form.action, {
-            method: 'POST',
-            body: data,
-            headers: { Accept: 'application/json' },
-          });
-          const body = await res.json().catch(() => ({}));
-          const accepted =
-            res.ok && body.ok !== false && body.kind !== 'error' && !body.error && !body.errors;
-
-          if (accepted) {
-            form.reset();
-            if (success) success.classList.add('show');
-            if (submitBtn) {
-              submitBtn.disabled = false;
-              submitBtn.innerHTML = originalText;
-            }
-            // Smooth scroll to confirmation
-            if (success) success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          } else {
-            const apiMsg =
-              body.error ||
-              (Array.isArray(body.errors) && body.errors.map((x: any) => x.message || x).join('; ')) ||
-              'HTTP ' + res.status;
-            console.error('Formspree rejected submission:', body);
-            showError('Could not send: ' + apiMsg + '. Please email hello@iceinstinct.com instead.');
-          }
-        } catch (err) {
-          console.error('Formspree network error:', err);
-          showError('Could not reach the server. Please email hello@iceinstinct.com instead.');
-        }
-      };
-      form.addEventListener('submit', onSubmit);
-      cleanups.push(() => form.removeEventListener('submit', onSubmit));
     }
 
     return () => {

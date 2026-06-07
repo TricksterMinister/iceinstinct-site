@@ -194,9 +194,6 @@ export function Contact() {
                   &#8594;
                 </span>
               </button>
-              <span className="invite-alt">
-                or write <a href="mailto:hello@iceinstinct.com">hello@iceinstinct.com</a>
-              </span>
             </div>
           </div>
         </section>
