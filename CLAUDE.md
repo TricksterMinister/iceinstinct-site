@@ -3,6 +3,8 @@
 This file is the **first thing you should read** in any new chat about this project.
 Read it fully before touching code.
 
+**Location:** `/Volumes/TEMO DISC/Ditto AI Studio/iceinstinct-site/` (external disk TEMO DISC, APFS). The disk must be mounted to work on this project. Run dev: `cd "/Volumes/TEMO DISC/Ditto AI Studio/iceinstinct-site/app" && npm run dev`.
+
 ---
 
 ## ⚡ CURRENT STATE - READ THIS FIRST (updated 2026-06-03)
