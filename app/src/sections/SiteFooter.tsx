@@ -28,7 +28,7 @@ export function SiteFooter({ embedded = false }: SiteFooterProps) {
           <a className="lnk" href="/gallery/">The Collection</a>
           <a className="lnk" href="/my-story/">My Story</a>
           <a className="lnk" href="/contact/">Inquire</a>
-          <a className="lnk" href="#" aria-label="Instagram">Instagram</a>
+          <a className="lnk" href="https://www.instagram.com/iceinstinctnyc/" target="_blank" rel="noopener noreferrer" aria-label="Ice & Instinct on Instagram">Instagram</a>
           <a className="lnk" href="/privacy/">Privacy</a>
           <a className="lnk" href="/terms/">Terms</a>
         </nav>
