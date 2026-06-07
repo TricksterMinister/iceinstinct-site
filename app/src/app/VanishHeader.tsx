@@ -103,7 +103,7 @@ export function VanishHeader() {
             <li><a href="#closing" data-cursor="link"><i>07</i><b>Inquire</b><em>Begin the conversation</em></a></li>
           </ul>
           <footer className="va-foot">
-            <span>Manhattan / By Appointment</span>
+            <span>New York Metropolitan Area</span>
             <span>EST. 2024</span>
           </footer>
         </div>

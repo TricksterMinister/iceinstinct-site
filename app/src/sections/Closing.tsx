@@ -16,7 +16,7 @@ export function Closing() {
             <a className="btn-ghost" href="/offerings/" data-cursor="link">Explore the offerings</a>
           </div>
         </div>
-        <p className="closing-meta"><span>By appointment only</span><span>Manhattan &amp; surrounds</span><span>Est. 2024</span></p>
+        <p className="closing-meta"><span>By appointment only</span><span>New York Metropolitan Area</span><span>Est. 2024</span></p>
       </div>
     </section>
   );

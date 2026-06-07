@@ -84,7 +84,7 @@ export function Offerings() {
             </li>
           </ul>
           <footer className="va-foot">
-            <span>Manhattan / By Appointment</span>
+            <span>New York Metropolitan Area</span>
             <span>EST. 2024</span>
           </footer>
         </div>
@@ -229,7 +229,7 @@ export function Offerings() {
               <span className="cta-corner cta-corner--tr" aria-hidden="true"></span>
               <span className="cta-corner cta-corner--bl" aria-hidden="true"></span>
               <span className="cta-corner cta-corner--br" aria-hidden="true"></span>
-              <p className="cta-eyebrow">Private Commission &middot; Manhattan</p>
+              <p className="cta-eyebrow">Private Commission &middot; New York</p>
               <span className="ornament" aria-hidden="true">
                 &#10022;
               </span>

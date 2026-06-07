@@ -124,7 +124,7 @@ export function Contact() {
             </li>
           </ul>
           <footer className="va-foot">
-            <span>Manhattan / By Appointment</span>
+            <span>New York Metropolitan Area</span>
             <span>EST. 2024</span>
           </footer>
         </div>
