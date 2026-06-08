@@ -437,7 +437,7 @@ export function MyStory() {
               <p className="cta-lead">Tell me about the evening. A response within one business day, personally.</p>
               <div className="final-cta-actions">
                 <a href="/contact/" className="btn btn-primary">
-                  Inquire <span className="arrow">→</span>
+                  Request a private quote <span className="arrow">→</span>
                 </a>
                 <a href="/offerings/" className="btn btn-ghost">
                   See the tiers

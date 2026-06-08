@@ -16,7 +16,7 @@ export function Founder() {
             <span className="line"><span className="it">behind</span></span>
             <span className="line"><span className="it">the ritual.</span></span>
           </blockquote>
-          <p className="founder-bio">Two decades distilled into a single evening. One man, four cities, one uncompromising standard.</p>
+          <p className="founder-bio">Two decades distilled into a single evening. Led by one alchemist, carried by a team of trusted New York bartenders.</p>
           <a className="founder-link" href="/my-story/" data-cursor="link">Meet the Alchemist <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>

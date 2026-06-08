@@ -402,7 +402,7 @@ export function GalleryPage() {
               <p className="cta-lead">Each composition was built for a single evening. The next one is for yours.</p>
               <div className="final-cta-actions">
                 <a href="/contact/" className="btn btn-primary">
-                  Inquire <span className="arrow">→</span>
+                  Request a private quote <span className="arrow">→</span>
                 </a>
                 <a href="/offerings/" className="btn btn-ghost">
                   See the tiers

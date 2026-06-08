@@ -430,7 +430,7 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
               </p>
               <div className="closing-cta">
                 <a className="btn-primary" href={pkg} data-cursor="link">
-                  <span className="btn-label">Inquire</span>
+                  <span className="btn-label">Request a private quote</span>
                   <span className="btn-arr" aria-hidden="true">&rarr;</span>
                 </a>
                 <a className="btn-ghost" href="/offerings/" data-cursor="link">

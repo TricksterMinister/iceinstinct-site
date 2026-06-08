@@ -418,7 +418,7 @@ export function ConciergePage() {
               </p>
               <div className="final-cta-actions">
                 <a href="/contact/?service=concierge" className="btn btn-primary">
-                  Inquire <span className="arrow">&rarr;</span>
+                  Request a private quote <span className="arrow">&rarr;</span>
                 </a>
                 <a href="/offerings/" className="btn btn-ghost">
                   See the tiers
