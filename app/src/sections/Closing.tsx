@@ -11,7 +11,7 @@ export function Closing() {
           <h2 className="closing-title">Begin <span className="it">the conversation.</span></h2>
           <p className="closing-lead">Tell us about the evening - the date, the room, the guest count. A private quote within one business day.</p>
           <div className="closing-cta">
-            <a className="btn-primary" href="mailto:alchemyandice.nyc@gmail.com?subject=Ice%20%26%20Instinct%20inquiry" data-cursor="link"><span className="btn-label">Request a private quote</span><span className="btn-arr" aria-hidden="true">&rarr;</span></a>
+            <a className="btn-primary" href="/contact/" data-cursor="link"><span className="btn-label">Request a private quote</span><span className="btn-arr" aria-hidden="true">&rarr;</span></a>
             <a className="btn-ghost" href="/offerings/" data-cursor="link">Explore the offerings</a>
           </div>
         </div>

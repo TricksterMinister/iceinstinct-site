@@ -98,7 +98,7 @@ export function VanishHeader() {
             <li><a href="/concierge/" data-cursor="link"><i>03</i><b>Concierge</b><em>Five enhancements</em></a></li>
             <li><a href="/my-story/" data-cursor="link"><i>04</i><b>My Story</b><em>Teimuraz Benidze</em></a></li>
             <li><a href="/gallery/" data-cursor="link"><i>05</i><b>The Collection</b><em>Thirteen compositions</em></a></li>
-            <li><a href="mailto:alchemyandice.nyc@gmail.com?subject=Ice%20%26%20Instinct%20inquiry" data-cursor="link"><i>06</i><b>Inquire</b><em>Begin the conversation</em></a></li>
+            <li><a href="/contact/" data-cursor="link"><i>06</i><b>Inquire</b><em>Begin the conversation</em></a></li>
           </ul>
           <footer className="va-foot">
             <span>New York Metropolitan Area</span>

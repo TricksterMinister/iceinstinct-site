@@ -86,7 +86,7 @@ export function GalleryPage() {
               </a>
             </li>
             <li>
-              <a href="mailto:alchemyandice.nyc@gmail.com?subject=Ice%20%26%20Instinct%20inquiry">
+              <a href="/contact/">
                 <i>06</i>
                 <b>Inquire</b>
                 <em>Begin the conversation</em>
@@ -129,7 +129,7 @@ export function GalleryPage() {
                 Gallery
               </a>
             </div>
-            <a href="mailto:alchemyandice.nyc@gmail.com?subject=Ice%20%26%20Instinct%20inquiry" className="nav-cta">
+            <a href="/contact/" className="nav-cta">
               Inquire
             </a>
           </nav>
@@ -397,7 +397,7 @@ export function GalleryPage() {
               </h2>
               <p className="cta-lead">Each composition was built for a single evening. The next one is for yours.</p>
               <div className="final-cta-actions">
-                <a href="mailto:alchemyandice.nyc@gmail.com?subject=Ice%20%26%20Instinct%20inquiry" className="btn btn-primary">
+                <a href="/contact/" className="btn btn-primary">
                   Request a private quote <span className="arrow">→</span>
                 </a>
                 <a href="/offerings/" className="btn btn-ghost">

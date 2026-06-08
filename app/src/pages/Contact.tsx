@@ -1,11 +1,13 @@
 import { SiteFooter } from '../sections/SiteFooter';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import type { FormEvent } from 'react';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
 
 const BODY_CLASSES = ['cinema-chrome', 'vp-split', 'closer', 'is-inquire'];
 
-const MAILTO = 'mailto:alchemyandice.nyc@gmail.com?subject=Ice%20%26%20Instinct%20inquiry';
+const EMAIL = 'alchemyandice.nyc@gmail.com';
+const MAILTO = `mailto:${EMAIL}?subject=Ice%20%26%20Instinct%20inquiry`;
 
 export function Contact() {
   // Live deep page sets <body class="cinema-chrome vp-split closer is-inquire">.
@@ -18,45 +20,23 @@ export function Contact() {
   useCinemaChrome();
   useDeepScripts();
 
-  // Inquiry modal: open from the invitation, close on scrim / button / ESC.
-  // Ported from the page's inline <script> (the live page kept this logic outside script.js).
-  useEffect(() => {
-    const modal = document.getElementById('iq-modal');
-    if (!modal) return;
-    const firstField = document.querySelector('#iq-modal .btn-primary, #iq-modal .iq-close');
-    let lastActive: Element | null = null;
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
-    const open = () => {
-      lastActive = document.activeElement;
-      modal.classList.add('is-open');
-      modal.setAttribute('aria-hidden', 'false');
-      document.documentElement.style.overflow = 'hidden';
-      setTimeout(() => {
-        if (firstField) (firstField as HTMLElement).focus();
-      }, 420);
-    };
-    const close = () => {
-      modal.classList.remove('is-open');
-      modal.setAttribute('aria-hidden', 'true');
-      document.documentElement.style.overflow = '';
-      if (lastActive) (lastActive as HTMLElement).focus();
-    };
-
-    const openers = Array.from(document.querySelectorAll<HTMLElement>('[data-open-inquiry]'));
-    const closers = Array.from(document.querySelectorAll<HTMLElement>('[data-close-inquiry]'));
-    openers.forEach((b) => b.addEventListener('click', open));
-    closers.forEach((b) => b.addEventListener('click', close));
-    const onKeydown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
-    };
-    document.addEventListener('keydown', onKeydown);
-
-    return () => {
-      openers.forEach((b) => b.removeEventListener('click', open));
-      closers.forEach((b) => b.removeEventListener('click', close));
-      document.removeEventListener('keydown', onKeydown);
-    };
-  }, []);
+  // Client-side only: build a mailto from the form fields and hand off to the
+  // visitor's mail client. No backend.
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+    window.location.href =
+      'mailto:' +
+      EMAIL +
+      '?subject=' +
+      encodeURIComponent('Ice & Instinct inquiry') +
+      '&body=' +
+      encodeURIComponent(body);
+  };
 
   return (
     <>
@@ -114,7 +94,7 @@ export function Contact() {
               </a>
             </li>
             <li>
-              <a href={MAILTO}>
+              <a href="/contact/">
                 <i>06</i>
                 <b>Inquire</b>
                 <em>Begin the conversation</em>
@@ -169,7 +149,8 @@ export function Contact() {
               Begin the <span className="it">conversation.</span>
             </h1>
             <p className="lead">
-              The date, the room, the guest count. A reply within one business day, personally.
+              The date, the room, the guest count. Write to us and a reply follows within one
+              business day, personally.
             </p>
           </div>
         </section>
@@ -178,58 +159,56 @@ export function Contact() {
       <div className="inquire-close">
         <section className="inquire-invite">
           <div className="invite-inner reveal">
-            <div className="invite-text">
-              <p className="invite-line">
-                An evening,
-                <br />
-                <span className="it">considered in full.</span>
-              </p>
-            </div>
-            <div className="invite-actions">
-              <button type="button" className="invite-cta" data-open-inquiry>
-                <span>Begin the inquiry</span>
-                <span className="arrow" aria-hidden="true">
-                  &#8594;
-                </span>
-              </button>
-            </div>
+            <form className="inquire-form" onSubmit={onSubmit} noValidate>
+              <label className="inquire-field">
+                <span className="inquire-label">Name</span>
+                <input
+                  type="text"
+                  name="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  autoComplete="name"
+                  required
+                />
+              </label>
+              <label className="inquire-field">
+                <span className="inquire-label">Email</span>
+                <input
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  autoComplete="email"
+                  required
+                />
+              </label>
+              <label className="inquire-field">
+                <span className="inquire-label">Message</span>
+                <textarea
+                  name="message"
+                  rows={5}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="The evening you have in mind - the date, the room, the guest count."
+                  required
+                />
+              </label>
+              <div className="inquire-form-foot">
+                <button type="submit" className="btn-primary" data-cursor="link">
+                  <span className="btn-label">Send</span>
+                  <span className="btn-arr" aria-hidden="true">
+                    &rarr;
+                  </span>
+                </button>
+                <p className="inquire-direct">
+                  Or write to us directly:{' '}
+                  <a href={MAILTO}>{EMAIL}</a>
+                </p>
+              </div>
+            </form>
           </div>
         </section>
         <SiteFooter />
-      </div>
-
-      {/* INQUIRY MODAL */}
-      <div className="iq-modal" id="iq-modal" aria-hidden="true">
-        <div className="iq-scrim" data-close-inquiry></div>
-        <div className="iq-panel" role="dialog" aria-modal="true" aria-labelledby="iq-title">
-          <button className="iq-close" type="button" data-close-inquiry aria-label="Close inquiry">
-            <span></span>
-            <span></span>
-          </button>
-
-          <div className="iq-form">
-            <header className="iq-head">
-              <h2 id="iq-title">
-                Begin the <span className="it">conversation.</span>
-              </h2>
-            </header>
-
-            <p className="iq-lead">
-              Write to us with the date, the room, and the guest count, and we will walk through the
-              evening together. A personal confirmation follows, at{' '}
-              <a href={MAILTO}>alchemyandice.nyc@gmail.com</a>.
-            </p>
-
-            <div className="iq-foot">
-              <a className="btn-primary" href={MAILTO} data-cursor="link">
-                <span className="btn-label">Email us directly</span>
-                <span className="btn-arr" aria-hidden="true">
-                  &rarr;
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
     </>
   );

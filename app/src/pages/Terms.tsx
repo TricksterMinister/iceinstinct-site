@@ -70,7 +70,7 @@ export function Terms() {
               </a>
             </li>
             <li>
-              <a href="mailto:alchemyandice.nyc@gmail.com?subject=Ice%20%26%20Instinct%20inquiry">
+              <a href="/contact/">
                 <i>06</i>
                 <b>Inquire</b>
                 <em>Begin the conversation</em>
@@ -111,7 +111,7 @@ export function Terms() {
               <a href="/my-story/">My Story</a>
               <a href="/gallery/">Gallery</a>
             </div>
-            <a href="mailto:alchemyandice.nyc@gmail.com?subject=Ice%20%26%20Instinct%20inquiry" className="nav-cta">
+            <a href="/contact/" className="nav-cta">
               Inquire
             </a>
           </nav>
@@ -232,7 +232,7 @@ export function Terms() {
 
               <h2>12. Contact</h2>
               <p>
-                Questions about these Terms? Reach us via the <a href="mailto:alchemyandice.nyc@gmail.com?subject=Ice%20%26%20Instinct%20inquiry">contact page</a>.
+                Questions about these Terms? Reach us via the <a href="/contact/">contact page</a>.
               </p>
             </div>
           </div>
