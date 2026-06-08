@@ -4,8 +4,17 @@
 
 **PROJECT:** Migrating iceinstinct.com (luxury mixology site, strict monochrome + champagne) from vanilla HTML to React. Full design rules: `CLAUDE.md`. Deep detail: `REACT-MIGRATION-HANDOFF.md`.
 
-**BRANCH:** `react-shell` (work here). `main` = live vanilla, do NOT touch/deploy. **Nothing is deployed.**
+**BRANCH:** `react-shell` (do all work here). **`main` IS NOW LIVE PRODUCTION** - the React build sits at the repo ROOT on `main`, and a GitHub webhook auto-deploys to Hostinger on every push to main. So: NEVER push to main without owner ok = it goes live instantly. Day-to-day work stays on react-shell.
 **RUN:** `cd app && npm run dev` -> http://localhost:5173/  (React app in `app/`, Vite+React19+TS)
+
+**DEPLOYED LIVE (cutover done 2026-06-08):** https://www.iceinstinct.com now serves the React site (verified all 12 routes 200 + assets + SEO + 404). HOW IT WORKS:
+- Hostinger: iceinstinct.com is a Custom PHP/HTML site on the Business plan; **Advanced -> GIT** deploys repo `main` -> public_html. The old Website Builder site was DELETED (content preserved in repo + `_legacy-vanilla/`).
+- Auto-deploy: GitHub webhook (id 638086930) -> `https://webhooks.hostinger.com/deploy/<token>` fires on push -> Hostinger pulls main. So `git push origin main` = live.
+- CUTOVER MECHANICS: built `app/dist` (`cd app && npm run build`), copied dist payload to repo ROOT on main, vanilla moved to `_legacy-vanilla/`. To ship a new version: build -> put dist at root on main -> commit/push main (webhook deploys).
+- CDN CAVEAT: Hostinger `hcdn` caches HTML. If a fresh deploy still shows old, hPanel -> iceinstinct.com Dashboard -> Cache -> **Clear cache** (or test with `?nocache=...`).
+- ROLLBACK: `_legacy-vanilla/` on main + git tag `pre-cutover-vanilla`.
+
+**LIVE NOW = WORK-IN-PROGRESS (finish next, each push auto-deploys):** 5 cocktail recipes still placeholder (White Lotus, Black Truffle Martini, Aureliano, Basil in my mind, Call Me By Your Name) - NOTE the green basil image = "Call Me By Your Name"; the "Basil in my mind" tile shows a TEMP peach placeholder (`call-me-v2.png`) that needs a real photo + recipe. Founder "Hand Behind the Ritual" = temp still `founder-v6b.png` (final image/video deferred - owner rejected v3..v6, wants Netflix-real, not AI/grain/plastic). Palate Profiler (S6) + Duality (S11) unfinished. Per-page content pass not done for Offerings hub / 4 tiers / Concierge / Contact / Privacy+Terms. Mobile QA + S7 code review pending. All new media staged in `~/Desktop/Ice-Instinct-Media/`.
 
 **MASTER PLAN = SOURCE OF TRUTH FOR WHAT IS LEFT:** `docs/superpowers/plans/2026-06-07-migration-master.md` -> read its **PROGRESS LOG** section FIRST. Owner rule (locked): defer NOTHING; resolve every workstream in order before cutover; execute via the subagent-driven-development skill; never push to main without owner ok.
 
