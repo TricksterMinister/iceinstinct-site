@@ -1065,3 +1065,6 @@ body.rail-onlight .tier-nav a.is-current::before{background:oklch(45% 0.1 70 / .
 @media (max-width: 560px) {
   .oma-seg-sub { font-size: 0.66rem; letter-spacing: 0.18em; }
 }
+
+/* Decorative background videos must never capture pointer events (they sit above hero content at z-1 and would block CTA/link clicks). */
+video { pointer-events: none; }

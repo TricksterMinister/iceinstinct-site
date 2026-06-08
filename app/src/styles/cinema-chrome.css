@@ -679,3 +679,6 @@ body.cinema-chrome.vp-split #enhancements .addon-card {
     padding: clamp(2rem, 8vh, 3.5rem) var(--gutter, 1.5rem);
   }
 }
+
+/* Decorative background videos must never capture pointer events (they sit above hero content at z-1 and would block CTA/link clicks). */
+video { pointer-events: none; }

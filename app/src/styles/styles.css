@@ -3304,3 +3304,6 @@ body.cinema-chrome.vp-split.is-inquire .page-hero {
 @media (max-width: 720px) {
   .tier-card .tier-link { padding: 0.5rem 0; display: inline-flex; align-items: center; gap: 0.4em; }
 }
+
+/* Decorative background videos must never capture pointer events (they sit above hero content at z-1 and would block CTA/link clicks). */
+video { pointer-events: none; }
