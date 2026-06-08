@@ -45,6 +45,7 @@ export const bespokeContent: OfferingContent = {
   bridge: {
     photo: '/assets/photos/bespoke-bridge.png',
     photoAlt: 'A bespoke cocktail designed as liquid art',
+    subhead: 'Custom Design. Your Story. Liquid Form.',
     selection: {
       title: (
         <>
@@ -183,6 +184,12 @@ export const bespokeContent: OfferingContent = {
       'Should the rhythm of the event call for a longer presence, service time may continue beyond the initial framework. All such considerations are aligned during the private design consultation to ensure balance, clarity, and control.',
     ],
   },
+
+  pauses: [
+    <>Mixology as <em>collaboration.</em></>,
+    <>Each cocktail,<br />a <em>conversation piece.</em></>,
+    <>Your story,<br />in <em>liquid form.</em></>,
+  ],
 
   navLabels: ['Overview', 'Menu Protocol', 'Scalability', "What's Included", 'Standard Inclusions', 'Host Provides', 'Extensions'],
 

@@ -68,6 +68,11 @@ export function useOmakaseSnap(): void {
           const el = document.querySelector<HTMLElement>(sel);
           if (el) snap!.addElement(el, { align: ['start'] });
         });
+        // Editorial pauses are full-viewport too; settle on each one (there are
+        // several, so use querySelectorAll rather than a single SEGMENTS entry).
+        document.querySelectorAll<HTMLElement>('.oma-pause').forEach((el) => {
+          snap!.addElement(el, { align: ['start'] });
+        });
         // Suspend snap while the held-stage is pinned (its internal scrub) so it
         // never tugs the page to a boundary mid-animation.
         const hold = document.querySelector<HTMLElement>('.oma-hold');

@@ -146,11 +146,11 @@ export function Terms() {
               <p>
                 Ice &amp; Instinct is a private mixology studio operated by <strong>Teimuraz Benidze</strong>. These
                 Terms govern your use of <a href="https://www.iceinstinct.com/">www.iceinstinct.com</a> and the
-                engagement between us and any client who books a service through the inquiry form or by direct agreement.
+                engagement between us and any client who books a service through our scheduling page or by direct agreement.
               </p>
 
               <h2>2. Services we offer</h2>
-              <p>Private mixology service in Manhattan and surrounds, organised in four tiers:</p>
+              <p>Private mixology service in the New York metropolitan area, organised in four tiers:</p>
               <ul>
                 <li>
                   <strong>The Foundation</strong> - from $400 USD, up to 40 guests, 3 hours.
@@ -236,7 +236,7 @@ export function Terms() {
 
               <h2>12. Contact</h2>
               <p>
-                Questions about these Terms? Write via the <a href="/contact/">contact form</a>.
+                Questions about these Terms? Reach us via the <a href="/contact/">contact page</a>.
               </p>
             </div>
           </div>

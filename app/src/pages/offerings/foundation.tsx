@@ -45,6 +45,7 @@ export const foundationContent: OfferingContent = {
   bridge: {
     photo: '/assets/photos/foundation-bridge.png',
     photoAlt: 'A classic cocktail, executed with precision',
+    subhead: 'Curated Simplicity. The Foundation of Excellence.',
     selection: {
       title: (
         <>
@@ -179,6 +180,12 @@ export const foundationContent: OfferingContent = {
       'Every Foundation booking contributes to our mission: proving that professional hospitality belongs in every celebration, not just the grandest ones.',
     ],
   },
+
+  pauses: [
+    <>Distillation, not <em>compromise.</em></>,
+    <>Hospitality with <em>intention.</em></>,
+    <>The first pour <em>matters most.</em></>,
+  ],
 
   navLabels: ['Overview', 'Menu Protocol', 'Scalability', "What's Included", 'Standard Inclusions', 'Host Provides', 'Notes'],
 

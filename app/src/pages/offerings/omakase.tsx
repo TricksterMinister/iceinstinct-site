@@ -43,6 +43,7 @@ export const omakaseContent: OfferingContent = {
   bridge: {
     photo: '/assets/photos/omakase-bridge.png',
     photoAlt: 'A lone cocktail under a brass lamp in a dim speakeasy bar',
+    subhead: 'Pure Improvisation. The Highest Form of Trust.',
     selection: {
       title: (
         <>
@@ -180,6 +181,12 @@ export const omakaseContent: OfferingContent = {
       'When the energy of the room calls for it, the experience may continue beyond its initial frame as a natural continuation of the ritual itself.',
     ],
   },
+
+  pauses: [
+    <>Performance art<br />for <em>cocktails.</em></>,
+    <>The highest form<br />of <em>trust.</em></>,
+    <>Every cocktail,<br />a <em>singular event.</em></>,
+  ],
 
   navLabels: ['Overview', 'Menu Protocol', 'Scalability', "What's Included", 'Standard Inclusions', 'Host Provides', 'Notes'],
 

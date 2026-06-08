@@ -153,12 +153,9 @@ export function Privacy() {
               <h2>2. What we collect</h2>
               <ul>
                 <li>
-                  <strong>Inquiry submissions.</strong> When you fill the contact form, we receive the fields you submit
-                  (name, email, optional phone, event details). Submissions are processed by{' '}
-                  <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">
-                    Formspree
-                  </a>
-                  , our form handler, and delivered to our private inbox.
+                  <strong>Inquiry submissions.</strong> When you request a consultation, we receive the details you
+                  provide through our scheduling provider (YouCanBook.me): your name, email, and any event details you
+                  share. These reach our private inbox.
                 </li>
                 <li>
                   <strong>Server logs.</strong> Our hosting provider may log your IP address, user-agent, requested URL
@@ -183,7 +180,7 @@ export function Privacy() {
               <h2>4. Third parties</h2>
               <ul>
                 <li>
-                  <strong>Formspree</strong> - inquiry form handler.
+                  <strong>YouCanBook.me</strong> - consultation scheduling.
                 </li>
                 <li>
                   <strong>Google Fonts</strong> - typeface delivery.

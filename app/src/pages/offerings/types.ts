@@ -43,9 +43,15 @@ export interface OfferingContent {
   bridge: {
     photo: string;
     photoAlt: string;
+    subhead?: string; // Menu-Protocol sub-headline (old tier-section-intro under "The Menu Protocol")
     selection: { title: ReactNode; lead: string };
     focus: { title: ReactNode; lead: string };
   };
+
+  /** Between-section editorial pull-quotes (old .editorial-pause sections).
+   *  Three short italic lines: after Overview, after Scalability, after
+   *  Standard Inclusions. Each may contain <em> emphasis. */
+  pauses?: [ReactNode, ReactNode, ReactNode];
 
   scaling: { desc: string; tiers: Tier[] };
   included: { intro: string; steps: Item[] };

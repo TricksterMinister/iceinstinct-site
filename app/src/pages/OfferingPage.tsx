@@ -241,6 +241,14 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
           </div>
         </section>
 
+        {/* Editorial pause (between Overview and Menu Protocol) */}
+        {content.pauses?.[0] ? (
+          <section className="oma-pause" aria-hidden="true">
+            <p className="oma-pause-text">{content.pauses[0]}</p>
+            <span className="oma-pause-mark">{content.ghost}</span>
+          </section>
+        ) : null}
+
         {/* II. THE MENU PROTOCOL - held-stage photo bridge */}
         <section className="oma-hold" id="menu-protocol" ref={holdRef}>
           <div className="oma-hold-stage">
@@ -250,6 +258,7 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
             <span className="oma-hold-scan" aria-hidden="true"></span>
             <div className="oma-hold-text is-a">
               <span className="oma-seg-eye">II &middot; The Menu Protocol</span>
+              {content.bridge.subhead ? <p className="oma-seg-sub">{content.bridge.subhead}</p> : null}
               <h2 className="oma-seg-h">{content.bridge.selection.title}</h2>
               <p className="oma-seg-lead">{content.bridge.selection.lead}</p>
             </div>
@@ -287,6 +296,14 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
             </div>
           </div>
         </section>
+
+        {/* Editorial pause (between Scalability and What's Included) */}
+        {content.pauses?.[1] ? (
+          <section className="oma-pause" aria-hidden="true">
+            <p className="oma-pause-text">{content.pauses[1]}</p>
+            <span className="oma-pause-mark">{content.ghost}</span>
+          </section>
+        ) : null}
 
         {/* IV. WHAT'S INCLUDED - dark timeline */}
         <section className="oma-panel dark" id="included">
@@ -346,6 +363,14 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
             </div>
           </div>
         </section>
+
+        {/* Editorial pause (between Standard Inclusions and Host Provides) */}
+        {content.pauses?.[2] ? (
+          <section className="oma-pause" aria-hidden="true">
+            <p className="oma-pause-text">{content.pauses[2]}</p>
+            <span className="oma-pause-mark">{content.ghost}</span>
+          </section>
+        ) : null}
 
         {/* VI. WHAT THE HOST PROVIDES - light timeline */}
         <section className="oma-panel light" id="host-provides">

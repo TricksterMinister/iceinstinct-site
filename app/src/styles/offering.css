@@ -992,3 +992,76 @@ body.rail-onlight .tier-nav a.is-current::before{background:oklch(45% 0.1 70 / .
   /* footer band sizes to its content (no 3fr/2fr stretch) on phones+small tablets */
   .oma-close-bottom{ grid-template-rows:auto auto; min-height:auto; }
 }
+
+/* =========================================================================
+   EDITORIAL PAUSE - between-section pull-quotes (ported from the old vanilla
+   tier pages). Short italic Fraunces line, off-black, dims->chalk on scroll.
+   Three per tier: after Overview, after Scalability, after Standard
+   Inclusions. Brand-safe: no blur, linear motion only. DESIGN.md compliant.
+   ========================================================================= */
+.oma-pause {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: clamp(56px, 8vh, 84px) clamp(24px, 5vw, 80px) clamp(40px, 6vh, 64px);
+  position: relative;
+  background: #050505;
+}
+.oma-pause-text {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-weight: 350;
+  font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
+  font-size: clamp(2.4rem, 1.6rem + 4vw, 5.5rem);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: var(--c-fg);
+  max-width: 18ch;
+  margin: 0 auto;
+  opacity: 0.45;
+  text-wrap: balance;
+}
+.oma-pause-text em { font-style: italic; color: var(--c-accent); }
+.oma-pause-mark {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--c-fg-muted);
+  margin-top: clamp(1.6rem, 4vh, 2.4rem);
+}
+@supports (animation-timeline: view()) {
+  .oma-pause-text {
+    animation: oma-pause-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 30% cover 60%;
+  }
+  @keyframes oma-pause-reveal {
+    from { opacity: 0.35; letter-spacing: -0.02em; transform: translateY(12px); }
+    to   { opacity: 1;    letter-spacing: -0.045em; transform: translateY(0); }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .oma-pause-text { animation: none; opacity: 1; }
+}
+
+/* Menu-Protocol sub-headline (old tier-section-intro under "The Menu Protocol").
+   Sits between the section eyebrow and the headline. Mono kicker, on-brand. */
+.oma-seg-sub {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: clamp(0.66rem, 1vw, 0.82rem);
+  color: var(--c-fg-soft);
+  margin: 0 auto 1rem;
+  max-width: 46ch;
+  line-height: 1.5;
+}
+@media (max-width: 560px) {
+  .oma-seg-sub { font-size: 0.66rem; letter-spacing: 0.18em; }
+}

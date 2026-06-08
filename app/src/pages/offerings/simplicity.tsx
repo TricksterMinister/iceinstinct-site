@@ -45,6 +45,7 @@ export const simplicityContent: OfferingContent = {
   bridge: {
     photo: '/assets/photos/simplicity-bridge.png',
     photoAlt: 'A timeless classic, perfectly executed',
+    subhead: 'Classics Only. Strictly defined. Flawlessly executed.',
     selection: {
       title: (
         <>
@@ -178,6 +179,12 @@ export const simplicityContent: OfferingContent = {
       "When the flow of the evening naturally calls for it, the Master Mixologist's presence may continue beyond the initial service window. Such considerations are addressed discreetly and without interrupting the integrity of the experience.",
     ],
   },
+
+  pauses: [
+    <>Heritage over <em>hype.</em></>,
+    <>We do not invent.<br />We execute the <em>legends.</em></>,
+    <>True luxury <em>whispers.</em></>,
+  ],
 
   navLabels: ['Overview', 'Menu Protocol', 'Scalability', "What's Included", 'Standard Inclusions', 'Host Provides', 'Extensions'],
 
