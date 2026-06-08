@@ -4,13 +4,13 @@ import type { FormEvent } from 'react';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
 
-const BODY_CLASSES = ['cinema-chrome', 'vp-split', 'closer', 'is-inquire'];
+const BODY_CLASSES = ['cinema-chrome'];
 
 const EMAIL = 'alchemyandice.nyc@gmail.com';
-const MAILTO = `mailto:${EMAIL}?subject=Ice%20%26%20Instinct%20inquiry`;
 
 export function Contact() {
-  // Live deep page sets <body class="cinema-chrome vp-split closer is-inquire">.
+  // Inquire mirrors the offering pages: <body class="cinema-chrome"> + the
+  // offering closing-segment.oma-close grid drives the one-viewport layout.
   // React mounts into #root, so apply the body classes here (and clean up) to match.
   useEffect(() => {
     document.body.classList.add(...BODY_CLASSES);
@@ -139,77 +139,85 @@ export function Contact() {
         </div>
       </header>
 
+      {/* ONE segment - EXACT copy of the offering closing-segment (light Свет-1
+          framed card), same as /offerings/foundation/: closing-segment.oma-close
+          grid (CTA card 70% + footer band 30%) = one viewport, footer full scale.
+          The only change vs the offering closing: the two CTA buttons are replaced
+          by the inquiry form, fit inside the same card. No public email is shown;
+          Send hands off to the mail client. */}
       <main>
-        <section className="page-hero">
-          <div className="section-bg-word" aria-hidden="true">
-            INQUIRE
-          </div>
-          <div className="container">
-            <h1>
-              Begin the <span className="it">conversation.</span>
-            </h1>
-            <p className="lead">
-              The date, the room, the guest count. Write to us and a reply follows within one
-              business day, personally.
-            </p>
-          </div>
-        </section>
-      </main>
-
-      <div className="inquire-close">
-        <section className="inquire-invite">
-          <div className="invite-inner reveal">
-            <form className="inquire-form" onSubmit={onSubmit} noValidate>
-              <label className="inquire-field">
-                <span className="inquire-label">Name</span>
-                <input
-                  type="text"
-                  name="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  autoComplete="name"
-                  required
-                />
-              </label>
-              <label className="inquire-field">
-                <span className="inquire-label">Email</span>
-                <input
-                  type="email"
-                  name="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  autoComplete="email"
-                  required
-                />
-              </label>
-              <label className="inquire-field">
-                <span className="inquire-label">Message</span>
-                <textarea
-                  name="message"
-                  rows={5}
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  placeholder="The evening you have in mind - the date, the room, the guest count."
-                  required
-                />
-              </label>
-              <div className="inquire-form-foot">
-                <button type="submit" className="btn-primary" data-cursor="link">
-                  <span className="btn-label">Send</span>
-                  <span className="btn-arr" aria-hidden="true">
-                    &rarr;
-                  </span>
-                </button>
-                <p className="inquire-direct">
-                  Or write to us directly:{' '}
-                  <a href={MAILTO}>{EMAIL}</a>
+        <div className="closing-segment oma-close inquire-close" id="final-cta">
+          <section className="closing">
+            <div className="section-bg-word top right" aria-hidden="true">INQUIRE</div>
+            <div className="closing-stage">
+              <div className="closing-frame">
+                <span className="closing-corner tl" aria-hidden="true"></span>
+                <span className="closing-corner tr" aria-hidden="true"></span>
+                <span className="closing-corner bl" aria-hidden="true"></span>
+                <span className="closing-corner br" aria-hidden="true"></span>
+                <span className="closing-eyebrow">Ice &amp; Instinct / Inquire</span>
+                <h2 className="closing-title">
+                  Begin the <span className="it">conversation.</span>
+                </h2>
+                <p className="closing-lead">
+                  Tell us the date, the room, and the guest count. A reply follows within one
+                  business day, personally.
                 </p>
+                <form className="inquire-form" onSubmit={onSubmit} noValidate>
+                  <div className="inquire-row">
+                    <label className="inquire-field">
+                      <span className="inquire-label">Name</span>
+                      <input
+                        type="text"
+                        name="name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        autoComplete="name"
+                        required
+                      />
+                    </label>
+                    <label className="inquire-field">
+                      <span className="inquire-label">Email</span>
+                      <input
+                        type="email"
+                        name="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        autoComplete="email"
+                        required
+                      />
+                    </label>
+                  </div>
+                  <label className="inquire-field">
+                    <span className="inquire-label">Message</span>
+                    <textarea
+                      name="message"
+                      rows={3}
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      placeholder="The evening you have in mind - the date, the room, the guest count."
+                      required
+                    />
+                  </label>
+                  <div className="inquire-form-foot">
+                    <button type="submit" className="btn-primary" data-cursor="link">
+                      <span className="btn-label">Send the inquiry</span>
+                      <span className="btn-arr" aria-hidden="true">&rarr;</span>
+                    </button>
+                  </div>
+                </form>
               </div>
-            </form>
-          </div>
-        </section>
-        <SiteFooter />
-      </div>
+              <p className="closing-meta">
+                <span>By appointment only</span>
+                <span>New York Metropolitan Area</span>
+                <span>Est. 2024</span>
+              </p>
+            </div>
+          </section>
+
+          <SiteFooter embedded />
+        </div>
+      </main>
     </>
   );
 }

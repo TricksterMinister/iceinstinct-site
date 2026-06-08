@@ -2768,157 +2768,148 @@ img.reveal-zoom.is-in { transform: scale(1); }
 
 
 /* =================================================================
-   INQUIRE PAGE - one segment: hero (50dvh) + [invitation + footer]
-   The bottom half splits into the full-scale footer and, above it, an
-   editorial-minimum invitation that opens the full form in a modal.
-   Proportions are fixed; the form never crowds the page.
+   INQUIRE PAGE - EXACT copy of the offering closing-segment (the light
+   Свет-1 framed card on /offerings/foundation/). Same .closing-segment.oma-close
+   grid + .closing (light) + .closing-frame + <SiteFooter embedded/> = one
+   viewport, footer at full scale. The only change: the two-button .closing-cta
+   is replaced by the inquiry form, fit inside the SAME card proportions.
+   No public email is shown; Send hands off to the mail client. Layout + card
+   come from offering.css; only the (light-themed) form styling lives here.
    ================================================================= */
-/* Closing block: invitation + footer read as ONE viewport. The footer keeps its
-   natural size; the invitation flexes to fill the rest and centres - so the two
-   are perceived as a single unit, never a floating invite over a distant footer. */
-body.is-inquire .inquire-close {
+.closing-frame .inquire-form {
+  width: 100%;
+  max-width: 560px;
+  margin: clamp(0.3rem, 1.2vh, 0.9rem) auto 0;
+  text-align: left;
+  display: grid;
+  gap: clamp(0.85rem, 2vh, 1.25rem);
+}
+/* Name + Email share one row on wider screens, stack on phones. */
+.closing-frame .inquire-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(0.9rem, 2.2vw, 1.4rem);
+}
+@media (max-width: 560px) {
+  .closing-frame .inquire-row { grid-template-columns: 1fr; }
+}
+.closing-frame .inquire-field { display: grid; gap: 0.45rem; }
+.closing-frame .inquire-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: oklch(46% 0.03 88);
+}
+/* Light inputs - tuned to the Свет-1 card (dark ink on warm paper). */
+.closing-frame .inquire-field input,
+.closing-frame .inquire-field textarea {
+  width: 100%;
+  background: oklch(99% 0.006 95);
+  border: 1px solid oklch(78% 0.04 88);
+  color: oklch(22% 0.01 80);
+  font-family: var(--font-body, var(--font-display));
+  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.02rem);
+  padding: clamp(0.7rem, 1.3vh, 0.95rem) clamp(0.9rem, 1.8vw, 1.2rem);
+  border-radius: 2px;
+  transition: border-color 0.3s var(--ease, ease), box-shadow 0.3s var(--ease, ease);
+}
+.closing-frame .inquire-field textarea { resize: vertical; min-height: 4.5em; line-height: 1.5; }
+.closing-frame .inquire-field input::placeholder,
+.closing-frame .inquire-field textarea::placeholder { color: oklch(56% 0.02 85); }
+.closing-frame .inquire-field input:focus,
+.closing-frame .inquire-field textarea:focus {
+  outline: none;
+  border-color: oklch(52% 0.1 82);
+  box-shadow: 0 0 0 3px oklch(72% 0.08 85 / 0.18);
+}
+/* Single Send button - centre it under the form to match the centred card. */
+.closing-frame .inquire-form-foot {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(0.2rem, 1vh, 0.6rem);
+}
+
+/* -----------------------------------------------------------------
+   ONE VIEWPORT LOCK. The whole Inquire page = exactly one viewport,
+   NO page scroll: card row (70%) + footer band (30%) fit inside 100dvh.
+   The form is taller than the offering's two CTA buttons, so the frame +
+   typography are compacted (vh-tied) to stay inside the 70% row.
+   ----------------------------------------------------------------- */
+.closing-segment.inquire-close {
+  height: 100dvh;
   min-height: 100dvh;
+  /* override the offering oma-close 7fr/3fr grid: a flex column lets the footer
+     size to its own content (so its LAST line is always visible) and the card
+     fill the rest - the whole thing = exactly one viewport, nothing clipped. */
   display: flex;
   flex-direction: column;
+  grid-template-rows: none;
+  overflow: hidden;
 }
-body.is-inquire .inquire-close .inquire-invite {
+.closing-segment.inquire-close > .closing {
   flex: 1 1 auto;
-  display: flex;
-  align-items: center;
-  padding: clamp(2rem, 5vh, 4rem) var(--gutter, 1.5rem);
+  min-height: 0;
+  height: auto;
+  padding-block: clamp(1rem, 3vh, 2.2rem);
+  overflow: hidden;
 }
-body.is-inquire .inquire-close .site-footer { flex: 0 0 auto; }
-/* Hero is its own full screen (was a 50dvh vp-split half that left dead space
-   once the invitation moved into the closing block). High specificity to beat
-   the .vp-split .page-hero 50dvh lock. */
-body.cinema-chrome.vp-split.is-inquire .page-hero {
-  height: 100dvh; min-height: 100dvh; max-height: none;
-}
-@media (max-width: 720px) {
-  body.is-inquire .inquire-close { min-height: 0; }
-  body.is-inquire .inquire-close .inquire-invite {
-    padding-top: clamp(2.5rem, 9vh, 4rem);
-    padding-bottom: clamp(2.5rem, 9vh, 4rem);
-  }
-  body.cinema-chrome.vp-split.is-inquire .page-hero { height: auto; min-height: 100dvh; }
-}
-.invite-inner {
-  max-width: var(--container, 1500px);
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: clamp(2rem, 6vw, 5rem);
-  flex-wrap: wrap;
-}
-.invite-text { display: grid; gap: clamp(0.8rem, 2vh, 1.3rem); }
-.invite-kicker {
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: 0.64rem;
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
-  color: var(--c-accent);
-  opacity: 0.85;
-}
-.invite-line {
-  margin: 0;
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(2.4rem, 1.4rem + 3.6vw, 5rem);
-  line-height: 1.0;
-  letter-spacing: -0.035em;
-  color: var(--c-fg);
-}
-.invite-line .it {
-  font-family: var(--font-italic);
-  font-style: italic;
-  font-weight: 350;
-  font-variation-settings: 'opsz' 144;
-  color: var(--c-accent);
-}
-.invite-actions {
-  display: grid;
-  justify-items: start;
-  gap: clamp(0.8rem, 2vh, 1.2rem);
+/* Footer band sizes to its content (no 3fr/2fr stretch, no internal clip) so the
+   base row ("Est. 2024 ...") is fully visible; it stays at the floor at full scale. */
+.closing-segment.inquire-close > .oma-close-bottom {
   flex: 0 0 auto;
+  min-height: 0;
+  grid-template-rows: auto auto;
+  overflow: visible;
 }
-.invite-cta {
-  display: inline-flex; align-items: center; gap: 0.9em;
-  padding: clamp(0.9rem, 2.2vh, 1.25rem) clamp(1.8rem, 4vw, 2.6rem);
-  background: var(--c-accent);
-  color: oklch(18% 0.02 90);
-  border: 1px solid var(--c-accent);
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.1rem);
-  cursor: pointer;
-  touch-action: manipulation;
-  transition: background 0.4s var(--ease, ease), color 0.4s var(--ease, ease);
+/* Keep the marquee compact so the footer never crowds the card off one screen. */
+.closing-segment.inquire-close .oma-close-marquee { padding-block: clamp(0.4rem, 1.4vh, 1rem); }
+.closing-segment.inquire-close .oma-close-track span { font-size: clamp(1.8rem, 4.5vw, 3.6rem); }
+.closing-segment.inquire-close .oma-close-foot { padding-block: clamp(0.55rem, 1.6vh, 1.1rem); }
+.closing-segment.inquire-close .closing-stage {
+  gap: clamp(0.8rem, 2vh, 1.5rem);
 }
-.invite-cta .arrow { transition: transform 0.4s var(--ease-out-expo, cubic-bezier(0.19,1,0.22,1)); }
-.invite-cta:hover { background: transparent; color: var(--c-accent); }
-.invite-cta:hover .arrow { transform: translateX(6px); }
-.invite-cta:focus-visible { outline: 2px solid var(--c-accent); outline-offset: 4px; box-shadow: none; }
-.invite-alt { font-size: 0.95rem; color: oklch(58% 0 0); }
-.invite-alt a { color: oklch(82% 0 0); text-decoration: none; border-bottom: 1px solid color-mix(in oklch, var(--c-accent) 40%, transparent); padding-bottom: 1px; transition: color 0.3s var(--ease, ease), border-color 0.3s var(--ease, ease); }
-.invite-alt a:hover { color: var(--c-accent); border-bottom-color: var(--c-accent); }
-
-/* ---------- Inquire form (email hub) ---------- */
-.inquire-form {
-  width: 100%;
-  max-width: 640px;
-  margin: 0 auto;
-  display: grid;
-  gap: clamp(1.1rem, 2.6vh, 1.6rem);
+.closing-segment.inquire-close .closing-frame {
+  padding: clamp(1.3rem, 4vh, 2.8rem) clamp(1.5rem, 5vw, 4rem);
+  gap: clamp(0.7rem, 1.8vh, 1.3rem);
 }
-.inquire-field { display: grid; gap: 0.55rem; }
-.inquire-label {
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--c-accent);
-  opacity: 0.85;
+/* Title compacted from the offering's step-5 so the form fits the row */
+.closing-segment.inquire-close .closing-title {
+  font-size: clamp(1.8rem, 1rem + 3vw, 3.2rem);
+  line-height: 1.0;
 }
-.inquire-field input,
-.inquire-field textarea {
-  width: 100%;
-  background: oklch(11% 0.004 92 / 0.6);
-  border: 1px solid color-mix(in oklch, var(--c-accent) 22%, transparent);
-  color: var(--c-fg);
-  font-family: var(--font-body, var(--font-display));
-  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.05rem);
-  padding: clamp(0.85rem, 1.6vh, 1.05rem) clamp(1rem, 2vw, 1.3rem);
-  border-radius: 2px;
-  transition: border-color 0.35s var(--ease, ease), background 0.35s var(--ease, ease);
+.closing-segment.inquire-close .closing-lead {
+  font-size: clamp(0.92rem, 0.86rem + 0.3vw, 1.05rem);
+  line-height: 1.5;
 }
-.inquire-field textarea { resize: vertical; min-height: 7.5em; line-height: 1.5; }
-.inquire-field input::placeholder,
-.inquire-field textarea::placeholder { color: oklch(58% 0 0); }
-.inquire-field input:focus,
-.inquire-field textarea:focus {
-  outline: none;
-  border-color: var(--c-accent);
-  background: oklch(13% 0.006 92 / 0.75);
+.closing-segment.inquire-close .inquire-form {
+  gap: clamp(0.65rem, 1.6vh, 1.1rem);
+  margin-top: clamp(0.2rem, 0.8vh, 0.6rem);
 }
-.inquire-form-foot {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: clamp(1rem, 3vw, 2rem);
-  margin-top: clamp(0.4rem, 1.2vh, 0.9rem);
+.closing-segment.inquire-close .inquire-field { gap: 0.35rem; }
+.closing-segment.inquire-close .inquire-field input,
+.closing-segment.inquire-close .inquire-field textarea {
+  padding: clamp(0.55rem, 1.1vh, 0.85rem) clamp(0.85rem, 1.6vw, 1.1rem);
 }
-.inquire-direct { margin: 0; font-size: 0.95rem; color: oklch(58% 0 0); }
-.inquire-direct a {
-  color: oklch(82% 0 0);
-  text-decoration: none;
-  border-bottom: 1px solid color-mix(in oklch, var(--c-accent) 40%, transparent);
-  padding-bottom: 1px;
-  transition: color 0.3s var(--ease, ease), border-color 0.3s var(--ease, ease);
+.closing-segment.inquire-close .inquire-field textarea {
+  min-height: clamp(3em, 7vh, 4.2em);
 }
-.inquire-direct a:hover { color: var(--c-accent); border-bottom-color: var(--c-accent); }
+/* Short screens: drop the meta line and tighten further so it never scrolls */
+@media (max-height: 720px) {
+  .closing-segment.inquire-close .closing-meta { display: none; }
+  .closing-segment.inquire-close .closing-title { font-size: clamp(1.6rem, 4.5vw, 2.4rem); }
+  .closing-segment.inquire-close .inquire-field textarea { min-height: 2.6em; }
+}
+/* Phones/small tablets: the stacked form is taller than a phone screen, so
+   release the hard 100dvh lock here (offering.css already switches oma-close to
+   a content-driven flex column at this breakpoint) - never clip the form. */
+@media (max-width: 820px) {
+  .closing-segment.inquire-close {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+}
 
 /* ---------- The modal ---------- */
 .iq-modal {
