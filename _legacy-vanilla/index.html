@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Ice & Instinct - Cinema Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Geist:wght@300..900&family=Inter:wght@300..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/accent.css?v=20260507a">
+  <link rel="stylesheet" href="/cinema/cinema.css?v=20260601j">
+  <link rel="stylesheet" href="/footer.css?v=20260531t">
+</head>
+<body>
+
+  <div class="cursor" aria-hidden="true">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+  </div>
+
+  <aside class="pager" aria-hidden="true">
+    <button class="pager-dot is-active" data-pager="hero"><span>01</span></button>
+    <button class="pager-dot" data-pager="manifesto"><span>02</span></button>
+    <button class="pager-dot" data-pager="tiers"><span>03</span></button>
+    <button class="pager-dot" data-pager="concierge"><span>04</span></button>
+    <button class="pager-dot" data-pager="founder"><span>05</span></button>
+    <button class="pager-dot" data-pager="gallery"><span>06</span></button>
+    <button class="pager-dot" data-pager="closing"><span>07</span></button>
+  </aside>
+
+  <!-- ====== VANISH HEADER (single mark, full-screen overlay menu) ====== -->
+  <button class="va-trigger" aria-label="Open menu" data-cursor="link">
+    <span class="va-trigger-ring"></span>
+    <span class="va-trigger-icon">
+      <span></span><span></span><span></span>
+    </span>
+  </button>
+
+  <div class="va-overlay" aria-hidden="true">
+    <button class="va-close" aria-label="Close menu" data-cursor="link">
+      <span></span><span></span>
+    </button>
+    <div class="va-stage">
+      <p class="va-eyebrow">Ice &amp; Instinct / Chapters</p>
+      <ul class="va-list">
+        <li><a href="#hero" data-cursor="link"><i>01</i><b>Bridge</b><em>The opening view</em></a></li>
+        <li><a href="#manifesto" data-cursor="link"><i>02</i><b>The Brand</b><em>Not a bar. A studio.</em></a></li>
+        <li><a href="#tiers" data-cursor="link"><i>03</i><b>Offerings</b><em>Four levels, one standard</em></a></li>
+        <li><a href="#concierge" data-cursor="link"><i>04</i><b>Concierge</b><em>Five enhancements</em></a></li>
+        <li><a href="#founder" data-cursor="link"><i>05</i><b>The Alchemist</b><em>Teimuraz Benidze</em></a></li>
+        <li><a href="#gallery" data-cursor="link"><i>06</i><b>The Collection</b><em>Twelve compositions</em></a></li>
+        <li><a href="#closing" data-cursor="link"><i>07</i><b>Inquire</b><em>Begin the conversation</em></a></li>
+      </ul>
+      <nav class="va-deep" aria-label="Deep pages">
+        <span class="va-deep-eyebrow">Read in full</span>
+        <ul>
+          <li><a href="/offerings/foundation/" data-cursor="link">i. The Foundation</a></li>
+          <li><a href="/offerings/simplicity/" data-cursor="link">ii. Perfection in Simplicity</a></li>
+          <li><a href="/offerings/bespoke/" data-cursor="link">iii. Bespoke Design &amp; Artistry</a></li>
+          <li><a href="/offerings/omakase/" data-cursor="link">iv. Omakase Improvisation</a></li>
+          <li><a href="/concierge/" data-cursor="link">Concierge &amp; Enhancements</a></li>
+          <li><a href="/my-story/" data-cursor="link">My Story</a></li>
+          <li><a href="/gallery/" data-cursor="link">The Collection</a></li>
+          <li><a href="/contact/" data-cursor="link">Inquire</a></li>
+        </ul>
+      </nav>
+      <footer class="va-foot">
+        <span>Manhattan / By Appointment</span>
+        <span>EST. 2024</span>
+      </footer>
+    </div>
+  </div>
+
+
+  <section class="hero" id="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto">
+      <source src="https://videos.pexels.com/video-files/5838621/5838621-uhd_2560_1440_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="hero-vignette"></div>
+    <div class="hero-grain"></div>
+
+    <div class="hero-meta hero-meta-tl">
+      <span class="dot"></span>
+      <span>Manhattan / By Appointment</span>
+    </div>
+    <div class="hero-meta hero-meta-tr">
+      <span>EST. 2024</span>
+    </div>
+
+    <div class="hero-stage">
+      <h1 class="hero-title">
+        <span class="row">
+          <span class="word"><span class="ink">Ice</span></span>
+          <span class="word amp"><span class="ink it">&amp;</span></span>
+        </span>
+        <span class="row">
+          <span class="word"><span class="ink it">Instinct.</span></span>
+        </span>
+      </h1>
+      <p class="hero-sub">
+        <span class="reveal-line">Where ritual meets instinct,</span>
+        <span class="reveal-line">high above the city.</span>
+      </p>
+    </div>
+
+    <div class="hero-cue">
+      <span>Scroll</span>
+      <div class="cue-line"></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="manifesto" data-pin>
+    <div class="chapter-bg">
+      <div class="chapter-bg-text" aria-hidden="true">RITUAL</div>
+    </div>
+
+    <div class="chapter-grid">
+      <div class="chapter-prose">
+        <h2 class="chapter-title split">
+          <span class="line"><span>Ice <span class="it">&amp;</span> <span class="it">Instinct</span></span></span>
+        </h2>
+
+        <p class="chapter-lead">is a private mixology experience where each encounter becomes a living performance - an alchemical dialogue between spirit, ice, and intention.</p>
+
+        <div class="chapter-author">
+          <span class="author-eyebrow">Created and led by flavor alchemist</span>
+          <span class="author-name"><span class="it">Teimuraz Benidze</span></span>
+          <p class="author-credit">this experience transforms modern mixology into an art form - refined, intimate, and deeply sensory.</p>
+        </div>
+
+        <div class="chapter-body">
+          <p data-stagger>Every ritual unfolds through precision and emotion: each cocktail crafted in real time, each gesture measured by instinct, each sip designed to leave a memory rather than a taste.</p>
+          <p data-stagger>From private penthouse gatherings to rooftop ceremonies and exclusive brand events, Ice &amp; Instinct brings a rare synthesis of minimalism, theatre, and silent luxury - redefining what it means to serve a drink.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tiers" id="tiers">
+    <div class="section-bg-word top left" aria-hidden="true">OFFERINGS</div>
+    <div class="tiers-rail" data-tiers-rail>
+
+      <header class="tiers-intro">
+        <h2 class="tiers-headline">
+          <span>Four distinct levels</span>
+          <span class="it">of service.</span>
+        </h2>
+        <p class="tiers-lead">
+          One uncompromising standard. Drag, scroll, swipe.
+        </p>
+      </header>
+
+      <article class="tier" data-tier="i">
+        <div class="tier-bg">
+          <img src="../assets/photos/tier-foundation.jpg" alt="Bartender's hands stirring a crystal mixing glass, Manhattan night beyond" loading="lazy" decoding="async">
+          <div class="tier-bg-scrim"></div>
+        </div>
+        <div class="tier-body">
+          <div class="tier-rank">I</div>
+          <span class="tier-name">The Foundation</span>
+          <h3 class="tier-title">Impeccable drinks, <span class="it">seamless service.</span></h3>
+          <p class="tier-blurb">No shortcuts, only intention. The standard from which every other level departs.</p>
+          <ul class="tier-spec">
+            <li><span>From</span><b>$400</b></li>
+            <li><span>Up to</span><b>40 guests</b></li>
+            <li><span>Duration</span><b>3 hours</b></li>
+          </ul>
+          <a class="tier-link" href="/offerings/foundation/" data-cursor="link">Read the chapter <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+
+      <article class="tier" data-tier="ii">
+        <div class="tier-bg">
+          <img src="../assets/photos/tier-simplicity.jpg" alt="A lone bartender in profile, a single cocktail lit on a sparse bar" loading="lazy" decoding="async">
+          <div class="tier-bg-scrim"></div>
+        </div>
+        <div class="tier-body">
+          <div class="tier-rank">II</div>
+          <span class="tier-name">Perfection in Simplicity</span>
+          <h3 class="tier-title">Timeless cocktails, <span class="it">quiet precision.</span></h3>
+          <p class="tier-blurb">A masterful solo performance for those who value craft over theatre.</p>
+          <ul class="tier-spec">
+            <li><span>From</span><b>$750</b></li>
+            <li><span>Up to</span><b>12 guests</b></li>
+            <li><span>Duration</span><b>4 hours</b></li>
+          </ul>
+          <a class="tier-link" href="/offerings/simplicity/" data-cursor="link">Read the chapter <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+
+      <article class="tier" data-tier="iii">
+        <div class="tier-bg">
+          <img src="../assets/photos/tier-bespoke.jpg" alt="A flamed citrus peel sparking over a sculptural signature cocktail" loading="lazy" decoding="async">
+          <div class="tier-bg-scrim"></div>
+        </div>
+        <div class="tier-body">
+          <div class="tier-rank">III</div>
+          <span class="tier-name">Bespoke Design &amp; Artistry</span>
+          <h3 class="tier-title">Signature cocktails, <span class="it">tailored to your story.</span></h3>
+          <p class="tier-blurb">Your event's theme and vision, crafted into every glass.</p>
+          <ul class="tier-spec">
+            <li><span>From</span><b>$1,500</b></li>
+            <li><span>Up to</span><b>15 guests</b></li>
+            <li><span>Duration</span><b>4 hours</b></li>
+          </ul>
+          <a class="tier-link" href="/offerings/bespoke/" data-cursor="link">Read the chapter <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+
+      <article class="tier" data-tier="iv">
+        <div class="tier-bg">
+          <img src="../assets/photos/tier-omakase.jpg" alt="A bartender improvising in smoke, a guest watching across the bar" loading="lazy" decoding="async">
+          <div class="tier-bg-scrim"></div>
+        </div>
+        <div class="tier-body">
+          <div class="tier-rank">IV</div>
+          <span class="tier-name">Omakase Improvisation</span>
+          <h3 class="tier-title">No menu. <span class="it">Unrepeatable moments.</span></h3>
+          <p class="tier-blurb">Real-time creation in dialogue with the room. Complete trust.</p>
+          <ul class="tier-spec">
+            <li><span>From</span><b>$3,000</b></li>
+            <li><span>Up to</span><b>25 guests</b></li>
+            <li><span>Duration</span><b>Open</b></li>
+          </ul>
+          <a class="tier-link" href="/offerings/omakase/" data-cursor="link">Read the chapter <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ====== CONCIERGE (enhancements - add-on layer, not a tier) ====== -->
+  <section class="concierge" id="concierge">
+    <div class="section-bg-word right" aria-hidden="true">ENHANCE</div>
+    <div class="concierge-stage">
+      <div class="concierge-text">
+        <span class="concierge-eyebrow">Beyond the four levels</span>
+        <h2 class="concierge-headline">The <span class="it">Concierge.</span></h2>
+        <p class="concierge-lead">Five quiet enhancements that deepen the ritual. Each one pairs with any level - sourced personally, never bundled.</p>
+        <ol class="concierge-index">
+          <li><i>01</i><b>Bespoke Cigar Curator</b></li>
+          <li><i>02</i><b>Additional Bar Staff</b></li>
+          <li><i>03</i><b>The Curator</b></li>
+          <li><i>04</i><b>Glassware &amp; Vessels</b></li>
+          <li><i>05</i><b>Ice &amp; Temperature</b></li>
+        </ol>
+        <a class="concierge-link" href="/concierge/" data-cursor="link">Explore the concierge <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <div class="concierge-image" data-parallax>
+        <video class="concierge-video" autoplay muted loop playsinline preload="auto" poster="../assets/video/concierge-poster.webp">
+          <source src="../assets/video/concierge-loop.webm?v=2" type="video/webm">
+          <source src="../assets/video/concierge-loop.mp4?v=2" type="video/mp4">
+        </video>
+        <div class="concierge-image-scrim"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="founder" id="founder">
+    <div class="section-bg-word right" aria-hidden="true">ALCHEMIST</div>
+    <div class="founder-stage">
+      <div class="founder-image" data-parallax>
+        <video class="founder-video" autoplay muted loop playsinline preload="auto" poster="../assets/video/alchemist-poster.webp">
+          <source src="../assets/video/alchemist-loop.webm?v=2" type="video/webm">
+          <source src="../assets/video/alchemist-loop.mp4?v=2" type="video/mp4">
+        </video>
+        <div class="founder-image-scrim"></div>
+      </div>
+
+      <div class="founder-text">
+        <blockquote class="founder-quote split">
+          <span class="line">The hand</span>
+          <span class="line"><span class="it">behind</span></span>
+          <span class="line"><span class="it">the ritual.</span></span>
+        </blockquote>
+        <p class="founder-bio">Two decades distilled into a single evening. One man, four cities, one uncompromising standard - revealed in full, away from here.</p>
+        <a class="founder-link" href="/my-story/" data-cursor="link">Meet the Alchemist <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="section-bg-word top left" aria-hidden="true">COLLECTION</div>
+    <header class="gallery-intro">
+      <h2 class="gallery-title">Touch the glass <span class="it">to awaken the spirit.</span></h2>
+      <p class="gallery-lead">Twelve signature compositions. Each built once.</p>
+    </header>
+
+    <div class="gallery-track" data-gallery-track>
+      <a class="gallery-tile" href="/gallery/" data-cursor="view"><img src="/assets/photos/belladonna.jpeg" alt="Belladonna" loading="lazy"><figcaption><span>II</span> Belladonna, 2025</figcaption></a>
+      <a class="gallery-tile" href="/gallery/" data-cursor="view"><img src="/assets/photos/rose-garden.jpeg" alt="Rose Garden Rendezvous" loading="lazy"><figcaption><span>VI</span> Rose Garden, 2025</figcaption></a>
+      <a class="gallery-tile" href="/gallery/" data-cursor="view"><img src="/assets/photos/persimmon-saffron-sour.png" alt="Persimmon Saffron Sour" loading="lazy"><figcaption><span>III</span> Persimmon Saffron, 2025</figcaption></a>
+      <a class="gallery-tile" href="/gallery/" data-cursor="view"><img src="/assets/photos/basil-in-my-mind.jpeg" alt="Basil in my mind" loading="lazy"><figcaption><span>VIII</span> Basil, 2025</figcaption></a>
+      <a class="gallery-tile" href="/gallery/" data-cursor="view"><img src="/assets/photos/white-lotus.png" alt="White Lotus" loading="lazy"><figcaption><span>I</span> White Lotus, 2025</figcaption></a>
+    </div>
+
+    <a class="gallery-cta" href="/gallery/" data-cursor="link">View The Collection <span aria-hidden="true">&rarr;</span></a>
+  </section>
+
+  <section class="closing" id="closing">
+    <div class="section-bg-word top" aria-hidden="true">BEGIN</div>
+    <div class="closing-stage">
+      <div class="closing-frame">
+        <span class="closing-corner tl" aria-hidden="true"></span>
+        <span class="closing-corner tr" aria-hidden="true"></span>
+        <span class="closing-corner bl" aria-hidden="true"></span>
+        <span class="closing-corner br" aria-hidden="true"></span>
+        <span class="closing-eyebrow">Ice &amp; Instinct / By appointment</span>
+        <h2 class="closing-title">Begin <span class="it">the conversation.</span></h2>
+        <p class="closing-lead">Tell us about the evening - the date, the room, the guest count. A private quote within one business day.</p>
+        <div class="closing-cta">
+          <a class="btn-primary" href="/contact/" data-cursor="link"><span class="btn-label">Inquire</span><span class="btn-arr" aria-hidden="true">&rarr;</span></a>
+          <a class="btn-ghost" href="/offerings/" data-cursor="link">Explore the offerings</a>
+        </div>
+      </div>
+      <p class="closing-meta"><span>By appointment only</span><span>Manhattan &amp; surrounds</span><span>Est. 2024</span></p>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+  <div class="footer-glow" aria-hidden="true">Ice &amp; Instinct</div>
+  <div class="footer-inner">
+
+    <div class="footer-sign">
+      <a href="/" class="footer-mark" data-logo-slot aria-label="Ice &amp; Instinct - home">
+        <svg width="32" height="32" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 4 L23 11 L17 18 L11 11 Z" stroke="currentColor" stroke-width="1" fill="none"/><path d="M9 14 L17 23 L25 14" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="17" y1="23" x2="17" y2="29" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><line x1="13" y1="29" x2="21" y2="29" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+      </a>
+      <div class="footer-sign-text">
+        <p class="footer-name">Ice &amp; Instinct</p>
+        <p class="footer-tag">Where ritual meets <em>instinct.</em></p>
+      </div>
+    </div>
+
+    <nav class="footer-nav" aria-label="Footer">
+      <div class="footer-col">
+        <span class="footer-key">Explore</span>
+        <a href="/offerings/">Offerings</a>
+        <a href="/concierge/">Concierge</a>
+        <a href="/gallery/">The Collection</a>
+        <a href="/my-story/">My Story</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-key">Begin</span>
+        <a href="/contact/">Inquire</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <span class="footer-static">By appointment</span>
+      </div>
+      <div class="footer-col">
+        <span class="footer-key">Index</span>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </div>
+    </nav>
+
+    <div class="footer-socials" aria-label="Social profiles">
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9V14.9H8v-2.9h2.4V9.8c0-2.4 1.4-3.7 3.6-3.7 1 0 2.1.2 2.1.2v2.3h-1.2c-1.2 0-1.5.7-1.5 1.5v1.8h2.6l-.4 2.9h-2.2v6.9A10 10 0 0022 12z"/></svg></a>
+      <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg></a>
+      <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+    </div>
+
+  </div>
+
+  <div class="footer-base">
+    <span class="footer-meta">Manhattan &middot; Est. 2024 &middot; © 2026 Ice &amp; Instinct</span>
+  </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.16/dist/lenis.min.js"></script>
+  <script src="/cinema/cinema.js?v=20260601b"></script>
+</body>
+</html>
