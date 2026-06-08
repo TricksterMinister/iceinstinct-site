@@ -16,3 +16,24 @@ export function EyebrowMark() {
     />
   );
 }
+
+/**
+ * The brand cube mark rendered INSIDE the navigation trigger button.
+ * The cube IS the menu button site-wide (replaces the old hamburger glyph).
+ * The parent <button className="va-trigger"> keeps its class + click wiring,
+ * so the open/close behaviour is untouched - only the visual changes.
+ * Styled via .va-trigger-mark in cinema.css / cinema-chrome.css.
+ */
+export function TriggerMark() {
+  return (
+    <img
+      className="va-trigger-mark"
+      src={markUrl}
+      alt=""
+      aria-hidden="true"
+      width={34}
+      height={34}
+      draggable={false}
+    />
+  );
+}

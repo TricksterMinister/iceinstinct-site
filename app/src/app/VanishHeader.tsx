@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { EyebrowMark } from './EyebrowMark';
+import { EyebrowMark, TriggerMark } from './EyebrowMark';
 
 /**
  * Vanish header: single mark trigger + full-screen overlay menu.
@@ -83,9 +83,7 @@ export function VanishHeader() {
       {/* ====== VANISH HEADER (single mark, full-screen overlay menu) ====== */}
       <button className="va-trigger" aria-label="Open menu" data-cursor="link" ref={triggerRef}>
         <span className="va-trigger-ring"></span>
-        <span className="va-trigger-icon">
-          <span></span><span></span><span></span>
-        </span>
+        <TriggerMark />
       </button>
 
       <div className="va-overlay" aria-hidden="true" ref={overlayRef}>

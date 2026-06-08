@@ -1,3 +1,5 @@
+import markUrl from '../assets/ii-mark.png';
+
 type SiteFooterProps = {
   /** When true, render only the inner bottom block (no standalone wrapper) so
    *  it can drop straight into the offering closing-segment grid as its 2nd row. */
@@ -35,7 +37,16 @@ export function SiteFooter({ embedded = false }: SiteFooterProps) {
         <div className="oma-close-base">
           <span>By appointment only &middot; New York Metropolitan Area</span>
           <a className="oma-close-sign" href="/" data-logo-slot aria-label="Ice & Instinct - home">
-            Where ritual meets <em>instinct.</em>
+            <img
+              className="oma-close-mark"
+              src={markUrl}
+              alt=""
+              aria-hidden="true"
+              width={30}
+              height={30}
+              draggable={false}
+            />
+            <span>Where ritual meets <em>instinct.</em></span>
           </a>
           <span>Est. 2024 &middot; © 2026 Ice &amp; Instinct</span>
         </div>

@@ -129,11 +129,7 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
 
       <button className="va-trigger" aria-label="Open menu">
         <span className="va-trigger-ring"></span>
-        <span className="va-trigger-icon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
+        <TriggerMark />
       </button>
 
       <div className="va-overlay" aria-hidden="true">
@@ -451,4 +447,4 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
     </>
   );
 }
-import { EyebrowMark } from '../app/EyebrowMark';
+import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
