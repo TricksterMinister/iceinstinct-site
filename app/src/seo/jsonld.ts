@@ -14,7 +14,7 @@ export function organization(): object {
     url: `${SITE}/`,
     sameAs: [],
     description:
-      "Private mixology studio in Manhattan. By appointment only. Signature cocktails, omakase improvisation, and concierge service for the highest-tier private hosts.",
+      "Private mixology studio in the New York metropolitan area. By appointment only. Signature cocktails, omakase improvisation, and concierge service for the highest-tier private hosts.",
     areaServed: "New York Metropolitan Area",
   };
 }
@@ -94,7 +94,7 @@ export function tierService(tier: TierKey): object {
     "@type": "Service",
     name: `${t.name} - Ice & Instinct`,
     url: t.url,
-    description: `Private mixology service in Manhattan. ${t.guests}, ${t.hours}.`,
+    description: `Private mixology service in the New York metropolitan area. ${t.guests}, ${t.hours}.`,
     areaServed: "New York Metropolitan Area",
     provider: organization(),
     offers: {

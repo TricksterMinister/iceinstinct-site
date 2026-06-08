@@ -505,7 +505,7 @@
 
 /* page-level horizontal clip (same as cinema.css does site-wide). Prevents the
    ported ghost wordmarks / wide canon components from causing mobile h-scroll. */
-html, body { overflow-x: hidden; max-width: 100%; }
+html, body { overflow-x: clip; }
 
 /* =========================================================================
    GOLD SHINE SWEEP - a champagne sunbeam glint runs across the gold pull line.

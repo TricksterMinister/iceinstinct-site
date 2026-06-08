@@ -21,7 +21,7 @@ export function Contact() {
   useEffect(() => {
     const modal = document.getElementById('iq-modal');
     if (!modal) return;
-    const firstField = document.getElementById('iq-name');
+    const firstField = document.querySelector('#iq-modal .btn-primary, #iq-modal .iq-close');
     let lastActive: Element | null = null;
 
     const open = () => {
