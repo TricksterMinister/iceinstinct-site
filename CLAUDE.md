@@ -7,15 +7,15 @@ Read it fully before touching code.
 
 ---
 
-## ⚡ CURRENT STATE - READ THIS FIRST (updated 2026-06-03)
+## ⚡ CURRENT STATE - READ THIS FIRST (updated 2026-06-07)
 
 **Active work = React migration. NOTHING is deployed. Live site (vanilla on `main`) is untouched and still serving.**
 
-1. **Branch:** work happens on **`react-shell`** (pushed to origin). `main` = old vanilla site; do NOT merge/deploy into it yet.
-2. **READ NOW:** open **`REACT-MIGRATION-HANDOFF.md`** (repo root) - exact phase status, what's done, what's next. Do NOT rely on the auto session-digest; it gets truncated. This file + the handoff are the source of truth.
-3. **React app lives in `app/`** (Vite + React 19 + TS). Run: `cd app && npm run dev` -> http://localhost:5173/
-4. **Status:** Phase 0 (React shell, full parity) = DONE. Phase 1 (Duality, chapter 02) = PARKED - Temo unhappy with the portal interaction, do NOT re-touch unprompted. Phase 2 (Palate Profiler) = next.
-5. **Do not deploy / cutover** until all feature phases are done and a prerender/SSG decision is made (see handoff). Deploy-model note: live iceinstinct.com is on Hostinger's site builder, NOT serving this repo - confirm the real deploy path before any cutover.
+1. **Branch:** work happens on **`react-shell`** (the repo ROOT is checked out to it). `main` = old vanilla site; do NOT merge/deploy until cutover.
+2. **READ NOW (single source of truth for what's done + what's left):** `docs/superpowers/plans/2026-06-07-migration-master.md` -> its **PROGRESS LOG** section. Also `STATE.md`. (REACT-MIGRATION-HANDOFF.md is older background.)
+3. **React app in `app/`** (Vite + React 19 + TS). Run: `cd app && npm run dev` -> http://localhost:5173/. Build (now PRERENDERS all routes): `cd app && npm run build`.
+4. **Migration status (2026-06-07):** S1 SEO/GEO (prerender + per-page head/JSON-LD + robots/sitemap/llms/favicon/404) DONE; S2 Inquiry (YouCanBook gateway + real Instagram, public email removed) DONE; S3 deploy prep (`app/public/.htaccess` + CSP, GA4 `G-KBVETWTVVH` on all 12) DONE; S4 content fidelity DONE. NEXT: a detailed whole-site CONTENT pass (owner wants this first), then S5 media, S6 profiler, S9 four-cities, S10 gallery drawer, S11 duality, S7 code review, S8 device QA, then cutover.
+5. **Owner rules (locked):** defer NOTHING - resolve every workstream in order before cutover; execute via subagent-driven-development; never push to main without owner ok. Deploy = Hostinger auto-pulls the repo ROOT from GitHub, so cutover = place built `app/dist/` at repo root on `main`; rollback via `_legacy-vanilla/`.
 
 ---
 
