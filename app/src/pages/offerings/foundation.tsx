@@ -75,22 +75,6 @@ export const foundationContent: OfferingContent = {
         focus: 'Attentive service, consistent quality, personal engagement',
         price: 'From $650',
       },
-      {
-        label: 'B',
-        name: 'The Gathering',
-        meta: '16 to 25 guests',
-        personnel: '1 Professional Bartender + 1 Bar Support',
-        focus: 'Maintained flow, no guest left waiting, seamless replenishment',
-        price: 'From $550',
-      },
-      {
-        label: 'C',
-        name: 'The Celebration',
-        meta: '26 to 40 guests',
-        personnel: '2 Professional Bartenders',
-        focus: 'Full coverage, dual station capability, event-scale execution',
-        price: 'From $750',
-      },
     ],
   },
 

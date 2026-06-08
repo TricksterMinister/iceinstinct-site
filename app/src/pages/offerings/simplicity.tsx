@@ -75,22 +75,6 @@ export const simplicityContent: OfferingContent = {
         focus: 'Quiet, attentive precision. Direct guest interaction.',
         price: 'From $900',
       },
-      {
-        label: 'B',
-        name: 'The Social',
-        meta: '13 to 25 guests',
-        personnel: '1 Master Mixologist + 1 Shadow (bar support)',
-        focus: 'Seamless flow. The Shadow handles logistics so the Master never breaks rhythm.',
-        price: 'From $1,100',
-      },
-      {
-        label: 'C',
-        name: 'The Grand',
-        meta: '26 to 40 guests',
-        personnel: '1 Master Mixologist + 2 Shadows',
-        focus: 'High-volume elegance. Zero wait time.',
-        price: 'From $1,450',
-      },
     ],
   },
 
