@@ -6,6 +6,8 @@
 <title>Page not found - Ice & Instinct</title>
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <style>
   :root {
     --bg: oklch(8% 0 0);
@@ -28,6 +30,14 @@
     -webkit-font-smoothing: antialiased;
   }
   main { max-width: 32rem; }
+  .mark {
+    width: 56px;
+    height: 56px;
+    display: block;
+    margin: 0 auto 2rem;
+    object-fit: contain;
+    border-radius: 10px;
+  }
   .code {
     font-size: clamp(4rem, 2rem + 12vw, 9rem);
     font-weight: 700;
@@ -64,6 +74,7 @@
 </head>
 <body>
 <main>
+  <img class="mark" src="/apple-touch-icon.png" alt="Ice and Instinct" width="56" height="56">
   <div class="code">404</div>
   <div class="label">Ice &amp; Instinct</div>
   <p>This page has slipped away. The ritual continues elsewhere.</p>
