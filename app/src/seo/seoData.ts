@@ -2,7 +2,7 @@
 // Titles + descriptions ported from the legacy vanilla site (_legacy-vanilla/*);
 // the home title was written fresh (legacy home was a cinema prototype).
 // canonical = https://www.iceinstinct.com + route key. No trailing index.html.
-// ogImage paths all point at real files under /assets/photos/.
+// ogImage paths point at branded 1200x630 OG cards under /assets/og/.
 
 import {
   organization,
@@ -33,7 +33,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogTitle: "Ice & Instinct - Private Mixology Studio, New York",
     ogDescription:
       "Signature cocktails and omakase improvisation for the highest-tier private hosts. By appointment only.",
-    ogImage: "/assets/photos/hero-cocktails.png",
+    ogImage: "/assets/og/home.png",
     jsonLd: [organization()],
   },
 
@@ -44,7 +44,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     canonical: `${SITE}/offerings/`,
     ogTitle: "Offerings - Ice & Instinct",
     ogDescription: "Four levels of private mixology service. Plus curated add-ons.",
-    ogImage: "/assets/photos/hero-cocktails.png",
+    ogImage: "/assets/og/offerings.png",
     jsonLd: [tierItemList()],
   },
 
@@ -56,7 +56,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogTitle: "The Foundation - Ice & Instinct, from $650",
     ogDescription:
       "Impeccable drinks, professional presence, seamless execution. The accessible entry point to the Ice & Instinct standard.",
-    ogImage: "/assets/photos/tier-foundation.jpg",
+    ogImage: "/assets/og/foundation.png",
     jsonLd: [tierService("foundation")],
   },
 
@@ -68,7 +68,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogTitle: "Perfection in Simplicity - Ice & Instinct, from $900",
     ogDescription:
       "Heritage over hype. The world's most iconic cocktails executed with quiet precision by the Master Mixologist himself.",
-    ogImage: "/assets/photos/tier-simplicity.jpg",
+    ogImage: "/assets/og/simplicity.png",
     jsonLd: [tierService("simplicity")],
   },
 
@@ -80,7 +80,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogTitle: "Bespoke Design & Artistry - Ice & Instinct, from $1,800",
     ogDescription:
       "Your vision, crafted into every glass. Storytelling. Visual impact. Mixology as creative collaboration.",
-    ogImage: "/assets/photos/tier-bespoke.jpg",
+    ogImage: "/assets/og/bespoke.png",
     jsonLd: [tierService("bespoke")],
   },
 
@@ -92,7 +92,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogTitle: "Omakase Improvisation - Ice & Instinct, from $3,000",
     ogDescription:
       "Pure creation. No menu. Unrepeatable moments. Complete trust. Performance art for cocktails.",
-    ogImage: "/assets/photos/tier-omakase.jpg",
+    ogImage: "/assets/og/omakase.png",
     jsonLd: [tierService("omakase")],
   },
 
@@ -104,7 +104,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogTitle: "Concierge & Enhancements - Ice & Instinct",
     ogDescription:
       "Five curated enhancements that augment any service tier: cigars, staff, curation, glassware, ice.",
-    ogImage: "/assets/photos/concierge-still.jpg",
+    ogImage: "/assets/og/concierge.png",
     jsonLd: [],
   },
 
@@ -116,7 +116,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogTitle: "My Story - Teimuraz Benidze, Ice & Instinct",
     ogDescription:
       "Founder and flavor architect of Ice & Instinct. Where ritual meets instinct.",
-    ogImage: "/assets/photos/founder-temo.jpg",
+    ogImage: "/assets/og/mystory.png",
     jsonLd: [founderPerson()],
   },
 
@@ -129,7 +129,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogDescription:
       "Twelve signature compositions. Touch the glass to awaken the spirit.",
     ogImage:
-      "/assets/photos/whisk_846abe364a79561875e4301e4babf857dr-L6nLZkkNeVKxuDwj.jpeg",
+      "/assets/og/gallery.png",
     jsonLd: [cocktailItemList()],
   },
 
@@ -140,7 +140,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     canonical: `${SITE}/contact/`,
     ogTitle: "Inquire - Ice & Instinct",
     ogDescription: "Begin the conversation. By appointment only.",
-    ogImage: "/assets/photos/hero-cocktails.png",
+    ogImage: "/assets/og/contact.png",
     jsonLd: [],
   },
 
@@ -152,7 +152,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogTitle: "Privacy Policy - Ice & Instinct",
     ogDescription:
       "How Ice & Instinct collects, uses, and protects the information you share.",
-    ogImage: "/assets/photos/hero-cocktails.png",
+    ogImage: "/assets/og/home.png",
     jsonLd: [],
   },
 
@@ -164,7 +164,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogTitle: "Terms of Service - Ice & Instinct",
     ogDescription:
       "Terms governing the use of the Ice & Instinct website and client engagements.",
-    ogImage: "/assets/photos/hero-cocktails.png",
+    ogImage: "/assets/og/home.png",
     jsonLd: [],
   },
 };
