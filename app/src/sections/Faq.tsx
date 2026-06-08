@@ -26,8 +26,8 @@ const FAQS: QA[] = [
     a: 'Each tier lists a starting price. Your final quote depends on guest count, format, and any Concierge enhancements.',
   },
   {
-    q: 'How do deposits and cancellations work?',
-    a: 'A deposit reserves your date; the balance is due before the event.',
+    q: 'How does the deposit work?',
+    a: 'A flat $500 deposit reserves your date. The balance is due before the event.',
   },
 ];
 
