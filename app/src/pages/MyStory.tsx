@@ -72,7 +72,7 @@ export function MyStory() {
               </a>
             </li>
             <li>
-              <a href="/contact/">
+              <a href="mailto:alchemyandice.nyc@gmail.com?subject=Ice%20%26%20Instinct%20inquiry">
                 <i>06</i>
                 <b>Inquire</b>
                 <em>Begin the conversation</em>
@@ -115,7 +115,7 @@ export function MyStory() {
               </a>
               <a href="/gallery/">Gallery</a>
             </div>
-            <a href="/contact/" className="nav-cta">
+            <a href="mailto:alchemyandice.nyc@gmail.com?subject=Ice%20%26%20Instinct%20inquiry" className="nav-cta">
               Inquire
             </a>
           </nav>
@@ -432,7 +432,7 @@ export function MyStory() {
               </h2>
               <p className="cta-lead">Tell me about the evening. A response within one business day, personally.</p>
               <div className="final-cta-actions">
-                <a href="/contact/" className="btn btn-primary">
+                <a href="mailto:alchemyandice.nyc@gmail.com?subject=Ice%20%26%20Instinct%20inquiry" className="btn btn-primary">
                   Request a private quote <span className="arrow">→</span>
                 </a>
                 <a href="/offerings/" className="btn btn-ghost">

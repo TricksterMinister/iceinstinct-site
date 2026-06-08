@@ -72,7 +72,7 @@ export function ConciergePage() {
               </a>
             </li>
             <li>
-              <a href="/contact/">
+              <a href="mailto:alchemyandice.nyc@gmail.com?subject=Ice%20%26%20Instinct%20inquiry">
                 <i>06</i>
                 <b>Inquire</b>
                 <em>Begin the conversation</em>
@@ -115,7 +115,7 @@ export function ConciergePage() {
               <a href="/my-story/">My Story</a>
               <a href="/gallery/">Gallery</a>
             </div>
-            <a href="/contact/?service=concierge" className="nav-cta">
+            <a href="mailto:alchemyandice.nyc@gmail.com?subject=Ice%20%26%20Instinct%20inquiry" className="nav-cta">
               Inquire
             </a>
           </nav>
@@ -413,7 +413,7 @@ export function ConciergePage() {
                 return with a single tailored quote within one business day.
               </p>
               <div className="final-cta-actions">
-                <a href="/contact/?service=concierge" className="btn btn-primary">
+                <a href="mailto:alchemyandice.nyc@gmail.com?subject=Ice%20%26%20Instinct%20inquiry" className="btn btn-primary">
                   Request a private quote <span className="arrow">&rarr;</span>
                 </a>
                 <a href="/offerings/" className="btn btn-ghost">

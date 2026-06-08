@@ -153,7 +153,7 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
             <li><a href="/concierge/"><i>03</i><b>Concierge</b><em>Five enhancements</em></a></li>
             <li><a href="/my-story/"><i>04</i><b>My Story</b><em>Teimuraz Benidze</em></a></li>
             <li><a href="/gallery/"><i>05</i><b>The Collection</b><em>Twelve compositions</em></a></li>
-            <li><a href="/contact/"><i>06</i><b>Inquire</b><em>Begin the conversation</em></a></li>
+            <li><a href="mailto:alchemyandice.nyc@gmail.com?subject=Ice%20%26%20Instinct%20inquiry"><i>06</i><b>Inquire</b><em>Begin the conversation</em></a></li>
           </ul>
           <footer className="va-foot">
             <span>New York Metropolitan Area / By Appointment</span>

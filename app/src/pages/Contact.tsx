@@ -5,6 +5,8 @@ import { useDeepScripts } from '../app/useDeepScripts';
 
 const BODY_CLASSES = ['cinema-chrome', 'vp-split', 'closer', 'is-inquire'];
 
+const MAILTO = 'mailto:alchemyandice.nyc@gmail.com?subject=Ice%20%26%20Instinct%20inquiry';
+
 export function Contact() {
   // Live deep page sets <body class="cinema-chrome vp-split closer is-inquire">.
   // React mounts into #root, so apply the body classes here (and clean up) to match.
@@ -112,7 +114,7 @@ export function Contact() {
               </a>
             </li>
             <li>
-              <a href="/contact/">
+              <a href={MAILTO}>
                 <i>06</i>
                 <b>Inquire</b>
                 <em>Begin the conversation</em>
@@ -213,19 +215,14 @@ export function Contact() {
             </header>
 
             <p className="iq-lead">
-              Choose a time for a private consultation and we will walk through the date, the room,
-              and the guest count together. A personal confirmation follows.
+              Write to us with the date, the room, and the guest count, and we will walk through the
+              evening together. A personal confirmation follows, at{' '}
+              <a href={MAILTO}>alchemyandice.nyc@gmail.com</a>.
             </p>
 
             <div className="iq-foot">
-              <a
-                className="btn-primary"
-                href="https://enter-ritual.youcanbook.me/"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-cursor="link"
-              >
-                <span className="btn-label">Reserve a consultation</span>
+              <a className="btn-primary" href={MAILTO} data-cursor="link">
+                <span className="btn-label">Email us directly</span>
                 <span className="btn-arr" aria-hidden="true">
                   &rarr;
                 </span>
