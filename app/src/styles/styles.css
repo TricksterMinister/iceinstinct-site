@@ -81,7 +81,7 @@
 
 /* ===== Reset ====================================================== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: auto; -webkit-text-size-adjust: 100%; }
 body {
   font-family: var(--font-body);
   font-size: var(--t-base);
@@ -649,14 +649,11 @@ main section.numbered .eyebrow::after {
   flex-direction: column;
   justify-content: center;
   padding: clamp(56px, 8vh, 84px) 0 var(--s-sm);
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   position: relative;
 }
 
 /* Tier hero is also a scene */
 .page-hero {
-  scroll-snap-align: start;
 }
 
 /* Editorial pause inserts - one Fraunces italic quote that takes the
@@ -670,8 +667,6 @@ main section.numbered .eyebrow::after {
   align-items: center;
   text-align: center;
   padding: clamp(56px, 8vh, 84px) clamp(24px, 5vw, 80px) var(--s-md);
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   position: relative;
 }
 .editorial-pause-text {
@@ -1558,7 +1553,6 @@ main section.numbered .eyebrow::after {
 
 /* Each main section is one viewport tall. Content vertically centred.
    Generous on top so sticky header doesn't overlap. */
-html { scroll-snap-type: y proximity; }
 .scene {
   /* Min-height: 100dvh ensures each scene is at least one viewport
      for the snap rhythm. Content is compacted per-section so it
@@ -1569,8 +1563,6 @@ html { scroll-snap-type: y proximity; }
   flex-direction: column;
   justify-content: center;
   padding: clamp(56px, 8vh, 84px) 0 var(--s-sm);
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   position: relative;
 }
 .scene-content { width: 100%; }

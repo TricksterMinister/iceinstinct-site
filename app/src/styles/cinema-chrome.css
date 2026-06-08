@@ -653,7 +653,6 @@ body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-link { color: var(--c-acc
    page (and every other page) is unaffected since nothing else
    carries scroll-snap-align.
    ============================================================ */
-html { scroll-snap-type: y proximity; }
 
 body.cinema-chrome.vp-split #enhancements { padding: 0; }
 body.cinema-chrome.vp-split #enhancements > .container { max-width: none; padding: 0; }
@@ -662,7 +661,6 @@ body.cinema-chrome.vp-split #enhancements .addon-grid { gap: 0; max-width: none;
 body.cinema-chrome.vp-split #enhancements .addon-card {
   min-height: 100dvh;
   scroll-snap-align: center;
-  scroll-snap-stop: always;
   align-items: center;
   align-content: center;
   max-width: var(--container, 1100px);

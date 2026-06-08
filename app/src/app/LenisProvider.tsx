@@ -29,8 +29,9 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
 
     // Section snapping - a full-page-slider feel: each scroll locks ONE segment
     // to the viewport and holds it there so the guest can take it in.
-    // 'mandatory' = decisive lock (no oscillation), but it is DISABLED while the
-    // tiers section is pinned, so it never fights that horizontal scroll.
+    // 'proximity' = gentle settle toward the nearest segment only once the guest
+    // stops near it (never yanks mid-scroll); DISABLED while the tiers section is
+    // pinned, so it never fights that horizontal scroll.
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isWide = window.matchMedia('(min-width: 721px)').matches;
     let snap: Snap | undefined;
@@ -38,7 +39,7 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
     let pinGuard: ScrollTrigger | undefined;
     if (!reduced && isWide) {
       snap = new Snap(lenis, {
-        type: 'mandatory',
+        type: 'proximity',
         duration: 0.9,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         lerp: 0.1,

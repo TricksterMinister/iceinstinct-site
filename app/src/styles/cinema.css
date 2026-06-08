@@ -305,8 +305,6 @@ a { color: inherit; text-decoration: none; }
      single swipe's native momentum glides straight past all four cards (Lenis
      Snap is desktop-only). snap-stop:always forces the scroll to settle on the
      next card so the guest can dwell on each one in turn. */
-  html { scroll-snap-type: y proximity; }
-  .tiers-intro, .tier { scroll-snap-align: start; scroll-snap-stop: always; }
 }
 
 /* ========== FOUNDER ========== */
