@@ -8,9 +8,12 @@ import { Hero } from './sections/Hero';
 import { Manifesto } from './sections/Manifesto';
 import { Duality } from './features/Duality/Duality';
 import { Tiers } from './sections/Tiers';
+import { TiersNote } from './sections/TiersNote';
 import { Concierge } from './sections/Concierge';
 import { Founder } from './sections/Founder';
 import { GalleryTeaser } from './sections/GalleryTeaser';
+import { Faq } from './sections/Faq';
+import { Proof } from './sections/Proof';
 import { Closing } from './sections/Closing';
 import { SiteFooter } from './sections/SiteFooter';
 
@@ -29,10 +32,15 @@ function HomeContent() {
       <Founder />
       <GalleryTeaser />
       <Tiers />
+      {/* Pricing transparency note + team-scaling line, directly below the tiers. */}
+      <TiersNote />
       <Concierge />
       {/* Duality parked near the end (last segment before Begin) until we decide
           where the portal leads. */}
       <Duality />
+      <Faq />
+      {/* Proof renders nothing until real testimonials are added. */}
+      <Proof />
       {/* Begin CTA + Footer read as ONE final segment, one viewport. */}
       <div className="closing-segment">
         <Closing />

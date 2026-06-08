@@ -1,4 +1,6 @@
 import { SiteFooter } from '../sections/SiteFooter';
+import { TiersNote } from '../sections/TiersNote';
+import { Faq } from '../sections/Faq';
 import { useEffect } from 'react';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
@@ -219,6 +221,12 @@ export function Offerings() {
             </div>
           </div>
         </section>
+
+        {/* Pricing transparency note + team-scaling line, below the tier grid. */}
+        <TiersNote />
+
+        {/* FAQ near the bottom, before the closing CTA. */}
+        <Faq />
 
       </main>
 
