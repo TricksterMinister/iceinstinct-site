@@ -52,7 +52,7 @@ export function GalleryPage() {
           <span></span>
         </button>
         <div className="va-stage">
-          <p className="va-eyebrow">Ice &amp; Instinct / Index</p>
+          <p className="va-eyebrow"><EyebrowMark />Ice &amp; Instinct / Index</p>
           <ul className="va-list">
             <li>
               <a href="/">
@@ -448,3 +448,4 @@ export function GalleryPage() {
     </>
   );
 }
+import { EyebrowMark } from '../app/EyebrowMark';

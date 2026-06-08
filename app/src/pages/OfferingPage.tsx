@@ -142,7 +142,7 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
           <span></span>
         </button>
         <div className="va-stage">
-          <p className="va-eyebrow">Ice &amp; Instinct / {content.name}</p>
+          <p className="va-eyebrow"><EyebrowMark />Ice &amp; Instinct / {content.name}</p>
           <ul className="va-list">
             <li><a href="/"><i>01</i><b>Home</b><em>The opening view</em></a></li>
             <li><a href="/offerings/"><i>02</i><b>Offerings</b><em>Four levels, one standard</em></a></li>
@@ -451,3 +451,4 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
     </>
   );
 }
+import { EyebrowMark } from '../app/EyebrowMark';

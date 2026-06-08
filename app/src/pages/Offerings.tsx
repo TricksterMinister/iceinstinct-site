@@ -40,7 +40,7 @@ export function Offerings() {
           <span></span>
         </button>
         <div className="va-stage">
-          <p className="va-eyebrow">Ice &amp; Instinct / Offerings</p>
+          <p className="va-eyebrow"><EyebrowMark />Ice &amp; Instinct / Offerings</p>
           <ul className="va-list">
             <li>
               <a href="/">
@@ -265,3 +265,4 @@ export function Offerings() {
     </>
   );
 }
+import { EyebrowMark } from '../app/EyebrowMark';

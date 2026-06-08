@@ -38,7 +38,7 @@ export function ConciergePage() {
           <span></span>
         </button>
         <div className="va-stage">
-          <p className="va-eyebrow">Ice &amp; Instinct / Concierge</p>
+          <p className="va-eyebrow"><EyebrowMark />Ice &amp; Instinct / Concierge</p>
           <ul className="va-list">
             <li>
               <a href="/">
@@ -433,3 +433,4 @@ export function ConciergePage() {
     </>
   );
 }
+import { EyebrowMark } from '../app/EyebrowMark';

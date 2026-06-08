@@ -65,6 +65,8 @@ function buildHead(seo, hasExistingJsonLd) {
     `<meta name="description" content="${esc(seo.description)}">`,
     `<link rel="canonical" href="${esc(seo.canonical)}">`,
     `<link rel="icon" type="image/svg+xml" href="/favicon.svg">`,
+    `<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">`,
+    `<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">`,
     `<meta property="og:title" content="${esc(seo.ogTitle)}">`,
     `<meta property="og:description" content="${esc(seo.ogDescription)}">`,
     `<meta property="og:image" content="${esc(absImage)}">`,
@@ -104,9 +106,12 @@ function stripManagedHeadTags(head) {
       /<meta\b(?=[^>]*\b(?:name|property)=["'](?:description|og:[\w:]+|twitter:[\w:]+)["'])[^>]*>\s*/gi,
       '',
     )
-    // Managed <link> tags: canonical or icon, attribute order independent.
+    // Managed <link> tags: canonical, icon, or apple-touch-icon; attribute
+    // order independent. buildHead re-injects these as the single source of
+    // truth, so stripping apple-touch-icon too prevents duplicates when the
+    // source template already carries it (for dev-server parity).
     .replace(
-      /<link\b(?=[^>]*\brel=["'](?:canonical|icon)["'])[^>]*>\s*/gi,
+      /<link\b(?=[^>]*\brel=["'](?:canonical|icon|apple-touch-icon)["'])[^>]*>\s*/gi,
       '',
     );
 }

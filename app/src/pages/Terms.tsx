@@ -36,7 +36,7 @@ export function Terms() {
           <span></span>
         </button>
         <div className="va-stage">
-          <p className="va-eyebrow">Ice &amp; Instinct / Terms</p>
+          <p className="va-eyebrow"><EyebrowMark />Ice &amp; Instinct / Terms</p>
           <ul className="va-list">
             <li>
               <a href="/">
@@ -246,3 +246,4 @@ export function Terms() {
     </>
   );
 }
+import { EyebrowMark } from '../app/EyebrowMark';

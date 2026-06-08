@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import { EyebrowMark } from './EyebrowMark';
 
 /**
  * Vanish header: single mark trigger + full-screen overlay menu.
@@ -92,7 +93,7 @@ export function VanishHeader() {
           <span></span><span></span>
         </button>
         <div className="va-stage">
-          <p className="va-eyebrow">Ice &amp; Instinct / Menu</p>
+          <p className="va-eyebrow"><EyebrowMark />Ice &amp; Instinct / Menu</p>
           <ul className="va-list" ref={listRef}>
             <li><a href="/" data-cursor="link"><i>01</i><b>Home</b><em>The opening view</em></a></li>
             <li><a href="/offerings/" data-cursor="link"><i>02</i><b>Offerings</b><em>Four levels, one standard</em></a></li>

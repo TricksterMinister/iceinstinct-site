@@ -38,7 +38,7 @@ export function MyStory() {
           <span></span>
         </button>
         <div className="va-stage">
-          <p className="va-eyebrow">Ice &amp; Instinct / My Story</p>
+          <p className="va-eyebrow"><EyebrowMark />Ice &amp; Instinct / My Story</p>
           <ul className="va-list">
             <li>
               <a href="/">
@@ -453,3 +453,4 @@ export function MyStory() {
     </>
   );
 }
+import { EyebrowMark } from '../app/EyebrowMark';

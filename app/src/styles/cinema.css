@@ -574,6 +574,11 @@ a { color: inherit; text-decoration: none; }
 .va-eyebrow {
   font-family: var(--f-mono); font-size: var(--t-step--2); letter-spacing: 0.32em;
   text-transform: uppercase; color: var(--c-fg-faint);
+  display: inline-flex; align-items: center; gap: 0.7rem;
+}
+.va-eyebrow-mark {
+  width: 28px; height: 28px; display: block; flex: none;
+  border-radius: 6px; object-fit: contain;
 }
 
 .va-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
