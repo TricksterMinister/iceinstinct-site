@@ -12,7 +12,10 @@ export function organization(): object {
     "@id": ORG_ID,
     name: "Ice & Instinct",
     url: `${SITE}/`,
-    sameAs: [],
+    sameAs: [
+      "https://www.instagram.com/iceinstinctnyc/",
+      "https://share.google/AKKPuz8ZvIK8uKzfk",
+    ],
     description:
       "Private mixology studio in the New York metropolitan area. By appointment only. Signature cocktails, omakase improvisation, and concierge service for the highest-tier private hosts.",
     areaServed: "New York Metropolitan Area",

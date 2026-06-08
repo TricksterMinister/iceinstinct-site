@@ -42,6 +42,10 @@ const FAQS: QA[] = [
     a: 'A flat $500 deposit reserves your date. The balance is due before the event.',
   },
   {
+    q: 'What is your cancellation policy?',
+    a: 'More than 14 days before the event, your $500 deposit is refunded. Within 14 days, the deposit is non-refundable but transferable to a future date within 12 months, subject to availability. Within 48 hours of the event, the full booking value is due.',
+  },
+  {
     q: 'How do I book?',
     a: 'Send the date, the room, and the guest count through the inquiry form. You will have a private quote within one business day.',
   },
