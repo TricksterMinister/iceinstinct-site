@@ -3,5 +3,12 @@
 *.log
 .env
 .env.local
+.env.server
+app/.env.server
 picker/
 .gstack/
+node_modules/
+app/node_modules/
+app/dist/
+
+app/.vite/

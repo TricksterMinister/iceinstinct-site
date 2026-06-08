@@ -1,0 +1,683 @@
+/* ================================================
+   CINEMA CHROME - shared atmosphere/nav for deep pages
+   Loaded after /styles.css. Adds Vanish nav, film grain,
+   ghost-word backdrop, magnetic cursor, hides classic header.
+   ================================================ */
+
+:root {
+  --c-rule-dim: oklch(20% 0 0);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Hide classic horizontal header on cinema-chrome pages */
+body.cinema-chrome > .header { display: none !important; }
+
+/* SITE-WIDE FILM GRAIN. Fixed layer above everything. */
+body.cinema-chrome::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.85'/></svg>");
+  background-repeat: repeat;
+}
+
+/* MAGNETIC CURSOR */
+.cursor { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
+.cursor-dot { position: absolute; top: 0; left: 0; width: 6px; height: 6px; background: #fff; border-radius: 50%; transform: translate(-50%, -50%); transition: width 0.35s var(--ease-out-expo), height 0.35s var(--ease-out-expo); }
+.cursor-ring { position: absolute; top: 0; left: 0; width: 36px; height: 36px; border: 1px solid #fff; border-radius: 50%; transform: translate(-50%, -50%); opacity: 0.6; transition: width 0.4s var(--ease-out-expo), height 0.4s var(--ease-out-expo), opacity 0.4s var(--ease-out-expo); }
+.cursor.is-hover .cursor-dot { width: 0; height: 0; }
+.cursor.is-hover .cursor-ring { width: 60px; height: 60px; opacity: 1; }
+.cursor.is-view .cursor-dot { width: 0; height: 0; }
+.cursor.is-view .cursor-ring { width: 80px; height: 80px; opacity: 1; }
+@media (hover: none) { .cursor { display: none; } body.cinema-chrome { cursor: auto; } }
+@media (hover: hover) and (pointer: fine) { body.cinema-chrome, body.cinema-chrome a, body.cinema-chrome button { cursor: none; } }
+
+/* VANISH TRIGGER (champagne circle, top-right) */
+/* Editorial "Index" menu - a vertical champagne wordmark on a hairline tick.
+   No hamburger, no circle. The tick grows and the letters spread on hover. */
+.va-trigger {
+  position: fixed; top: 2rem; right: 2.4rem; z-index: 95;
+  width: 46px; height: 46px;
+  background: transparent; border: 1px solid oklch(88% 0.06 95 / 0.45); border-radius: 50%;
+  display: grid; place-items: center; padding: 0;
+  isolation: isolate; cursor: pointer;
+  transition: background 0.4s var(--ease-out-expo), border-color 0.4s;
+}
+.va-trigger:hover { background: oklch(88% 0.06 95 / 0.08); border-color: var(--c-accent); }
+.va-trigger-ring { display: none; }
+/* Cube brand mark - the navigation trigger IS the logo, site-wide. */
+.va-trigger-mark {
+  width: 34px; height: 34px; display: block; object-fit: contain;
+  border-radius: 6px; pointer-events: none; user-select: none;
+  transition: transform 0.55s var(--ease-out-expo);
+}
+.va-trigger:hover .va-trigger-mark { transform: rotate(-8deg) scale(1.04); }
+/* Legacy ice-cube glyph (no longer rendered; markup now uses .va-trigger-mark) */
+.va-trigger-icon { position: relative; width: 24px; height: 24px; display: block; }
+.va-trigger-icon span { display: none; }
+.va-trigger-icon::before {
+  content: ""; position: absolute; inset: 0; background: var(--c-accent);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23000'%20stroke-width='1.4'%20stroke-linejoin='round'%20stroke-linecap='round'%3E%3Cpath%20d='M12%202.6L20.4%207.3L20.4%2016.7L12%2021.4L3.6%2016.7L3.6%207.3Z'/%3E%3Cpath%20d='M3.6%207.3L12%2012L20.4%207.3'/%3E%3Cpath%20d='M12%2012L12%2021.4'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%23000'%20stroke-width='1.4'%20stroke-linejoin='round'%20stroke-linecap='round'%3E%3Cpath%20d='M12%202.6L20.4%207.3L20.4%2016.7L12%2021.4L3.6%2016.7L3.6%207.3Z'/%3E%3Cpath%20d='M3.6%207.3L12%2012L20.4%207.3'/%3E%3Cpath%20d='M12%2012L12%2021.4'/%3E%3C/svg%3E") center/contain no-repeat;
+  transition: transform 0.55s var(--ease-out-expo);
+}
+.va-trigger:hover .va-trigger-icon::before { transform: rotate(-14deg); }
+
+.va-overlay {
+  position: fixed; inset: 0; z-index: 110;
+  background: oklch(5% 0 0);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: clamp(3rem, 8vh, 6rem) clamp(2rem, 6vw, 6rem);
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.6s var(--ease-out-expo), visibility 0.6s;
+}
+.va-overlay.is-open { opacity: 1; visibility: visible; }
+
+.va-close {
+  position: absolute; top: 1.6rem; right: 1.6rem;
+  width: 64px; height: 64px;
+  background: transparent; border: 1px solid var(--c-accent); border-radius: 50%;
+  display: grid; place-items: center; padding: 0;
+  transition: transform 0.5s var(--ease-out-expo), background 0.4s;
+}
+.va-close:hover { transform: rotate(90deg); background: rgba(255,255,255,0.06); }
+.va-close span { position: absolute; width: 22px; height: 1px; background: var(--c-accent); }
+.va-close span:nth-child(1) { transform: rotate(45deg); }
+.va-close span:nth-child(2) { transform: rotate(-45deg); }
+
+.va-stage {
+  max-width: 1300px; margin: 0 auto; width: 100%;
+  display: flex; flex-direction: column; gap: clamp(2rem, 5vh, 3.5rem);
+}
+.va-eyebrow {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.78rem; letter-spacing: 0.32em;
+  text-transform: uppercase; color: var(--c-fg-faint, oklch(48% 0 0));
+}
+
+.va-list { list-style: none; display: flex; flex-direction: column; gap: 0; margin: 0; padding: 0; }
+.va-list li { border-top: 1px solid var(--c-rule-dim); }
+.va-list li:last-child { border-bottom: 1px solid var(--c-rule-dim); }
+.va-list a {
+  display: grid; grid-template-columns: 5rem 1fr auto; align-items: baseline;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding: clamp(1rem, 2.5vh, 1.6rem) 0;
+  position: relative;
+  color: inherit; text-decoration: none;
+  transition: padding 0.5s var(--ease-out-expo);
+}
+.va-list a::before {
+  content: ""; position: absolute; inset: 0;
+  background: var(--c-accent); transform: scaleX(0); transform-origin: left;
+  transition: transform 0.6s var(--ease-out-expo);
+  z-index: -1; opacity: 0.08;
+}
+.va-list a:hover { padding-left: clamp(1rem, 2vw, 2rem); }
+.va-list a:hover::before { transform: scaleX(1); }
+.va-list a i {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-style: normal;
+  font-size: 0.92rem; letter-spacing: 0.2em; color: var(--c-fg-faint, oklch(48% 0 0));
+}
+.va-list a b {
+  font-family: var(--font-display, "Geist", sans-serif); font-weight: 700;
+  font-size: clamp(2.4rem, 7vmin, 5rem);
+  letter-spacing: -0.03em;
+  color: var(--c-fg);
+  transition: color 0.4s;
+}
+.va-list a:hover b { color: var(--c-accent); }
+.va-list a em {
+  font-family: var(--font-italic, "Fraunces", serif);
+  font-style: italic; font-weight: 350;
+  font-size: 1.3rem; color: var(--c-accent);
+  text-align: right;
+}
+.va-foot {
+  display: flex; justify-content: space-between;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.78rem;
+  letter-spacing: 0.28em; text-transform: uppercase; color: var(--c-fg-faint, oklch(48% 0 0));
+  padding-top: clamp(1rem, 3vh, 2rem);
+  border-top: 1px solid var(--c-rule-dim);
+}
+
+/* GHOST WORD BACKDROP for deep pages */
+.section-bg-word {
+  position: absolute;
+  font-family: var(--font-display, "Geist", sans-serif);
+  font-weight: 800;
+  font-size: clamp(12rem, 28vmin, 34rem);
+  line-height: 1;
+  color: oklch(78% 0.05 95 / 0.18);
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+  z-index: 6;
+  top: -3vh; left: 0;
+  padding-left: 2vw;
+  will-change: transform;
+}
+
+/* Phones: the ghost word is far wider than the screen, so static it only ever
+   shows a fragment. Turn it into a slow continuous sweep so the WHOLE word
+   passes through and can be read - same marquee language as the footer. The
+   parent (.page-hero) clips horizontally, so this never widens the page. */
+@keyframes ghost-word-sweep {
+  from { transform: translateX(100vw); }
+  to   { transform: translateX(-100%); }
+}
+@media (max-width: 720px) {
+  .section-bg-word {
+    left: 0; padding-left: 0;
+    animation: ghost-word-sweep 26s linear infinite;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .section-bg-word { animation: none; }
+}
+
+/* CHAMPAGNE HAIRLINE at top of page-hero */
+body.cinema-chrome main > section:first-of-type::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: clamp(60px, 12vw, 140px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--c-accent) 30%, var(--c-accent) 70%, transparent);
+  z-index: 5;
+  opacity: 0.7;
+}
+
+@media (max-width: 720px) {
+  .va-trigger { top: 1rem; right: 1rem; width: 48px; height: 48px; }
+  .va-close { top: 1rem; right: 1rem; width: 46px; height: 46px; }
+
+  /* Compact, legible mobile menu: number + title on one line, a small muted
+     subtitle underneath - no more huge titles with clipped right-side captions. */
+  .va-overlay { justify-content: flex-start; overflow-y: auto; padding: 4.5rem 1.4rem 2.5rem; }
+  .va-stage { gap: 1.6rem; margin: auto 0; }
+  .va-eyebrow { font-size: 0.66rem; letter-spacing: 0.24em; }
+  .va-list a {
+    grid-template-columns: 1.9rem 1fr;
+    gap: 0.1rem 0.8rem;
+    padding: 0.78rem 0;
+    align-items: baseline;
+  }
+  .va-list a i { grid-row: 1; grid-column: 1; font-size: 0.66rem; letter-spacing: 0.12em; }
+  .va-list a b { grid-row: 1; grid-column: 2; font-size: clamp(1.6rem, 7.2vw, 2.25rem); line-height: 1.02; }
+  .va-list a em {
+    grid-row: 2; grid-column: 2;
+    text-align: left; font-size: 0.9rem; line-height: 1.25;
+    color: oklch(60% 0 0);
+  }
+  .va-list a:hover { padding-left: 0; }
+  .va-foot { font-size: 0.72rem; letter-spacing: 0.18em; gap: 0.5rem; flex-wrap: wrap; }
+}
+
+/* GALLERY-PAGE SPECIFIC: two viewport-locked sections
+   VP1 (100dvh) = hero (50dvh top) + tiles (50dvh bottom)
+   VP2 (100dvh) = final-cta + footer combined */
+
+/* VP1 part A: hero, 50dvh top half (hard lock + tight padding so content fits) */
+body.cinema-chrome.is-gallery main { padding: 0; margin: 0; }
+body.cinema-chrome.is-gallery .page-hero {
+  position: relative;
+  height: 50dvh;
+  min-height: 50dvh;
+  max-height: 50dvh;
+  overflow: hidden;
+  padding: clamp(2rem, 4vh, 3rem) 0;
+  margin: 0;
+  display: flex; flex-direction: column; justify-content: center;
+}
+body.cinema-chrome.is-gallery .page-hero h1 { margin-bottom: 0.5rem; }
+body.cinema-chrome.is-gallery .page-hero .lead {
+  color: var(--c-fg-mute, oklch(60% 0 0));
+  margin-top: 0.4rem;
+}
+body.cinema-chrome.is-gallery .page-hero h1 .it,
+body.cinema-chrome.closer #final-cta h2 .it {
+  color: var(--c-accent);
+}
+
+/* VP1 part B: tile-track section, 50dvh bottom half, geometry-locked.
+   Tiles fill the entire vertical space (50dvh minus 1px progress + meta row).
+   Tiles are 3:4 portrait matching source image aspect; no crop. */
+body.cinema-chrome.is-gallery main > section:nth-of-type(2) {
+  height: 50dvh;
+  min-height: 50dvh;
+  max-height: 50dvh;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  display: flex; flex-direction: column;
+}
+body.cinema-chrome.is-gallery main > section:nth-of-type(2) > .container {
+  display: flex; flex-direction: column; height: 100%;
+  padding: 0 var(--gutter, 1.5rem); margin: 0; max-width: none;
+}
+body.cinema-chrome.is-gallery .gallery-track-wrap {
+  display: flex; flex-direction: column;
+  gap: 0; height: 100%; margin: 0;
+}
+body.cinema-chrome.is-gallery .gallery-track {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 0;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+body.cinema-chrome.is-gallery .gallery-track .gallery-tile {
+  width: auto;
+  height: 100%;
+  aspect-ratio: 3 / 4;
+  flex: 0 0 auto;
+}
+body.cinema-chrome.is-gallery .gallery-track .gallery-tile img {
+  object-fit: cover;
+  object-position: center;
+}
+body.cinema-chrome.is-gallery .gallery-progress { margin: 0; flex: 0 0 1px; }
+body.cinema-chrome.is-gallery .gallery-meta-row {
+  flex: 0 0 auto;
+  padding: 0.3rem var(--gutter, 1.5rem) 0.3rem;
+  margin: 0;
+}
+
+/* VP2: final-cta + footer = one 100dvh segment */
+body.cinema-chrome.closer #final-cta {
+  min-height: calc(100dvh - var(--gv-footer, 4.5rem));
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative;
+  padding: 0 0 0;
+}
+body.cinema-chrome.closer .footer {
+  padding: clamp(0.6rem, 1.5vh, 1.4rem) 0;
+}
+
+/* The closing block: #final-cta + footer = ONE viewport. The footer keeps its
+   own natural size; the CTA flexes to fill the rest, so the two read as a single
+   unit. Replaces the old calc that assumed a 4.5rem footer while the real
+   oma-close footer is ~38vh (which split them across two screens with a gap). */
+body.cinema-chrome.closer .closing-segment { min-height: 100dvh; display: flex; flex-direction: column; }
+body.cinema-chrome.closer .closing-segment #final-cta { flex: 1 1 auto; min-height: 0; }
+body.cinema-chrome.closer .closing-segment .site-footer { flex: 0 0 auto; }
+@media (max-width: 720px) {
+  body.cinema-chrome.closer .closing-segment { min-height: 0; }
+  body.cinema-chrome.closer .closing-segment #final-cta { min-height: 60dvh; }
+}
+
+@media (max-width: 720px) {
+  /* On mobile, drop the 50/50 lock; let content breathe vertically */
+  body.cinema-chrome.is-gallery .page-hero { height: auto; min-height: 60dvh; }
+
+  /* Gallery filmstrip: on mobile the height:100% chain off an auto-height
+     section blows the tiles up to ~1800px. Reset the chain and size tiles by a
+     fixed swipe width + 3:4 aspect, so it reads as a luxurious horizontal
+     swipe carousel. */
+  body.cinema-chrome.is-gallery main > section:nth-of-type(2) {
+    height: auto; min-height: 0; max-height: none; overflow: visible;
+  }
+  body.cinema-chrome.is-gallery main > section:nth-of-type(2) > .container { height: auto; }
+  body.cinema-chrome.is-gallery .gallery-track-wrap { height: auto; }
+  body.cinema-chrome.is-gallery .gallery-track {
+    height: auto;
+    align-items: flex-start;
+    padding-bottom: 0.5rem;
+    scroll-snap-type: x mandatory;
+  }
+  body.cinema-chrome.is-gallery .gallery-track .gallery-tile {
+    width: 76vw;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    scroll-snap-align: center;
+  }
+
+  body.cinema-chrome.closer #final-cta { min-height: 60dvh; }
+}
+
+/* ============================================================
+   Commission a ritual - luxe closing panel (gallery only)
+   Scoped under .is-gallery so the 8 shared light .final-cta
+   panels on other pages stay untouched.
+   ============================================================ */
+body.cinema-chrome.closer #final-cta {
+  background:
+    radial-gradient(125% 85% at 50% 14%, oklch(17% 0.012 92 / 0.95), transparent 62%),
+    radial-gradient(150% 130% at 50% 120%, oklch(22% 0.04 92 / 0.45), transparent 55%),
+    var(--c-bg);
+}
+
+body.cinema-chrome .final-cta--luxe {
+  background: transparent;
+  color: var(--c-fg);
+  padding: clamp(2.6rem, 6.5vh, 5.5rem) clamp(1.6rem, 6vw, 5rem);
+  gap: clamp(0.85rem, 2vh, 1.5rem);
+  border: 1px solid oklch(58% 0.08 90 / 0.30);
+  border-radius: 2px;
+  overflow: visible;
+  box-shadow:
+    0 0 0 1px oklch(0% 0 0 / 0.45),
+    0 48px 130px -45px oklch(0% 0 0 / 0.85),
+    inset 0 1px 0 oklch(88% 0.06 95 / 0.07);
+}
+
+/* Dark champagne-tinted marble vein (screen blend on dark) */
+body.cinema-chrome .final-cta--luxe::before {
+  opacity: 0.45;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='m'><feTurbulence type='fractalNoise' baseFrequency='0.011 0.035' numOctaves='3' seed='7'/><feColorMatrix values='0 0 0 0 0.91  0 0 0 0 0.86  0 0 0 0 0.72  0 0 0 0.9 -0.32'/></filter><rect width='100%25' height='100%25' filter='url(%23m)'/></svg>");
+  background-size: 1100px 1100px;
+}
+
+/* Champagne shimmer hairline along the top edge */
+body.cinema-chrome .final-cta--luxe::after {
+  content: "";
+  position: absolute;
+  top: -1px; left: 12%; right: 12%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--c-accent), transparent);
+  opacity: 0.5;
+  animation: cta-shimmer 6s ease-in-out infinite;
+}
+@keyframes cta-shimmer {
+  0%, 100% { opacity: 0.25; }
+  50%      { opacity: 0.7; }
+}
+
+/* Corner ticks - thin champagne L-brackets */
+body.cinema-chrome .final-cta--luxe .cta-corner {
+  position: absolute;
+  width: 16px; height: 16px;
+  border: 1px solid var(--c-accent);
+  opacity: 0.5;
+  pointer-events: none;
+}
+body.cinema-chrome .final-cta--luxe .cta-corner--tl { top: 12px; left: 12px; border-right: 0; border-bottom: 0; }
+body.cinema-chrome .final-cta--luxe .cta-corner--tr { top: 12px; right: 12px; border-left: 0; border-bottom: 0; }
+body.cinema-chrome .final-cta--luxe .cta-corner--bl { bottom: 12px; left: 12px; border-right: 0; border-top: 0; }
+body.cinema-chrome .final-cta--luxe .cta-corner--br { bottom: 12px; right: 12px; border-left: 0; border-top: 0; }
+
+/* Eyebrow microtype */
+body.cinema-chrome .final-cta--luxe .cta-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  opacity: 0.82;
+  margin: 0;
+}
+
+/* Ornament + headline + lead recolored for dark stage */
+body.cinema-chrome .final-cta--luxe .ornament {
+  color: var(--c-accent);
+  font-size: 1.55rem;
+}
+body.cinema-chrome .final-cta--luxe h2 {
+  color: var(--c-fg);
+  font-size: clamp(2.3rem, 5.2vw, 3.6rem);
+  line-height: 1.02;
+}
+body.cinema-chrome .final-cta--luxe h2 .it {
+  color: var(--c-accent);
+}
+body.cinema-chrome .final-cta--luxe .cta-lead {
+  color: oklch(80% 0 0);
+  max-width: 46ch;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+body.cinema-chrome .final-cta--luxe .cta-foot {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: oklch(55% 0 0);
+  margin: 0.4rem 0 0;
+}
+
+/* Buttons tuned for champagne-on-black */
+body.cinema-chrome .final-cta--luxe .btn-primary {
+  background: var(--c-accent);
+  color: oklch(18% 0.02 90);
+  border-color: var(--c-accent);
+}
+body.cinema-chrome .final-cta--luxe .btn-primary:hover {
+  background: transparent;
+  color: var(--c-accent);
+}
+body.cinema-chrome .final-cta--luxe .btn-ghost {
+  border-color: oklch(58% 0.08 90 / 0.5);
+  color: var(--c-accent);
+}
+body.cinema-chrome .final-cta--luxe .btn-ghost:hover {
+  background: var(--c-accent);
+  color: oklch(18% 0.02 90);
+  border-color: var(--c-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.cinema-chrome .final-cta--luxe::after { animation: none; opacity: 0.5; }
+}
+
+@media (max-width: 720px) {
+  body.cinema-chrome .final-cta--luxe .cta-corner { width: 11px; height: 11px; }
+}
+
+/* ============================================================
+   Inner-Page First-Segment Standard - VP1 split (SHARED)
+   Adopters add body class "vp-split". The first segment becomes
+   one viewport (100dvh) split 50/50:
+     - hero half  = section.page-hero  (top 50dvh)
+     - shelf half = section.vp-shelf   (bottom 50dvh)
+   The component row inside the shelf carries class .vp-track.
+   Generalized from the gallery reference (.is-gallery) so any
+   page can opt in. See DESIGN.md "Gallery Standard".
+   ============================================================ */
+body.cinema-chrome.vp-split main { padding: 0; margin: 0; }
+
+/* Hero half - identical rhythm everywhere */
+body.cinema-chrome.vp-split .page-hero {
+  position: relative;
+  height: 50dvh; min-height: 50dvh; max-height: 50dvh;
+  overflow: hidden;
+  padding: clamp(1.8rem, 4vh, 3rem) 0;
+  margin: 0;
+  display: flex; flex-direction: column; justify-content: center;
+}
+/* Hero typography AND spacing inherit the base .page-hero rhythm -
+   identical to the gallery (h1 ~111px, lead ~23px, h1->lead gap ~8px).
+   Do NOT clamp size or override the lead gap; the hero must read as a
+   pixel mirror of the gallery: eyebrow + h1 + lead only, no meta-row. */
+body.cinema-chrome.vp-split .page-hero h1 .it { color: var(--c-accent); }
+body.cinema-chrome.vp-split .page-hero .lead { margin-top: 0.4rem; }
+
+/* Shelf half - holds the component track at full height */
+body.cinema-chrome.vp-split .vp-shelf {
+  height: 50dvh; min-height: 50dvh; max-height: 50dvh;
+  overflow: hidden;
+  padding: 0; margin: 0;
+  display: flex; flex-direction: column;
+}
+/* Full-bleed: mirror the gallery band exactly (no centered max-width,
+   gutter only). The component track runs edge to edge. */
+body.cinema-chrome.vp-split .vp-shelf > .container {
+  display: flex; flex-direction: column;
+  height: 100%; width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 var(--gutter, 1.5rem);
+}
+/* Track fills the shelf top-to-meta with near-zero gap to the hero above,
+   just like the gallery's tile track (gap ~11px). */
+body.cinema-chrome.vp-split .vp-shelf .vp-track {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 0;
+}
+/* Bottom meta-row, pinned to the floor, full width - mirrors gallery's
+   "01 / 12  ·  DRAG · SCROLL · SWIPE" row. */
+body.cinema-chrome.vp-split .vp-shelf .vp-meta {
+  flex: 0 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.45rem 0 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: oklch(58% 0 0);
+}
+body.cinema-chrome.vp-split .vp-shelf .vp-meta .pos { color: var(--c-accent); }
+
+/* ---- Offerings tier shelf: 4 full-height museum panels.
+   Pure geometry - no outer frame, only thin champagne dividers
+   between panels (mirrors gallery tiles touching with a hairline). ---- */
+body.cinema-chrome.vp-split .vp-shelf .promise-grid.vp-track {
+  grid-template-columns: repeat(var(--vp-cols, 4), 1fr);
+  border: 0;
+  background: transparent;
+}
+body.cinema-chrome.vp-split .vp-shelf .promise-grid.vp-track > *:nth-child(n+2) {
+  border-left: 1px solid oklch(58% 0.08 90 / 0.16);
+}
+body.cinema-chrome.vp-split .vp-shelf .tier-card {
+  position: relative;
+  height: 100%;
+  justify-content: flex-start;
+  gap: 0.4rem;
+  padding: clamp(1rem, 2.6vh, 1.9rem) clamp(0.95rem, 1.4vw, 1.7rem);
+  background: transparent;
+  overflow: hidden;
+  isolation: isolate;
+  transition: background var(--d-base, 0.4s) var(--ease, ease);
+}
+body.cinema-chrome.vp-split .vp-shelf .tier-card:hover {
+  background: oklch(88% 0.06 95 / 0.05);
+}
+/* ---- Card typography: clean and restrained ----
+   One subtle numeral per panel (faint watermark, lower corner). Titles
+   stay in the site display font (Geist), just larger. No serif headlines,
+   no second numeral, no extra eyebrow label - keeps the panel uncluttered
+   and the font set at four (Geist, Inter, JetBrains Mono, Fraunces). */
+
+/* Single faint numeral watermark, low corner - depth only, not a label */
+body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-figure {
+  position: absolute;
+  z-index: -1;
+  right: -0.1rem; bottom: -1.2rem;
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(4.5rem, 9vw, 7.5rem);
+  line-height: 1;
+  color: var(--c-accent);
+  opacity: 0.08;
+  pointer-events: none;
+  transition: opacity var(--d-base, 0.4s) var(--ease, ease);
+}
+body.cinema-chrome.vp-split .vp-shelf .tier-card:hover .tier-figure { opacity: 0.14; }
+/* Drop the small roman/category label - the title carries it */
+body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-num { display: none; }
+/* Title in Geist display, larger - the focal point, no invented font */
+body.cinema-chrome.vp-split .vp-shelf .tier-card h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 1.05rem + 1.3vw, 2.25rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: var(--c-fg);
+}
+body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-meta {
+  color: var(--c-accent);
+  opacity: 0.92;
+  margin-top: 0.2rem;
+}
+body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-blurb {
+  color: oklch(70% 0 0);
+  font-size: var(--t-sm);
+  margin-top: 0.2rem;
+}
+body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-link { color: var(--c-accent); }
+
+/* Mobile: unlock the 50/50 lock, let content breathe vertically.
+   The existing .promise-grid mobile swipe rules take over the track. */
+@media (max-width: 720px) {
+  body.cinema-chrome.vp-split .page-hero {
+    height: auto; min-height: 56dvh; max-height: none;
+    /* clip the oversized decorative ghost word horizontally so it cannot widen
+       the page on mobile; keep vertical free so nothing is cut. */
+    overflow-x: clip; overflow-y: visible;
+  }
+  body.cinema-chrome.vp-split .vp-shelf {
+    height: auto; min-height: auto; max-height: none;
+    overflow-x: clip; overflow-y: visible;
+  }
+  body.cinema-chrome.vp-split .vp-shelf .tier-card { height: auto; min-height: 46dvh; }
+  body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-figure { font-size: 6rem; }
+
+  /* The 4-col grid is more specific than the base .promise-grid mobile swipe
+     rule, so it must be unlocked here too - otherwise the tiers squash into
+     four clipped columns. Becomes a full-width horizontal swipe. */
+  body.cinema-chrome.vp-split .vp-shelf .promise-grid.vp-track {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  body.cinema-chrome.vp-split .vp-shelf .promise-grid.vp-track::-webkit-scrollbar { display: none; }
+  body.cinema-chrome.vp-split .vp-shelf .promise-grid.vp-track > * {
+    flex: 0 0 82vw;
+    scroll-snap-align: center;
+  }
+  body.cinema-chrome.vp-split .vp-shelf .promise-grid.vp-track > *:nth-child(n+2) {
+    border-left: 1px solid oklch(58% 0.08 90 / 0.16);
+  }
+}
+
+/* ============================================================
+   Concierge detail: one enhancement card per viewport.
+   Each #enhancements card is a full-viewport scroll-snap target,
+   so scrolling lands on one complete card at a time - no fragments
+   of the neighbouring cards bleeding in above or below.
+   Proximity snap only engages around these cards; the rest of the
+   page (and every other page) is unaffected since nothing else
+   carries scroll-snap-align.
+   ============================================================ */
+html { scroll-snap-type: y proximity; }
+
+body.cinema-chrome.vp-split #enhancements { padding: 0; }
+body.cinema-chrome.vp-split #enhancements > .container { max-width: none; padding: 0; }
+body.cinema-chrome.vp-split #enhancements .addon-grid { gap: 0; max-width: none; margin: 0; }
+
+body.cinema-chrome.vp-split #enhancements .addon-card {
+  min-height: 100dvh;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  align-items: center;
+  align-content: center;
+  max-width: var(--container, 1100px);
+  margin: 0 auto;
+  padding: clamp(2rem, 6vh, 4rem) var(--gutter, 1.5rem);
+  border-left: 0; border-right: 0;
+}
+
+@media (max-width: 720px) {
+  /* Long prose on a narrow column can exceed one viewport - release the
+     lock so cards scroll naturally rather than clipping. */
+  html { scroll-snap-type: none; }
+  body.cinema-chrome.vp-split #enhancements .addon-card {
+    min-height: auto;
+    scroll-snap-align: none;
+    padding: clamp(2rem, 8vh, 3.5rem) var(--gutter, 1.5rem);
+  }
+}

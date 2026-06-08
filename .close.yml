@@ -1,0 +1,39 @@
+# Ice & Instinct - session-close + deploy config (read by /ship-close)
+# Day-to-day work lives on branch `react-shell`. Production is branch `main`:
+# the built React `dist` sits at the repo ROOT on main, and a GitHub webhook
+# auto-deploys to Hostinger on every push to main. So pushing main = live.
+
+remote: origin
+
+# Typecheck is the gate (no unit-test suite yet).
+test: cd app && npx tsc --noEmit
+
+# DEPLOY (production cutover / new release):
+#   1) cd app && npm run build          # -> app/dist (12 prerendered routes + assets)
+#   2) copy app/dist/* to the repo ROOT on `main` (replace prior payload; keep _legacy-vanilla/)
+#   3) git push origin main             # GitHub webhook -> Hostinger pulls main -> public_html
+# Routine react-shell pushes do NOT deploy; only main does.
+deploy: git push origin main
+
+# ROLLBACK: prior stable site preserved on main.
+#   git revert --no-edit <bad> && git push origin main
+#   (or restore from _legacy-vanilla/ ; git tag pre-cutover-vanilla marks pre-React prod)
+rollback: git revert --no-edit HEAD && git push origin main
+
+# Hostinger hcdn caches HTML. If a deploy shows stale: hPanel -> iceinstinct.com
+# Dashboard -> Cache -> Clear cache (or test with ?nocache=<ts>).
+
+verify:
+  - url: https://www.iceinstinct.com/
+    expect: 200
+  - url: https://www.iceinstinct.com/gallery/
+    expect: 200
+  - url: https://www.iceinstinct.com/robots.txt
+    expect: 200
+
+verify_policy:
+  cooldown_ms: 4000
+  retry_count: 5
+  retry_delay_ms: 3000
+
+state_doc: STATE.md

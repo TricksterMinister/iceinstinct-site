@@ -1,0 +1,81 @@
+type QA = { q: string; a: string };
+
+const FAQS: QA[] = [
+  {
+    q: 'What is Ice and Instinct?',
+    a: 'A private mixology studio for the home and the event. Led by one alchemist and carried by a team of trusted New York bartenders, it brings the craft, theatre, and discipline of a world-class bar into your own room.',
+  },
+  {
+    q: 'What actually happens at an event?',
+    a: 'We arrive, build the bar, and run the evening end to end. Each cocktail is made in real time, with intention. You set the rhythm through one of four tiers, from impeccable classics to off-menu omakase improvisation.',
+  },
+  {
+    q: 'Is alcohol included in the price?',
+    a: 'No. The tier price covers the craft, service, and expertise. You may provide the spirits and wine yourself, or we handle the entire purchase on your behalf at supplier cost.',
+  },
+  {
+    q: 'Do you bring everything - bar, tools, ice, glassware?',
+    a: 'Yes. The bar setup, tools, and service are fully handled. Specialty ice from Michelin-level suppliers, curated glassware, and rentals are arranged through the Concierge and billed at supplier cost.',
+  },
+  {
+    q: 'Where do you serve?',
+    a: 'The New York metropolitan area and New Jersey. Events further out are welcome, and any travel is included in your private quote.',
+  },
+  {
+    q: 'Can you handle a large event or wedding?',
+    a: 'Yes. One alchemist leads, and a team of trusted New York bartenders scales the service from an intimate solo performance to a full bar team for weddings, galas, and corporate events.',
+  },
+  {
+    q: 'Which tier should I choose?',
+    a: 'It depends on the room and the evening you have in mind. Foundation is for intimate gatherings, Simplicity for a refined solo performance, Bespoke for signature cocktails built around your theme, and Omakase for a no-menu, improvised experience. Tell us the date, guest count, and mood, and we will guide you.',
+  },
+  {
+    q: 'Can the cocktails be tailored, and do you offer non-alcoholic options?',
+    a: 'Yes to both. Every menu is built around your taste, theme, and any dietary needs, and a full zero-proof program is available so each guest is served with the same care.',
+  },
+  {
+    q: 'How far ahead should I book?',
+    a: 'Two or more weeks is ideal, and shorter timelines are often possible. Ask, and we will tell you honestly what we can do.',
+  },
+  {
+    q: 'How does the deposit work?',
+    a: 'A flat $500 deposit reserves your date. The balance is due before the event.',
+  },
+  {
+    q: 'How do I book?',
+    a: 'Send the date, the room, and the guest count through the inquiry form. You will have a private quote within one business day.',
+  },
+];
+
+export function Faq() {
+  return (
+    <section className="faq" id="faq">
+      <div className="section-bg-word right" aria-hidden="true">ANSWERS</div>
+      <div className="faq-stage">
+        <header className="faq-intro">
+          <h2 className="faq-headline">
+            <span>Before</span>
+            <span className="it">you ask.</span>
+          </h2>
+          <p className="faq-lead">The honest answers, plainly given.</p>
+        </header>
+
+        <ul className="faq-list">
+          {FAQS.map((item) => (
+            <li className="faq-item" key={item.q}>
+              <details className="faq-details">
+                <summary className="faq-q" data-cursor="link">
+                  <span className="faq-q-text">{item.q}</span>
+                  <span className="faq-q-mark" aria-hidden="true"></span>
+                </summary>
+                <div className="faq-a">
+                  <p>{item.a}</p>
+                </div>
+              </details>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
