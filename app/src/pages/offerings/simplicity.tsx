@@ -14,7 +14,7 @@ export const simplicityContent: OfferingContent = {
       </>
     ),
     lead: "For the host who values heritage over hype. The world's most iconic cocktails executed with surgical precision - by the Master Mixologist personally.",
-    price: 'From $750 USD',
+    price: 'From $900 USD',
     priceMeta: 'Up to 12 guests · 4 hours · New York Metropolitan Area',
     video: {
       poster: '/assets/photos/simplicity-hero-poster.png',
@@ -73,7 +73,7 @@ export const simplicityContent: OfferingContent = {
         meta: 'Up to 12 guests',
         personnel: '1 Master Mixologist (solo performance)',
         focus: 'Quiet, attentive precision. Direct guest interaction.',
-        price: 'From $750',
+        price: 'From $900',
       },
       {
         label: 'B',

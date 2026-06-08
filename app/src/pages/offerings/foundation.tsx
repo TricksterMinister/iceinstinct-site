@@ -14,8 +14,8 @@ export const foundationContent: OfferingContent = {
       </>
     ),
     lead: 'For those who understand that elegance lies in simplicity. The accessible entry point to the Ice & Instinct standard - delivered by a trained professional bartender from our collective.',
-    price: 'From $400 USD',
-    priceMeta: 'Up to 40 guests · 3 hours · New York Metropolitan Area',
+    price: 'From $650 USD',
+    priceMeta: 'Up to 15 guests · 3 hours · New York Metropolitan Area',
     video: {
       poster: '/assets/photos/foundation-hero-poster.png',
       src: '/assets/media/foundation-hero.mp4',
@@ -73,7 +73,7 @@ export const foundationContent: OfferingContent = {
         meta: 'Up to 15 guests',
         personnel: '1 Professional Bartender',
         focus: 'Attentive service, consistent quality, personal engagement',
-        price: 'From $400',
+        price: 'From $650',
       },
       {
         label: 'B',

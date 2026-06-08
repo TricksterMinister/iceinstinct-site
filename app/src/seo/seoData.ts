@@ -49,11 +49,11 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   },
 
   '/offerings/foundation/': {
-    title: "The Foundation - Ice & Instinct, from $400",
+    title: "The Foundation - Ice & Instinct, from $650",
     description:
-      "The Essential service tier from Ice & Instinct. Impeccable drinks, professional bartender from our trained collective. From $400, up to 40 guests, 3 hours. New York.",
+      "The Essential service tier from Ice & Instinct. Impeccable drinks, professional bartender from our trained collective. From $650, up to 15 guests, 3 hours. New York.",
     canonical: `${SITE}/offerings/foundation/`,
-    ogTitle: "The Foundation - Ice & Instinct, from $400",
+    ogTitle: "The Foundation - Ice & Instinct, from $650",
     ogDescription:
       "Impeccable drinks, professional presence, seamless execution. The accessible entry point to the Ice & Instinct standard.",
     ogImage: "/assets/photos/tier-foundation.jpg",
@@ -61,11 +61,11 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   },
 
   '/offerings/simplicity/': {
-    title: "Perfection in Simplicity - Ice & Instinct, from $750",
+    title: "Perfection in Simplicity - Ice & Instinct, from $900",
     description:
-      "The Executive Standard from Ice & Instinct. Timeless classics executed with surgical precision by the Master Mixologist personally. From $750, up to 12 guests, 4 hours.",
+      "The Executive Standard from Ice & Instinct. Timeless classics executed with surgical precision by the Master Mixologist personally. From $900, up to 12 guests, 4 hours.",
     canonical: `${SITE}/offerings/simplicity/`,
-    ogTitle: "Perfection in Simplicity - Ice & Instinct, from $750",
+    ogTitle: "Perfection in Simplicity - Ice & Instinct, from $900",
     ogDescription:
       "Heritage over hype. The world's most iconic cocktails executed with quiet precision by the Master Mixologist himself.",
     ogImage: "/assets/photos/tier-simplicity.jpg",
@@ -73,11 +73,11 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   },
 
   '/offerings/bespoke/': {
-    title: "Bespoke Design & Artistry - Ice & Instinct, from $1,500",
+    title: "Bespoke Design & Artistry - Ice & Instinct, from $1,800",
     description:
-      "The Architect tier from Ice & Instinct. Signature cocktails designed around your event's theme, color palette, and story. From $1,500, up to 15 guests, 4 hours.",
+      "The Architect tier from Ice & Instinct. Signature cocktails designed around your event's theme, color palette, and story. From $1,800, up to 30 guests, 4 hours.",
     canonical: `${SITE}/offerings/bespoke/`,
-    ogTitle: "Bespoke Design & Artistry - Ice & Instinct, from $1,500",
+    ogTitle: "Bespoke Design & Artistry - Ice & Instinct, from $1,800",
     ogDescription:
       "Your vision, crafted into every glass. Storytelling. Visual impact. Mixology as creative collaboration.",
     ogImage: "/assets/photos/tier-bespoke.jpg",

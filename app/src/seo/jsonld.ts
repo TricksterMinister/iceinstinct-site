@@ -59,22 +59,22 @@ type TierSpec = {
 const TIERS: Record<TierKey, TierSpec> = {
   foundation: {
     name: "The Foundation",
-    price: 400,
-    guests: "up to 40 guests",
+    price: 650,
+    guests: "up to 15 guests",
     hours: "3 hours",
     url: `${SITE}/offerings/foundation/`,
   },
   simplicity: {
     name: "Perfection in Simplicity",
-    price: 750,
+    price: 900,
     guests: "up to 12 guests",
     hours: "4 hours",
     url: `${SITE}/offerings/simplicity/`,
   },
   bespoke: {
     name: "Bespoke Design & Artistry",
-    price: 1500,
-    guests: "up to 15 guests",
+    price: 1800,
+    guests: "up to 30 guests",
     hours: "4 hours",
     url: `${SITE}/offerings/bespoke/`,
   },

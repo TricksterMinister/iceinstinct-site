@@ -14,8 +14,8 @@ export const bespokeContent: OfferingContent = {
       </>
     ),
     lead: 'Your vision, crafted into every glass. Custom cocktails designed specifically for your theme, your colors, your story. Mixology as creative collaboration.',
-    price: 'From $1,500 USD',
-    priceMeta: 'Up to 15 guests · 4 hours · New York Metropolitan Area',
+    price: 'From $1,800 USD',
+    priceMeta: 'Up to 30 guests · 4 hours · New York Metropolitan Area',
     video: {
       poster: '/assets/photos/bespoke-hero-poster.png',
       src: '/assets/media/bespoke-hero.mp4',
@@ -73,7 +73,7 @@ export const bespokeContent: OfferingContent = {
         meta: 'Up to 15 guests',
         personnel: '1 Master Mixologist (custom design & execution)',
         focus: 'Detailed storytelling and visual perfection.',
-        price: 'From $1,500',
+        price: 'From $1,800',
       },
       {
         label: 'B',

@@ -154,7 +154,7 @@ export function Offerings() {
                 </span>
                 <span className="tier-num">i. Foundation</span>
                 <h3>The Foundation</h3>
-                <span className="tier-meta">From $400 · up to 40 guests · 3 hours</span>
+                <span className="tier-meta">From $650 · up to 15 guests · 3 hours</span>
                 <p className="tier-blurb">
                   Impeccable drinks, seamless service. No shortcuts, only intention. The standard from which every other
                   level departs.
@@ -170,7 +170,7 @@ export function Offerings() {
                 </span>
                 <span className="tier-num">ii. Simplicity</span>
                 <h3>Perfection in Simplicity</h3>
-                <span className="tier-meta">From $750 · up to 12 guests · 4 hours</span>
+                <span className="tier-meta">From $900 · up to 12 guests · 4 hours</span>
                 <p className="tier-blurb">
                   Timeless cocktails executed with quiet precision. A masterful solo performance for those who value
                   craft over theatre.
@@ -186,7 +186,7 @@ export function Offerings() {
                 </span>
                 <span className="tier-num">iii. Bespoke</span>
                 <h3>Bespoke Design &amp; Artistry</h3>
-                <span className="tier-meta">From $1,500 · up to 15 guests · 4 hours</span>
+                <span className="tier-meta">From $1,800 · up to 30 guests · 4 hours</span>
                 <p className="tier-blurb">
                   Signature cocktails tailored to your event's theme and vision. Your story, crafted into every glass.
                 </p>

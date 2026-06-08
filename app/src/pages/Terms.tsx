@@ -152,13 +152,13 @@ export function Terms() {
               <p>Private mixology service in the New York metropolitan area, organised in four tiers:</p>
               <ul>
                 <li>
-                  <strong>The Foundation</strong> - from $400 USD, up to 40 guests, 3 hours.
+                  <strong>The Foundation</strong> - from $650 USD, up to 15 guests, 3 hours.
                 </li>
                 <li>
-                  <strong>Perfection in Simplicity</strong> - from $750 USD, up to 12 guests, 4 hours.
+                  <strong>Perfection in Simplicity</strong> - from $900 USD, up to 12 guests, 4 hours.
                 </li>
                 <li>
-                  <strong>Bespoke Design &amp; Artistry</strong> - from $1,500 USD, up to 15 guests, 4 hours.
+                  <strong>Bespoke Design &amp; Artistry</strong> - from $1,800 USD, up to 30 guests, 4 hours.
                 </li>
                 <li>
                   <strong>Omakase Improvisation</strong> - from $3,000 USD, up to 25 guests, open hours.
