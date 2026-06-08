@@ -72,7 +72,7 @@ export function MyStory() {
               <a href="/gallery/">
                 <i>05</i>
                 <b>The Collection</b>
-                <em>Twelve compositions</em>
+                <em>Thirteen compositions</em>
               </a>
             </li>
             <li>
@@ -139,10 +139,10 @@ export function MyStory() {
           />
           <div className="story-cover-scrim" aria-hidden="true"></div>
           <div className="story-cover-ghost" aria-hidden="true">
-            ALCHEMIST
+            <span className="hg-base">ALCHEMIST</span>
+            <span className="hg-glow">ALCHEMIST</span>
           </div>
           <div className="story-cover-id">
-            <span className="eyebrow">My Story</span>
             <h1 className="story-cover-name">
               Teimuraz <span className="it">Benidze.</span>
             </h1>
@@ -155,7 +155,7 @@ export function MyStory() {
           <div className="container-narrow">
             <article className="story-open reveal">
               <h2 className="story-slogan">
-                <span className="it">Where ritual meets instinct.</span>
+                <span className="it gold-shine">Born of ritual, led by instinct.</span>
               </h2>
               <p className="story-lede">
                 My journey began not behind a bar, but in the pursuit of perfection. <strong>Ice &amp; Instinct</strong>{' '}
@@ -169,59 +169,81 @@ export function MyStory() {
         {/* ================ THE JOURNEY (Georgia -> NYC, as a timeline) ================ */}
         <section className="story-journey" id="story-journey">
           <div className="container">
-            <div className="journey-head reveal">
-              <span className="eyebrow">The Journey</span>
-              <h2 className="display-heading">
-                Four cities,
-                <br />
-                <span className="it">one standard.</span>
-              </h2>
+            <div className="journey-layout">
+              {/* Desktop: the framed city photo fills the left half and cross-fades
+                  to whichever city is hovered/active. Hidden on touch (each city
+                  then shows its own inline photo). */}
+              <div className="journey-media" aria-hidden="true">
+                <figure className="journey-fig is-active"><img src="/assets/photos/journey-tbilisi-v2.png" alt="" loading="lazy" /></figure>
+                <figure className="journey-fig"><img src="/assets/photos/journey-lisbon-v2.png" alt="" loading="lazy" /></figure>
+                <figure className="journey-fig"><img src="/assets/photos/journey-moscow-v2.png" alt="" loading="lazy" /></figure>
+                <figure className="journey-fig"><img src="/assets/photos/journey-newyork-v2.png" alt="" loading="lazy" /></figure>
+              </div>
+
+              <div className="journey-right">
+                <div className="journey-head reveal">
+                  <h2 className="display-heading">
+                    Four cities,
+                    <br />
+                    <span className="it gold-shine">one standard.</span>
+                  </h2>
+                </div>
+                <ol className="journey-rail" data-journey-rail>
+                <li className="journey-stop">
+                  <img className="journey-stop-img" src="/assets/photos/journey-tbilisi-v2.png" alt="Tbilisi" loading="lazy" />
+                  <div className="journey-row">
+                    <span className="journey-no">01</span>
+                    <div className="journey-body">
+                      <span className="journey-city">Tbilisi</span>
+                      <p className="journey-note">
+                        Born where every celebration begins with a toast and ends in silence. Wine carries memory; ritual
+                        defines grace - and that sense of presence has never left.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li className="journey-stop">
+                  <img className="journey-stop-img" src="/assets/photos/journey-lisbon-v2.png" alt="Lisbon" loading="lazy" />
+                  <div className="journey-row">
+                    <span className="journey-no">02</span>
+                    <div className="journey-body">
+                      <span className="journey-city">Lisbon</span>
+                      <p className="journey-note">
+                        From the Caucasus outward, across continents - new palates, a slower light, the patience of aged
+                        things.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li className="journey-stop">
+                  <img className="journey-stop-img" src="/assets/photos/journey-moscow-v2.png" alt="Moscow" loading="lazy" />
+                  <div className="journey-row">
+                    <span className="journey-no">03</span>
+                    <div className="journey-body">
+                      <span className="journey-city">Moscow</span>
+                      <p className="journey-note">
+                        Hospitality as perception: to read a room the way one reads a language, to feel timing as rhythm, to
+                        turn precision into art.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li className="journey-stop">
+                  <img className="journey-stop-img" src="/assets/photos/journey-newyork-v2.png" alt="New York" loading="lazy" />
+                  <div className="journey-row">
+                    <span className="journey-no">04</span>
+                    <div className="journey-body">
+                      <span className="journey-city">New York</span>
+                      <p className="journey-note">
+                        Two decades of fine wine, resorts and restaurants - the architecture of service - distilled into
+                        something rarer: private mixology as ritual.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                </ol>
+              </div>
             </div>
-            <ol className="journey-rail" data-journey-rail>
-              <li className="journey-stop" data-img="/assets/photos/journey-tbilisi.jpg">
-                <span className="journey-no">01</span>
-                <div className="journey-body">
-                  <span className="journey-city">Tbilisi</span>
-                  <p className="journey-note">
-                    Born where every celebration begins with a toast and ends in silence. Wine carries memory; ritual
-                    defines grace - and that sense of presence has never left.
-                  </p>
-                </div>
-              </li>
-              <li className="journey-stop" data-img="/assets/photos/journey-lisbon.jpg">
-                <span className="journey-no">02</span>
-                <div className="journey-body">
-                  <span className="journey-city">Lisbon</span>
-                  <p className="journey-note">
-                    From the Caucasus outward, across continents - new palates, a slower light, the patience of aged
-                    things.
-                  </p>
-                </div>
-              </li>
-              <li className="journey-stop" data-img="/assets/photos/journey-moscow.jpg">
-                <span className="journey-no">03</span>
-                <div className="journey-body">
-                  <span className="journey-city">Moscow</span>
-                  <p className="journey-note">
-                    Hospitality as perception: to read a room the way one reads a language, to feel timing as rhythm, to
-                    turn precision into art.
-                  </p>
-                </div>
-              </li>
-              <li className="journey-stop" data-img="/assets/photos/journey-newyork.jpg">
-                <span className="journey-no">04</span>
-                <div className="journey-body">
-                  <span className="journey-city">New York</span>
-                  <p className="journey-note">
-                    Two decades of fine wine, resorts and restaurants - the architecture of service - distilled into
-                    something rarer: private mixology as ritual.
-                  </p>
-                </div>
-              </li>
-            </ol>
-            <figure className="journey-reveal" aria-hidden="true">
-              <img alt="" />
-            </figure>
           </div>
         </section>
 
@@ -242,10 +264,23 @@ export function MyStory() {
           </div>
         </section>
 
-        {/* ================ CREDENTIALS (podcast + languages) ================ */}
-        <section className="story-cred-sec">
-          <div className="container">
-            <div className="journey-cred reveal">
+        {/* ================ THE CLOSE - the page's single LIGHT segment. The human
+            finale: prose + statement on the left, credentials on the right, one
+            artful viewport on white stone. Modelled on the offering ledger. ====== */}
+        <section className="story-close" id="story-close">
+          <div className="story-close-wrap reveal">
+            <div className="story-close-main">
+              <p className="story-close-prose">
+                When I arrive at your space, I bring nothing but my tools and attention. No menu, no routine. The evening
+                unfolds in dialogue - between liquid and light, memory and desire.
+              </p>
+              <h2 className="story-close-statement">
+                This is not bartending.
+                <br />
+                This is <span className="it gold-shine">Ice &amp; Instinct.</span>
+              </h2>
+            </div>
+            <aside className="story-close-creds">
               <div className="cred">
                 <span className="cred-k">The Podcast</span>
                 <p className="cred-v">
@@ -260,24 +295,7 @@ export function MyStory() {
                   pour.
                 </p>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ================ FINALE ================ */}
-        <section className="numbered" id="story-finale">
-          <div className="container-narrow">
-            <div className="narrative-finale reveal">
-              <p className="finale-prose">
-                When I arrive at your space, I bring nothing but my tools and attention. No menu, no routine. The evening
-                unfolds in dialogue - between liquid and light, memory and desire.
-              </p>
-              <h3 className="final-statement">
-                This is not bartending.
-                <br />
-                This is <span className="it">Ice &amp; Instinct.</span>
-              </h3>
-            </div>
+            </aside>
           </div>
         </section>
 
@@ -285,11 +303,8 @@ export function MyStory() {
         <section className="numbered" id="faq">
           <div className="container-narrow">
             <div className="section-head reveal">
-              <span className="eyebrow">Understanding the ritual</span>
               <h2 className="display-heading">
-                The ritual
-                <br />
-                <span className="it">explained.</span>
+                The ritual <span className="it gold-shine">explained.</span>
               </h2>
             </div>
 
@@ -413,7 +428,6 @@ export function MyStory() {
               <span className="cta-corner cta-corner--tr" aria-hidden="true"></span>
               <span className="cta-corner cta-corner--bl" aria-hidden="true"></span>
               <span className="cta-corner cta-corner--br" aria-hidden="true"></span>
-              <p className="cta-eyebrow">Private Commission &middot; New York</p>
               <span className="ornament" aria-hidden="true">
                 &#10022;
               </span>

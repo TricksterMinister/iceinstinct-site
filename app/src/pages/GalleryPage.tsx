@@ -86,7 +86,7 @@ export function GalleryPage() {
               <a href="/gallery/">
                 <i>05</i>
                 <b>The Collection</b>
-                <em>Twelve compositions</em>
+                <em>Thirteen compositions</em>
               </a>
             </li>
             <li>
@@ -146,14 +146,13 @@ export function GalleryPage() {
             COLLECTION
           </div>
           <div className="container">
-            <span className="eyebrow">The Collection</span>
             <h1>
               Touch the glass
               <br />
               to awaken <span className="it">the spirit.</span>
             </h1>
             <p className="lead">
-              Twelve signature compositions, each built once. Select any tile to view it in full.
+              Thirteen signature compositions, each built once. Select any tile to view it in full.
             </p>
           </div>
         </section>
@@ -166,9 +165,9 @@ export function GalleryPage() {
                   className="gallery-tile"
                   type="button"
                   data-title="White Lotus"
-                  data-src="/assets/photos/white-lotus.png"
+                  data-src="/assets/photos/white-lotus-v2.png"
                 >
-                  <img src="/assets/photos/white-lotus.png" alt="White Lotus cocktail" loading="lazy" />
+                  <img src="/assets/photos/white-lotus-v2.png" alt="White Lotus cocktail" loading="lazy" />
                   <span className="gallery-tile-overlay">
                     <span className="gallery-tile-name">White Lotus</span>
                     <span className="gallery-tile-meta">View Ritual</span>
@@ -179,10 +178,10 @@ export function GalleryPage() {
                   className="gallery-tile"
                   type="button"
                   data-title="Aviation"
-                  data-src="/assets/photos/generated-image-december-02-2025---7_41pm-NBbxW61xks4izMLg.jpeg"
+                  data-src="/assets/photos/aviation-v2.png"
                 >
                   <img
-                    src="/assets/photos/generated-image-december-02-2025---7_41pm-NBbxW61xks4izMLg.jpeg"
+                    src="/assets/photos/aviation-v2.png"
                     alt="Aviation cocktail"
                     loading="lazy"
                   />
@@ -196,10 +195,10 @@ export function GalleryPage() {
                   className="gallery-tile"
                   type="button"
                   data-title="Persimmon Saffron Sour"
-                  data-src="/assets/photos/persimmon-saffron-sour.png"
+                  data-src="/assets/photos/persimmon-saffron-v2.png"
                 >
                   <img
-                    src="/assets/photos/persimmon-saffron-sour.png"
+                    src="/assets/photos/persimmon-saffron-v2.png"
                     alt="Persimmon Saffron Sour cocktail"
                     loading="lazy"
                   />
@@ -213,9 +212,9 @@ export function GalleryPage() {
                   className="gallery-tile"
                   type="button"
                   data-title="Belladonna"
-                  data-src="/assets/photos/belladonna.jpeg"
+                  data-src="/assets/photos/belladonna-v2.png"
                 >
-                  <img src="/assets/photos/belladonna.jpeg" alt="Belladonna cocktail" loading="lazy" />
+                  <img src="/assets/photos/belladonna-v2.png" alt="Belladonna cocktail" loading="lazy" />
                   <span className="gallery-tile-overlay">
                     <span className="gallery-tile-name">Belladonna</span>
                     <span className="gallery-tile-meta">View Ritual</span>
@@ -226,10 +225,10 @@ export function GalleryPage() {
                   className="gallery-tile"
                   type="button"
                   data-title="Black Truffle Martini"
-                  data-src="/assets/photos/generated-image-december-02-2025---6_43pm-bHcjO1So1iA225II.jpeg"
+                  data-src="/assets/photos/black-truffle-v2.png"
                 >
                   <img
-                    src="/assets/photos/generated-image-december-02-2025---6_43pm-bHcjO1So1iA225II.jpeg"
+                    src="/assets/photos/black-truffle-v2.png"
                     alt="Black Truffle Martini cocktail"
                     loading="lazy"
                   />
@@ -243,9 +242,9 @@ export function GalleryPage() {
                   className="gallery-tile"
                   type="button"
                   data-title="Rose Garden Rendezvous"
-                  data-src="/assets/photos/rose-garden.jpeg"
+                  data-src="/assets/photos/rose-garden-v2.png"
                 >
-                  <img src="/assets/photos/rose-garden.jpeg" alt="Rose Garden Rendezvous cocktail" loading="lazy" />
+                  <img src="/assets/photos/rose-garden-v2.png" alt="Rose Garden Rendezvous cocktail" loading="lazy" />
                   <span className="gallery-tile-overlay">
                     <span className="gallery-tile-name">Rose Garden Rendezvous</span>
                     <span className="gallery-tile-meta">View Ritual</span>
@@ -256,9 +255,9 @@ export function GalleryPage() {
                   className="gallery-tile"
                   type="button"
                   data-title="Aureliano"
-                  data-src="/assets/photos/aureliano.png"
+                  data-src="/assets/photos/aureliano-v2.png"
                 >
-                  <img src="/assets/photos/aureliano.png" alt="Aureliano cocktail" loading="lazy" />
+                  <img src="/assets/photos/aureliano-v2.png" alt="Aureliano cocktail" loading="lazy" />
                   <span className="gallery-tile-overlay">
                     <span className="gallery-tile-name">Aureliano</span>
                     <span className="gallery-tile-meta">View Ritual</span>
@@ -268,40 +267,10 @@ export function GalleryPage() {
                 <button
                   className="gallery-tile"
                   type="button"
-                  data-title="Basil in my mind"
-                  data-src="/assets/photos/basil-in-my-mind.jpeg"
-                >
-                  <img src="/assets/photos/basil-in-my-mind.jpeg" alt="Basil in my mind cocktail" loading="lazy" />
-                  <span className="gallery-tile-overlay">
-                    <span className="gallery-tile-name">Basil in my mind</span>
-                    <span className="gallery-tile-meta">View Ritual</span>
-                  </span>
-                </button>
-
-                <button
-                  className="gallery-tile"
-                  type="button"
-                  data-title="1001 Nights"
-                  data-src="/assets/photos/1001-nights.jpeg"
-                >
-                  <img src="/assets/photos/1001-nights.jpeg" alt="1001 Nights cocktail" loading="lazy" />
-                  <span className="gallery-tile-overlay">
-                    <span className="gallery-tile-name">1001 Nights</span>
-                    <span className="gallery-tile-meta">View Ritual</span>
-                  </span>
-                </button>
-
-                <button
-                  className="gallery-tile"
-                  type="button"
                   data-title="Call Me By Your Name"
-                  data-src="/assets/photos/generated-image-december-08-2025---12_05am-m5HxCSxPjQY1IsoU.jpeg"
+                  data-src="/assets/photos/basil-v2.png"
                 >
-                  <img
-                    src="/assets/photos/generated-image-december-08-2025---12_05am-m5HxCSxPjQY1IsoU.jpeg"
-                    alt="Call Me By Your Name cocktail"
-                    loading="lazy"
-                  />
+                  <img src="/assets/photos/basil-v2.png" alt="Call Me By Your Name cocktail" loading="lazy" />
                   <span className="gallery-tile-overlay">
                     <span className="gallery-tile-name">Call Me By Your Name</span>
                     <span className="gallery-tile-meta">View Ritual</span>
@@ -311,10 +280,40 @@ export function GalleryPage() {
                 <button
                   className="gallery-tile"
                   type="button"
-                  data-title="Calipso Cream"
-                  data-src="/assets/photos/calipso-cream.jpeg"
+                  data-title="1001 Nights"
+                  data-src="/assets/photos/1001-nights-v2.png"
                 >
-                  <img src="/assets/photos/calipso-cream.jpeg" alt="Calipso Cream cocktail" loading="lazy" />
+                  <img src="/assets/photos/1001-nights-v2.png" alt="1001 Nights cocktail" loading="lazy" />
+                  <span className="gallery-tile-overlay">
+                    <span className="gallery-tile-name">1001 Nights</span>
+                    <span className="gallery-tile-meta">View Ritual</span>
+                  </span>
+                </button>
+
+                <button
+                  className="gallery-tile"
+                  type="button"
+                  data-title="Basil in my mind"
+                  data-src="/assets/photos/call-me-v2.png"
+                >
+                  <img
+                    src="/assets/photos/call-me-v2.png"
+                    alt="Basil in my mind cocktail"
+                    loading="lazy"
+                  />
+                  <span className="gallery-tile-overlay">
+                    <span className="gallery-tile-name">Basil in my mind</span>
+                    <span className="gallery-tile-meta">View Ritual</span>
+                  </span>
+                </button>
+
+                <button
+                  className="gallery-tile"
+                  type="button"
+                  data-title="Calipso Cream"
+                  data-src="/assets/photos/calipso-v2.png"
+                >
+                  <img src="/assets/photos/calipso-v2.png" alt="Calipso Cream cocktail" loading="lazy" />
                   <span className="gallery-tile-overlay">
                     <span className="gallery-tile-name">Calipso Cream</span>
                     <span className="gallery-tile-meta">View Ritual</span>
@@ -325,15 +324,28 @@ export function GalleryPage() {
                   className="gallery-tile"
                   type="button"
                   data-title="Bésame"
-                  data-src="/assets/photos/generated-image-december-02-2025---8_22pm-46fGk8PKHFPTWN9T.jpeg"
+                  data-src="/assets/photos/besame-v2.png"
                 >
                   <img
-                    src="/assets/photos/generated-image-december-02-2025---8_22pm-46fGk8PKHFPTWN9T.jpeg"
+                    src="/assets/photos/besame-v2.png"
                     alt="Bésame cocktail"
                     loading="lazy"
                   />
                   <span className="gallery-tile-overlay">
                     <span className="gallery-tile-name">Bésame</span>
+                    <span className="gallery-tile-meta">View Ritual</span>
+                  </span>
+                </button>
+
+                <button
+                  className="gallery-tile"
+                  type="button"
+                  data-title="Negroni Verde"
+                  data-src="/assets/photos/negroni-verde.png"
+                >
+                  <img src="/assets/photos/negroni-verde.png" alt="Negroni Verde cocktail" loading="lazy" />
+                  <span className="gallery-tile-overlay">
+                    <span className="gallery-tile-name">Negroni Verde</span>
                     <span className="gallery-tile-meta">View Ritual</span>
                   </span>
                 </button>
@@ -344,7 +356,7 @@ export function GalleryPage() {
                   <span className="pos" id="gallery-pos">
                     01
                   </span>{' '}
-                  / 12
+                  / 13
                 </span>
                 <span>Drag · scroll · swipe</span>
               </div>
@@ -355,12 +367,12 @@ export function GalleryPage() {
         <section className="pp-band">
           <div className="container-narrow">
             <div className="pp-band-inner">
-              <span className="pp-band-eyebrow">The thirteenth composition</span>
+              <span className="pp-band-eyebrow">The fourteenth composition</span>
               <h2 className="pp-band-title">
                 Not on the wall yet. <span className="it">Compose your own.</span>
               </h2>
               <p className="pp-band-lead">
-                The twelve above were each built for one evening. Answer three sensory questions and the alchemist
+                The thirteen above were each built for one evening. Answer three sensory questions and the alchemist
                 composes a signature for yours - named, poured, and ready to commission.
               </p>
               <button className="pp-band-cta" type="button" onClick={() => setProfilerOpen(true)}>
@@ -371,6 +383,9 @@ export function GalleryPage() {
           </div>
         </section>
 
+      </main>
+
+      <div className="closing-segment">
         <section id="final-cta" className="numbered">
           <div className="container-narrow">
             <div className="final-cta final-cta--luxe reveal">
@@ -378,7 +393,6 @@ export function GalleryPage() {
               <span className="cta-corner cta-corner--tr" aria-hidden="true"></span>
               <span className="cta-corner cta-corner--bl" aria-hidden="true"></span>
               <span className="cta-corner cta-corner--br" aria-hidden="true"></span>
-              <p className="cta-eyebrow">Private Commission &middot; New York</p>
               <span className="ornament" aria-hidden="true">
                 &#10022;
               </span>
@@ -398,20 +412,37 @@ export function GalleryPage() {
             </div>
           </div>
         </section>
-      </main>
+        <SiteFooter />
+      </div>
 
-      {/* Lightbox - hidden by default, JS toggles .is-open */}
-      <div className="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+      {/* Recipe drawer - click a tile: photo left, recipe right. JS toggles .is-open */}
+      <div className="lightbox recipe-drawer" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
         <button className="lightbox-close" aria-label="Close" type="button">
           &times;
         </button>
-        <div className="lightbox-frame">
-          <img id="lightbox-image" alt="" />
-          <div className="lightbox-title" id="lightbox-title"></div>
+        <div className="rd-stage">
+          <figure className="rd-photo">
+            <img id="lightbox-image" alt="" />
+          </figure>
+          <div className="rd-card">
+            <h3 className="rd-title" id="lightbox-title"></h3>
+            <span className="rd-rule" aria-hidden="true"></span>
+            <p className="rd-spec" id="rd-spec"></p>
+            <div className="rd-cols">
+              <div className="rd-block" id="rd-ingredients-wrap">
+                <h4 className="rd-h">Ingredients</h4>
+                <ul className="rd-ingredients" id="rd-ingredients"></ul>
+              </div>
+              <div className="rd-block" id="rd-method-wrap">
+                <h4 className="rd-h">Method</h4>
+                <ol className="rd-method" id="rd-method"></ol>
+              </div>
+            </div>
+            <p className="rd-garnish" id="rd-garnish"></p>
+            <p className="rd-note" id="rd-note"></p>
+          </div>
         </div>
       </div>
-
-      <SiteFooter />
 
       <PalateProfiler open={profilerOpen} onClose={() => setProfilerOpen(false)} onCommission={commission} />
     </>

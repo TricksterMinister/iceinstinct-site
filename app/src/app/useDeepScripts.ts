@@ -7,6 +7,7 @@
    ================================================ */
 
 import { useEffect } from 'react';
+import { COCKTAIL_RECIPES } from '../data/cocktails';
 
 export function useDeepScripts(): void {
   useEffect(() => {
@@ -120,6 +121,50 @@ export function useDeepScripts(): void {
       const lbClose = lightbox.querySelector<HTMLElement>('.lightbox-close');
       const tiles = document.querySelectorAll<HTMLElement>('.gallery-tile');
 
+      const setList = (id: string, items: string[], ordered: boolean) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.innerHTML = '';
+        for (const item of items) {
+          const li = document.createElement('li');
+          li.textContent = item;
+          el.appendChild(li);
+        }
+        const wrap = document.getElementById(id + '-wrap');
+        if (wrap) wrap.style.display = items.length ? '' : 'none';
+        // ordered/unordered is already fixed by the markup (ol/ul); param kept for clarity
+        void ordered;
+      };
+
+      const fillRecipe = (title: string | null) => {
+        const r = title ? COCKTAIL_RECIPES[title] : undefined;
+        const spec = document.getElementById('rd-spec');
+        const garnish = document.getElementById('rd-garnish');
+        const note = document.getElementById('rd-note');
+        const cols = lightbox.querySelector<HTMLElement>('.rd-cols');
+
+        if (!r || (r.ingredients.length === 0 && r.method.length === 0)) {
+          // No full recipe yet - show the elegant pending note only.
+          setList('rd-ingredients', [], false);
+          setList('rd-method', [], true);
+          if (cols) cols.style.display = 'none';
+          if (spec) spec.textContent = '';
+          if (garnish) garnish.textContent = '';
+          if (note) note.textContent = (r && r.note) || 'The full recipe for this composition is shared in person.';
+          return;
+        }
+
+        if (cols) cols.style.display = '';
+        const specParts: string[] = [];
+        if (r.glass) specParts.push('Glass / ' + r.glass);
+        if (r.ice) specParts.push('Ice / ' + r.ice);
+        if (spec) spec.textContent = specParts.join('     ');
+        setList('rd-ingredients', r.ingredients, false);
+        setList('rd-method', r.method, true);
+        if (garnish) garnish.textContent = r.garnish ? 'Garnish / ' + r.garnish : '';
+        if (note) note.textContent = '';
+      };
+
       const openLightbox = (src: string | null, title: string | null) => {
         if (!src) return;
         if (lbImage) {
@@ -127,6 +172,7 @@ export function useDeepScripts(): void {
           lbImage.alt = title || '';
         }
         if (lbTitle) lbTitle.textContent = title || '';
+        fillRecipe(title);
         lightbox.classList.add('is-open');
         document.body.style.overflow = 'hidden';
       };

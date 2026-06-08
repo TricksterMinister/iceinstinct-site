@@ -14,7 +14,6 @@ export function Manifesto() {
           <p className="chapter-lead">is a private mixology experience where each encounter becomes a living performance - an alchemical dialogue between spirit, ice, and intention.</p>
 
           <div className="chapter-author">
-            <span className="author-eyebrow">Created and led by flavor alchemist</span>
             <span className="author-name"><span className="it">Teimuraz Benidze</span></span>
             <p className="author-credit">this experience transforms modern mixology into an art form - refined, intimate, and deeply sensory.</p>
           </div>

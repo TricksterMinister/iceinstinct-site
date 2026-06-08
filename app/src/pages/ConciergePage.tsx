@@ -72,7 +72,7 @@ export function ConciergePage() {
               <a href="/gallery/">
                 <i>05</i>
                 <b>The Collection</b>
-                <em>Twelve compositions</em>
+                <em>Thirteen compositions</em>
               </a>
             </li>
             <li>
@@ -133,7 +133,6 @@ export function ConciergePage() {
             CONCIERGE
           </div>
           <div className="container">
-            <span className="eyebrow">Concierge &amp; Enhancements</span>
             <h1>
               Augment any
               <br />
@@ -396,6 +395,9 @@ export function ConciergePage() {
           </div>
         </section>
 
+      </main>
+
+      <div className="closing-segment">
         {/* FINAL CTA */}
         <section id="final-cta">
           <div className="container-narrow">
@@ -404,7 +406,6 @@ export function ConciergePage() {
               <span className="cta-corner cta-corner--tr" aria-hidden="true"></span>
               <span className="cta-corner cta-corner--bl" aria-hidden="true"></span>
               <span className="cta-corner cta-corner--br" aria-hidden="true"></span>
-              <p className="cta-eyebrow">Private Commission &middot; New York</p>
               <span className="ornament" aria-hidden="true">
                 &#10022;
               </span>
@@ -427,9 +428,8 @@ export function ConciergePage() {
             </div>
           </div>
         </section>
-      </main>
-
-      <SiteFooter />
+        <SiteFooter />
+      </div>
     </>
   );
 }

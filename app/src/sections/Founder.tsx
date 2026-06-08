@@ -4,10 +4,9 @@ export function Founder() {
       <div className="section-bg-word right" aria-hidden="true">ALCHEMIST</div>
       <div className="founder-stage">
         <div className="founder-image" data-parallax="">
-          <video className="founder-video" autoPlay muted loop playsInline preload="auto" poster="/assets/video/alchemist-poster.webp">
-            <source src="/assets/video/alchemist-loop.webm?v=2" type="video/webm" />
-            <source src="/assets/video/alchemist-loop.mp4?v=2" type="video/mp4" />
-          </video>
+          {/* TEMP placeholder still (no video) until the final cinemagraph is made.
+              Replaced the old time-lapse video the owner disliked. */}
+          <img src="/assets/photos/founder-v6b.png" alt="The hand behind the ritual - the founder before the night Manhattan skyline" loading="lazy" />
           <div className="founder-image-scrim"></div>
         </div>
 
@@ -17,7 +16,7 @@ export function Founder() {
             <span className="line"><span className="it">behind</span></span>
             <span className="line"><span className="it">the ritual.</span></span>
           </blockquote>
-          <p className="founder-bio">Two decades distilled into a single evening. One man, four cities, one uncompromising standard - revealed in full, away from here.</p>
+          <p className="founder-bio">Two decades distilled into a single evening. One man, four cities, one uncompromising standard.</p>
           <a className="founder-link" href="/my-story/" data-cursor="link">Meet the Alchemist <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>

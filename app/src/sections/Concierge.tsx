@@ -4,7 +4,6 @@ export function Concierge() {
       <div className="section-bg-word right" aria-hidden="true">ENHANCE</div>
       <div className="concierge-stage">
         <div className="concierge-text">
-          <span className="concierge-eyebrow">Beyond the four levels</span>
           <h2 className="concierge-headline">The <span className="it">Concierge.</span></h2>
           <p className="concierge-lead">Five quiet enhancements that deepen the ritual. Each one pairs with any level - sourced personally, never bundled.</p>
           <ol className="concierge-index">

@@ -10,7 +10,7 @@ export function Tiers() {
             <span className="it">of service.</span>
           </h2>
           <p className="tiers-lead">
-            One uncompromising standard. Drag, scroll, swipe.
+            One uncompromising standard, four ways to begin.
           </p>
         </header>
 

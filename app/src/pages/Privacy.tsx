@@ -126,7 +126,6 @@ export function Privacy() {
         <section className="legal">
           <div className="container">
             <div className="legal-head">
-              <span className="eyebrow">Legal</span>
               <h1>Privacy Policy</h1>
               <p
                 className="muted"

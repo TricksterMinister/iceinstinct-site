@@ -126,7 +126,6 @@ export function Terms() {
         <section className="legal">
           <div className="container">
             <div className="legal-head">
-              <span className="eyebrow">Legal</span>
               <h1>Terms of Service</h1>
               <p
                 className="muted"

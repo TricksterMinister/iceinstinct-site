@@ -92,15 +92,14 @@ export function VanishHeader() {
           <span></span><span></span>
         </button>
         <div className="va-stage">
-          <p className="va-eyebrow">Ice &amp; Instinct / Chapters</p>
+          <p className="va-eyebrow">Ice &amp; Instinct / Menu</p>
           <ul className="va-list" ref={listRef}>
-            <li><a href="#hero" data-cursor="link"><i>01</i><b>Bridge</b><em>The opening view</em></a></li>
-            <li><a href="#manifesto" data-cursor="link"><i>02</i><b>The Brand</b><em>Not a bar. A studio.</em></a></li>
-            <li><a href="#tiers" data-cursor="link"><i>03</i><b>Offerings</b><em>Four levels, one standard</em></a></li>
-            <li><a href="#concierge" data-cursor="link"><i>04</i><b>Concierge</b><em>Five enhancements</em></a></li>
-            <li><a href="#founder" data-cursor="link"><i>05</i><b>The Alchemist</b><em>Teimuraz Benidze</em></a></li>
-            <li><a href="#gallery" data-cursor="link"><i>06</i><b>The Collection</b><em>Twelve compositions</em></a></li>
-            <li><a href="#closing" data-cursor="link"><i>07</i><b>Inquire</b><em>Begin the conversation</em></a></li>
+            <li><a href="/" data-cursor="link"><i>01</i><b>Home</b><em>The opening view</em></a></li>
+            <li><a href="/offerings/" data-cursor="link"><i>02</i><b>Offerings</b><em>Four levels, one standard</em></a></li>
+            <li><a href="/concierge/" data-cursor="link"><i>03</i><b>Concierge</b><em>Five enhancements</em></a></li>
+            <li><a href="/my-story/" data-cursor="link"><i>04</i><b>My Story</b><em>Teimuraz Benidze</em></a></li>
+            <li><a href="/gallery/" data-cursor="link"><i>05</i><b>The Collection</b><em>Thirteen compositions</em></a></li>
+            <li><a href="/contact/" data-cursor="link"><i>06</i><b>Inquire</b><em>Begin the conversation</em></a></li>
           </ul>
           <footer className="va-foot">
             <span>New York Metropolitan Area</span>

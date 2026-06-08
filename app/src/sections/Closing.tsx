@@ -8,7 +8,6 @@ export function Closing() {
           <span className="closing-corner tr" aria-hidden="true"></span>
           <span className="closing-corner bl" aria-hidden="true"></span>
           <span className="closing-corner br" aria-hidden="true"></span>
-          <span className="closing-eyebrow">Ice &amp; Instinct / By appointment</span>
           <h2 className="closing-title">Begin <span className="it">the conversation.</span></h2>
           <p className="closing-lead">Tell us about the evening - the date, the room, the guest count. A private quote within one business day.</p>
           <div className="closing-cta">

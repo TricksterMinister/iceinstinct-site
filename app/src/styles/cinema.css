@@ -125,7 +125,7 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 720px) { .pager { display: none; } }
 
 /* ========== HERO ========== */
-.hero { position: relative; height: 100dvh; display: grid; place-items: center; overflow: hidden; isolation: isolate; }
+.hero { position: relative; height: 100dvh; display: grid; place-items: center; align-content: center; overflow: hidden; isolation: isolate; }
 .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; filter: grayscale(100%) contrast(1.05); will-change: transform; }
 /* Bridge stays crisp. Sharp linear gradients only at top (for nav) and bottom 25% (so subtitle reads). */
 .hero-vignette { position: absolute; inset: 0; z-index: 2; background:
@@ -144,8 +144,10 @@ a { color: inherit; text-decoration: none; }
 .hero-eyebrow { display: none; }
 .hero-eyebrow .line { display: none; }
 
-/* Desktop: ONE line. The clamp scales font with viewport so 'Ice & Instinct.' always fits. */
-.hero-title { color: var(--c-fg); font-family: var(--f-display); font-size: clamp(4rem, 14vw, 22rem); line-height: 0.9; letter-spacing: -0.06em; display: flex; flex-direction: row; flex-wrap: nowrap; align-items: baseline; justify-content: center; column-gap: 0.32em; gap: 0; font-weight: 700; white-space: nowrap; }
+/* Desktop: ONE line. Sized so 'Ice & Instinct.' fits the line AND leaves room
+   below for the tagline (the old 14vw overflowed the line and pushed the stage
+   taller than the viewport, hiding the subtitle below the fold). */
+.hero-title { color: var(--c-fg); font-family: var(--f-display); font-size: clamp(3rem, 12vw, 16rem); line-height: 0.9; letter-spacing: -0.06em; display: flex; flex-direction: row; flex-wrap: nowrap; align-items: baseline; justify-content: center; column-gap: 0.32em; gap: 0; font-weight: 700; white-space: nowrap; }
 .hero-title .row { display: contents; }   /* desktop: rows transparent, all words on one line */
 .hero-title .row { display: flex; align-items: baseline; justify-content: center; column-gap: 0.32em; }
 .hero-title .word { display: inline-block; overflow: hidden; padding: 0 0.04em 0.12em; }
@@ -155,7 +157,9 @@ a { color: inherit; text-decoration: none; }
 .hero-title .it { color: var(--c-accent); }
 
 .hero-sub {
-  margin-top: clamp(1.6rem, 3.5vh, 3rem);
+  position: relative;
+  z-index: 6;            /* above the hero video/vignette/grain - was hidden behind the video on desktop */
+  margin-top: clamp(2.8rem, 6.5vh, 5.5rem);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -170,14 +174,13 @@ a { color: inherit; text-decoration: none; }
   color: var(--c-accent);
   text-transform: none;
   text-align: center;
-  /* dense layered shadow (no blur per brand rules) so it stays legible even over
-     the brightest part of the bridge video */
+  /* Jeweller's shadow: a tight halo outlines each glyph for crisp legibility over
+     the bright bridge video, then a soft short drop gives depth - hugs every
+     letter individually, never a slab or a dark cloud. */
   text-shadow:
-    0 0 1px rgba(0,0,0,1),
-    0 1px 2px rgba(0,0,0,1),
-    0 2px 10px rgba(0,0,0,0.96),
-    0 0 26px rgba(0,0,0,0.9),
-    0 0 52px rgba(0,0,0,0.72);
+    0 0 2px rgba(0,0,0,0.92),
+    0 1px 3px rgba(0,0,0,0.8),
+    0 3px 14px rgba(0,0,0,0.5);
 }
 .hero-sub .reveal-line { display: block; overflow: hidden; }
 .hero-sub .reveal-line > span { display: inline-block; }
@@ -297,6 +300,13 @@ a { color: inherit; text-decoration: none; }
   .tiers-rail { flex-direction: column; transform: none !important; height: auto; }
   .tiers-intro { flex: 0 0 auto; padding: 8rem 1.4rem 2rem; max-width: 100%; min-height: 60dvh; }
   .tier { flex: 0 0 auto; max-width: 100%; min-height: 95dvh; padding: 6rem 1.4rem; }
+
+  /* Mobile: each offering card is an un-skippable scroll stop. Without this, a
+     single swipe's native momentum glides straight past all four cards (Lenis
+     Snap is desktop-only). snap-stop:always forces the scroll to settle on the
+     next card so the guest can dwell on each one in turn. */
+  html { scroll-snap-type: y proximity; }
+  .tiers-intro, .tier { scroll-snap-align: start; scroll-snap-stop: always; }
 }
 
 /* ========== FOUNDER ========== */
@@ -486,12 +496,7 @@ a { color: inherit; text-decoration: none; }
     max-width: 74vw; z-index: 6; isolation: isolate;
     font-size: clamp(1.05rem, 4.6vw, 1.5rem); letter-spacing: -0.01em;
   }
-  /* soft dark corner-scrim (gradient, no blur) so the tagline always reads */
-  .hero-sub::before {
-    content: ""; position: absolute; z-index: -1; pointer-events: none;
-    right: -1.2rem; bottom: -1.2rem; width: 150%; height: 260%;
-    background: linear-gradient(315deg, rgba(0,0,0,0.62), rgba(0,0,0,0.3) 42%, transparent 70%);
-  }
+  /* No corner slab: legibility now comes from the per-glyph jeweller shadow. */
 
   .tier { min-height: 100dvh; padding: 4.5rem 1.2rem 2rem 1.2rem; }
   .tiers-intro { padding: 5.5rem 1.2rem 2rem; min-height: 70dvh; }

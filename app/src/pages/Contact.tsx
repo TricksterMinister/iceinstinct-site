@@ -112,7 +112,7 @@ export function Contact() {
               <a href="/gallery/">
                 <i>05</i>
                 <b>The Collection</b>
-                <em>Twelve compositions</em>
+                <em>Thirteen compositions</em>
               </a>
             </li>
             <li>
@@ -167,7 +167,6 @@ export function Contact() {
             INQUIRE
           </div>
           <div className="container">
-            <span className="eyebrow">Inquire</span>
             <h1>
               Begin the <span className="it">conversation.</span>
             </h1>
@@ -176,11 +175,12 @@ export function Contact() {
             </p>
           </div>
         </section>
+      </main>
 
+      <div className="inquire-close">
         <section className="inquire-invite">
           <div className="invite-inner reveal">
             <div className="invite-text">
-              <p className="invite-kicker">By appointment only</p>
               <p className="invite-line">
                 An evening,
                 <br />
@@ -197,9 +197,8 @@ export function Contact() {
             </div>
           </div>
         </section>
-      </main>
-
-      <SiteFooter />
+        <SiteFooter />
+      </div>
 
       {/* INQUIRY MODAL */}
       <div className="iq-modal" id="iq-modal" aria-hidden="true">
@@ -212,7 +211,6 @@ export function Contact() {
 
           <div className="iq-form">
             <header className="iq-head">
-              <p className="iq-eyebrow">Private Commission</p>
               <h2 id="iq-title">
                 Begin the <span className="it">conversation.</span>
               </h2>

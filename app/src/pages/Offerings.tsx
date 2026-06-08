@@ -72,7 +72,7 @@ export function Offerings() {
               <a href="/gallery/">
                 <i>05</i>
                 <b>The Collection</b>
-                <em>Twelve compositions</em>
+                <em>Thirteen compositions</em>
               </a>
             </li>
             <li>
@@ -132,7 +132,6 @@ export function Offerings() {
             OFFERINGS
           </div>
           <div className="container">
-            <span className="eyebrow">Offerings</span>
             <h1>
               Four distinct levels.
               <br />
@@ -221,6 +220,9 @@ export function Offerings() {
           </div>
         </section>
 
+      </main>
+
+      <div className="closing-segment">
         {/* ================ FINAL CTA ================ */}
         <section id="final-cta">
           <div className="container-narrow">
@@ -229,7 +231,6 @@ export function Offerings() {
               <span className="cta-corner cta-corner--tr" aria-hidden="true"></span>
               <span className="cta-corner cta-corner--bl" aria-hidden="true"></span>
               <span className="cta-corner cta-corner--br" aria-hidden="true"></span>
-              <p className="cta-eyebrow">Private Commission &middot; New York</p>
               <span className="ornament" aria-hidden="true">
                 &#10022;
               </span>
@@ -251,9 +252,8 @@ export function Offerings() {
             </div>
           </div>
         </section>
-      </main>
-
-      <SiteFooter />
+        <SiteFooter />
+      </div>
     </>
   );
 }

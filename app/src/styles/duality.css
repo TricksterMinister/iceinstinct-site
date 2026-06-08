@@ -161,7 +161,20 @@
   .word-h { opacity: 1 !important; position: relative; top: auto; left: auto; transform: none; }
   .d-restmark { display: none; }
   .ice-h, .inst-h { font-size: clamp(2.6rem, 13vw, 4.5rem); }
-  .d-sub { position: static; opacity: 1; transform: none; margin-top: 1.4rem; }
+
+  /* Symmetry: kill the desktop seam-hugging offsets so each word sits dead-centre
+     of its full-width panel, aligned to the centred ampersand connector. */
+  .pi .word-h, .pn .word-h { left: auto; right: auto; }
+
+  /* Readable, larger sub text. Full colour per side: ICE = white, Instinct =
+     champagne (the faint desktop opacities were near-invisible on phone). */
+  .d-sub { position: static; opacity: 1; transform: none; margin-top: 1.3rem; gap: 0.5rem; }
+  .d-sub-title { font-size: var(--t-step--1); }
+  .pi .d-sub-title { color: oklch(98% 0 0 / 0.92); }
+  .pn .d-sub-title { color: var(--c-accent); }
+  .d-sub-body { font-size: var(--t-step--1); letter-spacing: 0.1em; line-height: 1.7; }
+  .pi .d-sub-body { color: oklch(98% 0 0 / 0.84); }
+  .pn .d-sub-body { color: oklch(88% 0.06 95 / 0.86); }
 }
 
 @media (prefers-reduced-motion: reduce) {

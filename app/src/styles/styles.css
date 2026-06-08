@@ -2055,6 +2055,73 @@ img.reveal-zoom.is-in { transform: scale(1); }
 }
 .lightbox-close:hover { background: var(--c-fg); color: var(--c-bg); }
 
+/* ===== RECIPE DRAWER (gallery) - photo left, professional recipe card right === */
+.recipe-drawer { cursor: default; padding: clamp(1rem, 3vw, 3rem); }
+.rd-stage {
+  width: 100%; max-width: 1320px; max-height: 88vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 3vw, 3.5rem);
+  align-items: center; cursor: default;
+}
+.rd-photo {
+  margin: 0; align-self: stretch;
+  display: flex; align-items: center; justify-content: center;
+  max-height: 88vh; overflow: hidden;
+}
+.rd-photo img {
+  max-width: 100%; max-height: 88vh; width: auto; height: auto; object-fit: contain;
+  border: 1px solid color-mix(in oklch, var(--c-accent) 30%, transparent);
+}
+.rd-card {
+  align-self: center; max-height: 88vh; overflow-y: auto; padding-right: 0.5rem;
+  display: flex; flex-direction: column; gap: clamp(0.8rem, 2vh, 1.4rem);
+}
+.rd-title {
+  margin: 0; font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(1.9rem, 1.3rem + 2.2vw, 3.4rem); line-height: 1.02;
+  letter-spacing: -0.03em; color: var(--c-fg);
+}
+.rd-rule { display: block; width: 64px; height: 1px;
+  background: linear-gradient(90deg, var(--c-accent), transparent); }
+.rd-spec {
+  margin: 0; font-family: var(--font-mono); font-size: 0.7rem;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--c-accent);
+  white-space: pre-wrap;
+}
+.rd-cols { display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(1.2rem, 2.5vw, 2.6rem); margin-top: 0.4rem; }
+.rd-h {
+  margin: 0 0 0.7rem; font-family: var(--font-mono); font-size: 0.64rem;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--c-fg-faint);
+}
+.rd-ingredients, .rd-method { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.5rem; }
+.rd-ingredients li, .rd-method li {
+  font-family: var(--font-body); font-weight: 300;
+  font-size: clamp(0.92rem, 0.88rem + 0.2vw, 1.05rem); line-height: 1.45; color: oklch(80% 0 0);
+}
+.rd-method { counter-reset: step; }
+.rd-method li { counter-increment: step; padding-left: 1.6rem; position: relative; }
+.rd-method li::before {
+  content: counter(step); position: absolute; left: 0; top: 0;
+  font-family: var(--font-mono); font-size: 0.7rem; color: var(--c-accent);
+}
+.rd-garnish {
+  margin: 0; font-family: var(--font-mono); font-size: 0.66rem;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--c-fg-mute);
+}
+.rd-note {
+  margin: 0; font-family: var(--font-italic); font-style: italic;
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.25rem); line-height: 1.5; color: var(--c-accent);
+}
+.rd-spec:empty, .rd-garnish:empty, .rd-note:empty { display: none; }
+
+@media (max-width: 860px) {
+  .rd-stage { grid-template-columns: 1fr; max-height: 90vh; overflow-y: auto; align-items: start; gap: 1.4rem; }
+  .rd-photo img { max-height: 48vh; }
+  .rd-card { max-height: none; overflow: visible; }
+  .rd-cols { grid-template-columns: 1fr; }
+}
+
 /* ===== Contact form =============================================== */
 .contact-grid {
   display: grid;
@@ -2470,16 +2537,43 @@ img.reveal-zoom.is-in { transform: scale(1); }
 
 /* --- Philosophy quote (Ice / Instinct) ---
    Monochrome panel, no blur. Words reveal on scroll where supported. */
+@property --phil-angle { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+
 .philosophy-quote {
   position: relative;
+  isolation: isolate;
   margin: var(--s-md) 0;
   padding: clamp(40px, 6vw, 70px) clamp(24px, 4vw, 56px);
   text-align: center;
-  background: var(--c-bg-soft);
-  border: 1px solid var(--c-border);
-  border-top: 1px solid var(--c-border-bright);
-  border-bottom: 1px solid var(--c-border-bright);
-  box-shadow: 0 20px 60px oklch(0% 0 0 / 0.5);
+  background: linear-gradient(oklch(100% 0 0 / 0.018), transparent 60%);
+  /* constant thin champagne hairline (the frame is always visible) */
+  border: 1px solid color-mix(in oklch, var(--c-accent) 18%, transparent);
+  box-shadow: 0 34px 90px -44px oklch(0% 0 0 / 0.75);
+}
+/* A champagne blick that travels around the square like a running wave: a
+   rotating conic gradient masked to a 1.5px frame, with a soft champagne glow
+   from drop-shadow. No blur on the content - only the moving light glows. */
+.philosophy-quote::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  padding: 1.5px;
+  background: conic-gradient(from var(--phil-angle),
+    oklch(86% 0.06 95 / 0) 0deg,
+    oklch(86% 0.06 95 / 0) 250deg,
+    oklch(92% 0.07 93 / 0.85) 312deg,
+    oklch(99% 0.05 95 / 1) 330deg,
+    oklch(92% 0.07 93 / 0.85) 348deg,
+    oklch(86% 0.06 95 / 0) 360deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask-composite: exclude;
+  filter: drop-shadow(0 0 6px oklch(90% 0.06 95 / 0.5));
+  animation: phil-orbit 7s linear infinite;
+  pointer-events: none;
+}
+@keyframes phil-orbit { to { --phil-angle: 360deg; } }
+@media (prefers-reduced-motion: reduce) {
+  .philosophy-quote::before { animation: none; }
 }
 .philosophy-line {
   margin: 0 0 var(--s-md);
@@ -2499,9 +2593,12 @@ img.reveal-zoom.is-in { transform: scale(1); }
   letter-spacing: 0.08em;
   margin-bottom: var(--s-xs);
   color: var(--c-fg);
-  opacity: 0.55;
+  opacity: 0.9;
   transition: opacity var(--d-slow) var(--ease), letter-spacing var(--d-slow) var(--ease);
 }
+/* Two-colour split (site signature): ICE stays chalk, INSTINCT turns champagne -
+   the same Ice=white / Instinct=gold logic used in the Duality block. */
+.philosophy-line:nth-of-type(2) .philosophy-word { color: var(--c-accent); }
 
 /* Scroll-driven reveal where supported (improvement b - per Jhey).
    Each word fades to full chalk + relaxes its tracking as it crosses
@@ -2684,22 +2781,34 @@ img.reveal-zoom.is-in { transform: scale(1); }
    editorial-minimum invitation that opens the full form in a modal.
    Proportions are fixed; the form never crowds the page.
    ================================================================= */
-body.is-inquire .inquire-invite {
-  height: calc(50dvh - var(--gv-footer, 4.5rem));
-  min-height: 160px;
+/* Closing block: invitation + footer read as ONE viewport. The footer keeps its
+   natural size; the invitation flexes to fill the rest and centres - so the two
+   are perceived as a single unit, never a floating invite over a distant footer. */
+body.is-inquire .inquire-close {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+body.is-inquire .inquire-close .inquire-invite {
+  flex: 1 1 auto;
   display: flex;
   align-items: center;
-  padding: 0 var(--gutter, 1.5rem);
+  padding: clamp(2rem, 5vh, 4rem) var(--gutter, 1.5rem);
+}
+body.is-inquire .inquire-close .site-footer { flex: 0 0 auto; }
+/* Hero is its own full screen (was a 50dvh vp-split half that left dead space
+   once the invitation moved into the closing block). High specificity to beat
+   the .vp-split .page-hero 50dvh lock. */
+body.cinema-chrome.vp-split.is-inquire .page-hero {
+  height: 100dvh; min-height: 100dvh; max-height: none;
 }
 @media (max-width: 720px) {
-  /* On mobile the page scrolls; release the fixed height so the
-     invitation breathes and never collides with the footer below. */
-  body.is-inquire .inquire-invite {
-    height: auto;
-    min-height: 0;
+  body.is-inquire .inquire-close { min-height: 0; }
+  body.is-inquire .inquire-close .inquire-invite {
     padding-top: clamp(2.5rem, 9vh, 4rem);
     padding-bottom: clamp(2.5rem, 9vh, 4rem);
   }
+  body.cinema-chrome.vp-split.is-inquire .page-hero { height: auto; min-height: 100dvh; }
 }
 .invite-inner {
   max-width: var(--container, 1500px);
@@ -2893,16 +3002,38 @@ body.is-inquire .inquire-invite {
 }
 .story-cover-ghost {
   position: absolute;
-  right: -0.5rem; bottom: -0.14em;
+  left: 50%; bottom: -0.14em;
+  transform: translateX(-50%);
   font-family: var(--font-display);
   font-weight: 800;
   font-size: clamp(4rem, 17vw, 17rem);
   line-height: 0.8;
   letter-spacing: -0.05em;
   white-space: nowrap;
-  color: oklch(88% 0.06 95 / 0.16);
   user-select: none;
   pointer-events: none;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* Cursor-follow champagne glow on the ALCHEMIST ghost - same effect as the
+   offering-page hero ghosts. Two stacked copies: a faint base + a champagne
+   radial clipped to the letters that fades in and tracks the cursor. */
+.story-cover-ghost .hg-base { display: block; color: oklch(88% 0.06 95 / 0.16); transition: color 0.6s ease; }
+.story-cover-ghost .hg-glow {
+  position: absolute; inset: 0; display: block;
+  background: radial-gradient(circle 26vmin at var(--mx, 50%) var(--my, 50%),
+    oklch(96% 0.07 92 / 1) 0%,
+    oklch(89% 0.07 94 / 0.7) 24%,
+    oklch(86% 0.06 95 / 0) 52%);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
+  opacity: 0; transition: opacity 0.55s ease;
+  filter: drop-shadow(0 0 22px oklch(88% 0.06 95 / 0.35));
+}
+.story-cover-ghost.is-lit { transform: translateX(-50%) scale(1.012); }
+.story-cover-ghost.is-lit .hg-glow { opacity: 1; }
+.story-cover-ghost.is-lit .hg-base { color: oklch(80% 0.06 95 / 0.28); }
+@media (prefers-reduced-motion: reduce) {
+  .story-cover-ghost, .story-cover-ghost .hg-glow { transition: none; }
 }
 .story-cover-id {
   position: absolute;
@@ -2959,53 +3090,187 @@ body.is-inquire .inquire-invite {
 .story-open .story-lede strong { color: var(--c-fg); font-weight: 500; }
 
 @media (max-width: 720px) {
-  .story-cover-id { top: clamp(4rem, 12vh, 6rem); }
-  .story-cover-ghost { font-size: clamp(3.2rem, 22vw, 8rem); }
+  /* push the name clear of the menu button / notch */
+  .story-cover-id { top: clamp(5.5rem, 15vh, 8rem); }
+  /* centre the ghost so it bleeds evenly off both edges instead of clipping
+     the leading "A" against the left side */
+  .story-cover-ghost {
+    right: auto; left: 50%; transform: translateX(-50%);
+    bottom: 6vh;
+    font-size: clamp(3rem, 18vw, 6rem);
+  }
+  .story-cover-ghost.is-lit { transform: translateX(-50%) scale(1.012); }
 }
 
 /* =================================================================
    MY STORY - THE JOURNEY timeline + credentials
    ================================================================= */
-.story-journey .journey-head {
-  display: grid; gap: 0.8rem;
-  margin-bottom: clamp(2.2rem, 6vh, 3.6rem);
-  max-width: 26ch;
+.story-journey .journey-head { margin: 0; max-width: none; }
+
+/* THE JOURNEY - on a real monitor the whole segment is ONE viewport, horizontal:
+   the city photo fills the LEFT, the heading + four cities sit on the RIGHT.
+   Hovering a city cross-fades the photo. Narrow screens + touch fall back to a
+   stacked editorial list with each city's photo inline. Mono + champagne, no blur. */
+.journey-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: stretch;
+  height: min(76dvh, 760px);
 }
-.journey-rail { list-style: none; margin: 0; padding: 0; display: grid; }
+.journey-media { position: relative; height: 100%; }
+.journey-fig {
+  position: absolute; inset: 0; margin: 0; overflow: hidden;
+  border: 1px solid color-mix(in oklch, var(--c-accent) 42%, transparent);
+  box-shadow: 0 40px 120px -44px oklch(0% 0 0 / 0.85);
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.journey-fig.is-active { opacity: 1; }
+.journey-fig img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: grayscale(100%) contrast(1.05); display: block;
+}
+
+.journey-right {
+  display: flex; flex-direction: column; justify-content: center;
+  gap: clamp(1.4rem, 3.4vh, 2.8rem); min-width: 0; height: 100%;
+}
+
+.journey-rail { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
 .journey-stop {
+  padding: clamp(0.8rem, 1.8vh, 1.4rem) 0;
+  border-top: 1px solid oklch(100% 0 0 / 0.1);
+}
+.journey-stop:first-child { padding-top: 0; border-top: 0; }
+.journey-stop:last-child { border-bottom: 1px solid oklch(100% 0 0 / 0.1); }
+.journey-stop-img { display: none; }
+.journey-row {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: clamp(1.4rem, 4vw, 3.4rem);
-  align-items: start;
-  padding: clamp(1.5rem, 4vh, 2.5rem) 0;
-  border-top: 1px solid oklch(100% 0 0 / 0.1);
-  transition: border-color 0.4s var(--ease, ease);
+  gap: clamp(1.2rem, 2vw, 2.2rem);
+  align-items: baseline;
 }
-.journey-stop:last-child { border-bottom: 1px solid oklch(100% 0 0 / 0.1); }
-.journey-stop:hover { border-top-color: color-mix(in oklch, var(--c-accent) 45%, transparent); }
 .journey-no {
   font-family: var(--font-mono);
-  font-size: clamp(1.3rem, 0.9rem + 1.4vw, 2.2rem);
+  font-size: clamp(1.2rem, 0.9rem + 1.1vw, 1.9rem);
   line-height: 1;
   letter-spacing: 0.04em;
   color: var(--c-accent);
   opacity: 0.85;
 }
-.journey-body { display: grid; gap: 0.55rem; min-width: 0; }
+.journey-body { display: grid; gap: 0.35rem; min-width: 0; }
 .journey-city {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(1.7rem, 1.2rem + 1.9vw, 2.9rem);
+  font-size: clamp(1.5rem, 1rem + 1.5vw, 2.4rem);
   line-height: 1;
   letter-spacing: -0.03em;
   color: var(--c-fg);
+  transition: color 0.4s var(--ease, ease);
 }
+.journey-stop.is-active .journey-city { color: var(--c-accent); }
 .journey-note {
   margin: 0;
-  max-width: 62ch;
-  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.18rem);
-  line-height: 1.65;
+  max-width: 52ch;
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.1rem);
+  line-height: 1.5;
   color: oklch(72% 0 0);
+}
+
+/* Real monitor: centre the whole segment in exactly one viewport. */
+@media (min-width: 1100px) {
+  .story-journey { min-height: 100dvh; display: flex; align-items: center; }
+  .story-journey > .container { width: 100%; }
+}
+
+/* Narrow + touch: stacked, photo per city, natural height (not one viewport). */
+@media (max-width: 1099px), (hover: none) {
+  .story-journey { min-height: 0; display: block; }
+  .story-journey .journey-head { margin-bottom: clamp(2rem, 6vh, 3.4rem); max-width: 26ch; }
+  .journey-layout { grid-template-columns: 1fr; gap: 0; height: auto; }
+  .journey-media { display: none; }
+  .journey-right { display: block; height: auto; }
+  .journey-rail { display: block; }
+  .journey-stop { padding: clamp(2.2rem, 5vh, 3.2rem) 0; }
+  .journey-stop:first-child { padding-top: 0; }
+  .journey-stop-img {
+    display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover;
+    filter: grayscale(100%) contrast(1.05);
+    border: 1px solid color-mix(in oklch, var(--c-accent) 28%, transparent);
+    margin-bottom: 1.3rem;
+  }
+}
+
+/* ---- My Story: full-viewport segments (no orphan half-blocks floating in
+   black). Each statement owns its own screen, centred. ---- */
+#story-intro { min-height: 100dvh; display: flex; align-items: center; }
+#story-intro .container-narrow { width: 100%; }
+#story-intro .story-open { text-align: center; align-items: center; gap: clamp(1.8rem, 4vh, 3rem); }
+#story-intro .story-slogan {
+  max-width: 18ch; margin: 0 auto;
+  font-size: clamp(2.4rem, 1.4rem + 4vw, 5rem); line-height: 1.04;
+}
+#story-intro .story-lede {
+  max-width: 60ch; margin: 0 auto;
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.4rem);
+}
+
+#philosophy { min-height: 100dvh; display: flex; align-items: center; }
+#philosophy .container-narrow { width: 100%; }
+
+/* THE CLOSE - the human finale, merged into one artful viewport. Black-gold,
+   like the rest of the page. Statement left, credentials right. One viewport. */
+.story-close {
+  min-height: 100dvh; display: flex; align-items: center;
+  background: var(--c-bg); color: var(--c-fg);
+}
+.story-close-wrap {
+  width: 100%; max-width: 1500px; margin: 0 auto;
+  padding: clamp(3rem, 9vh, 7rem) clamp(1.6rem, 6vw, 6rem);
+  display: grid; grid-template-columns: 1.5fr 1fr;
+  gap: clamp(2.6rem, 6vw, 6rem); align-items: center;
+}
+.story-close-prose {
+  margin: 0 0 clamp(1.8rem, 4vh, 2.8rem); max-width: 42ch;
+  font-family: var(--font-body); font-weight: 300;
+  font-size: clamp(1.05rem, 1rem + 0.4vw, 1.3rem); line-height: 1.65;
+  color: oklch(72% 0 0);
+}
+.story-close-statement {
+  margin: 0; font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(2.2rem, 1.4rem + 3.4vw, 4.6rem); line-height: 1.02;
+  letter-spacing: -0.03em; color: var(--c-fg);
+}
+.story-close-statement .it {
+  font-family: var(--font-italic); font-style: italic; font-weight: 350;
+  color: var(--c-accent);
+}
+.story-close-creds {
+  display: grid; gap: clamp(1.8rem, 4vh, 2.6rem);
+  border-left: 1px solid color-mix(in oklch, var(--c-accent) 28%, transparent);
+  padding-left: clamp(1.8rem, 3vw, 3rem);
+}
+.story-close-creds .cred-k { color: var(--c-accent); }
+.story-close-creds .cred-v { color: oklch(72% 0 0); }
+@media (max-width: 900px) {
+  .story-close-wrap { grid-template-columns: 1fr; gap: clamp(2.2rem, 5vh, 3rem); }
+  .story-close-creds {
+    border-left: 0; padding-left: 0;
+    border-top: 1px solid color-mix(in oklch, var(--c-accent) 28%, transparent);
+    padding-top: clamp(1.8rem, 4vh, 2.4rem);
+  }
+}
+
+/* FAQ: one viewport, heading + two compact columns of questions. */
+@media (min-width: 1100px) {
+  #faq { min-height: 100dvh; display: flex; align-items: center; }
+  #faq .container-narrow { max-width: 1180px; width: 100%; }
+  #faq .section-head { margin-bottom: clamp(1.4rem, 3vh, 2.4rem); }
+  #faq .faq-list {
+    display: grid; grid-template-columns: 1fr 1fr;
+    column-gap: clamp(2.5rem, 4vw, 4.5rem); align-items: start;
+  }
 }
 
 .story-cred-sec .journey-cred {
@@ -3035,48 +3300,10 @@ body.is-inquire .inquire-invite {
    across all browsers (native <details> otherwise snaps). */
 .faq-answer { transition: height 0.42s cubic-bezier(0.22, 1, 0.36, 1); }
 
-/* Journey rows answer the cursor - a quiet slide-right + lift */
-.journey-stop .journey-no,
-.journey-stop .journey-city,
-.journey-stop .journey-note {
-  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-              color 0.4s var(--ease, ease),
-              opacity 0.4s var(--ease, ease);
-}
-.journey-stop:hover .journey-no { transform: translateX(5px); opacity: 1; }
-.journey-stop:hover .journey-city { transform: translateX(9px); }
-.journey-stop:hover .journey-note { transform: translateX(9px); color: oklch(82% 0 0); }
-
 @media (prefers-reduced-motion: reduce) {
   .faq-answer { transition: none; }
-  .journey-stop .journey-no,
-  .journey-stop .journey-city,
-  .journey-stop .journey-note { transition: none; }
+  .journey-fig { transition: none; }
 }
-
-/* Journey cursor-following image reveal (ported from a 21st.dev idea,
-   rebuilt vanilla and in-brand: B&W, champagne hairline, sharp, no blur) */
-.journey-reveal {
-  position: fixed;
-  top: 0; left: 0;
-  width: clamp(190px, 17vw, 290px);
-  aspect-ratio: 3 / 4;
-  margin: 0;
-  z-index: 60;
-  pointer-events: none;
-  overflow: hidden;
-  opacity: 0;
-  border: 1px solid color-mix(in oklch, var(--c-accent) 55%, transparent);
-  box-shadow: 0 30px 80px -30px oklch(0% 0 0 / 0.8);
-}
-.journey-reveal img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  filter: grayscale(100%) contrast(1.05);
-  display: block;
-}
-@media (max-width: 900px), (hover: none) { .journey-reveal { display: none; } }
-@media (prefers-reduced-motion: reduce) { .journey-reveal { display: none; } }
 
 /* ---------------------------------------------------------------------------
    MOBILE TAP TARGETS - give the key card / shelf actions a comfortable touch

@@ -65,6 +65,27 @@ export function useMyStory(): void {
         });
       }
 
+      /* ---------- COVER GHOST: champagne light tracks the cursor over ALCHEMIST,
+         identical to the offering-page hero ghosts. Desktop pointer only. ---------- */
+      const coverGhost = document.querySelector<HTMLElement>('.story-cover-ghost');
+      const coverEl = document.querySelector<HTMLElement>('.story-cover');
+      if (coverGhost && coverEl && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        const onGhostMove = (e: PointerEvent) => {
+          const r = coverGhost.getBoundingClientRect();
+          const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+          coverGhost.classList.toggle('is-lit', inside);
+          if (inside) {
+            coverGhost.style.setProperty('--mx', `${((e.clientX - r.left) / r.width) * 100}%`);
+            coverGhost.style.setProperty('--my', `${((e.clientY - r.top) / r.height) * 100}%`);
+          }
+        };
+        const onGhostLeave = () => coverGhost.classList.remove('is-lit');
+        coverEl.addEventListener('pointermove', onGhostMove);
+        coverEl.addEventListener('pointerleave', onGhostLeave);
+        cleanups.push(() => coverEl.removeEventListener('pointermove', onGhostMove));
+        cleanups.push(() => coverEl.removeEventListener('pointerleave', onGhostLeave));
+      }
+
       /* ---------- JOURNEY: stops cascade in, numbers slide ---------- */
       gsap.utils.toArray<HTMLElement>('.journey-stop').forEach((stop) => {
         const tl = gsap.timeline({ scrollTrigger: { trigger: stop, start: 'top 86%' } });
@@ -73,37 +94,23 @@ export function useMyStory(): void {
           .from(stop.querySelector('.journey-city'), { y: 18, opacity: 0, duration: 0.8, ease: EXPO }, 0.12);
       });
 
-      /* ---------- JOURNEY: cursor-following image reveal ---------- */
-      const rail = document.querySelector<HTMLElement>('[data-journey-rail]');
-      const reveal = document.querySelector<HTMLElement>('.journey-reveal');
-      if (rail && reveal && window.matchMedia('(hover: hover)').matches) {
-        const rimg = reveal.querySelector('img');
-        gsap.set(reveal, { xPercent: -50, yPercent: -50, scale: 0.65, opacity: 0 });
-        const rx = gsap.quickTo(reveal, 'x', { duration: 0.6, ease: 'power3.out' });
-        const ry = gsap.quickTo(reveal, 'y', { duration: 0.6, ease: 'power3.out' });
-        const onRailMove = (e: MouseEvent) => {
-          rx(e.clientX);
-          ry(e.clientY);
+      /* ---------- JOURNEY: hovering a city cross-fades the left photo ----------
+         The segment is one viewport (photo left, cities right); hovering a city
+         row fades its framed photo in and highlights the row. Desktop pointer
+         only - touch shows each city's inline photo instead (see CSS). */
+      const figs = gsap.utils.toArray<HTMLElement>('.journey-fig');
+      const journeyStops = gsap.utils.toArray<HTMLElement>('.journey-stop');
+      if (figs.length && journeyStops.length && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        const setActiveCity = (idx: number) => {
+          figs.forEach((f, k) => f.classList.toggle('is-active', k === idx));
+          journeyStops.forEach((s, k) => s.classList.toggle('is-active', k === idx));
         };
-        rail.addEventListener('mousemove', onRailMove);
-        cleanups.push(() => rail.removeEventListener('mousemove', onRailMove));
-
-        rail.querySelectorAll<HTMLElement>('.journey-stop').forEach((stop) => {
-          const onEnter = () => {
-            const src = stop.getAttribute('data-img');
-            if (!src) return;
-            if (rimg && rimg.getAttribute('src') !== src) rimg.setAttribute('src', src);
-            gsap.to(reveal, { opacity: 1, scale: 1, duration: 0.5, ease: EXPO });
-          };
+        setActiveCity(0);
+        journeyStops.forEach((stop, i) => {
+          const onEnter = () => setActiveCity(i);
           stop.addEventListener('mouseenter', onEnter);
           cleanups.push(() => stop.removeEventListener('mouseenter', onEnter));
         });
-
-        const onRailLeave = () => {
-          gsap.to(reveal, { opacity: 0, scale: 0.65, duration: 0.4, ease: 'power3.out' });
-        };
-        rail.addEventListener('mouseleave', onRailLeave);
-        cleanups.push(() => rail.removeEventListener('mouseleave', onRailLeave));
       }
 
       /* ---------- PHILOSOPHY: the two words land with weight ---------- */

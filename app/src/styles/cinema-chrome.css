@@ -295,6 +295,18 @@ body.cinema-chrome.closer .footer {
   padding: clamp(0.6rem, 1.5vh, 1.4rem) 0;
 }
 
+/* The closing block: #final-cta + footer = ONE viewport. The footer keeps its
+   own natural size; the CTA flexes to fill the rest, so the two read as a single
+   unit. Replaces the old calc that assumed a 4.5rem footer while the real
+   oma-close footer is ~38vh (which split them across two screens with a gap). */
+body.cinema-chrome.closer .closing-segment { min-height: 100dvh; display: flex; flex-direction: column; }
+body.cinema-chrome.closer .closing-segment #final-cta { flex: 1 1 auto; min-height: 0; }
+body.cinema-chrome.closer .closing-segment .site-footer { flex: 0 0 auto; }
+@media (max-width: 720px) {
+  body.cinema-chrome.closer .closing-segment { min-height: 0; }
+  body.cinema-chrome.closer .closing-segment #final-cta { min-height: 60dvh; }
+}
+
 @media (max-width: 720px) {
   /* On mobile, drop the 50/50 lock; let content breathe vertically */
   body.cinema-chrome.is-gallery .page-hero { height: auto; min-height: 60dvh; }

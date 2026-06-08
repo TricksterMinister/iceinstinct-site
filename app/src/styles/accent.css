@@ -11,6 +11,35 @@
   --c-accent-line: oklch(58% 0.08 90);   /* darkest, used for thin separators on dark bg */
 }
 
+/* =========================================================================
+   SIGNATURE HEADINGS (site-wide) - every heading's italic accent renders as a
+   champagne gradient with a slow travelling shine: white display word + this
+   gold-shimmer word, the brand's two-colour heading style. Deep-champagne base
+   so it reads on BOTH dark and light segments; bright champagne band sweeps
+   across (no yellow/brass - stays champagne). !important to win over the many
+   per-component `.it { color }` rules. Also exposed as the .gold-shine class.
+   Reduced-motion is handled by the global guard below (the shine simply stops).
+   ========================================================================= */
+.gold-shine,
+:is(h1, h2, h3, h4) .it {
+  background-image: linear-gradient(100deg,
+    var(--c-accent-line) 0%,
+    var(--c-accent-line) 40%,
+    oklch(95% 0.045 92) 50%,
+    var(--c-accent-line) 60%,
+    var(--c-accent-line) 100%);
+  background-size: 220% 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  animation: gold-shine-sweep 5.5s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+}
+@keyframes gold-shine-sweep {
+  0% { background-position: 110% 0; }
+  60%, 100% { background-position: -110% 0; }
+}
+
 /* Accessibility: respect prefers-reduced-motion site-wide. Loaded on every
    page, so this neutralises all CSS animations/transitions for users who ask
    for reduced motion. (GSAP/Lenis motion is gated separately in JS.) */
