@@ -170,8 +170,8 @@ export function Terms() {
 
               <h2>3. Pricing &amp; payment</h2>
               <p>
-                Pricing is bespoke per event and confirmed in writing. We typically take a 50% deposit at booking and 50%
-                on the day of service, unless otherwise agreed. Currency is USD.
+                Pricing is bespoke per event and confirmed in writing. A flat $500 deposit reserves your date; the
+                remaining balance is due before the event, unless otherwise agreed. Currency is USD.
               </p>
 
               <h2>4. Cancellation</h2>
@@ -183,9 +183,10 @@ export function Terms() {
 
               <h2>5. What's included</h2>
               <p>
-                Each tier includes the items listed at the time of quote: bartender service, base spirits, glassware,
-                ice, mixers, garnishes, setup, and breakdown. Specific brand-name spirits, additional staff beyond the
-                included headcount, and add-on services (cigars, custom glassware) are billed separately when applicable.
+                Each tier includes the items listed at the time of quote: bartender service, tools, bar setup, and
+                breakdown. Spirits and wine are provided by you or sourced on your behalf at supplier cost. Specialty
+                ice, curated glassware, additional staff, and add-on services (cigars, custom glassware) are arranged
+                through the Concierge and billed separately at supplier cost.
               </p>
 
               <h2>6. Client responsibilities</h2>
