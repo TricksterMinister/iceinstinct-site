@@ -1,7 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34">
-  <rect width="34" height="34" fill="#0d1117"/>
-  <path d="M17 6 L23 12 L17 18 L11 12 Z" stroke="#dfe6ee" stroke-width="1.2" fill="none"/>
-  <path d="M10 14 L17 22 L24 14" stroke="#dfe6ee" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <line x1="17" y1="22" x2="17" y2="28" stroke="#dfe6ee" stroke-width="1.2" stroke-linecap="round"/>
-  <line x1="13.5" y1="28" x2="20.5" y2="28" stroke="#dfe6ee" stroke-width="1.2" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <radialGradient id="ember" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffce8a"/>
+      <stop offset="40%" stop-color="#ff7a1a"/>
+      <stop offset="100%" stop-color="#ff7a1a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="100" height="100" rx="16" fill="#0c0b0a"/>
+  <circle cx="50" cy="50" r="15" fill="url(#ember)"/>
+  <g fill="none" stroke="#c9a24a" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round">
+    <polygon points="50,14 84,32 84,68 50,86 16,68 16,32"/>
+    <path d="M50,50 L50,14 M50,50 L16,68 M50,50 L84,68"/>
+  </g>
+  <circle cx="50" cy="50" r="2.4" fill="#ffe2b0"/>
 </svg>
