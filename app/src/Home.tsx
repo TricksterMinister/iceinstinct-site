@@ -13,7 +13,6 @@ import { Concierge } from './sections/Concierge';
 import { Founder } from './sections/Founder';
 import { GalleryTeaser } from './sections/GalleryTeaser';
 import { Faq } from './sections/Faq';
-import { Proof } from './sections/Proof';
 import { Closing } from './sections/Closing';
 import { SiteFooter } from './sections/SiteFooter';
 
@@ -39,8 +38,6 @@ function HomeContent() {
           where the portal leads. */}
       <Duality />
       <Faq />
-      {/* Proof renders nothing until real testimonials are added. */}
-      <Proof />
       {/* Begin CTA + Footer read as ONE final segment, one viewport. */}
       <div className="closing-segment">
         <Closing />

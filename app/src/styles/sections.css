@@ -1,5 +1,5 @@
 /* ICE & INSTINCT / additive sections
-   Pricing note, FAQ, and Proof. Authored to render correctly on BOTH the home
+   Pricing note and FAQ. Authored to render correctly on BOTH the home
    page (cinema.css tokens: --f-display / --c-fg-mute / --t-step-*) and the
    Offerings page (styles.css tokens: --font-display / --c-fg-muted / --t-*),
    via layered var() fallbacks. Strict monochrome + bronze accent, no blur. */
@@ -161,95 +161,6 @@
 @keyframes faq-reveal {
   from { opacity: 0; transform: translateY(-6px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-/* ===================== PROOF ===================== */
-.proof {
-  position: relative;
-  background: var(--c-bg);
-  overflow: hidden;
-  isolation: isolate;
-  padding: clamp(5rem, 12vh, 9rem) clamp(1.4rem, 5vw, 6rem);
-}
-.proof-stage {
-  max-width: 72rem;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-.proof-intro { margin-bottom: clamp(2.6rem, 6vh, 4.5rem); }
-.proof-headline {
-  font-family: var(--sec-display);
-  font-weight: 700;
-  font-size: clamp(2.6rem, 1.8rem + 4.6vmin, 5.4rem);
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: var(--c-fg);
-}
-.proof-headline span { display: block; }
-.proof-headline span.it {
-  font-family: var(--sec-italic);
-  font-style: italic;
-  text-transform: none;
-  font-weight: 350;
-  color: var(--c-accent);
-  letter-spacing: 0;
-}
-
-.proof-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  gap: clamp(1.4rem, 3vw, 2.4rem);
-}
-.proof-card {
-  margin: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-  padding: clamp(1.8rem, 3vw, 2.6rem);
-  background: var(--c-bg-soft, oklch(11% 0 0));
-  border: 1px solid color-mix(in oklab, var(--sec-rule) 80%, transparent);
-}
-.proof-quote p {
-  font-family: var(--sec-italic);
-  font-style: italic;
-  font-weight: 350;
-  font-size: clamp(1.1rem, 0.95rem + 0.7vw, 1.5rem);
-  line-height: 1.5;
-  color: var(--c-fg);
-}
-.proof-meta {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  column-gap: 1rem;
-  row-gap: 0.2rem;
-  margin-top: auto;
-}
-.proof-photo {
-  grid-row: 1 / span 2;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  object-fit: cover;
-  filter: grayscale(100%) contrast(1.04);
-}
-.proof-name {
-  font-family: var(--sec-mono);
-  font-size: clamp(0.7rem, 0.67rem + 0.15vmin, 0.78rem);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--c-fg);
-}
-.proof-event {
-  font-family: var(--sec-mono);
-  font-size: clamp(0.7rem, 0.67rem + 0.15vmin, 0.78rem);
-  letter-spacing: 0.14em;
-  color: var(--sec-faint);
 }
 
 @media (max-width: 720px) {
