@@ -54,7 +54,7 @@
 - [ ] **S9 Four Cities** (my-story) - brainstorm then build.
 - [ ] **S10 Gallery recipe drawer** - brainstorm then build.
 - [ ] **S11 Duality** (home chapter 02) - brainstorm (owner directs) then build.
-- [ ] **S7 Code review** - whole branch, fix all critical/high.
+- [ ] **S7 Code review** - whole branch, fix all critical/high. KNOWN BACKLOG from the 2026-06-07 review (non-blocking, address here): (a) self-host the 2 `framerusercontent.com` images used by `EtherealShadow.tsx` (also drop them from CSP img-src) - overlaps S5; (b) harden CSP: move the inline `gtag('config')` into a Vite-bundled file and remove `script-src 'unsafe-inline'`; (c) remove dead `.footer` CSS rules in `footer.css` (old Footer.tsx was deleted); (d) scope `cinema-chrome.css` `html{scroll-snap-type:y proximity}` to `body.cinema-chrome.vp-split` (currently global - desktop gallery/contact get unintended proximity snap); (e) re-glance prerender.mjs head-regex hardening. (Already FIXED in 89b2127: JSON-LD region wording, radial->linear hero scrim, overflow-x clip on html, modal focus.)
 - [ ] **S8 QA on real device** - owner tests phone + desktop; scroll-jank question resolved.
 - [ ] **Stage 3 Cutover** - backup, build, dist -> repo root, staging verify, merge to main (owner ok), live verify, rollback ready.
 
