@@ -20,7 +20,15 @@ const ROMAN_LOWER = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii'];
  * Simplicity / Bespoke; only the data + media differ.
  */
 export function OfferingPage({ content }: { content: OfferingContent }) {
-  const pkg = `/contact/?package=${content.slug}`;
+  // Each offering page links straight to its package on the booking platform
+  // (YouCanBook.me), pre-selecting the matching appointment type.
+  const BOOKING_SERVICE: Record<OfferingContent['slug'], string> = {
+    foundation: 'jsid7240294',
+    simplicity: 'jsid2226283',
+    bespoke: 'jsid1887721',
+    omakase: 'jsid1437636',
+  };
+  const pkg = `https://enter-ritual.youcanbook.me/?service=${BOOKING_SERVICE[content.slug]}`;
 
   // Live deep page sets <body class="cinema-chrome">.
   useEffect(() => {
