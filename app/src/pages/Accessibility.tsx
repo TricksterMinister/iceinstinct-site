@@ -2,7 +2,7 @@ import { LegalShell } from './legal/LegalShell';
 
 export function Accessibility() {
   return (
-    <LegalShell label="Accessibility" title="Accessibility Statement" updated="June 8, 2026" current="/accessibility/">
+    <LegalShell label="Accessibility" title="Accessibility Statement" updated="June 8, 2026">
       <h2>1. Our commitment</h2>
       <p>
         Ice &amp; Instinct is committed to making <a href="https://www.iceinstinct.com/">www.iceinstinct.com</a> usable

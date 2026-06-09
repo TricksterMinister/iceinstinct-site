@@ -7,25 +7,14 @@ import { EyebrowMark, TriggerMark } from '../../app/EyebrowMark';
 
 /** All legal pages (Privacy, Terms, Cookies, Accessibility, Responsible
  *  Service) share one shell: the cinema-chrome cursor/menu/header, the
- *  .legal section wrapper, a cross-link row to the sibling policies, and the
- *  global footer. Each page passes only its label, title, updated date, and
- *  body. Keeps the legal section consistent and DRY. */
-
-type LegalLink = { href: string; label: string };
-
-const LEGAL_LINKS: LegalLink[] = [
-  { href: '/privacy/', label: 'Privacy' },
-  { href: '/terms/', label: 'Terms' },
-  { href: '/cookies/', label: 'Cookies' },
-  { href: '/accessibility/', label: 'Accessibility' },
-  { href: '/responsible-service/', label: 'Responsible Service' },
-];
+ *  .legal section wrapper, and the global footer. Links to the legal pages
+ *  live ONLY in the footer (no in-page cross-link row). Each page passes only
+ *  its label, title, updated date, and body. Keeps the section DRY. */
 
 export function LegalShell({
   label,
   title,
   updated,
-  current,
   children,
 }: {
   /** Short page label shown in the menu eyebrow, e.g. "Privacy". */
@@ -34,8 +23,6 @@ export function LegalShell({
   title: string;
   /** Human "Last updated" date, e.g. "June 8, 2026". */
   updated: string;
-  /** href of THIS page so it is omitted from the cross-link row. */
-  current: string;
   children: ReactNode;
 }) {
   useEffect(() => {
@@ -172,14 +159,6 @@ export function LegalShell({
             </div>
 
             <div className="legal-body">{children}</div>
-
-            <nav className="legal-links" aria-label="Legal">
-              {LEGAL_LINKS.filter((l) => l.href !== current).map((l) => (
-                <a key={l.href} href={l.href}>
-                  {l.label}
-                </a>
-              ))}
-            </nav>
           </div>
         </section>
       </main>

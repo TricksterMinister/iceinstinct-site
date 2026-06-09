@@ -2,7 +2,7 @@ import { LegalShell } from './legal/LegalShell';
 
 export function CookiePolicy() {
   return (
-    <LegalShell label="Cookies" title="Cookie Policy" updated="June 8, 2026" current="/cookies/">
+    <LegalShell label="Cookies" title="Cookie Policy" updated="June 8, 2026">
       <h2>1. What cookies are</h2>
       <p>
         Cookies are small text files a website stores on your device to make it work, remember preferences, or measure

@@ -2,7 +2,7 @@ import { LegalShell } from './legal/LegalShell';
 
 export function Privacy() {
   return (
-    <LegalShell label="Privacy" title="Privacy Policy" updated="June 8, 2026" current="/privacy/">
+    <LegalShell label="Privacy" title="Privacy Policy" updated="June 8, 2026">
       <h2>1. Who we are</h2>
       <p>
         Ice &amp; Instinct ("we", "us", "our") is a private mixology and at-home bartending service operated by{' '}

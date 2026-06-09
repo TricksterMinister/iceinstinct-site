@@ -6,7 +6,6 @@ export function ResponsibleService() {
       label="Responsible Service"
       title="Responsible Service & Alcohol Policy"
       updated="June 8, 2026"
-      current="/responsible-service/"
     >
       <h2>1. Purpose</h2>
       <p>
