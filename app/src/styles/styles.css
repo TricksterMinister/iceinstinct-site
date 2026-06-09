@@ -3179,12 +3179,15 @@ img.reveal-zoom.is-in { transform: scale(1); }
    the city photo fills the LEFT, the heading + four cities sit on the RIGHT.
    Hovering a city cross-fades the photo. Narrow screens + touch fall back to a
    stacked editorial list with each city's photo inline. Mono + champagne, no blur. */
+/* The journey breaks out of the 1320px container to use the full screen - a big
+   luxurious photo on the left, generous text on the right, no narrow centre columns. */
+.story-journey .container { max-width: none; padding-inline: clamp(1.6rem, 5vw, 6rem); }
 .journey-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
-  gap: clamp(2.5rem, 5vw, 5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(3rem, 6vw, 7rem);
   align-items: stretch;
-  height: min(88dvh, 900px);
+  height: min(88dvh, 920px);
 }
 .journey-media { position: relative; height: 100%; }
 .journey-fig {
@@ -3242,9 +3245,9 @@ img.reveal-zoom.is-in { transform: scale(1); }
 .journey-stop.is-active .journey-city { color: var(--c-accent); }
 .journey-note {
   margin: 0;
-  max-width: 52ch;
-  font-size: clamp(0.92rem, 0.88rem + 0.18vw, 1.02rem);
-  line-height: 1.45;
+  max-width: 60ch;
+  font-size: clamp(0.95rem, 0.9rem + 0.25vw, 1.12rem);
+  line-height: 1.55;
   color: oklch(72% 0 0);
 }
 
