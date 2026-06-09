@@ -51,11 +51,11 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   '/offerings/foundation/': {
     title: "The Foundation - Ice & Instinct, from $650",
     description:
-      "The Essential service tier from Ice & Instinct. Impeccable drinks, professional bartender from our trained collective. From $650, up to 15 guests, 3 hours. New York.",
+      "The Foundation tier from Ice & Instinct. Impeccable drinks, delivered by a bartender from the founder's own circle - hand-picked and trusted. From $650, up to 15 guests, 3 hours. New York.",
     canonical: `${SITE}/offerings/foundation/`,
     ogTitle: "The Foundation - Ice & Instinct, from $650",
     ogDescription:
-      "Impeccable drinks, professional presence, seamless execution. The accessible entry point to the Ice & Instinct standard.",
+      "Impeccable drinks, professional presence, seamless execution. The most intimate way to experience the Ice & Instinct standard.",
     ogImage: "/assets/og/foundation.png",
     jsonLd: [tierService("foundation")],
   },
