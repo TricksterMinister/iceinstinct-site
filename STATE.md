@@ -2,6 +2,36 @@
 
 > Single source of truth for "where are we". Updated at the end of each session. Keep it SHORT.
 
+## SESSION 2026-06-09 (handoff - READ FIRST)
+Worked in worktree `.claude/worktrees/eloquent-hawking-d17d2e` (branch `claude/eloquent-hawking-d17d2e`). All work committed + pushed to `main` (HEAD f0cc872) + LIVE (push to main auto-deploys Hostinger).
+
+**OWNER RULES learned this session (obey):**
+- NEVER open local browser tabs/previews on his desktop (chrome-devtools/Claude_Preview tabs clutter his screen). Build -> deploy -> he reviews on the LIVE site. Verify via `curl` only.
+- Cache: HTML is now `no-cache` (.htaccess) so deploys appear at once. But STABLE-NAME assets (images, favicon) are cached 30 days - when you CHANGE an image keep-name, BUST it: rename (e.g. `-v2`->`-v3`) or add `?v=N` to the link. Hostinger auto-converts PNG->JPEG on the fly (smaller bytes, same pixels - not a bug).
+- No em/en dashes anywhere (hook blocks). Owner curates copy; do not invent his biography/recipes.
+
+**DONE this session (all live):**
+- Inquire page rebuilt = offering closing-segment standard (light Свет-1 card + form), ONE viewport, GLOBAL footer untouched. No public email; Send = mailto.
+- Legal: added Cookie Policy, Accessibility, Responsible Service (+ updated Privacy GA4/CCPA, Terms 21+/dram-shop/indemnity). Shared `LegalShell`. Links ONLY in footer.
+- Favicon -> cube logo (`favicon.svg` embeds cube; ?v=2).
+- Collection (13 gallery cocktails): recipes hidden -> gastronomic PROFILE (3 champagne "pins" + literary note), grounded in each photo + owner's words. `cocktails.ts` = COCKTAIL_PROFILES.
+- Basil in my mind tile image regenerated (real basil smash).
+- Home: FAQ / pricing-note(SCALE breather) / Proof(Review) each = full 100svh segment; pricing-note got headline "Built to scale.".
+- TYPOGRAPHY STANDARDIZED site-wide: 4 role tokens in `accent.css` (--t-hero 173 / --t-hero-2 166 / --t-h1 112 / --t-h2 74; --seg-h aliases --t-h2). Spec+audit: `docs/TYPE-SCALE.md`. Package A "Cinematic" chosen.
+- My Story "Five cities" -> **FIVE** (added Sukhumi first; owner's verbatim copy "Five cities, one instinct"); journey goes full-bleed (big photo + wide columns). Sukhumi image = real Abkhazian Drama Theatre + griffin fountain (`journey-sukhumi-v3.png`, nano-banana from ref).
+- **S6 Palate Profiler DONE:** rebuilt as a curated-library matchmaker. `cocktailLibrary.ts` = owner's **64 real cocktails** (from Drive "MY 64 cocktails"), tagged identity/taste/accord; `matchRecipe` scoring in `profilerData.ts`; vitest test. Removed dead Gemini `/api/profiler` + proxy + handler. Full-recipe gift result. Spec `docs/superpowers/specs/2026-06-09-palate-profiler-library-design.md`, plan `docs/superpowers/plans/2026-06-09-palate-profiler-library.md`. (Optional Phase 2: add more from Drive "CRAFT COCKTAIL RECIPES - TEMO" / "My Drinks" folder - pure data.)
+
+**REMAINING (master list: `docs/superpowers/plans/2026-06-08-open-tasks-master.md` + its PROGRESS LOG):**
+1. Founder "Hand Behind the Ritual" final image/video (temp `founder-v6b`; owner wants Netflix-real).
+2. Media: self-host 2 `framerusercontent.com` images (EtherealShadow.tsx) + drop from CSP; replace any placeholder.
+3. Duality (home chapter 02) - parked, owner directs.
+4. S7 code review (critical/high) + S8 QA on real device.
+5. D1 pricing verify on prod; D2 trust/distribution -> wire real entity URLs into Organization sameAs (when owner provides).
+6. SEO/GEO audit - owner said LATER (deferred).
+
+Owner Drive (gdrive MCP) has his recipes/menus if needed: "MY 64 cocktails", "CRAFT COCKTAIL RECIPES - TEMO", "My Drinks - cocktails" folder, "My Cocktail 2023".
+
+
 **PROJECT:** Migrating iceinstinct.com (luxury mixology site, strict monochrome + champagne) from vanilla HTML to React. Full design rules: `CLAUDE.md`. Deep detail: `REACT-MIGRATION-HANDOFF.md`.
 
 **BRANCH:** `react-shell` (do all work here). **`main` IS NOW LIVE PRODUCTION** - the React build sits at the repo ROOT on `main`, and a GitHub webhook auto-deploys to Hostinger on every push to main. So: NEVER push to main without owner ok = it goes live instantly. Day-to-day work stays on react-shell.
