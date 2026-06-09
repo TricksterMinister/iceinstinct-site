@@ -425,8 +425,6 @@ export function GalleryPage() {
             <span className="rd-rule" aria-hidden="true"></span>
             <div className="rd-palate" id="rd-palate"></div>
             <p className="rd-notes" id="rd-notes"></p>
-            <p className="rd-accents" id="rd-accents"></p>
-            <p className="rd-note" id="rd-note"></p>
           </div>
         </div>
       </div>

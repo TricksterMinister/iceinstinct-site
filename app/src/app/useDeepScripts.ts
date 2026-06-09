@@ -127,26 +127,22 @@ export function useDeepScripts(): void {
         const p = title ? COCKTAIL_PROFILES[title] : undefined;
         const palate = document.getElementById('rd-palate');
         const notes = document.getElementById('rd-notes');
-        const accents = document.getElementById('rd-accents');
-        const note = document.getElementById('rd-note');
 
         if (palate) {
           palate.innerHTML = '';
           const tags = p?.palate ?? [];
           for (const t of tags) {
-            const span = document.createElement('span');
-            span.className = 'rd-tag';
-            span.textContent = t;
-            palate.appendChild(span);
+            const pin = document.createElement('span');
+            pin.className = 'rd-pin';
+            const label = document.createElement('span');
+            label.className = 'rd-pin-label';
+            label.textContent = t;
+            pin.appendChild(label);
+            palate.appendChild(pin);
           }
           palate.style.display = tags.length ? '' : 'none';
         }
         if (notes) notes.textContent = p?.notes ?? '';
-        if (accents) {
-          accents.textContent = p?.accents ? 'Built on  ' + p.accents : '';
-          accents.style.display = p?.accents ? '' : 'none';
-        }
-        if (note) note.textContent = p ? '' : 'Revealed at the bar.';
       };
 
       const openLightbox = (src: string | null, title: string | null) => {
