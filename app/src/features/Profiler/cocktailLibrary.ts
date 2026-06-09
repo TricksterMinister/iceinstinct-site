@@ -321,7 +321,7 @@ export const cocktailLibrary: LibraryCocktail[] = [
   },
   {
     id: 'levantine-coffee',
-    name: 'Levantine Coffee',
+    name: 'Black Rock Roast',
     archetype: 'The Lover',
     tags: { identity: ['Lover', 'Hunter'], taste: ['Smoke', 'Ember'], accord: ['Sweet & Short'], facets: ['creamy', 'citrus'] },
     tagline: 'Cognac and Grand Marnier in hot coffee under whipped cream.',
@@ -587,7 +587,7 @@ export const cocktailLibrary: LibraryCocktail[] = [
   },
   {
     id: 'levante-funk',
-    name: 'Levante Funk',
+    name: 'Playa Funk',
     archetype: 'The Rebel',
     tags: { identity: ['Rebel', 'Mystic'], taste: ['Ember'], accord: ['Spicy & Loud'], facets: ['rum', 'anise'] },
     tagline: 'Funky rum, ginger and absinthe in a loud, dark dance.',
@@ -613,7 +613,7 @@ export const cocktailLibrary: LibraryCocktail[] = [
   },
   {
     id: 'carthage-spice',
-    name: 'Carthage Spice',
+    name: 'Spice Melange',
     archetype: 'The Rebel',
     tags: { identity: ['Rebel', 'Hunter'], taste: ['Ember'], accord: ['Spicy & Loud'], facets: ['rum', 'citrus'] },
     tagline: 'Spiced rum and ginger sharpened with lemon.',
@@ -682,7 +682,7 @@ export const cocktailLibrary: LibraryCocktail[] = [
   },
   {
     id: 'beirut-espresso',
-    name: 'Beirut Espresso',
+    name: 'Event Horizon',
     archetype: 'The Rebel',
     tags: { identity: ['Rebel', 'Lover'], taste: ['Smoke'], accord: ['Sweet & Short'], facets: ['vodka', 'spirit-forward'] },
     tagline: 'A wide-awake espresso martini with a coffee crema.',
@@ -704,7 +704,7 @@ export const cocktailLibrary: LibraryCocktail[] = [
   },
   {
     id: 'nablus-pear',
-    name: 'Nablus Pear',
+    name: 'Pear of Avalon',
     archetype: 'The Lover',
     tags: { identity: ['Lover', 'Mystic'], taste: ['Bloom'], accord: ['Sweet & Short'], facets: ['vodka', 'floral'] },
     tagline: 'Pear vodka and elderflower stirred into pear puree.',
@@ -750,7 +750,7 @@ export const cocktailLibrary: LibraryCocktail[] = [
   },
   {
     id: 'tel-aviv-garden',
-    name: 'Tel Aviv Garden',
+    name: 'Genome Garden',
     archetype: 'The Lover',
     tags: { identity: ['Lover', 'Rebel'], taste: ['Bloom'], accord: ['Dry & Silent'], facets: ['vodka', 'sparkling', 'floral'] },
     tagline: 'Strawberry and rosemary lifted with dry bubbles.',
@@ -984,7 +984,7 @@ export const cocktailLibrary: LibraryCocktail[] = [
   },
   {
     id: 'el-marrakesh',
-    name: 'El Marrakesh',
+    name: 'Andromeda Mirage',
     archetype: 'The Lover',
     tags: { identity: ['Lover', 'Hunter'], taste: ['Bloom'], accord: ['Sweet & Short'], facets: ['tequila', 'floral'] },
     tagline: 'Tequila, date syrup and pomegranate with a rose finish.',
@@ -1081,7 +1081,7 @@ export const cocktailLibrary: LibraryCocktail[] = [
   },
   {
     id: 'midnight-arak',
-    name: 'Midnight Arak',
+    name: 'Witching Hour',
     archetype: 'The Mystic',
     tags: { identity: ['Mystic', 'Lover'], taste: ['Bloom'], accord: ['Dry & Silent'], facets: ['anise', 'floral'] },
     tagline: 'Arak, pomegranate and rosewater under a silken cap.',
