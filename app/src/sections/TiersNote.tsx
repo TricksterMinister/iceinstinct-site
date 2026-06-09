@@ -5,7 +5,9 @@
 export function TiersNote() {
   return (
     <section className="tiers-note" id="tiers-note" aria-label="Pricing notes">
+      <div className="section-bg-word" aria-hidden="true">SCALE</div>
       <div className="tiers-note-stage">
+        <p className="tiers-note-eyebrow">One alchemist. A team when the room calls for it.</p>
         <p className="tiers-note-scale">
           Any tier scales with a full bar team for larger events - weddings, galas, and corporate gatherings - quoted on
           request.

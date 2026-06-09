@@ -15,7 +15,9 @@
 }
 
 /* ===================== PRICING NOTE ===================== */
-/* Full-viewport breather between the intense tiers and concierge visuals. */
+/* Full-viewport breather between the intense tiers and concierge visuals.
+   Composed, not empty: a ghost word anchors the void and the scaling line
+   carries the segment, with the fine print as a quiet caption beneath. */
 .tiers-note {
   position: relative;
   background: var(--c-bg);
@@ -23,27 +25,42 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-x: clip;
+  isolation: isolate;
   padding: clamp(3rem, 7vh, 5.5rem) clamp(1.4rem, 5vw, 6rem);
   border-top: 1px solid color-mix(in oklab, var(--sec-rule) 70%, transparent);
 }
 .tiers-note-stage {
-  max-width: 56rem;
+  position: relative;
+  z-index: 1;
+  max-width: 60rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: clamp(1.4rem, 3vh, 2.2rem);
+  align-items: center;
+  gap: clamp(1.4rem, 3.5vh, 2.6rem);
   text-align: center;
+}
+.tiers-note-eyebrow {
+  margin: 0;
+  font-family: var(--sec-mono);
+  font-size: clamp(0.66rem, 0.62rem + 0.18vw, 0.78rem);
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  opacity: 0.85;
 }
 .tiers-note-scale {
   font-family: var(--sec-italic);
   font-style: italic;
   font-weight: 350;
-  font-size: clamp(1.15rem, 0.95rem + 1vw, 1.7rem);
-  line-height: 1.45;
+  font-size: clamp(1.7rem, 1.2rem + 2.4vw, 3.4rem);
+  line-height: 1.28;
   color: var(--c-fg);
   letter-spacing: 0;
-  max-width: 40ch;
+  max-width: 24ch;
   margin: 0 auto;
+  text-wrap: balance;
 }
 .tiers-note-fine {
   font-family: var(--sec-mono);
