@@ -11,6 +11,9 @@ import type { Temperament } from '../../app/funnelStore';
 
 export type StepId = 'identity' | 'taste' | 'accord';
 export type Glass = 'coupe' | 'rocks' | 'highball' | 'nicknora';
+export type Identity = 'Lover' | 'Rebel' | 'Mystic' | 'Hunter';
+export type Taste = 'Smoke' | 'Frost' | 'Ember' | 'Bloom';
+export type Accord = 'Bitter & Long' | 'Sweet & Short' | 'Spicy & Loud' | 'Dry & Silent';
 
 export interface StepOption {
   id: string;
