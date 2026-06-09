@@ -4,7 +4,7 @@ import { PortalRoot } from '../../app/PortalRoot';
 import { funnel } from '../../app/funnelStore';
 import {
   steps,
-  resolveRecipe,
+  matchRecipe,
   type Recipe,
   type Selections,
   type StepId,
@@ -64,24 +64,10 @@ const ROMAN = ['I', 'II', 'III'];
 const prefersReduced = () =>
   typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// Try the live AI (server proxy holds the key); on ANY failure fall back to the
-// local curated recipe. The guest never sees an error either way.
 async function composeRecipe(selections: Selections, distill: number): Promise<Recipe> {
   const temperament = funnel.getState().temperament;
-  try {
-    const res = await fetch('/api/profiler', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ ...selections, temperament }),
-    });
-    if (res.ok) {
-      const data = await res.json();
-      if (data?.recipe) return data.recipe as Recipe;
-    }
-  } catch {
-    /* network / proxy down -> fall through */
-  }
-  return resolveRecipe(selections, temperament, distill);
+  // Curated library matchmaker - no network, no AI at runtime.
+  return matchRecipe(selections, temperament, distill);
 }
 
 export function PalateProfiler({ open, onClose, onCommission }: Props) {
