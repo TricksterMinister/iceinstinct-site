@@ -13,7 +13,7 @@ export const foundationContent: OfferingContent = {
         The <span className="it">Foundation.</span>
       </>
     ),
-    lead: 'For those who understand that elegance lies in simplicity. The accessible entry point to the Ice & Instinct standard - delivered by a trained professional bartender from our collective.',
+    lead: 'For those who understand that elegance lies in simplicity. The most intimate way to experience the Ice & Instinct standard - delivered by a bartender from my own circle: hand-picked, trusted, and someone I personally stand behind.',
     price: 'From $650 USD',
     priceMeta: 'Up to 15 guests · 3 hours · New York Metropolitan Area',
     video: {
@@ -32,7 +32,7 @@ export const foundationContent: OfferingContent = {
     paras: [
       'For those who understand that elegance lies in simplicity. The Essential delivers the core of what makes a gathering memorable: impeccable drinks, professional presence, and seamless execution.',
       'This is not a compromise. This is distillation - the same philosophy, the same standards, focused into a refined format designed for intimate celebrations.',
-      'A trained bartender from the Ice & Instinct collective arrives with the tools, technique, and presence to transform your home bar into something more. Classic cocktails executed with precision. Contemporary favorites crafted with care. Every drink made properly, every guest attended to.',
+      'A bartender I know and trust personally arrives with the tools, technique, and presence to transform your home bar into something more. Classic cocktails executed with precision. Contemporary favorites crafted with care. Every drink made properly, every guest attended to.',
     ],
     pull: (
       <>
@@ -65,7 +65,7 @@ export const foundationContent: OfferingContent = {
   },
 
   scaling: {
-    desc: 'Calibrated for intimate gatherings where quality remains uncompromised regardless of guest count. A professional bartender from our trained collective delivers the Ice & Instinct standard; each member is personally mentored and upholds the same commitment to craft.',
+    desc: 'Calibrated for intimate gatherings where quality remains uncompromised regardless of guest count. A bartender from my own circle delivers the Ice & Instinct standard - someone I know personally, hand-picked, and vouch for.',
     tiers: [
       {
         label: 'A',
@@ -109,7 +109,7 @@ export const foundationContent: OfferingContent = {
     items: [
       {
         title: 'Trained Professional',
-        body: 'A bartender from the Ice & Instinct collective, trained in proper technique and professional hospitality.',
+        body: 'A bartender from my own circle - someone I know personally and stand behind, skilled in proper technique and professional hospitality.',
       },
       {
         title: 'Guest Engagement',
@@ -155,13 +155,13 @@ export const foundationContent: OfferingContent = {
       </>
     ),
     items: [
-      'The Essential experience is designed as an accessible entry point to the Ice & Instinct standard. It is not a reduction of quality - it is a focused application of our principles.',
+      'The Foundation is the most intimate way into the Ice & Instinct standard. It is not a reduction of quality - it is a focused application of our principles.',
       <>
         For those seeking deeper customization, signature cocktail development, or the personal involvement of the
         Master Mixologist, we invite you to explore <a href="/offerings/simplicity/">Simplicity</a>,{' '}
         <a href="/offerings/bespoke/">Bespoke</a>, or <a href="/offerings/omakase/">Omakase</a>.
       </>,
-      'Every Foundation booking contributes to our mission: proving that professional hospitality belongs in every celebration, not just the grandest ones.',
+      'Foundation is where many first experience the standard - and return for the evenings that follow.',
     ],
   },
 
