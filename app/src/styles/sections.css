@@ -123,10 +123,10 @@
 @media (max-width: 760px) {
   .faq-list { grid-template-columns: 1fr; }
 }
-/* Compact rhythm so the two-column FAQ rests inside one viewport. */
-.faq .faq-intro { margin-bottom: clamp(1.6rem, 4vh, 2.8rem); }
-.faq .faq-headline { font-size: clamp(2.2rem, 1.6rem + 3.4vmin, 4.2rem); }
-.faq .faq-q { padding: clamp(0.8rem, 1.9vh, 1.25rem) 0; font-size: clamp(1rem, 0.92rem + 0.42vw, 1.28rem); }
+/* Compact rhythm so the two-column FAQ rests inside one viewport - while the
+   headline keeps the shared segment size (only the rows tighten). */
+.faq .faq-intro { margin-bottom: clamp(1.4rem, 3.4vh, 2.4rem); }
+.faq .faq-q { padding: clamp(0.62rem, 1.5vh, 1rem) 0; font-size: clamp(1rem, 0.92rem + 0.42vw, 1.28rem); }
 .faq-intro {
   margin-bottom: clamp(2.6rem, 6vh, 4.5rem);
 }
