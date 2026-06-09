@@ -290,10 +290,10 @@ export function GalleryPage() {
                   className="gallery-tile"
                   type="button"
                   data-title="Basil in my mind"
-                  data-src="/assets/photos/call-me-v2.png"
+                  data-src="/assets/photos/basil-in-my-mind-v1.png"
                 >
                   <img
-                    src="/assets/photos/call-me-v2.png"
+                    src="/assets/photos/basil-in-my-mind-v1.png"
                     alt="Basil in my mind cocktail"
                     loading="lazy"
                   />
