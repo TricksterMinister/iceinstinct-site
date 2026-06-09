@@ -182,7 +182,7 @@ export function MyStory() {
                   <h2 className="display-heading">
                     Five cities,
                     <br />
-                    <span className="it gold-shine">one standard.</span>
+                    <span className="it gold-shine">one instinct.</span>
                   </h2>
                 </div>
                 <ol className="journey-rail" data-journey-rail>
@@ -193,8 +193,9 @@ export function MyStory() {
                     <div className="journey-body">
                       <span className="journey-city">Sukhumi</span>
                       <p className="journey-note">
-                        Where it began. A childhood on the Black Sea - salt air, long summers, and the first understanding
-                        that a gathering is something you build with care. This is the ground I grew from.
+                        The table is never empty - someone is always pouring, always arriving. The city is gone now, held
+                        only where no border can reach it, but its color stays with me: ripe persimmon, warm against the
+                        Black Sea. I set that table again every time I work.
                       </p>
                     </div>
                   </div>
@@ -206,8 +207,9 @@ export function MyStory() {
                     <div className="journey-body">
                       <span className="journey-city">Tbilisi</span>
                       <p className="journey-note">
-                        My youth, entire. The city where every celebration opens with a toast and the table is the center
-                        of life - where I learned that hospitality is devotion, not service.
+                        In Tbilisi the host answers for the whole table - not for the service, for the night itself. A
+                        supra is not hosted, it is carried; hospitality here is devotion, never transaction. I have never
+                        poured a drink any other way.
                       </p>
                     </div>
                   </div>
@@ -219,8 +221,9 @@ export function MyStory() {
                     <div className="journey-body">
                       <span className="journey-city">Lisbon</span>
                       <p className="journey-note">
-                        My first emigration, and the making of a man. A new country, a second language, a life built alone
-                        - Portugal became a second homeland whose slower, golden light I have never stopped missing.
+                        Portugal gave me a life with no one watching - a new language in my mouth, work in my hands, a city
+                        that asked nothing of me but presence. There is a slow gold in that light I have never stopped
+                        missing. A man got made there, alone.
                       </p>
                     </div>
                   </div>
@@ -232,8 +235,9 @@ export function MyStory() {
                     <div className="journey-body">
                       <span className="journey-city">Moscow</span>
                       <p className="journey-note">
-                        Where the craft became a profession. Years of discipline that made me the first sommelier in
-                        Georgia's history, and taught me to read a room the way one reads a language.
+                        Moscow is where instinct became discipline - the years that made me the first certified sommelier
+                        in Georgia's history. I came out of it able to read a room the way I read a wine: structure first,
+                        then what it is hiding. That reading never leaves me.
                       </p>
                     </div>
                   </div>
@@ -245,8 +249,9 @@ export function MyStory() {
                     <div className="journey-body">
                       <span className="journey-city">New York</span>
                       <p className="journey-note">
-                        The dream, and the home. Two decades of fine wine and the architecture of service distilled into
-                        something rarer - private mixology as ritual. I have never loved a city more.
+                        Everything pointed here before I knew the city existed. Two decades of fine wine and high service
+                        have distilled into one thing: the private table as ritual, never transaction - Sukhumi's full
+                        table, set again on this side of the world. I have never loved a city more.
                       </p>
                     </div>
                   </div>
