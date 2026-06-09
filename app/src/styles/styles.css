@@ -2840,16 +2840,13 @@ img.reveal-zoom.is-in { transform: scale(1); }
 
 /* -----------------------------------------------------------------
    ONE VIEWPORT LOCK. The whole Inquire page = exactly one viewport,
-   NO page scroll: card row (70%) + footer band (30%) fit inside 100dvh.
-   The form is taller than the offering's two CTA buttons, so the frame +
-   typography are compacted (vh-tied) to stay inside the 70% row.
+   NO page scroll. ONLY the card is compacted to fit; the footer is the
+   GLOBAL <SiteFooter/>, rendered at its standard scale - identical to every
+   other page. The footer is never resized, recoloured, or rescaled here.
    ----------------------------------------------------------------- */
 .closing-segment.inquire-close {
   height: 100dvh;
   min-height: 100dvh;
-  /* override the offering oma-close 7fr/3fr grid: a flex column lets the footer
-     size to its own content (so its LAST line is always visible) and the card
-     fill the rest - the whole thing = exactly one viewport, nothing clipped. */
   display: flex;
   flex-direction: column;
   grid-template-rows: none;
@@ -2862,18 +2859,8 @@ img.reveal-zoom.is-in { transform: scale(1); }
   padding-block: clamp(1rem, 3vh, 2.2rem);
   overflow: hidden;
 }
-/* Footer band sizes to its content (no 3fr/2fr stretch, no internal clip) so the
-   base row ("Est. 2024 ...") is fully visible; it stays at the floor at full scale. */
-.closing-segment.inquire-close > .oma-close-bottom {
-  flex: 0 0 auto;
-  min-height: 0;
-  grid-template-rows: auto auto;
-  overflow: visible;
-}
-/* Keep the marquee compact so the footer never crowds the card off one screen. */
-.closing-segment.inquire-close .oma-close-marquee { padding-block: clamp(0.4rem, 1.4vh, 1rem); }
-.closing-segment.inquire-close .oma-close-track span { font-size: clamp(1.8rem, 4.5vw, 3.6rem); }
-.closing-segment.inquire-close .oma-close-foot { padding-block: clamp(0.55rem, 1.6vh, 1.1rem); }
+/* The global footer sits at the floor at its own, unchanged scale. */
+.closing-segment.inquire-close > .site-footer { flex: 0 0 auto; }
 .closing-segment.inquire-close .closing-stage {
   gap: clamp(0.8rem, 2vh, 1.5rem);
 }

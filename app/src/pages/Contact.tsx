@@ -139,14 +139,14 @@ export function Contact() {
         </div>
       </header>
 
-      {/* ONE segment - EXACT copy of the offering closing-segment (light Свет-1
-          framed card), same as /offerings/foundation/: closing-segment.oma-close
-          grid (CTA card 70% + footer band 30%) = one viewport, footer full scale.
-          The only change vs the offering closing: the two CTA buttons are replaced
-          by the inquiry form, fit inside the same card. No public email is shown;
-          Send hands off to the mail client. */}
+      {/* ONE segment = one viewport. The light Свет-1 framed card (as on
+          /offerings/foundation/) holds the inquiry form, and the GLOBAL
+          <SiteFooter/> sits at the floor at its standard, unchanged scale -
+          identical to every other page. Only the card is compacted to fit one
+          viewport (see .inquire-close); the footer is never rescaled. No public
+          email is shown; Send hands off to the mail client. */}
       <main>
-        <div className="closing-segment oma-close inquire-close" id="final-cta">
+        <div className="closing-segment inquire-close" id="final-cta">
           <section className="closing">
             <div className="section-bg-word top right" aria-hidden="true">INQUIRE</div>
             <div className="closing-stage">
@@ -215,7 +215,7 @@ export function Contact() {
             </div>
           </section>
 
-          <SiteFooter embedded />
+          <SiteFooter />
         </div>
       </main>
     </>
