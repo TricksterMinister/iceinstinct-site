@@ -170,7 +170,8 @@ export function MyStory() {
                   to whichever city is hovered/active. Hidden on touch (each city
                   then shows its own inline photo). */}
               <div className="journey-media" aria-hidden="true">
-                <figure className="journey-fig is-active"><img src="/assets/photos/journey-tbilisi-v2.png" alt="" loading="lazy" /></figure>
+                <figure className="journey-fig is-active"><img src="/assets/photos/journey-sukhumi-v2.png" alt="" loading="lazy" /></figure>
+                <figure className="journey-fig"><img src="/assets/photos/journey-tbilisi-v2.png" alt="" loading="lazy" /></figure>
                 <figure className="journey-fig"><img src="/assets/photos/journey-lisbon-v2.png" alt="" loading="lazy" /></figure>
                 <figure className="journey-fig"><img src="/assets/photos/journey-moscow-v2.png" alt="" loading="lazy" /></figure>
                 <figure className="journey-fig"><img src="/assets/photos/journey-newyork-v2.png" alt="" loading="lazy" /></figure>
@@ -179,21 +180,34 @@ export function MyStory() {
               <div className="journey-right">
                 <div className="journey-head reveal">
                   <h2 className="display-heading">
-                    Four cities,
+                    Five cities,
                     <br />
                     <span className="it gold-shine">one standard.</span>
                   </h2>
                 </div>
                 <ol className="journey-rail" data-journey-rail>
                 <li className="journey-stop">
-                  <img className="journey-stop-img" src="/assets/photos/journey-tbilisi-v2.png" alt="Tbilisi" loading="lazy" />
+                  <img className="journey-stop-img" src="/assets/photos/journey-sukhumi-v2.png" alt="Sukhumi" loading="lazy" />
                   <div className="journey-row">
                     <span className="journey-no">01</span>
                     <div className="journey-body">
+                      <span className="journey-city">Sukhumi</span>
+                      <p className="journey-note">
+                        Where it began. A childhood on the Black Sea - salt air, long summers, and the first understanding
+                        that a gathering is something you build with care. This is the ground I grew from.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li className="journey-stop">
+                  <img className="journey-stop-img" src="/assets/photos/journey-tbilisi-v2.png" alt="Tbilisi" loading="lazy" />
+                  <div className="journey-row">
+                    <span className="journey-no">02</span>
+                    <div className="journey-body">
                       <span className="journey-city">Tbilisi</span>
                       <p className="journey-note">
-                        Born where every celebration begins with a toast and ends in silence. Wine carries memory; ritual
-                        defines grace - and that sense of presence has never left.
+                        My youth, entire. The city where every celebration opens with a toast and the table is the center
+                        of life - where I learned that hospitality is devotion, not service.
                       </p>
                     </div>
                   </div>
@@ -201,12 +215,12 @@ export function MyStory() {
                 <li className="journey-stop">
                   <img className="journey-stop-img" src="/assets/photos/journey-lisbon-v2.png" alt="Lisbon" loading="lazy" />
                   <div className="journey-row">
-                    <span className="journey-no">02</span>
+                    <span className="journey-no">03</span>
                     <div className="journey-body">
                       <span className="journey-city">Lisbon</span>
                       <p className="journey-note">
-                        From the Caucasus outward, across continents - new palates, a slower light, the patience of aged
-                        things.
+                        My first emigration, and the making of a man. A new country, a second language, a life built alone
+                        - Portugal became a second homeland whose slower, golden light I have never stopped missing.
                       </p>
                     </div>
                   </div>
@@ -214,12 +228,12 @@ export function MyStory() {
                 <li className="journey-stop">
                   <img className="journey-stop-img" src="/assets/photos/journey-moscow-v2.png" alt="Moscow" loading="lazy" />
                   <div className="journey-row">
-                    <span className="journey-no">03</span>
+                    <span className="journey-no">04</span>
                     <div className="journey-body">
                       <span className="journey-city">Moscow</span>
                       <p className="journey-note">
-                        Hospitality as perception: to read a room the way one reads a language, to feel timing as rhythm, to
-                        turn precision into art.
+                        Where the craft became a profession. Years of discipline that made me the first sommelier in
+                        Georgia's history, and taught me to read a room the way one reads a language.
                       </p>
                     </div>
                   </div>
@@ -227,12 +241,12 @@ export function MyStory() {
                 <li className="journey-stop">
                   <img className="journey-stop-img" src="/assets/photos/journey-newyork-v2.png" alt="New York" loading="lazy" />
                   <div className="journey-row">
-                    <span className="journey-no">04</span>
+                    <span className="journey-no">05</span>
                     <div className="journey-body">
                       <span className="journey-city">New York</span>
                       <p className="journey-note">
-                        Two decades of fine wine, resorts and restaurants - the architecture of service - distilled into
-                        something rarer: private mixology as ritual.
+                        The dream, and the home. Two decades of fine wine and the architecture of service distilled into
+                        something rarer - private mixology as ritual. I have never loved a city more.
                       </p>
                     </div>
                   </div>
