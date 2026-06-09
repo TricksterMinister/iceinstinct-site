@@ -423,18 +423,9 @@ export function GalleryPage() {
           <div className="rd-card">
             <h3 className="rd-title" id="lightbox-title"></h3>
             <span className="rd-rule" aria-hidden="true"></span>
-            <p className="rd-spec" id="rd-spec"></p>
-            <div className="rd-cols">
-              <div className="rd-block" id="rd-ingredients-wrap">
-                <h4 className="rd-h">Ingredients</h4>
-                <ul className="rd-ingredients" id="rd-ingredients"></ul>
-              </div>
-              <div className="rd-block" id="rd-method-wrap">
-                <h4 className="rd-h">Method</h4>
-                <ol className="rd-method" id="rd-method"></ol>
-              </div>
-            </div>
-            <p className="rd-garnish" id="rd-garnish"></p>
+            <div className="rd-palate" id="rd-palate"></div>
+            <p className="rd-notes" id="rd-notes"></p>
+            <p className="rd-accents" id="rd-accents"></p>
             <p className="rd-note" id="rd-note"></p>
           </div>
         </div>

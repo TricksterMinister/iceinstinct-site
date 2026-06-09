@@ -2107,6 +2107,27 @@ img.reveal-zoom.is-in { transform: scale(1); }
 }
 .rd-spec:empty, .rd-garnish:empty, .rd-note:empty { display: none; }
 
+/* ---- Gastronomic profile (replaces the recipe in the drawer) ---- */
+.rd-palate { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.1rem; }
+.rd-palate:empty { display: none; }
+.rd-tag {
+  font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--c-accent);
+  border: 1px solid color-mix(in oklch, var(--c-accent) 38%, transparent);
+  border-radius: 2px; padding: 0.32rem 0.6rem; line-height: 1; white-space: nowrap;
+}
+.rd-notes {
+  margin: 0; font-family: var(--font-body);
+  font-size: clamp(1rem, 0.94rem + 0.4vw, 1.18rem); font-weight: 300;
+  line-height: 1.7; color: oklch(84% 0 0); max-width: 52ch;
+}
+.rd-notes:empty { display: none; }
+.rd-accents {
+  margin: 0; font-family: var(--font-mono); font-size: 0.64rem;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--c-fg-mute);
+}
+.rd-accents:empty { display: none; }
+
 @media (max-width: 860px) {
   .rd-stage { grid-template-columns: 1fr; max-height: 90vh; overflow-y: auto; align-items: start; gap: 1.4rem; }
   .rd-photo img { max-height: 48vh; }
