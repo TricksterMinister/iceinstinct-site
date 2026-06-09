@@ -287,7 +287,17 @@ export function PalateProfiler({ open, onClose, onCommission }: Props) {
                         <span className="pp-card-eyebrow">A signature composed for you</span>
                         <h2 className="pp-card-name it">{state.recipe.name}</h2>
                         <p className="pp-card-tag">&ldquo;{state.recipe.tagline}&rdquo;</p>
-                        <span className="pp-tint" aria-hidden="true" />
+                        <svg className="pp-cube" viewBox="0 0 100 100" aria-hidden="true" style={{ color: 'var(--tint)' }}>
+                          <polygon points="50,18 79.4,35 50,52 20.6,35" fill="currentColor" fillOpacity="0.82" />
+                          <polygon points="20.6,35 50,52 50,86 20.6,69" fill="currentColor" fillOpacity="0.55" />
+                          <polygon points="79.4,35 79.4,69 50,86 50,52" fill="currentColor" fillOpacity="0.40" />
+                          <polygon points="79.4,35 79.4,69 50,86 50,52" fill="#000" fillOpacity="0.18" />
+                          <polygon points="50,18 79.4,35 50,52 20.6,35" fill="#fff" fillOpacity="0.12" />
+                          <g fill="none" style={{ stroke: 'var(--c-accent)' }} strokeWidth="1.4" strokeLinejoin="round" strokeLinecap="round">
+                            <polygon points="50,18 79.4,35 79.4,69 50,86 20.6,69 20.6,35" />
+                            <path d="M50,52 L79.4,35 M50,52 L20.6,35 M50,52 L50,86" />
+                          </g>
+                        </svg>
                       </header>
 
                       <div className="pp-card-body">
@@ -332,16 +342,18 @@ export function PalateProfiler({ open, onClose, onCommission }: Props) {
 
                     {/* Technical controls live OFF the card, on the dark ground. */}
                     <aside className="pp-controls">
-                      <button
-                        className="pp-btn primary"
-                        onClick={() => onCommission(state.recipe!.name, state.selections)}
-                      >
-                        <span>Commission this serving</span>
-                        <span className="arr" aria-hidden="true">&rarr;</span>
-                      </button>
-                      <button className="pp-btn ghost" onClick={redistill} disabled={distilling}>
-                        {distilling ? 'Distilling...' : 'Distill again'}
-                      </button>
+                      <div className="pp-controls-top">
+                        <button
+                          className="pp-btn primary"
+                          onClick={() => onCommission(state.recipe!.name, state.selections)}
+                        >
+                          <span>Commission this serving</span>
+                          <span className="arr" aria-hidden="true">&rarr;</span>
+                        </button>
+                        <button className="pp-btn ghost" onClick={redistill} disabled={distilling}>
+                          {distilling ? 'Distilling...' : 'Distill again'}
+                        </button>
+                      </div>
 
                       <div className="pp-controls-take">
                         <span className="pp-label accent">Take it with you</span>

@@ -307,7 +307,8 @@
 .pp-card-eyebrow { font-family: var(--font-mono); font-size: var(--t-xs); letter-spacing: 0.34em; text-transform: uppercase; color: var(--c-fg-faint); }
 .pp-card-name { font-family: var(--font-italic); font-style: italic; font-size: var(--t-h2); line-height: 0.98; color: var(--c-accent); margin: 0.3rem 0 0.5rem; }
 .pp-card-tag { font-family: var(--font-italic); font-style: italic; font-size: var(--t-lg); color: var(--c-fg-soft); max-width: 46ch; margin: 0 auto; }
-.pp-tint { display: block; width: 56px; height: 4px; margin: clamp(0.7rem, 1.8vh, 1.2rem) auto 0; background: var(--tint); }
+/* the drink's colour as a small tinted ice cube (replaces the flat bar) */
+.pp-cube { display: block; width: 48px; height: 48px; margin: clamp(0.8rem, 2vh, 1.4rem) auto 0; }
 
 .pp-card-body {
   flex: 1 1 auto;
@@ -335,14 +336,16 @@
 .pp-steps li { font-size: var(--t-sm); line-height: 1.6; color: var(--c-fg-soft); padding-left: 0.3rem; }
 .pp-steps li::marker { color: var(--c-accent); font-family: var(--font-mono); }
 
-/* Off-card technical controls, vertically centred beside the card. */
+/* Off-card technical controls: actions pinned top, keepsakes pinned bottom,
+   calm space between (no stretched button filling the column). */
 .pp-controls {
   flex: 0 0 clamp(230px, 24vw, 320px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   gap: 0.7rem;
 }
+.pp-controls-top { display: flex; flex-direction: column; gap: 0.7rem; }
 .pp-controls .pp-btn { width: 100%; }
 .pp-controls-take {
   margin-top: clamp(1rem, 3vh, 2rem);
@@ -362,13 +365,13 @@
   gap: 0.6rem;
   font-family: var(--font-mono);
   font-size: var(--t-xs);
-  letter-spacing: 0.24em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  padding: 1.05rem 1.8rem;
+  padding: 1.05rem 1.6rem;
   cursor: pointer;
   transition: color var(--d-base), background var(--d-base), border-color var(--d-base);
 }
-.pp-btn.primary { color: var(--c-bg); background: var(--c-accent); border: 1px solid var(--c-accent); flex: 1 1 auto; }
+.pp-btn.primary { color: var(--c-bg); background: var(--c-accent); border: 1px solid var(--c-accent); flex: 0 0 auto; }
 .pp-btn.primary:hover { background: transparent; color: var(--c-accent); }
 .pp-btn.primary .arr { transition: transform var(--d-base) var(--ease-out); }
 .pp-btn.primary:hover .arr { transform: translateX(5px); }
