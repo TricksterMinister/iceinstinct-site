@@ -2,104 +2,95 @@
  * The Collection - gastronomic PROFILES for the gallery drawer.
  * Keyed by the exact tile data-title.
  *
- * These are signature compositions: we show the experience, not the build.
- * Each entry is a tasting profile (aroma + flavour) plus the named components,
- * never measurements or method - the recipes stay at the bar. The "compose your
- * own" builder (Palate Profiler) is the only place a full build is assembled.
+ * Signature compositions: we show the experience, not the build. Each entry is
+ * a tasting profile - three palate descriptors ("pins") and a short literary
+ * note on aroma and flavour. No measurements, no method; the recipes stay at
+ * the bar. The "compose your own" builder (Palate Profiler) is the only place a
+ * full build is assembled.
  */
 export type CocktailProfile = {
-  /** 2-3 short sensory descriptors shown as tags. */
+  /** Three short sensory descriptors, shown as champagne pins. */
   palate: string[];
-  /** The gastronomic paragraph: aroma and taste. */
+  /** The tasting note: aroma and flavour, in polished prose. */
   notes: string;
-  /** Named components, no measures or method. Omit when not disclosed. */
-  accents?: string;
 };
 
 export const COCKTAIL_PROFILES: Record<string, CocktailProfile> = {
   'White Lotus': {
     palate: ['Delicate', 'Floral', 'Clean'],
     notes:
-      'Serene and luminous - a quiet, floral opening to the evening, soft on the nose and clean across the palate. Its full character is revealed at the bar.',
+      'Opens like first light on still water. A weightless lift of white blossom and ripe pear settles into something cool and composed, and the finish lingers the way a good silence does - quiet, luminous, and entirely sure of itself.',
   },
 
   'Aviation': {
     palate: ['Floral', 'Citrus', 'Violet'],
     notes:
-      'A sky-tinted classic. Violet and maraschino cherry bloom over bright lemon and cool juniper, perfumed and softly romantic from first scent to finish.',
-    accents: 'Gin, violet, maraschino, lemon',
+      'A pre-war classic in full bloom. Violet and maraschino unfold like dusk over a skyline, their perfume held in check by bright lemon and the cool spine of gin. Romantic, faintly nostalgic, and clean as a closing line.',
   },
 
   'Persimmon Saffron Sour': {
     palate: ['Silky', 'Warm-Spiced', 'Stone Fruit'],
     notes:
-      'A velvet sour. Ripe persimmon and the warmth of saffron wrap around bourbon, lifted by a citrus brightness and carried on a cloud-soft foam.',
-    accents: 'Bourbon, persimmon, saffron, lemon, silken foam',
+      'Bourbon warmth wrapped in silk. Ripe persimmon and a single thread of saffron lend an amber, autumnal sweetness, while lemon keeps the edges bright and a whipped-soft foam carries the whole thing across the palate like velvet.',
   },
 
   'Belladonna': {
     palate: ['Bright', 'Herbal', 'Effervescent'],
     notes:
-      'Blush-pink and alive. Pink grapefruit and garden rosemary play over gin, laced with a sparkle of brut and a single ribbon of grenadine.',
-    accents: 'Gin, pink grapefruit, rosemary, lemon, sparkling wine',
+      'Beautiful, and just a little dangerous. Pink grapefruit and garden rosemary play above a backbone of gin, lifted by a brut sparkle and tinted with one slow ribbon of grenadine. Crisp, aromatic, alive in the glass.',
   },
 
   'Black Truffle Martini': {
     palate: ['Savory', 'Umami', 'Dry'],
     notes:
-      'A martini in a tuxedo. Earthy black truffle wound through a cold, crystalline spirit - savory, dry, and unmistakably grown-up. Built only at the bar.',
+      'A martini in a tuxedo. Earthy black truffle drifts through ice-cold, crystalline spirit, lending a savory, almost smoky depth to something otherwise austere and bone-dry. Serious, sensual, and unmistakably grown-up.',
   },
 
   'Rose Garden Rendezvous': {
     palate: ['Floral', 'Anise', 'Sparkling'],
     notes:
-      'A garden in a glass. Rose and a soft breath of anise are lifted by prosecco and misted with rose water, so the perfume arrives a moment before the sip.',
-    accents: 'Arak, rose, vodka, prosecco, rose water',
+      'A walk through the garden after rain. Rose and a soft breath of anise rise first; prosecco lifts everything skyward; a mist of rose water lets the perfume arrive a moment before the sip. Delicate, dressed-up, faintly illicit.',
   },
 
   'Aureliano': {
     palate: ['Golden', 'Warm', 'Spirit-Forward'],
     notes:
-      'Named for a slow golden hour. Burnished and spirit-forward, built to be sipped and not hurried. The composition is revealed in person.',
+      'Built for the golden hour. Burnished and spirit-forward, it glows with amber warmth and a slow, contemplative heat - a drink to be nursed rather than chased, as the light goes long and low across the room.',
   },
 
   'Call Me By Your Name': {
     palate: ['Stone Fruit', 'Sun-Ripe', 'Tender'],
     notes:
-      'Summer held in a glass. Ripe peach and a tender, sun-warmed sweetness - nostalgic, unhurried, and quietly intoxicating. Composed at the bar.',
+      'Summer, remembered. Sun-ripened peach and a tender, honeyed warmth rise like heat off Mediterranean stone - unhurried, a little aching, impossibly easy to fall into. The kind of sweetness that knows it will not last.',
   },
 
   '1001 Nights': {
     palate: ['Smoky', 'Spiced', 'Bittersweet'],
     notes:
-      'A spice-route journey. Smoked agave and saffron meet citrus and a whisper of agave sweetness, deepened by bitter herbs and orange, then dusted with smoked paprika and black salt.',
-    accents: 'Mezcal, saffron, grapefruit, lime, bitter herbs, orange',
+      'A caravan of smoke and spice. Mezcal smolders beneath saffron and citrus, then bitter herbs and orange deepen the story, all of it dusted with smoked paprika and black salt. Exotic, layered, and quietly hypnotic.',
   },
 
   'Basil in my mind': {
     palate: ['Herbal', 'Green', 'Bright'],
     notes:
-      'Garden-fresh and cooling. Basil at the center, green and aromatic, a clear-eyed sip made for warm nights. The full build stays at the bar.',
+      'Green and clear-headed. Fresh basil leads - cool, peppery, aromatic - threaded with bright citrus and a clean herbal snap. It reads like a long breath in a summer garden: vivid, crisp, and wide awake.',
   },
 
   'Calipso Cream': {
     palate: ['Creamy', 'Chocolate', 'Warm-Spiced'],
     notes:
-      'A nightcap dessert. Silken cream and chocolate are folded into agave spirit and port, warmed with cinnamon and finished with a veil of grated chocolate.',
-    accents: 'Tequila, cream, chocolate, port, cinnamon',
+      'Dessert after midnight. Silken cream folds into chocolate and port, warmed by cinnamon and grounded by agave spirit, then finished under a veil of grated chocolate. Decadent, rounded, and unapologetically indulgent.',
   },
 
   'Bésame': {
     palate: ['Smoky', 'Spicy', 'Tropical'],
     notes:
-      'A slow kiss with heat. Smoky mezcal and chile-kissed tequila ride over clarified pineapple and vanilla, edged with smoked salt - tropical, savory, and a little dangerous.',
-    accents: 'Mezcal, chile-infused tequila, ancho, pineapple, vanilla',
+      'A slow kiss with heat behind it. Smoky mezcal and chile-kissed tequila ride over clarified pineapple and soft vanilla, edged with smoked salt. Tropical and savory at once, and warm exactly where you least expect it.',
   },
 
   'Negroni Verde': {
     palate: ['Herbaceous', 'Bitter-Dry', 'Alpine'],
     notes:
-      'An emerald reading of the Negroni. Alpine herbs and garden botanicals stand over a dry, bittersweet spine, lifted by grapefruit oils and a whisper of basil.',
-    accents: 'Botanical gin, green Chartreuse, Lillet Blanc, grapefruit, basil',
+      'An emerald rewriting of the Negroni. Alpine herbs and green botanicals stand tall over a dry, bittersweet spine, brightened by grapefruit oil and a whisper of basil. Bracing, sophisticated, and cut perfectly clean.',
   },
 };
