@@ -12,3 +12,6 @@ app/node_modules/
 app/dist/
 
 app/.vite/
+
+# Raw credential scans (contain PII before redaction) - never commit
+media/credentials/

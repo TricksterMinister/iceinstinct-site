@@ -1,5 +1,5 @@
 import { SiteFooter } from '../sections/SiteFooter';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
 import { useMyStory } from '../app/useMyStory';
@@ -15,6 +15,35 @@ export function MyStory() {
   useCinemaChrome();
   useDeepScripts();
   useMyStory();
+
+  // The Record: real credentials, scanned. Tap a plate to read it in full.
+  const CREDS = [
+    {
+      img: '/assets/credentials/certificat-france.jpg',
+      title: 'Certificat - Wine & Sommellerie',
+      sub: 'Chateau-Arnoux, France',
+      desc: '192 hours of wine study under Michel Garnero: viticulture, the wines of France, sensory analysis, tasting practice, and the marriage of food and wine. Lycee interprofessionnel Louis Martin Bre, Chateau-Arnoux, France.',
+    },
+    {
+      img: '/assets/credentials/georgian-sommelier.jpg',
+      title: 'Leading Qualified Sommelier',
+      sub: 'Georgian Sommelier Association (ASI)',
+      desc: 'Two years (2013 to 2015) as the leading Qualified Sommelier, professional member and visiting lecturer. The Georgian Sommelier Association is part of the Association de la Sommellerie Internationale (ASI). Tbilisi.',
+    },
+    {
+      img: '/assets/credentials/enotria.jpg',
+      title: 'Diploma - Wines & Spirits',
+      sub: 'Enotria Wine World, Moscow',
+      desc: 'Specialist diploma in wines and spirits. Educational and Consulting Center "Enotria - Wine World", Moscow, 2002.',
+    },
+    {
+      img: '/assets/credentials/onivins.jpg',
+      title: 'French Wine Studies',
+      sub: 'O.N.I.VINS - National Bureau of French Wines',
+      desc: 'Professional courses with tastings under O.N.I.VINS, the French National Interprofessional Bureau of Wines, in the promotion of the wines of France. Moscow.',
+    },
+  ];
+  const [cert, setCert] = useState<number | null>(null);
 
   return (
     <>
@@ -314,6 +343,37 @@ export function MyStory() {
           </div>
         </section>
 
+        {/* ================ THE RECORD: credentials folio ================ */}
+        <section className="story-record" id="story-record">
+          <div className="container">
+            <div className="record-head reveal">
+              <p className="record-eyebrow">The Record</p>
+              <h2 className="display-heading">
+                Not claimed. <span className="it gold-shine">Certified.</span>
+              </h2>
+              <p className="record-lede">
+                Two decades of wine and service, on paper. Tap any seal to read it in full.
+              </p>
+            </div>
+            <ul className="record-grid reveal">
+              {CREDS.map((c, i) => (
+                <li key={i}>
+                  <button className="record-plate" type="button" onClick={() => setCert(i)} aria-label={`View ${c.title}`}>
+                    <span className="record-plate-frame">
+                      <img src={c.img} alt={c.title} loading="lazy" />
+                      <span className="record-plate-view" aria-hidden="true">View</span>
+                    </span>
+                    <span className="record-plate-meta">
+                      <span className="record-plate-title">{c.title}</span>
+                      <span className="record-plate-sub">{c.sub}</span>
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         {/* ================ FAQ ACCORDION ================ */}
         <section className="numbered" id="faq">
           <div className="container-narrow">
@@ -463,6 +523,29 @@ export function MyStory() {
           </div>
         </section>
       </main>
+
+      {cert !== null && (
+        <div
+          className="record-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={CREDS[cert].title}
+          onClick={() => setCert(null)}
+        >
+          <button className="record-lightbox-close" type="button" aria-label="Close" onClick={() => setCert(null)}>
+            <span></span>
+            <span></span>
+          </button>
+          <figure className="record-lightbox-fig" onClick={(e) => e.stopPropagation()}>
+            <img src={CREDS[cert].img} alt={CREDS[cert].title} />
+            <figcaption className="record-lightbox-cap">
+              <span className="rl-title">{CREDS[cert].title}</span>
+              <span className="rl-sub">{CREDS[cert].sub}</span>
+              <span className="rl-desc">{CREDS[cert].desc}</span>
+            </figcaption>
+          </figure>
+        </div>
+      )}
 
       <SiteFooter />
     </>

@@ -23,19 +23,43 @@ export function Contact() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [company, setCompany] = useState(''); // honeypot, hidden from humans
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
-  // Client-side only: build a mailto from the form fields and hand off to the
-  // visitor's mail client. No backend.
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const mailtoFallback = () => {
     const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
     window.location.href =
-      'mailto:' +
-      EMAIL +
-      '?subject=' +
-      encodeURIComponent('Ice & Instinct inquiry') +
-      '&body=' +
-      encodeURIComponent(body);
+      'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Ice & Instinct inquiry') + '&body=' + encodeURIComponent(body);
+  };
+
+  // Post the inquiry to the server so a lead lands in the studio inbox without
+  // depending on the visitor's mail client (the old mailto silently failed on
+  // desktop webmail). Fall back to mailto only if the endpoint is unreachable.
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (status === 'sending') return;
+    setStatus('sending');
+    try {
+      const data = new FormData();
+      data.set('name', name);
+      data.set('email', email);
+      data.set('message', message);
+      data.set('company', company);
+      const res = await fetch('/inquire.php', { method: 'POST', body: data });
+      const out = (await res.json().catch(() => ({ ok: res.ok }))) as { ok?: boolean };
+      if (res.ok && out.ok) {
+        const w = window as unknown as { gtag?: (...a: unknown[]) => void; dataLayer?: unknown[] };
+        if (typeof w.gtag === 'function') w.gtag('event', 'inquiry_submit', { method: 'inquire_form' });
+        else (w.dataLayer = w.dataLayer || []).push({ event: 'inquiry_submit' });
+        setStatus('sent');
+      } else {
+        setStatus('error');
+        mailtoFallback();
+      }
+    } catch {
+      setStatus('error');
+      mailtoFallback();
+    }
   };
 
   return (
@@ -163,49 +187,74 @@ export function Contact() {
                   Tell us the date, the room, and the guest count. A reply follows within one
                   business day, personally.
                 </p>
-                <form className="inquire-form" onSubmit={onSubmit} noValidate>
-                  <div className="inquire-row">
+                {status === 'sent' ? (
+                  <div className="inquire-sent" role="status">
+                    <h3 className="closing-title" style={{ fontSize: 'var(--t-2xl)', margin: '0 0 0.6rem' }}>
+                      Received.
+                    </h3>
+                    <p className="closing-lead" style={{ margin: 0 }}>
+                      Your note is with us. A reply follows within one business day, personally.
+                    </p>
+                  </div>
+                ) : (
+                  <form className="inquire-form" onSubmit={onSubmit} noValidate>
+                    <div className="inquire-row">
+                      <label className="inquire-field">
+                        <span className="inquire-label">Name</span>
+                        <input
+                          type="text"
+                          name="name"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          autoComplete="name"
+                          required
+                        />
+                      </label>
+                      <label className="inquire-field">
+                        <span className="inquire-label">Email</span>
+                        <input
+                          type="email"
+                          name="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          autoComplete="email"
+                          required
+                        />
+                      </label>
+                    </div>
                     <label className="inquire-field">
-                      <span className="inquire-label">Name</span>
-                      <input
-                        type="text"
-                        name="name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        autoComplete="name"
+                      <span className="inquire-label">Message</span>
+                      <textarea
+                        name="message"
+                        rows={3}
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        placeholder="The evening you have in mind - the date, the room, the guest count."
                         required
                       />
                     </label>
-                    <label className="inquire-field">
-                      <span className="inquire-label">Email</span>
-                      <input
-                        type="email"
-                        name="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        autoComplete="email"
-                        required
-                      />
-                    </label>
-                  </div>
-                  <label className="inquire-field">
-                    <span className="inquire-label">Message</span>
-                    <textarea
-                      name="message"
-                      rows={3}
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                      placeholder="The evening you have in mind - the date, the room, the guest count."
-                      required
-                    />
-                  </label>
-                  <div className="inquire-form-foot">
-                    <button type="submit" className="btn-primary" data-cursor="link">
-                      <span className="btn-label">Send the inquiry</span>
-                      <span className="btn-arr" aria-hidden="true">&rarr;</span>
-                    </button>
-                  </div>
-                </form>
+                    {/* honeypot: off-screen, never seen or filled by a human */}
+                    <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
+                      <label>
+                        Company
+                        <input
+                          type="text"
+                          name="company"
+                          tabIndex={-1}
+                          autoComplete="off"
+                          value={company}
+                          onChange={(e) => setCompany(e.target.value)}
+                        />
+                      </label>
+                    </div>
+                    <div className="inquire-form-foot">
+                      <button type="submit" className="btn-primary" data-cursor="link" disabled={status === 'sending'}>
+                        <span className="btn-label">{status === 'sending' ? 'Sending...' : 'Send the inquiry'}</span>
+                        <span className="btn-arr" aria-hidden="true">&rarr;</span>
+                      </button>
+                    </div>
+                  </form>
+                )}
               </div>
               <p className="closing-meta">
                 <span>By appointment only</span>
