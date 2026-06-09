@@ -170,7 +170,7 @@ export function MyStory() {
                   to whichever city is hovered/active. Hidden on touch (each city
                   then shows its own inline photo). */}
               <div className="journey-media" aria-hidden="true">
-                <figure className="journey-fig is-active"><img src="/assets/photos/journey-sukhumi-v2.png" alt="" loading="lazy" /></figure>
+                <figure className="journey-fig is-active"><img src="/assets/photos/journey-sukhumi-v3.png" alt="" loading="lazy" /></figure>
                 <figure className="journey-fig"><img src="/assets/photos/journey-tbilisi-v2.png" alt="" loading="lazy" /></figure>
                 <figure className="journey-fig"><img src="/assets/photos/journey-lisbon-v2.png" alt="" loading="lazy" /></figure>
                 <figure className="journey-fig"><img src="/assets/photos/journey-moscow-v2.png" alt="" loading="lazy" /></figure>
@@ -187,7 +187,7 @@ export function MyStory() {
                 </div>
                 <ol className="journey-rail" data-journey-rail>
                 <li className="journey-stop">
-                  <img className="journey-stop-img" src="/assets/photos/journey-sukhumi-v2.png" alt="Sukhumi" loading="lazy" />
+                  <img className="journey-stop-img" src="/assets/photos/journey-sukhumi-v3.png" alt="Sukhumi" loading="lazy" />
                   <div className="journey-row">
                     <span className="journey-no">01</span>
                     <div className="journey-body">
