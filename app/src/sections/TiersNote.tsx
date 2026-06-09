@@ -8,6 +8,10 @@ export function TiersNote() {
       <div className="section-bg-word" aria-hidden="true">SCALE</div>
       <div className="tiers-note-stage">
         <p className="tiers-note-eyebrow">One alchemist. A team when the room calls for it.</p>
+        <h2 className="tiers-note-headline">
+          <span>Built to</span>
+          <span className="it">scale.</span>
+        </h2>
         <p className="tiers-note-scale">
           Any tier scales with a full bar team for larger events - weddings, galas, and corporate gatherings - quoted on
           request.

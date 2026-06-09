@@ -50,15 +50,34 @@
   color: var(--c-accent);
   opacity: 0.85;
 }
-.tiers-note-scale {
+/* Segment headline in the site signature: bold sans + italic champagne accent. */
+.tiers-note-headline {
+  margin: 0;
+  font-family: var(--sec-display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 1.8rem + 4.6vmin, 5.4rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--c-fg);
+}
+.tiers-note-headline span { display: block; }
+.tiers-note-headline span.it {
   font-family: var(--sec-italic);
   font-style: italic;
+  text-transform: none;
   font-weight: 350;
-  font-size: clamp(1.7rem, 1.2rem + 2.4vw, 3.4rem);
-  line-height: 1.28;
-  color: var(--c-fg);
+  color: var(--c-accent);
   letter-spacing: 0;
-  max-width: 24ch;
+}
+/* Supporting line under the headline (sans lead, like the Concierge intro). */
+.tiers-note-scale {
+  font-family: var(--sec-body);
+  font-weight: 300;
+  font-size: clamp(1.05rem, 0.95rem + 0.6vw, 1.4rem);
+  line-height: 1.6;
+  color: var(--sec-mute);
+  letter-spacing: 0;
+  max-width: 46ch;
   margin: 0 auto;
   text-wrap: balance;
 }
