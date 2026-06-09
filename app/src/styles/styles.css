@@ -506,7 +506,7 @@ main section.numbered .eyebrow::after {
    override below. */
 .display-heading {
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 1.6rem + 3.5vw, 4.5rem);
+  font-size: var(--t-h2);
   font-weight: 700;
   line-height: 0.98;
   letter-spacing: -0.04em;
@@ -1676,7 +1676,7 @@ img.reveal-zoom.is-in { transform: scale(1); }
 }
 .page-hero h1 {
   font-family: var(--font-display);
-  font-size: var(--t-display);
+  font-size: var(--t-h1);
   font-weight: 700;
   line-height: 0.92;
   letter-spacing: -0.05em;
@@ -2764,7 +2764,7 @@ img.reveal-zoom.is-in { transform: scale(1); }
 /* ===== Legal page (Privacy / Terms) =============================== */
 .legal { padding: clamp(140px, 18vh, 200px) 0 var(--s-2xl); }
 .legal-head { max-width: 760px; margin: 0 auto var(--s-lg); text-align: left; }
-.legal-head h1 { font-size: var(--t-3xl); margin-bottom: var(--s-xs); }
+.legal-head h1 { font-size: var(--t-h2); margin-bottom: var(--s-xs); }
 .legal-body { max-width: 760px; margin: 0 auto; }
 .legal-body h2 {
   font-size: var(--t-lg);
@@ -3120,7 +3120,7 @@ img.reveal-zoom.is-in { transform: scale(1); }
   margin: 0;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(2.4rem, 1.4rem + 3vw, 4.4rem);
+  font-size: var(--t-h1);
   line-height: 0.98;
   letter-spacing: -0.03em;
   color: var(--c-fg);
@@ -3307,7 +3307,7 @@ img.reveal-zoom.is-in { transform: scale(1); }
 }
 .story-close-statement {
   margin: 0; font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(2.2rem, 1.4rem + 3.4vw, 4.6rem); line-height: 1.02;
+  font-size: var(--t-h2); line-height: 1.02;
   letter-spacing: -0.03em; color: var(--c-fg);
 }
 .story-close-statement .it {

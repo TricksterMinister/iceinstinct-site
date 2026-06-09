@@ -12,7 +12,7 @@
   --sec-mute: var(--c-fg-mute, var(--c-fg-muted, oklch(72% 0 0)));
   --sec-faint: var(--c-fg-faint, oklch(52% 0 0));
   --sec-rule: var(--c-rule, var(--c-border, oklch(20% 0 0)));
-  --seg-h: clamp(2.8rem, 1.95rem + 5vmin, 5.8rem);
+  /* --seg-h is provided site-wide by accent.css (alias of --t-h2). */
 }
 
 /* ===================== PRICING NOTE ===================== */

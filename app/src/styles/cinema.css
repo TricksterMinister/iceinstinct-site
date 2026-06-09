@@ -31,8 +31,7 @@
   --t-step-6: clamp(4.4rem, 2.6rem + 8.4vmin, 10rem);
   --t-step-7: clamp(5.6rem, 3rem + 11vmin, 13rem);
 
-  /* Tier-3: the one shared size for EVERY segment headline (home + sections). */
-  --seg-h: clamp(2.8rem, 1.95rem + 5vmin, 5.8rem);
+  /* --seg-h (segment headline) now lives in accent.css as an alias of --t-h2. */
 
   --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
   --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
@@ -150,7 +149,7 @@ a { color: inherit; text-decoration: none; }
 /* Desktop: ONE line. Sized so 'Ice & Instinct.' fits the line AND leaves room
    below for the tagline (the old 14vw overflowed the line and pushed the stage
    taller than the viewport, hiding the subtitle below the fold). */
-.hero-title { color: var(--c-fg); font-family: var(--f-display); font-size: clamp(3rem, 12vw, 16rem); line-height: 0.9; letter-spacing: -0.06em; display: flex; flex-direction: row; flex-wrap: nowrap; align-items: baseline; justify-content: center; column-gap: 0.32em; gap: 0; font-weight: 700; white-space: nowrap; }
+.hero-title { color: var(--c-fg); font-family: var(--f-display); font-size: var(--t-hero); line-height: 0.9; letter-spacing: -0.06em; display: flex; flex-direction: row; flex-wrap: nowrap; align-items: baseline; justify-content: center; column-gap: 0.32em; gap: 0; font-weight: 700; white-space: nowrap; }
 .hero-title .row { display: contents; }   /* desktop: rows transparent, all words on one line */
 .hero-title .row { display: flex; align-items: baseline; justify-content: center; column-gap: 0.32em; }
 .hero-title .word { display: inline-block; overflow: hidden; padding: 0 0.04em 0.12em; }
@@ -223,7 +222,7 @@ a { color: inherit; text-decoration: none; }
 .seg-light .chapter-grid { max-width: none; margin: 0; gap: clamp(1.2rem, 2.6vh, 2.2rem); }
 .seg-light .chapter-prose { max-width: none; width: 100%; text-align: left; }
 /* Tier 2: the Manifesto wordmark sits just under the hero (tier 1). */
-.seg-light .chapter-title { max-width: none; font-size: clamp(3rem, 11.5vw, 15rem); line-height: 0.94; }
+.seg-light .chapter-title { max-width: none; font-size: var(--t-hero-2); line-height: 0.94; }
 .seg-light .chapter-lead { max-width: none; width: 100%; font-size: clamp(1.4rem, 3.6vw, 3.1rem); line-height: 1.18; }
 .seg-light .chapter-author { max-width: 46ch; }
 .seg-light .chapter-body { max-width: 46ch; }

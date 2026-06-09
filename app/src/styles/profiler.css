@@ -305,7 +305,7 @@
 .pp-card-head { text-align: center; padding-bottom: clamp(0.9rem, 2.2vh, 1.6rem); flex: 0 0 auto; }
 .pp-card-archetype { display: block; font-family: var(--font-italic); font-style: italic; font-size: var(--t-lg); color: var(--c-fg-soft); margin-bottom: 0.3rem; }
 .pp-card-eyebrow { font-family: var(--font-mono); font-size: var(--t-xs); letter-spacing: 0.34em; text-transform: uppercase; color: var(--c-fg-faint); }
-.pp-card-name { font-family: var(--font-italic); font-style: italic; font-size: clamp(2.4rem, 1.2rem + 4.2vw, 5.4rem); line-height: 0.98; color: var(--c-accent); margin: 0.3rem 0 0.5rem; }
+.pp-card-name { font-family: var(--font-italic); font-style: italic; font-size: var(--t-h2); line-height: 0.98; color: var(--c-accent); margin: 0.3rem 0 0.5rem; }
 .pp-card-tag { font-family: var(--font-italic); font-style: italic; font-size: var(--t-lg); color: var(--c-fg-soft); max-width: 46ch; margin: 0 auto; }
 .pp-tint { display: block; width: 56px; height: 4px; margin: clamp(0.7rem, 1.8vh, 1.2rem) auto 0; background: var(--tint); }
 

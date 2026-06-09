@@ -12,6 +12,34 @@
 }
 
 /* =========================================================================
+   TYPE SCALE - site-wide heading role tokens. THE A/B SWITCH LIVES HERE.
+   Every heading on every page points at these tokens, so changing the values
+   below reproportions the whole site at once.
+     --t-hero   = Home hero wordmark (largest, home only)
+     --t-hero-2 = Manifesto wordmark (just under hero, home only)
+     --t-h1     = every inner-page hero (Offerings, tiers, Concierge, Gallery,
+                  My Story cover, Inquire)
+     --t-h2     = every section / segment headline (alias: --seg-h)
+   ========================================================================= */
+:root {
+  /* ===== PACKAGE A - Cinematic (ratio ~1.5) ===== */
+  --t-hero:   clamp(3rem, 12vw, 16rem);
+  --t-hero-2: clamp(3rem, 11.5vw, 15rem);
+  --t-h1:     clamp(3rem, 6.6vw, 7rem);
+  --t-h2:     clamp(2.8rem, 1.95rem + 5vmin, 5.8rem);
+
+  /* ===== PACKAGE B - Editorial (ratio ~1.333) - swap in to test =====
+  --t-hero:   clamp(3rem, 11vw, 15rem);
+  --t-hero-2: clamp(3rem, 10.5vw, 14rem);
+  --t-h1:     clamp(2.8rem, 5.8vw, 6.25rem);
+  --t-h2:     clamp(2.6rem, 1.8rem + 4.3vmin, 4.7rem);
+  */
+
+  /* All section-headline consumers follow --t-h2. */
+  --seg-h: var(--t-h2);
+}
+
+/* =========================================================================
    SIGNATURE HEADINGS (site-wide) - every heading's italic accent renders as a
    champagne gradient with a slow travelling shine: white display word + this
    gold-shimmer word, the brand's two-colour heading style. Deep-champagne base
