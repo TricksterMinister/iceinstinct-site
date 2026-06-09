@@ -449,10 +449,10 @@ export function MyStory() {
                 <summary>How many guests can you accommodate?</summary>
                 <div className="faq-answer">
                   <p>
-                    <a href="/offerings/simplicity/">Simplicity</a> accommodates up to 12 guests.{' '}
-                    <a href="/offerings/bespoke/">Bespoke</a> up to 15. <a href="/offerings/omakase/">Omakase</a> can
-                    serve up to 25; <a href="/offerings/foundation/">Foundation</a> scales up to 40 with added bar
-                    staff. Larger events can be arranged with additional staff through custom consultation.
+                    <a href="/offerings/foundation/">Foundation</a> hosts up to 15 guests.{' '}
+                    <a href="/offerings/simplicity/">Simplicity</a> up to 12. <a href="/offerings/bespoke/">Bespoke</a>{' '}
+                    up to 30. <a href="/offerings/omakase/">Omakase</a> up to 25. Larger events can be arranged with
+                    additional bar staff through custom consultation.
                   </p>
                 </div>
               </details>
@@ -471,8 +471,8 @@ export function MyStory() {
                 <summary>Payment and deposit process</summary>
                 <div className="faq-answer">
                   <p>
-                    A $1,000 deposit secures your date and is applied toward your final balance. Once your package is
-                    confirmed, the total is adjusted: if your total exceeds $1,000, you pay the difference; if it is
+                    A $500 deposit secures your date and is applied toward your final balance. Once your package is
+                    confirmed, the total is adjusted: if your total exceeds $500, you pay the difference; if it is
                     less, the remainder is refunded. The balance is due at least 14 days before the event.
                   </p>
                 </div>
