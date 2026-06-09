@@ -17,9 +17,9 @@ export type CocktailProfile = {
 
 export const COCKTAIL_PROFILES: Record<string, CocktailProfile> = {
   'White Lotus': {
-    palate: ['Silky', 'White Chocolate', 'Jasmine'],
+    palate: ['Creamy', 'Tropical', 'Dessert'],
     notes:
-      'Silken and pale gold. White chocolate and ripe pineapple fold into a creamy, frothy body, lifted by elderflower and the cool perfume of jasmine and mint. Lush and tropical, yet quietly floral - dessert that learned restraint.',
+      'A tropical dessert with a wink to its namesake. White chocolate and ripe pineapple meet smooth tequila and a whisper of cream, lifted by elderflower and grounded with a thread of sea salt. Lush, milky, and indulgent - sweetness that knows exactly when to stop.',
   },
 
   'Aviation': {
@@ -41,9 +41,9 @@ export const COCKTAIL_PROFILES: Record<string, CocktailProfile> = {
   },
 
   'Black Truffle Martini': {
-    palate: ['Savory', 'Truffle', 'Dry'],
+    palate: ['Savory', 'Truffle', 'Bone-Dry'],
     notes:
-      'A martini in a tuxedo. Shaved black truffle drifts across a crystal-cold, bone-dry spirit, scenting it with earth and fresh thyme and the faintest thread of honey. Savory, mineral, and unmistakably grown-up.',
+      'Vodka infused with real black truffle, stirred bone-dry in the martini tradition. The aroma arrives first - deep, earthy, unmistakably mushroom - then a soft, saline umami settles across the palate. Austere, savory, and quietly luxurious.',
   },
 
   'Rose Garden Rendezvous': {
@@ -53,15 +53,15 @@ export const COCKTAIL_PROFILES: Record<string, CocktailProfile> = {
   },
 
   'Aureliano': {
-    palate: ['Amber', 'Spiced', 'Spirit-Forward'],
+    palate: ['Smoky', 'Spiced', 'Spirit-Forward'],
     notes:
-      'Spirit of amber. A burnished, spirit-forward sip scented with orange peel, star anise, and warm cinnamon - glowing and contemplative, built for the slow gold of late evening. One to nurse, never to chase.',
+      'A South American Manhattan. Smoky mezcal stands in for the whiskey, wrapped in warm baking spice and a burnished, amber depth. Spirit-forward and brooding, built to be nursed slowly as the room goes gold.',
   },
 
   'Call Me By Your Name': {
-    palate: ['Stone Fruit', 'Sparkling', 'Sun-Ripe'],
+    palate: ['Silky', 'Herbal', 'Refreshing'],
     notes:
-      'An Italian summer in a coupe. Ripe peach and apricot lift on a dry sparkling spine, brushed with rosemary and warmed by the last of the sun. Tender, nostalgic, and gone a little too soon.',
+      'Cool silk on a warm evening. Gin, cucumber, lime, and basil are shaken with egg white into a soft, billowing foam, then kissed with a mist of absinthe. Velvet-smooth, herbaceous, and quietly sensual - refreshment dressed for a long, slow dusk.',
   },
 
   '1001 Nights': {
@@ -71,9 +71,9 @@ export const COCKTAIL_PROFILES: Record<string, CocktailProfile> = {
   },
 
   'Basil in my mind': {
-    palate: ['Herbal', 'Cucumber', 'Bright'],
+    palate: ['Herbal', 'Green', 'Spring'],
     notes:
-      'Green and wide awake. Fresh basil and cool cucumber ride over bright lime, finished with a mist of absinthe that lingers like a garden at high noon. Crisp, aromatic, and clean to the very last sip.',
+      'Spring, distilled. A vivid rush of fresh-bruised basil over crisp gin and bright citrus, served deep over crushed ice so every sip stays cold and green. Garden-fresh, exhilarating, and almost recklessly delicious.',
   },
 
   'Calipso Cream': {
