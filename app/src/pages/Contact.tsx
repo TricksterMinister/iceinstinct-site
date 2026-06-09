@@ -255,6 +255,31 @@ export function Contact() {
                     </div>
                   </form>
                 )}
+                <div
+                  className="inquire-direct"
+                  style={{
+                    marginTop: '1.5rem',
+                    display: 'flex',
+                    gap: '0.7rem',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    flexWrap: 'wrap',
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: 'var(--t-xs)',
+                    letterSpacing: '0.16em',
+                    textTransform: 'uppercase',
+                    color: 'var(--c-fg-faint)',
+                  }}
+                >
+                  <span>Prefer to speak?</span>
+                  <a href="https://wa.me/19172927859" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--c-accent)' }}>
+                    WhatsApp
+                  </a>
+                  <span aria-hidden="true" style={{ opacity: 0.5 }}>&middot;</span>
+                  <a href="tel:+19172927859" style={{ color: 'var(--c-accent)' }}>
+                    Call
+                  </a>
+                </div>
               </div>
               <p className="closing-meta">
                 <span>By appointment only</span>
