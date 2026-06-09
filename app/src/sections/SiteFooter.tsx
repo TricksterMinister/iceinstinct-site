@@ -33,6 +33,9 @@ export function SiteFooter({ embedded = false }: SiteFooterProps) {
           <a className="lnk" href="https://www.instagram.com/iceinstinctnyc/" target="_blank" rel="noopener noreferrer" aria-label="Ice & Instinct on Instagram">Instagram</a>
           <a className="lnk" href="/privacy/">Privacy</a>
           <a className="lnk" href="/terms/">Terms</a>
+          <a className="lnk" href="/cookies/">Cookies</a>
+          <a className="lnk" href="/accessibility/">Accessibility</a>
+          <a className="lnk" href="/responsible-service/">Responsible Service</a>
         </nav>
         <div className="oma-close-base">
           <span>By appointment only &middot; New York Metropolitan Area</span>

@@ -23,6 +23,9 @@ import { GalleryPage } from './pages/GalleryPage';
 import { Contact } from './pages/Contact';
 import { Privacy } from './pages/Privacy';
 import { Terms } from './pages/Terms';
+import { CookiePolicy } from './pages/CookiePolicy';
+import { Accessibility } from './pages/Accessibility';
+import { ResponsibleService } from './pages/ResponsibleService';
 
 // Re-export SEO data so the prerender script can read it from this one SSR
 // bundle (avoids a second SSR build).
@@ -42,6 +45,9 @@ const ROUTES: Record<string, () => ReactElement> = {
   '/contact/': () => <Contact />,
   '/privacy/': () => <Privacy />,
   '/terms/': () => <Terms />,
+  '/cookies/': () => <CookiePolicy />,
+  '/accessibility/': () => <Accessibility />,
+  '/responsible-service/': () => <ResponsibleService />,
 };
 
 export function renderRoute(route: string): string {

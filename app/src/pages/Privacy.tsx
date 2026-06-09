@@ -1,226 +1,111 @@
-import { SiteFooter } from '../sections/SiteFooter';
-import { useEffect } from 'react';
-import { useCinemaChrome } from '../app/useCinemaChrome';
-import { useDeepScripts } from '../app/useDeepScripts';
+import { LegalShell } from './legal/LegalShell';
 
 export function Privacy() {
-  // Live deep page sets <body class="cinema-chrome">. React mounts into #root,
-  // so apply the body class here (and clean it up) to match the original DOM.
-  useEffect(() => {
-    document.body.classList.add('cinema-chrome');
-    return () => document.body.classList.remove('cinema-chrome');
-  }, []);
-
-  useCinemaChrome();
-  useDeepScripts();
-
   return (
-    <>
-      <div className="cursor" aria-hidden="true">
-        <div className="cursor-dot"></div>
-        <div className="cursor-ring"></div>
-      </div>
+    <LegalShell label="Privacy" title="Privacy Policy" updated="June 8, 2026" current="/privacy/">
+      <h2>1. Who we are</h2>
+      <p>
+        Ice &amp; Instinct ("we", "us", "our") is a private mixology and at-home bartending service operated by{' '}
+        <strong>Teimuraz Benidze</strong>, serving the New York metropolitan area. This policy explains what information
+        we collect when you visit <a href="https://www.iceinstinct.com/">www.iceinstinct.com</a> or send us an inquiry,
+        how we use it, and the choices you have. We are the data controller for that information.
+      </p>
 
-      <button className="va-trigger" aria-label="Open menu">
-        <span className="va-trigger-ring"></span>
-        <TriggerMark />
-      </button>
+      <h2>2. Information we collect</h2>
+      <ul>
+        <li>
+          <strong>Inquiry and booking details.</strong> When you request a consultation through our scheduling provider
+          (YouCanBook.me) or by email, we receive the details you provide: your name, email address, and any event
+          details you share (date, location, guest count, preferences). These reach our private inbox.
+        </li>
+        <li>
+          <strong>Analytics data.</strong> We use Google Analytics 4 to understand how the site is used (pages viewed,
+          approximate location, device and browser type, and on-site actions). Google Analytics sets cookies (for
+          example <code>_ga</code>) and processes a truncated version of your IP address. See our{' '}
+          <a href="/cookies/">Cookie Policy</a> for the full list and how to opt out.
+        </li>
+        <li>
+          <strong>Server logs.</strong> Our hosting provider records standard technical logs (IP address, user-agent,
+          requested URL, timestamp) for security, performance, and abuse prevention.
+        </li>
+      </ul>
 
-      <div className="va-overlay" aria-hidden="true">
-        <button className="va-close" aria-label="Close menu">
-          <span></span>
-          <span></span>
-        </button>
-        <div className="va-stage">
-          <p className="va-eyebrow"><EyebrowMark />Ice &amp; Instinct / Privacy</p>
-          <ul className="va-list">
-            <li>
-              <a href="/">
-                <i>01</i>
-                <b>Home</b>
-                <em>The opening view</em>
-              </a>
-            </li>
-            <li>
-              <a href="/offerings/">
-                <i>02</i>
-                <b>Offerings</b>
-                <em>Four levels, one standard</em>
-              </a>
-            </li>
-            <li>
-              <a href="/concierge/">
-                <i>03</i>
-                <b>Concierge</b>
-                <em>Five enhancements</em>
-              </a>
-            </li>
-            <li>
-              <a href="/my-story/">
-                <i>04</i>
-                <b>My Story</b>
-                <em>Teimuraz Benidze</em>
-              </a>
-            </li>
-            <li>
-              <a href="/gallery/">
-                <i>05</i>
-                <b>The Collection</b>
-                <em>Twelve compositions</em>
-              </a>
-            </li>
-            <li>
-              <a href="/contact/">
-                <i>06</i>
-                <b>Inquire</b>
-                <em>Begin the conversation</em>
-              </a>
-            </li>
-          </ul>
-          <footer className="va-foot">
-            <span>New York Metropolitan Area</span>
-            <span>EST. 2024</span>
-          </footer>
-        </div>
-      </div>
+      <h2>3. How we use your information</h2>
+      <ul>
+        <li>To respond to your inquiry, prepare a quote, and deliver the service you book.</li>
+        <li>To send event-related communication through the channel you specified.</li>
+        <li>To understand and improve how the site performs (analytics, in aggregate).</li>
+        <li>To keep the site secure and prevent abuse.</li>
+        <li>To meet legal, tax, and accounting obligations.</li>
+      </ul>
+      <p>
+        We do <strong>not</strong> sell or rent your personal information, and we do not share it with advertisers or
+        use it for marketing unrelated to your inquiry.
+      </p>
 
-      <header className="header" role="banner">
-        <div className="container">
-          <nav className="nav" aria-label="Main">
-            <a href="/" className="brand">
-              <span className="brand-mark">
-                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17 4 L23 11 L17 18 L11 11 Z" stroke="currentColor" strokeWidth="1" fill="none" />
-                  <path
-                    d="M9 14 L17 23 L25 14"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <line x1="17" y1="23" x2="17" y2="29" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-                  <line x1="13" y1="29" x2="21" y2="29" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-                </svg>
-              </span>
-              <span className="brand-name">Ice &amp; Instinct</span>
-            </a>
-            <div className="nav-links">
-              <a href="/offerings/">Offerings</a>
-              <a href="/concierge/">Concierge</a>
-              <a href="/my-story/">My Story</a>
-              <a href="/gallery/">Gallery</a>
-            </div>
-            <a href="/contact/" className="nav-cta">
-              Inquire
-            </a>
-          </nav>
-        </div>
-      </header>
+      <h2>4. Cookies and analytics</h2>
+      <p>
+        The site uses a small number of cookies, primarily for analytics. We do not run advertising or cross-site
+        tracking cookies. You can control or refuse cookies in your browser, and you can opt out of Google Analytics
+        using Google's browser add-on. Full detail is in our <a href="/cookies/">Cookie Policy</a>.
+      </p>
 
-      <main>
-        <section className="legal">
-          <div className="container">
-            <div className="legal-head">
-              <h1>Privacy Policy</h1>
-              <p
-                className="muted"
-                style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.72rem',
-                  letterSpacing: '0.22em',
-                  textTransform: 'uppercase',
-                }}
-              >
-                Last updated · May 1, 2026
-              </p>
-            </div>
+      <h2>5. Service providers we share data with</h2>
+      <ul>
+        <li>
+          <strong>YouCanBook.me</strong> - consultation scheduling and inquiry intake.
+        </li>
+        <li>
+          <strong>Google Analytics (Google LLC)</strong> - website usage measurement.
+        </li>
+        <li>
+          <strong>Google Fonts</strong> - typeface delivery.
+        </li>
+        <li>
+          <strong>Hostinger</strong> - website hosting and server logs.
+        </li>
+      </ul>
+      <p>Each provider processes data only to deliver its service to us, under its own privacy terms.</p>
 
-            <div className="legal-body">
-              <h2>1. Who we are</h2>
-              <p>
-                Ice &amp; Instinct ("we", "us") is a private mixology studio operated by{' '}
-                <strong>Teimuraz Benidze</strong>, based in New York. This policy explains what information we collect
-                when you visit <a href="https://www.iceinstinct.com/">www.iceinstinct.com</a> or send us an inquiry, and
-                how we use it.
-              </p>
+      <h2>6. How long we keep your data</h2>
+      <p>
+        Inquiry submissions and email correspondence are kept for as long as needed to deliver the service you booked,
+        plus a reasonable period afterward for accounting and legal records. Analytics data is retained for up to 14
+        months. You may request deletion at any time, subject to records we must keep by law.
+      </p>
 
-              <h2>2. What we collect</h2>
-              <ul>
-                <li>
-                  <strong>Inquiry submissions.</strong> When you request a consultation, we receive the details you
-                  provide through our scheduling provider (YouCanBook.me): your name, email, and any event details you
-                  share. These reach our private inbox.
-                </li>
-                <li>
-                  <strong>Server logs.</strong> Our hosting provider may log your IP address, user-agent, requested URL
-                  and timestamp for standard security and abuse-prevention.
-                </li>
-                <li>
-                  <strong>Cookies.</strong> We do not set tracking or advertising cookies. Some essential third-party
-                  services (e.g. Google Fonts) may set technical cookies on their own domains.
-                </li>
-              </ul>
+      <h2>7. Your rights</h2>
+      <p>
+        Depending on where you live, you may have the right to access, correct, delete, or port your personal
+        information, and to opt out of certain processing. New York residents may ask what information we hold and
+        request its deletion. California residents have rights under the CCPA/CPRA, including the right to know, delete,
+        and opt out of "sale" or "sharing" (we do neither). EU/UK residents have rights under the GDPR/UK GDPR. To
+        exercise any right, write to us via the <a href="/contact/">contact page</a>; we will not discriminate against
+        you for doing so.
+      </p>
 
-              <h2>3. How we use it</h2>
-              <ul>
-                <li>To respond to your inquiry, prepare a quote, and deliver the service you book.</li>
-                <li>To send event-related communication by the channel you specified.</li>
-                <li>To keep the site running and prevent abuse.</li>
-              </ul>
-              <p>
-                We do not sell your data, share it with advertisers, or use it for marketing unrelated to your inquiry.
-              </p>
+      <h2>8. Age</h2>
+      <p>
+        This site and our services are intended for adults of legal drinking age (21 or older in the United States). We
+        do not knowingly collect information from anyone under 18. See our{' '}
+        <a href="/responsible-service/">Responsible Service &amp; Alcohol Policy</a>.
+      </p>
 
-              <h2>4. Third parties</h2>
-              <ul>
-                <li>
-                  <strong>YouCanBook.me</strong> - consultation scheduling.
-                </li>
-                <li>
-                  <strong>Google Fonts</strong> - typeface delivery.
-                </li>
-                <li>
-                  <strong>Hosting provider</strong> - serves the static site and writes server logs.
-                </li>
-              </ul>
+      <h2>9. Security</h2>
+      <p>
+        We take reasonable technical and organizational measures to protect your information. No method of transmission
+        or storage is completely secure, so we cannot guarantee absolute security.
+      </p>
 
-              <h2>5. How long we keep your data</h2>
-              <p>
-                Inquiry submissions and email correspondence are retained for as long as needed to deliver the service
-                you booked, plus a reasonable period afterward for accounting. You may request deletion at any time.
-              </p>
+      <h2>10. Changes</h2>
+      <p>
+        We may update this policy from time to time. The "Last updated" date above reflects the most recent change.
+      </p>
 
-              <h2>6. Your rights</h2>
-              <p>
-                Subject to applicable law (including GDPR for EU residents and CCPA for California residents), you may
-                request access, correction, or deletion of your data, or opt out of further communication. Write to the
-                email address on the contact page.
-              </p>
-
-              <h2>7. Children</h2>
-              <p>
-                The site is intended for adults of legal drinking age in their jurisdiction. We do not knowingly collect
-                data from anyone under 18.
-              </p>
-
-              <h2>8. Changes</h2>
-              <p>
-                We may update this policy from time to time. The "Last updated" date above reflects the most recent
-                change.
-              </p>
-
-              <h2>9. Contact</h2>
-              <p>
-                For privacy questions or data requests, write to us via the <a href="/contact/">contact page</a>.
-              </p>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <SiteFooter />
-    </>
+      <h2>11. Contact</h2>
+      <p>
+        For privacy questions or data requests, reach us via the <a href="/contact/">contact page</a>.
+      </p>
+    </LegalShell>
   );
 }
-import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';

@@ -34,6 +34,9 @@ const ROUTE_TO_HTML = {
   '/contact/': 'contact/index.html',
   '/privacy/': 'privacy/index.html',
   '/terms/': 'terms/index.html',
+  '/cookies/': 'cookies/index.html',
+  '/accessibility/': 'accessibility/index.html',
+  '/responsible-service/': 'responsible-service/index.html',
 };
 
 function esc(s) {

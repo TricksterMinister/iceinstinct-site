@@ -278,7 +278,7 @@ git commit -m "seo: wire real entity URLs into Organization sameAs"
 
 ## PROGRESS LOG (live - update each session)
 
-- [ ] A1 Per-page content pass
+- [~] A1 Per-page content pass - Inquire/Contact page DONE (rebuilt to the offering closing-segment standard: one viewport, light card + form, full footer; deployed live de2bb2d). Remaining pages: Offerings hub, 4 tiers, Concierge, Privacy, Terms.
 - [ ] A2 Five cocktail recipes + images
 - [ ] A3 Founder image/video final
 - [ ] B1 S5 Media finalization

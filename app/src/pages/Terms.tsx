@@ -1,246 +1,156 @@
-import { SiteFooter } from '../sections/SiteFooter';
-import { useEffect } from 'react';
-import { useCinemaChrome } from '../app/useCinemaChrome';
-import { useDeepScripts } from '../app/useDeepScripts';
+import { LegalShell } from './legal/LegalShell';
 
 export function Terms() {
-  // Live deep page sets <body class="cinema-chrome">. React mounts into #root,
-  // so apply the body class here (and clean it up) to match the original DOM.
-  useEffect(() => {
-    document.body.classList.add('cinema-chrome');
-    return () => document.body.classList.remove('cinema-chrome');
-  }, []);
-
-  useCinemaChrome();
-  useDeepScripts();
-
   return (
-    <>
-      <div className="cursor" aria-hidden="true">
-        <div className="cursor-dot"></div>
-        <div className="cursor-ring"></div>
-      </div>
+    <LegalShell label="Terms" title="Terms of Service" updated="June 8, 2026" current="/terms/">
+      <h2>1. Who we are</h2>
+      <p>
+        Ice &amp; Instinct is a private mixology and at-home bartending service operated by{' '}
+        <strong>Teimuraz Benidze</strong>, serving the New York metropolitan area. These Terms govern your use of{' '}
+        <a href="https://www.iceinstinct.com/">www.iceinstinct.com</a> and the engagement between us and any client who
+        books a service through our scheduling page or by direct agreement. By inquiring or booking, you agree to these
+        Terms and to our <a href="/responsible-service/">Responsible Service &amp; Alcohol Policy</a>.
+      </p>
 
-      <button className="va-trigger" aria-label="Open menu">
-        <span className="va-trigger-ring"></span>
-        <TriggerMark />
-      </button>
+      <h2>2. Our service model</h2>
+      <p>
+        We provide professional bartending and mixology <strong>labor and service</strong>, not the sale of alcohol. We
+        do not sell, resell, or furnish alcoholic beverages for a fee. Alcohol is supplied by you, the client/host, or
+        sourced on your behalf at supplier cost as a convenience with no markup on the alcohol itself. Because we do not
+        sell alcohol, our bartending service operates without a retail liquor license; where any event or venue requires
+        a permit to serve alcohol, obtaining it is the client's or venue's responsibility.
+      </p>
 
-      <div className="va-overlay" aria-hidden="true">
-        <button className="va-close" aria-label="Close menu">
-          <span></span>
-          <span></span>
-        </button>
-        <div className="va-stage">
-          <p className="va-eyebrow"><EyebrowMark />Ice &amp; Instinct / Terms</p>
-          <ul className="va-list">
-            <li>
-              <a href="/">
-                <i>01</i>
-                <b>Home</b>
-                <em>The opening view</em>
-              </a>
-            </li>
-            <li>
-              <a href="/offerings/">
-                <i>02</i>
-                <b>Offerings</b>
-                <em>Four levels, one standard</em>
-              </a>
-            </li>
-            <li>
-              <a href="/concierge/">
-                <i>03</i>
-                <b>Concierge</b>
-                <em>Five enhancements</em>
-              </a>
-            </li>
-            <li>
-              <a href="/my-story/">
-                <i>04</i>
-                <b>My Story</b>
-                <em>Teimuraz Benidze</em>
-              </a>
-            </li>
-            <li>
-              <a href="/gallery/">
-                <i>05</i>
-                <b>The Collection</b>
-                <em>Twelve compositions</em>
-              </a>
-            </li>
-            <li>
-              <a href="/contact/">
-                <i>06</i>
-                <b>Inquire</b>
-                <em>Begin the conversation</em>
-              </a>
-            </li>
-          </ul>
-          <footer className="va-foot">
-            <span>New York Metropolitan Area</span>
-            <span>EST. 2024</span>
-          </footer>
-        </div>
-      </div>
+      <h2>3. Services we offer</h2>
+      <p>Private mixology service in the New York metropolitan area, organised in tiers:</p>
+      <ul>
+        <li>
+          <strong>The Foundation</strong> - from $650 USD, up to 15 guests, 3 hours.
+        </li>
+        <li>
+          <strong>Perfection in Simplicity</strong> - from $900 USD, up to 12 guests, 4 hours.
+        </li>
+        <li>
+          <strong>Bespoke Design &amp; Artistry</strong> - from $1,800 USD, up to 30 guests, 4 hours.
+        </li>
+        <li>
+          <strong>Omakase Improvisation</strong> - from $3,000 USD, up to 25 guests, open hours.
+        </li>
+        <li>
+          <strong>Private Concierge</strong> - bespoke pricing.
+        </li>
+      </ul>
+      <p>
+        Each engagement is confirmed by a private quote sent in response to your inquiry. The confirmed quote is the
+        binding scope.
+      </p>
 
-      <header className="header" role="banner">
-        <div className="container">
-          <nav className="nav" aria-label="Main">
-            <a href="/" className="brand">
-              <span className="brand-mark">
-                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17 4 L23 11 L17 18 L11 11 Z" stroke="currentColor" strokeWidth="1" fill="none" />
-                  <path
-                    d="M9 14 L17 23 L25 14"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <line x1="17" y1="23" x2="17" y2="29" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-                  <line x1="13" y1="29" x2="21" y2="29" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-                </svg>
-              </span>
-              <span className="brand-name">Ice &amp; Instinct</span>
-            </a>
-            <div className="nav-links">
-              <a href="/offerings/">Offerings</a>
-              <a href="/concierge/">Concierge</a>
-              <a href="/my-story/">My Story</a>
-              <a href="/gallery/">Gallery</a>
-            </div>
-            <a href="/contact/" className="nav-cta">
-              Inquire
-            </a>
-          </nav>
-        </div>
-      </header>
+      <h2>4. Pricing &amp; payment</h2>
+      <p>
+        Pricing is bespoke per event and confirmed in writing. A flat $500 deposit reserves your date; the remaining
+        balance is due before the event, unless otherwise agreed. Currency is USD.
+      </p>
 
-      <main>
-        <section className="legal">
-          <div className="container">
-            <div className="legal-head">
-              <h1>Terms of Service</h1>
-              <p
-                className="muted"
-                style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.72rem',
-                  letterSpacing: '0.22em',
-                  textTransform: 'uppercase',
-                }}
-              >
-                Last updated · May 1, 2026
-              </p>
-            </div>
+      <h2>5. Cancellation</h2>
+      <p>
+        Cancellation more than 14 days before the event: full deposit refunded. Within 14 days: deposit non-refundable
+        but transferable to a future date within 12 months, subject to availability. Within 48 hours: full booking value
+        due. We may cancel or end service, without refund, where service cannot proceed safely or lawfully (see Section
+        7).
+      </p>
 
-            <div className="legal-body">
-              <h2>1. Who we are</h2>
-              <p>
-                Ice &amp; Instinct is a private mixology studio operated by <strong>Teimuraz Benidze</strong>. These
-                Terms govern your use of <a href="https://www.iceinstinct.com/">www.iceinstinct.com</a> and the
-                engagement between us and any client who books a service through our scheduling page or by direct agreement.
-              </p>
+      <h2>6. What's included</h2>
+      <p>
+        Each tier includes the items listed at the time of quote: bartender service, tools, bar setup, and breakdown.
+        Spirits and wine are provided by you or sourced on your behalf at supplier cost. Specialty ice, curated
+        glassware, additional staff, and add-on services are arranged through the Concierge and billed separately at
+        supplier cost.
+      </p>
 
-              <h2>2. Services we offer</h2>
-              <p>Private mixology service in the New York metropolitan area, organised in four tiers:</p>
-              <ul>
-                <li>
-                  <strong>The Foundation</strong> - from $650 USD, up to 15 guests, 3 hours.
-                </li>
-                <li>
-                  <strong>Perfection in Simplicity</strong> - from $900 USD, up to 12 guests, 4 hours.
-                </li>
-                <li>
-                  <strong>Bespoke Design &amp; Artistry</strong> - from $1,800 USD, up to 30 guests, 4 hours.
-                </li>
-                <li>
-                  <strong>Omakase Improvisation</strong> - from $3,000 USD, up to 25 guests, open hours.
-                </li>
-                <li>
-                  <strong>Private Concierge</strong> - bespoke pricing.
-                </li>
-              </ul>
-              <p>
-                Each engagement is confirmed by a private quote sent in response to your inquiry. The confirmed quote is
-                the binding scope.
-              </p>
+      <h2>7. Responsible service and age</h2>
+      <p>
+        All guests served must be of legal drinking age (21 or older). We serve in accordance with our{' '}
+        <a href="/responsible-service/">Responsible Service &amp; Alcohol Policy</a> and reserve the absolute right,
+        without liability and without refund, to:
+      </p>
+      <ul>
+        <li>refuse or stop service to any guest who is, or appears to be, under 21 or unable to show valid ID;</li>
+        <li>refuse or stop service to any guest who is, or appears to be, intoxicated; and</li>
+        <li>end the engagement where guest conduct, the venue, or circumstances make safe, lawful service impossible.</li>
+      </ul>
 
-              <h2>3. Pricing &amp; payment</h2>
-              <p>
-                Pricing is bespoke per event and confirmed in writing. A flat $500 deposit reserves your date; the
-                remaining balance is due before the event, unless otherwise agreed. Currency is USD.
-              </p>
+      <h2>8. Client and host responsibilities</h2>
+      <ul>
+        <li>Provide accurate event information at the time of inquiry.</li>
+        <li>Ensure the venue is accessible for setup at least 90 minutes before service.</li>
+        <li>Confirm that every guest to be served is 21 or older, and assist with ID checks on request.</li>
+        <li>Lawfully supply the alcohol to be served, and obtain any permit the venue or event requires.</li>
+        <li>
+          Act as the host of the gathering. As host, you are responsible for your guests and for arranging safe
+          transportation for anyone who should not drive.
+        </li>
+      </ul>
 
-              <h2>4. Cancellation</h2>
-              <p>
-                Cancellation more than 14 days before the event: full deposit refunded. Within 14 days: deposit
-                non-refundable but transferable to a future date within 12 months, subject to availability. Within 48
-                hours: full booking value due.
-              </p>
+      <h2>9. Assumption of risk &amp; host liability</h2>
+      <p>
+        The consumption of alcohol carries inherent risks. Under New York law, including the Dram Shop Act and social
+        host provisions (General Obligations Law sections 11-100 and 11-101), a person who unlawfully furnishes alcohol
+        to a minor or to a visibly intoxicated person may be held liable for resulting harm. You acknowledge that, as
+        the host who supplies the alcohol and invites the guests, you retain the responsibilities the law places on a
+        host, and that our role is limited to providing responsible bartending service.
+      </p>
 
-              <h2>5. What's included</h2>
-              <p>
-                Each tier includes the items listed at the time of quote: bartender service, tools, bar setup, and
-                breakdown. Spirits and wine are provided by you or sourced on your behalf at supplier cost. Specialty
-                ice, curated glassware, additional staff, and add-on services (cigars, custom glassware) are arranged
-                through the Concierge and billed separately at supplier cost.
-              </p>
+      <h2>10. Limitation of liability</h2>
+      <p>
+        We provide service in good faith and to a professional standard. To the fullest extent permitted by law, our
+        total liability for any claim arising from a service is limited to the fees you paid us for that service, and we
+        are not liable for indirect, incidental, or consequential damages. Nothing in these Terms limits liability that
+        cannot be limited by law.
+      </p>
 
-              <h2>6. Client responsibilities</h2>
-              <ul>
-                <li>Provide accurate event information at the time of inquiry.</li>
-                <li>Ensure the venue is accessible for setup at least 90 minutes before service.</li>
-                <li>Confirm the legal drinking age of all guests being served.</li>
-                <li>Ensure the venue holds any permissions required to serve alcohol on premises.</li>
-              </ul>
+      <h2>11. Indemnification</h2>
+      <p>
+        To the fullest extent permitted by law, you agree to indemnify and hold us harmless from claims, damages, and
+        costs arising from: guest conduct; a guest's intoxication or underage drinking that occurs despite our
+        reasonable refusal of service; the alcohol you supplied; the condition of the venue; or your breach of these
+        Terms.
+      </p>
 
-              <h2>7. Liability</h2>
-              <p>
-                Ice &amp; Instinct provides service in good faith and to a professional standard. To the extent permitted
-                by law, our total liability for any claim arising from a service is limited to the fees you paid us for
-                that service. We reserve the right to refuse service to any guest who appears intoxicated.
-              </p>
+      <h2>12. Insurance</h2>
+      <p>
+        We carry commercial general liability insurance for our service. This does not replace the coverage a host or
+        venue should hold. We recommend you confirm that your homeowner's, renter's, or venue policy provides host
+        liquor liability coverage for your event.
+      </p>
 
-              <h2>8. Intellectual property</h2>
-              <p>
-                Recipes, photography, and brand materials remain the property of Ice &amp; Instinct unless transferred in
-                writing. Custom recipes designed for your event may be shared with you in a printed take-home format on
-                request.
-              </p>
+      <h2>13. Intellectual property</h2>
+      <p>
+        Recipes, photography, and brand materials remain the property of Ice &amp; Instinct unless transferred in
+        writing. Custom recipes designed for your event may be shared with you in a printed take-home format on request.
+      </p>
 
-              <h2>9. Confidentiality</h2>
-              <p>
-                We treat all client information as confidential and do not share guest lists, addresses, or event
-                details with third parties. Photography of guests during service is not undertaken without explicit prior
-                consent.
-              </p>
+      <h2>14. Confidentiality</h2>
+      <p>
+        We treat all client information as confidential and do not share guest lists, addresses, or event details with
+        third parties. We do not photograph guests during service without explicit prior consent.
+      </p>
 
-              <h2>10. Governing law</h2>
-              <p>
-                These Terms are governed by the laws of the State of New York, USA. Disputes will first be addressed by
-                good-faith discussion; if not resolved, by the courts of New York County.
-              </p>
+      <h2>15. Governing law</h2>
+      <p>
+        These Terms are governed by the laws of the State of New York, USA. Disputes will first be addressed by
+        good-faith discussion; if not resolved, by the state or federal courts located in New York County, New York.
+      </p>
 
-              <h2>11. Changes</h2>
-              <p>
-                We may update these Terms from time to time. The "Last updated" date above reflects the most recent
-                change. For ongoing engagements, the Terms in force at the time of your booking apply.
-              </p>
+      <h2>16. Changes</h2>
+      <p>
+        We may update these Terms from time to time. The "Last updated" date above reflects the most recent change. For
+        ongoing engagements, the Terms in force at the time of your booking apply.
+      </p>
 
-              <h2>12. Contact</h2>
-              <p>
-                Questions about these Terms? Reach us via the <a href="/contact/">contact page</a>.
-              </p>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <SiteFooter />
-    </>
+      <h2>17. Contact</h2>
+      <p>
+        Questions about these Terms? Reach us via the <a href="/contact/">contact page</a>.
+      </p>
+    </LegalShell>
   );
 }
-import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';

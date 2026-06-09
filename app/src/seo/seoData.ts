@@ -167,4 +167,37 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogImage: "/assets/og/home.png",
     jsonLd: [],
   },
+  '/cookies/': {
+    title: "Cookie Policy - Ice & Instinct",
+    description:
+      "The cookies used on the Ice & Instinct website, what they do, and how to control or opt out of them.",
+    canonical: `${SITE}/cookies/`,
+    ogTitle: "Cookie Policy - Ice & Instinct",
+    ogDescription:
+      "The cookies the Ice & Instinct site uses and how to control them.",
+    ogImage: "/assets/og/home.png",
+    jsonLd: [],
+  },
+  '/accessibility/': {
+    title: "Accessibility Statement - Ice & Instinct",
+    description:
+      "How Ice & Instinct works to make its website accessible, the standards we follow, and how to report a barrier.",
+    canonical: `${SITE}/accessibility/`,
+    ogTitle: "Accessibility Statement - Ice & Instinct",
+    ogDescription:
+      "Our commitment to an accessible website and how to reach us about it.",
+    ogImage: "/assets/og/home.png",
+    jsonLd: [],
+  },
+  '/responsible-service/': {
+    title: "Responsible Service & Alcohol Policy - Ice & Instinct",
+    description:
+      "How Ice & Instinct serves alcohol responsibly: 21-and-over service, refusal of intoxicated guests, and New York dram shop and host responsibilities.",
+    canonical: `${SITE}/responsible-service/`,
+    ogTitle: "Responsible Service & Alcohol Policy - Ice & Instinct",
+    ogDescription:
+      "Our 21-and-over, responsible-service standard and the host responsibilities under New York law.",
+    ogImage: "/assets/og/home.png",
+    jsonLd: [],
+  },
 };
