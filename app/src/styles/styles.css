@@ -3181,10 +3181,10 @@ img.reveal-zoom.is-in { transform: scale(1); }
    stacked editorial list with each city's photo inline. Mono + champagne, no blur. */
 .journey-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
   gap: clamp(2.5rem, 5vw, 5rem);
   align-items: stretch;
-  height: min(76dvh, 760px);
+  height: min(88dvh, 900px);
 }
 .journey-media { position: relative; height: 100%; }
 .journey-fig {
@@ -3202,10 +3202,12 @@ img.reveal-zoom.is-in { transform: scale(1); }
 
 .journey-right {
   display: flex; flex-direction: column; justify-content: center;
-  gap: clamp(1.4rem, 3.4vh, 2.8rem); min-width: 0; height: 100%;
+  gap: clamp(1.2rem, 2.6vh, 2rem); min-width: 0; height: 100%;
 }
 
-.journey-rail { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+/* Rail flexes to fill the column; the five stops distribute evenly so they read
+   as one balanced viewport rather than a cramped stack. */
+.journey-rail { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; flex: 1 1 auto; justify-content: space-between; }
 .journey-stop {
   padding: clamp(0.35rem, 0.85vh, 0.78rem) 0;
   border-top: 1px solid oklch(100% 0 0 / 0.1);
