@@ -17,9 +17,9 @@ export type CocktailProfile = {
 
 export const COCKTAIL_PROFILES: Record<string, CocktailProfile> = {
   'White Lotus': {
-    palate: ['Delicate', 'Floral', 'Clean'],
+    palate: ['Silky', 'White Chocolate', 'Jasmine'],
     notes:
-      'Opens like first light on still water. A weightless lift of white blossom and ripe pear settles into something cool and composed, and the finish lingers the way a good silence does - quiet, luminous, and entirely sure of itself.',
+      'Silken and pale gold. White chocolate and ripe pineapple fold into a creamy, frothy body, lifted by elderflower and the cool perfume of jasmine and mint. Lush and tropical, yet quietly floral - dessert that learned restraint.',
   },
 
   'Aviation': {
@@ -41,9 +41,9 @@ export const COCKTAIL_PROFILES: Record<string, CocktailProfile> = {
   },
 
   'Black Truffle Martini': {
-    palate: ['Savory', 'Umami', 'Dry'],
+    palate: ['Savory', 'Truffle', 'Dry'],
     notes:
-      'A martini in a tuxedo. Earthy black truffle drifts through ice-cold, crystalline spirit, lending a savory, almost smoky depth to something otherwise austere and bone-dry. Serious, sensual, and unmistakably grown-up.',
+      'A martini in a tuxedo. Shaved black truffle drifts across a crystal-cold, bone-dry spirit, scenting it with earth and fresh thyme and the faintest thread of honey. Savory, mineral, and unmistakably grown-up.',
   },
 
   'Rose Garden Rendezvous': {
@@ -53,15 +53,15 @@ export const COCKTAIL_PROFILES: Record<string, CocktailProfile> = {
   },
 
   'Aureliano': {
-    palate: ['Golden', 'Warm', 'Spirit-Forward'],
+    palate: ['Amber', 'Spiced', 'Spirit-Forward'],
     notes:
-      'Built for the golden hour. Burnished and spirit-forward, it glows with amber warmth and a slow, contemplative heat - a drink to be nursed rather than chased, as the light goes long and low across the room.',
+      'Spirit of amber. A burnished, spirit-forward sip scented with orange peel, star anise, and warm cinnamon - glowing and contemplative, built for the slow gold of late evening. One to nurse, never to chase.',
   },
 
   'Call Me By Your Name': {
-    palate: ['Stone Fruit', 'Sun-Ripe', 'Tender'],
+    palate: ['Stone Fruit', 'Sparkling', 'Sun-Ripe'],
     notes:
-      'Summer, remembered. Sun-ripened peach and a tender, honeyed warmth rise like heat off Mediterranean stone - unhurried, a little aching, impossibly easy to fall into. The kind of sweetness that knows it will not last.',
+      'An Italian summer in a coupe. Ripe peach and apricot lift on a dry sparkling spine, brushed with rosemary and warmed by the last of the sun. Tender, nostalgic, and gone a little too soon.',
   },
 
   '1001 Nights': {
@@ -71,9 +71,9 @@ export const COCKTAIL_PROFILES: Record<string, CocktailProfile> = {
   },
 
   'Basil in my mind': {
-    palate: ['Herbal', 'Green', 'Bright'],
+    palate: ['Herbal', 'Cucumber', 'Bright'],
     notes:
-      'Green and clear-headed. Fresh basil leads - cool, peppery, aromatic - threaded with bright citrus and a clean herbal snap. It reads like a long breath in a summer garden: vivid, crisp, and wide awake.',
+      'Green and wide awake. Fresh basil and cool cucumber ride over bright lime, finished with a mist of absinthe that lingers like a garden at high noon. Crisp, aromatic, and clean to the very last sip.',
   },
 
   'Calipso Cream': {
