@@ -15,3 +15,6 @@ app/.vite/
 
 # Raw credential scans (contain PII before redaction) - never commit
 media/credentials/
+
+# Playwright MCP scratch (page snapshots/screenshots) - never commit
+.playwright-mcp/
