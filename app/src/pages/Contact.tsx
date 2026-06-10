@@ -1,8 +1,11 @@
 import { SiteFooter } from '../sections/SiteFooter';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
+import { readEvening, useEvening } from '../lib/evening';
+import { readCocktail, readSource } from '../lib/leadContext';
+import { track } from '../lib/track';
 
 const BODY_CLASSES = ['cinema-chrome'];
 
@@ -26,15 +29,31 @@ export function Contact() {
   const [company, setCompany] = useState(''); // honeypot, hidden from humans
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
-  // Arriving from the Concierge "Request these" tray: pre-fill the note with the
-  // enhancements the guest selected, so the inquiry carries their evening.
+  // Pre-fill the note with everything the guest has already told the site, so
+  // nothing is lost between pages: the Profiler signature (?cocktail=...), the
+  // Concierge tray (?enhancements=...), or the enhancements remembered in
+  // sessionStorage when they arrive with no params at all.
   useEffect(() => {
-    const enh = new URLSearchParams(window.location.search).get('enhancements');
-    if (!enh) return;
-    const list = enh.split('|').map((s) => s.trim()).filter(Boolean).join(', ');
-    if (list) {
-      setMessage(`Enhancements I would like to include: ${list}.\n\nThe evening I have in mind (date, room, guest count): `);
+    const q = new URLSearchParams(window.location.search);
+    const parts: string[] = [];
+
+    const cocktail = q.get('cocktail');
+    if (cocktail) {
+      const traits = [q.get('identity'), q.get('taste'), q.get('accord')].filter(Boolean).join(', ');
+      parts.push(
+        `The signature composed for me in the Palate Profiler: ${cocktail}${traits ? ` (${traits})` : ''}. I would like to commission this serving for my evening.`
+      );
     }
+
+    const enhParam = q.get('enhancements');
+    const enh = enhParam
+      ? enhParam.split('|').map((s) => s.trim()).filter(Boolean)
+      : readEvening();
+    if (enh.length) parts.push(`Enhancements I would like to include: ${enh.join(', ')}.`);
+
+    if (!parts.length) return;
+    parts.push('The evening I have in mind (date, room, guest count): ');
+    setMessage(parts.join('\n\n'));
   }, []);
 
   const mailtoFallback = () => {
