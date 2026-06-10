@@ -280,13 +280,15 @@ a { color: inherit; text-decoration: none; }
 /* overlay removed - image shown in full; legibility via a dense text shadow
    (NOT a flat overlay) so text reads over bright and dark areas alike. */
 .tier-bg-scrim { display: none; }
-.tier-rank, .tier-name, .tier-title, .tier-blurb, .tier-spec, .tier-link {
+.tier-rank, .tier-name, .tier-title, .tier-go {
   text-shadow: 0 1px 3px rgba(0,0,0,0.92), 0 2px 14px rgba(0,0,0,0.85), 0 0 38px rgba(0,0,0,0.6);
 }
 
 .tier-body { position: relative; z-index: 1; max-width: 38rem; }
 .tier-rank { font-family: var(--f-display); font-weight: 700; font-size: clamp(5rem, 12vmin, 12rem); line-height: 0.9; letter-spacing: -0.04em; color: var(--c-accent); margin-bottom: 0.6rem; text-transform: uppercase; }
-.tier-name { font-family: var(--f-mono); font-size: var(--t-step--2); letter-spacing: 0.28em; text-transform: uppercase; color: var(--c-fg-mute); display: block; margin-bottom: 0.8rem; }
+/* the package name, now legible (was an invisible tiny eyebrow): clear white
+   mono label that identifies the tier above its gold title. */
+.tier-name { font-family: var(--f-mono); font-size: clamp(0.82rem, 0.5vw + 0.68rem, 1rem); letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-fg); font-weight: 500; display: block; margin-bottom: 1.1rem; }
 .tier-title { font-family: var(--f-display); font-weight: 700; font-size: var(--t-step-4); line-height: 1.0; letter-spacing: -0.035em; margin-bottom: 1.6rem; color: var(--c-fg); max-width: 16ch; }
 /* The tier italics sit over busy hero photos, where the site-wide deep-champagne
    gold-shine base reads dull/dark-steel and loses contrast. Give these a BRIGHTER
@@ -306,12 +308,14 @@ a { color: inherit; text-decoration: none; }
 }
 /* blurb paragraph removed - the title carries it; cards read sparse and premium */
 .tier-blurb { display: none; }
-.tier-spec { list-style: none; display: flex; gap: clamp(1.2rem, 2.4vw, 2.4rem); margin-bottom: 1.2rem; flex-wrap: wrap; }
-.tier-spec li { display: flex; flex-direction: column; gap: 0.15rem; font-family: var(--f-mono); }
-.tier-spec li span { font-size: var(--t-step--2); letter-spacing: 0.22em; text-transform: uppercase; color: var(--c-fg-faint); }
-.tier-spec li b { font-family: var(--f-display); font-weight: 700; font-size: var(--t-step-1); color: var(--c-fg); letter-spacing: -0.02em; }
-.tier-link { font-family: var(--f-mono); font-size: var(--t-step--2); letter-spacing: 0.28em; text-transform: uppercase; color: var(--c-fg); border-bottom: 1px solid var(--c-accent); padding-bottom: 4px; transition: border-color 0.4s, color 0.4s; }
-.tier-link:hover { color: var(--c-accent); border-color: var(--c-fg); }
+/* The whole card is the link (stretched overlay). Price, guest count and the
+   full description now live on the offering page the card opens - the card
+   itself stays sparse: numeral, name, title, and a quiet Explore cue. */
+.tier-stretch { position: absolute; inset: 0; z-index: 2; }
+.tier-go { display: inline-flex; align-items: center; gap: 0.55rem; margin-top: 0.2rem; font-family: var(--f-mono); font-size: var(--t-step--2); letter-spacing: 0.28em; text-transform: uppercase; color: var(--c-fg-mute); transition: color 0.45s; }
+.tier-go i { font-style: normal; transition: transform 0.45s var(--ease-out, cubic-bezier(0.22,1,0.36,1)); }
+.tier:hover .tier-go { color: var(--c-accent); }
+.tier:hover .tier-go i { transform: translateX(7px); }
 
 @media (max-width: 720px) {
   .tiers { height: auto; overflow: visible; }
