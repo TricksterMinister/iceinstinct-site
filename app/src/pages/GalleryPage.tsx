@@ -4,6 +4,8 @@ import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
 import { PalateProfiler } from '../features/Profiler/PalateProfiler';
 import type { Selections } from '../features/Profiler/profilerData';
+import { setCocktail } from '../lib/leadContext';
+import { track } from '../lib/track';
 
 export function GalleryPage() {
   // Live deep page sets <body class="cinema-chrome is-gallery closer">. React mounts
@@ -20,9 +22,12 @@ export function GalleryPage() {
 
   const [profilerOpen, setProfilerOpen] = useState(false);
 
-  // Phase 3 will pre-fill a real Inquiry modal. For now, carry the created
-  // cocktail to the contact page via query params.
+  // Carry the composed signature into the Inquiry: via query params for the
+  // prefilled message AND via sessionStorage so the Formspree payload still
+  // names the cocktail even if the guest wanders the site before submitting.
   const commission = (name: string, sel: Selections) => {
+    setCocktail(name);
+    track('profiler_commission', { cocktail: name });
     const params = new URLSearchParams({ cocktail: name });
     if (sel.identity) params.set('identity', sel.identity);
     if (sel.taste) params.set('taste', sel.taste);
@@ -371,7 +376,7 @@ export function GalleryPage() {
                 The thirteen above were each built for one evening. Answer three sensory questions and the alchemist
                 composes a signature for yours - named, poured, and ready to commission.
               </p>
-              <button className="pp-band-cta" type="button" onClick={() => setProfilerOpen(true)}>
+              <button className="pp-band-cta" type="button" onClick={() => { track('profiler_open'); setProfilerOpen(true); }}>
                 <span>Compose your signature</span>
                 <span className="arrow" aria-hidden="true">→</span>
               </button>

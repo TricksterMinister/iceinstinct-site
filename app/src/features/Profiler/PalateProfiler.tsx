@@ -11,6 +11,7 @@ import {
 } from './profilerData';
 import { downloadShareImage, printRecipe, shareToInstagram } from './artifact';
 import { PalateAmbient } from './PalateAmbient';
+import { track } from '../../lib/track';
 
 interface Props {
   open: boolean;
@@ -104,6 +105,14 @@ export function PalateProfiler({ open, onClose, onCommission }: Props) {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [open, onClose]);
+
+  // The guest reached their signature - the single most valuable funnel moment
+  // before the inquiry itself.
+  useEffect(() => {
+    if (state.phase === 'result' && state.recipe) {
+      track('profiler_complete', { cocktail: state.recipe.name });
+    }
+  }, [state.phase, state.recipe]);
 
   // Staged alchemy beat, then reveal. The AI compose runs in parallel with the
   // dramatic delay; we reveal only after BOTH finish, so the beat always plays
@@ -357,11 +366,12 @@ export function PalateProfiler({ open, onClose, onCommission }: Props) {
 
                       <div className="pp-controls-take">
                         <span className="pp-label accent">Take it with you</span>
-                        <button className="pp-btn ghost" onClick={() => printRecipe(state.recipe!)}>Print PDF</button>
-                        <button className="pp-btn ghost" onClick={() => downloadShareImage(state.recipe!)}>Save image</button>
+                        <button className="pp-btn ghost" onClick={() => { track('keepsake_print', { cocktail: state.recipe!.name }); printRecipe(state.recipe!); }}>Print PDF</button>
+                        <button className="pp-btn ghost" onClick={() => { track('keepsake_save', { cocktail: state.recipe!.name }); downloadShareImage(state.recipe!); }}>Save image</button>
                         <button
                           className="pp-btn ghost"
                           onClick={async () => {
+                            track('keepsake_share', { cocktail: state.recipe!.name });
                             const r = await shareToInstagram(state.recipe!);
                             setShareNote(
                               r === 'unsupported'
