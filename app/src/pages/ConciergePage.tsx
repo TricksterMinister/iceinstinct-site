@@ -1,7 +1,65 @@
 import { SiteFooter } from '../sections/SiteFooter';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
+
+/** The five enhancements, as data so each renders as a full-segment split panel
+ *  and can be selected into the inquiry. Prose kept verbatim from the originals. */
+type Enh = { id: string; roman: string; label: string; name: string; price: string; img: string; tag: string; prose: string[]; note?: string };
+const ENHANCEMENTS: Enh[] = [
+  {
+    id: 'cigar-curator', roman: 'I', label: 'Cigars', name: 'Bespoke Cigar Curator', price: '$500',
+    img: '/assets/photos/icon-cigar.jpg',
+    tag: 'Curated cigar ritual with expert oversight.',
+    prose: [
+      'A fully curated cigar ritual designed to complement premium spirits and the rhythm of the evening. This service provides professional oversight of the cigar experience: concept development, pairing logic, pacing, and integration into the atmosphere of the event.',
+      'A dedicated cigar specialist is selected and coordinated by me to host the ritual with discretion, knowledge, and respect for tradition. The focus is not consumption, but intention. Cigars are introduced at the right moment, paired thoughtfully, and guided with restraint so they enhance the evening rather than dominate it.',
+      'I remain responsible for the structure, quality, and coherence of the experience from start to finish. You are not hiring a cigar sommelier. You are commissioning a ritual.',
+    ],
+  },
+  {
+    id: 'additional-staff', roman: 'II', label: 'Staff', name: 'Additional Bar Staff', price: '$350',
+    img: '/assets/photos/icon-staff.jpg',
+    tag: 'Professional reinforcement to protect service flow.',
+    prose: [
+      'Additional professional reinforcement beyond what is included in the selected package. This service provides an extra trained hospitality professional assigned based on the needs of the event. Depending on guest count, service pace, and bar complexity, this may include a Bar-back, service staff, or an additional professional bartender.',
+      'The purpose is not volume, but control. Extra staff protects service rhythm, maintains cleanliness and organization, and absorbs operational pressure so the lead mixologist remains fully focused on guests and execution.',
+      'Staff selection and role assignment are determined by me to ensure consistency with the standards and tone of Ice & Instinct. You are not hiring a person. You are securing calm, uninterrupted service.',
+    ],
+  },
+  {
+    id: 'the-curator', roman: 'III', label: 'Curator', name: 'The Curator', price: '$350',
+    img: '/assets/photos/icon-curator.jpg',
+    tag: 'Creative oversight for atmosphere, balance, and visual intent.',
+    prose: [
+      'A dedicated concierge service focused on the visual, spatial, and atmospheric integrity of the bar experience. The Curator is responsible for aesthetic coherence and presentation logic throughout the event. From glassware balance and garnish restraint to spatial rhythm and visual flow, every element is considered as part of a single composition.',
+      'This service allows me to take full creative responsibility beyond the cocktails themselves. When appropriate, I coordinate and communicate with trusted third-party partners such as glassware suppliers, ice producers, florists, lighting specialists, or DJs to ensure everything aligns with the tone of the evening.',
+      'Nothing is random. Nothing is excessive. Every visual decision supports the atmosphere, the drinks, and the intention of the gathering.',
+    ],
+    note: 'The Curator fee covers creative oversight, coordination, and accountability. All third-party rentals and services are billed separately at supplier cost.',
+  },
+  {
+    id: 'glassware', roman: 'IV', label: 'Glassware', name: 'Glassware & Vessels', price: '$250',
+    img: '/assets/photos/icon-glassware.jpg',
+    tag: 'Curated glassware architecture and coordination.',
+    prose: [
+      'Curated glassware and vessel architecture designed to support flavor, temperature, and presentation. This service covers the selection, specification, and coordination of appropriate glassware based on the menu, service rhythm, and atmosphere of the event. Form, weight, volume, and thermal behavior are considered to ensure each cocktail performs as intended.',
+      'I handle sourcing and coordination with trusted third-party suppliers to ensure the correct glassware arrives on time, properly prepared, and aligned with the standards of the experience. This removes guesswork, last-minute adjustments, and visual inconsistency.',
+    ],
+    note: 'This fee covers curation, coordination, and quality control. All glassware rentals are billed separately at supplier cost.',
+  },
+  {
+    id: 'ice-temperature', roman: 'V', label: 'Ice', name: 'Ice & Temperature', price: '$250',
+    img: '/assets/photos/icon-ice.jpg',
+    tag: 'Precision ice and temperature control - non-negotiable foundation.',
+    prose: [
+      'Precision ice and temperature control are foundational to every Ice & Instinct experience. This service ensures the use of professional-grade ice produced to my exact specifications: clarity, density, format, and thermal behavior. Ice quality directly affects dilution, texture, aroma, and the structural integrity of every cocktail. Compromising here compromises everything.',
+      'I personally coordinate sourcing and delivery through trusted specialty suppliers used by Michelin-level restaurants. This guarantees consistency, reliability, and ice that performs exactly as intended throughout the event.',
+      'This is not an upgrade. It is a prerequisite. Ice & Instinct does not operate without proper ice and temperature control.',
+    ],
+    note: 'This fee covers sourcing, coordination, and temperature management. Ice is supplied through third-party vendors and billed separately at supplier cost.',
+  },
+];
 
 export function ConciergePage() {
   // Live deep page sets <body class="cinema-chrome vp-split closer">. React mounts
@@ -15,6 +73,13 @@ export function ConciergePage() {
 
   useCinemaChrome();
   useDeepScripts();
+
+  // "Add to my evening": the guest selects enhancements (never pays here); the
+  // selection is carried into the Inquire form as a single tailored request.
+  const [picked, setPicked] = useState<string[]>([]);
+  const toggle = (name: string) =>
+    setPicked((p) => (p.includes(name) ? p.filter((x) => x !== name) : [...p, name]));
+  const requestUrl = '/contact/?enhancements=' + encodeURIComponent(picked.join(' | '));
 
   return (
     <>
@@ -219,177 +284,69 @@ export function ConciergePage() {
           </div>
         </section>
 
-        {/* 5 ENHANCEMENT CARDS */}
+        {/* 5 ENHANCEMENTS - each a full-segment split; selectable into the inquiry */}
         <section className="tier-section" id="enhancements">
           <div className="container">
-            <div className="addon-grid reveal-stagger reveal">
-              {/* 1. Bespoke Cigar Curator */}
-              <article className="addon-card" id="cigar-curator">
-                <div className="addon-icon addon-icon-photo" aria-hidden="true">
-                  <img src="/assets/photos/icon-cigar.jpg" alt="" loading="lazy" width="256" height="256" />
-                </div>
-                <div className="addon-body">
-                  <header className="addon-head">
-                    <h3>Bespoke Cigar Curator</h3>
-                    <span className="addon-price">$500</span>
-                  </header>
-                  <p className="addon-tag">Curated cigar ritual with expert oversight.</p>
-                  <div className="addon-prose">
-                    <p>
-                      A fully curated cigar ritual designed to complement premium spirits and the rhythm of the
-                      evening. This service provides professional oversight of the cigar experience: concept
-                      development, pairing logic, pacing, and integration into the atmosphere of the event.
-                    </p>
-                    <p>
-                      A dedicated cigar specialist is selected and coordinated by me to host the ritual with discretion,
-                      knowledge, and respect for tradition. The focus is not consumption, but intention. Cigars are
-                      introduced at the right moment, paired thoughtfully, and guided with restraint so they enhance the
-                      evening rather than dominate it.
-                    </p>
-                    <p>
-                      I remain responsible for the structure, quality, and coherence of the experience from start to
-                      finish. You are not hiring a cigar sommelier. You are commissioning a ritual.
-                    </p>
-                  </div>
-                </div>
-              </article>
-
-              {/* 2. Additional Bar Staff */}
-              <article className="addon-card" id="additional-staff">
-                <div className="addon-icon addon-icon-photo" aria-hidden="true">
-                  <img src="/assets/photos/icon-staff.jpg" alt="" loading="lazy" width="256" height="256" />
-                </div>
-                <div className="addon-body">
-                  <header className="addon-head">
-                    <h3>Additional Bar Staff</h3>
-                    <span className="addon-price">$350</span>
-                  </header>
-                  <p className="addon-tag">Professional reinforcement to protect service flow.</p>
-                  <div className="addon-prose">
-                    <p>
-                      Additional professional reinforcement beyond what is included in the selected package. This
-                      service provides an extra trained hospitality professional assigned based on the needs of the
-                      event. Depending on guest count, service pace, and bar complexity, this may include a Bar-back,
-                      service staff, or an additional professional bartender.
-                    </p>
-                    <p>
-                      The purpose is not volume, but control. Extra staff protects service rhythm, maintains cleanliness
-                      and organization, and absorbs operational pressure so the lead mixologist remains fully focused on
-                      guests and execution.
-                    </p>
-                    <p>
-                      Staff selection and role assignment are determined by me to ensure consistency with the standards
-                      and tone of Ice &amp; Instinct. You are not hiring a person. You are securing calm, uninterrupted
-                      service.
-                    </p>
-                  </div>
-                </div>
-              </article>
-
-              {/* 3. The Curator */}
-              <article className="addon-card" id="the-curator">
-                <div className="addon-icon addon-icon-photo" aria-hidden="true">
-                  <img src="/assets/photos/icon-curator.jpg" alt="" loading="lazy" width="256" height="256" />
-                </div>
-                <div className="addon-body">
-                  <header className="addon-head">
-                    <h3>The Curator</h3>
-                    <span className="addon-price">$350</span>
-                  </header>
-                  <p className="addon-tag">Creative oversight for atmosphere, balance, and visual intent.</p>
-                  <div className="addon-prose">
-                    <p>
-                      A dedicated concierge service focused on the visual, spatial, and atmospheric integrity of the bar
-                      experience. The Curator is responsible for aesthetic coherence and presentation logic throughout
-                      the event. From glassware balance and garnish restraint to spatial rhythm and visual flow, every
-                      element is considered as part of a single composition.
-                    </p>
-                    <p>
-                      This service allows me to take full creative responsibility beyond the cocktails themselves. When
-                      appropriate, I coordinate and communicate with trusted third-party partners such as glassware
-                      suppliers, ice producers, florists, lighting specialists, or DJs to ensure everything aligns with
-                      the tone of the evening.
-                    </p>
-                    <p>
-                      Nothing is random. Nothing is excessive. Every visual decision supports the atmosphere, the
-                      drinks, and the intention of the gathering.
-                    </p>
-                    <p className="addon-note">
-                      <strong>Important note</strong>The Curator fee covers creative oversight, coordination, and
-                      accountability. All third-party rentals and services are billed separately at supplier cost.
-                    </p>
-                  </div>
-                </div>
-              </article>
-
-              {/* 4. Glassware & Vessels */}
-              <article className="addon-card" id="glassware">
-                <div className="addon-icon addon-icon-photo" aria-hidden="true">
-                  <img src="/assets/photos/icon-glassware.jpg" alt="" loading="lazy" width="256" height="256" />
-                </div>
-                <div className="addon-body">
-                  <header className="addon-head">
-                    <h3>Glassware &amp; Vessels</h3>
-                    <span className="addon-price">$250</span>
-                  </header>
-                  <p className="addon-tag">Curated glassware architecture and coordination.</p>
-                  <div className="addon-prose">
-                    <p>
-                      Curated glassware and vessel architecture designed to support flavor, temperature, and
-                      presentation. This service covers the selection, specification, and coordination of appropriate
-                      glassware based on the menu, service rhythm, and atmosphere of the event. Form, weight, volume,
-                      and thermal behavior are considered to ensure each cocktail performs as intended.
-                    </p>
-                    <p>
-                      I handle sourcing and coordination with trusted third-party suppliers to ensure the correct
-                      glassware arrives on time, properly prepared, and aligned with the standards of the experience.
-                      This removes guesswork, last-minute adjustments, and visual inconsistency.
-                    </p>
-                    <p className="addon-note">
-                      <strong>Important note</strong>This fee covers curation, coordination, and quality control. All
-                      glassware rentals are billed separately at supplier cost.
-                    </p>
-                  </div>
-                </div>
-              </article>
-
-              {/* 5. Ice & Temperature */}
-              <article className="addon-card" id="ice-temperature">
-                <div className="addon-icon addon-icon-photo" aria-hidden="true">
-                  <img src="/assets/photos/icon-ice.jpg" alt="" loading="lazy" width="256" height="256" />
-                </div>
-                <div className="addon-body">
-                  <header className="addon-head">
-                    <h3>Ice &amp; Temperature</h3>
-                    <span className="addon-price">$250</span>
-                  </header>
-                  <p className="addon-tag">Precision ice and temperature control - non-negotiable foundation.</p>
-                  <div className="addon-prose">
-                    <p>
-                      Precision ice and temperature control are foundational to every Ice &amp; Instinct experience.
-                      This service ensures the use of professional-grade ice produced to my exact specifications:
-                      clarity, density, format, and thermal behavior. Ice quality directly affects dilution, texture,
-                      aroma, and the structural integrity of every cocktail. Compromising here compromises everything.
-                    </p>
-                    <p>
-                      I personally coordinate sourcing and delivery through trusted specialty suppliers used by
-                      Michelin-level restaurants. This guarantees consistency, reliability, and ice that performs
-                      exactly as intended throughout the event.
-                    </p>
-                    <p>
-                      This is not an upgrade. It is a prerequisite. Ice &amp; Instinct does not operate without proper
-                      ice and temperature control.
-                    </p>
-                    <p className="addon-note">
-                      <strong>Important note</strong>This fee covers sourcing, coordination, and temperature management.
-                      Ice is supplied through third-party vendors and billed separately at supplier cost.
-                    </p>
-                  </div>
-                </div>
-              </article>
+            <div className="addon-grid">
+              {ENHANCEMENTS.map((e) => {
+                const added = picked.includes(e.name);
+                return (
+                  <article className="addon-card enh-split" id={e.id} key={e.id}>
+                    <div className="enh-figure" aria-hidden="true">
+                      <img src={e.img} alt="" loading="lazy" width="600" height="800" />
+                    </div>
+                    <div className="enh-content">
+                      <span className="enh-num">{e.roman} &middot; {e.label}</span>
+                      <header className="enh-head">
+                        <h3>{e.name}</h3>
+                        <span className="enh-price">{e.price}</span>
+                      </header>
+                      <p className="enh-tag">{e.tag}</p>
+                      <div className="enh-prose">
+                        {e.prose.map((para, i) => (
+                          <p key={i}>{para}</p>
+                        ))}
+                        {e.note && (
+                          <p className="addon-note">
+                            <strong>Important note</strong>
+                            {e.note}
+                          </p>
+                        )}
+                      </div>
+                      <button
+                        type="button"
+                        className={'enh-add' + (added ? ' is-added' : '')}
+                        onClick={() => toggle(e.name)}
+                        aria-pressed={added}
+                        data-cursor="link"
+                      >
+                        <span className="enh-add-label">{added ? 'Added to your evening' : 'Add to my evening'}</span>
+                        <span className="enh-add-mark" aria-hidden="true">{added ? '✓' : '+'}</span>
+                      </button>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
+            <p className="enh-note-global">
+              Enhancements are arranged with your booking, not bought here. Select what you would like and they fold
+              into one tailored quote. External items such as ice and glassware are sourced at supplier cost.
+            </p>
           </div>
         </section>
+
+        {/* Your evening: the running selection, carried into the Inquire form */}
+        {picked.length > 0 && (
+          <aside className="enh-tray" aria-label="Your evening">
+            <div className="enh-tray-info">
+              <span className="enh-tray-k">Your evening &middot; {picked.length}</span>
+              <span className="enh-tray-items">{picked.join('   ·   ')}</span>
+            </div>
+            <a className="enh-tray-cta" href={requestUrl} data-cursor="link">
+              Request these <span aria-hidden="true">&rarr;</span>
+            </a>
+          </aside>
+        )}
 
       </main>
 

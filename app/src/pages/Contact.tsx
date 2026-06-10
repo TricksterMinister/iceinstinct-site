@@ -26,6 +26,17 @@ export function Contact() {
   const [company, setCompany] = useState(''); // honeypot, hidden from humans
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
+  // Arriving from the Concierge "Request these" tray: pre-fill the note with the
+  // enhancements the guest selected, so the inquiry carries their evening.
+  useEffect(() => {
+    const enh = new URLSearchParams(window.location.search).get('enhancements');
+    if (!enh) return;
+    const list = enh.split('|').map((s) => s.trim()).filter(Boolean).join(', ');
+    if (list) {
+      setMessage(`Enhancements I would like to include: ${list}.\n\nThe evening I have in mind (date, room, guest count): `);
+    }
+  }, []);
+
   const mailtoFallback = () => {
     const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
     window.location.href =
