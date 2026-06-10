@@ -540,6 +540,9 @@ html, body { overflow-x: clip; }
   -webkit-text-fill-color: transparent;
   color: transparent;
   animation: oma-shine 5.5s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+  /* paint canvas extended for italic swashes; negative margins keep layout */
+  padding: 0.38em 0.16em;
+  margin: -0.38em -0.16em;
 }
 /* repeat + both ends = champagne-deep means the text is ALWAYS fully painted
    champagne; only the bright band travels across (one tile = 220%). */

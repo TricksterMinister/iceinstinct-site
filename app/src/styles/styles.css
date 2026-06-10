@@ -3145,11 +3145,20 @@ img.reveal-zoom.is-in { transform: scale(1); }
   font-variation-settings: 'opsz' 144;
   color: var(--c-accent);
 }
+/* "Founder & Flavor Architect" - a title to be proud of, not a whispered
+   footnote: large champagne Fraunces italic, fully readable under the name. */
 .story-cover-role {
-  margin: 0.3rem 0 0;
-  font-family: var(--font-mono);
-  font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase;
-  color: oklch(76% 0 0);
+  margin: 0.9rem 0 0;
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-weight: 350;
+  font-variation-settings: 'opsz' 144;
+  font-size: clamp(1.35rem, 1rem + 1.8vw, 2.4rem);
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  text-transform: none;
+  color: var(--c-accent);
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.45);
 }
 
 /* Opening statement under the cover */

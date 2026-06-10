@@ -7,7 +7,7 @@
 export function TiersNote() {
   return (
     <section className="tiers-note" id="tiers-note" aria-label="Pricing notes">
-      <span className="tn-ghost" aria-hidden="true">SCALE</span>
+      <div className="section-bg-word top right" aria-hidden="true">SCALE</div>
       <div className="tn-grid">
         <header className="tn-head">
           <p className="tn-eyebrow">One alchemist. A team when the room calls for it.</p>
@@ -17,7 +17,7 @@ export function TiersNote() {
         <div className="tn-lede">
           <h2 className="tn-headline">
             <span className="tn-h-bold">Built to</span>
-            <span className="tn-h-it">scale.</span>
+            <span className="tn-h-it it">scale.</span>
           </h2>
           <p className="tn-scale">
             Any tier scales with a full bar team for larger events - weddings, galas, and corporate gatherings -

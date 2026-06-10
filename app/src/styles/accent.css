@@ -62,6 +62,13 @@
   -webkit-text-fill-color: transparent !important;
   color: transparent !important;
   animation: gold-shine-sweep 5.5s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+  /* Fraunces italic swashes (the ampersand's top hook and bottom tail) reach
+     far outside the line box. background-clip:text paints ONLY inside the box,
+     so without this padding the overshooting strokes stay transparent and the
+     glyph looks amputated. The negative margins hand the space back: the text
+     position and line rhythm do not move, only the painted canvas grows. */
+  padding: 0.38em 0.16em;
+  margin: -0.38em -0.16em;
 }
 @keyframes gold-shine-sweep {
   0% { background-position: 110% 0; }
@@ -160,6 +167,7 @@
 .enh-add.enh-add.enh-add,
 .enh-tray-cta.enh-tray-cta.enh-tray-cta,
 .pp-btn.pp-btn.pp-btn,
+.gallery-cta.gallery-cta.gallery-cta,
 .pp-band-cta.pp-band-cta.pp-band-cta {
   touch-action: manipulation;
   border: 1px solid var(--gold-edge);
@@ -191,8 +199,9 @@
 .pp-band-cta.pp-band-cta.pp-band-cta::before {
   display: none;
 }
-/* .btn-ghost was a bare text link - as a gold button it needs a real body */
+/* bare text links need a real button body once they wear gold */
 .btn-ghost.btn-ghost.btn-ghost { padding: 1.05rem 1.9rem; }
+.gallery-cta.gallery-cta.gallery-cta { padding: 1.05rem 1.9rem; display: inline-flex; align-items: center; gap: 0.7rem; }
 
 .btn-ghost.btn-ghost.btn-ghost:hover,
 .btn-ghost.btn-ghost.btn-ghost:focus-visible,
@@ -204,6 +213,8 @@
 .enh-tray-cta.enh-tray-cta.enh-tray-cta:focus-visible,
 .pp-btn.pp-btn.pp-btn:hover,
 .pp-btn.pp-btn.pp-btn:focus-visible,
+.gallery-cta.gallery-cta.gallery-cta:hover,
+.gallery-cta.gallery-cta.gallery-cta:focus-visible,
 .pp-band-cta.pp-band-cta.pp-band-cta:hover,
 .pp-band-cta.pp-band-cta.pp-band-cta:focus-visible {
   background-size: 150% 150%;
@@ -220,6 +231,7 @@
 .enh-add.enh-add.enh-add:active,
 .enh-tray-cta.enh-tray-cta.enh-tray-cta:active,
 .pp-btn.pp-btn.pp-btn:active,
+.gallery-cta.gallery-cta.gallery-cta:active,
 .pp-band-cta.pp-band-cta.pp-band-cta:active {
   transform: translateY(1px);
   box-shadow:

@@ -65,10 +65,11 @@ export function Faq() {
         </header>
 
         <ul className="faq-list">
-          {FAQS.map((item) => (
+          {FAQS.map((item, i) => (
             <li className="faq-item" key={item.q}>
               <details className="faq-details">
                 <summary className="faq-q" data-cursor="link">
+                  <span className="faq-n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
                   <span className="faq-q-text">{item.q}</span>
                   <span className="faq-q-mark" aria-hidden="true"></span>
                 </summary>

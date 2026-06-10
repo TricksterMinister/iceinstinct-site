@@ -106,7 +106,7 @@
   margin: 0;
   font-family: var(--sec-display);
   font-weight: 700;
-  font-size: clamp(3.4rem, 1.6rem + 9vmin, 8.5rem);
+  font-size: var(--t-h2); /* the shared section-headline scale - matches every neighbour */
   line-height: 0.92;
   letter-spacing: -0.04em;
   color: var(--c-fg);
@@ -226,20 +226,14 @@
   position: relative;
   z-index: 1;
 }
-/* Two columns on wider screens so the twelve answers rest within one viewport. */
+/* One refined column: every question is a full-width ledger row -
+   number, question, one gold mark. The section grows as answers open. */
 .faq-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: clamp(2rem, 5vw, 4.5rem);
+  --faq-indent: 3.2rem;
+  display: block;
+  max-width: 62rem;
 }
-.faq-item { break-inside: avoid; }
-@media (max-width: 760px) {
-  .faq-list { grid-template-columns: 1fr; }
-}
-/* Compact rhythm so the two-column FAQ rests inside one viewport - while the
-   headline keeps the shared segment size (only the rows tighten). */
-.faq .faq-intro { margin-bottom: clamp(1.4rem, 3.4vh, 2.4rem); }
-.faq .faq-q { padding: clamp(0.62rem, 1.5vh, 1rem) 0; font-size: clamp(1rem, 0.92rem + 0.42vw, 1.28rem); }
+.faq .faq-intro { margin-bottom: clamp(1.6rem, 4vh, 2.8rem); }
 .faq-intro {
   margin-bottom: clamp(2.6rem, 6vh, 4.5rem);
 }
@@ -277,11 +271,11 @@
 .faq-q {
   list-style: none;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  padding: clamp(1.3rem, 3vh, 1.9rem) 0;
+  display: grid;
+  grid-template-columns: var(--faq-indent) 1fr auto;
+  align-items: baseline;
+  column-gap: 1.2rem;
+  padding: clamp(1.15rem, 2.6vh, 1.7rem) 0;
   font-family: var(--sec-display);
   font-weight: 500;
   font-size: clamp(1.05rem, 0.95rem + 0.6vw, 1.45rem);
@@ -296,15 +290,23 @@
   outline: 1px solid var(--c-accent);
   outline-offset: 4px;
 }
-.faq-q-text { flex: 1 1 auto; }
+.faq-q-text { min-width: 0; }
+.faq-n {
+  font-family: var(--sec-mono);
+  font-size: 0.72em;
+  letter-spacing: 0.18em;
+  color: var(--c-accent);
+  opacity: 0.7;
+  transition: opacity 0.4s;
+}
 
 /* plus / minus glyph drawn with two hairlines */
 .faq-q-mark {
   position: relative;
-  flex: 0 0 auto;
-  width: 16px;
-  height: 16px;
-  margin-top: 0.35em;
+  align-self: center;
+  width: 18px;
+  height: 18px;
+  transition: transform 0.45s var(--ease-out-quart, ease);
 }
 .faq-q-mark::before,
 .faq-q-mark::after {
@@ -318,18 +320,26 @@
 }
 .faq-q-mark::after { transform: translateY(-50%) rotate(90deg); }
 .faq-details[open] .faq-q { color: var(--c-accent); }
-.faq-details[open] .faq-q-mark::after { transform: translateY(-50%) rotate(0deg); opacity: 0; }
+.faq-details[open] .faq-n { opacity: 1; }
+.faq-details[open] .faq-q-mark { transform: rotate(45deg); }
 
 .faq-a {
   overflow: hidden;
-  padding: 0 0 clamp(1.3rem, 3vh, 1.9rem) 0;
-  max-width: 60ch;
+  padding: 0 0 clamp(1.4rem, 3.2vh, 2rem) calc(var(--faq-indent) + 1.2rem);
+  max-width: 72ch;
 }
 .faq-a p {
+  margin: 0;
+  border-left: 1px solid color-mix(in oklab, var(--c-accent) 45%, transparent);
+  padding-left: clamp(1rem, 2vw, 1.6rem);
   font-family: var(--sec-body);
-  font-size: clamp(0.95rem, 0.9rem + 0.3vmin, 1.1rem);
+  font-size: clamp(1rem, 0.94rem + 0.3vmin, 1.15rem);
   line-height: 1.75;
   color: var(--sec-mute);
+}
+@media (max-width: 640px) {
+  .faq-list { --faq-indent: 2.1rem; }
+  .faq-a { padding-left: 0; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .faq-details[open] .faq-a { animation: faq-reveal 0.5s var(--ease-out-quart, ease); }
