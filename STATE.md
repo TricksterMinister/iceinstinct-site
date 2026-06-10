@@ -2,6 +2,35 @@
 
 > Single source of truth for "where are we". Updated at the end of each session. Keep it SHORT.
 
+## SESSION 2026-06-10 (handoff - READ FIRST)
+Worktree `.claude/worktrees/laughing-chaum-252133` (branch `claude/laughing-chaum-252133`). ALL work committed + pushed to `main` (HEAD `387eb08`) + LIVE. Push to main auto-deploys Hostinger (deploy = `cd app && npx vite build && node scripts/prerender.mjs` -> `rsync -a app/dist/ <repoRoot>/` -> commit + push; live chunk hash flips in ~12s). `app/public/assets` is a SYMLINK to repo `/assets`. Stable-name images cached 30 days -> bust by NEW filename.
+
+**OWNER RULES (obey, hard):**
+- NEVER open a browser/preview tab on his desktop - NO Playwright (browser_navigate/screenshot), chrome-devtools, Claude_Preview. He got angry. Verify ONLY via `curl`. Open a browser ONLY if he explicitly says so that turn. [[no-local-preview-tabs]]
+- NEVER redraw/recreate his logo - use the REAL raster (`ii-mark*.png`). [[never-redraw-logo]]
+- No em/en dashes anywhere (hook blocks literal U+2013/2014; also avoid `&ndash;`/`&mdash;`).
+- Reviews on LIVE only; show work via SendUserFile (image), never a tab.
+- Image gen WORKS: `~/.claude/skills/video/scripts/imagen_gen.py --prompt "..." --out x.jpg --aspect 3:4 --size 2K` (used for the new ice photo).
+
+**SHIPPED THIS SESSION (all live):**
+- Profiler keepsakes (IG card + print PDF): REAL logo (cut for dark / gold-linework for paper), tinted ice cube, etched glass, "From Temo with love" (Sacramento), US-Letter centred PDF. + 8 cocktails renamed (Black Rock Roast / Spice Melange / Event Horizon / Pear of Avalon / Witching Hour / Andromeda Mirage / Playa Funk / Genome Garden). Result card also got the ice cube + rebalanced rail.
+- INQUIRE funnel fixed: `Contact.tsx` POSTs to `/inquire.php` (PHP mail + honeypot) + success screen + GA4 `inquiry_submit` + mailto fallback. WhatsApp+Call (+1 917 292 7859) under the form.
+- My Story "The Record": 4 REAL certs (French Certificat, Georgian Sommelier Assoc/ASI, Enotria, ONIVINS) framed + lightbox; passport # redacted; raw scans gitignored (`media/credentials`, PII).
+- Foundation copy repositioned ("a bartender from my own circle, hand-picked, I personally stand behind"; dropped "collective/accessible entry"); FAQ deposit $1000->$500 + guest counts aligned; SEO/JSON-LD cleaned.
+- Home "Built to scale": editorial Swiss-grid redesign (oversized headline, 01/02/03 band, ghost SCALE bled to bottom-right corner).
+- Home tier slider: decluttered (numeral + visible name + gold title), whole card clickable, Explore = real button; gold italic = brighter `#d3bc7d` + scrim BEHIND text (NOT filter/text-shadow - those render black on clip-text in WebKit).
+- Offerings + Concierge shelf cards: Explore = same button.
+- Concierge: each enhancement = full-segment split (photo|content) + "Add to my evening"; Ice image replaced (256px -> hi-res sphere `concierge-ice.jpg`).
+- BOOKING unified (Model B): Ice = STANDARD in every evening (badge, not opt-in); optional enh persist site-wide (`lib/evening.ts`, sessionStorage); offering CTA "Reserve your evening" carries enh into YCBM `&NOTES=` + "Your evening" line + "Add enhancements" link.
+- Pricing strategy: Foundation KEPT + repositioned (not removed); prices unchanged. Identity = "private cocktail atelier / chef-for-the-bar"; team = his vouched circle, the money-engine.
+
+**OPEN / PENDING (do next):**
+1. **YCBM `NOTES` dependency (NEEDS owner):** offering booking appends `&NOTES=<enhancements>` to the YouCanBook.me URL - lands in the booking ONLY if his YCBM form has a field coded `NOTES`. Owner must test (book a test -> do enhancements appear in booking notes?) and give the real field code if different -> update `OfferingPage.tsx` `bookingUrl`.
+2. **Owner confirm:** inquiry DELIVERY TEST email reached `alchemyandice.nyc@gmail.com` (inbox/spam). If spam -> set SPF / domain mail.
+3. **Owner OFFLINE (real growth, NOT code):** 2 -> 8+ Google reviews; ONE documented proof-event w/ photographer; referral pacts (chefs/estate-managers/planners); luxury distribution (NOT Thumbtack); real-estate B2B. (Strategy report in this session transcript.)
+4. Owner to review concierge/booking on live; possible polish (split ratio, tray, copy).
+5. Pre-existing (master plan `docs/superpowers/plans/2026-06-08-open-tasks-master.md`): founder "Hand Behind the Ritual" final image/video; self-host 2 framerusercontent images + drop from CSP; Duality home chapter; S7 code review + S8 device QA; wire real entity URLs into Organization sameAs; SEO/GEO audit (deferred).
+
 ## SESSION 2026-06-09 (handoff - READ FIRST)
 Worked in worktree `.claude/worktrees/eloquent-hawking-d17d2e` (branch `claude/eloquent-hawking-d17d2e`). All work committed + pushed to `main` (HEAD f0cc872) + LIVE (push to main auto-deploys Hostinger).
 
