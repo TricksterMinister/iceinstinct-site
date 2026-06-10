@@ -43,9 +43,11 @@ export function Contact() {
       'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Ice & Instinct inquiry') + '&body=' + encodeURIComponent(body);
   };
 
-  // Post the inquiry to the server so a lead lands in the studio inbox without
-  // depending on the visitor's mail client (the old mailto silently failed on
-  // desktop webmail). Fall back to mailto only if the endpoint is unreachable.
+  // Post the inquiry to Formspree so the lead is archived in its dashboard and
+  // delivered through real mail infrastructure - shared-host mail() lands in
+  // spam or vanishes with no trace. _gotcha is Formspree's honeypot: a filled
+  // value makes it silently discard the submission while still returning ok.
+  // Fall back to mailto only if the endpoint is unreachable.
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (status === 'sending') return;
@@ -55,8 +57,13 @@ export function Contact() {
       data.set('name', name);
       data.set('email', email);
       data.set('message', message);
-      data.set('company', company);
-      const res = await fetch('/inquire.php', { method: 'POST', body: data });
+      data.set('_gotcha', company);
+      data.set('_subject', 'Ice & Instinct inquiry');
+      const res = await fetch('https://formspree.io/f/xpwkadgp', {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      });
       const out = (await res.json().catch(() => ({ ok: res.ok }))) as { ok?: boolean };
       if (res.ok && out.ok) {
         const w = window as unknown as { gtag?: (...a: unknown[]) => void; dataLayer?: unknown[] };
