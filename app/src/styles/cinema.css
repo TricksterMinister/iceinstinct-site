@@ -289,7 +289,19 @@ a { color: inherit; text-decoration: none; }
 /* the package name, now legible (was an invisible tiny eyebrow): clear white
    mono label that identifies the tier above its gold title. */
 .tier-name { font-family: var(--f-mono); font-size: clamp(0.82rem, 0.5vw + 0.68rem, 1rem); letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-fg); font-weight: 500; display: block; margin-bottom: 1.1rem; }
-.tier-title { font-family: var(--f-display); font-weight: 700; font-size: var(--t-step-4); line-height: 1.0; letter-spacing: -0.035em; margin-bottom: 1.6rem; color: var(--c-fg); max-width: 16ch; }
+.tier-title { font-family: var(--f-display); font-weight: 700; font-size: var(--t-step-4); line-height: 1.0; letter-spacing: -0.035em; margin-bottom: 1.6rem; color: var(--c-fg); max-width: 16ch; position: relative; }
+/* A soft, feathered dark wash sits BEHIND the title (between photo and text) so
+   the gold lifts off bright parts of the image. Never touches the gradient text,
+   so it can never turn it black. Blurred radial fade, not a slab. */
+.tier-title::before {
+  content: "";
+  position: absolute;
+  inset: -0.3em -0.8em -0.2em -0.55em;
+  z-index: -1;
+  background: radial-gradient(115% 130% at 18% 52%, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.28) 42%, rgba(0,0,0,0) 74%);
+  filter: blur(7px);
+  pointer-events: none;
+}
 /* The tier italics sit over busy hero photos, where the site-wide deep-champagne
    gold-shine base reads dull/dark-steel and loses contrast. Give these a BRIGHTER
    champagne gradient (still with the travelling shine) plus a soft shadow so they
@@ -304,13 +316,10 @@ a { color: inherit; text-decoration: none; }
     oklch(0.975 0.05 96) 50%,
     oklch(0.80 0.085 90) 62%,
     oklch(0.80 0.085 90) 100%) !important;
-  /* The hero italic's "jeweller's shadow", done with filter:drop-shadow because
-     text-shadow does NOT paint on a transparent-fill clip-text gradient in WebKit.
-     A tight halo hugs each glyph + a soft short drop for depth. Kept restrained. */
-  filter:
-    drop-shadow(0 0 2px rgba(0, 0, 0, 0.85))
-    drop-shadow(0 1px 3px rgba(0, 0, 0, 0.7))
-    drop-shadow(0 2px 11px rgba(0, 0, 0, 0.45));
+  /* NO filter here: filter:drop-shadow on a clip-text gradient makes WebKit render
+     the text black. Depth comes from a dark scrim painted BEHIND the title text
+     (see .tier-title::before), never on the gradient itself. */
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45);
 }
 /* blurb paragraph removed - the title carries it; cards read sparse and premium */
 .tier-blurb { display: none; }
