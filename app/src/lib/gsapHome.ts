@@ -29,6 +29,8 @@ export function initHomeGsap(): () => void {
   // Reduced motion: reveal everything in its final state, create no scroll
   // animations or pins. The page is fully readable, just still.
   if (reduced) {
+    document.querySelectorAll('.hero-title, .chapter-title .line, .founder-quote .line')
+      .forEach((el) => el.classList.add('masks-off'));
     gsap.set(
       ['.hero-title .word .ink', '.hero-sub .reveal-line > span', '.chapter-title .line > *', '.founder-quote .line > *'],
       { yPercent: 0, y: 0, opacity: 1 },
@@ -49,7 +51,13 @@ export function initHomeGsap(): () => void {
   gsap.set('.chapter-title .line > *', { y: 0, yPercent: 140 });
   gsap.set('.founder-quote .line > *', { y: 0, yPercent: 140 });
 
-  const heroTl = gsap.timeline({ defaults: { ease: 'expo.out' }, delay: 0.2 });
+  const heroTl = gsap.timeline({
+    defaults: { ease: 'expo.out' },
+    delay: 0.2,
+    // the mask has done its job once the words stand still - retire it so the
+    // italic ampersand's swashes are never clipped at rest
+    onComplete: () => document.querySelector('.hero-title')?.classList.add('masks-off'),
+  });
   heroTl
     .to('.hero-title .word .ink', { yPercent: 0, duration: 1.4, stagger: 0.08 }, 0)
     .to('.hero-eyebrow', { opacity: 1, duration: 1.0 }, 0.15)
@@ -77,6 +85,7 @@ export function initHomeGsap(): () => void {
     gsap.fromTo(ink, { yPercent: 140 }, {
       yPercent: 0, duration: 1.1, ease: 'expo.out', delay: i * 0.06,
       scrollTrigger: { trigger: '.chapter', start: 'top 75%' },
+      onComplete: () => line.classList.add('masks-off'),
     });
   });
   gsap.fromTo('[data-stagger]', { y: 28, opacity: 0 }, {
@@ -128,6 +137,7 @@ export function initHomeGsap(): () => void {
     gsap.fromTo(ink, { yPercent: 140 }, {
       yPercent: 0, duration: 1.1, ease: 'expo.out', delay: i * 0.06,
       scrollTrigger: { trigger: '.founder', start: 'top 70%' },
+      onComplete: () => line.classList.add('masks-off'),
     });
   });
   gsap.fromTo('.founder-image img', { yPercent: -6, scale: 1.12 }, {

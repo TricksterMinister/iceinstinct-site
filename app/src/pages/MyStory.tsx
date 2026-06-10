@@ -203,7 +203,7 @@ export function MyStory() {
                 <figure className="journey-fig"><img src="/assets/photos/journey-tbilisi-v2.png" alt="" loading="lazy" /></figure>
                 <figure className="journey-fig"><img src="/assets/photos/journey-lisbon-v2.png" alt="" loading="lazy" /></figure>
                 <figure className="journey-fig"><img src="/assets/photos/journey-moscow-v2.png" alt="" loading="lazy" /></figure>
-                <figure className="journey-fig"><img src="/assets/photos/journey-newyork-v2.png" alt="" loading="lazy" /></figure>
+                <figure className="journey-fig"><img src="/assets/photos/journey-newyork-v3.jpg" alt="" loading="lazy" /></figure>
               </div>
 
               <div className="journey-right">
@@ -272,7 +272,7 @@ export function MyStory() {
                   </div>
                 </li>
                 <li className="journey-stop">
-                  <img className="journey-stop-img" src="/assets/photos/journey-newyork-v2.png" alt="New York" loading="lazy" />
+                  <img className="journey-stop-img" src="/assets/photos/journey-newyork-v3.jpg" alt="New York" loading="lazy" />
                   <div className="journey-row">
                     <span className="journey-no">05</span>
                     <div className="journey-body">
@@ -495,33 +495,43 @@ export function MyStory() {
           </div>
         </section>
 
-        {/* ================ FINAL CTA ================ */}
-        <section id="final-cta">
-          <div className="container-narrow">
-            <div className="final-cta final-cta--luxe reveal">
-              <span className="cta-corner cta-corner--tl" aria-hidden="true"></span>
-              <span className="cta-corner cta-corner--tr" aria-hidden="true"></span>
-              <span className="cta-corner cta-corner--bl" aria-hidden="true"></span>
-              <span className="cta-corner cta-corner--br" aria-hidden="true"></span>
-              <span className="ornament" aria-hidden="true">
-                &#10022;
-              </span>
-              <h2>
-                Begin the <span className="it">conversation.</span>
-              </h2>
-              <p className="cta-lead">Tell me about the evening. A response within one business day, personally.</p>
-              <div className="final-cta-actions">
-                <a href="/contact/" className="btn btn-primary">
-                  Request a private quote <span className="arrow">→</span>
-                </a>
-                <a href="/offerings/" className="btn btn-ghost">
-                  See the tiers
-                </a>
+        {/* ================ CLOSING - the sitewide standard: framed CTA and the
+            global footer SHARE one viewport (closing-segment grid) ================ */}
+        <div className="closing-segment story-close" id="final-cta">
+          <section className="closing">
+            <div className="section-bg-word top right" aria-hidden="true">ALCHEMIST</div>
+            <div className="closing-stage">
+              <div className="closing-frame">
+                <span className="closing-corner tl" aria-hidden="true"></span>
+                <span className="closing-corner tr" aria-hidden="true"></span>
+                <span className="closing-corner bl" aria-hidden="true"></span>
+                <span className="closing-corner br" aria-hidden="true"></span>
+                <span className="closing-eyebrow">Ice &amp; Instinct / By appointment</span>
+                <h2 className="closing-title">
+                  Begin the <span className="it">conversation.</span>
+                </h2>
+                <p className="closing-lead">
+                  Tell me about the evening. A response within one business day, personally.
+                </p>
+                <div className="closing-cta">
+                  <a className="btn-primary" href="/contact/" data-cursor="link">
+                    <span className="btn-label">Request a private quote</span>
+                    <span className="btn-arr" aria-hidden="true">&rarr;</span>
+                  </a>
+                  <a className="btn-ghost" href="/offerings/" data-cursor="link">
+                    See the tiers
+                  </a>
+                </div>
               </div>
-              <p className="cta-foot">By appointment only &middot; Est. 2024</p>
+              <p className="closing-meta">
+                <span>By appointment only</span>
+                <span>New York Metropolitan Area</span>
+                <span>Est. 2024</span>
+              </p>
             </div>
-          </div>
-        </section>
+          </section>
+          <SiteFooter embedded />
+        </div>
       </main>
 
       {cert !== null && (
@@ -546,8 +556,6 @@ export function MyStory() {
           </figure>
         </div>
       )}
-
-      <SiteFooter />
     </>
   );
 }

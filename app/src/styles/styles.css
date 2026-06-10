@@ -2045,7 +2045,7 @@ img.reveal-zoom.is-in { transform: scale(1); }
   cursor: pointer;
   transition: background var(--d-base) var(--ease), color var(--d-base) var(--ease);
 }
-.lightbox-close:hover { background: var(--c-fg); color: var(--c-bg); }
+.lightbox-close:hover { border-color: var(--c-accent); color: var(--c-accent); }
 
 /* ===== RECIPE DRAWER (gallery) - photo left, professional recipe card right === */
 .recipe-drawer { cursor: default; padding: clamp(1rem, 3vw, 3rem); }

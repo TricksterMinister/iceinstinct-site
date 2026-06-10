@@ -168,6 +168,9 @@
 .enh-tray-cta.enh-tray-cta.enh-tray-cta,
 .pp-btn.pp-btn.pp-btn,
 .gallery-cta.gallery-cta.gallery-cta,
+.concierge-link.concierge-link.concierge-link,
+.founder-link.founder-link.founder-link,
+.record-plate-view.record-plate-view.record-plate-view,
 .pp-band-cta.pp-band-cta.pp-band-cta {
   touch-action: manipulation;
   border: 1px solid var(--gold-edge);
@@ -215,6 +218,10 @@
 .pp-btn.pp-btn.pp-btn:focus-visible,
 .gallery-cta.gallery-cta.gallery-cta:hover,
 .gallery-cta.gallery-cta.gallery-cta:focus-visible,
+.concierge-link.concierge-link.concierge-link:hover,
+.concierge-link.concierge-link.concierge-link:focus-visible,
+.founder-link.founder-link.founder-link:hover,
+.founder-link.founder-link.founder-link:focus-visible,
 .pp-band-cta.pp-band-cta.pp-band-cta:hover,
 .pp-band-cta.pp-band-cta.pp-band-cta:focus-visible {
   background-size: 150% 150%;
@@ -232,6 +239,8 @@
 .enh-tray-cta.enh-tray-cta.enh-tray-cta:active,
 .pp-btn.pp-btn.pp-btn:active,
 .gallery-cta.gallery-cta.gallery-cta:active,
+.concierge-link.concierge-link.concierge-link:active,
+.founder-link.founder-link.founder-link:active,
 .pp-band-cta.pp-band-cta.pp-band-cta:active {
   transform: translateY(1px);
   box-shadow:
@@ -251,3 +260,48 @@
 /* The tier "Explore" pill sits on photos; its black text-shadow came from the
    outline era - the gold body needs the engraved highlight instead. */
 .tier-go.tier-go.tier-go { text-shadow: 0 1px 1px rgba(252, 244, 214, 0.9); }
+
+
+/* The shelf-card "Explore" buttons (Offerings + Concierge pages) live behind a
+   (0,5,1) selector in cinema-chrome.css that loads after this file - hence the
+   explicit heavy selector instead of the usual 3x chain. */
+body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-link.tier-link {
+  touch-action: manipulation;
+  border: 1px solid var(--gold-edge);
+  border-radius: 0.28em;
+  background-image: linear-gradient(
+    160deg,
+    var(--gold-edge),
+    var(--gold-mid),
+    var(--gold-core),
+    var(--gold-mid-2),
+    var(--gold-edge)
+  );
+  background-size: 100% 100%;
+  background-position: center;
+  color: var(--gold-ink);
+  text-shadow: 0 1px 1px rgba(252, 244, 214, 0.9);
+  box-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.16),
+    0 3px 6px rgba(96, 78, 34, 0.35),
+    inset 0 -2px 5px 1px rgba(122, 95, 38, 0.95),
+    inset 0 -1px 1px 3px var(--gold-glow);
+  transition: all 0.2s ease-in-out;
+}
+body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-link.tier-link::before { display: none; }
+body.cinema-chrome.vp-split .vp-shelf .tier-card:hover .tier-link.tier-link.tier-link {
+  background-size: 150% 150%;
+  border-color: rgba(138, 109, 47, 0.6);
+  color: rgba(74, 58, 20, 0.85);
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.19),
+    0 6px 6px rgba(0, 0, 0, 0.23),
+    inset 0 -2px 5px 1px #a8884a,
+    inset 0 -1px 1px 3px var(--gold-glow);
+}
+
+/* Deliberate exemption (NOT missed): icon-only dismiss crosses - .va-close,
+   .pp-close, .lightbox-close, .record-lightbox-close - stay quiet hairline
+   circles. A gold bullion X floating over a certificate or a cocktail photo
+   would fight the artefact it closes. They are unified with each other:
+   hairline circle, champagne border on hover (see styles.css lightbox-close). */
