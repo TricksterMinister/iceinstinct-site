@@ -82,14 +82,50 @@
   margin: 0 auto;
   text-wrap: balance;
 }
-.tiers-note-fine {
+/* The logistics fine print, restructured from one centred mono clump into three
+   tidy labelled columns with hairline dividers - reads intentional, not cheap. */
+.tiers-note-terms {
+  width: 100%;
+  max-width: 54rem;
+  margin: clamp(0.4rem, 1.2vh, 1.2rem) auto 0;
+  padding-top: clamp(1.4rem, 3vh, 2.2rem);
+  border-top: 1px solid color-mix(in oklab, var(--sec-rule) 55%, transparent);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 3vw, 3.2rem);
+  text-align: left;
+}
+.tnt { position: relative; display: flex; flex-direction: column; gap: 0.55rem; }
+.tnt + .tnt::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * clamp(0.75rem, 1.5vw, 1.6rem));
+  top: 0.1rem;
+  bottom: 0.1rem;
+  width: 1px;
+  background: color-mix(in oklab, var(--sec-rule) 45%, transparent);
+}
+.tnt-k {
   font-family: var(--sec-mono);
-  font-size: clamp(0.72rem, 0.68rem + 0.18vw, 0.82rem);
-  line-height: 1.85;
-  letter-spacing: 0.04em;
-  color: var(--sec-faint);
-  max-width: 64ch;
-  margin: 0 auto;
+  font-size: clamp(0.6rem, 0.56rem + 0.16vw, 0.7rem);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  opacity: 0.92;
+}
+.tnt-v {
+  margin: 0;
+  font-family: var(--sec-body);
+  font-weight: 300;
+  font-size: clamp(0.85rem, 0.8rem + 0.22vw, 0.98rem);
+  line-height: 1.55;
+  color: var(--sec-mute);
+}
+@media (max-width: 720px) {
+  .tiers-note-terms { grid-template-columns: 1fr; gap: 0; max-width: 30rem; }
+  .tnt { padding: 1.1rem 0; }
+  .tnt + .tnt { border-top: 1px solid color-mix(in oklab, var(--sec-rule) 38%, transparent); }
+  .tnt + .tnt::before { display: none; }
 }
 
 /* ===================== FAQ ===================== */

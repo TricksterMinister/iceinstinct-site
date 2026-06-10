@@ -16,11 +16,20 @@ export function TiersNote() {
           Any tier scales with a full bar team for larger events - weddings, galas, and corporate gatherings - quoted on
           request.
         </p>
-        <p className="tiers-note-fine">
-          Each tier price covers the craft, service, and expertise. Spirits and wine are separate: provide your own, or
-          we source everything on your behalf at supplier cost. Specialty ice, glassware, and rentals are arranged
-          through the Concierge and billed at supplier cost.
-        </p>
+        <dl className="tiers-note-terms">
+          <div className="tnt">
+            <dt className="tnt-k">The fee</dt>
+            <dd className="tnt-v">Covers the craft, the service, and the expertise.</dd>
+          </div>
+          <div className="tnt">
+            <dt className="tnt-k">Spirits &amp; wine</dt>
+            <dd className="tnt-v">Provided by you, or sourced on your behalf at supplier cost.</dd>
+          </div>
+          <div className="tnt">
+            <dt className="tnt-k">Ice, glassware &amp; rentals</dt>
+            <dd className="tnt-v">Arranged through the Concierge, billed at supplier cost.</dd>
+          </div>
+        </dl>
       </div>
     </section>
   );
