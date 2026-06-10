@@ -42,10 +42,12 @@ export function initHomeGsap(): () => void {
 
   /* ---------- HERO INTRO TIMELINE ---------- */
   // explicit initial states. y:0 wipes any read-from-CSS pixel offset before yPercent applies.
-  gsap.set('.hero-title .word .ink', { y: 0, yPercent: 110 });
-  gsap.set('.hero-sub .reveal-line > span', { y: 0, yPercent: 110 });
-  gsap.set('.chapter-title .line > *', { y: 0, yPercent: 110 });
-  gsap.set('.founder-quote .line > *', { y: 0, yPercent: 110 });
+  // 140 (not 110): the reveal masks carry vertical padding for italic swashes
+  // (see .hero-title .word in cinema.css), so the ink must start deeper to stay hidden.
+  gsap.set('.hero-title .word .ink', { y: 0, yPercent: 140 });
+  gsap.set('.hero-sub .reveal-line > span', { y: 0, yPercent: 140 });
+  gsap.set('.chapter-title .line > *', { y: 0, yPercent: 140 });
+  gsap.set('.founder-quote .line > *', { y: 0, yPercent: 140 });
 
   const heroTl = gsap.timeline({ defaults: { ease: 'expo.out' }, delay: 0.2 });
   heroTl
@@ -72,7 +74,7 @@ export function initHomeGsap(): () => void {
   /* ---------- CHAPTER (manifesto) reveals ---------- */
   gsap.utils.toArray<HTMLElement>('.chapter-title .line').forEach((line, i) => {
     const ink = line.querySelector('span') || line;
-    gsap.fromTo(ink, { yPercent: 110 }, {
+    gsap.fromTo(ink, { yPercent: 140 }, {
       yPercent: 0, duration: 1.1, ease: 'expo.out', delay: i * 0.06,
       scrollTrigger: { trigger: '.chapter', start: 'top 75%' },
     });
@@ -123,7 +125,7 @@ export function initHomeGsap(): () => void {
   /* ---------- FOUNDER reveals ---------- */
   gsap.utils.toArray<HTMLElement>('.founder-quote .line').forEach((line, i) => {
     const ink = line.querySelector('span') || line;
-    gsap.fromTo(ink, { yPercent: 110 }, {
+    gsap.fromTo(ink, { yPercent: 140 }, {
       yPercent: 0, duration: 1.1, ease: 'expo.out', delay: i * 0.06,
       scrollTrigger: { trigger: '.founder', start: 'top 70%' },
     });
