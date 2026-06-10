@@ -15,117 +15,193 @@
   /* --seg-h is provided site-wide by accent.css (alias of --t-h2). */
 }
 
-/* ===================== PRICING NOTE ===================== */
-/* Full-viewport breather between the intense tiers and concierge visuals.
-   Composed, not empty: a ghost word anchors the void and the scaling line
-   carries the segment, with the fine print as a quiet caption beneath. */
+/* ===================== PRICING NOTE ("Built to scale") =====================
+   Editorial Swiss grid, not a centred stack. A 12-column field carries:
+   a meta row (eyebrow + index), a two-part lede (oversized headline + justified
+   lead), and the three logistics terms as a numbered premium band (01/02/03).
+   The ghost word SCALE bleeds off the bottom-right corner as grid texture and
+   is intentionally NOT placed behind the reading column. Strict mono + champagne. */
 .tiers-note {
   position: relative;
   background: var(--c-bg);
   min-height: 100svh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  overflow-x: clip;
+  overflow: clip;
   isolation: isolate;
-  padding: clamp(3rem, 7vh, 5.5rem) clamp(1.4rem, 5vw, 6rem);
+  padding: clamp(4rem, 12vh, 9rem) clamp(1.5rem, 6vw, 7rem);
   border-top: 1px solid color-mix(in oklab, var(--sec-rule) 70%, transparent);
 }
-.tiers-note-stage {
-  position: relative;
-  z-index: 1;
-  max-width: 60rem;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(1.4rem, 3.5vh, 2.6rem);
-  text-align: center;
-}
-.tiers-note-eyebrow {
-  margin: 0;
-  font-family: var(--sec-mono);
-  font-size: clamp(0.66rem, 0.62rem + 0.18vw, 0.78rem);
-  letter-spacing: 0.34em;
-  text-transform: uppercase;
-  color: var(--c-accent);
-  opacity: 0.85;
-}
-/* Segment headline in the site signature: bold sans + italic champagne accent. */
-.tiers-note-headline {
+
+/* Corner-bleed ghost: baseline-anchored to the bottom-right, half off-canvas.
+   Scoped class (NOT .section-bg-word) so global cinema rules never recapture it. */
+.tn-ghost {
+  position: absolute;
+  z-index: 0;
+  right: -0.06em;
+  bottom: -0.16em;
   margin: 0;
   font-family: var(--sec-display);
   font-weight: 700;
-  font-size: var(--seg-h, clamp(2.8rem, 1.95rem + 5vmin, 5.8rem));
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: var(--c-fg);
+  font-size: clamp(9rem, 4rem + 26vw, 30rem);
+  line-height: 0.72;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in oklab, var(--c-accent) 26%, transparent);
+  text-stroke: 1px color-mix(in oklab, var(--c-accent) 26%, transparent);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
 }
-.tiers-note-headline span { display: block; }
-.tiers-note-headline span.it {
-  font-family: var(--sec-italic);
-  font-style: italic;
-  text-transform: none;
-  font-weight: 350;
-  color: var(--c-accent);
-  letter-spacing: 0;
-}
-/* Supporting line under the headline (sans lead, like the Concierge intro). */
-.tiers-note-scale {
-  font-family: var(--sec-body);
-  font-weight: 300;
-  font-size: clamp(1.05rem, 0.95rem + 0.6vw, 1.4rem);
-  line-height: 1.6;
-  color: var(--sec-mute);
-  letter-spacing: 0;
-  max-width: 46ch;
-  margin: 0 auto;
-  text-wrap: balance;
-}
-/* The logistics fine print, restructured from one centred mono clump into three
-   tidy labelled columns with hairline dividers - reads intentional, not cheap. */
-.tiers-note-terms {
+
+.tn-grid {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  max-width: 54rem;
-  margin: clamp(0.4rem, 1.2vh, 1.2rem) auto 0;
-  padding-top: clamp(1.4rem, 3vh, 2.2rem);
-  border-top: 1px solid color-mix(in oklab, var(--sec-rule) 55%, transparent);
+  max-width: 76rem;
+  margin: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(1.5rem, 3vw, 3.2rem);
-  text-align: left;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: clamp(1.5rem, 3vw, 3rem);
+  row-gap: clamp(2.4rem, 6vh, 4.6rem);
 }
-.tnt { position: relative; display: flex; flex-direction: column; gap: 0.55rem; }
-.tnt + .tnt::before {
-  content: "";
-  position: absolute;
-  left: calc(-1 * clamp(0.75rem, 1.5vw, 1.6rem));
-  top: 0.1rem;
-  bottom: 0.1rem;
-  width: 1px;
-  background: color-mix(in oklab, var(--sec-rule) 45%, transparent);
+
+/* --- meta row: eyebrow left, index right, on a single champagne hairline --- */
+.tn-head {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: clamp(1rem, 2.4vh, 1.6rem);
+  border-bottom: 1px solid color-mix(in oklab, var(--sec-rule) 60%, transparent);
 }
-.tnt-k {
+.tn-eyebrow {
+  margin: 0;
   font-family: var(--sec-mono);
-  font-size: clamp(0.6rem, 0.56rem + 0.16vw, 0.7rem);
-  letter-spacing: 0.26em;
+  font-size: clamp(0.7rem, 0.64rem + 0.2vw, 0.84rem);
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--c-accent);
-  opacity: 0.92;
 }
-.tnt-v {
+.tn-index {
+  flex: none;
+  font-family: var(--sec-mono);
+  font-size: clamp(0.66rem, 0.6rem + 0.16vw, 0.78rem);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--sec-faint);
+}
+
+/* --- lede: oversized headline on the left, justified lead on the right --- */
+.tn-lede {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  column-gap: clamp(2rem, 5vw, 5rem);
+  align-items: end;
+}
+.tn-headline {
   margin: 0;
+  font-family: var(--sec-display);
+  font-weight: 700;
+  font-size: clamp(3.4rem, 1.6rem + 9vmin, 8.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  color: var(--c-fg);
+}
+.tn-h-bold { display: block; }
+.tn-h-it {
+  display: block;
+  font-family: var(--sec-italic);
+  font-style: italic;
+  font-weight: 350;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  color: var(--c-accent);
+}
+.tn-scale {
+  margin: 0 0 0.35em;
   font-family: var(--sec-body);
   font-weight: 300;
-  font-size: clamp(0.85rem, 0.8rem + 0.22vw, 0.98rem);
+  font-size: clamp(1.1rem, 0.95rem + 0.7vw, 1.5rem);
+  line-height: 1.5;
+  color: var(--sec-mute);
+  max-width: 40ch;
+}
+
+/* --- terms: numbered premium band, large readable type, champagne rules --- */
+.tn-terms {
+  grid-column: 1 / -1;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.tn-term {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  row-gap: clamp(0.75rem, 1.6vh, 1.1rem);
+  padding: clamp(1.4rem, 2.6vh, 2rem) clamp(1.6rem, 3vw, 2.8rem);
+  border-top: 1px solid color-mix(in oklab, var(--c-accent) 38%, transparent);
+}
+.tn-term:first-child { padding-left: 0; }
+.tn-term:last-child { padding-right: 0; }
+.tn-term + .tn-term {
+  border-left: 1px solid color-mix(in oklab, var(--sec-rule) 55%, transparent);
+}
+.tn-num {
+  font-family: var(--sec-mono);
+  font-size: clamp(0.78rem, 0.72rem + 0.2vw, 0.95rem);
+  letter-spacing: 0.18em;
+  color: var(--c-accent);
+}
+.tn-k {
+  font-family: var(--sec-display);
+  font-weight: 600;
+  font-size: clamp(1.25rem, 1.05rem + 0.7vw, 1.7rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--c-fg);
+}
+.tn-v {
+  margin: 0;
+  align-self: start;
+  font-family: var(--sec-body);
+  font-weight: 300;
+  font-size: clamp(0.98rem, 0.9rem + 0.3vw, 1.18rem);
   line-height: 1.55;
   color: var(--sec-mute);
+  max-width: 30ch;
 }
-@media (max-width: 720px) {
-  .tiers-note-terms { grid-template-columns: 1fr; gap: 0; max-width: 30rem; }
-  .tnt { padding: 1.1rem 0; }
-  .tnt + .tnt { border-top: 1px solid color-mix(in oklab, var(--sec-rule) 38%, transparent); }
-  .tnt + .tnt::before { display: none; }
+
+/* --- tablet: headline above lead, terms stay 3-up until they get tight --- */
+@media (max-width: 880px) {
+  .tn-lede { grid-template-columns: 1fr; row-gap: clamp(1.4rem, 3vh, 2.2rem); }
+  .tn-scale { margin-bottom: 0; max-width: 52ch; }
+}
+
+/* --- mobile: terms stack into stacked numbered rows, ghost hugs the edge --- */
+@media (max-width: 640px) {
+  .tn-terms { grid-template-columns: 1fr; }
+  .tn-term {
+    padding: clamp(1.2rem, 4vw, 1.6rem) 0;
+    grid-template-rows: none;
+  }
+  .tn-term:first-child { padding-top: 0; }
+  .tn-term + .tn-term { border-left: 0; }
+  .tn-v { max-width: 46ch; }
+  .tn-ghost {
+    font-size: clamp(7rem, 36vw, 13rem);
+    bottom: auto;
+    top: 0.4em;
+    right: -0.04em;
+    opacity: 0.85;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* static by design - no motion added; placeholder for future reveal hooks */
 }
 
 /* ===================== FAQ ===================== */
