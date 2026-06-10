@@ -79,3 +79,71 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* =========================================================================
+   BRAND BUTTON - "champagne gold bullion"
+   The one primary button of the site (model: Uiverse golden-button by
+   elijahgummer, recolored from amber gold to our champagne palette).
+   Skin only: every .btn-primary keeps its context's typography, padding and
+   layout; this layer replaces flat fills with a dimensional gold surface.
+   The 4x-chained class out-specifies every context override
+   (.closing-segment .closing .btn-primary etc.) without !important.
+   ========================================================================= */
+:root {
+  --gold-edge:  #8a6d2f;  /* dark champagne rim */
+  --gold-mid:   #b3975a;  /* body */
+  --gold-core:  #faf0cf;  /* pale highlight core */
+  --gold-mid-2: #c2a75f;  /* body, warm side */
+  --gold-ink:   #4a3a14;  /* engraved text */
+  --gold-glow:  rgba(252, 244, 214, 1);  /* inner bottom-edge shine */
+}
+
+.btn-primary.btn-primary.btn-primary.btn-primary {
+  touch-action: manipulation;
+  border: 1px solid var(--gold-edge);
+  border-radius: 0.28em;
+  background-image: linear-gradient(
+    160deg,
+    var(--gold-edge),
+    var(--gold-mid),
+    var(--gold-core),
+    var(--gold-mid-2),
+    var(--gold-edge)
+  );
+  background-size: 100% 100%;
+  background-position: center;
+  color: var(--gold-ink);
+  text-shadow: 0 1px 1px rgba(252, 244, 214, 0.9);
+  box-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.16),
+    0 3px 6px rgba(96, 78, 34, 0.35),
+    inset 0 -2px 5px 1px rgba(122, 95, 38, 0.95),
+    inset 0 -1px 1px 3px var(--gold-glow);
+  transition: all 0.2s ease-in-out;
+}
+/* the old skins painted hover fills via ::before - the gold surface replaces them */
+.btn-primary.btn-primary.btn-primary.btn-primary::before { display: none; }
+
+.btn-primary.btn-primary.btn-primary.btn-primary:hover,
+.btn-primary.btn-primary.btn-primary.btn-primary:focus-visible {
+  background-size: 150% 150%;
+  border-color: rgba(138, 109, 47, 0.6);
+  color: rgba(74, 58, 20, 0.85);
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.19),
+    0 6px 6px rgba(0, 0, 0, 0.23),
+    inset 0 -2px 5px 1px #a8884a,
+    inset 0 -1px 1px 3px var(--gold-glow);
+}
+.btn-primary.btn-primary.btn-primary.btn-primary:focus-visible {
+  outline: 2px solid var(--gold-ink);
+  outline-offset: 2px;
+}
+.btn-primary.btn-primary.btn-primary.btn-primary:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.16),
+    0 2px 4px rgba(96, 78, 34, 0.35),
+    inset 0 -2px 5px 1px #a8884a,
+    inset 0 -1px 1px 3px var(--gold-glow);
+}
