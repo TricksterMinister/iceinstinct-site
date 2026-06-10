@@ -3,6 +3,7 @@ import './styles/styles.css';
 import './styles/footer.css';
 import './styles/cinema-chrome.css';
 import './styles/profiler.css';
+import './lib/funnelInit';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { GalleryPage } from './pages/GalleryPage';
