@@ -604,7 +604,38 @@ body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-blurb {
   font-size: var(--t-sm);
   margin-top: 0.2rem;
 }
-body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-link { color: var(--c-accent); }
+/* Explore = a real button on every shelf card (Offerings + Concierge), matched
+   to the home slider button: champagne outline, mono caps, fills champagne on
+   card hover. Anchored at the card foot (margin-top:auto), content-width. */
+body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-link {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 0.7rem 1.4rem;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  background: transparent;
+  border: 1px solid var(--c-accent);
+  transition: color 0.45s var(--ease), border-color 0.45s var(--ease);
+}
+body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--c-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+body.cinema-chrome.vp-split .vp-shelf .tier-card:hover .tier-link { color: var(--c-bg); }
+body.cinema-chrome.vp-split .vp-shelf .tier-card:hover .tier-link::before { transform: scaleX(1); }
 
 /* Mobile: unlock the 50/50 lock, let content breathe vertically.
    The existing .promise-grid mobile swipe rules take over the track. */
