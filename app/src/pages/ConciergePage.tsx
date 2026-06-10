@@ -1,7 +1,8 @@
 import { SiteFooter } from '../sections/SiteFooter';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
+import { useEvening } from '../lib/evening';
 
 /** The five enhancements, as data so each renders as a full-segment split panel
  *  and can be selected into the inquiry. Prose kept verbatim from the originals. */
@@ -74,11 +75,10 @@ export function ConciergePage() {
   useCinemaChrome();
   useDeepScripts();
 
-  // "Add to my evening": the guest selects enhancements (never pays here); the
-  // selection is carried into the Inquire form as a single tailored request.
-  const [picked, setPicked] = useState<string[]>([]);
-  const toggle = (name: string) =>
-    setPicked((p) => (p.includes(name) ? p.filter((x) => x !== name) : [...p, name]));
+  // "Add to my evening": the guest selects OPTIONAL enhancements (never pays
+  // here). The selection persists site-wide and is carried into the booking /
+  // Inquire. Ice & Temperature is standard in every evening, never a toggle.
+  const [picked, toggle] = useEvening();
   const requestUrl = '/contact/?enhancements=' + encodeURIComponent(picked.join(' | '));
 
   return (
@@ -313,24 +313,32 @@ export function ConciergePage() {
                           </p>
                         )}
                       </div>
-                      <button
-                        type="button"
-                        className={'enh-add' + (added ? ' is-added' : '')}
-                        onClick={() => toggle(e.name)}
-                        aria-pressed={added}
-                        data-cursor="link"
-                      >
-                        <span className="enh-add-label">{added ? 'Added to your evening' : 'Add to my evening'}</span>
-                        <span className="enh-add-mark" aria-hidden="true">{added ? '✓' : '+'}</span>
-                      </button>
+                      {e.id === 'ice-temperature' ? (
+                        <span className="enh-standard">
+                          <span className="enh-standard-mark" aria-hidden="true">✦</span>
+                          Standard in every evening
+                        </span>
+                      ) : (
+                        <button
+                          type="button"
+                          className={'enh-add' + (added ? ' is-added' : '')}
+                          onClick={() => toggle(e.name)}
+                          aria-pressed={added}
+                          data-cursor="link"
+                        >
+                          <span className="enh-add-label">{added ? 'Added to your evening' : 'Add to my evening'}</span>
+                          <span className="enh-add-mark" aria-hidden="true">{added ? '✓' : '+'}</span>
+                        </button>
+                      )}
                     </div>
                   </article>
                 );
               })}
             </div>
             <p className="enh-note-global">
-              Enhancements are arranged with your booking, not bought here. Select what you would like and they fold
-              into one tailored quote. External items such as ice and glassware are sourced at supplier cost.
+              Enhancements are arranged with your booking, not bought here. Professional ice and temperature are
+              standard in every evening; the rest you select, and they fold into one tailored quote. All third-party
+              items are sourced at supplier cost.
             </p>
           </div>
         </section>

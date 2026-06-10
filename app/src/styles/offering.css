@@ -330,6 +330,18 @@
 .closing-segment .closing-lead { color: oklch(40% 0.01 80); }
 .closing-segment .closing-meta { color: oklch(42% 0.01 80); }
 .closing-segment .closing .section-bg-word { color: oklch(62% 0.07 88 / 0.16); }
+/* ice-is-standard note + carried "your evening" line, above the reserve CTA */
+.closing-included {
+  margin: clamp(0.3rem, 1vh, 0.8rem) auto clamp(0.7rem, 2vh, 1.2rem);
+  max-width: 56ch;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: clamp(0.62rem, 0.58rem + 0.16vw, 0.72rem);
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+  color: oklch(46% 0.01 80);
+}
+.closing-included strong { color: oklch(40% 0.08 78); font-weight: 600; }
 .closing-segment .closing .btn-primary { color: oklch(22% 0 0); border-color: oklch(34% 0.02 85); }
 .closing-segment .closing .btn-primary::before { background: oklch(22% 0 0); }
 .closing-segment .closing .btn-primary:hover { color: oklch(96% 0.02 95); }

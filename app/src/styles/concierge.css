@@ -142,6 +142,25 @@ body.cinema-chrome.vp-split #enhancements .addon-card.enh-split {
 .enh-add.is-added { color: var(--c-bg); background: var(--c-accent); }
 .enh-add.is-added::before { transform: scaleX(1); }
 
+/* Ice & Temperature is standard in every evening, never a toggle - a quiet badge
+   instead of the Add button, so it can never be forgotten or unselected. */
+.enh-standard {
+  align-self: flex-start;
+  margin-top: clamp(0.8rem, 2vh, 1.6rem);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  border: 1px solid color-mix(in oklab, var(--c-accent) 42%, transparent);
+  background: color-mix(in oklab, var(--c-accent) 9%, transparent);
+}
+.enh-standard-mark { font-size: 0.9em; line-height: 1; }
+
 /* ---- the model note under the band -------------------------------------- */
 .enh-note-global {
   max-width: 58ch;

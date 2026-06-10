@@ -6,6 +6,7 @@ import { useDeepScripts } from '../app/useDeepScripts';
 import { useOmakaseSnap } from '../app/useOmakaseSnap';
 import { EtherealShadow } from '../components/EtherealShadow';
 import { SiteFooter } from '../sections/SiteFooter';
+import { useEvening } from '../lib/evening';
 import type { OfferingContent } from './offerings/types';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -29,6 +30,16 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
     omakase: 'jsid1437636',
   };
   const pkg = `https://enter-ritual.youcanbook.me/?service=${BOOKING_SERVICE[content.slug]}`;
+
+  // Carry the guest's optional enhancements (picked anywhere on the site) into
+  // this booking, so the date, deposit and the full evening arrive as one. Ice
+  // is standard, never opt-in. NOTE: the YCBM "NOTES" param prefills only if a
+  // booking field with that code exists in the YouCanBook.me form.
+  const [evening] = useEvening();
+  const bookingUrl =
+    evening.length > 0
+      ? `${pkg}&NOTES=${encodeURIComponent('Enhancements requested: ' + evening.join(', ') + '. (Clear ice and temperature included as standard.)')}`
+      : pkg;
 
   // Live deep page sets <body class="cinema-chrome">.
   useEffect(() => {
@@ -432,13 +443,21 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
               <p className="closing-lead">
                 {content.closing.lead.split(/(?<=\.)\s+/).flatMap((s, i) => (i === 0 ? [s] : [<br key={i} />, s]))}
               </p>
+              <p className="closing-included">
+                Every evening includes professional clear ice and temperature, sourced at supplier cost.
+                {evening.length > 0 && (
+                  <>
+                    {' '}Your evening also includes: <strong>{evening.join(', ')}</strong>.
+                  </>
+                )}
+              </p>
               <div className="closing-cta">
-                <a className="btn-primary" href={pkg} data-cursor="link">
-                  <span className="btn-label">Request a private quote</span>
+                <a className="btn-primary" href={bookingUrl} data-cursor="link">
+                  <span className="btn-label">Reserve your evening</span>
                   <span className="btn-arr" aria-hidden="true">&rarr;</span>
                 </a>
-                <a className="btn-ghost" href="/offerings/" data-cursor="link">
-                  Explore the offerings
+                <a className="btn-ghost" href="/concierge/" data-cursor="link">
+                  Add enhancements
                 </a>
               </div>
             </div>
