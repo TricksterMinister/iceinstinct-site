@@ -37,6 +37,28 @@ export function Contact() {
     track('inquiry_form_start');
   };
 
+  // Field-level validation. The form is noValidate (browser bubbles clash with
+  // the design), so an accidental click must be stopped HERE - an empty
+  // submission once reached the owner's inbox as a blank email.
+  type FieldErrors = { name?: string; email?: string; message?: string };
+  const [errors, setErrors] = useState<FieldErrors>({});
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+
+  const validate = (): boolean => {
+    const next: FieldErrors = {};
+    if (!name.trim()) next.name = 'Your name - so I know who to write back to.';
+    if (!email.trim()) next.email = 'An email I can reply to.';
+    else if (!/^\S+@\S+\.\S+$/.test(email.trim())) next.email = 'This email does not look complete.';
+    if (!message.trim()) next.message = 'A few words about the evening - the date, the room, the guest count.';
+    setErrors(next);
+    if (next.name) nameRef.current?.focus();
+    else if (next.email) emailRef.current?.focus();
+    else if (next.message) messageRef.current?.focus();
+    return Object.keys(next).length === 0;
+  };
+
   // WhatsApp opens with the context already typed: the guest just hits send.
   const waText = encodeURIComponent(
     'Hello - I am planning an evening with Ice & Instinct and would like to talk.' +
@@ -87,6 +109,7 @@ export function Contact() {
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (status === 'sending') return;
+    if (!validate()) return;
     setStatus('sending');
     try {
       const data = new FormData();
@@ -249,58 +272,75 @@ export function Contact() {
                 <span className="closing-corner bl" aria-hidden="true"></span>
                 <span className="closing-corner br" aria-hidden="true"></span>
                 <span className="closing-eyebrow">Ice &amp; Instinct / Inquire</span>
-                <h2 className="closing-title">
-                  Begin the <span className="it">conversation.</span>
-                </h2>
-                <p className="closing-lead">
-                  Tell us the date, the room, and the guest count. A reply follows within one
-                  business day, personally.
-                </p>
+                {/* After sending, the card transforms whole: the invitation
+                    headline gives way to the confirmation - no two headlines
+                    stacked on top of each other. */}
                 {status === 'sent' ? (
                   <div className="inquire-sent" role="status">
-                    <h3 className="closing-title" style={{ fontSize: 'var(--t-2xl)', margin: '0 0 0.6rem' }}>
-                      Received.
-                    </h3>
-                    <p className="closing-lead" style={{ margin: 0 }}>
-                      Your note is with us. A reply follows within one business day, personally.
+                    <h2 className="closing-title">
+                      Received, <span className="it">with thanks.</span>
+                    </h2>
+                    <p className="closing-lead">
+                      Your note is with me. I read every inquiry personally and reply within one
+                      business day - usually sooner.
+                    </p>
+                    <p className="closing-lead" style={{ marginTop: '0.4rem' }}>
+                      If the evening is close, reach me directly below.
                     </p>
                   </div>
                 ) : (
+                  <>
+                  <h2 className="closing-title">
+                    Begin the <span className="it">conversation.</span>
+                  </h2>
+                  <p className="closing-lead">
+                    Tell us the date, the room, and the guest count. A reply follows within one
+                    business day, personally.
+                  </p>
                   <form className="inquire-form" onSubmit={onSubmit} onFocusCapture={onFormStart} noValidate>
                     <div className="inquire-row">
-                      <label className="inquire-field">
+                      <label className={'inquire-field' + (errors.name ? ' is-invalid' : '')}>
                         <span className="inquire-label">Name</span>
                         <input
+                          ref={nameRef}
                           type="text"
                           name="name"
                           value={name}
-                          onChange={(e) => setName(e.target.value)}
+                          onChange={(e) => { setName(e.target.value); if (errors.name) setErrors((p) => ({ ...p, name: undefined })); }}
                           autoComplete="name"
+                          aria-invalid={!!errors.name}
                           required
                         />
+                        {errors.name && <span className="inquire-err" role="alert">{errors.name}</span>}
                       </label>
-                      <label className="inquire-field">
+                      <label className={'inquire-field' + (errors.email ? ' is-invalid' : '')}>
                         <span className="inquire-label">Email</span>
                         <input
+                          ref={emailRef}
                           type="email"
                           name="email"
                           value={email}
-                          onChange={(e) => setEmail(e.target.value)}
+                          onChange={(e) => { setEmail(e.target.value); if (errors.email) setErrors((p) => ({ ...p, email: undefined })); }}
                           autoComplete="email"
+                          aria-invalid={!!errors.email}
                           required
                         />
+                        {errors.email && <span className="inquire-err" role="alert">{errors.email}</span>}
                       </label>
                     </div>
-                    <label className="inquire-field">
+                    <label className={'inquire-field' + (errors.message ? ' is-invalid' : '')}>
                       <span className="inquire-label">Message</span>
                       <textarea
+                        ref={messageRef}
                         name="message"
                         rows={3}
                         value={message}
-                        onChange={(e) => setMessage(e.target.value)}
+                        onChange={(e) => { setMessage(e.target.value); if (errors.message) setErrors((p) => ({ ...p, message: undefined })); }}
                         placeholder="The evening you have in mind - the date, the room, the guest count."
+                        aria-invalid={!!errors.message}
                         required
                       />
+                      {errors.message && <span className="inquire-err" role="alert">{errors.message}</span>}
                     </label>
                     {/* honeypot: off-screen, never seen or filled by a human */}
                     <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
@@ -323,6 +363,7 @@ export function Contact() {
                       </button>
                     </div>
                   </form>
+                  </>
                 )}
                 <div
                   className="inquire-direct"

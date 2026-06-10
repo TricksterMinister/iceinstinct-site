@@ -2866,6 +2866,19 @@ img.reveal-zoom.is-in { transform: scale(1); }
   border-color: oklch(52% 0.1 82);
   box-shadow: 0 0 0 3px oklch(72% 0.08 85 / 0.18);
 }
+/* Validation: deep-gold ink, never an alien red - the card stays in palette. */
+.closing-frame .inquire-field.is-invalid input,
+.closing-frame .inquire-field.is-invalid textarea {
+  border-color: oklch(48% 0.11 70);
+  box-shadow: 0 0 0 3px oklch(60% 0.12 70 / 0.16);
+}
+.closing-frame .inquire-err {
+  font-family: var(--f-italic, serif);
+  font-style: italic;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  color: oklch(42% 0.1 70);
+}
 /* Single Send button - centre it under the form to match the centred card. */
 .closing-frame .inquire-form-foot {
   display: flex;
