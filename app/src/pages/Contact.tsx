@@ -29,6 +29,20 @@ export function Contact() {
   const [company, setCompany] = useState(''); // honeypot, hidden from humans
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
+  const [evening] = useEvening();
+  const formStarted = useRef(false);
+  const onFormStart = () => {
+    if (formStarted.current) return;
+    formStarted.current = true;
+    track('inquiry_form_start');
+  };
+
+  // WhatsApp opens with the context already typed: the guest just hits send.
+  const waText = encodeURIComponent(
+    'Hello - I am planning an evening with Ice & Instinct and would like to talk.' +
+      (evening.length ? ` Enhancements I have in mind: ${evening.join(', ')}.` : '')
+  );
+
   // Pre-fill the note with everything the guest has already told the site, so
   // nothing is lost between pages: the Profiler signature (?cocktail=...), the
   // Concierge tray (?enhancements=...), or the enhancements remembered in
@@ -66,6 +80,9 @@ export function Contact() {
   // delivered through real mail infrastructure - shared-host mail() lands in
   // spam or vanishes with no trace. _gotcha is Formspree's honeypot: a filled
   // value makes it silently discard the submission while still returning ok.
+  // Alongside the guest's own words, attach the context the site already
+  // knows - enhancements, Profiler signature, first-touch source - so the
+  // owner's email carries the full picture without the guest retyping it.
   // Fall back to mailto only if the endpoint is unreachable.
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -77,7 +94,22 @@ export function Contact() {
       data.set('email', email);
       data.set('message', message);
       data.set('_gotcha', company);
-      data.set('_subject', 'Ice & Instinct inquiry');
+
+      const enh = readEvening();
+      const cocktail = readCocktail();
+      const src = readSource();
+      if (enh.length) data.set('enhancements', enh.join(', '));
+      if (cocktail) data.set('cocktail', cocktail);
+      if (src) {
+        data.set('source', src.source);
+        data.set('landing_page', src.landing);
+      }
+      const subject =
+        'Ice & Instinct inquiry' +
+        (cocktail ? ' - ' + cocktail : '') +
+        (enh.length ? ` - ${enh.length} enhancement${enh.length > 1 ? 's' : ''}` : '');
+      data.set('_subject', subject);
+
       const res = await fetch('https://formspree.io/f/xpwkadgp', {
         method: 'POST',
         body: data,
@@ -85,15 +117,15 @@ export function Contact() {
       });
       const out = (await res.json().catch(() => ({ ok: res.ok }))) as { ok?: boolean };
       if (res.ok && out.ok) {
-        const w = window as unknown as { gtag?: (...a: unknown[]) => void; dataLayer?: unknown[] };
-        if (typeof w.gtag === 'function') w.gtag('event', 'inquiry_submit', { method: 'inquire_form' });
-        else (w.dataLayer = w.dataLayer || []).push({ event: 'inquiry_submit' });
+        track('inquiry_submit', { method: 'inquire_form' });
         setStatus('sent');
       } else {
+        track('inquiry_error');
         setStatus('error');
         mailtoFallback();
       }
     } catch {
+      track('inquiry_error');
       setStatus('error');
       mailtoFallback();
     }
@@ -234,7 +266,7 @@ export function Contact() {
                     </p>
                   </div>
                 ) : (
-                  <form className="inquire-form" onSubmit={onSubmit} noValidate>
+                  <form className="inquire-form" onSubmit={onSubmit} onFocusCapture={onFormStart} noValidate>
                     <div className="inquire-row">
                       <label className="inquire-field">
                         <span className="inquire-label">Name</span>
@@ -309,7 +341,7 @@ export function Contact() {
                   }}
                 >
                   <span>Prefer to speak?</span>
-                  <a href="https://wa.me/19172927859" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--c-accent)' }}>
+                  <a href={`https://wa.me/19172927859?text=${waText}`} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--c-accent)' }}>
                     WhatsApp
                   </a>
                   <span aria-hidden="true" style={{ opacity: 0.5 }}>&middot;</span>
