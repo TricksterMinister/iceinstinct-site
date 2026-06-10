@@ -4,6 +4,7 @@
 // an opt-in, so it can never be forgotten.
 
 import { useEffect, useState } from 'react';
+import { track } from './track';
 
 export type OptionalEnh = { id: string; name: string; price: string };
 
@@ -53,9 +54,14 @@ export function useEvening(): [string[], (name: string) => void] {
   }, []);
   const toggle = (name: string) => {
     const cur = readEvening();
-    const next = cur.includes(name) ? cur.filter((x) => x !== name) : [...cur, name];
+    const adding = !cur.includes(name);
+    const next = adding ? [...cur, name] : cur.filter((x) => x !== name);
     writeEvening(next);
     setPicked(next);
+    track(adding ? 'enhancement_add' : 'enhancement_remove', {
+      name,
+      page: window.location.pathname,
+    });
   };
   return [picked, toggle];
 }
