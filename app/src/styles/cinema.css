@@ -288,7 +288,10 @@ a { color: inherit; text-decoration: none; }
 .tier-rank { font-family: var(--f-display); font-weight: 700; font-size: clamp(5rem, 12vmin, 12rem); line-height: 0.9; letter-spacing: -0.04em; color: var(--c-accent); margin-bottom: 0.6rem; text-transform: uppercase; }
 .tier-name { font-family: var(--f-mono); font-size: var(--t-step--2); letter-spacing: 0.28em; text-transform: uppercase; color: var(--c-fg-mute); display: block; margin-bottom: 0.8rem; }
 .tier-title { font-family: var(--f-display); font-weight: 700; font-size: var(--t-step-4); line-height: 1.0; letter-spacing: -0.035em; margin-bottom: 1.6rem; color: var(--c-fg); max-width: 16ch; }
-.tier-title .it { font-family: var(--f-italic); font-style: italic; text-transform: none; font-weight: 350; color: var(--c-accent); letter-spacing: 0; }
+/* inline-block + own layer: keeps the champagne gold-shine gradient from
+   rendering black in WebKit/Safari, where -webkit-background-clip:text breaks
+   on inline text inside the GSAP-transformed (will-change) tiers rail. */
+.tier-title .it { font-family: var(--f-italic); font-style: italic; text-transform: none; font-weight: 350; color: var(--c-accent); letter-spacing: 0; display: inline-block; max-width: 100%; transform: translateZ(0); }
 /* blurb paragraph removed - the title carries it; cards read sparse and premium */
 .tier-blurb { display: none; }
 .tier-spec { list-style: none; display: flex; gap: clamp(1.2rem, 2.4vw, 2.4rem); margin-bottom: 1.2rem; flex-wrap: wrap; }

@@ -1,0 +1,395 @@
+- generic [ref=e2]:
+  - button "Open menu" [ref=e3] [cursor=pointer]:
+    - img
+  - complementary [ref=e4]:
+    - button [ref=e5]:
+      - generic [ref=e6]: "01"
+    - button [ref=e7]:
+      - generic [ref=e8]: "02"
+    - button [ref=e9]:
+      - generic [ref=e10]: "03"
+    - button [ref=e11]:
+      - generic [ref=e12]: "04"
+    - button [ref=e13]:
+      - generic [ref=e14]: "05"
+    - button [ref=e15]:
+      - generic [ref=e16]: "06"
+    - button [ref=e17]:
+      - generic [ref=e18]: "07"
+    - button [ref=e19]:
+      - generic [ref=e20]: "08"
+  - generic [ref=e21]:
+    - generic [ref=e24]: New York Metropolitan Area · By Appointment
+    - heading "Ice & Instinct." [level=1] [ref=e26]:
+      - generic [ref=e27]:
+        - generic [ref=e29]: Ice
+        - generic [ref=e31]: "&"
+      - generic [ref=e34]: Instinct.
+    - paragraph [ref=e35]:
+      - generic [ref=e36]: Where ritual meets instinct,
+      - generic [ref=e37]: high above the city.
+    - generic [ref=e39]: Scroll
+  - generic [ref=e41]:
+    - generic:
+      - generic: RITUAL
+    - generic [ref=e43]:
+      - heading "Ice & Instinct" [level=2] [ref=e44]:
+        - generic [ref=e46]: Ice & Instinct
+      - paragraph [ref=e47]: is a private mixology experience where each encounter becomes a living performance - an alchemical dialogue between spirit, ice, and intention.
+      - generic [ref=e48]:
+        - generic [ref=e49]: Teimuraz Benidze
+        - paragraph [ref=e50]: this experience transforms modern mixology into an art form - refined, intimate, and deeply sensory.
+      - generic [ref=e51]:
+        - paragraph [ref=e52]: "Every ritual unfolds through precision and emotion: each cocktail crafted in real time, each gesture measured by instinct, each sip designed to leave a memory rather than a taste."
+        - paragraph [ref=e53]: From private penthouse gatherings to rooftop ceremonies and exclusive brand events, Ice & Instinct brings a rare synthesis of minimalism, theatre, and silent luxury - redefining what it means to serve a drink.
+  - generic [ref=e54]:
+    - generic: ALCHEMIST
+    - generic [ref=e55]:
+      - img "The hand behind the ritual - the founder before the night Manhattan skyline" [ref=e57]
+      - generic [ref=e58]:
+        - blockquote [ref=e59]:
+          - generic [ref=e60]: The hand
+          - generic [ref=e62]: behind
+          - generic [ref=e64]: the ritual.
+        - paragraph [ref=e65]: Two decades distilled into a single evening. Led by one alchemist, carried by a team of trusted New York bartenders.
+        - link "Meet the Alchemist" [ref=e66]:
+          - /url: /my-story/
+          - text: Meet the Alchemist →
+  - generic [ref=e67]:
+    - generic: COLLECTION
+    - generic [ref=e68]:
+      - heading "Touch the glass to awaken the spirit." [level=2] [ref=e69]
+      - paragraph [ref=e70]: Thirteen signature compositions. Each built once.
+    - generic [ref=e71]:
+      - link "Belladonna II Belladonna, 2025" [ref=e72]:
+        - /url: /gallery/
+        - img "Belladonna" [ref=e73]
+        - generic [ref=e74]:
+          - generic [ref=e75]: II
+          - text: Belladonna, 2025
+      - link "Rose Garden Rendezvous VI Rose Garden, 2025" [ref=e76]:
+        - /url: /gallery/
+        - img "Rose Garden Rendezvous" [ref=e77]
+        - generic [ref=e78]:
+          - generic [ref=e79]: VI
+          - text: Rose Garden, 2025
+      - link "Persimmon Saffron Sour III Persimmon Saffron, 2025" [ref=e80]:
+        - /url: /gallery/
+        - img "Persimmon Saffron Sour" [ref=e81]
+        - generic [ref=e82]:
+          - generic [ref=e83]: III
+          - text: Persimmon Saffron, 2025
+      - link "Besame XII Bésame, 2025" [ref=e84]:
+        - /url: /gallery/
+        - img "Besame" [ref=e85]
+        - generic [ref=e86]:
+          - generic [ref=e87]: XII
+          - text: Bésame, 2025
+      - link "White Lotus I White Lotus, 2025" [ref=e88]:
+        - /url: /gallery/
+        - img "White Lotus" [ref=e89]
+        - generic [ref=e90]:
+          - generic [ref=e91]: I
+          - text: White Lotus, 2025
+    - link "View The Collection" [ref=e92]:
+      - /url: /gallery/
+      - text: View The Collection →
+  - generic [ref=e94]:
+    - generic: OFFERINGS
+    - generic [ref=e95]:
+      - generic [ref=e96]:
+        - heading "Four distinct levels of service." [level=2] [ref=e97]:
+          - generic [ref=e98]: Four distinct levels
+          - generic [ref=e99]: of service.
+        - paragraph [ref=e100]: One uncompromising standard, four ways to begin.
+      - article [ref=e101]:
+        - img "The Foundation - a classic cocktail under a brass lamp in a dim speakeasy" [ref=e103]
+        - generic [ref=e104]:
+          - generic [ref=e105]: I
+          - generic [ref=e106]: The Foundation
+          - heading "Impeccable drinks, seamless service." [level=3] [ref=e107]:
+            - text: Impeccable drinks,
+            - generic [ref=e108]: seamless service.
+          - list [ref=e109]:
+            - listitem [ref=e110]:
+              - generic [ref=e111]: From
+              - generic [ref=e112]: $650
+            - listitem [ref=e113]:
+              - generic [ref=e114]: Up to
+              - generic [ref=e115]: 15 guests
+            - listitem [ref=e116]:
+              - generic [ref=e117]: Duration
+              - generic [ref=e118]: 3 hours
+          - link "Read the chapter" [ref=e119]:
+            - /url: /offerings/foundation/
+            - text: Read the chapter →
+      - article [ref=e120]:
+        - img "Perfection in Simplicity - an ice-cold Martini in a dim speakeasy" [ref=e122]
+        - generic [ref=e123]:
+          - generic [ref=e124]: II
+          - generic [ref=e125]: Perfection in Simplicity
+          - heading "Timeless cocktails, quiet precision." [level=3] [ref=e126]:
+            - text: Timeless cocktails,
+            - generic [ref=e127]: quiet precision.
+          - list [ref=e128]:
+            - listitem [ref=e129]:
+              - generic [ref=e130]: From
+              - generic [ref=e131]: $900
+            - listitem [ref=e132]:
+              - generic [ref=e133]: Up to
+              - generic [ref=e134]: 12 guests
+            - listitem [ref=e135]:
+              - generic [ref=e136]: Duration
+              - generic [ref=e137]: 4 hours
+          - link "Read the chapter" [ref=e138]:
+            - /url: /offerings/simplicity/
+            - text: Read the chapter →
+      - article [ref=e139]:
+        - img "Bespoke Design - a sculptural cocktail with dry-ice fog in a dim speakeasy" [ref=e141]
+        - generic [ref=e142]:
+          - generic [ref=e143]: III
+          - generic [ref=e144]: Bespoke Design & Artistry
+          - heading "Signature cocktails, tailored to your story." [level=3] [ref=e145]:
+            - text: Signature cocktails,
+            - generic [ref=e146]: tailored to your story.
+          - list [ref=e147]:
+            - listitem [ref=e148]:
+              - generic [ref=e149]: From
+              - generic [ref=e150]: $1,800
+            - listitem [ref=e151]:
+              - generic [ref=e152]: Up to
+              - generic [ref=e153]: 30 guests
+            - listitem [ref=e154]:
+              - generic [ref=e155]: Duration
+              - generic [ref=e156]: 4 hours
+          - link "Read the chapter" [ref=e157]:
+            - /url: /offerings/bespoke/
+            - text: Read the chapter →
+      - article [ref=e158]:
+        - img "Omakase Improvisation - a lone cocktail with rising vapor in a dim speakeasy" [ref=e160]
+        - generic [ref=e161]:
+          - generic [ref=e162]: IV
+          - generic [ref=e163]: Omakase Improvisation
+          - heading "No menu. Unrepeatable moments." [level=3] [ref=e164]:
+            - text: No menu.
+            - generic [ref=e165]: Unrepeatable moments.
+          - list [ref=e166]:
+            - listitem [ref=e167]:
+              - generic [ref=e168]: From
+              - generic [ref=e169]: $3,000
+            - listitem [ref=e170]:
+              - generic [ref=e171]: Up to
+              - generic [ref=e172]: 25 guests
+            - listitem [ref=e173]:
+              - generic [ref=e174]: Duration
+              - generic [ref=e175]: Open
+          - link "Read the chapter" [ref=e176]:
+            - /url: /offerings/omakase/
+            - text: Read the chapter →
+  - region "Pricing notes" [ref=e177]:
+    - generic: SCALE
+    - generic [ref=e178]:
+      - paragraph [ref=e179]: One alchemist. A team when the room calls for it.
+      - heading "Built to scale." [level=2] [ref=e180]:
+        - generic [ref=e181]: Built to
+        - generic [ref=e182]: scale.
+      - paragraph [ref=e183]: Any tier scales with a full bar team for larger events - weddings, galas, and corporate gatherings - quoted on request.
+      - paragraph [ref=e184]: "Each tier price covers the craft, service, and expertise. Spirits and wine are separate: provide your own, or we source everything on your behalf at supplier cost. Specialty ice, glassware, and rentals are arranged through the Concierge and billed at supplier cost."
+  - generic [ref=e185]:
+    - generic: ENHANCE
+    - generic [ref=e187]:
+      - heading "The Concierge." [level=2] [ref=e188]
+      - paragraph [ref=e189]: Five quiet enhancements that deepen the ritual. Each one pairs with any level - sourced personally, never bundled.
+      - list [ref=e190]:
+        - listitem [ref=e191]:
+          - generic [ref=e192]: "01"
+          - generic [ref=e193]: Bespoke Cigar Curator
+        - listitem [ref=e194]:
+          - generic [ref=e195]: "02"
+          - generic [ref=e196]: Additional Bar Staff
+        - listitem [ref=e197]:
+          - generic [ref=e198]: "03"
+          - generic [ref=e199]: The Curator
+        - listitem [ref=e200]:
+          - generic [ref=e201]: "04"
+          - generic [ref=e202]: Glassware & Vessels
+        - listitem [ref=e203]:
+          - generic [ref=e204]: "05"
+          - generic [ref=e205]: Ice & Temperature
+      - link "Explore the concierge" [ref=e206]:
+        - /url: /concierge/
+        - text: Explore the concierge →
+  - region "Ice and Instinct - choose your nature" [ref=e208]:
+    - generic: A Private Mixology Ritual
+    - generic: Choose Your Nature
+    - generic: "&"
+    - button "Ice - the cold craft" [ref=e209] [cursor=pointer]:
+      - generic: Ice
+      - generic:
+        - generic: I
+        - generic: C
+        - generic: E
+      - generic:
+        - generic: The Cold Craft
+        - generic:
+          - text: Discipline. Order.
+          - text: The patience of craft.
+    - button "Instinct - the living fire" [ref=e211] [cursor=pointer]:
+      - generic: Instinct
+      - generic:
+        - generic: I
+        - generic: "n"
+        - generic: s
+        - generic: t
+        - generic: i
+        - generic: "n"
+        - generic: c
+        - generic: t
+      - generic:
+        - generic: The Living Fire
+        - generic:
+          - text: Intuition. The pulse.
+          - text: The whisper that changes everything.
+  - generic [ref=e213]:
+    - generic: ANSWERS
+    - generic [ref=e214]:
+      - generic [ref=e215]:
+        - heading "Before you ask." [level=2] [ref=e216]:
+          - generic [ref=e217]: Before
+          - generic [ref=e218]: you ask.
+        - paragraph [ref=e219]: The honest answers, plainly given.
+      - list [ref=e220]:
+        - listitem [ref=e221]:
+          - group [ref=e222]:
+            - generic "What is Ice and Instinct?" [ref=e223] [cursor=pointer]:
+              - generic [ref=e224]: What is Ice and Instinct?
+        - listitem [ref=e226]:
+          - group [ref=e227]:
+            - generic "What actually happens at an event?" [ref=e228] [cursor=pointer]:
+              - generic [ref=e229]: What actually happens at an event?
+        - listitem [ref=e231]:
+          - group [ref=e232]:
+            - generic "Is alcohol included in the price?" [ref=e233] [cursor=pointer]:
+              - generic [ref=e234]: Is alcohol included in the price?
+        - listitem [ref=e236]:
+          - group [ref=e237]:
+            - generic "Do you bring everything - bar, tools, ice, glassware?" [ref=e238] [cursor=pointer]:
+              - generic [ref=e239]: Do you bring everything - bar, tools, ice, glassware?
+        - listitem [ref=e241]:
+          - group [ref=e242]:
+            - generic "Where do you serve?" [ref=e243] [cursor=pointer]:
+              - generic [ref=e244]: Where do you serve?
+        - listitem [ref=e246]:
+          - group [ref=e247]:
+            - generic "Can you handle a large event or wedding?" [ref=e248] [cursor=pointer]:
+              - generic [ref=e249]: Can you handle a large event or wedding?
+        - listitem [ref=e251]:
+          - group [ref=e252]:
+            - generic "Which tier should I choose?" [ref=e253] [cursor=pointer]:
+              - generic [ref=e254]: Which tier should I choose?
+        - listitem [ref=e256]:
+          - group [ref=e257]:
+            - generic "Can the cocktails be tailored, and do you offer non-alcoholic options?" [ref=e258] [cursor=pointer]:
+              - generic [ref=e259]: Can the cocktails be tailored, and do you offer non-alcoholic options?
+        - listitem [ref=e261]:
+          - group [ref=e262]:
+            - generic "How far ahead should I book?" [ref=e263] [cursor=pointer]:
+              - generic [ref=e264]: How far ahead should I book?
+        - listitem [ref=e266]:
+          - group [ref=e267]:
+            - generic "How does the deposit work?" [ref=e268] [cursor=pointer]:
+              - generic [ref=e269]: How does the deposit work?
+        - listitem [ref=e271]:
+          - group [ref=e272]:
+            - generic "What is your cancellation policy?" [ref=e273] [cursor=pointer]:
+              - generic [ref=e274]: What is your cancellation policy?
+        - listitem [ref=e276]:
+          - group [ref=e277]:
+            - generic "How do I book?" [ref=e278] [cursor=pointer]:
+              - generic [ref=e279]: How do I book?
+  - generic [ref=e281]:
+    - generic: TRUST
+    - generic [ref=e282]:
+      - heading "In their own words." [level=2] [ref=e284]:
+        - generic [ref=e285]: In their
+        - generic [ref=e286]: own words.
+      - list [ref=e287]:
+        - listitem [ref=e288]:
+          - figure "Tom R. Verified Google review 2025" [ref=e289]:
+            - img "5 out of 5 stars" [ref=e290]:
+              - generic [ref=e291]: ★
+              - generic [ref=e292]: ★
+              - generic [ref=e293]: ★
+              - generic [ref=e294]: ★
+              - generic [ref=e295]: ★
+            - blockquote [ref=e296]:
+              - paragraph [ref=e297]: This mixology spot is seriously insane. Best night out in a minute. The drinks are legit fire and the whole vibe is next level.
+            - generic [ref=e298]:
+              - generic [ref=e299]: Tom R.
+              - generic [ref=e300]: Verified Google review · 2025
+  - generic [ref=e301]:
+    - generic [ref=e302]:
+      - generic: BEGIN
+      - generic [ref=e303]:
+        - generic [ref=e304]:
+          - heading "Begin the conversation." [level=2] [ref=e305]
+          - paragraph [ref=e306]: Tell us about the evening - the date, the room, the guest count. A private quote within one business day.
+          - generic [ref=e307]:
+            - link "Request a private quote" [ref=e308]:
+              - /url: /contact/
+              - generic [ref=e309]: Request a private quote
+              - generic [ref=e310]: →
+            - link "Explore the offerings" [ref=e311]:
+              - /url: /offerings/
+        - paragraph [ref=e312]:
+          - generic [ref=e313]: By appointment only
+          - generic [ref=e314]: New York Metropolitan Area
+          - generic [ref=e315]: Est. 2024
+    - generic [ref=e317]:
+      - generic [ref=e319]:
+        - generic [ref=e320]:
+          - text: Ice &
+          - emphasis [ref=e321]: Instinct
+        - generic [ref=e322]:
+          - text: Ice &
+          - emphasis [ref=e323]: Instinct
+        - generic [ref=e324]:
+          - text: Ice &
+          - emphasis [ref=e325]: Instinct
+        - generic [ref=e326]:
+          - text: Ice &
+          - emphasis [ref=e327]: Instinct
+      - contentinfo [ref=e328]:
+        - navigation "Footer" [ref=e329]:
+          - link "Offerings" [ref=e330]:
+            - /url: /offerings/
+          - link "Concierge" [ref=e331]:
+            - /url: /concierge/
+          - link "The Collection" [ref=e332]:
+            - /url: /gallery/
+          - link "My Story" [ref=e333]:
+            - /url: /my-story/
+          - link "Inquire" [ref=e334]:
+            - /url: /contact/
+          - link "Ice & Instinct on Instagram" [ref=e335]:
+            - /url: https://www.instagram.com/iceinstinctnyc/
+            - text: Instagram
+          - link "Privacy" [ref=e336]:
+            - /url: /privacy/
+          - link "Terms" [ref=e337]:
+            - /url: /terms/
+          - link "Cookies" [ref=e338]:
+            - /url: /cookies/
+          - link "Accessibility" [ref=e339]:
+            - /url: /accessibility/
+          - link "Responsible Service" [ref=e340]:
+            - /url: /responsible-service/
+        - generic [ref=e341]:
+          - generic [ref=e342]: By appointment only · New York Metropolitan Area
+          - link "Ice & Instinct - home" [ref=e343]:
+            - /url: /
+            - img [ref=e344]
+            - generic [ref=e345]:
+              - text: Where ritual meets
+              - emphasis [ref=e346]: instinct.
+          - generic [ref=e347]: Est. 2024 · © 2026 Ice & Instinct
