@@ -304,7 +304,13 @@ a { color: inherit; text-decoration: none; }
     oklch(0.975 0.05 96) 50%,
     oklch(0.80 0.085 90) 62%,
     oklch(0.80 0.085 90) 100%) !important;
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.45);
+  /* The hero italic's "jeweller's shadow", done with filter:drop-shadow because
+     text-shadow does NOT paint on a transparent-fill clip-text gradient in WebKit.
+     A tight halo hugs each glyph + a soft short drop for depth. Kept restrained. */
+  filter:
+    drop-shadow(0 0 2px rgba(0, 0, 0, 0.85))
+    drop-shadow(0 1px 3px rgba(0, 0, 0, 0.7))
+    drop-shadow(0 2px 11px rgba(0, 0, 0, 0.45));
 }
 /* blurb paragraph removed - the title carries it; cards read sparse and premium */
 .tier-blurb { display: none; }
