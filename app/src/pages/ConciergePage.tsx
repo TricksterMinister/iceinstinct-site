@@ -50,7 +50,7 @@ const ENHANCEMENTS: Enh[] = [
   },
   {
     id: 'ice-temperature', roman: 'V', label: 'Ice', name: 'Ice & Temperature', price: '$250',
-    img: '/assets/photos/icon-ice.jpg',
+    img: '/assets/photos/concierge-ice.jpg',
     tag: 'Precision ice and temperature control - non-negotiable foundation.',
     prose: [
       'Precision ice and temperature control are foundational to every Ice & Instinct experience. This service ensures the use of professional-grade ice produced to my exact specifications: clarity, density, format, and thermal behavior. Ice quality directly affects dilution, texture, aroma, and the structural integrity of every cocktail. Compromising here compromises everything.',
