@@ -18,7 +18,7 @@ export function parseSource(search: string, referrer: string, landing: string): 
   if (referrer) {
     try {
       const host = new URL(referrer).hostname.replace(/^www\./, '');
-      if (!host.endsWith('iceinstinct.com')) return { source: host, landing };
+      if (host !== 'iceinstinct.com' && !host.endsWith('.iceinstinct.com')) return { source: host, landing };
     } catch {
       /* malformed referrer - treat as direct */
     }

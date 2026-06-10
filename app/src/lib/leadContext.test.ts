@@ -32,4 +32,10 @@ describe('parseSource', () => {
   it('returns direct when nothing is known', () => {
     expect(parseSource('', '', '/')).toEqual({ source: 'direct', landing: '/' });
   });
+  it('treats a look-alike domain as an external referrer', () => {
+    expect(parseSource('', 'https://evil-iceinstinct.com/phish', '/')).toEqual({
+      source: 'evil-iceinstinct.com',
+      landing: '/',
+    });
+  });
 });
