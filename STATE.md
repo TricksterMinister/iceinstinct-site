@@ -2,6 +2,14 @@
 
 > Single source of truth for "where are we". Updated at the end of each session. Keep it SHORT.
 
+## SESSION 2026-06-10b (lead funnel zero-loss - LIVE, HEAD `a9f5a07` on main)
+Worktree `.claude/worktrees/hardcore-mccarthy-34bbdd`. Subagent-driven execution of `docs/superpowers/plans/2026-06-10-lead-funnel-zero-loss.md` (10 tasks, each spec+quality reviewed). SHIPPED + verified live via curl (chunk `contact-2WKtx3xd.js` carries `inquiry_form_start`/`landing_page`; shared chunk carries booking/whatsapp/call/instagram clicks + `ii-source`/`ii-cocktail`):
+- **GA4 event vocabulary** (lib/track.ts, one delegated listener via lib/funnelInit.ts on all 15 entries): booking_click, whatsapp_click, call_click, instagram_click, enhancement_add/remove, profiler_open/complete/commission, keepsake_print/save/share, inquiry_form_start/submit/error.
+- **Zero info loss**: Contact prefill now reads Profiler `?cocktail/identity/taste/accord` (was silently dropped) + `?enhancements` + sessionStorage fallback; Formspree payload gains hidden fields `enhancements`, `cocktail`, `source`, `landing_page`; `_subject` enriched ("... - Event Horizon - 2 enhancements"); WhatsApp link prefilled via `?text=`.
+- **lib/leadContext.ts**: first-touch source (utm/?source/referrer, key `ii-source`, look-alike-domain check fixed in review) + profiler cocktail (`ii-cocktail`, set on commission in GalleryPage).
+- Tests 15/15 (vitest), tsc clean, prerender 15 routes ok.
+**OPEN (Temo manual):** 1) YCBM: create form field with code `NOTES` (uppercase) -> test prefill via `...youcanbook.me/?service=jsid1437636&NOTES=test-prefill`; 2) GA4 Realtime: verify new events from phone; mark inquiry_submit + booking_click as key events; 3) Formspree e2e NOT sent (classifier blocked synthetic lead) - submit the live /contact/ form once from phone, check email shows enhancements/cocktail/source/landing_page + enriched subject; 4) Formspree free = 50 subs/mo across ALL 3 sites.
+
 ## SESSION 2026-06-10 (handoff - READ FIRST)
 Worktree `.claude/worktrees/laughing-chaum-252133` (branch `claude/laughing-chaum-252133`). ALL work committed + pushed to `main` (HEAD `387eb08`) + LIVE. Push to main auto-deploys Hostinger (deploy = `cd app && npx vite build && node scripts/prerender.mjs` -> `rsync -a app/dist/ <repoRoot>/` -> commit + push; live chunk hash flips in ~12s). `app/public/assets` is a SYMLINK to repo `/assets`. Stable-name images cached 30 days -> bust by NEW filename.
 
