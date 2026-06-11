@@ -63,7 +63,9 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
       return;
     }
     const ctx = gsap.context(() => {
-      const stage = el.querySelector('.oma-hold-stage');
+      // The stage is CSS position:sticky now - the geometry never depends on
+      // GSAP, so the photo cannot drift off the viewport edges. GSAP only
+      // scrubs the laser, the text swap and the photo breath.
       gsap.set('.oma-hold-text.is-a', { autoAlpha: 1, yPercent: 0 });
       gsap.set('.oma-hold-text.is-b', { autoAlpha: 0, yPercent: 6 });
       const tl = gsap.timeline({
@@ -73,9 +75,6 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
           start: 'top top',
           end: 'bottom bottom',
           scrub: 1.4,
-          pin: stage,
-          pinSpacing: false,
-          anticipatePin: 1,
           invalidateOnRefresh: true,
         },
       });
