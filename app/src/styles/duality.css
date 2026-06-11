@@ -15,7 +15,7 @@
   background: var(--c-bg);
 }
 
-/* panels (buttons - reset chrome) */
+/* panels (role=button divs while the choice is open - reset chrome) */
 .d-panel {
   position: relative;
   height: 100%;
@@ -133,8 +133,13 @@
   z-index: 3;
   opacity: 0; transform: translateY(12px);
   pointer-events: none;
-  transition: opacity 0.4s 0.15s var(--ease), transform 0.4s 0.15s var(--ease);
+  transition: opacity 0.4s 0.15s var(--ease), transform 0.4s 0.15s var(--ease),
+    bottom 0.5s var(--ease);
 }
+/* committed: the sub grows by a whole floor card, so it settles lower to keep
+   the stack out of the big word's register */
+.duality.is-ice .pi .d-sub,
+.duality.is-instinct .pn .d-sub { bottom: clamp(1.8rem, 4.5vh, 3.2rem); }
 .duality:hover .pi:hover .d-sub,
 .duality:hover .pn:hover .d-sub,
 .duality.is-ice .pi .d-sub,
@@ -148,6 +153,75 @@
   font-weight: 300; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.9; }
 .pi .d-sub-body { color: oklch(98% 0 0 / 0.26); }
 .pn .d-sub-body { color: oklch(88% 0.06 95 / 0.32); }
+
+/* =========================================================================
+   FLOOR CARD - revealed inside the committed panel. The portal now leads
+   somewhere: ICE = event bartenders (/events/), INSTINCT = the founder's
+   studio (/offerings/). Quiet fade-in on the site's easing, above a
+   champagne hairline. Mounts only after commit, so it animates on entry.
+   ========================================================================= */
+.duality.is-ice .d-panel,
+.duality.is-instinct .d-panel { cursor: default; }
+
+.d-floor {
+  display: flex; flex-direction: column; align-items: center; gap: 0.85rem;
+  margin-top: clamp(0.9rem, 2.4vh, 1.5rem);
+  padding-top: clamp(0.9rem, 2.4vh, 1.5rem);
+  border-top: 1px solid oklch(88% 0.06 95 / 0.28);
+  pointer-events: auto;
+  animation: d-floor-in 0.7s var(--ease) 0.3s backwards;
+}
+@keyframes d-floor-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* the line speaks in each panel's voice: ICE = Geist white, INSTINCT =
+   Fraunces italic champagne - same identity as the big words above */
+.d-floor-line { line-height: 1.2; text-shadow: 0 1px 16px rgba(0, 0, 0, 0.7); }
+.pi .d-floor-line { font-family: var(--f-display); font-weight: 650;
+  font-size: clamp(1.15rem, 1.8vw, 1.55rem); letter-spacing: -0.01em;
+  color: oklch(98% 0 0 / 0.95); }
+.pn .d-floor-line { font-family: var(--f-italic); font-style: italic; font-weight: 380;
+  font-size: clamp(1.25rem, 2vw, 1.7rem); color: var(--c-accent); }
+
+.d-floor-meta {
+  font-family: var(--f-mono); font-size: var(--t-step--2);
+  font-weight: 300; letter-spacing: 0.06em; line-height: 1.75;
+  max-width: 36ch;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.65), 0 1px 18px rgba(0, 0, 0, 0.8);
+}
+.pi .d-floor-meta { color: oklch(98% 0 0 / 0.86); }
+.pn .d-floor-meta { color: oklch(88% 0.06 95 / 0.88); }
+
+/* CTA - the brand ghost weight, tuned light for the photo panels: the default
+   #a98e4e ink sinks into the imagery, so the outline and text lift to the
+   champagne highlight and a whisper of glass sits behind for legibility.
+   Specificity (0,4,0) ties accent.css's base ghost and wins by order (this
+   file loads after accent.css) while the (0,5,0) gold hover still takes over. */
+.duality .btn-ghost.btn-ghost.btn-ghost {
+  color: #d9c68c;
+  border-color: rgba(217, 198, 140, 0.62);
+  background-color: rgba(8, 8, 8, 0.32);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+.d-floor-cta { display: inline-block; margin-top: 0.3rem; }
+
+/* the quiet escape hatch - one line, switches the commit to the other floor */
+.d-floor-switch {
+  appearance: none; background: none; border: 0; padding: 0; margin: 0.35rem 0 0;
+  font: inherit; font-family: var(--f-mono); font-size: var(--t-step--2);
+  letter-spacing: 0.18em; text-transform: uppercase;
+  text-decoration: underline; text-underline-offset: 0.35em;
+  cursor: pointer;
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.7);
+  transition: color 0.25s var(--ease);
+}
+.pi .d-floor-switch { color: oklch(98% 0 0 / 0.45); }
+.pn .d-floor-switch { color: oklch(88% 0.06 95 / 0.5); }
+.d-floor-switch:hover { color: var(--c-accent); }
+.d-floor-switch:focus-visible { outline: 1px solid var(--c-accent); outline-offset: 3px; }
 
 /* Mobile: stacked, both words horizontal, tap to choose. No hover flip. */
 @media (max-width: 820px), (hover: none) {
@@ -175,8 +249,27 @@
   .d-sub-body { font-size: var(--t-step--1); letter-spacing: 0.1em; line-height: 1.7; }
   .pi .d-sub-body { color: oklch(98% 0 0 / 0.84); }
   .pn .d-sub-body { color: oklch(88% 0.06 95 / 0.86); }
+
+  /* floor card on the stacked panels: roomier type, comfy tap targets.
+     The committed panel sizes to its content (the half-screen flex basis
+     would clip the card under overflow:hidden otherwise). */
+  .duality.is-ice .d-panel.pi,
+  .duality.is-instinct .d-panel.pn {
+    flex-basis: auto !important;
+    padding-top: 1.6rem;
+    padding-bottom: 1.8rem;
+  }
+  .d-floor { margin-top: 1.1rem; padding-top: 1.1rem; gap: 0.75rem; }
+  .pi .d-floor-line, .pn .d-floor-line { font-size: clamp(1.2rem, 5.4vw, 1.6rem); }
+  .d-floor-meta { font-size: var(--t-step--1); max-width: 42ch; line-height: 1.65; }
+  .pi .d-floor-meta { color: oklch(98% 0 0 / 0.84); }
+  .pn .d-floor-meta { color: oklch(88% 0.06 95 / 0.88); }
+  .d-floor-switch { font-size: var(--t-step--1); padding: 0.35rem 0; }
+  .pi .d-floor-switch { color: oklch(98% 0 0 / 0.6); }
+  .pn .d-floor-switch { color: oklch(88% 0.06 95 / 0.64); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .d-panel, .word-h, .word-v, .d-restmark, .d-sub { transition: none; }
+  .d-panel, .word-h, .word-v, .d-restmark, .d-sub, .d-floor-switch { transition: none; }
+  .d-floor { animation: none; }
 }

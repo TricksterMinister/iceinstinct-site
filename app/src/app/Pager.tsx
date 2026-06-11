@@ -6,8 +6,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 /**
  * Vertical pager dots, ported 1:1 from cinema/cinema.js.
- * DOM: <aside class="pager"> with 7 .pager-dot buttons (data-pager + <span> 01..07).
+ * DOM: <aside class="pager"> with 8 .pager-dot buttons (data-pager + <span> 01..08).
  * Click jumps to the section; ScrollTrigger marks the active dot.
+ * Order mirrors the page: duality (the two-floor portal) sits between tiers
+ * and concierge since the TwoFloors section was retired.
  */
 const pagerMap: Record<string, string> = {
   hero: '.hero',
@@ -15,8 +17,8 @@ const pagerMap: Record<string, string> = {
   founder: '.founder',
   gallery: '.gallery',
   tiers: '.tiers',
-  concierge: '.concierge',
   duality: '.duality',
+  concierge: '.concierge',
   closing: '.closing-segment',
 };
 
@@ -26,8 +28,8 @@ const dotDefs: { key: string; label: string }[] = [
   { key: 'founder', label: '03' },
   { key: 'gallery', label: '04' },
   { key: 'tiers', label: '05' },
-  { key: 'concierge', label: '06' },
-  { key: 'duality', label: '07' },
+  { key: 'duality', label: '06' },
+  { key: 'concierge', label: '07' },
   { key: 'closing', label: '08' },
 ];
 

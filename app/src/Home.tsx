@@ -9,7 +9,6 @@ import { Manifesto } from './sections/Manifesto';
 import { Duality } from './features/Duality/Duality';
 import { Tiers } from './sections/Tiers';
 import { TiersNote } from './sections/TiersNote';
-import { TwoFloors } from './sections/TwoFloors';
 import { Concierge } from './sections/Concierge';
 import { Founder } from './sections/Founder';
 import { GalleryTeaser } from './sections/GalleryTeaser';
@@ -35,13 +34,11 @@ function HomeContent() {
       <Tiers />
       {/* Pricing transparency note + team-scaling line, directly below the tiers. */}
       <TiersNote />
-      {/* The two doors - INSTINCT (founder, /offerings/) and ICE (bench, /events/).
+      {/* The portal - one spectacular gateway to the two floors: ICE = event
+          bartenders (/events/), INSTINCT = the founder's studio (/offerings/).
           Sits at the seam where the tiers block ends and the enhancements begin. */}
-      <TwoFloors />
-      <Concierge />
-      {/* Duality parked near the end (last segment before Begin) until we decide
-          where the portal leads. */}
       <Duality />
+      <Concierge />
       <Faq />
       {/* Real client testimonials. Renders nothing until a real entry exists. */}
       <Proof />

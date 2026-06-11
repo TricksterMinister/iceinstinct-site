@@ -36,7 +36,7 @@ export function resolveCtaEvent(href: string): string | null {
 //   email_capture      - profiler keepsake email captured (Formspree ok)
 //   gift_click         - /gift/ voucher CTA click (param: tier)
 //   quote_click        - /events/ closing quote CTA click (param: source)
-//   two_floors_click   - home two-floors door click (param: door instinct|ice)
+//   two_floors_click   - home duality portal floor CTA click (param: door instinct|ice)
 //   instinct_bridge_click - /events/ bridge to the INSTINCT floor
 //   profiler_* / keepsake_* - Palate Profiler funnel (see PalateProfiler.tsx)
 //   booking_click      - outbound youcanbook.me link
