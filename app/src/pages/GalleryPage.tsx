@@ -1,4 +1,5 @@
 import { SiteFooter } from '../sections/SiteFooter';
+import markUrl from '../assets/ii-mark.png';
 import { useSegmentSnap } from '../app/useSegmentSnap';
 import { useEffect, useState } from 'react';
 import { useCinemaChrome } from '../app/useCinemaChrome';
@@ -112,19 +113,7 @@ export function GalleryPage() {
           <nav className="nav" aria-label="Main">
             <a href="/" className="brand">
               <span className="brand-mark">
-                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17 4 L23 11 L17 18 L11 11 Z" stroke="currentColor" strokeWidth="1" fill="none" />
-                  <path
-                    d="M9 14 L17 23 L25 14"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <line x1="17" y1="23" x2="17" y2="29" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-                  <line x1="13" y1="29" x2="21" y2="29" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-                </svg>
+                <img src={markUrl} alt="" aria-hidden="true" width={34} height={34} draggable={false} />
               </span>
               <span className="brand-name">Ice &amp; Instinct</span>
             </a>

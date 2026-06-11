@@ -1,4 +1,5 @@
 import { SiteFooter } from '../sections/SiteFooter';
+import markUrl from '../assets/ii-mark.png';
 import { useSegmentSnap } from '../app/useSegmentSnap';
 import { useEffect, useState } from 'react';
 import { useCinemaChrome } from '../app/useCinemaChrome';
@@ -15,7 +16,7 @@ export function MyStory() {
 
   useCinemaChrome();
   useDeepScripts();
-  useSegmentSnap(['.story-cover', '.story-journey', '.story-record', '.closing-segment'], ['.numbered']);
+  useSegmentSnap(['.story-cover', '.story-journey', '.story-record', '.faq', '.closing-segment'], ['.numbered']);
   useMyStory();
 
   // The Record: real credentials, scanned. Tap a plate to read it in full.
@@ -122,19 +123,7 @@ export function MyStory() {
           <nav className="nav" aria-label="Main">
             <a href="/" className="brand">
               <span className="brand-mark">
-                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17 4 L23 11 L17 18 L11 11 Z" stroke="currentColor" strokeWidth="1" fill="none" />
-                  <path
-                    d="M9 14 L17 23 L25 14"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <line x1="17" y1="23" x2="17" y2="29" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-                  <line x1="13" y1="29" x2="21" y2="29" stroke="currentColor" strokeWidth="1" strokeLinecap="round" />
-                </svg>
+                <img src={markUrl} alt="" aria-hidden="true" width={34} height={34} draggable={false} />
               </span>
               <span className="brand-name">Ice &amp; Instinct</span>
             </a>
@@ -377,119 +366,182 @@ export function MyStory() {
         </section>
 
         {/* ================ FAQ ACCORDION ================ */}
-        <section className="numbered" id="faq">
-          <div className="container-narrow">
-            <div className="section-head reveal">
-              <h2 className="display-heading">
-                The ritual <span className="it gold-shine">explained.</span>
+        <section className="faq" id="faq">
+          <div className="section-bg-word top right" aria-hidden="true">RITUAL</div>
+          <div className="faq-stage">
+            <header className="faq-intro">
+              <h2 className="faq-headline">
+                <span>The ritual</span>
+                <span className="it">explained.</span>
               </h2>
-            </div>
+              <p className="faq-lead">Plain answers about how an evening works.</p>
+            </header>
 
-            <div className="faq-list reveal">
-              <details className="faq-item">
-                <summary>How far in advance should I reserve?</summary>
-                <div className="faq-answer">
-                  <p>
-                    Most clients reserve 2-4 weeks ahead. Every evening is built as a one-of-one ritual, and preparation
-                    begins the moment we speak.
-                  </p>
-                </div>
-              </details>
+            <ul className="faq-list">
+              <li className="faq-item">
+                <details className="faq-details">
+                  <summary className="faq-q" data-cursor="link">
+                    <span className="faq-n" aria-hidden="true">01</span>
+                    <span className="faq-q-text">How far in advance should I reserve?</span>
+                    <span className="faq-q-mark" aria-hidden="true"></span>
+                  </summary>
+                  <div className="faq-a">
+                    <p>
+                      Most clients reserve 2-4 weeks ahead. Every evening is built as a one-of-one ritual, and preparation
+                      begins the moment we speak.
+                    </p>
+                  </div>
+                </details>
+              </li>
 
-              <details className="faq-item">
-                <summary>Do you bring all ingredients and tools?</summary>
-                <div className="faq-answer">
-                  <p>
-                    I arrive with a compact case of precision tools. All ingredients, spirits, and glassware are sourced
-                    by the host - I'll provide a tailored shopping list to match your chosen experience.
-                  </p>
-                </div>
-              </details>
+              <li className="faq-item">
+                <details className="faq-details">
+                  <summary className="faq-q" data-cursor="link">
+                    <span className="faq-n" aria-hidden="true">02</span>
+                    <span className="faq-q-text">Do you bring all ingredients and tools?</span>
+                    <span className="faq-q-mark" aria-hidden="true"></span>
+                  </summary>
+                  <div className="faq-a">
+                    <p>
+                      I arrive with a compact case of precision tools. All ingredients, spirits, and glassware are sourced
+                      by the host - I'll provide a tailored shopping list to match your chosen experience.
+                    </p>
+                  </div>
+                </details>
+              </li>
 
-              <details className="faq-item">
-                <summary>Can we choose specific cocktails?</summary>
-                <div className="faq-answer">
-                  <p>
-                    For Simplicity and Bespoke, yes - we collaborate to refine a curated menu together. For Omakase,
-                    there is no menu - each creation emerges spontaneously in the moment, tailored to individual guests
-                    and the evening's flow.
-                  </p>
-                </div>
-              </details>
+              <li className="faq-item">
+                <details className="faq-details">
+                  <summary className="faq-q" data-cursor="link">
+                    <span className="faq-n" aria-hidden="true">03</span>
+                    <span className="faq-q-text">Can we choose specific cocktails?</span>
+                    <span className="faq-q-mark" aria-hidden="true"></span>
+                  </summary>
+                  <div className="faq-a">
+                    <p>
+                      For Simplicity and Bespoke, yes - we collaborate to refine a curated menu together. For Omakase,
+                      there is no menu - each creation emerges spontaneously in the moment, tailored to individual guests
+                      and the evening's flow.
+                    </p>
+                  </div>
+                </details>
+              </li>
 
-              <details className="faq-item">
-                <summary>Do you provide a bar setup?</summary>
-                <div className="faq-answer">
-                  <p>
-                    By default, I use your existing space. A full portable bar setup or premium glassware rental can be
-                    arranged upon request as an enhancement through <a href="/concierge/">The Curator</a> add-on.
-                  </p>
-                </div>
-              </details>
+              <li className="faq-item">
+                <details className="faq-details">
+                  <summary className="faq-q" data-cursor="link">
+                    <span className="faq-n" aria-hidden="true">04</span>
+                    <span className="faq-q-text">Do you provide a bar setup?</span>
+                    <span className="faq-q-mark" aria-hidden="true"></span>
+                  </summary>
+                  <div className="faq-a">
+                    <p>
+                      By default, I use your existing space. A full portable bar setup or premium glassware rental can be
+                      arranged upon request as an enhancement through <a href="/concierge/">The Curator</a> add-on.
+                    </p>
+                  </div>
+                </details>
+              </li>
 
-              <details className="faq-item">
-                <summary>Do you travel outside NYC and New Jersey?</summary>
-                <div className="faq-answer">
-                  <p>
-                    Yes, upon request. Travel fees and accommodations are arranged according to distance and event scale
-                    - subject to availability.
-                  </p>
-                </div>
-              </details>
+              <li className="faq-item">
+                <details className="faq-details">
+                  <summary className="faq-q" data-cursor="link">
+                    <span className="faq-n" aria-hidden="true">05</span>
+                    <span className="faq-q-text">Do you travel outside NYC and New Jersey?</span>
+                    <span className="faq-q-mark" aria-hidden="true"></span>
+                  </summary>
+                  <div className="faq-a">
+                    <p>
+                      Yes, upon request. Travel fees and accommodations are arranged according to distance and event scale
+                      - subject to availability.
+                    </p>
+                  </div>
+                </details>
+              </li>
 
-              <details className="faq-item">
-                <summary>What about postponements?</summary>
-                <div className="faq-answer">
-                  <p>
-                    Your deposit can transfer to a new date within six months, depending on availability. One reschedule
-                    is included; further changes or peak dates may incur a fee.
-                  </p>
-                </div>
-              </details>
+              <li className="faq-item">
+                <details className="faq-details">
+                  <summary className="faq-q" data-cursor="link">
+                    <span className="faq-n" aria-hidden="true">06</span>
+                    <span className="faq-q-text">What about postponements?</span>
+                    <span className="faq-q-mark" aria-hidden="true"></span>
+                  </summary>
+                  <div className="faq-a">
+                    <p>
+                      Your deposit can transfer to a new date within six months, depending on availability. One reschedule
+                      is included; further changes or peak dates may incur a fee.
+                    </p>
+                  </div>
+                </details>
+              </li>
 
-              <details className="faq-item">
-                <summary>How many guests can you accommodate?</summary>
-                <div className="faq-answer">
-                  <p>
-                    <a href="/offerings/foundation/">Foundation</a> hosts up to 15 guests.{' '}
-                    <a href="/offerings/simplicity/">Simplicity</a> up to 12. <a href="/offerings/bespoke/">Bespoke</a>{' '}
-                    up to 30. <a href="/offerings/omakase/">Omakase</a> up to 25. Larger events can be arranged with
-                    additional bar staff through custom consultation.
-                  </p>
-                </div>
-              </details>
+              <li className="faq-item">
+                <details className="faq-details">
+                  <summary className="faq-q" data-cursor="link">
+                    <span className="faq-n" aria-hidden="true">07</span>
+                    <span className="faq-q-text">How many guests can you accommodate?</span>
+                    <span className="faq-q-mark" aria-hidden="true"></span>
+                  </summary>
+                  <div className="faq-a">
+                    <p>
+                      <a href="/offerings/foundation/">Foundation</a> hosts up to 15 guests.{' '}
+                      <a href="/offerings/simplicity/">Simplicity</a> up to 12. <a href="/offerings/bespoke/">Bespoke</a>{' '}
+                      up to 30. <a href="/offerings/omakase/">Omakase</a> up to 25. Larger events can be arranged with
+                      additional bar staff through custom consultation.
+                    </p>
+                  </div>
+                </details>
+              </li>
 
-              <details className="faq-item">
-                <summary>Can you create non-alcoholic drinks?</summary>
-                <div className="faq-answer">
-                  <p>
-                    Absolutely. The ritual is about balance and craft, not alcohol. Every composition can be crafted
-                    spirit-free with the same precision, complexity, and emotion.
-                  </p>
-                </div>
-              </details>
+              <li className="faq-item">
+                <details className="faq-details">
+                  <summary className="faq-q" data-cursor="link">
+                    <span className="faq-n" aria-hidden="true">08</span>
+                    <span className="faq-q-text">Can you create non-alcoholic drinks?</span>
+                    <span className="faq-q-mark" aria-hidden="true"></span>
+                  </summary>
+                  <div className="faq-a">
+                    <p>
+                      Absolutely. The ritual is about balance and craft, not alcohol. Every composition can be crafted
+                      spirit-free with the same precision, complexity, and emotion.
+                    </p>
+                  </div>
+                </details>
+              </li>
 
-              <details className="faq-item">
-                <summary>Payment and deposit process</summary>
-                <div className="faq-answer">
-                  <p>
-                    A $500 deposit secures your date and is applied toward your final balance. Once your package is
-                    confirmed, the total is adjusted: if your total exceeds $500, you pay the difference; if it is
-                    less, the remainder is refunded. The balance is due at least 14 days before the event.
-                  </p>
-                </div>
-              </details>
+              <li className="faq-item">
+                <details className="faq-details">
+                  <summary className="faq-q" data-cursor="link">
+                    <span className="faq-n" aria-hidden="true">09</span>
+                    <span className="faq-q-text">Payment and deposit process</span>
+                    <span className="faq-q-mark" aria-hidden="true"></span>
+                  </summary>
+                  <div className="faq-a">
+                    <p>
+                      A $500 deposit secures your date and is applied toward your final balance. Once your package is
+                      confirmed, the total is adjusted: if your total exceeds $500, you pay the difference; if it is
+                      less, the remainder is refunded. The balance is due at least 14 days before the event.
+                    </p>
+                  </div>
+                </details>
+              </li>
 
-              <details className="faq-item">
-                <summary>NDA and insurance</summary>
-                <div className="faq-answer">
-                  <p>
-                    Confidentiality is part of the ethos. NDAs are available upon request. Certificates of insurance can
-                    be issued for venues that require coverage.
-                  </p>
-                </div>
-              </details>
-            </div>
+              <li className="faq-item">
+                <details className="faq-details">
+                  <summary className="faq-q" data-cursor="link">
+                    <span className="faq-n" aria-hidden="true">10</span>
+                    <span className="faq-q-text">NDA and insurance</span>
+                    <span className="faq-q-mark" aria-hidden="true"></span>
+                  </summary>
+                  <div className="faq-a">
+                    <p>
+                      Confidentiality is part of the ethos. NDAs are available upon request. Certificates of insurance can
+                      be issued for venues that require coverage.
+                    </p>
+                  </div>
+                </details>
+              </li>
+            </ul>
 
             <p className="faq-coda">
               Each experience is a living dialogue - between craft, instinct, and atmosphere.

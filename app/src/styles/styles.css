@@ -231,6 +231,10 @@ body::after {
   width: 34px; height: 34px;
   display: inline-flex; align-items: center; justify-content: center;
 }
+.brand-mark img {
+  width: 34px; height: 34px;
+  display: block;
+}
 .brand-name {
   font-family: var(--font-display);
   font-size: 0.95rem;
