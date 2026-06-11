@@ -1,4 +1,5 @@
 import { SiteFooter } from '../sections/SiteFooter';
+import { useSegmentSnap } from '../app/useSegmentSnap';
 import { useEffect } from 'react';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
@@ -74,6 +75,7 @@ export function ConciergePage() {
 
   useCinemaChrome();
   useDeepScripts();
+  useSegmentSnap(['.page-hero', '.closing-segment'], ['#enhancements .addon-card.enh-split']);
 
   // "Add to my evening": the guest selects OPTIONAL enhancements (never pays
   // here). The selection persists site-wide and is carried into the booking /

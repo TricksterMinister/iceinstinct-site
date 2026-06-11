@@ -1,4 +1,5 @@
 import { SiteFooter } from '../sections/SiteFooter';
+import { useSegmentSnap } from '../app/useSegmentSnap';
 import { TiersNote } from '../sections/TiersNote';
 import { Faq } from '../sections/Faq';
 import { useEffect } from 'react';
@@ -17,6 +18,7 @@ export function Offerings() {
 
   useCinemaChrome();
   useDeepScripts();
+  useSegmentSnap(['.page-hero', '.vp-shelf', '.tiers-note', '.faq', '.closing-segment']);
 
   return (
     <>

@@ -1,4 +1,5 @@
 import { SiteFooter } from '../sections/SiteFooter';
+import { useSegmentSnap } from '../app/useSegmentSnap';
 import { useEffect, useState } from 'react';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
@@ -19,6 +20,7 @@ export function GalleryPage() {
 
   useCinemaChrome();
   useDeepScripts();
+  useSegmentSnap(['.page-hero', '.pp-band', '.closing-segment']);
 
   const [profilerOpen, setProfilerOpen] = useState(false);
 

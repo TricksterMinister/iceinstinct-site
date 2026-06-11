@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useSegmentSnap } from '../../app/useSegmentSnap';
 import { useEffect } from 'react';
 import { SiteFooter } from '../../sections/SiteFooter';
 import { useCinemaChrome } from '../../app/useCinemaChrome';
@@ -32,6 +33,7 @@ export function LegalShell({
 
   useCinemaChrome();
   useDeepScripts();
+  useSegmentSnap(['.closing-segment']);
 
   return (
     <>

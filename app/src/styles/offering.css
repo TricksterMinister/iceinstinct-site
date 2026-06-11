@@ -316,7 +316,8 @@
 
 /* layout */
 .closing { position: relative; height: 100dvh; display: grid; place-items: center; padding: clamp(5rem, 10vh, 8rem) clamp(2.2rem, 4vw, 5rem); isolation: isolate; overflow: hidden; contain: paint; }
-.closing-segment { min-height: 100dvh; display: flex; flex-direction: column; }
+.closing-segment { height: 100dvh; min-height: 100dvh; display: flex; flex-direction: column; overflow: clip; }
+.closing-segment .site-footer { flex: 0 0 auto; }
 .closing-segment .closing { height: auto; flex: 1 1 auto; min-height: 0; padding-block: clamp(2.5rem, 6vh, 5rem); }
 
 /* IVORY light skin */
@@ -672,8 +673,9 @@ html, body { overflow-x: clip; }
 .oma-hold{position:relative;height:340svh;background:#050505}
 .oma-hold-stage{height:100svh;min-height:100svh;overflow:hidden;position:relative;display:grid;place-items:center}
 .oma-hold-photo{position:absolute;inset:0;margin:0;overflow:hidden}
-.oma-hold-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92) contrast(1.03);will-change:transform;transform-origin:center}
-.oma-hold-photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.25) 32%,rgba(0,0,0,.25) 68%,rgba(0,0,0,.6))}
+.oma-hold-photo img{width:100%;height:100%;object-fit:cover;display:block;will-change:transform;transform-origin:center}
+/* bridge photo veil removed (owner 2026-06-10: no blur/darkening on images); a thin floor strip survives only behind the caption text for legibility */
+.oma-hold-photo::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(0,0,0,.45))}
 .oma-hold-scan{
   position:absolute;left:0;right:0;top:0;height:2px;z-index:3;pointer-events:none;opacity:.95;
   background:linear-gradient(90deg,
@@ -1091,7 +1093,7 @@ video { pointer-events: none; }
    (cinema-chrome page styles, story/legal extras) can shrink the card.
    ========================================================================= */
 .closing-segment .closing-stage .closing-title.closing-title {
-  font-size: clamp(2.8rem, 1.95rem + 5vmin, 5.8rem);
+  font-size: clamp(2.6rem, 1.7rem + 4.4vmin, 5.2rem);
   line-height: 0.98;
 }
 .closing-segment .closing-stage .closing-lead.closing-lead {

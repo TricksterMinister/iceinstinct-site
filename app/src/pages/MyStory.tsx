@@ -1,4 +1,5 @@
 import { SiteFooter } from '../sections/SiteFooter';
+import { useSegmentSnap } from '../app/useSegmentSnap';
 import { useEffect, useState } from 'react';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
@@ -14,6 +15,7 @@ export function MyStory() {
 
   useCinemaChrome();
   useDeepScripts();
+  useSegmentSnap(['.story-cover', '.story-journey', '.story-record', '.closing-segment'], ['.numbered']);
   useMyStory();
 
   // The Record: real credentials, scanned. Tap a plate to read it in full.
