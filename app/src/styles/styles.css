@@ -2913,13 +2913,14 @@ img.reveal-zoom.is-in { transform: scale(1); }
   gap: clamp(0.8rem, 2vh, 1.5rem);
 }
 .closing-segment.inquire-close .closing-frame {
-  padding: clamp(1.3rem, 4vh, 2.8rem) clamp(1.5rem, 5vw, 4rem);
-  gap: clamp(0.7rem, 1.8vh, 1.3rem);
+  padding: clamp(1.8rem, 5vh, 3.6rem) clamp(1.8rem, 5vw, 4.5rem);
+  gap: clamp(0.8rem, 2vh, 1.5rem);
 }
-/* Title compacted from the offering's step-5 so the form fits the row */
-.closing-segment.inquire-close .closing-title {
-  font-size: clamp(1.8rem, 1rem + 3vw, 3.2rem);
-  line-height: 1.0;
+/* Title at benchmark proportions, only slightly compacted so the form still
+   shares the single viewport with the footer. */
+.closing-segment.inquire-close .closing-title.closing-title.closing-title {
+  font-size: clamp(2.4rem, 1.5rem + 3.6vmin, 4.6rem);
+  line-height: 0.98;
 }
 .closing-segment.inquire-close .closing-lead {
   font-size: clamp(0.92rem, 0.86rem + 0.3vw, 1.05rem);

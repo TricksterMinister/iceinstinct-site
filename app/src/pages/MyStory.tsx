@@ -499,7 +499,7 @@ export function MyStory() {
             global footer SHARE one viewport (closing-segment grid) ================ */}
         <div className="closing-segment story-close" id="final-cta">
           <section className="closing">
-            <div className="section-bg-word top right" aria-hidden="true">ALCHEMIST</div>
+            <div className="section-bg-word top right" aria-hidden="true">BEGIN</div>
             <div className="closing-stage">
               <div className="closing-frame">
                 <span className="closing-corner tl" aria-hidden="true"></span>

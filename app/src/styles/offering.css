@@ -1083,3 +1083,42 @@ body.rail-onlight .tier-nav a.is-current::before{background:oklch(45% 0.1 70 / .
 
 /* Decorative background videos must never capture pointer events (they sit above hero content at z-1 and would block CTA/link clicks). */
 video { pointer-events: none; }
+
+
+/* =========================================================================
+   CLOSING BENCHMARK (owner, 2026-06-10): the HOME closing card is the one
+   true scale. Explicit literal values + heavy selectors so no page chrome
+   (cinema-chrome page styles, story/legal extras) can shrink the card.
+   ========================================================================= */
+.closing-segment .closing-stage .closing-title.closing-title {
+  font-size: clamp(2.8rem, 1.95rem + 5vmin, 5.8rem);
+  line-height: 0.98;
+}
+.closing-segment .closing-stage .closing-lead.closing-lead {
+  font-size: clamp(1rem, 0.94rem + 0.35vmin, 1.18rem);
+  line-height: 1.6;
+  max-width: 52ch;
+}
+/* The ghost word behind the card, exactly as on the home benchmark: bottom
+   anchored, faint champagne, BEHIND the frame (cinema-chrome's page ghost is
+   z-index 6 and top-left - wrong layer for a closing card). */
+.closing-segment .closing .section-bg-word {
+  position: absolute;
+  z-index: 0;
+  top: auto;
+  bottom: -3vh;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  padding: 0;
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: clamp(12rem, 28vmin, 34rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  color: oklch(62% 0.07 88 / 0.16);
+  animation: none;
+}
+.closing-segment .closing .section-bg-word.top { bottom: auto; top: -3vh; }
+.closing-segment .closing .section-bg-word.right { left: auto; right: -1.5vw; transform: none; }
