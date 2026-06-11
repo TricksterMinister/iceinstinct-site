@@ -2850,6 +2850,7 @@ img.reveal-zoom.is-in { transform: scale(1); }
 }
 /* Light inputs - tuned to the Свет-1 card (dark ink on warm paper). */
 .closing-frame .inquire-field input,
+.closing-frame .inquire-field select,
 .closing-frame .inquire-field textarea {
   width: 100%;
   background: oklch(99% 0.006 95);
@@ -2865,10 +2866,29 @@ img.reveal-zoom.is-in { transform: scale(1); }
 .closing-frame .inquire-field input::placeholder,
 .closing-frame .inquire-field textarea::placeholder { color: oklch(56% 0.02 85); }
 .closing-frame .inquire-field input:focus,
+.closing-frame .inquire-field select:focus,
 .closing-frame .inquire-field textarea:focus {
   outline: none;
   border-color: oklch(52% 0.1 82);
   box-shadow: 0 0 0 3px oklch(72% 0.08 85 / 0.18);
+}
+/* Selects lose the OS chrome; a quiet chevron in the muted label ink instead.
+   While the placeholder option is shown (.is-empty) the text matches the
+   input ::placeholder colour above. */
+.closing-frame .inquire-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='%238a7f63' stroke-width='1.2'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right clamp(0.8rem, 1.5vw, 1rem) center;
+  padding-right: 2.1rem;
+  cursor: pointer;
+}
+.closing-frame .inquire-field select.is-empty { color: oklch(56% 0.02 85); }
+.closing-frame .inquire-field input[type='date'] {
+  appearance: none;
+  -webkit-appearance: none;
+  min-width: 0;
 }
 /* Validation: deep-gold ink, never an alien red - the card stays in palette. */
 .closing-frame .inquire-field.is-invalid input,
@@ -2888,6 +2908,25 @@ img.reveal-zoom.is-in { transform: scale(1); }
   display: flex;
   justify-content: center;
   margin-top: clamp(0.2rem, 1vh, 0.6rem);
+}
+/* Optional qualification row - three quiet fields, visually secondary to
+   name / email / message. Same field anatomy, fainter labels. */
+.closing-frame .inquire-row.inquire-row-optional {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+@media (max-width: 560px) {
+  .closing-frame .inquire-row.inquire-row-optional { grid-template-columns: 1fr; }
+}
+.closing-frame .inquire-row-optional .inquire-label { color: oklch(56% 0.02 85); }
+/* Deposit reassurance under the Send button - quiet, small, muted. */
+.closing-frame .inquire-deposit {
+  margin: 0;
+  text-align: center;
+  font-family: var(--f-italic, serif);
+  font-style: italic;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: oklch(50% 0.03 85);
 }
 
 /* -----------------------------------------------------------------
@@ -2936,9 +2975,11 @@ img.reveal-zoom.is-in { transform: scale(1); }
 }
 .closing-segment.inquire-close .inquire-field { gap: 0.35rem; }
 .closing-segment.inquire-close .inquire-field input,
+.closing-segment.inquire-close .inquire-field select,
 .closing-segment.inquire-close .inquire-field textarea {
   padding: clamp(0.55rem, 1.1vh, 0.85rem) clamp(0.85rem, 1.6vw, 1.1rem);
 }
+.closing-segment.inquire-close .inquire-field select { padding-right: 2.1rem; }
 .closing-segment.inquire-close .inquire-field textarea {
   min-height: clamp(3em, 7vh, 4.2em);
 }
@@ -2947,6 +2988,15 @@ img.reveal-zoom.is-in { transform: scale(1); }
   .closing-segment.inquire-close .closing-meta { display: none; }
   .closing-segment.inquire-close .closing-title { font-size: clamp(1.6rem, 4.5vw, 2.4rem); }
   .closing-segment.inquire-close .inquire-field textarea { min-height: 2.6em; }
+  /* With the optional qualification row + deposit line the card can outgrow a
+     short viewport even after tightening - release the hard lock the same way
+     the narrow-screen rule below does, so the Send button is never clipped. */
+  .closing-segment.inquire-close {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+  .closing-segment.inquire-close > .closing { overflow: visible; }
 }
 /* Phones/small tablets: the stacked form is taller than a phone screen, so
    release the hard 100dvh lock here (offering.css already switches oma-close to

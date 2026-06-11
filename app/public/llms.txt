@@ -63,3 +63,4 @@ Thirteen signature compositions at https://www.iceinstinct.com/gallery/ - each b
 - [My Story](https://www.iceinstinct.com/my-story/): the founder, certificates, the journey
 - [The Collection](https://www.iceinstinct.com/gallery/): thirteen signature cocktails + Palate Profiler
 - [Inquire](https://www.iceinstinct.com/contact/): form, WhatsApp, phone
+- [Full site text](https://www.iceinstinct.com/llms-full.txt): every page as plain text in one file

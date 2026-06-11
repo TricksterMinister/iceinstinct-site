@@ -12,6 +12,12 @@ const BODY_CLASSES = ['cinema-chrome'];
 
 const EMAIL = 'alchemyandice.nyc@gmail.com';
 
+// The qualification selects offer fixed vocabularies; the occasion list also
+// validates the ?occasion= prefill (e.g. /contact/?occasion=wedding) so an
+// arbitrary URL value can never land in the form.
+const GUEST_COUNTS = ['up to 15', '15-40', '40+'];
+const OCCASIONS = ['private dinner', 'birthday', 'wedding', 'corporate', 'other'];
+
 export function Contact() {
   // Inquire mirrors the offering pages: <body class="cinema-chrome"> + the
   // offering closing-segment.oma-close grid drives the one-viewport layout.
@@ -27,6 +33,10 @@ export function Contact() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  // Optional qualification - they sharpen the reply, never gate the send.
+  const [eventDate, setEventDate] = useState('');
+  const [guestCount, setGuestCount] = useState('');
+  const [occasion, setOccasion] = useState('');
   const [company, setCompany] = useState(''); // honeypot, hidden from humans
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
@@ -74,6 +84,13 @@ export function Contact() {
     const q = new URLSearchParams(window.location.search);
     const parts: string[] = [];
 
+    // ?occasion=wedding preselects the occasion field. leadContext.ts only
+    // persists first-touch attribution (utm/source), so this page-level intent
+    // param is read directly here, the same way ?cocktail= and ?enhancements=
+    // already are.
+    const occ = (q.get('occasion') || '').trim().toLowerCase();
+    if (OCCASIONS.includes(occ)) setOccasion(occ);
+
     const cocktail = q.get('cocktail');
     if (cocktail) {
       const traits = [q.get('identity'), q.get('taste'), q.get('accord')].filter(Boolean).join(', ');
@@ -118,6 +135,9 @@ export function Contact() {
       data.set('email', email);
       data.set('message', message);
       data.set('_gotcha', company);
+      if (eventDate) data.set('event_date', eventDate);
+      if (guestCount) data.set('guest_count', guestCount);
+      if (occasion) data.set('occasion', occasion);
 
       const enh = readEvening();
       const cocktail = readCocktail();
@@ -141,7 +161,7 @@ export function Contact() {
       });
       const out = (await res.json().catch(() => ({ ok: res.ok }))) as { ok?: boolean };
       if (res.ok && out.ok) {
-        track('inquiry_submit', { method: 'inquire_form' });
+        track('inquiry_submit', { method: 'inquire_form', occasion: occasion || 'unspecified' });
         setStatus('sent');
       } else {
         track('inquiry_error');
@@ -286,7 +306,17 @@ export function Contact() {
                     Tell us the date, the room, and the guest count. A reply follows within one
                     business day, personally.
                   </p>
-                  <form className="inquire-form" onSubmit={onSubmit} onFocusCapture={onFormStart} noValidate>
+                  {/* action/method are the no-JS fallback: if React never
+                      hydrates, the browser still posts straight to Formspree.
+                      With JS, onSubmit preventDefaults and fetches as before. */}
+                  <form
+                    className="inquire-form"
+                    action="https://formspree.io/f/xpwkadgp"
+                    method="POST"
+                    onSubmit={onSubmit}
+                    onFocusCapture={onFormStart}
+                    noValidate
+                  >
                     <div className="inquire-row">
                       <label className={'inquire-field' + (errors.name ? ' is-invalid' : '')}>
                         <span className="inquire-label">Name</span>
@@ -331,6 +361,46 @@ export function Contact() {
                       />
                       {errors.message && <span className="inquire-err" role="alert">{errors.message}</span>}
                     </label>
+                    {/* Optional refinements - quiet, secondary, never required. */}
+                    <div className="inquire-row inquire-row-optional">
+                      <label className="inquire-field">
+                        <span className="inquire-label">Event date (if known)</span>
+                        <input
+                          type="date"
+                          name="event_date"
+                          value={eventDate}
+                          onChange={(e) => setEventDate(e.target.value)}
+                        />
+                      </label>
+                      <label className="inquire-field">
+                        <span className="inquire-label">Guest count</span>
+                        <select
+                          name="guest_count"
+                          value={guestCount}
+                          onChange={(e) => setGuestCount(e.target.value)}
+                          className={guestCount ? undefined : 'is-empty'}
+                        >
+                          <option value="">Guest count</option>
+                          {GUEST_COUNTS.map((g) => (
+                            <option key={g} value={g}>{g}</option>
+                          ))}
+                        </select>
+                      </label>
+                      <label className="inquire-field">
+                        <span className="inquire-label">Occasion</span>
+                        <select
+                          name="occasion"
+                          value={occasion}
+                          onChange={(e) => setOccasion(e.target.value)}
+                          className={occasion ? undefined : 'is-empty'}
+                        >
+                          <option value="">Occasion</option>
+                          {OCCASIONS.map((o) => (
+                            <option key={o} value={o}>{o}</option>
+                          ))}
+                        </select>
+                      </label>
+                    </div>
                     {/* honeypot: off-screen, never seen or filled by a human */}
                     <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
                       <label>
@@ -351,6 +421,9 @@ export function Contact() {
                         <span className="btn-arr" aria-hidden="true">&rarr;</span>
                       </button>
                     </div>
+                    <p className="inquire-deposit">
+                      A flat $500 deposit reserves your date - fully refundable until 14 days before the evening.
+                    </p>
                   </form>
                   </>
                 )}

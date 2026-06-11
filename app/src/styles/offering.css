@@ -343,6 +343,17 @@
   color: oklch(46% 0.01 80);
 }
 .closing-included strong { color: oklch(40% 0.08 78); font-weight: 600; }
+/* deposit reassurance line, tucked directly under the reserve CTA */
+.closing-deposit {
+  margin: -0.3rem auto 0;
+  max-width: 52ch;
+  text-align: center;
+  font-family: var(--f-mono);
+  font-size: clamp(0.6rem, 0.56rem + 0.16vw, 0.7rem);
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+  color: oklch(48% 0.035 86);
+}
 .closing-segment .closing .btn-primary { color: oklch(22% 0 0); border-color: oklch(34% 0.02 85); }
 .closing-segment .closing .btn-primary::before { background: oklch(22% 0 0); }
 .closing-segment .closing .btn-primary:hover { color: oklch(96% 0.02 95); }

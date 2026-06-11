@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useRef, useState } from 'react';
+import { useEffect, useReducer, useRef, useState, type FormEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PortalRoot } from '../../app/PortalRoot';
 import { funnel } from '../../app/funnelStore';
@@ -75,6 +75,8 @@ export function PalateProfiler({ open, onClose, onCommission }: Props) {
   const [state, dispatch] = useReducer(reducer, initial);
   const [distilling, setDistilling] = useState(false);
   const [shareNote, setShareNote] = useState('');
+  const [mailEmail, setMailEmail] = useState('');
+  const [mailStatus, setMailStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const timer = useRef<number | undefined>(undefined);
   const alive = useRef(true);
   const distillNo = useRef(0); // synchronous counter so rapid re-rolls advance correctly
@@ -94,7 +96,7 @@ export function PalateProfiler({ open, onClose, onCommission }: Props) {
       document.body.style.overflow = 'hidden';
       return () => { document.body.style.overflow = ''; };
     }
-    const t = window.setTimeout(() => { distillNo.current = 0; setDistilling(false); setShareNote(''); dispatch({ type: 'reset' }); }, 450);
+    const t = window.setTimeout(() => { distillNo.current = 0; setDistilling(false); setShareNote(''); setMailEmail(''); setMailStatus('idle'); dispatch({ type: 'reset' }); }, 450);
     return () => window.clearTimeout(t);
   }, [open]);
 
@@ -138,7 +140,43 @@ export function PalateProfiler({ open, onClose, onCommission }: Props) {
       if (!alive.current) return;
       dispatch({ type: 'redistill', recipe });
       setDistilling(false);
+      // A new signature is a new keepsake - re-open the email line for it
+      // (leave an in-flight send alone; it carries its own cocktail name).
+      setMailStatus((s) => (s === 'sending' ? s : 'idle'));
     });
+  };
+
+  // Optional keepsake-by-email: posts to the same Formspree inbox as the
+  // inquiry form, tagged with the matched cocktail so the owner knows which
+  // recipe card to send. Quiet by design - ignoring it costs the guest nothing.
+  const emailKeepsake = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (mailStatus === 'sending' || !state.recipe) return;
+    const address = mailEmail.trim();
+    if (!address || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(address)) return;
+    const keepsake = state.recipe.name;
+    setMailStatus('sending');
+    try {
+      const data = new FormData();
+      data.set('email', address);
+      data.set('keepsake', keepsake);
+      data.set('_subject', `Keepsake request - ${keepsake}`);
+      const res = await fetch('https://formspree.io/f/xpwkadgp', {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      });
+      const out = (await res.json().catch(() => ({ ok: res.ok }))) as { ok?: boolean };
+      if (!alive.current) return;
+      if (res.ok && out.ok) {
+        track('email_capture', { source: 'profiler_keepsake', keepsake });
+        setMailStatus('sent');
+      } else {
+        setMailStatus('error');
+      }
+    } catch {
+      if (alive.current) setMailStatus('error');
+    }
   };
 
   const step = steps[state.step];
@@ -395,6 +433,38 @@ export function PalateProfiler({ open, onClose, onCommission }: Props) {
                             </motion.p>
                           )}
                         </AnimatePresence>
+
+                        <form className="pp-mail" onSubmit={emailKeepsake}>
+                          {mailStatus === 'sent' ? (
+                            <p className="pp-mail-note sent" role="status">It is on its way.</p>
+                          ) : (
+                            <>
+                              <label className="pp-mail-label" htmlFor="pp-mail-email">
+                                Email me my keepsake and the recipe card
+                              </label>
+                              <div className="pp-mail-row">
+                                <input
+                                  id="pp-mail-email"
+                                  className="pp-mail-input"
+                                  type="email"
+                                  name="email"
+                                  autoComplete="email"
+                                  placeholder="Your email"
+                                  value={mailEmail}
+                                  onChange={(e) => setMailEmail(e.target.value)}
+                                  required
+                                  disabled={mailStatus === 'sending'}
+                                />
+                                <button className="pp-btn ghost pp-mail-send" type="submit" disabled={mailStatus === 'sending'}>
+                                  {mailStatus === 'sending' ? 'Sending...' : 'Send'}
+                                </button>
+                              </div>
+                              {mailStatus === 'error' && (
+                                <p className="pp-mail-note" role="status">It did not go through. Try once more.</p>
+                              )}
+                            </>
+                          )}
+                        </form>
                       </div>
                     </aside>
                   </motion.div>

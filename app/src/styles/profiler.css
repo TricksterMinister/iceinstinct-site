@@ -357,6 +357,40 @@
 }
 .pp-controls-take .pp-label { margin-bottom: 0.4rem; }
 .pp-share-note { font-size: var(--t-xs); line-height: 1.5; color: var(--c-fg-faint); margin-top: 0.3rem; }
+
+/* Optional keepsake-by-email: one quiet line under the keepsake buttons.
+   Underline input (the site's form voice), send in the brand button skin. */
+.pp-mail {
+  margin-top: 0.5rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--c-border-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.pp-mail-label { font-size: var(--t-xs); line-height: 1.5; color: var(--c-fg-muted); }
+.pp-mail-row { display: flex; align-items: stretch; gap: 0.6rem; }
+.pp-mail-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.55rem 0;
+  font-family: var(--font-body);
+  font-size: var(--t-sm);
+  color: var(--c-fg);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--c-border);
+  border-radius: 0;
+  outline: none;
+  transition: border-color var(--d-base);
+}
+.pp-mail-input::placeholder { color: var(--c-fg-faint); }
+.pp-mail-input:focus { border-bottom-color: var(--c-accent); }
+.pp-mail-input:disabled { opacity: 0.5; }
+/* keeps the brand skin from accent.css, only sized down beside the input */
+.pp-controls .pp-mail-send { width: auto; flex: 0 0 auto; padding: 0.65rem 1rem; }
+.pp-mail-note { font-size: var(--t-xs); line-height: 1.5; color: var(--c-fg-faint); }
+.pp-mail-note.sent { color: var(--c-accent); }
 .pp-btn {
   position: relative;
   display: inline-flex;

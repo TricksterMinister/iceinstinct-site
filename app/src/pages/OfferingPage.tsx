@@ -455,6 +455,9 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
                   Add enhancements
                 </a>
               </div>
+              <p className="closing-deposit">
+                A flat $500 deposit reserves your date - fully refundable until 14 days before the evening.
+              </p>
             </div>
             <p className="closing-meta">
               <span>By appointment only</span>

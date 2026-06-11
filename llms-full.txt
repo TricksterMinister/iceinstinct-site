@@ -1,0 +1,1544 @@
+# Ice & Instinct - full site text
+
+> Plain-text rendering of every page on https://www.iceinstinct.com/ for AI engines. Curated facts (prices, policies, contact) live in https://www.iceinstinct.com/llms.txt; this file carries the full page copy. Generated from the prerendered HTML at build time. Last updated: 2026-06-11.
+
+---
+
+## Ice & Instinct - Private Mixology Studio, NYC & New Jersey
+URL: https://www.iceinstinct.com/
+
+New York Metropolitan Area · By Appointment
+EST. 2024
+
+### Ice & Instinct.
+
+Where ritual meets instinct, high above the city.
+Scroll
+
+#### Ice & Instinct
+
+is a private mixology experience where each encounter becomes a living performance - an alchemical dialogue between spirit, ice, and intention.
+Teimuraz Benidze this experience transforms modern mixology into an art form - refined, intimate, and deeply sensory.
+
+Every ritual unfolds through precision and emotion: each cocktail crafted in real time, each gesture measured by instinct, each sip designed to leave a memory rather than a taste.
+From private penthouse gatherings to rooftop ceremonies and exclusive brand events, Ice & Instinct brings a rare synthesis of minimalism, theatre, and silent luxury - redefining what it means to serve a drink.
+
+The hand behind the ritual.
+Two decades distilled into a single evening. Led by one alchemist, carried by a team of trusted New York bartenders.
+Meet the Alchemist
+
+#### Thirteen signature compositions, each built once.
+
+II Belladonna, 2025
+
+VI Rose Garden, 2025
+
+III Persimmon Saffron, 2025
+
+XII Bésame, 2025
+
+I White Lotus, 2025
+
+View The Collection
+
+#### Four distinct levels of service.
+
+One uncompromising standard, four ways to begin.
+
+I
+The Foundation
+
+##### Impeccable drinks, seamless service.
+
+II
+Perfection in Simplicity
+
+##### Timeless cocktails, quiet precision.
+
+III
+Bespoke Design & Artistry
+
+##### Signature cocktails, tailored to your story.
+
+IV
+Omakase Improvisation
+
+##### No menu. Unrepeatable moments.
+
+One alchemist. A team when the room calls for it.
+
+#### Built to scale.
+
+Any tier scales with a full bar team for larger events - weddings, galas, and corporate gatherings - quoted on request.
+
+The fee
+Covers the craft, the service, and the expertise.
+
+Spirits & wine
+Provided by you, or sourced on your behalf at supplier cost.
+
+Ice, glassware & rentals
+Arranged through the Concierge, billed at supplier cost.
+
+#### The Concierge.
+
+Five quiet enhancements that deepen the ritual. Each one pairs with any level - sourced personally, never bundled.
+
+- 01 Bespoke Cigar Curator
+
+- 02 Additional Bar Staff
+
+- 03 The Curator
+
+- 04 Glassware & Vessels
+
+- 05 Ice & Temperature
+
+Explore the concierge
+
+A Private Mixology Ritual Choose Your Nature Ice The Cold Craft Discipline. Order.
+The patience of craft.
+Instinct The Living Fire Intuition. The pulse.
+The whisper that changes everything.
+
+#### Before you ask.
+
+The honest answers, plainly given.
+
+- What is Ice and Instinct? A private mixology studio for the home and the event. Led by one alchemist and carried by a team of trusted New York bartenders, it brings the craft, theatre, and discipline of a world-class bar into your own room.
+
+- What actually happens at an event? We arrive, build the bar, and run the evening end to end. Each cocktail is made in real time, with intention. You set the rhythm through one of four tiers, from impeccable classics to off-menu omakase improvisation.
+
+- Is alcohol included in the price? No. The tier price covers the craft, service, and expertise. You may provide the spirits and wine yourself, or we handle the entire purchase on your behalf at supplier cost.
+
+- Do you bring everything - bar, tools, ice, glassware? Yes. The bar setup, tools, and service are fully handled. Specialty ice from Michelin-level suppliers, curated glassware, and rentals are arranged through the Concierge and billed at supplier cost.
+
+- Where do you serve? The New York metropolitan area and New Jersey. Events further out are welcome, and any travel is included in your private quote.
+
+- Can you handle a large event or wedding? Yes. One alchemist leads, and a team of trusted New York bartenders scales the service from an intimate solo performance to a full bar team for weddings, galas, and corporate events.
+
+- Which tier should I choose? It depends on the room and the evening you have in mind. Foundation is for intimate gatherings, Simplicity for a refined solo performance, Bespoke for signature cocktails built around your theme, and Omakase for a no-menu, improvised experience. Tell us the date, guest count, and mood, and we will guide you.
+
+- Can the cocktails be tailored, and do you offer non-alcoholic options? Yes to both. Every menu is built around your taste, theme, and any dietary needs, and a full zero-proof program is available so each guest is served with the same care.
+
+- How far ahead should I book? Two or more weeks is ideal, and shorter timelines are often possible. Ask, and we will tell you honestly what we can do.
+
+- How does the deposit work? A flat $500 deposit reserves your date. The balance is due before the event.
+
+- What is your cancellation policy? More than 14 days before the event, your $500 deposit is refunded. Within 14 days, the deposit is non-refundable but transferable to a future date within 12 months, subject to availability. Within 48 hours of the event, the full booking value is due.
+
+- How do I book? Send the date, the room, and the guest count through the inquiry form. You will have a private quote within one business day.
+
+#### In their own words.
+
+-
+This mixology spot is seriously insane. Best night out in a minute. The drinks are legit fire and the whole vibe is next level.
+
+Tom R. Verified Google review 2025
+
+#### Begin the conversation.
+
+Tell us about the evening - the date, the room, the guest count. A private quote within one business day.
+Request a private quote
+Explore the offerings
+
+By appointment only New York Metropolitan Area Est. 2024
+
+---
+
+## Accessibility Statement - Ice & Instinct
+URL: https://www.iceinstinct.com/accessibility/
+
+### Accessibility Statement
+
+Last updated · June 8, 2026
+
+#### 1. Our commitment
+
+Ice & Instinct is committed to making www.iceinstinct.com
+usable by as many people as possible, including people with disabilities. We aim to meet the Web Content Accessibility Guidelines (WCAG) 2.1 at Level AA, and we treat accessibility as an ongoing effort rather than a one-time task.
+
+#### 2. Measures we take
+
+- Semantic HTML structure with clear headings and landmarks.
+
+- Keyboard-operable navigation and visible focus styles.
+
+- Sufficient color contrast for text against the dark theme.
+
+- Text alternatives for meaningful images, and decorative images hidden from assistive technology.
+
+- Respect for the "reduced motion" system setting: animations and motion effects are reduced or removed when you ask your device to minimize motion.
+
+- Layouts that reflow for small screens and zoom without loss of content.
+
+#### 3. Known limitations
+
+Some elements rely on motion and custom cursor effects for visual polish; these are designed to degrade safely and are suppressed under reduced-motion settings. Content delivered through third-party tools (for example the scheduling provider) is partly outside our direct control, though we choose providers with accessibility in mind.
+
+#### 4. Feedback and help
+
+If you encounter a barrier on this site, or need information in a different format, please tell us via the contact page
+. Describe the page and the problem, and we will respond and work to provide the information or function you need. We aim to reply within a few business days.
+
+#### 5. Changes
+
+We update this statement as the site evolves. The "Last updated" date above reflects the most recent change.
+
+Ice & Instinct / Legal
+
+#### Questions? Answered plainly.
+
+Write to us about anything on this page. A personal reply within one business day.
+Begin the conversation
+
+By appointment only New York Metropolitan Area Est. 2024
+
+---
+
+## Concierge & Enhancements - Ice & Instinct
+URL: https://www.iceinstinct.com/concierge/
+
+### Augment any experience.
+
+Five curated enhancements, added to any tier. Each one sourced, coordinated, and quality-controlled personally.
+
+i. Cigars
+
+##### Bespoke Cigar Curator
+
+$500 Curated cigar ritual with expert oversight.
+Explore ↓
+ii. Staff
+
+##### Additional Bar Staff
+
+$350 Professional reinforcement to protect service flow.
+Explore ↓
+iii. Curator
+
+##### The Curator
+
+$350 Creative oversight for atmosphere and visual intent.
+Explore ↓
+iv. Glassware
+
+##### Glassware & Vessels
+
+$250 Curated glassware architecture and coordination.
+Explore ↓
+v. Ice
+
+##### Ice & Temperature
+
+$250 Precision ice and temperature control.
+Explore ↓
+
+05 Enhancements Pair with any tier
+
+I · Cigars
+
+##### Bespoke Cigar Curator
+
+$500 Curated cigar ritual with expert oversight.
+A fully curated cigar ritual designed to complement premium spirits and the rhythm of the evening. This service provides professional oversight of the cigar experience: concept development, pairing logic, pacing, and integration into the atmosphere of the event.
+A dedicated cigar specialist is selected and coordinated by me to host the ritual with discretion, knowledge, and respect for tradition. The focus is not consumption, but intention. Cigars are introduced at the right moment, paired thoughtfully, and guided with restraint so they enhance the evening rather than dominate it.
+I remain responsible for the structure, quality, and coherence of the experience from start to finish. You are not hiring a cigar sommelier. You are commissioning a ritual.
+
+Add to my evening
+
+II · Staff
+
+##### Additional Bar Staff
+
+$350 Professional reinforcement to protect service flow.
+Additional professional reinforcement beyond what is included in the selected package. This service provides an extra trained hospitality professional assigned based on the needs of the event. Depending on guest count, service pace, and bar complexity, this may include a Bar-back, service staff, or an additional professional bartender.
+The purpose is not volume, but control. Extra staff protects service rhythm, maintains cleanliness and organization, and absorbs operational pressure so the lead mixologist remains fully focused on guests and execution.
+Staff selection and role assignment are determined by me to ensure consistency with the standards and tone of Ice & Instinct. You are not hiring a person. You are securing calm, uninterrupted service.
+
+Add to my evening
+
+III · Curator
+
+##### The Curator
+
+$350 Creative oversight for atmosphere, balance, and visual intent.
+A dedicated concierge service focused on the visual, spatial, and atmospheric integrity of the bar experience. The Curator is responsible for aesthetic coherence and presentation logic throughout the event. From glassware balance and garnish restraint to spatial rhythm and visual flow, every element is considered as part of a single composition.
+This service allows me to take full creative responsibility beyond the cocktails themselves. When appropriate, I coordinate and communicate with trusted third-party partners such as glassware suppliers, ice producers, florists, lighting specialists, or DJs to ensure everything aligns with the tone of the evening.
+Nothing is random. Nothing is excessive. Every visual decision supports the atmosphere, the drinks, and the intention of the gathering.
+Important note The Curator fee covers creative oversight, coordination, and accountability. All third-party rentals and services are billed separately at supplier cost.
+
+Add to my evening
+
+IV · Glassware
+
+##### Glassware & Vessels
+
+$250 Curated glassware architecture and coordination.
+Curated glassware and vessel architecture designed to support flavor, temperature, and presentation. This service covers the selection, specification, and coordination of appropriate glassware based on the menu, service rhythm, and atmosphere of the event. Form, weight, volume, and thermal behavior are considered to ensure each cocktail performs as intended.
+I handle sourcing and coordination with trusted third-party suppliers to ensure the correct glassware arrives on time, properly prepared, and aligned with the standards of the experience. This removes guesswork, last-minute adjustments, and visual inconsistency.
+Important note This fee covers curation, coordination, and quality control. All glassware rentals are billed separately at supplier cost.
+
+Add to my evening
+
+V · Ice
+
+##### Ice & Temperature
+
+$250 Precision ice and temperature control - non-negotiable foundation.
+Precision ice and temperature control are foundational to every Ice & Instinct experience. This service ensures the use of professional-grade ice produced to my exact specifications: clarity, density, format, and thermal behavior. Ice quality directly affects dilution, texture, aroma, and the structural integrity of every cocktail. Compromising here compromises everything.
+I personally coordinate sourcing and delivery through trusted specialty suppliers used by Michelin-level restaurants. This guarantees consistency, reliability, and ice that performs exactly as intended throughout the event.
+This is not an upgrade. It is a prerequisite. Ice & Instinct does not operate without proper ice and temperature control.
+Important note This fee covers sourcing, coordination, and temperature management. Ice is supplied through third-party vendors and billed separately at supplier cost.
+
+Standard in every evening
+
+#### Pair what you need.
+
+Tell us which enhancements should accompany your evening, alongside the tier you have in mind. We will return with a single tailored quote within one business day.
+Request a private quote →
+See the tiers
+
+Enhancements are arranged with your booking, never bought here. Ice and temperature are standard in every evening; all third-party items are sourced at supplier cost.
+By appointment only · Est. 2024
+
+---
+
+## Inquire - Ice & Instinct
+URL: https://www.iceinstinct.com/contact/
+
+Ice & Instinct / Inquire
+
+#### Begin the conversation.
+
+Tell us the date, the room, and the guest count. A reply follows within one business day, personally.
+Name
+Email
+
+Message
+Event date (if known)
+Guest count Guest count up to 15 15-40 40+
+Occasion Occasion private dinner birthday wedding corporate other
+
+Send the inquiry
+
+A flat $500 deposit reserves your date - fully refundable until 14 days before the evening.
+
+Prefer to speak? WhatsApp
+Call
+
+By appointment only New York Metropolitan Area Est. 2024
+
+---
+
+## Cookie Policy - Ice & Instinct
+URL: https://www.iceinstinct.com/cookies/
+
+### Cookie Policy
+
+Last updated · June 8, 2026
+
+#### 1. What cookies are
+
+Cookies are small text files a website stores on your device to make it work, remember preferences, or measure usage. This policy explains the cookies used on www.iceinstinct.com
+and how to control them. It complements our Privacy Policy
+.
+
+#### 2. Cookies we use
+
+- Analytics (Google Analytics 4). We use Google Analytics to understand how the site is used, in aggregate. It sets cookies such as _ga and _ga_<container-id> to distinguish visitors and sessions. These typically last up to two years and can be cleared at any time.
+
+- Fonts. Typefaces are delivered through Google Fonts, which may set technical cookies on its own domains when fonts load.
+
+- Scheduling. If you open our scheduling provider (YouCanBook.me) to request a consultation, that provider may set its own cookies necessary for its booking widget. These are governed by its policy.
+
+We do not use advertising, retargeting, or cross-site tracking cookies, and we do not sell data collected through cookies.
+
+#### 3. Managing cookies
+
+- Browser settings. You can block or delete cookies in your browser settings. Blocking cookies will not break the site, since none are strictly required to read it.
+
+- Opt out of Google Analytics. Install Google's official opt-out browser add-on, available at tools.google.com/dlpage/gaoptout
+.
+
+- Do Not Track. We honor reasonable browser privacy signals where technically supported.
+
+#### 4. Changes
+
+We may update this Cookie Policy as the services we use change. The "Last updated" date above reflects the most recent change.
+
+#### 5. Contact
+
+Questions about cookies? Reach us via the contact page
+.
+
+Ice & Instinct / Legal
+
+#### Questions? Answered plainly.
+
+Write to us about anything on this page. A personal reply within one business day.
+Begin the conversation
+
+By appointment only New York Metropolitan Area Est. 2024
+
+---
+
+## The Collection - Ice & Instinct
+URL: https://www.iceinstinct.com/gallery/
+
+### Touch the glass to awaken the spirit.
+
+Thirteen signature compositions, each built once. Select any tile to view it in full.
+
+White Lotus View Ritual
+Aviation View Ritual
+Persimmon Saffron Sour View Ritual
+Belladonna View Ritual
+Black Truffle Martini View Ritual
+Rose Garden Rendezvous View Ritual
+Aureliano View Ritual
+Call Me By Your Name View Ritual
+1001 Nights View Ritual
+Basil in my mind View Ritual
+Calipso Cream View Ritual
+Bésame View Ritual
+Negroni Verde View Ritual
+
+01 / 13 Drag · scroll · swipe
+
+The fourteenth composition
+
+#### Not on the wall yet. Compose your own.
+
+The thirteen above were each built for one evening. Answer three sensory questions and the alchemist composes a signature for yours - named, poured, and ready to commission.
+Compose your signature
+
+#### Commission a ritual.
+
+Each composition was built for a single evening. The next one is for yours.
+Request a private quote →
+See the tiers
+
+By appointment only · Est. 2024
+
+×
+
+---
+
+## My Story - Ice & Instinct, by Teimuraz Benidze
+URL: https://www.iceinstinct.com/my-story/
+
+### Teimuraz Benidze.
+
+Founder & Flavor Architect
+
+#### Born of ritual, led by instinct.
+
+My journey began not behind a bar, but in the pursuit of perfection. Ice & Instinct is the culmination of years spent refining the dialogue between nature's raw ingredients and the precision of modern luxury.
+
+#### Five cities, one instinct.
+
+- 01 Sukhumi The table is never empty - someone is always pouring, always arriving. The city is gone now, held only where no border can reach it, but its color stays with me: ripe persimmon, warm against the Black Sea. I set that table again every time I work.
+
+- 02 Tbilisi In Tbilisi the host answers for the whole table - not for the service, for the night itself. A supra is not hosted, it is carried; hospitality here is devotion, never transaction. I have never poured a drink any other way.
+
+- 03 Lisbon Portugal gave me a life with no one watching - a new language in my mouth, work in my hands, a city that asked nothing of me but presence. There is a slow gold in that light I have never stopped missing. A man got made there, alone.
+
+- 04 Moscow Moscow is where instinct became discipline - the years that made me the first certified sommelier in Georgia's history. I came out of it able to read a room the way I read a wine: structure first, then what it is hiding. That reading never leaves me.
+
+- 05 New York Everything pointed here before I knew the city existed. Two decades of fine wine and high service have distilled into one thing: the private table as ritual, never transaction - Sukhumi's full table, set again on this side of the world. I have never loved a city more.
+
+Ice is discipline - the order, the preparation, the patience of craft.
+Instinct is intuition - the pulse, the moment, the whisper that changes everything.
+
+When I arrive at your space, I bring nothing but my tools and attention. No menu, no routine. The evening unfolds in dialogue - between liquid and light, memory and desire.
+
+#### This is not bartending. This is Ice & Instinct.
+
+The Podcast A study of human nature - the quiet motives and contradictions that define us. The same curiosity guides every pour: each drink a question, each flavor a possible answer.
+
+Four Languages English, Portuguese, Russian, Georgian. Every culture raises a glass its own way - I listen before I pour.
+
+The Record
+
+#### Not claimed. Certified.
+
+Two decades of wine and service, on paper. Tap any seal to read it in full.
+
+- Certificat - Wine & Sommellerie Chateau-Arnoux, France
+
+- Leading Qualified Sommelier Georgian Sommelier Association (ASI)
+
+- Diploma - Wines & Spirits Enotria Wine World, Moscow
+
+- French Wine Studies O.N.I.VINS - National Bureau of French Wines
+
+#### The ritual explained.
+
+Plain answers about how an evening works.
+
+- How far in advance should I reserve? Most clients reserve 2-4 weeks ahead. Every evening is built as a one-of-one ritual, and preparation begins the moment we speak.
+
+- Do you bring all ingredients and tools? I arrive with the full bar kit, precision tools, and professional clear ice as standard. Spirits and wine are provided by the host or sourced on your behalf at supplier cost; curated glassware and rentals are arranged through the Concierge.
+
+- Can we choose specific cocktails? For Simplicity and Bespoke, yes - we collaborate to refine a curated menu together. For Omakase, there is no menu - each creation emerges spontaneously in the moment, tailored to individual guests and the evening's flow.
+
+- Do you provide a bar setup? By default, I use your existing space. A full portable bar setup or premium glassware rental can be arranged upon request as an enhancement through The Curator
+add-on.
+
+- Do you travel outside NYC and New Jersey? Yes, upon request. Travel fees and accommodations are arranged according to distance and event scale - subject to availability.
+
+- What about postponements? Your deposit can transfer to a new date within 12 months, subject to availability. One reschedule is included; further changes or peak dates may incur a fee.
+
+- How many guests can you accommodate? Foundation
+hosts up to 15 guests. Simplicity
+up to 12. Bespoke
+up to 30. Omakase
+up to 25. Larger events can be arranged with additional bar staff through custom consultation.
+
+- Can you create non-alcoholic drinks? Absolutely. The ritual is about balance and craft, not alcohol. Every composition can be crafted spirit-free with the same precision, complexity, and emotion.
+
+- Payment and deposit process A $500 deposit secures your date and is applied toward your final balance. Once your package is confirmed, the total is adjusted: if your total exceeds $500, you pay the difference; if it is less, the remainder is refunded. The balance is due at least 14 days before the event.
+
+- NDA and insurance Confidentiality is part of the ethos. NDAs are available upon request. Certificates of insurance can be issued for venues that require coverage.
+
+Each experience is a living dialogue - between craft, instinct, and atmosphere.
+
+Ice & Instinct / By appointment
+
+#### Begin the conversation.
+
+Tell me about the evening. A response within one business day, personally.
+Request a private quote
+See the tiers
+
+By appointment only New York Metropolitan Area Est. 2024
+
+---
+
+## Bespoke Design & Artistry - Ice & Instinct, from $1,800
+URL: https://www.iceinstinct.com/offerings/bespoke/
+
+← Offerings
+
+### Bespoke Design & Artistry.
+
+Your vision, crafted into every glass. Custom cocktails designed specifically for your theme, your colors, your story. Mixology as creative collaboration.
+From $1,800 USD Up to 30 guests · 4 hours · New York Metropolitan Area Inquire
+
+I · Overview
+
+#### Mixology as collaboration.
+
+For those who seek something beyond the classics. Your celebration deserves a cocktail menu as unique as the occasion itself - drinks designed specifically for your theme, your colors, your story.
+This is mixology as creative collaboration. Together, we design a bespoke menu of signature cocktails tailored to your event’s atmosphere and aesthetic. Whether for a milestone birthday, a brand launch, or an engagement, each cocktail becomes a conversation piece.
+Your private mixologist arrives with the creative vision to transform your ideas into liquid art. Guests don't just drink - they experience your story through thoughtfully crafted flavors, artful presentations, and photographically striking compositions.
+
+Each cocktail, a conversation piece.
+Your story, in liquid form.
+
+II · The Menu Protocol Custom Design. Your Story. Liquid Form.
+
+#### The selection.
+
+Two weeks prior, we collaborate to create a bespoke menu of 5-6 signature cocktails.
+
+II · The Focus
+
+#### The focus.
+
+Full creative license. We develop custom cocktail names, unique flavor profiles, and theatrical presentation elements (smoke, specialty ice, botanical garnishes) designed to photograph beautifully and spark conversation.
+
+III · Scalability
+
+#### Scalability & Investment.
+
+Service capacity includes complex preparation and theatrical execution.
+
+A The Intimate Up to 15 guests Personnel 1 Master Mixologist (custom design & execution) Focus Detailed storytelling and visual perfection. From $1,800
+B The Social 16 to 30 guests Personnel 1 Master Mixologist + 1 Shadow (bar support) Focus Maintaining service speed and presentation quality for larger groups. From $2,000
+C The Grand 31+ guests Personnel Custom team configuration Focus High-volume theatrical service. Custom Quote
+
+IV · The Experience
+
+#### What's Included.
+
+The specific milestones of your experience.
+
+- 01
+
+##### In-Depth Design Consultation
+
+Two weeks prior, we discuss your theme, color palette, and inspiration to design your signature menu.
+
+- 02
+
+##### The Procurement Specification
+
+You receive a detailed shopping list for premium spirits, artisanal mixers, fresh ingredients, and unique garnishes required for your specific design.
+
+- 03
+
+##### Four Hours of Masterful Execution
+
+We arrive with professional tools and specialty ingredients to bring your vision to life.
+
+- 04
+
+##### Theatrical Presentation
+
+Implementation of visual elements such as smoke, dry ice, or floral aesthetics where appropriate.
+
+V · The Foundation
+
+#### Standard Inclusions.
+
+Every Ice & Instinct experience, regardless of tier, includes the foundation of our craft.
+01
+
+##### Private Master Mixologist
+
+A dedicated professional with a quarter-century of global hospitality expertise.
+
+02
+
+##### Professional Tooling
+
+A compact, aesthetic case of gold-standard mixology tools. No bulky equipment, no portable bars.
+
+03
+
+##### On-Site Ritual Performance
+
+The visual elegance of proper stirring, shaking, and pouring.
+
+04
+
+##### Setup & Breakdown
+
+Complete organization of the immediate working area.
+
+05
+
+##### Custom Recipe Documentation
+
+Following the event, you receive a digital cocktail book featuring your bespoke menu with full recipes, garnish specifications, and presentation notes for future recreation.
+
+VI · The Canvas
+
+#### What the Host Provides.
+
+To ensure the integrity of the service, the host provides the following canvas.
+
+- 01
+
+##### Spirits, Mixers & Garnishes
+
+All alcohol and fresh ingredients must be on-site prior to arrival, based on the provided Specification.
+
+- 02
+
+##### Glassware
+
+Proper vessels for the selected cocktails (or rental via The Curator add-on).
+
+- 03
+
+##### Infrastructure
+
+A dedicated work surface (kitchen counter, dining table, or existing bar), access to running water, and electricity.
+
+- 04
+
+##### Ice Supply
+
+Quantity and formats as specified in the consultation.
+
+- 05
+
+##### Floor Service Boundary
+
+Ice & Instinct focuses exclusively on production within the bar perimeter. For passing drinks, clearing glassware from the room, or general venue tidying, separate floor staff is required.
+
+#### Experience extensions.
+
+- In addition to the core elements of your chosen experience, select extensions may be introduced to further refine the structure, pacing, or technical execution of the evening.
+
+- A full range of additional services - including curated glassware, specialty ice, logistical coordination, and presentation oversight - is available on the Concierge
+page and may be incorporated as needed.
+
+- Should the rhythm of the event call for a longer presence, service time may continue beyond the initial framework. All such considerations are aligned during the private design consultation to ensure balance, clarity, and control.
+
+Ice & Instinct / By appointment
+
+#### Translate your vision into liquid art.
+
+Tell us the date, the theme, and the headcount.
+We will return with a tailored design proposal within one business day.
+Every evening includes professional clear ice and temperature, sourced at supplier cost.
+Reserve your evening
+Add enhancements
+
+A flat $500 deposit reserves your date - fully refundable until 14 days before the evening.
+
+By appointment only New York Metropolitan Area Est. 2024
+
+---
+
+## The Foundation - Ice & Instinct, from $650
+URL: https://www.iceinstinct.com/offerings/foundation/
+
+← Offerings
+
+### The Foundation.
+
+For those who understand that elegance lies in simplicity. The most intimate way to experience the Ice & Instinct standard - delivered by a bartender from my own circle: hand-picked, trusted, and someone I personally stand behind.
+From $650 USD Up to 15 guests · 3 hours · New York Metropolitan Area Inquire
+
+I · Overview
+
+#### Distillation, not compromise.
+
+For those who understand that elegance lies in simplicity. The Essential delivers the core of what makes a gathering memorable: impeccable drinks, professional presence, and seamless execution.
+This is not a compromise. This is distillation - the same philosophy, the same standards, focused into a refined format designed for intimate celebrations.
+A bartender I know and trust personally arrives with the tools, technique, and presence to transform your home bar into something more. Classic cocktails executed with precision. Contemporary favorites crafted with care. Every drink made properly, every guest attended to.
+
+This is not a staffing service. This is hospitality with intention.
+Your guests experience the difference from the first pour.
+
+II · The Menu Protocol Curated Simplicity. The Foundation of Excellence.
+
+#### Curated simplicity.
+
+Prior to your event, we collaborate on a menu of 4-6 signature cocktails. Classics perfected. Crowd favorites refined. Each drink selected to balance variety, flow, and your available spirits.
+
+II · The Focus
+
+#### The focus.
+
+Flawless technique on timeless recipes. Proper dilution, balanced flavors, appropriate glassware, and garnishes that matter. The fundamentals, executed without shortcuts.
+
+III · Scalability
+
+#### Scalability & Investment.
+
+Calibrated for intimate gatherings where quality remains uncompromised regardless of guest count. A bartender from my own circle delivers the Ice & Instinct standard - someone I know personally, hand-picked, and vouch for.
+
+A The Intimate Up to 15 guests Personnel 1 Professional Bartender Focus Attentive service, consistent quality, personal engagement From $650
+
+IV · The Experience
+
+#### What's Included.
+
+The specific elements of your experience.
+
+- 01
+
+##### Pre-Event Consultation
+
+A focused conversation to understand your occasion, guest count, preferences, and available spirits. Menu finalized 5-7 days prior.
+
+- 02
+
+##### Professional Bar Setup
+
+Your bartender arrives with a complete toolkit: shakers, strainers, jiggers, bar spoons, muddlers, and essential garnish prep equipment.
+
+- 03
+
+##### Ice Coordination
+
+Guidance on appropriate ice quantities and formats for your event. Standard ice may be sourced by the host, or premium ice options arranged through Ice & Instinct at additional cost.
+
+- 04
+
+##### 3 Hours of Professional Service
+
+Arrival 30 minutes prior for setup. Three hours of active service. Additional hours available at $75 per hour.
+
+- 05
+
+##### Station Restoration
+
+Upon conclusion, your bar area is returned to order. Glassware rinsed, surfaces wiped, workspace organized.
+
+V · The Foundation
+
+#### Standard Inclusions.
+
+Every Ice & Instinct experience, regardless of tier, includes the foundation of our craft.
+01
+
+##### Trained Professional
+
+A bartender from my own circle - someone I know personally and stand behind, skilled in proper technique and professional hospitality.
+
+02
+
+##### Guest Engagement
+
+Friendly, professional interaction. Drink recommendations tailored to individual preferences. The warmth of genuine hospitality.
+
+03
+
+##### Professional Tooling
+
+A complete bar kit with quality tools. No plastic pourers. No shortcuts.
+
+04
+
+##### Setup & Breakdown
+
+Complete organization of the working area before and after service.
+
+VI · The Canvas
+
+#### What the Host Provides.
+
+To ensure a seamless experience, the host provides the following canvas.
+
+- 01
+
+##### Spirits & Mixers
+
+All alcohol, mixers, juices, and sodas for the agreed menu. A detailed shopping list is provided during consultation.
+
+- 02
+
+##### Glassware
+
+Appropriate glasses for the selected cocktails. Guidance provided. Rental coordination available upon request via The Curator add-on.
+
+- 03
+
+##### Ice
+
+Sufficient ice for the duration of service. Quantity guidance provided based on guest count and menu.
+
+- 04
+
+##### Workspace
+
+A stable surface for bar setup, access to running water, and adequate lighting.
+
+#### Experience notes.
+
+- The Foundation is the most intimate way into the Ice & Instinct standard. It is not a reduction of quality - it is a focused application of our principles.
+
+- For those seeking deeper customization, signature cocktail development, or the personal involvement of the Master Mixologist, we invite you to explore Simplicity
+, Bespoke
+, or Omakase
+.
+
+- Foundation is where many first experience the standard - and return for the evenings that follow.
+
+Ice & Instinct / By appointment
+
+#### Begin at the foundation.
+
+Tell us the date, the room, and the headcount.
+We will return with a tailored quote within one business day.
+Every evening includes professional clear ice and temperature, sourced at supplier cost.
+Reserve your evening
+Add enhancements
+
+A flat $500 deposit reserves your date - fully refundable until 14 days before the evening.
+
+By appointment only New York Metropolitan Area Est. 2024
+
+---
+
+## Offerings - Ice & Instinct
+URL: https://www.iceinstinct.com/offerings/
+
+### Four distinct levels. One standard.
+
+From the purity of a classic cocktail to the theatre of molecular improvisation. Choose the rhythm that fits your evening.
+
+i. Foundation
+
+##### The Foundation
+
+From $650 · up to 15 guests · 3 hours Impeccable drinks, seamless service. No shortcuts, only intention. The standard from which every other level departs.
+Explore →
+
+ii. Simplicity
+
+##### Perfection in Simplicity
+
+From $900 · up to 12 guests · 4 hours Timeless cocktails executed with quiet precision. A masterful solo performance for those who value craft over theatre.
+Explore →
+
+iii. Bespoke
+
+##### Bespoke Design & Artistry
+
+From $1,800 · up to 30 guests · 4 hours Signature cocktails tailored to your event's theme and vision. Your story, crafted into every glass.
+Explore →
+
+iv. Omakase
+
+##### Omakase Improvisation
+
+From $3,000 · up to 25 guests · open No menu. No repetition. Real-time creation in dialogue with the room. Complete trust. Unrepeatable moments.
+Explore →
+
+04 Tiers Explore each tier
+
+One alchemist. A team when the room calls for it.
+
+#### Built to scale.
+
+Any tier scales with a full bar team for larger events - weddings, galas, and corporate gatherings - quoted on request.
+
+The fee
+Covers the craft, the service, and the expertise.
+
+Spirits & wine
+Provided by you, or sourced on your behalf at supplier cost.
+
+Ice, glassware & rentals
+Arranged through the Concierge, billed at supplier cost.
+
+#### Before you ask.
+
+The honest answers, plainly given.
+
+- What is Ice and Instinct? A private mixology studio for the home and the event. Led by one alchemist and carried by a team of trusted New York bartenders, it brings the craft, theatre, and discipline of a world-class bar into your own room.
+
+- What actually happens at an event? We arrive, build the bar, and run the evening end to end. Each cocktail is made in real time, with intention. You set the rhythm through one of four tiers, from impeccable classics to off-menu omakase improvisation.
+
+- Is alcohol included in the price? No. The tier price covers the craft, service, and expertise. You may provide the spirits and wine yourself, or we handle the entire purchase on your behalf at supplier cost.
+
+- Do you bring everything - bar, tools, ice, glassware? Yes. The bar setup, tools, and service are fully handled. Specialty ice from Michelin-level suppliers, curated glassware, and rentals are arranged through the Concierge and billed at supplier cost.
+
+- Where do you serve? The New York metropolitan area and New Jersey. Events further out are welcome, and any travel is included in your private quote.
+
+- Can you handle a large event or wedding? Yes. One alchemist leads, and a team of trusted New York bartenders scales the service from an intimate solo performance to a full bar team for weddings, galas, and corporate events.
+
+- Which tier should I choose? It depends on the room and the evening you have in mind. Foundation is for intimate gatherings, Simplicity for a refined solo performance, Bespoke for signature cocktails built around your theme, and Omakase for a no-menu, improvised experience. Tell us the date, guest count, and mood, and we will guide you.
+
+- Can the cocktails be tailored, and do you offer non-alcoholic options? Yes to both. Every menu is built around your taste, theme, and any dietary needs, and a full zero-proof program is available so each guest is served with the same care.
+
+- How far ahead should I book? Two or more weeks is ideal, and shorter timelines are often possible. Ask, and we will tell you honestly what we can do.
+
+- How does the deposit work? A flat $500 deposit reserves your date. The balance is due before the event.
+
+- What is your cancellation policy? More than 14 days before the event, your $500 deposit is refunded. Within 14 days, the deposit is non-refundable but transferable to a future date within 12 months, subject to availability. Within 48 hours of the event, the full booking value is due.
+
+- How do I book? Send the date, the room, and the guest count through the inquiry form. You will have a private quote within one business day.
+
+#### Choose the rhythm.
+
+Tell us about the evening you have in mind. We respond within one business day with a private quote.
+Request a private quote →
+Meet the Alchemist
+
+By appointment only · Est. 2024
+
+---
+
+## Omakase Improvisation - Ice & Instinct, from $3,000
+URL: https://www.iceinstinct.com/offerings/omakase/
+
+← Offerings
+
+### Omakase Improvisation.
+
+Pure creation. No menu. Unrepeatable moments. Complete trust. Cocktails created spontaneously, in real time, for each guest.
+From $3,000 USD Up to 25 guests · 4-6 hours · New York Metropolitan Area Inquire
+
+I · Overview
+
+#### Performance art.
+
+For the true connoisseur who understands that the highest form of craft is improvisation. This is omakase for cocktails - a ritual reserved for those who collect spirits, cultivate home bars, and seek experiences that cannot be replicated.
+There is no menu. No predetermined recipes. Only mastery, intuition, and the alchemy that happens when experience meets the unexpected.
+Your private mixologist arrives with a quarter-century of global hospitality expertise. Each cocktail is created spontaneously, in real time, tailored to individual guests' moods, energy, and palates. You witness cocktails being born - techniques you've never seen, flavor structures that challenge assumptions.
+
+This is not bartending. This is performance art.
+Guests do not observe - they participate in the creation itself.
+
+II · The Menu Protocol Pure Improvisation. The Highest Form of Trust.
+
+#### The Selection.
+
+We use your existing spirits, your collection, and the energy of the room as our canvas. No recipe cards, no pre-event design. Cocktails are created spontaneously for each guest, based on real-time dialogue, intuition, and the resources available in your bar.
+
+II · The Focus
+
+#### Advanced technique.
+
+Smoke infusion, fat washing, rapid infusion, temperature layering, molecular garnish - methods reserved for world-class bars, executed intimately in your home.
+
+III · Scalability
+
+#### Scalability & Investment.
+
+The Alchemist experience is intentionally limited to preserve the focus required for spontaneous, omakase-style creation. The Master Mixologist is the sole creative force. A dedicated logistical assistant is present to preserve focus, flow, and the integrity of the ritual - their role is strictly operational and never part of the creative act.
+
+A The Soloist Up to 15 guests Personnel 1 Master Mixologist + 1 Logistical Assistant Focus Deep engagement and complex, individual creation From $3,000
+B The Ensemble 16 to 25 guests · hard limit Personnel 1 Master Mixologist + 1 Shadow (logistical) Focus Critical logistical support so the Master remains fully immersed in improvisation From $3,500
+C Beyond Limits Over 25 guests Personnel Custom inquiry only Focus This scale compromises the core omakase experience Not recommended
+
+IV · The Experience
+
+#### What's Included.
+
+The specific milestones of your evening, from first consultation to final pour.
+
+- 01
+
+##### Pre-Event Discovery Session
+
+Two to three weeks prior, we conduct a comprehensive consultation and home bar assessment. This is not menu planning - it is understanding the canvas before the performance begins.
+
+- 02
+
+##### The Alchemist's Kit
+
+I arrive with specialty technique equipment, rare ingredients, proprietary tinctures, and unique garnishes not available commercially.
+
+- 03
+
+##### The Ice Ritual mandatory inclusion
+
+Ice selection is determined exclusively by the Master Mixologist. All ice used for this experience is professionally sourced, ordered, and quality-controlled by Ice & Instinct. The host covers the cost of ice as a separate line item, finalized during the consultation. For optimal tempering and performance readiness, ice delivery is scheduled to arrive prior to the Master Mixologist’s arrival. Ice quality is non-negotiable and cannot be substituted, supplied, or sourced by the host.
+
+- 04
+
+##### 4-6 Hours of Improvisational Service
+
+Flexible service duration, guided by the rhythm of the evening. Every cocktail is a singular event.
+
+- 05
+
+##### Station Restoration
+
+Upon conclusion, your space is returned to order.
+
+V · The Foundation
+
+#### Standard Inclusions.
+
+Every Ice & Instinct experience, regardless of tier, includes the foundation of our craft.
+01
+
+##### Private Master Mixologist
+
+A dedicated professional with a quarter-century of global hospitality expertise.
+
+02
+
+##### Educational Engagement
+
+Conversations about terroir, fermentation, technique, and cocktail history emerge naturally. Your gathering becomes a living masterclass.
+
+03
+
+##### Professional Tooling
+
+A compact case of gold-standard mixology tools, plus advanced technique equipment.
+
+04
+
+##### Setup & Breakdown
+
+Complete organization of the immediate working area.
+
+VI · The Canvas
+
+#### What the Host Provides.
+
+To enable pure improvisation, the host provides the canvas.
+
+- 01
+
+##### Existing Spirits & Inventory
+
+The host's spirit collection and home bar inventory form the primary palette for the evening.
+
+- 02
+
+##### Curated Glassware Collection
+
+This experience assumes thoughtfully selected, high-quality glassware. Large-format stemware, sculptural coupes, elegant rocks glasses, and varied vessels allow each creation to fully express its character. The vessel is not an accessory - it is part of the performance.
+
+- 03
+
+##### Infrastructure
+
+A suitable work surface with adequate space for technique work, access to running water, and electricity.
+
+- 04
+
+##### Openness to the Unexpected
+
+Complete trust in the Master Mixologist's spontaneous creative vision.
+
+#### Experience notes.
+
+- The Alchemist experience is intentionally designed as a focused, solo improvisational performance. The Master Mixologist remains the sole creative force throughout the evening.
+
+- Operational support is scaled internally based on the number of guests to preserve flow, cleanliness, and uninterrupted creative focus. The size and structure of the supporting team are determined exclusively by the mixologist and are included as part of the experience.
+
+- Certain material elements required to execute the ritual at the highest level - such as professional ice formats, specialty glassware, or select atmospheric components - may be arranged separately through the Concierge
+. These elements support the performance without altering its nature.
+
+- When the energy of the room calls for it, the experience may continue beyond its initial frame as a natural continuation of the ritual itself.
+
+Ice & Instinct / By appointment
+
+#### Surrender to improvisation.
+
+Tell us the date, the room, and your spirits collection.
+We return with a tailored consultation framework within one business day.
+Every evening includes professional clear ice and temperature, sourced at supplier cost.
+Reserve your evening
+Add enhancements
+
+A flat $500 deposit reserves your date - fully refundable until 14 days before the evening.
+
+By appointment only New York Metropolitan Area Est. 2024
+
+---
+
+## Perfection in Simplicity - Ice & Instinct, from $900
+URL: https://www.iceinstinct.com/offerings/simplicity/
+
+← Offerings
+
+### Perfection in Simplicity.
+
+For the host who values heritage over hype. The world's most iconic cocktails executed with surgical precision - by the Master Mixologist personally.
+From $900 USD Up to 12 guests · 4 hours · New York Metropolitan Area Inquire
+
+I · Overview
+
+#### Heritage over hype.
+
+For the host who values heritage over hype. Your gathering deserves cocktails balanced to absolute perfection - no flourish, no theater, only pure mastery.
+This is the Executive Standard: a service designed for those who understand that true luxury whispers. Whether for an intimate board dinner, a family celebration, or a high-level reception, we deliver the world’s most iconic cocktails with surgical precision. We do not invent here; we execute the legends.
+Your private mixologist arrives with a compact case of professional tools and a quarter-century of global hospitality experience distilled into seamless service. You enjoy the company of your guests; we ensure the glass in their hand is flawless.
+
+True luxury whispers.
+We do not invent. We execute the legends.
+
+II · The Menu Protocol Classics Only. Strictly defined. Flawlessly executed.
+
+#### The selection.
+
+Prior to the event, we curate a menu of 3-4 timeless classics (e.g., The Martini, The Old Fashioned, The Negroni, The Daiquiri).
+
+II · The Focus
+
+#### The focus.
+
+This package does not include signature cocktail design or experimental mixology. We agree on the classics, and we perfect them using superior spirits, precise dilution, and temperature control.
+
+III · Scalability
+
+#### Scalability & Investment.
+
+Service capacity is strictly calibrated to ensure the Purist standard of execution is never compromised, regardless of guest count.
+
+A The Intimate Up to 12 guests Personnel 1 Master Mixologist (solo performance) Focus Quiet, attentive precision. Direct guest interaction. From $900
+
+IV · The Experience
+
+#### What's Included.
+
+The specific milestones of your experience.
+
+- 01
+
+##### The Classics Consultation
+
+One week prior, we finalize your selection of classics and set the tone for the evening.
+
+- 02
+
+##### The Procurement Specification
+
+You receive a precise, architectural list of spirits, botanicals, and ice formats tailored to your menu. We provide the blueprint; you retain control of purchasing.
+
+- 03
+
+##### Four Hours of Execution
+
+We arrive 30 minutes early for setup. Service is continuous, quiet, and unobtrusive.
+
+- 04
+
+##### Station Restoration
+
+Upon conclusion, the bar station is returned to its pristine condition. We manage all bar-specific waste (citrus, herbs, melting ice) within the service perimeter.
+
+V · The Foundation
+
+#### Standard Inclusions.
+
+Every Ice & Instinct experience, regardless of tier, includes the foundation of our craft.
+01
+
+##### Private Master Mixologist
+
+A dedicated professional with a quarter-century of global hospitality expertise.
+
+02
+
+##### Professional Tooling
+
+A compact, aesthetic case of gold-standard mixology tools (shakers, jiggers, strainers). No bulky equipment, no portable bars.
+
+03
+
+##### On-Site Ritual Performance
+
+The visual elegance of proper stirring, shaking, and pouring.
+
+04
+
+##### Setup & Breakdown
+
+Complete organization of the immediate working area.
+
+VI · The Canvas
+
+#### What the Host Provides.
+
+To ensure the integrity of the service, the host provides the following canvas.
+
+- 01
+
+##### Spirits, Mixers & Garnishes
+
+All alcohol and fresh ingredients must be on-site prior to arrival, based on the provided Specification.
+
+- 02
+
+##### Glassware
+
+Proper vessels for the selected cocktails (or rental via The Curator add-on).
+
+- 03
+
+##### Infrastructure
+
+A dedicated work surface (kitchen counter, dining table, or existing bar), access to running water, and electricity.
+
+- 04
+
+##### Ice Supply
+
+Quantity and formats (cubes, spheres, spears) as specified in the consultation.
+
+- 05
+
+##### Floor Service Boundary
+
+Ice & Instinct focuses exclusively on production within the bar perimeter. For passing drinks, clearing glassware from the room, or general venue tidying, separate floor staff is required.
+
+#### Experience extensions.
+
+- The Executive Standard is designed as a complete and self-contained experience. In certain cases, the scope of service may be thoughtfully adjusted to meet the specific needs of the gathering.
+
+- A selection of additional services - including logistical coordination, glassware sourcing, specialty ice, and presentation support - is available on the Concierge
+page.
+
+- When the flow of the evening naturally calls for it, the Master Mixologist's presence may continue beyond the initial service window. Such considerations are addressed discreetly and without interrupting the integrity of the experience.
+
+Ice & Instinct / By appointment
+
+#### Strip away the unnecessary.
+
+Tell us the date, the room, and the headcount.
+We will return with a tailored quote within one business day.
+Every evening includes professional clear ice and temperature, sourced at supplier cost.
+Reserve your evening
+Add enhancements
+
+A flat $500 deposit reserves your date - fully refundable until 14 days before the evening.
+
+By appointment only New York Metropolitan Area Est. 2024
+
+---
+
+## Privacy Policy - Ice & Instinct
+URL: https://www.iceinstinct.com/privacy/
+
+### Privacy Policy
+
+Last updated · June 8, 2026
+
+#### 1. Who we are
+
+Ice & Instinct ("we", "us", "our") is a private mixology and at-home bartending service operated by Teimuraz Benidze , serving the New York metropolitan area. This policy explains what information we collect when you visit www.iceinstinct.com
+or send us an inquiry, how we use it, and the choices you have. We are the data controller for that information.
+
+#### 2. Information we collect
+
+- Inquiry and booking details. When you request a consultation through our scheduling provider (YouCanBook.me) or by email, we receive the details you provide: your name, email address, and any event details you share (date, location, guest count, preferences). These reach our private inbox.
+
+- Analytics data. We use Google Analytics 4 to understand how the site is used (pages viewed, approximate location, device and browser type, and on-site actions). Google Analytics sets cookies (for example _ga ) and processes a truncated version of your IP address. See our Cookie Policy
+for the full list and how to opt out.
+
+- Server logs. Our hosting provider records standard technical logs (IP address, user-agent, requested URL, timestamp) for security, performance, and abuse prevention.
+
+#### 3. How we use your information
+
+- To respond to your inquiry, prepare a quote, and deliver the service you book.
+
+- To send event-related communication through the channel you specified.
+
+- To understand and improve how the site performs (analytics, in aggregate).
+
+- To keep the site secure and prevent abuse.
+
+- To meet legal, tax, and accounting obligations.
+
+We do not sell or rent your personal information, and we do not share it with advertisers or use it for marketing unrelated to your inquiry.
+
+#### 4. Cookies and analytics
+
+The site uses a small number of cookies, primarily for analytics. We do not run advertising or cross-site tracking cookies. You can control or refuse cookies in your browser, and you can opt out of Google Analytics using Google's browser add-on. Full detail is in our Cookie Policy
+.
+
+#### 5. Service providers we share data with
+
+- YouCanBook.me - consultation scheduling and inquiry intake.
+
+- Google Analytics (Google LLC) - website usage measurement.
+
+- Google Fonts - typeface delivery.
+
+- Hostinger - website hosting and server logs.
+
+Each provider processes data only to deliver its service to us, under its own privacy terms.
+
+#### 6. How long we keep your data
+
+Inquiry submissions and email correspondence are kept for as long as needed to deliver the service you booked, plus a reasonable period afterward for accounting and legal records. Analytics data is retained for up to 14 months. You may request deletion at any time, subject to records we must keep by law.
+
+#### 7. Your rights
+
+Depending on where you live, you may have the right to access, correct, delete, or port your personal information, and to opt out of certain processing. New York residents may ask what information we hold and request its deletion. California residents have rights under the CCPA/CPRA, including the right to know, delete, and opt out of "sale" or "sharing" (we do neither). EU/UK residents have rights under the GDPR/UK GDPR. To exercise any right, write to us via the contact page
+; we will not discriminate against you for doing so.
+
+#### 8. Age
+
+This site and our services are intended for adults of legal drinking age (21 or older in the United States). We do not knowingly collect information from anyone under 18. See our Responsible Service & Alcohol Policy
+.
+
+#### 9. Security
+
+We take reasonable technical and organizational measures to protect your information. No method of transmission or storage is completely secure, so we cannot guarantee absolute security.
+
+#### 10. Changes
+
+We may update this policy from time to time. The "Last updated" date above reflects the most recent change.
+
+#### 11. Contact
+
+For privacy questions or data requests, reach us via the contact page
+.
+
+Ice & Instinct / Legal
+
+#### Questions? Answered plainly.
+
+Write to us about anything on this page. A personal reply within one business day.
+Begin the conversation
+
+By appointment only New York Metropolitan Area Est. 2024
+
+---
+
+## Responsible Service & Alcohol Policy - Ice & Instinct
+URL: https://www.iceinstinct.com/responsible-service/
+
+### Responsible Service & Alcohol Policy
+
+Last updated · June 8, 2026
+
+#### 1. Purpose
+
+Ice & Instinct provides private bartending and mixology service in the New York metropolitan area. The enjoyment of cocktails depends on serving them responsibly. This policy explains how we serve, the legal framework we serve within, and the responsibilities shared between us and the host. It works alongside our Terms of Service
+.
+
+#### 2. Legal drinking age (21+)
+
+We serve alcohol only to guests who are 21 years of age or older , the legal drinking age in the United States. Our bartenders may ask any guest for valid government-issued photo identification and will decline service to anyone who cannot establish that they are 21 or older. We never knowingly serve a minor.
+
+#### 3. We serve; we do not sell alcohol
+
+We provide bartending labor and craft, not the retail sale of alcohol. The alcohol served at your event is supplied by you as the host, or sourced on your behalf at supplier cost with no markup on the alcohol. Because we do not sell alcohol, we operate as a service provider rather than a licensed retailer; where a venue or event requires a permit to serve alcohol, securing it is the host's or venue's responsibility.
+
+#### 4. How we serve responsibly
+
+- We pace service and pour to standard measures rather than over-pour.
+
+- We make water available and encourage guests to drink it alongside cocktails.
+
+- We watch for signs of intoxication and adjust or stop service accordingly.
+
+- We offer and prepare quality non-alcoholic options on request.
+
+- Our service follows responsible-beverage-service practices.
+
+#### 5. Refusing and stopping service
+
+We reserve the absolute right, without liability and without refund, to refuse or stop serving any guest who is, or appears to be, under 21, unable to show valid identification, or intoxicated. We may also end an engagement where guest conduct or circumstances make safe, lawful service impossible. Please support our bartenders when they make these calls; they make them to keep your guests safe.
+
+#### 6. New York dram shop and social host law
+
+New York law, including the Dram Shop Act and the social host provisions of the General Obligations Law (sections 11-100 and 11-101), can impose liability on a person who unlawfully provides alcohol to a minor or to a visibly intoxicated person who then causes injury. As the host who supplies the alcohol and invites the guests, you retain the responsibilities the law places on a host. Our responsible-service practices reduce risk but do not transfer or remove a host's legal responsibilities.
+
+#### 7. Host responsibilities
+
+- Confirm that every guest to be served is 21 or older.
+
+- Supply alcohol lawfully and secure any permit the venue or event requires.
+
+- Arrange safe transportation for any guest who should not drive, and never pressure anyone to drink.
+
+- Support our bartenders when they pace, refuse, or stop service.
+
+#### 8. Safe transportation
+
+We encourage every host to plan ahead for rides home: rideshare, designated drivers, or car service. No guest should drive after drinking.
+
+#### 9. Liability and indemnification
+
+Our responsibilities and the limits of our liability, along with the host's indemnification obligations, are set out in our Terms of Service
+. Nothing in this policy waives any duty that the law does not permit to be waived.
+
+#### 10. Contact
+
+Questions about how we serve? Reach us via the contact page
+.
+
+Ice & Instinct / Legal
+
+#### Questions? Answered plainly.
+
+Write to us about anything on this page. A personal reply within one business day.
+Begin the conversation
+
+By appointment only New York Metropolitan Area Est. 2024
+
+---
+
+## Terms of Service - Ice & Instinct
+URL: https://www.iceinstinct.com/terms/
+
+### Terms of Service
+
+Last updated · June 8, 2026
+
+#### 1. Who we are
+
+Ice & Instinct is a private mixology and at-home bartending service operated by Teimuraz Benidze , serving the New York metropolitan area. These Terms govern your use of www.iceinstinct.com
+and the engagement between us and any client who books a service through our scheduling page or by direct agreement. By inquiring or booking, you agree to these Terms and to our Responsible Service & Alcohol Policy
+.
+
+#### 2. Our service model
+
+We provide professional bartending and mixology labor and service , not the sale of alcohol. We do not sell, resell, or furnish alcoholic beverages for a fee. Alcohol is supplied by you, the client/host, or sourced on your behalf at supplier cost as a convenience with no markup on the alcohol itself. Because we do not sell alcohol, our bartending service operates without a retail liquor license; where any event or venue requires a permit to serve alcohol, obtaining it is the client's or venue's responsibility.
+
+#### 3. Services we offer
+
+Private mixology service in the New York metropolitan area, organised in tiers:
+
+- The Foundation - from $650 USD, up to 15 guests, 3 hours.
+
+- Perfection in Simplicity - from $900 USD, up to 12 guests, 4 hours.
+
+- Bespoke Design & Artistry - from $1,800 USD, up to 30 guests, 4 hours.
+
+- Omakase Improvisation - from $3,000 USD, up to 25 guests, open hours.
+
+- Private Concierge - bespoke pricing.
+
+Each engagement is confirmed by a private quote sent in response to your inquiry. The confirmed quote is the binding scope.
+
+#### 4. Pricing & payment
+
+Pricing is bespoke per event and confirmed in writing. A flat $500 deposit reserves your date; the remaining balance is due before the event, unless otherwise agreed. Currency is USD.
+
+#### 5. Cancellation
+
+Cancellation more than 14 days before the event: full deposit refunded. Within 14 days: deposit non-refundable but transferable to a future date within 12 months, subject to availability. Within 48 hours: full booking value due. We may cancel or end service, without refund, where service cannot proceed safely or lawfully (see Section 7).
+
+#### 6. What's included
+
+Each tier includes the items listed at the time of quote: bartender service, tools, bar setup, and breakdown. Spirits and wine are provided by you or sourced on your behalf at supplier cost. Specialty ice, curated glassware, additional staff, and add-on services are arranged through the Concierge and billed separately at supplier cost.
+
+#### 7. Responsible service and age
+
+All guests served must be of legal drinking age (21 or older). We serve in accordance with our Responsible Service & Alcohol Policy
+and reserve the absolute right, without liability and without refund, to:
+
+- refuse or stop service to any guest who is, or appears to be, under 21 or unable to show valid ID;
+
+- refuse or stop service to any guest who is, or appears to be, intoxicated; and
+
+- end the engagement where guest conduct, the venue, or circumstances make safe, lawful service impossible.
+
+#### 8. Client and host responsibilities
+
+- Provide accurate event information at the time of inquiry.
+
+- Ensure the venue is accessible for setup at least 90 minutes before service.
+
+- Confirm that every guest to be served is 21 or older, and assist with ID checks on request.
+
+- Lawfully supply the alcohol to be served, and obtain any permit the venue or event requires.
+
+- Act as the host of the gathering. As host, you are responsible for your guests and for arranging safe transportation for anyone who should not drive.
+
+#### 9. Assumption of risk & host liability
+
+The consumption of alcohol carries inherent risks. Under New York law, including the Dram Shop Act and social host provisions (General Obligations Law sections 11-100 and 11-101), a person who unlawfully furnishes alcohol to a minor or to a visibly intoxicated person may be held liable for resulting harm. You acknowledge that, as the host who supplies the alcohol and invites the guests, you retain the responsibilities the law places on a host, and that our role is limited to providing responsible bartending service.
+
+#### 10. Limitation of liability
+
+We provide service in good faith and to a professional standard. To the fullest extent permitted by law, our total liability for any claim arising from a service is limited to the fees you paid us for that service, and we are not liable for indirect, incidental, or consequential damages. Nothing in these Terms limits liability that cannot be limited by law.
+
+#### 11. Indemnification
+
+To the fullest extent permitted by law, you agree to indemnify and hold us harmless from claims, damages, and costs arising from: guest conduct; a guest's intoxication or underage drinking that occurs despite our reasonable refusal of service; the alcohol you supplied; the condition of the venue; or your breach of these Terms.
+
+#### 12. Insurance
+
+We carry commercial general liability insurance for our service. This does not replace the coverage a host or venue should hold. We recommend you confirm that your homeowner's, renter's, or venue policy provides host liquor liability coverage for your event.
+
+#### 13. Intellectual property
+
+Recipes, photography, and brand materials remain the property of Ice & Instinct unless transferred in writing. Custom recipes designed for your event may be shared with you in a printed take-home format on request.
+
+#### 14. Confidentiality
+
+We treat all client information as confidential and do not share guest lists, addresses, or event details with third parties. We do not photograph guests during service without explicit prior consent.
+
+#### 15. Governing law
+
+These Terms are governed by the laws of the State of New York, USA. Disputes will first be addressed by good-faith discussion; if not resolved, by the state or federal courts located in New York County, New York.
+
+#### 16. Changes
+
+We may update these Terms from time to time. The "Last updated" date above reflects the most recent change. For ongoing engagements, the Terms in force at the time of your booking apply.
+
+#### 17. Contact
+
+Questions about these Terms? Reach us via the contact page
+.
+
+Ice & Instinct / Legal
+
+#### Questions? Answered plainly.
+
+Write to us about anything on this page. A personal reply within one business day.
+Begin the conversation
+
+By appointment only New York Metropolitan Area Est. 2024
