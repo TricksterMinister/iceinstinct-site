@@ -60,10 +60,10 @@ const IMAGE_ASSETS: PressAsset[] = [
     thumb: '/assets/photos/founder-teimuraz.png',
   },
   {
-    name: 'Hero - the cocktails',
-    meta: 'Site hero image · PNG',
-    href: '/assets/photos/hero-cocktails.png',
-    thumb: '/assets/photos/hero-cocktails.png',
+    name: 'The craft - clear ice',
+    meta: 'Brand photography · JPG',
+    href: '/assets/photos/duality-ice.jpg',
+    thumb: '/assets/photos/duality-ice.jpg',
   },
   {
     name: 'White Lotus',

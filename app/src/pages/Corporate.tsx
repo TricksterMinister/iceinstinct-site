@@ -157,8 +157,8 @@ export function Corporate() {
             </div>
             <div className="concierge-image">
               <img
-                src="/assets/photos/hero-cocktails.png"
-                alt="A row of signature cocktails on a dark bar, lit from above"
+                src="/assets/photos/corporate-loft.jpg"
+                alt="A row of cocktails on a dark loft bar with city lights behind"
                 loading="eager"
               />
               <div className="concierge-image-scrim"></div>

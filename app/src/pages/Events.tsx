@@ -179,8 +179,8 @@ export function Events() {
             </div>
             <div className="concierge-image">
               <img
-                src="/assets/photos/hero-cocktails.png"
-                alt="A row of cocktails on a dark bar, lit from above"
+                src="/assets/photos/events-bench.jpg"
+                alt="A bartender station set for an event: shakers, jigger, coupe glasses and clear ice in champagne light"
                 loading="eager"
               />
               <div className="concierge-image-scrim"></div>
