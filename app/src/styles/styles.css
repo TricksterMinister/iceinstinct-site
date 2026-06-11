@@ -2685,18 +2685,18 @@ img.reveal-zoom.is-in { transform: scale(1); }
    Improvement (a): no JS, a11y by default, animatable via CSS.
    `interpolate-size: allow-keywords` + `transition: height auto`
    gives smooth open/close where supported. */
-.faq-list {
+.numbered .faq-list {
   display: flex;
   flex-direction: column;
   border-top: 1px solid var(--c-border);
 }
-.faq-item {
+.numbered .faq-item {
   border-bottom: 1px solid var(--c-border);
   background: transparent;
   /* Smooth height animation where supported */
   interpolate-size: allow-keywords;
 }
-.faq-item summary {
+.numbered .faq-item summary {
   list-style: none;
   cursor: pointer;
   display: flex;
@@ -2711,8 +2711,8 @@ img.reveal-zoom.is-in { transform: scale(1); }
   color: var(--c-fg-soft);
   transition: color var(--d-fast) var(--ease);
 }
-.faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary::after {
+.numbered .faq-item summary::-webkit-details-marker { display: none; }
+.numbered .faq-item summary::after {
   content: "";
   flex: 0 0 14px;
   width: 14px;
@@ -2723,18 +2723,18 @@ img.reveal-zoom.is-in { transform: scale(1); }
   transition: transform var(--d-base) var(--ease), color var(--d-base) var(--ease);
   color: var(--c-fg-muted);
 }
-.faq-item:hover summary { color: var(--c-fg); }
-.faq-item:hover summary::after { color: var(--c-fg); }
-.faq-item[open] summary { color: var(--c-fg); }
-.faq-item[open] summary::after {
+.numbered .faq-item:hover summary { color: var(--c-fg); }
+.numbered .faq-item:hover summary::after { color: var(--c-fg); }
+.numbered .faq-item[open] summary { color: var(--c-fg); }
+.numbered .faq-item[open] summary::after {
   transform: rotate(45deg);
   color: var(--c-fg);
 }
-.faq-answer {
+.numbered .faq-answer {
   padding: 0 0 var(--s-md);
   overflow: hidden;
 }
-.faq-answer p {
+.numbered .faq-answer p {
   font-size: var(--t-base);
   line-height: 1.7;
   color: var(--c-fg-soft);
@@ -2742,7 +2742,7 @@ img.reveal-zoom.is-in { transform: scale(1); }
   max-width: 64ch;
   margin: 0;
 }
-.faq-answer a {
+.numbered .faq-answer a {
   color: var(--c-fg);
   text-decoration: underline;
   text-underline-offset: 3px;

@@ -60,7 +60,7 @@
   z-index: 1;
   width: 100%;
   max-width: 76rem;
-  margin: 0;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: clamp(1.5rem, 3vw, 3rem);
@@ -233,7 +233,10 @@
   display: block;
   max-width: 62rem;
 }
-.faq .faq-intro { margin-bottom: clamp(1.6rem, 4vh, 2.8rem); }
+.faq .faq-intro { margin-bottom: clamp(1.1rem, 2.4vh, 1.8rem); }
+/* Compact ledger rhythm: 12 closed rows + intro = exactly one viewport. */
+.faq .faq-q { padding: clamp(0.5rem, 1.25vh, 0.9rem) 0; font-size: clamp(0.98rem, 0.9rem + 0.45vmin, 1.28rem); }
+.faq .faq-a { padding-bottom: clamp(0.9rem, 2vh, 1.4rem); }
 .faq-intro {
   margin-bottom: clamp(2.6rem, 6vh, 4.5rem);
 }
@@ -474,4 +477,28 @@
 
 @media (max-width: 720px) {
   .faq-q { gap: 1rem; }
+}
+
+
+/* Section ghosts (SCALE / ANSWERS): always behind the content, top-right,
+   silent - regardless of which page chrome (cinema.css or cinema-chrome.css)
+   is loaded underneath. */
+.tiers-note .section-bg-word,
+.faq .section-bg-word {
+  position: absolute;
+  z-index: 0;
+  top: -2vh;
+  bottom: auto;
+  left: auto;
+  right: -1vw;
+  transform: none;
+  padding: 0;
+  font-weight: 800;
+  font-size: clamp(10rem, 24vmin, 28rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  color: oklch(78% 0.05 95 / 0.1);
+  animation: none;
+  pointer-events: none;
 }
