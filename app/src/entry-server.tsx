@@ -19,6 +19,9 @@ import { Bespoke } from './pages/Bespoke';
 import { Omakase } from './pages/Omakase';
 import { ConciergePage } from './pages/ConciergePage';
 import { MyStory } from './pages/MyStory';
+import { Weddings } from './pages/Weddings';
+import { Corporate } from './pages/Corporate';
+import { Gift } from './pages/Gift';
 import { GalleryPage } from './pages/GalleryPage';
 import { Contact } from './pages/Contact';
 import { Privacy } from './pages/Privacy';
@@ -41,6 +44,9 @@ const ROUTES: Record<string, () => ReactElement> = {
   '/offerings/omakase/': () => <Omakase />,
   '/concierge/': () => <ConciergePage />,
   '/my-story/': () => <MyStory />,
+  '/weddings/': () => <Weddings />,
+  '/corporate/': () => <Corporate />,
+  '/gift/': () => <Gift />,
   '/gallery/': () => <GalleryPage />,
   '/contact/': () => <Contact />,
   '/privacy/': () => <Privacy />,

@@ -46,7 +46,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogTitle: "Offerings - Ice & Instinct",
     ogDescription: "Four levels of private mixology service. Plus curated add-ons.",
     ogImage: "/assets/og/offerings.png",
-    jsonLd: [tierItemList(), offeringsFaq(), offeringsFaq()],
+    jsonLd: [tierItemList(), offeringsFaq()],
   },
 
   '/offerings/foundation/': {
@@ -119,6 +119,44 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
       "Founder and flavor architect of Ice & Instinct. Where ritual meets instinct.",
     ogImage: "/assets/og/mystory.png",
     jsonLd: [founderPerson()],
+  },
+
+  '/weddings/': {
+    title: "Wedding Bar & Cocktail Service NYC & NJ - Ice & Instinct",
+    description:
+      "Wedding bar and cocktail service for NYC and New Jersey. His-and-hers signature cocktails, a full bar team, professional clear ice, and a zero-proof program. From $650.",
+    canonical: `${SITE}/weddings/`,
+    ogTitle: "Wedding Bar & Cocktail Service NYC & NJ - Ice & Instinct",
+    ogDescription:
+      "His-and-hers signatures, a scalable bar team, professional clear ice. Wedding bar service for NYC and New Jersey, from $650.",
+    ogImage: "/assets/og/weddings.png",
+    // Service + FAQPage JSON-LD are hand-authored in the page stub head;
+    // prerender preserves shell schema and skips this list.
+    jsonLd: [],
+  },
+
+  '/corporate/': {
+    title: "Corporate Event Bar Service NYC & NJ - Ice & Instinct",
+    description:
+      "Corporate event bar service in NYC and New Jersey. Brand events, client dinners, offsites, product launches. Invoicing, COI on request, W-9 ready. Four tiers from $650.",
+    canonical: `${SITE}/corporate/`,
+    ogTitle: "Corporate Event Bar Service NYC & NJ - Ice & Instinct",
+    ogDescription:
+      "A bar that is part of the program, not the catering line. Four tiers from $650, invoicing available, zero-proof program, NYC metro and New Jersey.",
+    ogImage: "/assets/og/corporate.png",
+    jsonLd: [],
+  },
+
+  '/gift/': {
+    title: "Gift an Evening - Private Mixology Gift Certificate, NYC & NJ",
+    description:
+      "Gift an Ice & Instinct evening: a private mixology experience as a framed certificate. Two options, $650 and $900, valid 12 months, date transferable. NYC metro and New Jersey.",
+    canonical: `${SITE}/gift/`,
+    ogTitle: "Gift an Evening - Ice & Instinct",
+    ogDescription:
+      "A private mixology evening as a gift: framed certificate, valid 12 months. From $650.",
+    ogImage: "/assets/og/gift.png",
+    jsonLd: [],
   },
 
   '/gallery/': {

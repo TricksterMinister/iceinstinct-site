@@ -1,0 +1,200 @@
+/* ICE & INSTINCT / gift page
+   Only the voucher-card section is new; every other section on /gift/ reuses
+   offering.css (concierge hero, oma-fmt3, oma-panel/oma-steps, closing) and
+   sections.css (faq ledger). Strict monochrome + champagne, hairlines only. */
+
+.gift-vouchers {
+  position: relative;
+  background: var(--c-bg);
+  border-top: 1px solid var(--c-border-soft);
+  padding: clamp(5rem, 14vh, 9rem) clamp(1.5rem, 6vw, 7rem);
+  overflow: clip;
+  isolation: isolate;
+}
+
+.gift-vouchers-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* ---- section head ---- */
+.gift-head { max-width: 64ch; margin-bottom: clamp(2.4rem, 6vh, 4.2rem); }
+
+.gift-eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: clamp(0.66rem, 0.62rem + 0.15vmin, 0.74rem);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--c-fg-faint);
+  margin-bottom: clamp(1rem, 2.4vh, 1.6rem);
+}
+
+.gift-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 1.3rem + 3vmin, 3.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: var(--c-fg);
+  margin: 0 0 clamp(0.9rem, 2vh, 1.4rem);
+}
+
+.gift-title .it {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-weight: 350;
+  letter-spacing: 0;
+  color: var(--c-accent);
+}
+
+.gift-lead {
+  font-size: clamp(1rem, 0.95rem + 0.35vmin, 1.2rem);
+  line-height: 1.6;
+  color: var(--c-fg-soft);
+  margin: 0;
+  max-width: 56ch;
+}
+
+/* ---- the two voucher cards ---- */
+.gift-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 2.4vw, 2rem);
+  align-items: stretch;
+}
+
+.gift-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--c-bg-soft);
+  border: 1px solid color-mix(in oklab, var(--c-border) 85%, transparent);
+  padding: clamp(1.8rem, 3.2vw, 3rem);
+}
+
+/* champagne hairline along the top edge - the only ornament */
+.gift-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--c-accent-line, var(--c-accent)) 0%, transparent 70%);
+}
+
+.gc-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--c-fg-faint);
+  margin-bottom: clamp(1.2rem, 2.6vh, 1.8rem);
+}
+
+.gc-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.45rem, 1.1rem + 1.4vmin, 2.2rem);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  color: var(--c-fg);
+  margin: 0;
+}
+
+.gc-name .it {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-weight: 350;
+  letter-spacing: 0;
+  color: var(--c-accent);
+}
+
+.gc-price {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 1.2rem + 1.2vmin, 2.1rem);
+  color: var(--c-fg);
+  margin-top: clamp(1.3rem, 2.8vh, 2rem);
+}
+
+.gc-price small {
+  display: block;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 0.64rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-fg-faint);
+  margin-top: 0.55rem;
+}
+
+.gc-body {
+  font-size: clamp(0.95rem, 0.9rem + 0.25vmin, 1.08rem);
+  line-height: 1.65;
+  color: var(--c-fg-soft);
+  margin: clamp(1.2rem, 2.6vh, 1.8rem) 0 0;
+}
+
+/* terms ledger: mono keys, hairline rows */
+.gc-terms {
+  margin: clamp(1.5rem, 3.2vh, 2.4rem) 0 0;
+  border-top: 1px solid color-mix(in oklab, var(--c-border) 80%, transparent);
+}
+
+.gc-term {
+  display: grid;
+  grid-template-columns: minmax(6.5rem, 9rem) 1fr;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid color-mix(in oklab, var(--c-border) 80%, transparent);
+}
+
+.gc-term dt {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c-fg-faint);
+  padding-top: 0.15em;
+}
+
+.gc-term dd {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--c-fg-soft);
+}
+
+/* CTA: typography body here; the matte-champagne skin comes from accent.css */
+.gc-cta {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: clamp(1.8rem, 4vh, 2.8rem);
+  padding: 1.02rem 1.85rem;
+  font-family: var(--font-mono);
+  font-size: clamp(0.68rem, 0.64rem + 0.15vmin, 0.76rem);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.gift-foot {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--c-fg-muted);
+  max-width: 70ch;
+  margin: clamp(1.8rem, 4vh, 2.8rem) 0 0;
+}
+
+@media (max-width: 880px) {
+  .gift-grid { grid-template-columns: 1fr; }
+  .gift-vouchers { padding-left: 1.4rem; padding-right: 1.4rem; }
+  .gc-cta { align-self: stretch; justify-content: center; }
+}
