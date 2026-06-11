@@ -50,12 +50,14 @@
    ========================================================================= */
 .gold-shine,
 :is(h1, h2, h3, h4) .it {
+  /* rest tone is BRIGHT champagne (the old line-tone read as blackened gold
+     once the sweep stopped looping); light segments deepen it via --shine-base */
   background-image: linear-gradient(100deg,
-    var(--c-accent-line) 0%,
-    var(--c-accent-line) 40%,
-    oklch(95% 0.045 92) 50%,
-    var(--c-accent-line) 60%,
-    var(--c-accent-line) 100%);
+    var(--shine-base, var(--c-accent-deep)) 0%,
+    var(--shine-base, var(--c-accent-deep)) 40%,
+    oklch(96% 0.05 92) 50%,
+    var(--shine-base, var(--c-accent-deep)) 60%,
+    var(--shine-base, var(--c-accent-deep)) 100%);
   background-size: 220% 100%;
   background-repeat: repeat;
   -webkit-background-clip: text; background-clip: text;
@@ -76,6 +78,13 @@
 .gold-shine.lit,
 :is(h1, h2, h3, h4) .lit.it {
   animation: gold-shine-sweep 2.4s cubic-bezier(0.45, 0, 0.2, 1) 1 both;
+}
+/* on light grounds the bright rest tone would wash out - deepen it there */
+.seg-light,
+.closing-segment,
+.oma-panel.light,
+.oma-ledger {
+  --shine-base: oklch(50% 0.095 85);
 }
 @keyframes gold-shine-sweep {
   0% { background-position: 110% 0; }

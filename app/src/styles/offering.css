@@ -724,7 +724,9 @@ html, body { overflow-x: clip; }
 .oma-fmt3-ghost { display: none; }
 
 /* bridge held-stage text: much larger + bright, stronger scrim for readability */
-.oma-hold-text .oma-seg-h { font-size: var(--t-h2); line-height: .96; }
+/* the bridge is a cinematic full-bleed moment - its words carry hero scale */
+.oma-hold-text .oma-seg-h { font-size: clamp(3.2rem, 2rem + 6.5vmin, 8.2rem); line-height: 0.96; }
+.oma-hold-text .oma-seg-lead { font-size: clamp(1.05rem, 0.95rem + 0.6vmin, 1.42rem); line-height: 1.55; max-width: 58ch; }
 .oma-hold-text .oma-seg-lead {
   font-size: clamp(1.15rem, 1.7vw, 1.6rem);
   line-height: 1.5;
