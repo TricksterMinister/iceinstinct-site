@@ -2,6 +2,9 @@
 
 > Single source of truth for "where are we". Updated at the end of each session. Keep it SHORT.
 
+## NEXT SESSION = MONEY MACHINE EXECUTION (ultracode)
+**Plan:** `docs/superpowers/plans/2026-06-10-money-machine-masterplan.md` - 28 items in 6 phases, DoD per item, owner constraints baked in (NO LinkedIn for I&I, NO Thumbtack/GigSalad/Bash, Instagram exists - hands off; PartySlate/Knot = pending Temo yes/no). Execution order: Phase 2 (conversion code strikes) -> Phase 1 (THE TEMO HOUR: browser-approved, logged-in Google/Hostinger/Stripe - GSC, Bing, GBP claim, hello@iceinstinct.com, gift Stripe link) -> 3 (weddings/corporate/gift) -> 4 (geo+blog moat) -> 5 (Make/Gmail/Calendar automations) -> 6 (press kit + 20 planner drafts). Start the session by reading the plan, then run phase waves via Workflow.
+
 ## SESSION 2026-06-10d (FULL GEO/SEO/MARKETING AUDIT + truth pass - LIVE `8760b95`)
 8-agent parallel audit (AI visibility 61, platforms 50, technical 86, E-E-A-T 60, schema 44, competitors 14, local 24, leadgen 42 -> composite GEO 56/100). FULL REPORT: `docs/GEO-AUDIT-REPORT.md` + `/Volumes/TEMO DISC/Reports/2026-06-10-iceinstinct-geo-seo-marketing-audit.md`.
 **Killer finding (6/8 agents independently): site fed AI engines THREE conflicting price sets** (llms.txt $400/$750/$1500; my-story FAQPage schema $1000 deposit + old capacities; live pages $650/$900/$1800 + $500). ALL FIXED + LIVE: llms.txt regenerated from live facts (NJ, 13 cocktails, booking links, policies); home schema -> Organization+LocalBusiness (tel, priceRange $650-$3000+, 7 structured areas, founder w/ 4 sommelier credentials); FAQPage JSON-LD on /offerings/ (hand-authored in shell - prerender skips seoData jsonLd when shell has any); my-story FAQ (schema + visible) aligned to live facts; footer NAP (NJ + visible phone); home title "NYC & New Jersey"; 301 /the-architect + /httpswwwiceinstinctcomofferings; llms/robots/sitemap cache 1h (was 1 month).
