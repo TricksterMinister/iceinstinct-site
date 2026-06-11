@@ -19,9 +19,9 @@
 1. https://www.bing.com/webmasters -> Sign in (Google аккаунт ок)
 2. Кнопка **Import from Google Search Console** -> подтвердить. Все. Sitemap подтянется сам, проверить в Sitemaps.
 
-## 3. Claim Google Business Profile (~20 мин) - сущность УЖЕ существует
-1. Открыть https://www.google.com/maps -> найти "Ice & Instinct" (kgmid /g/11ms10nkr6; если не ищется - открыть share.google ссылку, я дам)
-2. "Own this business?" / "Заявить права" -> пройти claim с аккаунта Темо.
+## 3. Google Business Profile (~15 мин) - ПО СЛОВАМ ТЕМО ПРОФИЛЬ УЖЕ ЕСТЬ (2026-06-11)
+0. ПЕРВЫМ ДЕЛОМ: https://business.google.com с аккаунта Темо -> проверить, что профиль "Ice & Instinct" там виден и что это ТА ЖЕ карточка, что в выдаче (kgmid /g/11ms10nkr6 - сверим по адресу/телефону/ссылке). Если в выдаче живёт дубль без владельца - запросить объединение/claim дубля, иначе отзывы пойдут мимо.
+1. Если профиля в business.google.com всё же нет: открыть https://www.google.com/maps -> найти "Ice & Instinct" -> "Own this business?" / "Заявить права" -> пройти claim с аккаунта Темо.
 3. Заполнить:
    - Тип: **Service-area business** (БЕЗ публичного адреса)
    - Зоны: Manhattan, Brooklyn, North NJ, Westchester, Greenwich, Hamptons
