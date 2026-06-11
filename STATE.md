@@ -2,6 +2,12 @@
 
 > Single source of truth for "where are we". Updated at the end of each session. Keep it SHORT.
 
+## SESSION 2026-06-10d (FULL GEO/SEO/MARKETING AUDIT + truth pass - LIVE `8760b95`)
+8-agent parallel audit (AI visibility 61, platforms 50, technical 86, E-E-A-T 60, schema 44, competitors 14, local 24, leadgen 42 -> composite GEO 56/100). FULL REPORT: `docs/GEO-AUDIT-REPORT.md` + `/Volumes/TEMO DISC/Reports/2026-06-10-iceinstinct-geo-seo-marketing-audit.md`.
+**Killer finding (6/8 agents independently): site fed AI engines THREE conflicting price sets** (llms.txt $400/$750/$1500; my-story FAQPage schema $1000 deposit + old capacities; live pages $650/$900/$1800 + $500). ALL FIXED + LIVE: llms.txt regenerated from live facts (NJ, 13 cocktails, booking links, policies); home schema -> Organization+LocalBusiness (tel, priceRange $650-$3000+, 7 structured areas, founder w/ 4 sommelier credentials); FAQPage JSON-LD on /offerings/ (hand-authored in shell - prerender skips seoData jsonLd when shell has any); my-story FAQ (schema + visible) aligned to live facts; footer NAP (NJ + visible phone); home title "NYC & New Jersey"; 301 /the-architect + /httpswwwiceinstinctcomofferings; llms/robots/sitemap cache 1h (was 1 month).
+**OWNER TODO (money order): 1) claim GBP (entity exists: kgmid /g/11ms10nkr6 via share.google link in schema) 2) review engine (1 review now; ask every past client; 24h post-event WhatsApp ask) 3) directories: The Bash/GigSalad/Thumbtack/Yelp/The Knot/WeddingWire/PartySlate 4) LinkedIn says "TextCraft Studio" - update to Ice & Instinct + company page 5) hello@iceinstinct.com 6) Google Search Console (Google indexed 2 of 15 pages!) 7) 20-planner outreach w/ 10% referral.**
+**BUILD NEXT: /weddings/ + /corporate/ pages; email capture on Profiler keepsake + nurture; deposit line under booking CTAs; NJ/Manhattan/Hamptons service-area pages; per-cocktail text on /gallery/; gift vouchers.**
+
 ## SESSION 2026-06-10c (quiet-luxury design overhaul - LIVE, HEAD `d1b80a8`)
 Owner direction: "award-winning, quiet luxury - дорого, но тихо". Shipped, all live:
 - **Matte two-weight gold system** (accent.css): primary = matte champagne body (no glossy core, radius 2px, lift on hover), secondary (btn-ghost, pp-btn.ghost) = hairline outline that fills matte on hover. Unified focus rings + pointer:coarse touch targets.
