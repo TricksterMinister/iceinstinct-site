@@ -107,6 +107,16 @@ This is the "sit, earn, occasionally go out for the premium jobs" life the owner
 
 ---
 
+## Триггеры эскалации структуры (не раньше!)
+1. LLC (NJ, ~$125 + $75/год): когда Ice делает $5k+/мес три месяца подряд
+   ИЛИ первый корпоративный клиент требует COI на компанию.
+2. Своя страховка агентства (GL + liquor liability, ~$500-900/год):
+   вместе с LLC.
+3. Первый W2-бартендер: когда один и тот же субподрядчик стабильно
+   делает 8+ заказов/мес два месяца подряд (дальше держать его на 1099
+   в NJ опасно) ИЛИ суммарно 25+ заказов/мес по скамейке.
+4. До триггеров: только договор A1 + страховка бартендера/площадки.
+
 ## 5-year arc
 
 - **Year 1:** Run the spread engine (Option A) + Instinct premium in parallel. Build the bench to 10-20. Prove the weekly cash. Near-zero cost.
