@@ -1,0 +1,33 @@
+/* ICE & INSTINCT / events page (the ICE floor storefront)
+   Small additive layer over offering.css + sections.css. Three jobs only:
+   1. the static hero photo obeys the site photo law (monochrome at rest);
+   2. the mono notes under the package ledger (extras + deposit);
+   3. the bridge-section CTA spacing. Nothing else is restyled. */
+
+/* 1. Hero photo: monochrome at rest (offering.css ships the video treatment,
+      which keeps color - this page uses a still, so it follows the photo law). */
+.events-hero .concierge-image img {
+  filter: grayscale(100%) contrast(1.06) brightness(0.92);
+}
+
+/* 2. Notes under the package ledger: extras line + deposit line. */
+.ev-note {
+  font-family: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.66rem;
+  line-height: 1.7;
+  color: var(--oma-ink-faint, oklch(46% 0.02 85));
+  margin: clamp(1.2rem, 2.4vh, 1.8rem) 0 0;
+  max-width: 56ch;
+}
+.ev-note + .ev-note {
+  margin-top: 0.55rem;
+}
+
+/* 3. The bridge CTA up to the INSTINCT floor. */
+.ev-bridge-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(2rem, 4.5vh, 3.2rem);
+}

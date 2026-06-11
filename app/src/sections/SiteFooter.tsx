@@ -32,6 +32,7 @@ export function SiteFooter({ embedded = false }: SiteFooterProps) {
           <a className="lnk" href="/weddings/">Weddings</a>
           <a className="lnk" href="/corporate/">Corporate</a>
           <a className="lnk" href="/gift/">Gift an Evening</a>
+          <a className="lnk" href="/events/">Event Bartenders</a>
           <a className="lnk" href="/journal/">Journal</a>
           <a className="lnk" href="/press/">Press</a>
           <a className="lnk" href="/contact/">Inquire</a>

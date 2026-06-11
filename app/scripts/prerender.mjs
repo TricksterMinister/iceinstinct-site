@@ -42,6 +42,7 @@ const ROUTE_TO_HTML = {
   '/journal/clear-ice-why-it-matters/': 'journal/clear-ice-why-it-matters/index.html',
   '/journal/cigar-and-cocktail-pairing/': 'journal/cigar-and-cocktail-pairing/index.html',
   '/press/': 'press/index.html',
+  '/events/': 'events/index.html',
   '/gallery/': 'gallery/index.html',
   '/contact/': 'contact/index.html',
   '/privacy/': 'privacy/index.html',

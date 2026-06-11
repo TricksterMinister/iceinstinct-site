@@ -16,7 +16,7 @@ const EMAIL = 'alchemyandice.nyc@gmail.com';
 // validates the ?occasion= prefill (e.g. /contact/?occasion=wedding) so an
 // arbitrary URL value can never land in the form.
 const GUEST_COUNTS = ['up to 15', '15-40', '40+'];
-const OCCASIONS = ['private dinner', 'birthday', 'wedding', 'corporate', 'other'];
+const OCCASIONS = ['private dinner', 'birthday', 'wedding', 'corporate', 'event staffing', 'other'];
 
 export function Contact() {
   // Inquire mirrors the offering pages: <body class="cinema-chrome"> + the

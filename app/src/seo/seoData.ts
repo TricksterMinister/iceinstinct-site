@@ -159,6 +159,21 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     jsonLd: [],
   },
 
+  '/events/': {
+    title: "Event Bartenders On Call, NYC & New Jersey - Ice & Instinct",
+    description:
+      "Vetted event bartenders for birthdays, house parties, weddings and corporate nights across NYC and New Jersey. Flat packages from $450, founder-trained bench, insured, punctual.",
+    canonical: `${SITE}/events/`,
+    ogTitle: "Event Bartenders On Call, NYC & New Jersey - Ice & Instinct",
+    ogDescription:
+      "A vetted bartender for your date in one call. Flat packages from $450. The bench behind a private mixology studio.",
+    // Placeholder OG card until an events-specific one exists.
+    ogImage: "/assets/og/corporate.png",
+    // Service + FAQPage + BreadcrumbList JSON-LD are hand-authored in the page
+    // stub head; prerender preserves shell schema and skips this list.
+    jsonLd: [],
+  },
+
   '/new-jersey/': {
     title: "Private Bartending & Cocktail Service in New Jersey - Ice & Instinct",
     description:

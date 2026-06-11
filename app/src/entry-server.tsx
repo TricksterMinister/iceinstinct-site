@@ -22,6 +22,7 @@ import { MyStory } from './pages/MyStory';
 import { Weddings } from './pages/Weddings';
 import { Corporate } from './pages/Corporate';
 import { Gift } from './pages/Gift';
+import { Events } from './pages/Events';
 import { NewJersey } from './pages/NewJersey';
 import { Manhattan } from './pages/Manhattan';
 import { Hamptons } from './pages/Hamptons';
@@ -57,6 +58,7 @@ const ROUTES: Record<string, () => ReactElement> = {
   '/weddings/': () => <Weddings />,
   '/corporate/': () => <Corporate />,
   '/gift/': () => <Gift />,
+  '/events/': () => <Events />,
   '/new-jersey/': () => <NewJersey />,
   '/manhattan/': () => <Manhattan />,
   '/hamptons/': () => <Hamptons />,
