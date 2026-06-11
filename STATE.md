@@ -2,6 +2,15 @@
 
 > Single source of truth for "where are we". Updated at the end of each session. Keep it SHORT.
 
+## SESSION 2026-06-11b (ICE FLOOR SHIPPED - two-floor business live, HEAD `24a95ca`, 29 routes)
+Owner decision after deep-research (105 agents): two-floor model. INSTINCT = founder premium (untouched, never discounted); ICE = bartender dispatch spread engine (client $450+ flat, bartender $180-240/4h subcontract, min spread $200/gig, deposit BEFORE bartender call). Executed via subagent-driven-development from `docs/superpowers/plans/2026-06-11-ice-floor-business-plan.md` (each task: implementer -> spec review -> quality review):
+- **Business docs** `docs/business/`: subcontractor agreement (10 sections, non-solicit 12mo + 10% referral, insurance req), bench standard (A/B tiers), ice-pricing, call/quote scripts, 10-step dispatch checklist, recruiting ad, CSV trackers (bench + dispatch). Escalation triggers (LLC/insurance/W2 - not before $5k/mes x3) in BUSINESS-MODEL.md.
+- **Site (all live):** `/events/` (packages ledger, trust block, 3 FAQ+schema, CTA occasion=event+staffing, bespoke Imagen hero events-bench.jpg), `/work-with-us/` (bench intake form -> Formspree "Bench application - <name>", bench_apply events), TwoFloors home section (after TiersNote), SEO tails (llms.txt ICE lines, 4 geo pages link /events/, own OG cards). Contact OCCASIONS += "event staffing". GA4 vocab += quote_click/two_floors_click/instinct_bridge_click/bench_*.
+- **Hero fix:** hero-cocktails.png turned out to be a LEGACY TEXT BANNER ("ALCHEMY & ICE"), cropped to garbage in hero frames - replaced with bespoke Imagen photos on /events/ + /corporate/, press download swapped to real photography.
+- **Deploy quirk:** one Hostinger auto-deploy (b34df98) silently never landed; retrigger by next push fixed it. If a page 404s after push - push again, don't debug the code.
+- KPI cron `ii-weekly-kpi` updated: both floors (INSTINCT leads / ICE leads+spread / bench applications).
+- **Temo-side remains (plan Part C/F):** lawyer pass on agreement (SCORE/NJSBDC free), post recruiting ad, import CSVs to Google Sheets, first 5 Ice gigs (after GBP), add Ice line when sending the 18 planner drafts.
+
 ## NEXT SESSION = THE TEMO HOUR (Phase 1) - everything else is DONE
 **Runbook: `docs/TEMO-HOUR.md`** - one ~60 min browser-approved evening: GSC verify + sitemap + request-index 27 URLs; Bing import; GBP claim (kgmid /g/11ms10nkr6, photo folder READY at `/Volumes/TEMO DISC/Reports/iceinstinct-gbp-photos/`, capture the g.page review link!); hello@iceinstinct.com mailbox; **CDN purge in hPanel (выбить старый 30-дневный кэш llms/sitemap)**; Stripe gift links x2; Wikidata account + bot password; PartySlate/Knot/WeddingWire yes-no; optional CallMeBot apikey. After the hour, code follow-ups (I do): hello@ into footer/schema/press/Formspree reply-to; Stripe links into /gift/ STRIPE_LINKS; review link -> 5.2 review-engine cron + STATE; Wikidata item via API + QID into schema sameAs. Then Temo presses Send on 18 Gmail outreach drafts.
 
