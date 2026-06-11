@@ -33,6 +33,12 @@ export function resolveCtaEvent(href: string): string | null {
 //   bench_form_start   - first focus on the /work-with-us/ bench application form
 //   bench_apply        - bench application sent successfully (Formspree ok)
 //   bench_apply_error  - bench application Formspree error (else branch or catch)
+//   email_capture      - profiler keepsake email captured (Formspree ok)
+//   gift_click         - /gift/ voucher CTA click (param: tier)
+//   quote_click        - /events/ closing quote CTA click (param: source)
+//   two_floors_click   - home two-floors door click (param: door instinct|ice)
+//   instinct_bridge_click - /events/ bridge to the INSTINCT floor
+//   profiler_* / keepsake_* - Palate Profiler funnel (see PalateProfiler.tsx)
 //   booking_click      - outbound youcanbook.me link
 //   whatsapp_click     - outbound WhatsApp link
 //   call_click         - tel: link
