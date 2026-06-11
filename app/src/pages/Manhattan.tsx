@@ -320,7 +320,9 @@ export function Manhattan() {
               <p className="geo-crossline">
                 Marrying in a Manhattan loft venue, or hosting the firm above Madison Avenue? The
                 same building discipline carries through our <a href="/weddings/">wedding service</a> and{' '}
-                <a href="/corporate/">corporate service</a>.
+                <a href="/corporate/">corporate service</a>. And when the night needs only a steady
+                pair of hands behind the bar, the studio&apos;s vetted bench is on call - see{' '}
+                <a href="/events/">Event Bartenders</a>.
               </p>
             </div>
           </div>

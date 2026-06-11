@@ -18,6 +18,8 @@ const cards = [
   { file: 'manhattan',             eyebrow: 'Service Area',    title: 'Manhattan' },
   { file: 'hamptons',              eyebrow: 'Service Area',    title: 'The Hamptons' },
   { file: 'westchester-greenwich', eyebrow: 'Service Area',    title: 'Westchester <span class="amp">&amp;</span> Greenwich' },
+  { file: 'events',                eyebrow: 'Event Bartenders', title: 'On Call, NYC <span class="amp">&amp;</span> NJ' },
+  { file: 'work-with-us',          eyebrow: 'The Bench',       title: 'Bartend With Us' },
 ];
 
 const html = (c) => `<!DOCTYPE html>

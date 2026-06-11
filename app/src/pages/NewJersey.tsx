@@ -201,7 +201,9 @@ export function NewJersey() {
                 cocktails refined in private service. A waterfront <a className="njg-link" href="/weddings/">wedding</a> takes
                 the full bar team; a client dinner in a Jersey City tower runs on invoice as a{' '}
                 <a className="njg-link" href="/corporate/">corporate event</a>. And because the studio is here,
-                same-week dates are realistic in New Jersey when the calendar allows.
+                same-week dates are realistic in New Jersey when the calendar allows. Need just a
+                bartender for the evening, even on a same-week date? The studio&apos;s vetted bench
+                is on call - see <a className="njg-link" href="/events/">Event Bartenders</a>.
               </p>
             </div>
             <p className="oma-fmt3-pull">

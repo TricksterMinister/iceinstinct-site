@@ -167,8 +167,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogTitle: "Event Bartenders On Call, NYC & New Jersey - Ice & Instinct",
     ogDescription:
       "A vetted bartender for your date in one call. Flat packages from $450. The bench behind a private mixology studio.",
-    // Placeholder OG card until an events-specific one exists.
-    ogImage: "/assets/og/corporate.png",
+    ogImage: "/assets/og/events.png",
     // Service + FAQPage + BreadcrumbList JSON-LD are hand-authored in the page
     // stub head; prerender preserves shell schema and skips this list.
     jsonLd: [],
@@ -182,8 +181,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogTitle: "Join the Bench - Ice & Instinct",
     ogDescription:
       "Flat $180-240 per 4-hour event, same-day payout, your choice of gigs. Bartend for a private mixology studio in NYC and NJ.",
-    // Placeholder OG card until a bench-specific one exists.
-    ogImage: "/assets/og/press.png",
+    ogImage: "/assets/og/work-with-us.png",
     // WebPage + BreadcrumbList JSON-LD are hand-authored in the page stub
     // head; prerender preserves shell schema and skips this list.
     jsonLd: [],

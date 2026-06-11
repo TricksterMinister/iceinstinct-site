@@ -200,6 +200,8 @@ export function Hamptons() {
                 migrates to the beach in June is built on our{' '}
                 <a className="ham-inline" href="/corporate/">corporate page</a>. Everything else -
                 the house weekend, the anniversary, the dinner that earns the drive - begins here.
+                And for the season weekends that need only a bartender, the studio&apos;s vetted
+                bench is on call - see <a className="ham-inline" href="/events/">Event Bartenders</a>.
               </p>
             </div>
             <p className="oma-fmt3-pull">

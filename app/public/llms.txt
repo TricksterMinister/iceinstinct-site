@@ -1,6 +1,6 @@
 # Ice & Instinct
 
-> Ice & Instinct is a private mixology studio founded by Teimuraz Benidze, serving the New York metropolitan area and New Jersey. We bring bespoke cocktail rituals to private residences, penthouses, and events. By appointment only. Service is offered in four tiers from $650 to $3,000+, plus optional concierge enhancements. Professional clear ice and temperature control are standard in every evening.
+> Ice & Instinct is a private mixology studio founded by Teimuraz Benidze, serving the New York metropolitan area and New Jersey. We bring bespoke cocktail rituals to private residences, penthouses, and events. By appointment only. Service is offered in four tiers from $650 to $3,000+, plus optional concierge enhancements. The studio also dispatches vetted event bartenders on call across NYC and New Jersey, flat packages from $450. Professional clear ice and temperature control are standard in every evening.
 
 Last updated: 2026-06-10. This file is generated from the live site; prices and policies below match the published pages.
 
@@ -71,4 +71,6 @@ Thirteen signature compositions at https://www.iceinstinct.com/gallery/ - each b
 - [The Hamptons](https://www.iceinstinct.com/hamptons/): summer estates, Southampton to Montauk - book before peak season
 - [Westchester & Greenwich](https://www.iceinstinct.com/westchester-greenwich/): estate towns - Scarsdale, Rye, Bedford, backcountry
 - [Journal](https://www.iceinstinct.com/journal/): cocktail omakase explained, clear ice physics, cigar pairing method
+- [Event Bartenders](https://www.iceinstinct.com/events/): the ICE floor - vetted event bartenders on call, flat packages from $450 (1 bartender / 4h), pairs $850, wedding teams from $1,200
+- [Join the Bench](https://www.iceinstinct.com/work-with-us/): event bartender work, flat $180-240 per 4-hour event, same-day payout
 - [Full site text](https://www.iceinstinct.com/llms-full.txt): every page as plain text in one file

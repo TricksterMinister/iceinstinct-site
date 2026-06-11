@@ -340,7 +340,9 @@ export function WestchesterGreenwich() {
                   The same standard scales past the dinner table:{' '}
                   <a className="wg-prose-link" href="/weddings/">weddings</a> carry a full bar
                   team, and <a className="wg-prose-link" href="/corporate/">corporate events</a>{' '}
-                  come with invoicing, a W-9, and a COI for the venue.
+                  come with invoicing, a W-9, and a COI for the venue. When the house needs only a
+                  quiet, capable bartender for the evening, the studio&apos;s vetted bench is on
+                  call - see <a className="wg-prose-link" href="/events/">Event Bartenders</a>.
                 </p>
               </div>
             </div>
