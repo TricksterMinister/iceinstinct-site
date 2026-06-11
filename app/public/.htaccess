@@ -29,6 +29,10 @@
   # no-store + s-maxage=0: some CDN edges and proxy layers treat plain no-cache
   # as "serve stale while revalidating"; no-store forbids keeping HTML at all,
   # proxy-revalidate + s-maxage=0 force every shared cache back to origin.
+  # Crawl-facing text files must refresh fast - AI engines read llms.txt live
+  <FilesMatch "(llms\.txt|llms-full\.txt|robots\.txt|sitemap\.xml)$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </FilesMatch>
   <FilesMatch "\.html$">
     Header set Cache-Control "no-store, no-cache, max-age=0, s-maxage=0, must-revalidate, proxy-revalidate"
   </FilesMatch>
