@@ -2,8 +2,10 @@ import { useEffect } from 'react';
 import markUrl from '../assets/ii-mark.png';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
+import { useSegmentSnap } from '../app/useSegmentSnap';
 import { SiteFooter } from '../sections/SiteFooter';
 import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
+import { track } from '../lib/track';
 
 /* The ICE floor storefront: vetted event bartenders dispatched by the studio.
  * Flat packages, no hourly meters. The CTA prefills the Contact occasion
@@ -69,6 +71,7 @@ export function Events() {
 
   useCinemaChrome();
   useDeepScripts();
+  useSegmentSnap(['.concierge', '#packages', '#how-it-works', '#standard', '#instinct', '#faq', '.closing-segment']);
 
   /* Hero ghost: a champagne light follows the cursor and lights the letters
      (same self-contained effect as the tier pages). */
@@ -291,7 +294,7 @@ export function Events() {
               ICE staffs the date. <span className="it">INSTINCT composes the evening.</span>
             </p>
             <div className="ev-bridge-cta">
-              <a className="btn-ghost" href="/offerings/" data-cursor="link">
+              <a className="btn-ghost" href="/offerings/" data-cursor="link" onClick={() => track('instinct_bridge_click', { source: 'events' })}>
                 Explore the INSTINCT floor
               </a>
             </div>
@@ -353,7 +356,7 @@ export function Events() {
                 to end.
               </p>
               <div className="closing-cta">
-                <a className="btn-primary" href={QUOTE_HREF} data-cursor="link">
+                <a className="btn-primary" href={QUOTE_HREF} data-cursor="link" onClick={() => track('quote_click', { source: 'events_closing' })}>
                   <span className="btn-label">Get a flat quote</span>
                   <span className="btn-arr" aria-hidden="true">&rarr;</span>
                 </a>
