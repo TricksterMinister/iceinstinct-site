@@ -2,6 +2,16 @@
 
 > Single source of truth for "where are we". Updated at the end of each session. Keep it SHORT.
 
+## SESSION 2026-06-10c (quiet-luxury design overhaul - LIVE, HEAD `d1b80a8`)
+Owner direction: "award-winning, quiet luxury - дорого, но тихо". Shipped, all live:
+- **Matte two-weight gold system** (accent.css): primary = matte champagne body (no glossy core, radius 2px, lift on hover), secondary (btn-ghost, pp-btn.ghost) = hairline outline that fills matte on hover. Unified focus rings + pointer:coarse touch targets.
+- **Shine passes ONCE**: heading gold gradient parked at rest; funnelInit IntersectionObserver adds `.lit` -> single 2.4s sweep on first entry. Footer marquee bound to scroll (`--marquee-play`, runs only while page moves).
+- **Owned hero video**: Veo 3.1 loop (clear ice on marble, champagne backlight, smoke) `assets/video/hero-loop-v1.mp4` + poster; replaced stock Pexels in Hero.tsx.
+- **Real raster brand mark** (`ii-mark.png`) in every header - inline SVG cube gone (7 pages + CSS rule).
+- **Photo law sitewide**: monochrome at rest, colour on attention (added vp-shelf tier cards).
+- **My Story FAQ** -> sitewide ledger pattern (section.faq, ghost RITUAL, 10 Q/A); sections.css now loaded on mystory.
+- Earlier same session: segment snap sitewide (useSegmentSnap), bridge photo bare full-bleed (veil removed), closing-segment locked to exactly 100dvh, FAQ ledger one-viewport, ENHANCE/SCALE/ANSWERS ghosts normalized, certificates dark-until-hover vault, NYC v3 photo, Founder title proud italic, closing benchmark scale, hero ampersand solid champagne.
+
 ## SESSION 2026-06-10b (lead funnel zero-loss - LIVE, HEAD `a9f5a07` on main)
 Worktree `.claude/worktrees/hardcore-mccarthy-34bbdd`. Subagent-driven execution of `docs/superpowers/plans/2026-06-10-lead-funnel-zero-loss.md` (10 tasks, each spec+quality reviewed). SHIPPED + verified live via curl (chunk `contact-2WKtx3xd.js` carries `inquiry_form_start`/`landing_page`; shared chunk carries booking/whatsapp/call/instagram clicks + `ii-source`/`ii-cocktail`):
 - **GA4 event vocabulary** (lib/track.ts, one delegated listener via lib/funnelInit.ts on all 15 entries): booking_click, whatsapp_click, call_click, instagram_click, enhancement_add/remove, profiler_open/complete/commission, keepsake_print/save/share, inquiry_form_start/submit/error.
