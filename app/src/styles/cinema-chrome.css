@@ -713,3 +713,15 @@ body.cinema-chrome.vp-split #enhancements .addon-card {
 
 /* Decorative background videos must never capture pointer events (they sit above hero content at z-1 and would block CTA/link clicks). */
 video { pointer-events: none; }
+
+
+/* PHOTO LAW (owner, 2026-06-10): at rest a photograph is monochrome; the
+   guest's attention brings it to colour. Same grammar as the home tiers,
+   the gallery tiles and the certificate vault. */
+body.cinema-chrome.vp-split .vp-shelf .tier-card img {
+  filter: grayscale(1) contrast(1.04);
+  transition: filter var(--m-slow, 0.6s) var(--ease-lux, ease), transform var(--m-slow, 0.6s) var(--ease-lux, ease);
+}
+body.cinema-chrome.vp-split .vp-shelf .tier-card:hover img {
+  filter: grayscale(0) contrast(1);
+}

@@ -61,7 +61,10 @@
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent !important;
   color: transparent !important;
-  animation: gold-shine-sweep 5.5s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+  /* quiet luxury: the shine passes ONCE when the heading enters the view
+     (funnelInit adds .lit via IntersectionObserver); at rest the gold is calm */
+  background-position: -110% 0;
+  animation: none;
   /* Fraunces italic swashes (the ampersand's top hook and bottom tail) reach
      far outside the line box. background-clip:text paints ONLY inside the box,
      so without this padding the overshooting strokes stay transparent and the
@@ -69,6 +72,10 @@
      position and line rhythm do not move, only the painted canvas grows. */
   padding: 0.38em 0.16em;
   margin: -0.38em -0.16em;
+}
+.gold-shine.lit,
+:is(h1, h2, h3, h4) .lit.it {
+  animation: gold-shine-sweep 2.4s cubic-bezier(0.45, 0, 0.2, 1) 1 both;
 }
 @keyframes gold-shine-sweep {
   0% { background-position: 110% 0; }
@@ -88,80 +95,27 @@
 }
 
 /* =========================================================================
-   BRAND BUTTON - "champagne gold bullion"
-   The one primary button of the site (model: Uiverse golden-button by
-   elijahgummer, recolored from amber gold to our champagne palette).
-   Skin only: every .btn-primary keeps its context's typography, padding and
-   layout; this layer replaces flat fills with a dimensional gold surface.
-   The 4x-chained class out-specifies every context override
-   (.closing-segment .closing .btn-primary etc.) without !important.
+   BRAND BUTTON SYSTEM - "matte champagne", two weights (owner, 2026-06-10:
+   quiet luxury - expensive that does not shout).
+   PRIMARY: matte gold body, soft depth, no glossy core, no zoom tricks.
+   SECONDARY (btn-ghost, pp-btn.ghost): hairline champagne outline that fills
+   with the same matte gold on hover - one family, two voices.
+   Chained selectors out-specify every context override without !important.
    ========================================================================= */
 :root {
-  --gold-edge:  #8a6d2f;  /* dark champagne rim */
-  --gold-mid:   #b3975a;  /* body */
-  --gold-core:  #faf0cf;  /* pale highlight core */
-  --gold-mid-2: #c2a75f;  /* body, warm side */
-  --gold-ink:   #4a3a14;  /* engraved text */
-  --gold-glow:  rgba(252, 244, 214, 1);  /* inner bottom-edge shine */
+  --gold-edge:  #6f5a26;  /* rim */
+  --gold-deep:  #a98e4e;  /* body, shadow side */
+  --gold-body:  #bda468;  /* body */
+  --gold-light: #d9c68c;  /* body, lit side - matte, never white */
+  --gold-ink:   #3c2f10;  /* engraved text */
+  --gold-glow:  rgba(255, 247, 222, 0.32); /* top hairline light */
+  /* the sitewide motion voice: two durations, one curve */
+  --m-fast: 0.25s;
+  --m-slow: 0.6s;
+  --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.btn-primary.btn-primary.btn-primary.btn-primary {
-  touch-action: manipulation;
-  border: 1px solid var(--gold-edge);
-  border-radius: 0.28em;
-  background-image: linear-gradient(
-    160deg,
-    var(--gold-edge),
-    var(--gold-mid),
-    var(--gold-core),
-    var(--gold-mid-2),
-    var(--gold-edge)
-  );
-  background-size: 100% 100%;
-  background-position: center;
-  color: var(--gold-ink);
-  text-shadow: 0 1px 1px rgba(252, 244, 214, 0.9);
-  box-shadow:
-    0 3px 6px rgba(0, 0, 0, 0.16),
-    0 3px 6px rgba(96, 78, 34, 0.35),
-    inset 0 -2px 5px 1px rgba(122, 95, 38, 0.95),
-    inset 0 -1px 1px 3px var(--gold-glow);
-  transition: all 0.2s ease-in-out;
-}
-/* the old skins painted hover fills via ::before - the gold surface replaces them */
-.btn-primary.btn-primary.btn-primary.btn-primary::before { display: none; }
-
-.btn-primary.btn-primary.btn-primary.btn-primary:hover,
-.btn-primary.btn-primary.btn-primary.btn-primary:focus-visible {
-  background-size: 150% 150%;
-  border-color: rgba(138, 109, 47, 0.6);
-  color: rgba(74, 58, 20, 0.85);
-  box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.19),
-    0 6px 6px rgba(0, 0, 0, 0.23),
-    inset 0 -2px 5px 1px #a8884a,
-    inset 0 -1px 1px 3px var(--gold-glow);
-}
-.btn-primary.btn-primary.btn-primary.btn-primary:focus-visible {
-  outline: 2px solid var(--gold-ink);
-  outline-offset: 2px;
-}
-.btn-primary.btn-primary.btn-primary.btn-primary:active {
-  transform: translateY(1px);
-  box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.16),
-    0 2px 4px rgba(96, 78, 34, 0.35),
-    inset 0 -2px 5px 1px #a8884a,
-    inset 0 -1px 1px 3px var(--gold-glow);
-}
-
-/* =========================================================================
-   BRAND BUTTON - applied to EVERY button on the site (owner rule 2026-06-10:
-   "all buttons in one style, not selectively"). Same champagne-gold skin as
-   .btn-primary above; each context keeps its own size, padding and type.
-   Chained classes out-specify context overrides without !important.
-   ========================================================================= */
-.btn-ghost.btn-ghost.btn-ghost,
+.btn-primary.btn-primary.btn-primary,
 .nav-cta.nav-cta.nav-cta,
 .tier-go.tier-go.tier-go,
 .enh-add.enh-add.enh-add,
@@ -174,27 +128,33 @@
 .pp-band-cta.pp-band-cta.pp-band-cta {
   touch-action: manipulation;
   border: 1px solid var(--gold-edge);
-  border-radius: 0.28em;
+  border-radius: 2px;
   background-image: linear-gradient(
-    160deg,
-    var(--gold-edge),
-    var(--gold-mid),
-    var(--gold-core),
-    var(--gold-mid-2),
-    var(--gold-edge)
+    170deg,
+    var(--gold-deep) 0%,
+    var(--gold-body) 30%,
+    var(--gold-light) 52%,
+    var(--gold-body) 72%,
+    var(--gold-deep) 100%
   );
-  background-size: 100% 100%;
-  background-position: center;
+  background-size: 140% 100%;
+  background-position: 20% 0;
   color: var(--gold-ink);
-  text-shadow: 0 1px 1px rgba(252, 244, 214, 0.9);
+  text-shadow: 0 1px 0 rgba(255, 248, 226, 0.38);
   box-shadow:
-    0 3px 6px rgba(0, 0, 0, 0.16),
-    0 3px 6px rgba(96, 78, 34, 0.35),
-    inset 0 -2px 5px 1px rgba(122, 95, 38, 0.95),
-    inset 0 -1px 1px 3px var(--gold-glow);
-  transition: all 0.2s ease-in-out;
+    0 1px 2px rgba(0, 0, 0, 0.3),
+    0 6px 18px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 var(--gold-glow),
+    inset 0 -1px 0 rgba(80, 62, 24, 0.4);
+  transition:
+    transform var(--m-fast) var(--ease-lux),
+    box-shadow var(--m-fast) var(--ease-lux),
+    border-color var(--m-fast) var(--ease-lux),
+    color var(--m-fast) var(--ease-lux),
+    background-position var(--m-slow) var(--ease-lux);
 }
 /* the old skins painted hover fills / underlines via pseudo-elements */
+.btn-primary.btn-primary.btn-primary::before,
 .btn-ghost.btn-ghost.btn-ghost::before,
 .btn-ghost.btn-ghost.btn-ghost::after,
 .tier-go.tier-go.tier-go::before,
@@ -202,38 +162,30 @@
 .pp-band-cta.pp-band-cta.pp-band-cta::before {
   display: none;
 }
-/* bare text links need a real button body once they wear gold */
-.btn-ghost.btn-ghost.btn-ghost { padding: 1.05rem 1.9rem; }
+/* bare text links that joined the family need a real button body */
+.btn-ghost.btn-ghost.btn-ghost { padding: 1.02rem 1.85rem; }
 .gallery-cta.gallery-cta.gallery-cta { padding: 1.05rem 1.9rem; display: inline-flex; align-items: center; gap: 0.7rem; }
+.tier-go.tier-go.tier-go { text-shadow: 0 1px 0 rgba(255, 248, 226, 0.38); pointer-events: none; }
 
-.btn-ghost.btn-ghost.btn-ghost:hover,
-.btn-ghost.btn-ghost.btn-ghost:focus-visible,
+.btn-primary.btn-primary.btn-primary:hover,
 .nav-cta.nav-cta.nav-cta:hover,
-.nav-cta.nav-cta.nav-cta:focus-visible,
 .enh-add.enh-add.enh-add:hover,
-.enh-add.enh-add.enh-add:focus-visible,
 .enh-tray-cta.enh-tray-cta.enh-tray-cta:hover,
-.enh-tray-cta.enh-tray-cta.enh-tray-cta:focus-visible,
 .pp-btn.pp-btn.pp-btn:hover,
-.pp-btn.pp-btn.pp-btn:focus-visible,
 .gallery-cta.gallery-cta.gallery-cta:hover,
-.gallery-cta.gallery-cta.gallery-cta:focus-visible,
 .concierge-link.concierge-link.concierge-link:hover,
-.concierge-link.concierge-link.concierge-link:focus-visible,
 .founder-link.founder-link.founder-link:hover,
-.founder-link.founder-link.founder-link:focus-visible,
-.pp-band-cta.pp-band-cta.pp-band-cta:hover,
-.pp-band-cta.pp-band-cta.pp-band-cta:focus-visible {
-  background-size: 150% 150%;
-  border-color: rgba(138, 109, 47, 0.6);
-  color: rgba(74, 58, 20, 0.85);
+.pp-band-cta.pp-band-cta.pp-band-cta:hover {
+  background-position: 80% 0;
+  border-color: rgba(111, 90, 38, 0.75);
+  transform: translateY(-1px);
   box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.19),
-    0 6px 6px rgba(0, 0, 0, 0.23),
-    inset 0 -2px 5px 1px #a8884a,
-    inset 0 -1px 1px 3px var(--gold-glow);
+    0 2px 4px rgba(0, 0, 0, 0.28),
+    0 10px 26px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 var(--gold-glow),
+    inset 0 -1px 0 rgba(80, 62, 24, 0.4);
 }
-.btn-ghost.btn-ghost.btn-ghost:active,
+.btn-primary.btn-primary.btn-primary:active,
 .nav-cta.nav-cta.nav-cta:active,
 .enh-add.enh-add.enh-add:active,
 .enh-tray-cta.enh-tray-cta.enh-tray-cta:active,
@@ -242,66 +194,119 @@
 .concierge-link.concierge-link.concierge-link:active,
 .founder-link.founder-link.founder-link:active,
 .pp-band-cta.pp-band-cta.pp-band-cta:active {
-  transform: translateY(1px);
+  transform: translateY(0);
   box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.16),
-    0 2px 4px rgba(96, 78, 34, 0.35),
-    inset 0 -2px 5px 1px #a8884a,
-    inset 0 -1px 1px 3px var(--gold-glow);
+    0 1px 2px rgba(0, 0, 0, 0.3),
+    0 3px 8px rgba(0, 0, 0, 0.16),
+    inset 0 2px 4px rgba(80, 62, 24, 0.35),
+    inset 0 -1px 0 rgba(80, 62, 24, 0.4);
 }
-/* "Added to your evening" - the selected state reads as pressed-in gold */
+
+/* SECONDARY weight: hairline champagne outline; matte gold arrives on hover */
+.btn-ghost.btn-ghost.btn-ghost.btn-ghost,
+.pp-btn.pp-btn.pp-btn.ghost {
+  background-image: none;
+  background-color: transparent;
+  border: 1px solid rgba(169, 142, 78, 0.55);
+  color: #a98e4e;
+  text-shadow: none;
+  box-shadow: none;
+  transition:
+    background-color var(--m-fast) var(--ease-lux),
+    color var(--m-fast) var(--ease-lux),
+    border-color var(--m-fast) var(--ease-lux),
+    box-shadow var(--m-fast) var(--ease-lux);
+}
+.btn-ghost.btn-ghost.btn-ghost.btn-ghost:hover,
+.pp-btn.pp-btn.pp-btn.ghost:hover {
+  background-image: linear-gradient(
+    170deg,
+    var(--gold-deep) 0%,
+    var(--gold-body) 30%,
+    var(--gold-light) 52%,
+    var(--gold-body) 72%,
+    var(--gold-deep) 100%
+  );
+  border-color: var(--gold-edge);
+  color: var(--gold-ink);
+  text-shadow: 0 1px 0 rgba(255, 248, 226, 0.38);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 6px 18px rgba(0, 0, 0, 0.18);
+  transform: none;
+}
+/* on the light closing cards the outline weight needs deeper ink */
+.closing-segment .btn-ghost.btn-ghost.btn-ghost { color: #7c6630; border-color: rgba(124, 102, 48, 0.6); }
+
+/* selected state: pressed-in matte ("Added to your evening") */
 .enh-add.enh-add.enh-add.is-added {
-  background-size: 130% 130%;
+  background-position: 50% 0;
   box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.14),
-    inset 0 2px 6px 1px rgba(122, 95, 38, 0.55),
-    inset 0 -1px 1px 2px var(--gold-glow);
+    0 1px 2px rgba(0, 0, 0, 0.25),
+    inset 0 2px 6px rgba(80, 62, 24, 0.4),
+    inset 0 -1px 0 rgba(80, 62, 24, 0.4);
 }
-/* The tier "Explore" pill sits on photos; its black text-shadow came from the
-   outline era - the gold body needs the engraved highlight instead. */
-.tier-go.tier-go.tier-go { text-shadow: 0 1px 1px rgba(252, 244, 214, 0.9); }
 
+/* one focus voice for the whole family - critics check this first */
+.btn-primary.btn-primary.btn-primary:focus-visible,
+.btn-ghost.btn-ghost.btn-ghost:focus-visible,
+.nav-cta.nav-cta.nav-cta:focus-visible,
+.tier-go.tier-go.tier-go:focus-visible,
+.enh-add.enh-add.enh-add:focus-visible,
+.enh-tray-cta.enh-tray-cta.enh-tray-cta:focus-visible,
+.pp-btn.pp-btn.pp-btn:focus-visible,
+.gallery-cta.gallery-cta.gallery-cta:focus-visible,
+.concierge-link.concierge-link.concierge-link:focus-visible,
+.founder-link.founder-link.founder-link:focus-visible,
+.pp-band-cta.pp-band-cta.pp-band-cta:focus-visible {
+  outline: 2px solid #c9b06b;
+  outline-offset: 3px;
+}
 
-/* The shelf-card "Explore" buttons (Offerings + Concierge pages) live behind a
-   (0,5,1) selector in cinema-chrome.css that loads after this file - hence the
-   explicit heavy selector instead of the usual 3x chain. */
+/* The shelf-card "Explore" buttons (Offerings + Concierge) sit behind a
+   (0,5,1) cinema-chrome selector that loads after this file. */
 body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-link.tier-link {
   touch-action: manipulation;
   border: 1px solid var(--gold-edge);
-  border-radius: 0.28em;
+  border-radius: 2px;
   background-image: linear-gradient(
-    160deg,
-    var(--gold-edge),
-    var(--gold-mid),
-    var(--gold-core),
-    var(--gold-mid-2),
-    var(--gold-edge)
+    170deg,
+    var(--gold-deep) 0%,
+    var(--gold-body) 30%,
+    var(--gold-light) 52%,
+    var(--gold-body) 72%,
+    var(--gold-deep) 100%
   );
-  background-size: 100% 100%;
-  background-position: center;
+  background-size: 140% 100%;
+  background-position: 20% 0;
   color: var(--gold-ink);
-  text-shadow: 0 1px 1px rgba(252, 244, 214, 0.9);
+  text-shadow: 0 1px 0 rgba(255, 248, 226, 0.38);
   box-shadow:
-    0 3px 6px rgba(0, 0, 0, 0.16),
-    0 3px 6px rgba(96, 78, 34, 0.35),
-    inset 0 -2px 5px 1px rgba(122, 95, 38, 0.95),
-    inset 0 -1px 1px 3px var(--gold-glow);
-  transition: all 0.2s ease-in-out;
+    0 1px 2px rgba(0, 0, 0, 0.3),
+    0 6px 18px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 var(--gold-glow),
+    inset 0 -1px 0 rgba(80, 62, 24, 0.4);
+  transition:
+    box-shadow var(--m-fast) var(--ease-lux),
+    background-position var(--m-slow) var(--ease-lux);
 }
 body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-link.tier-link::before { display: none; }
 body.cinema-chrome.vp-split .vp-shelf .tier-card:hover .tier-link.tier-link.tier-link {
-  background-size: 150% 150%;
-  border-color: rgba(138, 109, 47, 0.6);
-  color: rgba(74, 58, 20, 0.85);
+  background-position: 80% 0;
+  color: var(--gold-ink);
   box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.19),
-    0 6px 6px rgba(0, 0, 0, 0.23),
-    inset 0 -2px 5px 1px #a8884a,
-    inset 0 -1px 1px 3px var(--gold-glow);
+    0 2px 4px rgba(0, 0, 0, 0.28),
+    0 10px 26px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 var(--gold-glow),
+    inset 0 -1px 0 rgba(80, 62, 24, 0.4);
+}
+
+/* comfortable touch targets on coarse pointers */
+@media (pointer: coarse) {
+  .nav-cta.nav-cta.nav-cta { padding: 13px 24px; }
+  body.cinema-chrome.vp-split .vp-shelf .tier-card .tier-link.tier-link { padding: 0.9rem 1.6rem; }
+  .record-plate-view.record-plate-view.record-plate-view { padding: 0.7rem 1.3rem; }
 }
 
 /* Deliberate exemption (NOT missed): icon-only dismiss crosses - .va-close,
    .pp-close, .lightbox-close, .record-lightbox-close - stay quiet hairline
-   circles. A gold bullion X floating over a certificate or a cocktail photo
-   would fight the artefact it closes. They are unified with each other:
-   hairline circle, champagne border on hover (see styles.css lightbox-close). */
+   circles. A gold X floating over a certificate or a cocktail photo would
+   fight the artefact it closes. They are unified with each other. */
