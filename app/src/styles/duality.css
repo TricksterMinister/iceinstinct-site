@@ -139,7 +139,13 @@
 /* committed: the sub grows by a whole floor card, so it settles lower to keep
    the stack out of the big word's register */
 .duality.is-ice .pi .d-sub,
-.duality.is-instinct .pn .d-sub { bottom: clamp(1.8rem, 4.5vh, 3.2rem); }
+.duality.is-instinct .pn .d-sub {
+  bottom: clamp(1.8rem, 4.5vh, 3.2rem);
+  /* the base .d-sub is pointer-events:none (hover hint layer); the committed
+     reveal is interactive, so re-enable here - not only on .d-floor - so any
+     future child of the revealed sub is clickable too */
+  pointer-events: auto;
+}
 .duality:hover .pi:hover .d-sub,
 .duality:hover .pn:hover .d-sub,
 .duality.is-ice .pi .d-sub,
