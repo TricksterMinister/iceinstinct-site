@@ -66,3 +66,7 @@
 
 # Custom 404
 ErrorDocument 404 /404.html
+
+# Legacy URLs still indexed by Bing/DDG - reclaim their equity
+Redirect 301 /the-architect https://www.iceinstinct.com/my-story/
+Redirect 301 /httpswwwiceinstinctcomofferings https://www.iceinstinct.com/offerings/

@@ -403,8 +403,9 @@ export function MyStory() {
                   </summary>
                   <div className="faq-a">
                     <p>
-                      I arrive with a compact case of precision tools. All ingredients, spirits, and glassware are sourced
-                      by the host - I'll provide a tailored shopping list to match your chosen experience.
+                      I arrive with the full bar kit, precision tools, and professional clear ice as standard. Spirits
+                      and wine are provided by the host or sourced on your behalf at supplier cost; curated glassware and
+                      rentals are arranged through the Concierge.
                     </p>
                   </div>
                 </details>
@@ -468,7 +469,7 @@ export function MyStory() {
                   </summary>
                   <div className="faq-a">
                     <p>
-                      Your deposit can transfer to a new date within six months, depending on availability. One reschedule
+                      Your deposit can transfer to a new date within 12 months, subject to availability. One reschedule
                       is included; further changes or peak dates may incur a fee.
                     </p>
                   </div>

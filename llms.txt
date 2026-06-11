@@ -1,101 +1,65 @@
 # Ice & Instinct
 
-> Ice & Instinct is a private mixology studio in New York City, founded by Teimuraz Benidze. We bring bespoke cocktail rituals to Manhattan penthouses and private events. By appointment only. Service is offered in four tiers from $400 to $3,000+, plus a fully bespoke private concierge service.
+> Ice & Instinct is a private mixology studio founded by Teimuraz Benidze, serving the New York metropolitan area and New Jersey. We bring bespoke cocktail rituals to private residences, penthouses, and events. By appointment only. Service is offered in four tiers from $650 to $3,000+, plus optional concierge enhancements. Professional clear ice and temperature control are standard in every evening.
 
-Last updated: 2026-05-01
+Last updated: 2026-06-10. This file is generated from the live site; prices and policies below match the published pages.
 
-## Key facts
+## Business facts
 
-- **Founder:** Teimuraz Benidze, Founder & Flavor Architect
-- **Operating area:** New York City - primarily Manhattan penthouses and private residences
-- **Service model:** Inquiry-only. Custom quote within one business day after a private conversation.
-- **Booking:** By appointment, via inquiry form at /contact/
-- **Tagline:** Where ritual meets instinct - high above the city
+- **Name:** Ice & Instinct
+- **Founder:** Teimuraz Benidze - Founder & Flavor Architect; two decades of wine and service; the first certified sommelier in Georgia's history. Credentials: Certificat Wine & Sommellerie (Chateau-Arnoux, France), Leading Qualified Sommelier (Georgian Sommelier Association / ASI), Diploma in Wines & Spirits (Enotria Wine World, Moscow), French Wine Studies (O.N.I.VINS).
+- **Operating area:** New York metropolitan area and New Jersey (Manhattan, Brooklyn, Westchester, the Hamptons, Greenwich, North NJ). Events further out are welcome; travel is included in the private quote.
+- **Model:** By appointment only. Established 2024.
+- **Phone / WhatsApp:** +1 (917) 292-7859
+- **Instagram:** https://www.instagram.com/iceinstinctnyc/
+- **Booking:** each tier page links directly to scheduling (YouCanBook.me); inquiries via https://www.iceinstinct.com/contact/ with a personal reply within one business day.
 
-## Service tiers
+## Service tiers (live prices)
 
-| Tier | Price | Guests | Duration | Style |
+| Tier | Price | Guests | Duration | Focus |
 |---|---|---|---|---|
-| The Foundation | from $400 USD | up to 40 | 3 hours | Classics, single bartender, premium spirits |
-| Perfection in Simplicity | from $750 USD | up to 12 | 4 hours | Curated classics, solo focus, top-shelf |
-| Bespoke Design & Artistry | from $1,500 USD | up to 15 | 4 hours | Custom-designed signature menu |
-| Omakase Improvisation | from $3,000 USD | up to 25 | open | No menu - real-time creation per guest |
-| Private Concierge | bespoke | varies | full evening | Sourcing, planning, on-site service, aftercare |
+| The Foundation | from $650 USD | up to 15 | 3 hours | Impeccable classics, seamless service ($75 per extra hour) |
+| Perfection in Simplicity | from $900 USD | up to 12 | 4 hours | Curated classics, masterful solo performance |
+| Bespoke Design & Artistry | from $1,800 USD | up to 30 | 4 hours | Custom signature menu built around your story |
+| Omakase Improvisation | from $3,000 USD | up to 25 | open-ended | No menu; real-time creation in dialogue with the room |
 
-## Add-ons (available with any tier)
+Any tier scales with a full bar team for larger events - weddings, galas, corporate gatherings - quoted on request.
 
-- Curated Cigar Experience - pairing logic with premium spirits
-- Glassware & Vessel Selection - form, weight, temperature
-- Ice & Temperature Management - clear ice, large-format cubes
-- Shadow Staff Support - discreet additional staff for larger headcounts
-- Visual Integrity Curation - harmony in glassware and presentation
+## What is included
+
+- The bar setup, tools, and end-to-end service are fully handled.
+- Professional clear ice and temperature control are STANDARD in every evening (sourced at supplier cost).
+- Spirits and wine are NOT included in the tier price: the host provides them, or we purchase on the host's behalf at supplier cost.
+- Curated glassware, rentals, and other enhancements are arranged through the Concierge and billed at supplier cost.
+
+## Concierge enhancements (optional, with any tier)
+
+- Bespoke Cigar Curator - $500
+- Additional Bar Staff - $350
+- The Curator (sourcing and styling) - $350
+- Glassware & Vessels - $250
+- Ice & Temperature - standard in every evening, never an upsell
+
+## Payment and policies
+
+- A flat $500 deposit reserves the date; the balance is due before the event.
+- Cancellation: more than 14 days before the event the deposit is fully refunded; within 14 days it is non-refundable but transferable to a future date within 12 months, subject to availability; within 48 hours the full booking value is due.
+- A full zero-proof (non-alcoholic) program is available with the same care.
+- NDAs available on request; certificates of insurance can be issued for venues.
+
+## The Collection
+
+Thirteen signature compositions at https://www.iceinstinct.com/gallery/ - each built once, for one evening: White Lotus, Aviation, Persimmon Saffron Sour, Belladonna, Black Truffle Martini, Rose Garden Rendezvous, Aureliano, Basil in my mind, 1001 Nights, Call Me By Your Name, Calipso Cream, Besame, Negroni Verde. The interactive Palate Profiler on the same page composes a personal signature from three sensory questions.
 
 ## Pages
 
-- [Home](https://www.iceinstinct.com/) - landing
-- [Offerings](https://www.iceinstinct.com/offerings/) - all tiers + add-ons
-- [The Foundation](https://www.iceinstinct.com/offerings/foundation/) - entry-tier detail
-- [Perfection in Simplicity](https://www.iceinstinct.com/offerings/simplicity/) - solo precision tier
-- [Bespoke Design & Artistry](https://www.iceinstinct.com/offerings/bespoke/) - custom menu tier
-- [Omakase Improvisation](https://www.iceinstinct.com/offerings/omakase/) - top-tier improvisation
-- [Concierge](https://www.iceinstinct.com/concierge/) - full-service luxury planning
-- [My Story](https://www.iceinstinct.com/my-story/) - Teimuraz Benidze, founder bio
-- [Gallery](https://www.iceinstinct.com/gallery/) - cocktail compositions
-- [Contact](https://www.iceinstinct.com/contact/) - inquiry form
-- [Privacy Policy](https://www.iceinstinct.com/privacy/)
-- [Terms of Service](https://www.iceinstinct.com/terms/)
-
-## The Collection (signature cocktails)
-
-Twelve signature compositions visible at /gallery/. Each was designed for a specific evening. Names alone:
-
-1. White Lotus
-2. Aviation
-3. Persimmon Saffron Sour
-4. Belladonna
-5. Black Truffle Martini
-6. Rose Garden Rendezvous
-7. Aureliano
-8. Basil in my mind
-9. 1001 Nights
-10. Call Me By Your Name
-11. Calipso Cream
-12. Bésame
-
-Tagline for the collection: *Touch the glass to awaken the spirit.*
-
-## What makes Ice & Instinct different
-
-- **Inquiry-only.** No "add to cart" for luxury services. Every engagement is a conversation.
-- **Solo bartender model.** Continuity of attention is the point. One alchemist, your evening.
-- **Hand-cut ice, professional-grade spirits, custom garnish.** No shortcuts on the small things.
-- **Discretion.** Names, addresses, and event details stay private.
-- **Founder-led.** Every quote answered personally by Teimuraz.
-
-## Voice & vocabulary
-
-The brand uses a restrained, ritual vocabulary: *alchemist, ritual, ice, instinct, precision, intention, real-time creation, complete trust, unrepeatable moments, high above the city*. Avoid corporate language ("solutions", "experiences" used loosely). Aim for editorial, slow, considered prose.
-
-## FAQ
-
-**Where do you operate?**
-Manhattan and surrounds. Other boroughs and out-of-state engagements are possible by arrangement.
-
-**Do you have a physical bar?**
-No. Ice & Instinct is a private studio that brings the bar to your venue.
-
-**How far in advance should I book?**
-Two to four weeks for the Bespoke and Omakase tiers; one to two weeks for Foundation and Simplicity. Last-minute requests are sometimes accommodated.
-
-**Can I have a tasting before the event?**
-Yes - included in the Bespoke and Concierge tiers. Available as an add-on for other tiers.
-
-**Do you provide your own glassware and ice?**
-Yes - both included in every tier.
-
-**Will you serve guests who appear intoxicated?**
-No. We reserve the right to decline service to maintain the standard of the evening.
-
-## Optional
-
-- [Instagram](https://www.instagram.com/) - discreet visual reference (handle private)
+- [Home](https://www.iceinstinct.com/): the studio, the four tiers, the 12-question FAQ
+- [Offerings](https://www.iceinstinct.com/offerings/): tier comparison
+- [The Foundation](https://www.iceinstinct.com/offerings/foundation/)
+- [Perfection in Simplicity](https://www.iceinstinct.com/offerings/simplicity/)
+- [Bespoke Design & Artistry](https://www.iceinstinct.com/offerings/bespoke/)
+- [Omakase Improvisation](https://www.iceinstinct.com/offerings/omakase/)
+- [Concierge](https://www.iceinstinct.com/concierge/): the five enhancements
+- [My Story](https://www.iceinstinct.com/my-story/): the founder, certificates, the journey
+- [The Collection](https://www.iceinstinct.com/gallery/): thirteen signature cocktails + Palate Profiler
+- [Inquire](https://www.iceinstinct.com/contact/): form, WhatsApp, phone

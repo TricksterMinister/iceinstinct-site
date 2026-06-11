@@ -38,7 +38,7 @@ export function SiteFooter({ embedded = false }: SiteFooterProps) {
           <a className="lnk" href="/responsible-service/">Responsible Service</a>
         </nav>
         <div className="oma-close-base">
-          <span>By appointment only &middot; New York Metropolitan Area</span>
+          <span>By appointment only &middot; New York Metropolitan Area &amp; New Jersey &middot; <a href="tel:+19172927859" style={{ color: 'inherit', textDecoration: 'none' }}>+1 (917) 292-7859</a></span>
           <a className="oma-close-sign" href="/" data-logo-slot aria-label="Ice & Instinct - home">
             <img
               className="oma-close-mark"

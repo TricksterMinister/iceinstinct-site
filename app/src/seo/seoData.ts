@@ -10,6 +10,7 @@ import {
   tierService,
   tierItemList,
   founderPerson,
+  offeringsFaq,
 } from "./jsonld";
 
 export type RouteSeo = {
@@ -26,11 +27,11 @@ const SITE = "https://www.iceinstinct.com";
 
 export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   '/': {
-    title: "Ice & Instinct - Private Mixology Studio, New York",
+    title: "Ice & Instinct - Private Mixology Studio, NYC & New Jersey",
     description:
-      "A private mixology studio in New York. Signature cocktails, omakase improvisation, and concierge service for the highest-tier private hosts. By appointment only.",
+      "A private mixology studio serving New York City and New Jersey. Signature cocktails, omakase improvisation, and concierge service for the highest-tier private hosts. By appointment only.",
     canonical: `${SITE}/`,
-    ogTitle: "Ice & Instinct - Private Mixology Studio, New York",
+    ogTitle: "Ice & Instinct - Private Mixology Studio, NYC & New Jersey",
     ogDescription:
       "Signature cocktails and omakase improvisation for the highest-tier private hosts. By appointment only.",
     ogImage: "/assets/og/home.png",
@@ -45,7 +46,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogTitle: "Offerings - Ice & Instinct",
     ogDescription: "Four levels of private mixology service. Plus curated add-ons.",
     ogImage: "/assets/og/offerings.png",
-    jsonLd: [tierItemList()],
+    jsonLd: [tierItemList(), offeringsFaq(), offeringsFaq()],
   },
 
   '/offerings/foundation/': {
@@ -123,11 +124,11 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   '/gallery/': {
     title: "The Collection - Ice & Instinct",
     description:
-      "The Collection: signature cocktails from Ice & Instinct. Twelve compositions, each built once. Touch the glass to awaken the spirit.",
+      "The Collection: signature cocktails from Ice & Instinct. Thirteen compositions, each built once. Touch the glass to awaken the spirit.",
     canonical: `${SITE}/gallery/`,
     ogTitle: "The Collection - Ice & Instinct",
     ogDescription:
-      "Twelve signature compositions. Touch the glass to awaken the spirit.",
+      "Thirteen signature compositions. Touch the glass to awaken the spirit.",
     ogImage:
       "/assets/og/gallery.png",
     jsonLd: [cocktailItemList()],
