@@ -1,0 +1,286 @@
+/* ICE & INSTINCT / press page
+   Only the bios / fact-sheet / assets sections are new; everything else on
+   /press/ reuses offering.css (concierge hero, closing) and sections.css.
+   Strict monochrome + champagne, hairlines only - same dialect as gift.css. */
+
+/* ---- hero: the story-angle paragraph under the lead ---- */
+.press-angle {
+  font-size: clamp(0.92rem, 0.88rem + 0.2vmin, 1.04rem);
+  line-height: 1.6;
+  color: var(--c-fg-faint);
+  max-width: 46ch;
+  margin-top: clamp(1rem, 2.2vh, 1.6rem);
+}
+
+.press-angle a {
+  color: var(--c-accent);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklab, var(--c-accent) 45%, transparent);
+}
+
+.press-angle a:hover { border-bottom-color: var(--c-accent); }
+
+/* ---- shared section shell ---- */
+.press-bios,
+.press-facts,
+.press-assets {
+  position: relative;
+  background: var(--c-bg);
+  border-top: 1px solid var(--c-border-soft);
+  padding: clamp(5rem, 14vh, 9rem) clamp(1.5rem, 6vw, 7rem);
+  overflow: clip;
+  isolation: isolate;
+}
+
+.press-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.press-head { max-width: 64ch; margin-bottom: clamp(2.4rem, 6vh, 4.2rem); }
+
+.press-eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: clamp(0.66rem, 0.62rem + 0.15vmin, 0.74rem);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--c-fg-faint);
+  margin-bottom: clamp(1rem, 2.4vh, 1.6rem);
+}
+
+.press-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 1.3rem + 3vmin, 3.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: var(--c-fg);
+  margin: 0 0 clamp(0.9rem, 2vh, 1.4rem);
+}
+
+.press-title .it {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-weight: 350;
+  letter-spacing: 0;
+  color: var(--c-accent);
+}
+
+.press-lead {
+  font-size: clamp(1rem, 0.95rem + 0.35vmin, 1.2rem);
+  line-height: 1.6;
+  color: var(--c-fg-soft);
+  margin: 0;
+  max-width: 56ch;
+}
+
+/* ---- I. the two bio cards ---- */
+.press-bio-grid {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: clamp(1rem, 2.4vw, 2rem);
+  align-items: start;
+}
+
+.press-bio-card {
+  position: relative;
+  background: var(--c-bg-soft);
+  border: 1px solid color-mix(in oklab, var(--c-border) 85%, transparent);
+  padding: clamp(1.8rem, 3.2vw, 3rem);
+}
+
+/* champagne hairline along the top edge - the only ornament */
+.press-bio-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--c-accent-line, var(--c-accent)) 0%, transparent 70%);
+}
+
+.pb-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--c-fg-faint);
+  margin-bottom: clamp(1.2rem, 2.6vh, 1.8rem);
+}
+
+.pb-body {
+  font-size: clamp(0.95rem, 0.9rem + 0.25vmin, 1.08rem);
+  line-height: 1.7;
+  color: var(--c-fg-soft);
+  margin: 0;
+}
+
+.pb-body + .pb-body { margin-top: 1em; }
+
+/* ---- II. the fact ledger: mono keys, hairline rows ---- */
+.press-ledger {
+  margin: 0;
+  border-top: 1px solid color-mix(in oklab, var(--c-border) 80%, transparent);
+}
+
+.press-row {
+  display: grid;
+  grid-template-columns: minmax(9rem, 14rem) 1fr;
+  gap: clamp(1rem, 3vw, 2.4rem);
+  padding: clamp(0.9rem, 1.8vh, 1.3rem) 0;
+  border-bottom: 1px solid color-mix(in oklab, var(--c-border) 80%, transparent);
+}
+
+.press-row dt {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c-fg-faint);
+  padding-top: 0.2em;
+}
+
+.press-row dd {
+  margin: 0;
+  font-size: clamp(0.92rem, 0.88rem + 0.2vmin, 1.04rem);
+  line-height: 1.6;
+  color: var(--c-fg-soft);
+}
+
+.press-row dd a {
+  color: var(--c-fg);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklab, var(--c-accent) 45%, transparent);
+}
+
+.press-row dd a:hover { color: var(--c-accent); border-bottom-color: var(--c-accent); }
+
+/* ---- III. the asset cards ---- */
+.press-asset-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2.4vw, 2rem);
+}
+
+.press-asset {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--c-bg-soft);
+  border: 1px solid color-mix(in oklab, var(--c-border) 85%, transparent);
+  padding: clamp(1.1rem, 2vw, 1.6rem);
+  text-decoration: none;
+  transition: border-color 0.35s ease;
+}
+
+.press-asset:hover { border-color: color-mix(in oklab, var(--c-accent) 45%, transparent); }
+
+.pa-thumb {
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  margin-bottom: clamp(1rem, 2vh, 1.4rem);
+}
+
+.pa-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.92);
+  transition: transform 0.6s ease;
+}
+
+.press-asset:hover .pa-thumb img { transform: scale(1.03); }
+
+.pa-name {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.02rem, 0.95rem + 0.35vmin, 1.25rem);
+  letter-spacing: -0.015em;
+  color: var(--c-fg);
+}
+
+.pa-meta {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-fg-faint);
+  margin-top: 0.45rem;
+}
+
+.pa-act {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-top: clamp(0.9rem, 1.8vh, 1.3rem);
+}
+
+/* ---- III. the two documents: wide rows under the image grid ---- */
+.press-doc-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 2.4vw, 2rem);
+  margin-top: clamp(1rem, 2.4vw, 2rem);
+}
+
+.press-doc {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.6rem);
+  background: var(--c-bg-soft);
+  border: 1px solid color-mix(in oklab, var(--c-border) 85%, transparent);
+  padding: clamp(1.1rem, 2vw, 1.6rem);
+  text-decoration: none;
+  transition: border-color 0.35s ease;
+}
+
+.press-doc:hover { border-color: color-mix(in oklab, var(--c-accent) 45%, transparent); }
+
+.pd-mark {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  border: 1px solid color-mix(in oklab, var(--c-accent) 40%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--c-accent);
+}
+
+.pd-text { flex: 1 1 auto; min-width: 0; }
+
+.press-doc .pa-act { margin-top: 0; }
+
+/* ---- responsive ---- */
+@media (max-width: 980px) {
+  .press-asset-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 880px) {
+  .press-bios,
+  .press-facts,
+  .press-assets { padding-left: 1.4rem; padding-right: 1.4rem; }
+  .press-bio-grid { grid-template-columns: 1fr; }
+  .press-row { grid-template-columns: 1fr; gap: 0.4rem; }
+  .press-doc-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .press-asset-grid { grid-template-columns: 1fr; }
+  .press-doc { flex-wrap: wrap; }
+}

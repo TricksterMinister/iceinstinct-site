@@ -55,6 +55,17 @@
 - **The Knot / WeddingWire** - свадебные каталоги, та же логика. Да или нет?
 - Ответ фиксирую в STATE. Если "да" - профиль(и) создаем в этот же час (фото-папка та же).
 
+## 6a. Wikidata - аккаунт + bot password (3 минуты)
+Якорь для всех AI Knowledge Graph. Сам элемент создам я, от тебя только доступ:
+1. https://www.wikidata.org -> Create account (любой ник, твой email). Капча - поэтому нужен ты.
+2. После входа: Special:BotPasswords -> имя "claude" -> права: "Edit existing pages" + "Create, edit, and move pages" -> Create.
+3. Отдай мне логин вида "НикБота@claude" и сгенерированный пароль - я создам элемент "Ice & Instinct" (instance of: business, industry: mixology, HQ: NJ/NY, founder, official website, Instagram) через API и добавлю QID в schema сайта.
+
+## 7. Опционально: мгновенный WhatsApp-алерт о лидах (5 минут, можно потом)
+Сейчас работает так: каждые 15 минут локальный агент проверяет Gmail на письма Formspree и шлёт push в Claude. Этого достаточно для старта. Если хочешь МГНОВЕННЫЙ WhatsApp-пинг через Make, нужно от тебя:
+1. CallMeBot opt-in: отправить в WhatsApp на +34 644 71 81 99 текст "I allow callmebot to send me messages" - в ответ придёт apikey, отдай мне.
+2. Make: бесплатный план = 2 активных сценария, оба заняты продакшеном ORBIS. Либо апгрейд Make, либо оставляем 15-минутный вотчер (моя рекомендация: оставить вотчер, деньги не тратить).
+
 ---
 
 ## Чек на выходе из часа

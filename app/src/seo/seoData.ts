@@ -256,6 +256,19 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     jsonLd: [],
   },
 
+  '/press/': {
+    title: "Press & Media - Ice & Instinct",
+    description:
+      "Press resources for Ice & Instinct, the private mixology studio serving NYC metro and New Jersey. Founder bios, fact sheet, downloadable images, and the media kit.",
+    canonical: `${SITE}/press/`,
+    ogTitle: "Press & Media - Ice & Instinct",
+    ogDescription:
+      "Founder bios, fact sheet, high-res images, and the media kit for the studio behind the cocktail omakase evening.",
+    ogImage: "/assets/og/press.png",
+    // AboutPage + founder Person + BreadcrumbList hand-authored in the stub head.
+    jsonLd: [],
+  },
+
   '/gallery/': {
     title: "The Collection - Ice & Instinct",
     description:

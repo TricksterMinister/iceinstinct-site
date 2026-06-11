@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ice &amp; Instinct - Media Kit</title>
+<!--
+  PRESS_EMAIL SWAP (single source):
+  hello@iceinstinct.com is PLANNED but NOT live yet.
+  When the mailbox goes live, replace the "Inquiries" line in the
+  .press-contact block on page 4 with: hello@iceinstinct.com
+  and re-print this file to assets/press/media-kit.pdf.
+-->
+<link rel="stylesheet" href="fonts/local-fonts.css">
+<style>
+  :root {
+    --bg:        #121210;
+    --bg-soft:   #1a1916;
+    --bg-panel:  #171613;
+    --fg:        #f4f1e9;
+    --fg-soft:   #c8c3b6;
+    --fg-muted:  #918c7e;
+    --fg-faint:  #6e6a5f;
+    --gold:       #bda468;
+    --gold-light: #d9c68c;
+    --gold-deep:  #a98e4e;
+    --line:       #2c2a24;
+    --line-soft:  #221f1a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #000; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--fg);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-weight: 300;
+  }
+  @page { size: Letter; margin: 0; }
+
+  .page {
+    width: 8.5in;
+    height: 11in;
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+    padding: 0.62in 0.75in 0.85in;
+    display: flex;
+    flex-direction: column;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ---- shared chrome ---- */
+  .pagefoot {
+    position: absolute;
+    left: 0.75in; right: 0.75in; bottom: 0.42in;
+    border-top: 1px solid var(--line);
+    padding-top: 9px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 6.4pt;
+    letter-spacing: 0.24em;
+    color: var(--fg-faint);
+    text-transform: uppercase;
+  }
+  .pagefoot .gold { color: var(--gold); }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7pt;
+    font-weight: 500;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 22px; height: 1px;
+    background: var(--gold-deep);
+    vertical-align: middle;
+    margin-right: 12px;
+  }
+  h1, h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 330;
+    color: var(--fg);
+    letter-spacing: 0.005em;
+  }
+  .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 6.6pt;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+  p { font-size: 9.3pt; line-height: 1.68; color: var(--fg-soft); }
+  .it { font-family: 'Fraunces', serif; font-style: italic; font-weight: 360; color: var(--gold-light); }
+
+  /* ================= PAGE 1 - COVER ================= */
+  .cover {
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    background:
+      radial-gradient(ellipse 70% 42% at 50% 38%, rgba(189, 164, 104, 0.10), rgba(189, 164, 104, 0) 70%),
+      var(--bg);
+  }
+  .cover-top {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7pt;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    padding-top: 0.28in;
+  }
+  .cover-mid { display: flex; flex-direction: column; align-items: center; }
+  .cover-mark-frame { margin-bottom: 0.34in; line-height: 0; }
+  .cover-mark {
+    width: 1.5in; height: 1.5in; display: block;
+    -webkit-mask-image: radial-gradient(circle at center, #000 46%, transparent 72%);
+    mask-image: radial-gradient(circle at center, #000 46%, transparent 72%);
+  }
+  .cover-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 340;
+    font-size: 41pt;
+    letter-spacing: 0.115em;
+    text-transform: uppercase;
+    color: var(--fg);
+    white-space: nowrap;
+  }
+  .cover-name .amp { color: var(--gold); font-style: italic; font-weight: 360; }
+  .cover-rule {
+    width: 0.5in; height: 1px;
+    background: var(--gold-deep);
+    margin: 0.3in auto 0.26in;
+  }
+  .cover-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.2pt;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+  .cover-geo {
+    margin-top: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7pt;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+  .cover-hook { padding-bottom: 0.55in; max-width: 5.6in; }
+  .cover-hook .hook-line {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 350;
+    font-size: 15.5pt;
+    line-height: 1.5;
+    color: var(--fg);
+  }
+  .cover-hook .hook-line em { font-style: italic; color: var(--gold-light); }
+  .cover-hook .hook-note {
+    margin-top: 13px;
+    font-size: 8.6pt;
+    color: var(--fg-muted);
+    line-height: 1.6;
+  }
+
+  /* ================= INNER PAGES ================= */
+  .pagehead { margin-bottom: 0.22in; }
+  .pagehead h2 { font-size: 23pt; margin-top: 10px; }
+  .pagehead .sub { margin-top: 6px; font-size: 9.5pt; color: var(--fg-muted); }
+
+  /* ---- page 2 founder ---- */
+  .founder-cols { display: flex; gap: 0.4in; flex: 1; min-height: 0; }
+  .founder-main { flex: 1.55; }
+  .founder-side {
+    flex: 1;
+    border-left: 1px solid var(--line);
+    padding-left: 0.32in;
+    display: flex;
+    flex-direction: column;
+  }
+  .bio-block { margin-bottom: 0.26in; }
+  .bio-block .label { display: block; margin-bottom: 9px; color: var(--gold); }
+  .bio-block p + p { margin-top: 9px; }
+  .pull {
+    margin: 0.06in 0 0.3in;
+    padding: 14px 18px;
+    border-left: 2px solid var(--gold-deep);
+    background: var(--bg-panel);
+  }
+  .pull .it { font-size: 12.5pt; line-height: 1.5; display: block; }
+  .cred-list { list-style: none; margin-top: 12px; }
+  .cred-list li { padding: 11px 0; border-bottom: 1px solid var(--line-soft); }
+  .cred-list li:last-child { border-bottom: 0; }
+  .cred-name { display: block; font-size: 9.3pt; font-weight: 400; color: var(--fg); line-height: 1.45; }
+  .cred-inst { display: block; margin-top: 3px; font-size: 8pt; color: var(--fg-muted); line-height: 1.5; }
+  .side-note {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid var(--line-soft);
+    font-size: 8pt;
+    line-height: 1.65;
+    color: var(--fg-muted);
+  }
+
+  /* ---- page 3 offering ---- */
+  table.tiers { width: 100%; border-collapse: collapse; margin-top: 4px; }
+  table.tiers th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 6.4pt;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--fg-faint);
+    text-align: left;
+    padding: 0 10px 8px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  table.tiers td {
+    padding: 17px 10px 17px 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 9.6pt;
+    color: var(--fg-soft);
+    vertical-align: baseline;
+  }
+  table.tiers td.tier-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 380;
+    font-size: 12pt;
+    color: var(--fg);
+    white-space: nowrap;
+  }
+  table.tiers td.tier-price { color: var(--gold-light); font-weight: 400; white-space: nowrap; }
+  .tier-note { margin-top: 14px; font-size: 8.4pt; color: var(--fg-muted); line-height: 1.6; }
+
+  .offer-cols { display: flex; gap: 0.45in; margin-top: 0.4in; }
+  .offer-col { flex: 1; }
+  .offer-col .label { display: block; color: var(--gold); margin-bottom: 11px; }
+  .offer-col p { font-size: 9.2pt; }
+  .offer-block + .offer-block { margin-top: 0.32in; }
+
+  .offer-close {
+    margin-top: auto;
+    padding-top: 0.22in;
+    border-top: 1px solid var(--line-soft);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .offer-close .it { font-size: 12pt; }
+  .offer-close .lnk {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+
+  .steps { list-style: none; margin-top: 2px; }
+  .steps li { display: flex; gap: 12px; padding: 10px 0; align-items: baseline; }
+  .steps .n {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5pt;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+  }
+  .steps .t { font-size: 9.4pt; color: var(--fg-soft); line-height: 1.55; }
+  .steps .t strong { font-weight: 500; color: var(--fg); }
+
+  .enh-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px 18px; margin-top: 2px; }
+  .enh {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 8.8pt; color: var(--fg-soft);
+  }
+  .enh .pr { font-family: 'JetBrains Mono', monospace; font-size: 8pt; color: var(--gold-light); }
+
+  /* ---- page 4 photography ---- */
+  .photo-note { margin-top: 6px; font-size: 8.6pt; color: var(--fg-muted); }
+  .photo-note .gold { color: var(--gold-light); }
+  .photo-grid { display: flex; flex-direction: column; gap: 0.12in; margin-top: 0.08in; flex: 1; min-height: 0; }
+  .ph { position: relative; overflow: hidden; background: var(--bg-soft); }
+  .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ph .cap {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 14px 12px 8px;
+    background: linear-gradient(180deg, rgba(10,10,9,0) 0%, rgba(10,10,9,0.72) 100%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 6.2pt;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: rgba(244, 241, 233, 0.85);
+  }
+  .ph-row { display: flex; gap: 0.12in; }
+  .ph-lead { height: 2.62in; }
+  .ph-row-tall { height: 3.05in; }
+  .ph-row-tall .ph { flex: 1; }
+  .ph-bottom { display: flex; gap: 0.3in; height: 2.18in; }
+  .ph-bottom .ph { flex: 1.35; }
+  .press-contact {
+    flex: 1;
+    border-left: 1px solid var(--line);
+    padding-left: 0.28in;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .press-contact .label { display: block; color: var(--gold); margin-bottom: 12px; }
+  .pc-row { padding: 7px 0; border-bottom: 1px solid var(--line-soft); }
+  .pc-row:last-child { border-bottom: 0; }
+  .pc-k {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 6.2pt;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--fg-faint);
+    margin-bottom: 3px;
+  }
+  .pc-v { font-size: 9pt; color: var(--fg); font-weight: 400; line-height: 1.45; }
+</style>
+</head>
+<body>
+
+<!-- ================= PAGE 1 / COVER ================= -->
+<section class="page cover">
+  <div class="cover-top">Media Kit</div>
+
+  <div class="cover-mid">
+    <div class="cover-mark-frame"><img class="cover-mark" src="img/ii-mark.png" alt="Ice &amp; Instinct mark"></div>
+    <div class="cover-name">Ice <span class="amp">&amp;</span> Instinct</div>
+    <div class="cover-rule"></div>
+    <div class="cover-sub">Private Mixology Studio</div>
+    <div class="cover-geo">New York &amp; New Jersey &middot; Est. 2024</div>
+  </div>
+
+  <div class="cover-hook">
+    <div class="hook-line">Cocktail omakase, the no-menu evening: a niche Ice &amp; Instinct defined.</div>
+    <div class="hook-note">The story behind the format: www.iceinstinct.com/journal/cocktail-omakase-explained/</div>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Ice &amp; Instinct</span>
+    <span class="gold">www.iceinstinct.com</span>
+    <span>01 / 04</span>
+  </footer>
+</section>
+
+<!-- ================= PAGE 2 / FOUNDER ================= -->
+<section class="page">
+  <header class="pagehead">
+    <div class="eyebrow">The Founder</div>
+    <h2>Teimuraz Benidze</h2>
+    <div class="sub">Founder &amp; Flavor Architect</div>
+  </header>
+
+  <div class="founder-cols">
+    <div class="founder-main">
+      <div class="pull">
+        <span class="it">The first certified sommelier in Georgia's history. Two decades of wine and service, now turned to the cocktail.</span>
+      </div>
+
+      <div class="bio-block">
+        <span class="label">Short Bio</span>
+        <p>Teimuraz Benidze is the founder of Ice &amp; Instinct, a private mixology studio serving the New York metro area and New Jersey. The first certified sommelier in Georgia's history, he brings two decades of wine and service to the craft of the cocktail.</p>
+      </div>
+
+      <div class="bio-block">
+        <span class="label">Long Bio</span>
+        <p>Teimuraz Benidze spent two decades in wine and service before turning his attention to the cocktail. The first certified sommelier in Georgia's history, he trained at Chateau-Arnoux in France, earned his Diploma in Wines &amp; Spirits at Enotria Wine World in Moscow, completed French Wine Studies with O.N.I.VINS, and holds the Leading Qualified Sommelier title from the Georgian Sommelier Association under ASI.</p>
+        <p>In 2024 he founded Ice &amp; Instinct, a private mixology studio serving the New York metro area and New Jersey. The studio works the way a sommelier works: it listens first. Every engagement begins with a tasting dialogue and ends as an evening composed around the people in the room.</p>
+        <p>His signature format is the cocktail omakase, the no-menu evening: a niche Ice &amp; Instinct defined. The studio's standard runs through everything else it does, from crystal-clear ice treated as an ingredient to The Collection, its thirteen signature cocktails.</p>
+      </div>
+    </div>
+
+    <aside class="founder-side">
+      <span class="label" style="color: var(--gold);">Credentials</span>
+      <ul class="cred-list">
+        <li>
+          <span class="cred-name">Certificat Wine &amp; Sommellerie</span>
+          <span class="cred-inst">Chateau-Arnoux, France</span>
+        </li>
+        <li>
+          <span class="cred-name">Leading Qualified Sommelier</span>
+          <span class="cred-inst">Georgian Sommelier Association / ASI</span>
+        </li>
+        <li>
+          <span class="cred-name">Diploma in Wines &amp; Spirits</span>
+          <span class="cred-inst">Enotria Wine World, Moscow</span>
+        </li>
+        <li>
+          <span class="cred-name">French Wine Studies</span>
+          <span class="cred-inst">O.N.I.VINS</span>
+        </li>
+      </ul>
+      <div class="side-note">Full story at www.iceinstinct.com/my-story/ &middot; Interviews and appearances arranged through the press contact on the last page.</div>
+    </aside>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Ice &amp; Instinct</span>
+    <span class="gold">www.iceinstinct.com</span>
+    <span>02 / 04</span>
+  </footer>
+</section>
+
+<!-- ================= PAGE 3 / THE OFFERING ================= -->
+<section class="page">
+  <header class="pagehead" style="margin-bottom: 0.3in;">
+    <div class="eyebrow">The Offering</div>
+    <h2>Four ways an evening takes shape</h2>
+  </header>
+
+  <table class="tiers">
+    <thead>
+      <tr><th style="width:42%">Tier</th><th>From</th><th>Guests</th><th>Duration</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tier-name">The Foundation</td>
+        <td class="tier-price">$650</td>
+        <td>up to 15</td>
+        <td>3 hours</td>
+      </tr>
+      <tr>
+        <td class="tier-name">Perfection in Simplicity</td>
+        <td class="tier-price">$900</td>
+        <td>up to 12</td>
+        <td>4 hours</td>
+      </tr>
+      <tr>
+        <td class="tier-name">Bespoke Design &amp; Artistry</td>
+        <td class="tier-price">$1,800</td>
+        <td>up to 30</td>
+        <td>4 hours</td>
+      </tr>
+      <tr>
+        <td class="tier-name">Omakase Improvisation</td>
+        <td class="tier-price">$3,000+</td>
+        <td colspan="2">an open-ended, no-menu evening</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="tier-note">Team scaling available for weddings and galas. Spirits are not included: the host provides them, or the studio sources at supplier cost.</div>
+
+  <div class="offer-cols">
+    <div class="offer-col">
+      <div class="offer-block">
+        <span class="label">The Craft</span>
+        <p>Crystal-clear ice is treated as an ingredient, not an afterthought: it is the studio's standard on every engagement. The repertoire centers on The Collection, thirteen signature cocktails, presented at www.iceinstinct.com/gallery/.</p>
+      </div>
+      <div class="offer-block">
+        <span class="label">Service Area</span>
+        <p>The New York metro area and New Jersey: Manhattan, the Hamptons, Westchester &amp; Greenwich, and New Jersey.</p>
+      </div>
+      <div class="offer-block">
+        <span class="label">Concierge Enhancements</span>
+        <div class="enh-grid">
+          <div class="enh"><span>Bespoke Cigar Curator</span><span class="pr">$500</span></div>
+          <div class="enh"><span>Additional Bar Staff</span><span class="pr">$350</span></div>
+          <div class="enh"><span>The Curator</span><span class="pr">$350</span></div>
+          <div class="enh"><span>Glassware &amp; Vessels</span><span class="pr">$250</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="offer-col">
+      <div class="offer-block">
+        <span class="label">How Engagements Work</span>
+        <ul class="steps">
+          <li><span class="n">01</span><span class="t"><strong>Inquiry.</strong> A short note through the form at www.iceinstinct.com/contact/ or by phone.</span></li>
+          <li><span class="n">02</span><span class="t"><strong>Tasting dialogue.</strong> A conversation about the room, the guests, and the palate before anything is poured.</span></li>
+          <li><span class="n">03</span><span class="t"><strong>The evening.</strong> The studio arrives, builds, serves, and leaves the room as it found it.</span></li>
+        </ul>
+      </div>
+      <div class="offer-block">
+        <span class="label">Deposit</span>
+        <p>A flat $500 reserves the date. Fully refundable until 14 days before the event, and transferable to a new date for 12 months.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="offer-close">
+    <span class="it">Every evening begins with a conversation.</span>
+    <span class="lnk">www.iceinstinct.com/contact/</span>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Ice &amp; Instinct</span>
+    <span class="gold">www.iceinstinct.com</span>
+    <span>03 / 04</span>
+  </footer>
+</section>
+
+<!-- ================= PAGE 4 / PHOTOGRAPHY ================= -->
+<section class="page">
+  <header class="pagehead" style="margin-bottom: 0.1in;">
+    <div class="eyebrow">Photography</div>
+    <div class="photo-note">Selected images for editorial use. High-resolution files at <span class="gold">www.iceinstinct.com/press/</span></div>
+  </header>
+
+  <div class="photo-grid">
+    <div class="ph ph-lead">
+      <img src="img/founder.jpg" alt="Teimuraz Benidze, founder of Ice &amp; Instinct">
+      <span class="cap">Teimuraz Benidze &middot; Founder &amp; Flavor Architect</span>
+    </div>
+    <div class="ph-row ph-row-tall">
+      <div class="ph">
+        <img src="img/lotus.jpg" alt="White Lotus, a signature cocktail from The Collection">
+        <span class="cap">White Lotus &middot; The Collection</span>
+      </div>
+      <div class="ph">
+        <img src="img/duality.jpg" alt="Duality, clear ice study">
+        <span class="cap">Duality &middot; Clear Ice</span>
+      </div>
+    </div>
+    <div class="ph-bottom">
+      <div class="ph">
+        <img src="img/aureliano.jpg" alt="Aureliano, a signature cocktail from The Collection">
+        <span class="cap">Aureliano &middot; The Collection</span>
+      </div>
+      <aside class="press-contact">
+        <span class="label">Press Contact</span>
+        <!-- PRESS_EMAIL: when hello@iceinstinct.com is live, replace the Inquiries row below with it. -->
+        <div class="pc-row">
+          <span class="pc-k">Inquiries</span>
+          <span class="pc-v">www.iceinstinct.com/contact/</span>
+        </div>
+        <div class="pc-row">
+          <span class="pc-k">Phone / WhatsApp</span>
+          <span class="pc-v">+1 917 292 7859</span>
+        </div>
+        <div class="pc-row">
+          <span class="pc-k">Instagram</span>
+          <span class="pc-v">@iceinstinctnyc</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Ice &amp; Instinct</span>
+    <span class="gold">www.iceinstinct.com</span>
+    <span>04 / 04</span>
+  </footer>
+</section>
+
+</body>
+</html>

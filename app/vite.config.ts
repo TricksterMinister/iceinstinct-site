@@ -46,6 +46,7 @@ export default defineConfig({
         journalOmakase: r('journal/cocktail-omakase-explained/index.html'),
         journalClearIce: r('journal/clear-ice-why-it-matters/index.html'),
         journalCigar: r('journal/cigar-and-cocktail-pairing/index.html'),
+        press: r('press/index.html'),
         cookies: r('cookies/index.html'),
         accessibility: r('accessibility/index.html'),
         responsibleService: r('responsible-service/index.html'),

@@ -27,6 +27,7 @@ import { Manhattan } from './pages/Manhattan';
 import { Hamptons } from './pages/Hamptons';
 import { WestchesterGreenwich } from './pages/WestchesterGreenwich';
 import { Journal } from './pages/Journal';
+import { Press } from './pages/Press';
 import { JournalArticle } from './pages/JournalArticle';
 import { cocktailOmakaseExplained } from './data/journal/cocktail-omakase-explained';
 import { clearIceWhyItMatters } from './data/journal/clear-ice-why-it-matters';
@@ -61,6 +62,7 @@ const ROUTES: Record<string, () => ReactElement> = {
   '/hamptons/': () => <Hamptons />,
   '/westchester-greenwich/': () => <WestchesterGreenwich />,
   '/journal/': () => <Journal />,
+  '/press/': () => <Press />,
   '/journal/cocktail-omakase-explained/': () => <JournalArticle article={cocktailOmakaseExplained} />,
   '/journal/clear-ice-why-it-matters/': () => <JournalArticle article={clearIceWhyItMatters} />,
   '/journal/cigar-and-cocktail-pairing/': () => <JournalArticle article={cigarAndCocktailPairing} />,
