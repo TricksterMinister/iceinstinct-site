@@ -46,6 +46,10 @@
 3. Настройки: collect customer email + shipping address NOT needed; after payment -> redirect на https://www.iceinstinct.com/contact/?occasion=gift (или стандартный receipt)
 4. Скопировать обе ссылки -> отдать мне, я вшиваю в /gift/ страницу.
 
+## 5a. Purge CDN-кэша (1 минута) - ВАЖНО для AI-движков
+- Hostinger hPanel -> сайт iceinstinct.com -> **CDN -> Purge cache** (всё).
+- Причина: edge-кэш (hcdn) держит llms.txt / sitemap.xml со старым 30-дневным TTL. Заголовки в коде уже починены (1 час), но закэшированную копию надо выбить один раз вручную.
+
 ## 6. Решение по каталогам (2 минуты, один раз)
 - **PartySlate** - это витрина для люкс-ивент-планировщиков (бюджеты $10k+), НЕ биржа дешевых заказов. Да или нет?
 - **The Knot / WeddingWire** - свадебные каталоги, та же логика. Да или нет?
