@@ -1,2 +1,2 @@
-These CSVs are templates; import into Google Sheets (File -> Import) as "Ice Bench" and "Ice Dispatch".
-Monthly formula row: sum of Спред, count of orders, average spread.
+CSV-файлы здесь - шаблоны; импортировать в Google Sheets (Файл -> Импортировать) как "Ice Bench" и "Ice Dispatch".
+Строка формул месяца: сумма Спред, число заказов, средний спред.

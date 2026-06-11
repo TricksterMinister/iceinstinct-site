@@ -59,12 +59,12 @@ Two clean ways to keep the $250 spread AND stay safe - both near-zero cost:
 
 | Package | What | Client price | You pay bartender | Your spread |
 |---|---|---|---|---|
-| The Single | 1 bartender, up to 4h, up to ~50 guests | $450 | $180-$220 | ~$230-$270 |
+| The Single | 1 bartender, up to 4h, up to ~50 guests | $450 | $180-$240 | ~$210-$270 |
 | The Pair | 2 bartenders, up to 4h, 50-100 guests | $850 | $380-$440 | ~$410-$470 |
 | The Wedding (Ice) | team, full event, scaled to guest count | $1,200-$2,400 | 45-55% of price | the rest |
 | Add-ons | barback +$200, extra hour +$75/bartender, clear-ice upgrade +$X | pass-through + margin | | |
 
-Rule of thumb: **client price = bartender pay x ~2.1**, minimum spread $200/gig. Never quote below the bench cost + $200.
+Rule of thumb: **client price = bartender pay x ~2.1** (solo packages; team/barback packages follow the $200-minimum spread rule instead), minimum spread $200/gig. Never quote below the bench cost + $200.
 
 ### INSTINCT floor - private mixology by the founder (unchanged)
 
