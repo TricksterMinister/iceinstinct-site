@@ -86,6 +86,15 @@ export function WorkWithUs() {
   const [company, setCompany] = useState(''); // honeypot, hidden from humans
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
+  // First focus on any bench form field fires bench_form_start once - same
+  // pattern as Contact's onFocusCapture / inquiry_form_start guard.
+  const formStarted = useRef(false);
+  const onFormStart = () => {
+    if (formStarted.current) return;
+    formStarted.current = true;
+    track('bench_form_start');
+  };
+
   // Field-level validation. The form is noValidate (browser bubbles clash with
   // the design), so an accidental click must be stopped HERE - same rule that
   // guards Contact against blank submissions reaching the owner's inbox.
@@ -141,9 +150,11 @@ export function WorkWithUs() {
         track('bench_apply');
         setStatus('sent');
       } else {
+        track('bench_apply_error');
         setStatus('error');
       }
     } catch {
+      track('bench_apply_error');
       setStatus('error');
     }
   };
@@ -328,6 +339,7 @@ export function WorkWithUs() {
                     action="https://formspree.io/f/xpwkadgp"
                     method="POST"
                     onSubmit={onSubmit}
+                    onFocusCapture={onFormStart}
                     noValidate
                   >
                     <div className="inquire-row">

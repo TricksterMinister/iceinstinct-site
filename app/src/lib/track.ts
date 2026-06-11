@@ -25,6 +25,18 @@ export function resolveCtaEvent(href: string): string | null {
 // touching each component. Internal /contact/ links are deliberately NOT
 // tracked here - the form's own inquiry_form_start / inquiry_submit are the
 // meaningful signal, nav clicks would be noise.
+//
+// Full event vocabulary:
+//   inquiry_form_start - first focus on the /contact/ inquiry form
+//   inquiry_submit     - inquiry form sent successfully (Formspree ok)
+//   inquiry_error      - inquiry form Formspree error (else branch or catch)
+//   bench_form_start   - first focus on the /work-with-us/ bench application form
+//   bench_apply        - bench application sent successfully (Formspree ok)
+//   bench_apply_error  - bench application Formspree error (else branch or catch)
+//   booking_click      - outbound youcanbook.me link
+//   whatsapp_click     - outbound WhatsApp link
+//   call_click         - tel: link
+//   instagram_click    - outbound Instagram link
 let installed = false;
 export function initCtaTracking() {
   if (installed || typeof document === 'undefined') return;
