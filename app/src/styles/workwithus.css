@@ -1,0 +1,87 @@
+/* ICE & INSTINCT / work-with-us page (the bench intake)
+   Small additive layer over offering.css + sections.css + the inquire form
+   styles in styles.css. Four jobs only:
+   1. the static hero photo obeys the site photo law (monochrome at rest);
+   2. the mono note under the terms ledger;
+   3. the "what we look for" quiet list on the dark panel;
+   4. the application form extras (3-select row, inline error, questions line).
+   Nothing else is restyled. */
+
+/* 1. Hero photo: monochrome at rest (same law as the events hero still). */
+.ww-hero .concierge-image img {
+  filter: grayscale(100%) contrast(1.06) brightness(0.92);
+}
+
+/* 2. Mono note under the terms ledger (the events .ev-note anatomy). */
+.ww-note {
+  font-family: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.66rem;
+  line-height: 1.7;
+  color: var(--oma-ink-faint, oklch(46% 0.02 85));
+  margin: clamp(1.2rem, 2.4vh, 1.8rem) 0 0;
+  max-width: 56ch;
+}
+
+/* 3. The quiet list on the dark panel: numbered, hairline-ruled rows. */
+.ww-look {
+  list-style: none;
+  margin: clamp(2rem, 5vh, 3.2rem) 0 0;
+  padding: 0;
+  max-width: 760px;
+}
+.ww-look li {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(1rem, 2.5vw, 1.8rem);
+  padding: clamp(0.85rem, 1.8vh, 1.2rem) 0;
+  border-bottom: 1px solid oklch(100% 0 0 / 0.08);
+}
+.ww-look li:first-child {
+  border-top: 1px solid oklch(100% 0 0 / 0.08);
+}
+.ww-look-n {
+  font-family: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  color: var(--c-accent, oklch(78% 0.09 90));
+  flex: 0 0 auto;
+}
+.ww-look-t {
+  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.08rem);
+  line-height: 1.5;
+  color: oklch(86% 0.01 90);
+}
+
+/* 4a. The three selects share one row on wide screens, stack on phones. */
+.closing-frame .inquire-row.ww-row-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+@media (max-width: 560px) {
+  .closing-frame .inquire-row.ww-row-3 { grid-template-columns: 1fr; }
+}
+
+/* 4b. Quiet inline error under the submit - palette ink, never an alien red. */
+.closing-frame .ww-error {
+  margin: 0;
+  text-align: center;
+  font-family: var(--f-italic, serif);
+  font-style: italic;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: oklch(42% 0.1 70);
+}
+.closing-frame .ww-error a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* 4c. The questions line under the card (the inquire-deposit anatomy +
+   linked phone in the same ink). */
+.closing-frame .ww-questions a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

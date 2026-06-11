@@ -23,6 +23,7 @@ import { Weddings } from './pages/Weddings';
 import { Corporate } from './pages/Corporate';
 import { Gift } from './pages/Gift';
 import { Events } from './pages/Events';
+import { WorkWithUs } from './pages/WorkWithUs';
 import { NewJersey } from './pages/NewJersey';
 import { Manhattan } from './pages/Manhattan';
 import { Hamptons } from './pages/Hamptons';
@@ -59,6 +60,7 @@ const ROUTES: Record<string, () => ReactElement> = {
   '/corporate/': () => <Corporate />,
   '/gift/': () => <Gift />,
   '/events/': () => <Events />,
+  '/work-with-us/': () => <WorkWithUs />,
   '/new-jersey/': () => <NewJersey />,
   '/manhattan/': () => <Manhattan />,
   '/hamptons/': () => <Hamptons />,

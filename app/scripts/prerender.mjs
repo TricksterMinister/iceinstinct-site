@@ -43,6 +43,7 @@ const ROUTE_TO_HTML = {
   '/journal/cigar-and-cocktail-pairing/': 'journal/cigar-and-cocktail-pairing/index.html',
   '/press/': 'press/index.html',
   '/events/': 'events/index.html',
+  '/work-with-us/': 'work-with-us/index.html',
   '/gallery/': 'gallery/index.html',
   '/contact/': 'contact/index.html',
   '/privacy/': 'privacy/index.html',

@@ -174,6 +174,21 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     jsonLd: [],
   },
 
+  '/work-with-us/': {
+    title: "Join the Bench - Event Bartender Work, NYC & NJ - Ice & Instinct",
+    description:
+      "Paid event bartending work across NYC and New Jersey: flat $180-240 per 4-hour event, same-day Zelle payout, you choose your gigs. Join the vetted bench of a private mixology studio.",
+    canonical: `${SITE}/work-with-us/`,
+    ogTitle: "Join the Bench - Ice & Instinct",
+    ogDescription:
+      "Flat $180-240 per 4-hour event, same-day payout, your choice of gigs. Bartend for a private mixology studio in NYC and NJ.",
+    // Placeholder OG card until a bench-specific one exists.
+    ogImage: "/assets/og/press.png",
+    // WebPage + BreadcrumbList JSON-LD are hand-authored in the page stub
+    // head; prerender preserves shell schema and skips this list.
+    jsonLd: [],
+  },
+
   '/new-jersey/': {
     title: "Private Bartending & Cocktail Service in New Jersey - Ice & Instinct",
     description:

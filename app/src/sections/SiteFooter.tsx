@@ -48,6 +48,7 @@ export function SiteFooter({ embedded = false }: SiteFooterProps) {
           <a className="lnk" href="/manhattan/">Manhattan</a>
           <a className="lnk" href="/hamptons/">The Hamptons</a>
           <a className="lnk" href="/westchester-greenwich/">Westchester &amp; Greenwich</a>
+          <a className="lnk" href="/work-with-us/">Join the Bench</a>
         </nav>
         <div className="oma-close-base">
           <span>By appointment only &middot; New York Metropolitan Area &amp; New Jersey &middot; <a href="tel:+19172927859" style={{ color: 'inherit', textDecoration: 'none' }}>+1 (917) 292-7859</a></span>

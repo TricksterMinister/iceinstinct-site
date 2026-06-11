@@ -47,6 +47,7 @@ export default defineConfig({
         journalClearIce: r('journal/clear-ice-why-it-matters/index.html'),
         journalCigar: r('journal/cigar-and-cocktail-pairing/index.html'),
         events: r('events/index.html'),
+        workWithUs: r('work-with-us/index.html'),
         press: r('press/index.html'),
         cookies: r('cookies/index.html'),
         accessibility: r('accessibility/index.html'),
