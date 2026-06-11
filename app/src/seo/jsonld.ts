@@ -2,6 +2,8 @@
 // Plain JS objects, consumed by seoData.ts. Ported from the legacy vanilla site
 // (_legacy-vanilla/*) where real markup existed; gaps filled from project data.
 
+import { COCKTAIL_PROFILES } from "../data/cocktails";
+
 const SITE = "https://www.iceinstinct.com";
 const ORG_ID = `${SITE}/#organization`;
 
@@ -58,11 +60,16 @@ export function cocktailItemList(): object {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Ice & Instinct - The Collection",
-    itemListElement: names.map((name, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name,
-    })),
+    itemListElement: names.map((name, i) => {
+      // Same sentence shown on the gallery tile; single source of truth.
+      const description = COCKTAIL_PROFILES[name]?.description;
+      return {
+        "@type": "ListItem",
+        position: i + 1,
+        name,
+        ...(description ? { description } : {}),
+      };
+    }),
   };
 }
 

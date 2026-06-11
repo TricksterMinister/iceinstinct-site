@@ -22,6 +22,15 @@ import { MyStory } from './pages/MyStory';
 import { Weddings } from './pages/Weddings';
 import { Corporate } from './pages/Corporate';
 import { Gift } from './pages/Gift';
+import { NewJersey } from './pages/NewJersey';
+import { Manhattan } from './pages/Manhattan';
+import { Hamptons } from './pages/Hamptons';
+import { WestchesterGreenwich } from './pages/WestchesterGreenwich';
+import { Journal } from './pages/Journal';
+import { JournalArticle } from './pages/JournalArticle';
+import { cocktailOmakaseExplained } from './data/journal/cocktail-omakase-explained';
+import { clearIceWhyItMatters } from './data/journal/clear-ice-why-it-matters';
+import { cigarAndCocktailPairing } from './data/journal/cigar-and-cocktail-pairing';
 import { GalleryPage } from './pages/GalleryPage';
 import { Contact } from './pages/Contact';
 import { Privacy } from './pages/Privacy';
@@ -47,6 +56,14 @@ const ROUTES: Record<string, () => ReactElement> = {
   '/weddings/': () => <Weddings />,
   '/corporate/': () => <Corporate />,
   '/gift/': () => <Gift />,
+  '/new-jersey/': () => <NewJersey />,
+  '/manhattan/': () => <Manhattan />,
+  '/hamptons/': () => <Hamptons />,
+  '/westchester-greenwich/': () => <WestchesterGreenwich />,
+  '/journal/': () => <Journal />,
+  '/journal/cocktail-omakase-explained/': () => <JournalArticle article={cocktailOmakaseExplained} />,
+  '/journal/clear-ice-why-it-matters/': () => <JournalArticle article={clearIceWhyItMatters} />,
+  '/journal/cigar-and-cocktail-pairing/': () => <JournalArticle article={cigarAndCocktailPairing} />,
   '/gallery/': () => <GalleryPage />,
   '/contact/': () => <Contact />,
   '/privacy/': () => <Privacy />,

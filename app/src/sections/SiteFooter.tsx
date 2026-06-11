@@ -32,6 +32,7 @@ export function SiteFooter({ embedded = false }: SiteFooterProps) {
           <a className="lnk" href="/weddings/">Weddings</a>
           <a className="lnk" href="/corporate/">Corporate</a>
           <a className="lnk" href="/gift/">Gift an Evening</a>
+          <a className="lnk" href="/journal/">Journal</a>
           <a className="lnk" href="/contact/">Inquire</a>
           <a className="lnk" href="https://www.instagram.com/iceinstinctnyc/" target="_blank" rel="noopener noreferrer" aria-label="Ice & Instinct on Instagram">Instagram</a>
           <a className="lnk" href="/privacy/">Privacy</a>
@@ -39,6 +40,12 @@ export function SiteFooter({ embedded = false }: SiteFooterProps) {
           <a className="lnk" href="/cookies/">Cookies</a>
           <a className="lnk" href="/accessibility/">Accessibility</a>
           <a className="lnk" href="/responsible-service/">Responsible Service</a>
+        </nav>
+        <nav className="oma-close-nav oma-close-areas" aria-label="Service areas">
+          <a className="lnk" href="/new-jersey/">New Jersey</a>
+          <a className="lnk" href="/manhattan/">Manhattan</a>
+          <a className="lnk" href="/hamptons/">The Hamptons</a>
+          <a className="lnk" href="/westchester-greenwich/">Westchester &amp; Greenwich</a>
         </nav>
         <div className="oma-close-base">
           <span>By appointment only &middot; New York Metropolitan Area &amp; New Jersey &middot; <a href="tel:+19172927859" style={{ color: 'inherit', textDecoration: 'none' }}>+1 (917) 292-7859</a></span>

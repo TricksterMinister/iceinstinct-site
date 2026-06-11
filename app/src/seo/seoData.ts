@@ -159,6 +159,103 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     jsonLd: [],
   },
 
+  '/new-jersey/': {
+    title: "Private Bartending & Cocktail Service in New Jersey - Ice & Instinct",
+    description:
+      "Private bartending and cocktail service across New Jersey - the Hoboken and Jersey City waterfront to Short Hills, Summit, and Montclair. Home base in NJ: no tunnel tolls, no Manhattan premium. Four tiers from $650.",
+    canonical: `${SITE}/new-jersey/`,
+    ogTitle: "Private Bartending in New Jersey - Ice & Instinct",
+    ogDescription:
+      "New Jersey is our home base. No tunnel tolls, no Manhattan vendor premium, same-week dates realistic. Four tiers from $650, professional clear ice as standard.",
+    ogImage: "/assets/og/new-jersey.png",
+    // Service + FAQPage JSON-LD hand-authored in the stub head.
+    jsonLd: [],
+  },
+
+  '/manhattan/': {
+    title: "Private Bartending & Cocktail Service in Manhattan - Ice & Instinct",
+    description:
+      "Private bartending for Manhattan penthouses, doorman buildings, and terraces. COI and freight elevator handled, compact setups, quiet late-evening close. Four tiers from $650.",
+    canonical: `${SITE}/manhattan/`,
+    ogTitle: "Private Bartending & Cocktail Service in Manhattan - Ice & Instinct",
+    ogDescription:
+      "Doorman buildings handled routinely - COI, freight elevator, quiet close. Private cocktail service for Manhattan apartments and terraces, from $650.",
+    ogImage: "/assets/og/manhattan.png",
+    jsonLd: [],
+  },
+
+  '/hamptons/': {
+    title: "Hamptons Private Bartending & Cocktail Service - Ice & Instinct",
+    description:
+      "Private bartending and cocktail service for Hamptons estates, Southampton to Montauk. Clear ice transported cold from the studio, a full bar team, multi-day house weekends. Tiers from $650.",
+    canonical: `${SITE}/hamptons/`,
+    ogTitle: "Hamptons Private Bartending & Cocktail Service - Ice & Instinct",
+    ogDescription:
+      "Estate kitchens, pool-house bars, and the season's house parties - served to one standard, Southampton to Montauk. Tiers from $650.",
+    ogImage: "/assets/og/hamptons.png",
+    jsonLd: [],
+  },
+
+  '/westchester-greenwich/': {
+    title: "Private Bartending Westchester & Greenwich - Ice & Instinct",
+    description:
+      "Private bartending and cocktail service for Scarsdale, Rye, Bedford, and the Greenwich backcountry. Sommelier-led, professional clear ice, discreet service at the house. From $650.",
+    canonical: `${SITE}/westchester-greenwich/`,
+    ogTitle: "Private Bartending Westchester & Greenwich - Ice & Instinct",
+    ogDescription:
+      "Estate dinners in Scarsdale, Rye, Bedford, and the Greenwich backcountry. A sommelier-led bar, professional clear ice, service that ends as quietly as it arrives. From $650.",
+    ogImage: "/assets/og/westchester-greenwich.png",
+    jsonLd: [],
+  },
+
+  '/journal/': {
+    title: "Journal - Notes on the Craft - Ice & Instinct",
+    description:
+      "Field notes from a private mixology studio: cocktail omakase explained, why clear ice matters, and a sommelier's method for cigar and cocktail pairing.",
+    canonical: `${SITE}/journal/`,
+    ogTitle: "Journal - Notes on the Craft - Ice & Instinct",
+    ogDescription:
+      "Field notes from a private mixology studio: cocktail omakase explained, why clear ice matters, and a sommelier's method for cigar and cocktail pairing.",
+    ogImage: "/assets/og/press.png",
+    jsonLd: [],
+  },
+
+  '/journal/cocktail-omakase-explained/': {
+    title: "Cocktail Omakase: the No-Menu Evening, Explained - Ice & Instinct",
+    description:
+      "What omakase means when it moves from the sushi counter to the bar: how the no-menu evening works, what the host decides, what it costs, and who books it.",
+    canonical: `${SITE}/journal/cocktail-omakase-explained/`,
+    ogTitle: "Cocktail Omakase: the No-Menu Evening, Explained - Ice & Instinct",
+    ogDescription:
+      "No menu, no recipe cards, every drink composed in the moment. How a cocktail omakase evening actually works - from the dialogue with the room to what it costs.",
+    ogImage: "/assets/og/press.png",
+    jsonLd: [],
+  },
+
+  '/journal/clear-ice-why-it-matters/': {
+    title: "Clear Ice: Why It Matters and How We Source It - Ice & Instinct",
+    description:
+      "Ice is an ingredient. How directional freezing makes ice clear, why dense blocks control dilution, and why hand-cut clear ice is standard at every tier.",
+    canonical: `${SITE}/journal/clear-ice-why-it-matters/`,
+    ogTitle: "Clear Ice: Why It Matters and How We Source It - Ice & Instinct",
+    ogDescription:
+      "The largest ingredient in most cocktails is the least examined. The simple physics of clarity, the case for dilution control, and how we source and cut our ice.",
+    ogImage: "/assets/og/press.png",
+    jsonLd: [],
+  },
+
+  '/journal/cigar-and-cocktail-pairing/': {
+    title: "Cigar and Cocktail Pairing: a Sommelier's Method - Ice & Instinct",
+    description:
+      "A certified sommelier's pairing grammar applied to smoke: matching strength, sweetness, and pacing - and how the Bespoke Cigar Curator runs the ritual.",
+    canonical: `${SITE}/journal/cigar-and-cocktail-pairing/`,
+    ogTitle: "Cigar and Cocktail Pairing: a Sommelier's Method - Ice & Instinct",
+    ogDescription:
+      "Structure, sweetness, strength - the grammar of wine service applied to smoke, by the first certified sommelier in the history of Georgia.",
+    ogImage: "/assets/og/press.png",
+    jsonLd: [],
+  },
+
   '/gallery/': {
     title: "The Collection - Ice & Instinct",
     description:

@@ -1,0 +1,12 @@
+import './styles/accent.css';
+import './styles/styles.css';
+import './styles/footer.css';
+import './styles/cinema-chrome.css';
+import './styles/offering.css';
+import './styles/sections.css';
+import './styles/geo-westchester-greenwich.css';
+import './lib/funnelInit';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { WestchesterGreenwich } from './pages/WestchesterGreenwich';
+createRoot(document.getElementById('root')!).render(<StrictMode><WestchesterGreenwich /></StrictMode>);

@@ -8,6 +8,26 @@ import { PalateProfiler } from '../features/Profiler/PalateProfiler';
 import type { Selections } from '../features/Profiler/profilerData';
 import { setCocktail } from '../lib/leadContext';
 import { track } from '../lib/track';
+import { COCKTAIL_PROFILES } from '../data/cocktails';
+import '../styles/gallery.css';
+
+// The thirteen tiles, in wall order. Titles key into COCKTAIL_PROFILES, which
+// carries the visible description (and the drawer's palate pins + notes).
+const GALLERY_TILES: Array<{ title: string; src: string }> = [
+  { title: 'White Lotus', src: '/assets/photos/white-lotus-v2.png' },
+  { title: 'Aviation', src: '/assets/photos/aviation-v2.png' },
+  { title: 'Persimmon Saffron Sour', src: '/assets/photos/persimmon-saffron-v2.png' },
+  { title: 'Belladonna', src: '/assets/photos/belladonna-v2.png' },
+  { title: 'Black Truffle Martini', src: '/assets/photos/black-truffle-v2.png' },
+  { title: 'Rose Garden Rendezvous', src: '/assets/photos/rose-garden-v2.png' },
+  { title: 'Aureliano', src: '/assets/photos/aureliano-v2.png' },
+  { title: 'Call Me By Your Name', src: '/assets/photos/basil-v2.png' },
+  { title: '1001 Nights', src: '/assets/photos/1001-nights-v2.png' },
+  { title: 'Basil in my mind', src: '/assets/photos/basil-in-my-mind-v1.png' },
+  { title: 'Calipso Cream', src: '/assets/photos/calipso-v2.png' },
+  { title: 'Bésame', src: '/assets/photos/besame-v2.png' },
+  { title: 'Negroni Verde', src: '/assets/photos/negroni-verde.png' },
+];
 
 export function GalleryPage() {
   // Live deep page sets <body class="cinema-chrome is-gallery closer">. React mounts
@@ -153,194 +173,16 @@ export function GalleryPage() {
           <div className="container">
             <div className="gallery-track-wrap reveal">
               <div className="gallery-track" id="gallery-track">
-                <button
-                  className="gallery-tile"
-                  type="button"
-                  data-title="White Lotus"
-                  data-src="/assets/photos/white-lotus-v2.png"
-                >
-                  <img src="/assets/photos/white-lotus-v2.png" alt="White Lotus cocktail" loading="lazy" />
-                  <span className="gallery-tile-overlay">
-                    <span className="gallery-tile-name">White Lotus</span>
-                    <span className="gallery-tile-meta">View Ritual</span>
-                  </span>
-                </button>
-
-                <button
-                  className="gallery-tile"
-                  type="button"
-                  data-title="Aviation"
-                  data-src="/assets/photos/aviation-v2.png"
-                >
-                  <img
-                    src="/assets/photos/aviation-v2.png"
-                    alt="Aviation cocktail"
-                    loading="lazy"
-                  />
-                  <span className="gallery-tile-overlay">
-                    <span className="gallery-tile-name">Aviation</span>
-                    <span className="gallery-tile-meta">View Ritual</span>
-                  </span>
-                </button>
-
-                <button
-                  className="gallery-tile"
-                  type="button"
-                  data-title="Persimmon Saffron Sour"
-                  data-src="/assets/photos/persimmon-saffron-v2.png"
-                >
-                  <img
-                    src="/assets/photos/persimmon-saffron-v2.png"
-                    alt="Persimmon Saffron Sour cocktail"
-                    loading="lazy"
-                  />
-                  <span className="gallery-tile-overlay">
-                    <span className="gallery-tile-name">Persimmon Saffron Sour</span>
-                    <span className="gallery-tile-meta">View Ritual</span>
-                  </span>
-                </button>
-
-                <button
-                  className="gallery-tile"
-                  type="button"
-                  data-title="Belladonna"
-                  data-src="/assets/photos/belladonna-v2.png"
-                >
-                  <img src="/assets/photos/belladonna-v2.png" alt="Belladonna cocktail" loading="lazy" />
-                  <span className="gallery-tile-overlay">
-                    <span className="gallery-tile-name">Belladonna</span>
-                    <span className="gallery-tile-meta">View Ritual</span>
-                  </span>
-                </button>
-
-                <button
-                  className="gallery-tile"
-                  type="button"
-                  data-title="Black Truffle Martini"
-                  data-src="/assets/photos/black-truffle-v2.png"
-                >
-                  <img
-                    src="/assets/photos/black-truffle-v2.png"
-                    alt="Black Truffle Martini cocktail"
-                    loading="lazy"
-                  />
-                  <span className="gallery-tile-overlay">
-                    <span className="gallery-tile-name">Black Truffle Martini</span>
-                    <span className="gallery-tile-meta">View Ritual</span>
-                  </span>
-                </button>
-
-                <button
-                  className="gallery-tile"
-                  type="button"
-                  data-title="Rose Garden Rendezvous"
-                  data-src="/assets/photos/rose-garden-v2.png"
-                >
-                  <img src="/assets/photos/rose-garden-v2.png" alt="Rose Garden Rendezvous cocktail" loading="lazy" />
-                  <span className="gallery-tile-overlay">
-                    <span className="gallery-tile-name">Rose Garden Rendezvous</span>
-                    <span className="gallery-tile-meta">View Ritual</span>
-                  </span>
-                </button>
-
-                <button
-                  className="gallery-tile"
-                  type="button"
-                  data-title="Aureliano"
-                  data-src="/assets/photos/aureliano-v2.png"
-                >
-                  <img src="/assets/photos/aureliano-v2.png" alt="Aureliano cocktail" loading="lazy" />
-                  <span className="gallery-tile-overlay">
-                    <span className="gallery-tile-name">Aureliano</span>
-                    <span className="gallery-tile-meta">View Ritual</span>
-                  </span>
-                </button>
-
-                <button
-                  className="gallery-tile"
-                  type="button"
-                  data-title="Call Me By Your Name"
-                  data-src="/assets/photos/basil-v2.png"
-                >
-                  <img src="/assets/photos/basil-v2.png" alt="Call Me By Your Name cocktail" loading="lazy" />
-                  <span className="gallery-tile-overlay">
-                    <span className="gallery-tile-name">Call Me By Your Name</span>
-                    <span className="gallery-tile-meta">View Ritual</span>
-                  </span>
-                </button>
-
-                <button
-                  className="gallery-tile"
-                  type="button"
-                  data-title="1001 Nights"
-                  data-src="/assets/photos/1001-nights-v2.png"
-                >
-                  <img src="/assets/photos/1001-nights-v2.png" alt="1001 Nights cocktail" loading="lazy" />
-                  <span className="gallery-tile-overlay">
-                    <span className="gallery-tile-name">1001 Nights</span>
-                    <span className="gallery-tile-meta">View Ritual</span>
-                  </span>
-                </button>
-
-                <button
-                  className="gallery-tile"
-                  type="button"
-                  data-title="Basil in my mind"
-                  data-src="/assets/photos/basil-in-my-mind-v1.png"
-                >
-                  <img
-                    src="/assets/photos/basil-in-my-mind-v1.png"
-                    alt="Basil in my mind cocktail"
-                    loading="lazy"
-                  />
-                  <span className="gallery-tile-overlay">
-                    <span className="gallery-tile-name">Basil in my mind</span>
-                    <span className="gallery-tile-meta">View Ritual</span>
-                  </span>
-                </button>
-
-                <button
-                  className="gallery-tile"
-                  type="button"
-                  data-title="Calipso Cream"
-                  data-src="/assets/photos/calipso-v2.png"
-                >
-                  <img src="/assets/photos/calipso-v2.png" alt="Calipso Cream cocktail" loading="lazy" />
-                  <span className="gallery-tile-overlay">
-                    <span className="gallery-tile-name">Calipso Cream</span>
-                    <span className="gallery-tile-meta">View Ritual</span>
-                  </span>
-                </button>
-
-                <button
-                  className="gallery-tile"
-                  type="button"
-                  data-title="Bésame"
-                  data-src="/assets/photos/besame-v2.png"
-                >
-                  <img
-                    src="/assets/photos/besame-v2.png"
-                    alt="Bésame cocktail"
-                    loading="lazy"
-                  />
-                  <span className="gallery-tile-overlay">
-                    <span className="gallery-tile-name">Bésame</span>
-                    <span className="gallery-tile-meta">View Ritual</span>
-                  </span>
-                </button>
-
-                <button
-                  className="gallery-tile"
-                  type="button"
-                  data-title="Negroni Verde"
-                  data-src="/assets/photos/negroni-verde.png"
-                >
-                  <img src="/assets/photos/negroni-verde.png" alt="Negroni Verde cocktail" loading="lazy" />
-                  <span className="gallery-tile-overlay">
-                    <span className="gallery-tile-name">Negroni Verde</span>
-                    <span className="gallery-tile-meta">View Ritual</span>
-                  </span>
-                </button>
+                {GALLERY_TILES.map(({ title, src }) => (
+                  <button key={title} className="gallery-tile" type="button" data-title={title} data-src={src}>
+                    <img src={src} alt={`${title} cocktail`} loading="lazy" />
+                    <span className="gallery-tile-overlay">
+                      <span className="gallery-tile-name">{title}</span>
+                      <span className="gallery-tile-desc">{COCKTAIL_PROFILES[title]?.description}</span>
+                      <span className="gallery-tile-meta">View Ritual</span>
+                    </span>
+                  </button>
+                ))}
               </div>
               <div className="gallery-progress" id="gallery-progress" style={{ '--progress': '8%' } as React.CSSProperties}></div>
               <div className="gallery-meta-row">

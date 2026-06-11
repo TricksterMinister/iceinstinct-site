@@ -1,0 +1,33 @@
+/* ================================================
+   Gallery page - tile descriptions.
+   One or two quiet sentences per cocktail (spirits, profile, the evening it
+   was built for) inside the touch-to-awaken overlay. The overlay itself is
+   defined in styles.css; this file only adds the description line, so the
+   hover / focus reveal and the mobile behaviour stay untouched.
+   ================================================ */
+
+.gallery-tile-desc {
+  font-family: var(--font-italic);
+  font-style: italic;
+  font-weight: 350;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--c-fg-soft);
+  text-align: center;
+  max-width: 30ch;
+  /* Keep tall prose from swallowing the tile on the shortest viewports. */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  overflow: hidden;
+}
+
+/* On the narrowest hover-capable screens the tiles shrink; tighten the clamp
+   so the name and the View Ritual pin always stay in frame. */
+@media (max-height: 700px) {
+  .gallery-tile-desc {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+}

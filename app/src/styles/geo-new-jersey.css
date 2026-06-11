@@ -1,0 +1,65 @@
+/* ICE & INSTINCT / new-jersey geo page
+   Small additive layer over offering.css + sections.css. Four jobs only:
+   1. the static hero photo obeys the site photo law (monochrome at rest,
+      colour on attention);
+   2. the tier ledger rows work as links without losing the ledger look;
+   3. the deposit note under the ledger;
+   4. quiet inline links inside the prose (/weddings/, /corporate/, /gift/).
+   Nothing else is restyled. */
+
+/* 1. Hero photo: monochrome at rest (offering.css ships the video treatment,
+      which keeps color - this page uses a still, so it follows the photo law).
+      Colour returns on attention. */
+.njg-hero .concierge-image img {
+  filter: grayscale(100%) contrast(1.06) brightness(0.92);
+  transition: filter 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.njg-hero .concierge-image:hover img {
+  filter: grayscale(0%) contrast(1.02) brightness(1);
+}
+
+/* 2. Ledger rows as links: keep the ledger geometry, add quiet affordance. */
+a.njg-tier-link {
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.35s ease;
+}
+a.njg-tier-link:hover,
+a.njg-tier-link:focus-visible {
+  background: color-mix(in oklab, var(--oma-champ-deep, oklch(56% 0.09 85)) 7%, transparent);
+}
+a.njg-tier-link:hover .nm,
+a.njg-tier-link:focus-visible .nm {
+  color: var(--oma-champ-deep, oklch(45% 0.1 70));
+}
+a.njg-tier-link:focus-visible {
+  outline: 1px solid var(--oma-champ-deep, oklch(56% 0.09 85));
+  outline-offset: 2px;
+}
+
+/* 3. Deposit note under the ledger. */
+.njg-deposit {
+  font-family: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.66rem;
+  line-height: 1.7;
+  color: var(--oma-ink-faint, oklch(46% 0.02 85));
+  margin: clamp(1.2rem, 2.4vh, 1.8rem) 0 0;
+  max-width: 56ch;
+}
+
+/* 4. Quiet inline links in the prose and ledger description. */
+.njg-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--oma-champ-deep, oklch(50% 0.09 72)) 55%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+.njg-link:hover,
+.njg-link:focus-visible {
+  color: var(--oma-champ-deep, oklch(50% 0.09 72));
+  text-decoration-color: var(--oma-champ-deep, oklch(50% 0.09 72));
+}
