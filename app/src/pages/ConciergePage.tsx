@@ -326,11 +326,6 @@ export function ConciergePage() {
                 );
               })}
             </div>
-            <p className="enh-note-global">
-              Enhancements are arranged with your booking, not bought here. Professional ice and temperature are
-              standard in every evening; the rest you select, and they fold into one tailored quote. All third-party
-              items are sourced at supplier cost.
-            </p>
           </div>
         </section>
 
@@ -376,6 +371,10 @@ export function ConciergePage() {
                   See the tiers
                 </a>
               </div>
+              <p className="cta-note">
+                Enhancements are arranged with your booking, never bought here. Ice and temperature are standard in
+                every evening; all third-party items are sourced at supplier cost.
+              </p>
               <p className="cta-foot">By appointment only &middot; Est. 2024</p>
             </div>
           </div>

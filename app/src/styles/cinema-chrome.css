@@ -443,6 +443,15 @@ body.cinema-chrome .final-cta--luxe .cta-foot {
   margin: 0.4rem 0 0;
 }
 
+/* fine print inside the closing card (the old orphan .enh-note-global text) */
+.cta-note {
+  margin: clamp(0.9rem, 2vh, 1.4rem) auto 0;
+  max-width: 56ch;
+  font-size: clamp(0.82rem, 0.78rem + 0.2vmin, 0.95rem);
+  line-height: 1.6;
+  color: oklch(58% 0.012 85);
+}
+
 /* Buttons tuned for champagne-on-black */
 body.cinema-chrome .final-cta--luxe .btn-primary {
   background: var(--c-accent);
