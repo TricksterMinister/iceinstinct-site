@@ -2,6 +2,13 @@
 
 > Single source of truth for "where are we". Updated at the end of each session. Keep it SHORT.
 
+## NEXT SESSION STARTS HERE -> THE FUNNEL CHECKLIST (memory: funnel-checklist.md)
+Owner directive 2026-06-12: execute the 13-item funnel list ONE BY ONE, together, in order. Position tracked in memory `funnel-checklist.md` (read it FIRST). Critical path 1->2->5.
+- DONE: #1 Purge CDN (Claude via Chrome - llms.txt fresh, max-age=3600, $400 prices gone). #2 partial: GSC verified + sitemap.xml submitted (29 URLs; was indexing 2) + 3 manual index requests then Google daily-quota hit; Bing imported from GSC (www.iceinstinct.com live, feeds ChatGPT/Copilot).
+- **RESUME AT: #2 continued = Google Business Profile.** Owner says GBP profile already exists under his Google account - VERIFY it matches kgmid /g/11ms10nkr6 (not a dupe), fill services with prices, upload 15 photos from /Volumes/TEMO DISC/Reports/iceinstinct-gbp-photos/, and CAPTURE THE g.page REVIEW LINK (needed for review-engine cron). Then rest of #2: hello@iceinstinct.com mailbox, Stripe gift links x2, Wikidata account+bot password, yes/no on PartySlate/Knot/WeddingWire. Browser approach = Chrome MCP (Temo logged in to Google/Hostinger/Stripe; pause at any OAuth/ownership-confirm for him).
+- After #2: Claude code follow-ups (hello@ into footer/schema/press/Formspree; Stripe links into /gift/ STRIPE_LINKS; review link -> build review-engine cron; Wikidata QID -> schema sameAs). Then Temo does #3 lawyer, #4 recruiting ad, #5 send 18 Gmail drafts, #6 past-client msg, #7 CSV->Sheets, #8 YCBM deposit line.
+- Site is fully built + craft-passed (29 routes, HEAD `aec6a7e`); two owner canons LOCKED in memory: [[ice-not-included]] (ice never provided, Concierge arranges at supplier cost) + founder = 30 years / NY since 2016. Bans unchanged.
+
 ## SESSION 2026-06-11b (ICE FLOOR SHIPPED - two-floor business live, HEAD `24a95ca`, 29 routes)
 Owner decision after deep-research (105 agents): two-floor model. INSTINCT = founder premium (untouched, never discounted); ICE = bartender dispatch spread engine (client $450+ flat, bartender $180-240/4h subcontract, min spread $200/gig, deposit BEFORE bartender call). Executed via subagent-driven-development from `docs/superpowers/plans/2026-06-11-ice-floor-business-plan.md` (each task: implementer -> spec review -> quality review):
 - **Business docs** `docs/business/`: subcontractor agreement (10 sections, non-solicit 12mo + 10% referral, insurance req), bench standard (A/B tiers), ice-pricing, call/quote scripts, 10-step dispatch checklist, recruiting ad, CSV trackers (bench + dispatch). Escalation triggers (LLC/insurance/W2 - not before $5k/mes x3) in BUSINESS-MODEL.md.
