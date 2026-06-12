@@ -1,32 +1,9 @@
 /* /weddings/ - page-specific refinements only. Everything else on the page
    reuses the shared systems: offering.css (hero, panels, ledgers, closing),
-   sections.css (faq + proof ledgers), accent.css (buttons). */
+   sections.css (faq ledger), accent.css (buttons).
 
-/* Proof slot: until real wedding references exist in src/data/testimonials.ts,
-   the section holds one quiet line instead of fabricated quotes - so it does
-   not need a full viewport. Scale and placement only: the headline drops to a
-   sub-scale, the refline sits centered directly beneath, and the band is
-   tightened so it reads as a quiet statement, not an empty slot. */
-.proof.wed-proof {
-  min-height: auto;
-  padding-block: clamp(3rem, 8vh, 5rem);
-}
-
-.wed-proof .proof-intro {
-  margin-bottom: clamp(0.9rem, 2.2vh, 1.4rem);
-  text-align: center;
-}
-
-.wed-proof .proof-headline {
-  font-size: clamp(1.6rem, 1.25rem + 1.8vmin, 2.5rem);
-}
-
-.wed-refline {
-  margin: 0;
-  text-align: center;
-  font-family: var(--sec-mono);
-  font-size: clamp(0.82rem, 0.78rem + 0.18vmin, 0.95rem);
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--sec-mute);
-}
+   No page-specific rules at the moment. The proof section (and its
+   .wed-proof / .wed-refline overrides) was removed: the studio has served
+   no weddings yet, and nothing is fabricated or promised. When real wedding
+   references exist in src/data/testimonials.ts, the section returns with
+   real quotes - and its scale rules return here with it. */

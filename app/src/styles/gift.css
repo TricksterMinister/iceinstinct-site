@@ -3,6 +3,13 @@
    offering.css (concierge hero, oma-fmt3, oma-panel/oma-steps, closing) and
    sections.css (faq ledger). Strict monochrome + champagne, hairlines only. */
 
+/* Hero photo: monochrome at rest (offering.css ships the video treatment,
+   which keeps color - this page uses a still, so it follows the photo law,
+   same values as events/corporate). */
+.gift-hero .concierge-image img {
+  filter: grayscale(100%) contrast(1.06) brightness(0.92);
+}
+
 .gift-vouchers {
   position: relative;
   background: var(--c-bg);

@@ -1,10 +1,28 @@
+import { useEffect, useRef } from 'react';
+
+/* The hero loop downloads on desktop only: the effect below attaches this src
+   when the viewport is wide enough and motion is allowed. Phones keep the
+   poster frame and never fetch the 1.5MB mp4. */
+const HERO_LOOP_SRC = '/assets/video/hero-loop-v1.mp4';
+
 export function Hero() {
+  /* SSR-safe (effect only). lib/videoIdle.ts observes the same element via
+     data-idle-video and catches its play() rejections, so a src-less video
+     on mobile never throws. Desktop keeps today's autoplay loop. */
+  const videoRef = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (!window.matchMedia('(min-width: 768px)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    video.src = HERO_LOOP_SRC;
+    video.play().catch(() => { /* autoplay policy - poster stays */ });
+  }, []);
+
   return (
     <section className="hero" id="hero">
       {/* Owned brand loop replaces stock Pexels footage (owner: quiet luxury, no stock) */}
-      <video className="hero-video" autoPlay muted loop playsInline preload="auto" poster="/assets/video/hero-poster-v1.jpg" data-idle-video="">
-        <source src="/assets/video/hero-loop-v1.mp4" type="video/mp4" />
-      </video>
+      <video ref={videoRef} className="hero-video" autoPlay muted loop playsInline preload="none" poster="/assets/video/hero-poster-v1.jpg" data-idle-video=""></video>
       <div className="hero-vignette"></div>
       <div className="hero-grain"></div>
 

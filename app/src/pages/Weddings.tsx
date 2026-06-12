@@ -1,9 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import markUrl from '../assets/ii-mark.png';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
 import { SiteFooter } from '../sections/SiteFooter';
-import { testimonials } from '../data/testimonials';
 import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
 
 /**
@@ -13,11 +12,10 @@ import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
  * language; only the content is wedding-specific.
  */
 
-// Only real testimonials, and only the ones that actually concern a wedding.
-// When none qualify, the section states it plainly instead of inventing.
-const weddingQuotes = testimonials
-  .filter((t) => /wedding/i.test(`${t.event} ${t.quote}`))
-  .slice(0, 3);
+/* The hero loop downloads on desktop only: the effect below attaches this src
+   when the viewport is wide enough and motion is allowed. Phones keep the
+   poster frame and never fetch the mp4. */
+const WEDDING_LOOP_SRC = '/assets/video/wedding-loop-v1.mp4';
 
 // FAQ content rendered below AND mirrored 1:1 in the FAQPage JSON-LD inside
 // app/weddings/index.html. Edit both together.
@@ -58,6 +56,21 @@ export function Weddings() {
 
   useCinemaChrome();
   useDeepScripts();
+
+  /* Hero loop: desktop-only download. The <video> ships without src so small
+     screens hold the poster and never spend the 1.5MB+; the src attaches here
+     only on wide viewports with motion allowed. lib/videoIdle.ts observes the
+     same element (data-idle-video) and its play() calls are caught, so a
+     src-less video on mobile never throws. */
+  const heroVideoRef = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const video = heroVideoRef.current;
+    if (!video) return;
+    if (!window.matchMedia('(min-width: 768px)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    video.src = WEDDING_LOOP_SRC;
+    video.play().catch(() => { /* autoplay policy - poster stays */ });
+  }, []);
 
   /* Hero ghost: a champagne light follows the cursor and lights the letters
      (same behaviour as the offering-tier heroes). */
@@ -165,17 +178,16 @@ export function Weddings() {
             </div>
             <div className="concierge-image">
               <video
+                ref={heroVideoRef}
                 autoPlay
                 muted
                 loop
                 playsInline
+                preload="none"
                 poster="/assets/video/wedding-poster-v1.jpg"
                 aria-label="A wedding toast, cocktails catching the light"
                 data-idle-video=""
-              >
-                <source src="/assets/video/wedding-loop-v1.mp4" type="video/mp4" />
-                <img src="/assets/video/wedding-poster-v1.jpg" alt="A wedding toast, cocktails catching the light" />
-              </video>
+              ></video>
               <div className="concierge-image-scrim"></div>
             </div>
           </div>
@@ -418,40 +430,7 @@ export function Weddings() {
           </div>
         </section>
 
-        {/* V. PROOF - real wedding references only; never fabricated */}
-        <section className="proof wed-proof" id="proof">
-          <div className="proof-stage reveal">
-            <header className="proof-intro">
-              <h2 className="proof-headline">
-                <span>In their</span>
-                <span className="it">own words.</span>
-              </h2>
-            </header>
-            {weddingQuotes.length > 0 ? (
-              <ul className={`proof-list${weddingQuotes.length === 1 ? ' is-single' : ''}`}>
-                {weddingQuotes.map((t) => (
-                  <li className="proof-item" key={`${t.name}-${t.date}`}>
-                    <figure className="proof-card">
-                      <blockquote className="proof-quote">
-                        <p>{t.quote}</p>
-                      </blockquote>
-                      <figcaption className="proof-meta">
-                        <span className="proof-name">{t.name}</span>
-                        <span className="proof-event">
-                          {t.event} <span aria-hidden="true">&middot;</span> {t.date}
-                        </span>
-                      </figcaption>
-                    </figure>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="wed-refline">References available on request.</p>
-            )}
-          </div>
-        </section>
-
-        {/* VI. FAQ - sitewide ledger pattern; mirrored in FAQPage JSON-LD */}
+        {/* V. FAQ - sitewide ledger pattern; mirrored in FAQPage JSON-LD */}
         <section className="faq" id="faq">
           <div className="section-bg-word top right" aria-hidden="true">VOWS</div>
           <div className="faq-stage">

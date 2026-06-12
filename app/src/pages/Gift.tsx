@@ -185,8 +185,9 @@ export function Gift() {
       </header>
 
       <main>
-        {/* HERO - Concierge 50/50 technique, photo instead of video */}
-        <section className="concierge">
+        {/* HERO - Concierge 50/50 technique, photo instead of video.
+            gift-hero scopes the photo law (monochrome at rest) in gift.css. */}
+        <section className="concierge gift-hero">
           <div className="section-bg-word hero-ghost" aria-hidden="true">
             <span className="hg-base">GIFT</span>
             <span className="hg-glow">GIFT</span>
@@ -377,7 +378,7 @@ export function Gift() {
                 We respond within one business day with the dedication and delivery details.
               </p>
               <p className="closing-included">
-                Every gifted evening includes professional clear ice and temperature, sourced at supplier cost.
+                Professional clear ice and temperature control come standard in every gifted evening.
               </p>
               <div className="closing-cta">
                 <a className="btn-primary" href={GIFT_FALLBACK} data-cursor="link">
