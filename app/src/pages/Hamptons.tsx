@@ -25,7 +25,7 @@ const TIERS = [
 const FAQS = [
   {
     q: 'Do you travel to the Hamptons, and what does it cost?',
-    a: 'Yes - through the season we serve Southampton, Water Mill, Bridgehampton, Sag Harbor, East Hampton, Amagansett, and Montauk. Travel is included in your written quote as one figure, stated before you commit, and the clear ice rides out cold from our studio in insulated transport. No surprise line items after the fact.',
+    a: 'Yes - through the season we serve Southampton, Water Mill, Bridgehampton, Sag Harbor, East Hampton, Amagansett, and Montauk. Travel is included in your written quote as one figure, stated before you commit, and the clear ice, arranged through the Concierge from a specialist supplier, rides out cold in insulated transport. No surprise line items after the fact.',
   },
   {
     q: 'What kinds of venues do you work in out east?',
@@ -144,7 +144,7 @@ export function Hamptons() {
               <p className="concierge-lead">
                 From a pool house in Southampton to a deck above the dunes in Montauk, the summer
                 calendar fills fast and forgives nothing. We bring the studio to the house -
-                professional clear ice transported cold, real technique, a bar team that scales -
+                clear ice from a specialist supplier, transported cold, real technique, a bar team that scales -
                 so the evening holds its standard a hundred miles from the city.
               </p>
               <span className="price">
@@ -250,9 +250,9 @@ export function Hamptons() {
                 <div className="oma-step-body">
                   <h3>The ice, transported cold</h3>
                   <p>
-                    Professional clear ice is cut in our studio and rides out in insulated
-                    transport, finished on site. The cube in the last glass of the night is as
-                    flawless as the first.
+                    Professional clear ice comes from a specialist supplier, arranged through the
+                    Concierge before the date, and rides out in insulated transport, finished on
+                    site. The cube in the last glass of the night is as flawless as the first.
                   </p>
                 </div>
               </li>

@@ -31,7 +31,7 @@ const FAQS = [
   },
   {
     q: 'Where does the bar go in a Manhattan apartment?',
-    a: 'Wherever the room allows. A galley kitchen, a parlor console, six feet of counter, or a terrace ledge - the station is scaled to the footprint and needs only a standard outlet and access to running water. Professional clear ice and full technique come regardless of square footage.',
+    a: 'Wherever the room allows. A galley kitchen, a parlor console, six feet of counter, or a terrace ledge - the station is scaled to the footprint and needs only a standard outlet and access to running water. Professional clear ice, arranged through the Concierge, and full technique come regardless of square footage.',
   },
   {
     q: 'How late can you serve in a residential building?',
@@ -259,7 +259,7 @@ export function Manhattan() {
                   <h3>The station</h3>
                   <p>
                     Built for the room it lands in: a galley kitchen, a console, a stretch of
-                    counter, a terrace ledge. Professional clear ice and full technique in whatever
+                    counter, a terrace ledge. Proper clear ice arranged through the Concierge, and full technique in whatever
                     footprint the apartment offers - a standard outlet and running water cover
                     nearly every setup.
                   </p>

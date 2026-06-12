@@ -30,7 +30,7 @@ const WEDDING_FAQS = [
   },
   {
     q: 'What is included?',
-    a: 'The bar team, professional tools, and professional clear ice as standard, with setup, service, and breakdown handled end to end. His-and-hers signature cocktails are designed through the Bespoke Design & Artistry flow, with menu cards included.',
+    a: 'The bar team and professional tools, with setup, service, and breakdown handled end to end. Professional clear ice is arranged separately through the Concierge, at supplier cost. His-and-hers signature cocktails are designed through the Bespoke Design & Artistry flow, with menu cards included.',
   },
   {
     q: 'Is alcohol included in the price?',
@@ -215,7 +215,7 @@ export function Weddings() {
                 Staffing follows the room, not a formula sheet: roughly one bartender per 40 to 50
                 guests, quoted per event. A ceremony of sixty and a reception of two hundred are
                 different evenings, and they are priced as such - precisely, in writing, before you
-                commit. What does not change is the craft: professional clear ice as standard, real
+                commit. What does not change is the craft: professional clear ice, arranged through the Concierge, real
                 technique at every station, and a service rhythm set so the bar never becomes the
                 queue your guests remember.
               </p>

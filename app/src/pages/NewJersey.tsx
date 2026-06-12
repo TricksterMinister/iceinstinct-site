@@ -197,7 +197,7 @@ export function NewJersey() {
               <p>
                 The craft does not change with the zip code. Teimuraz Benidze - the first certified
                 sommelier in Georgia&apos;s history, holding four sommelier credentials - leads every
-                New Jersey evening, with professional clear ice as standard and thirteen signature
+                New Jersey evening, with professional clear ice, arranged through the Concierge, and thirteen signature
                 cocktails refined in private service. A waterfront <a className="njg-link" href="/weddings/">wedding</a> takes
                 the full bar team; a client dinner in a Jersey City tower runs on invoice as a{' '}
                 <a className="njg-link" href="/corporate/">corporate event</a>. And because the studio is here,
@@ -261,8 +261,8 @@ export function NewJersey() {
                   <h3>The build</h3>
                   <p>
                     We arrive ahead of service to build and dress the bar - tools, glassware, and
-                    professional clear ice as standard. Setup timing is confirmed in advance, and
-                    held.
+                    the professional clear ice arranged through the Concierge before the date.
+                    Setup timing is confirmed in advance, and held.
                   </p>
                 </div>
               </li>

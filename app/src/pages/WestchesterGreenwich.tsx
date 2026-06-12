@@ -190,7 +190,7 @@ export function WestchesterGreenwich() {
                 sommelier in Georgia&apos;s history, holding four sommelier credentials - leads every
                 evening, and the bar is run the way these houses are run: arranged before guests
                 arrive, quiet while it works, gone without a trace. Professional clear ice is
-                standard, thirteen signature cocktails carry the menu, and a full zero-proof program
+                arranged through the Concierge, thirteen signature cocktails carry the menu, and a full zero-proof program
                 serves the guests pacing a school-night dinner with the same care as everyone else.
               </p>
               <p>
