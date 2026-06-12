@@ -57,31 +57,31 @@ const IMAGE_ASSETS: PressAsset[] = [
     name: 'Founder portrait',
     meta: 'Teimuraz Benidze · PNG',
     href: '/assets/photos/founder-teimuraz.png',
-    thumb: '/assets/photos/founder-teimuraz.png',
+    thumb: '/assets/photos/thumbs/founder-teimuraz.jpg',
   },
   {
     name: 'The craft - clear ice',
     meta: 'Brand photography · JPG',
     href: '/assets/photos/duality-ice.jpg',
-    thumb: '/assets/photos/duality-ice.jpg',
+    thumb: '/assets/photos/thumbs/duality-ice.jpg',
   },
   {
     name: 'White Lotus',
     meta: 'Signature cocktail · PNG',
     href: '/assets/photos/white-lotus-v2.png',
-    thumb: '/assets/photos/white-lotus-v2.png',
+    thumb: '/assets/photos/thumbs/white-lotus-v2.jpg',
   },
   {
     name: 'Black Truffle Martini',
     meta: 'Signature cocktail · PNG',
     href: '/assets/photos/black-truffle-v2.png',
-    thumb: '/assets/photos/black-truffle-v2.png',
+    thumb: '/assets/photos/thumbs/black-truffle-v2.jpg',
   },
   {
     name: 'Aviation',
     meta: 'Signature cocktail · PNG',
     href: '/assets/photos/aviation-v2.png',
-    thumb: '/assets/photos/aviation-v2.png',
+    thumb: '/assets/photos/thumbs/aviation-v2.jpg',
   },
 ];
 
