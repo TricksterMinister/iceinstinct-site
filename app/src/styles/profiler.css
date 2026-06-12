@@ -13,6 +13,9 @@
   background: var(--c-bg);
   cursor: auto;
 }
+/* the dialog container receives programmatic focus on open (tabIndex=-1);
+   a full-viewport UA ring would be noise - real controls keep their rings */
+.pp-overlay:focus { outline: none; }
 .pp-overlay::before {
   /* faint champagne vignette, no blur */
   content: "";
@@ -141,6 +144,7 @@
   justify-content: safe center;
   padding: clamp(0.8rem, 2.5vh, 2rem) clamp(1.25rem, 6vw, 5rem);
   overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 /* ---- Question (one per screen) - sized to fit the viewport, no scroll --- */
@@ -319,6 +323,7 @@
   padding-top: clamp(1rem, 2.4vh, 1.8rem);
   border-top: 1px solid var(--c-border);
   overflow-y: auto;
+  overscroll-behavior: contain;
 }
 .pp-card-col { display: flex; flex-direction: column; gap: clamp(0.9rem, 2.4vh, 1.6rem); }
 .pp-card-col.formula { background: var(--c-bg-elev); border: 1px solid var(--c-border-soft); padding: clamp(1.3rem, 3vw, 2rem); }

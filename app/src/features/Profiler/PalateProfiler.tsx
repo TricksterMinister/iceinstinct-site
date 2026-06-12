@@ -80,6 +80,8 @@ export function PalateProfiler({ open, onClose, onCommission }: Props) {
   const timer = useRef<number | undefined>(undefined);
   const alive = useRef(true);
   const distillNo = useRef(0); // synchronous counter so rapid re-rolls advance correctly
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const returnFocus = useRef<HTMLElement | null>(null);
 
   // Component liveness - gate any async dispatch so a resolved fetch never
   // touches an unmounted reducer. Set true in the body too: React StrictMode
@@ -107,6 +109,21 @@ export function PalateProfiler({ open, onClose, onCommission }: Props) {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [open, onClose]);
+
+  // Dialog focus management (no trap library, by design): on open, move focus
+  // INTO the dialog (the container itself, tabIndex=-1) so keyboard and
+  // screen-reader users land inside; on close, hand focus back to whatever
+  // triggered it. Esc handling above stays the escape route.
+  useEffect(() => {
+    if (open) {
+      returnFocus.current = document.activeElement as HTMLElement | null;
+      dialogRef.current?.focus({ preventScroll: true });
+      return;
+    }
+    const back = returnFocus.current;
+    returnFocus.current = null;
+    if (back && document.contains(back)) back.focus({ preventScroll: true });
+  }, [open]);
 
   // The guest reached their signature - the single most valuable funnel moment
   // before the inquiry itself.
@@ -219,6 +236,8 @@ export function PalateProfiler({ open, onClose, onCommission }: Props) {
             role="dialog"
             aria-modal="true"
             aria-label="Compose your signature"
+            ref={dialogRef}
+            tabIndex={-1}
           >
             <PalateAmbient mode={(state.selections.taste as any) ?? null} />
 
@@ -460,7 +479,7 @@ export function PalateProfiler({ open, onClose, onCommission }: Props) {
                                 </button>
                               </div>
                               {mailStatus === 'error' && (
-                                <p className="pp-mail-note" role="status">It did not go through. Try once more.</p>
+                                <p className="pp-mail-note" role="alert">It did not go through. Try once more.</p>
                               )}
                             </>
                           )}

@@ -34,6 +34,14 @@
 .d-panel.pi { background: oklch(12% 0 0); }
 .d-panel.pn { background: oklch(8.5% 0 0); border-left: 1px solid oklch(88% 0.06 95 / 0.08); }
 
+/* keyboard focus for the role=button panels - the one site focus voice
+   (accent.css: 2px champagne ring, offset 3px), drawn INSET here because the
+   section's overflow:hidden would clip an outside ring at every edge */
+.d-panel:focus-visible {
+  outline: 2px solid #c9b06b;
+  outline-offset: -6px;
+}
+
 /* media layer - the luxury image shown in full. NO overlay, NO dimming. */
 .d-media { position: absolute; inset: 0; z-index: 0; display: block; overflow: hidden; }
 .d-media img {
@@ -82,7 +90,8 @@
   color: var(--c-fg-faint); white-space: nowrap; pointer-events: none;
 }
 .d-tlabel { top: clamp(1.6rem, 4vh, 3rem); }
-.d-blabel { bottom: clamp(1.6rem, 4vh, 3rem); color: oklch(48% 0 0); }
+/* 58% grey = 4.74:1 on the lighter pi panel (12%), 4.84:1 on pn - AA */
+.d-blabel { bottom: clamp(1.6rem, 4vh, 3rem); color: oklch(58% 0 0); }
 
 /* words - each lives ON its panel and travels with it. Horizontal word is
    anchored to the SEAM-facing edge (so at rest "ICE & Instinct" meets at the
@@ -125,31 +134,38 @@
 .inst-v span { font-family: var(--f-italic); font-style: italic; font-weight: 350;
   font-size: clamp(1.9rem, 3.6vw, 3.1rem); color: oklch(88% 0.06 95 / 0.95); }
 
-/* per-side sublabel - revealed for the active side */
+/* per-side sublabel - revealed for the active side.
+   The sub is ANCHORED at the committed (lowest) resting bottom; the higher
+   pre-commit rest position is an upward transform (--d-sub-lift). Position
+   therefore only ever animates on compositor-friendly transform - the layout
+   property `bottom` is static and never transitions. */
 .d-sub {
-  position: absolute; bottom: clamp(3rem, 9vh, 6rem);
+  --d-sub-lift: calc(clamp(3rem, 9vh, 6rem) - clamp(1.8rem, 4.5vh, 3.2rem));
+  position: absolute; bottom: clamp(1.8rem, 4.5vh, 3.2rem);
   left: 0; right: 0; padding: 0 clamp(1.5rem, 4vw, 3rem);
   display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
   z-index: 3;
-  opacity: 0; transform: translateY(12px);
+  opacity: 0; transform: translateY(calc(12px - var(--d-sub-lift)));
   pointer-events: none;
-  transition: opacity 0.4s 0.15s var(--ease), transform 0.4s 0.15s var(--ease),
-    bottom 0.5s var(--ease);
+  transition: opacity 0.4s 0.15s var(--ease), transform 0.4s 0.15s var(--ease);
 }
-/* committed: the sub grows by a whole floor card, so it settles lower to keep
-   the stack out of the big word's register */
+/* committed: the sub grows by a whole floor card, so it settles lower (the
+   lift collapses to zero) to keep the stack out of the big word's register */
 .duality.is-ice .pi .d-sub,
 .duality.is-instinct .pn .d-sub {
-  bottom: clamp(1.8rem, 4.5vh, 3.2rem);
   /* the base .d-sub is pointer-events:none (hover hint layer); the committed
      reveal is interactive, so re-enable here - not only on .d-floor - so any
      future child of the revealed sub is clickable too */
   pointer-events: auto;
+  /* the settle-lower move keeps its old `bottom 0.5s` clock, now on transform */
+  transition: opacity 0.4s 0.15s var(--ease), transform 0.5s var(--ease);
 }
 .duality:hover .pi:hover .d-sub,
-.duality:hover .pn:hover .d-sub,
-.duality.is-ice .pi .d-sub,
-.duality.is-instinct .pn .d-sub { opacity: 1; transform: none; }
+.duality:hover .pn:hover .d-sub { opacity: 1; transform: translateY(calc(-1 * var(--d-sub-lift))); }
+/* committed state must beat the (0,5,0) hover rule above when the committed
+   panel is hovered: same specificity, later in source */
+.duality.is-ice .d-panel.pi .d-sub,
+.duality.is-instinct .d-panel.pn .d-sub { opacity: 1; transform: none; }
 .d-sub-title, .d-sub-body { text-shadow: 0 1px 16px rgba(0,0,0,0.7); }
 .d-sub-title { font-family: var(--f-mono); font-size: var(--t-step--2);
   letter-spacing: 0.28em; text-transform: uppercase; }
@@ -157,8 +173,10 @@
 .pn .d-sub-title { color: var(--c-accent); }
 .d-sub-body { font-family: var(--f-mono); font-size: var(--t-step--2);
   font-weight: 300; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.9; }
-.pi .d-sub-body { color: oklch(98% 0 0 / 0.26); }
-.pn .d-sub-body { color: oklch(88% 0.06 95 / 0.32); }
+/* AA over the panel base inks: white/0.50 = 5.07:1 on pi (12%), champagne/0.58
+   = 5.10:1 on pn (8.5%); the existing text-shadow keeps them legible on photo */
+.pi .d-sub-body { color: oklch(98% 0 0 / 0.5); }
+.pn .d-sub-body { color: oklch(88% 0.06 95 / 0.58); }
 
 /* =========================================================================
    FLOOR CARD - revealed inside the committed panel. The portal now leads
@@ -224,8 +242,9 @@
   text-shadow: 0 1px 16px rgba(0, 0, 0, 0.7);
   transition: color 0.25s var(--ease);
 }
-.pi .d-floor-switch { color: oklch(98% 0 0 / 0.45); }
-.pn .d-floor-switch { color: oklch(88% 0.06 95 / 0.5); }
+/* AA: white/0.55 = 5.97:1 on pi (12%), champagne/0.58 = 5.10:1 on pn (8.5%) */
+.pi .d-floor-switch { color: oklch(98% 0 0 / 0.55); }
+.pn .d-floor-switch { color: oklch(88% 0.06 95 / 0.58); }
 .d-floor-switch:hover { color: var(--c-accent); }
 .d-floor-switch:focus-visible { outline: 1px solid var(--c-accent); outline-offset: 3px; }
 
@@ -249,6 +268,10 @@
   /* Readable, larger sub text. Full colour per side: ICE = white, Instinct =
      champagne (the faint desktop opacities were near-invisible on phone). */
   .d-sub { position: static; opacity: 1; transform: none; margin-top: 1.3rem; gap: 0.5rem; }
+  /* the desktop hover rule lifts via transform at (0,5,0); in the stacked
+     layout the sub is static-flow, so pin the transform off at the same
+     specificity (this block loads later, so source order wins) */
+  .duality:hover .d-panel:hover .d-sub { transform: none; }
   .d-sub-title { font-size: var(--t-step--1); }
   .pi .d-sub-title { color: oklch(98% 0 0 / 0.92); }
   .pn .d-sub-title { color: var(--c-accent); }
@@ -276,6 +299,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .d-panel, .word-h, .word-v, .d-restmark, .d-sub, .d-floor-switch { transition: none; }
+  .d-panel, .word-h, .word-v, .d-restmark, .d-sub, .d-floor-switch,
+  .duality.is-ice .pi .d-sub,
+  .duality.is-instinct .pn .d-sub { transition: none; }
   .d-floor { animation: none; }
 }
