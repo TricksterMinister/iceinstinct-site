@@ -229,7 +229,11 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ========== CHAPTER (MANIFESTO) ========== */
-.chapter { position: relative; height: 100dvh; padding: clamp(5rem, 9vh, 8rem) 2.2rem clamp(3rem, 6vh, 5rem) clamp(2.2rem, 5vw, 6rem); isolation: isolate; overflow: hidden; display: grid; place-content: center; }
+/* min-height, not height: the two-column prose overflowed a forced 100dvh by
+   ~65px at 1280x720 and was cut mid-sentence. The section now grows with its
+   content; the decorative ghost word is clipped by .chapter-bg (overflow:hidden
+   inner layer), so the chapter itself no longer needs to clip anything. */
+.chapter { position: relative; min-height: 100dvh; padding: clamp(5rem, 9vh, 8rem) 2.2rem clamp(3rem, 6vh, 5rem) clamp(2.2rem, 5vw, 6rem); isolation: isolate; display: grid; place-content: center; }
 
 /* ---- Light champagne segment: a warm "paper" rest in the dark run.
         Warm off-white ground, ink text, deepened champagne accent. ---- */
@@ -553,6 +557,7 @@ a { color: inherit; text-decoration: none; }
   /* Each panel is exactly 1 mobile viewport. Typography and chrome scale via vmin already. */
   .hero, .chapter, .tiers, .founder, .gallery, .closing { height: 100dvh; min-height: 100dvh; }
   .tiers { height: auto; min-height: auto; }   /* tiers stack vertically on mobile, each card = 100dvh */
+  .chapter { height: auto; }                   /* prose may exceed one short viewport: grow, never clip */
 
   .chapter { padding: 5rem 1.2rem 3rem 1.2rem; }
   .chapter-grid { grid-template-columns: 1fr; gap: 1.2rem; }

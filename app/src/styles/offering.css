@@ -316,7 +316,11 @@
 
 /* layout */
 .closing { position: relative; height: 100dvh; display: grid; place-items: center; padding: clamp(5rem, 10vh, 8rem) clamp(2.2rem, 4vw, 5rem); isolation: isolate; overflow: hidden; contain: paint; }
-.closing-segment { height: 100dvh; min-height: 100dvh; display: flex; flex-direction: column; overflow: clip; }
+/* min-height, not height: the segment may GROW when content needs it at any
+   width (content is never clipped or unreachable). overflow stays visible;
+   the ghost word is clipped by .closing's own overflow + contain:paint and
+   horizontal safety comes from the html/body overflow-x clip below. */
+.closing-segment { min-height: 100dvh; display: flex; flex-direction: column; overflow: visible; }
 .closing-segment .site-footer { flex: 0 0 auto; }
 .closing-segment .closing { height: auto; flex: 1 1 auto; min-height: 0; padding-block: clamp(2.5rem, 6vh, 5rem); }
 
@@ -535,8 +539,10 @@
 .closing-segment *::before,
 .closing-segment *::after { box-sizing: border-box; }
 
-/* hard clip any child overflow within the CTA unit (mobile safety) */
-.closing-segment { overflow: hidden; }
+/* the segment itself never clips: it grows with its content. Child ghost
+   overflow is clipped inside .closing (overflow:hidden + contain:paint) and
+   page-level h-scroll is prevented by the html/body overflow-x clip below. */
+.closing-segment { overflow: visible; }
 .closing-segment .closing-meta { max-width: 100%; }
 
 /* page-level horizontal clip (same as cinema.css does site-wide). Prevents the
@@ -685,6 +691,14 @@ html, body { overflow-x: clip; }
      the right edge on phones. Constrain the track to the viewport so the inner
      .oma-grid auto-fit collapses to one column instead of clipping. */
   .oma-panel{grid-template-columns:minmax(0,1fr)}
+}
+
+/* Tall screens: a full-viewport lock at 1100px+ centers a small content island
+   inside ~43% of blank band. Release the lock and let generous capped padding
+   carry the air instead: section = content + min(12vh, 9rem) per side. Renders
+   identically at 900px height (media query never matches there). */
+@media (min-height: 1100px) {
+  .oma-panel, .oma-ledger { min-height: 0; padding-block: min(12vh, 9rem); }
 }
 
 /* =========================================================================
@@ -917,14 +931,50 @@ html, body { overflow-x: clip; }
    CLOSING SEGMENT - Begin + Footer fused (direction B: Kinetic Marquee).
    One full-viewport surface: Begin CTA / champagne marquee / footer nav.
    ========================================================================= */
-/* Proportions (Temo): top = ORIGINAL Свет-1 framed CTA, 70% of the segment;
-   bottom 30% = footer, split marquee 60% / links 40%. */
+/* Geometry: the footer row is pure content height (auto, never clipped); the
+   CTA row takes the remaining viewport. minmax(min-content,1fr) keeps the CTA
+   row from ever shrinking below its own content, so on short screens the
+   whole segment GROWS past 100dvh instead of cutting the card or the footer.
+   (The old 7fr/3fr split gave the footer 270px at 900px height while the band
+   needs ~300px: the footer base line was clipped at every viewport height.) */
 .closing-segment.oma-close{
-  min-height:100dvh;display:grid;grid-template-rows:7fr 3fr;overflow:hidden;
+  min-height:100dvh;display:grid;grid-template-rows:minmax(min-content,1fr) auto;overflow:visible;
   background:var(--c-bg);
 }
-/* fit the restored .closing (Свет-1) into the 70% grid row, unchanged otherwise */
-.closing-segment.oma-close > .closing{min-height:0;height:100%}
+/* the restored .closing (Свет-1) stretches to fill the CTA row, grows if taller */
+.closing-segment.oma-close > .closing{min-height:0;height:auto}
+/* The band itself (marquee height, foot padding, link styling) is fully
+   self-governing in footer.css; the shell only grants it the auto row above.
+   The foot padding here matches the footer.css base value on purpose, so the
+   computed foot height is identical on every page. */
+.closing-segment.oma-close .oma-close-foot{padding-block:clamp(.5rem,1.4vh,1.1rem)}
+
+/* Short viewports: compact the closing card (mirrors the styles.css
+   .inquire-close compaction) so the full card - title, lead, included note,
+   CTA buttons, deposit line and all four frame corners - fits in the CTA row
+   (100dvh minus the content-height footer band) down to 720px height. */
+@media (max-height: 820px) {
+  .closing-segment.oma-close > .closing { padding-block: clamp(0.8rem, 2.5vh, 1.8rem); }
+  .closing-segment.oma-close .closing-stage { gap: clamp(0.7rem, 1.8vh, 1.2rem); }
+  .closing-segment.oma-close .closing-frame {
+    padding: clamp(1.2rem, 3vh, 2.2rem) clamp(1.8rem, 5vw, 4.5rem);
+    gap: clamp(0.5rem, 1.3vh, 0.9rem);
+  }
+  .closing-segment.oma-close .closing-stage .closing-title.closing-title {
+    font-size: clamp(1.8rem, 1.15rem + 2.6vmin, 3rem);
+  }
+  .closing-segment.oma-close .closing-stage .closing-lead.closing-lead {
+    font-size: clamp(0.9rem, 0.85rem + 0.3vmin, 1rem);
+    line-height: 1.45;
+  }
+  .closing-segment.oma-close .closing-included { margin: 0.2rem auto 0.4rem; }
+  .closing-segment.oma-close .closing .btn-primary,
+  .closing-segment.oma-close .closing .btn-ghost { padding-block: 0.85rem; }
+}
+/* Very short screens: drop the meta line (same move as .inquire-close) */
+@media (max-height: 720px) {
+  .closing-segment.oma-close .closing-meta { display: none; }
+}
 
 /* ---- BOTTOM 30% : dark footer band ----
    The footer band (.oma-close-bottom + marquee + links + base) now lives in
