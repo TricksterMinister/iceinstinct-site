@@ -421,6 +421,19 @@ export function Contact() {
                         <span className="btn-arr" aria-hidden="true">&rarr;</span>
                       </button>
                     </div>
+                    {/* Quiet failure line (the work-with-us .ww-error anatomy):
+                        a Formspree failure must never be silent - the form keeps
+                        the guest's words, the note offers the second path. The
+                        mailto fallback still fires alongside; this is the only
+                        on-page rendering of the error state. */}
+                    {status === 'error' && (
+                      <p className="inquire-error-note" role="alert">
+                        It did not go through. Try once more, or write us on{' '}
+                        <a href={`https://wa.me/19172927859?text=${waText}`} target="_blank" rel="noopener noreferrer">
+                          WhatsApp
+                        </a>.
+                      </p>
+                    )}
                     <p className="inquire-deposit">
                       A flat $500 deposit reserves your date - fully refundable until 14 days before the evening.
                     </p>

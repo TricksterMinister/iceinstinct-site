@@ -2934,6 +2934,22 @@ img.reveal-zoom.is-in { transform: scale(1); }
 }
 /* Quieter than the primary labels (46%) but still AA: 5.5:1 on the card. */
 .closing-frame .inquire-row-optional .inquire-label { color: oklch(50% 0.02 85); }
+/* Quiet inline error under the submit (the work-with-us .ww-error anatomy):
+   palette ink, never an alien red. */
+.closing-frame .inquire-error-note {
+  margin: 0;
+  text-align: center;
+  font-family: var(--f-italic, serif);
+  font-style: italic;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: oklch(42% 0.1 70);
+}
+.closing-frame .inquire-error-note a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 /* Deposit reassurance under the Send button - quiet, small, muted. */
 .closing-frame .inquire-deposit {
   margin: 0;
@@ -3011,19 +3027,55 @@ img.reveal-zoom.is-in { transform: scale(1); }
   font-size: clamp(0.92rem, 0.86rem + 0.3vw, 1.05rem);
   line-height: 1.5;
 }
-.closing-segment.inquire-close .inquire-form {
-  gap: clamp(0.65rem, 1.6vh, 1.1rem);
-  margin-top: clamp(0.2rem, 0.8vh, 0.6rem);
+/* Field compaction ONLY where the one-viewport lock actually needs it. On
+   roomy screens (over 1150px tall) the base anatomy already fits inside
+   100dvh with air to spare, so Contact fields stay identical to the
+   work-with-us form (which never compacts) instead of running 3-4px shorter. */
+@media (max-height: 1150px) {
+  .closing-segment.inquire-close .inquire-form {
+    gap: clamp(0.65rem, 1.6vh, 1.1rem);
+    margin-top: clamp(0.2rem, 0.8vh, 0.6rem);
+  }
+  .closing-segment.inquire-close .inquire-field { gap: 0.35rem; }
+  .closing-segment.inquire-close .inquire-field input,
+  .closing-segment.inquire-close .inquire-field select,
+  .closing-segment.inquire-close .inquire-field textarea {
+    padding: clamp(0.55rem, 1.1vh, 0.85rem) clamp(0.85rem, 1.6vw, 1.1rem);
+  }
+  .closing-segment.inquire-close .inquire-field select { padding-right: 2.1rem; }
+  .closing-segment.inquire-close .inquire-field textarea {
+    min-height: clamp(3em, 7vh, 4.2em);
+  }
 }
-.closing-segment.inquire-close .inquire-field { gap: 0.35rem; }
-.closing-segment.inquire-close .inquire-field input,
-.closing-segment.inquire-close .inquire-field select,
-.closing-segment.inquire-close .inquire-field textarea {
-  padding: clamp(0.55rem, 1.1vh, 0.85rem) clamp(0.85rem, 1.6vw, 1.1rem);
+
+/* Optional qualification row: the date input and the two selects must share
+   ONE exact height and ONE top line, whatever the labels above them do.
+   Natively a WebKit date input runs 6-7px shorter than a styled select at the
+   same padding (its inner editor ignores line-height), and a two-line label
+   ("Event date (if known)") pushed its control down. Fix both at the root:
+   - align-items:end bottoms the three fields, so equal-height controls also
+     share their top edge while wrapped labels simply rise above;
+   - a fixed 3.2em control height (at the shared 16px-floor font-size = the
+     padding-driven height of the Name/Email inputs) with padding-block 0
+     lets every engine centre the value natively inside the same box.
+   Declared AFTER the .inquire-close compaction block on purpose: equal
+   specificity (3 classes), so source order makes the fixed height win. */
+.closing-frame .inquire-row.inquire-row-optional { align-items: end; }
+.closing-frame .inquire-row-optional .inquire-field input,
+.closing-frame .inquire-row-optional .inquire-field select {
+  height: 3.2em;
+  padding-block: 0;
+  line-height: 1.4;
 }
-.closing-segment.inquire-close .inquire-field select { padding-right: 2.1rem; }
-.closing-segment.inquire-close .inquire-field textarea {
-  min-height: clamp(3em, 7vh, 4.2em);
+/* Inside the one-viewport lock band the controls stay equal but track the
+   compaction clamp: height = the EXACT pre-fix select anatomy (1.4em line +
+   2px borders + the compacted padding pair), so the locked card gains zero
+   height and nothing new can clip under overflow:hidden. */
+@media (max-height: 1150px) {
+  .closing-frame .inquire-row-optional .inquire-field input,
+  .closing-frame .inquire-row-optional .inquire-field select {
+    height: calc(1.4em + 2px + 2 * clamp(0.55rem, 1.1vh, 0.85rem));
+  }
 }
 /* Short screens: drop the meta line and tighten further so it never scrolls */
 @media (max-height: 720px) {

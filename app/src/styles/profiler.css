@@ -373,7 +373,17 @@
   flex-direction: column;
   gap: 0.55rem;
 }
-.pp-mail-label { font-size: var(--t-xs); line-height: 1.5; color: var(--c-fg-muted); }
+/* The label speaks the form-label dialect (.pp-label anatomy): mono,
+   uppercase, letterspaced - the underline input below stays the intentional
+   dark-card exception. */
+.pp-mail-label {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  line-height: 1.6;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--c-fg-muted);
+}
 .pp-mail-row { display: flex; align-items: stretch; gap: 0.6rem; }
 .pp-mail-input {
   flex: 1 1 auto;
@@ -392,8 +402,12 @@
 .pp-mail-input::placeholder { color: var(--c-fg-faint); }
 .pp-mail-input:focus { border-bottom-color: var(--c-accent); }
 .pp-mail-input:disabled { opacity: 0.5; }
-/* keeps the brand skin from accent.css, only sized down beside the input */
-.pp-controls .pp-mail-send { width: auto; flex: 0 0 auto; padding: 0.65rem 1rem; }
+/* Brand skin from accent.css at the STANDARD .pp-btn height: the old
+   padding-block shrink (0.65rem -> the lone ~37px button on the site) is
+   gone, so the base 1.05rem block padding sets the height. Only the WIDTH
+   concedes to the narrow controls column: width:auto undoes the 100% rule
+   above and padding-inline narrows 1.6rem -> 1.1rem beside the input. */
+.pp-controls .pp-mail-send { width: auto; flex: 0 0 auto; padding-inline: 1.1rem; }
 .pp-mail-note { font-size: var(--t-xs); line-height: 1.5; color: var(--c-fg-faint); }
 .pp-mail-note.sent { color: var(--c-accent); }
 .pp-btn {
