@@ -8,12 +8,17 @@
 
 import { useEffect } from 'react';
 import { COCKTAIL_PROFILES } from '../data/cocktails';
+import { initVideoIdle } from '../lib/videoIdle';
 
 export function useDeepScripts(): void {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
     const cleanups: Array<() => void> = [];
+
+    // ----- Autoplay loops idle while offscreen (video[data-idle-video]);
+    //       under reduced motion they stop and hold their poster frame. -----
+    cleanups.push(initVideoIdle());
 
     // ----- Tier-page right-rail navigator (active state on scroll) -----
     const tierNav = document.querySelector<HTMLElement>('.tier-nav');
@@ -101,13 +106,21 @@ export function useDeepScripts(): void {
       updateProgress();
       cleanups.push(() => track.removeEventListener('scroll', updateProgress));
 
-      // Translate vertical mousewheel to horizontal scroll inside the track
-      // (only if user actually scrolls the track itself)
+      // Translate vertical mousewheel to horizontal scroll inside the track.
+      // While the track can still consume the delta it takes the wheel
+      // EXCLUSIVELY (preventDefault stops native scroll, stopPropagation stops
+      // Lenis at window level on snap pages - otherwise both moved at once).
+      // At either end the event passes through so the page scrolls on: no trap.
       const onWheel = (e: WheelEvent) => {
-        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-          e.preventDefault();
-          track.scrollLeft += e.deltaY;
-        }
+        if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+        const max = track.scrollWidth - track.clientWidth;
+        if (max <= 0) return;
+        const atStart = e.deltaY < 0 && track.scrollLeft <= 0;
+        const atEnd = e.deltaY > 0 && track.scrollLeft >= max - 1;
+        if (atStart || atEnd) return; // track exhausted: hand the wheel to the page
+        e.preventDefault();
+        e.stopPropagation();
+        track.scrollLeft += e.deltaY;
       };
       track.addEventListener('wheel', onWheel, { passive: false });
       cleanups.push(() => track.removeEventListener('wheel', onWheel));

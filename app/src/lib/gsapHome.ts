@@ -1,5 +1,6 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { initVideoIdle } from './videoIdle';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,20 +27,26 @@ export function initHomeGsap(): () => void {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const listenerCleanups: Array<() => void> = [];
 
+  // Autoplay loops (hero + concierge) idle while offscreen; under reduced
+  // motion the helper stops them outright and holds the poster frame.
+  listenerCleanups.push(initVideoIdle());
+
   // Reduced motion: reveal everything in its final state, create no scroll
   // animations or pins. The page is fully readable, just still.
   if (reduced) {
     document.querySelectorAll('.hero-title, .chapter-title .line, .founder-quote .line')
       .forEach((el) => el.classList.add('masks-off'));
     gsap.set(
-      ['.hero-title .word .ink', '.hero-sub .reveal-line > span', '.chapter-title .line > *', '.founder-quote .line > *'],
+      ['.hero-title .word .ink', '.chapter-title .line > *', '.founder-quote .line > *'],
       { yPercent: 0, y: 0, opacity: 1 },
     );
     gsap.set(
-      ['.hero-eyebrow', '.hero-meta', '.hero-cue', '[data-stagger]', '.chapter-body p'],
+      ['.hero-meta', '.hero-cue', '[data-stagger]', '.chapter-body p'],
       { opacity: 1, y: 0, yPercent: 0, clearProps: 'transform' },
     );
-    return () => {};
+    return () => {
+      listenerCleanups.forEach((fn) => fn());
+    };
   }
 
   /* ---------- HERO INTRO TIMELINE ---------- */
@@ -47,7 +54,8 @@ export function initHomeGsap(): () => void {
   // 140 (not 110): the reveal masks carry vertical padding for italic swashes
   // (see .hero-title .word in cinema.css), so the ink must start deeper to stay hidden.
   gsap.set('.hero-title .word .ink', { y: 0, yPercent: 140 });
-  gsap.set('.hero-sub .reveal-line > span', { y: 0, yPercent: 140 });
+  // (no .hero-sub set: its .reveal-line spans carry the text directly - the old
+  // '.hero-sub .reveal-line > span' selector matches nothing in Hero.tsx)
   gsap.set('.chapter-title .line > *', { y: 0, yPercent: 140 });
   gsap.set('.founder-quote .line > *', { y: 0, yPercent: 140 });
 
@@ -58,11 +66,12 @@ export function initHomeGsap(): () => void {
     // italic ampersand's swashes are never clipped at rest
     onComplete: () => document.querySelector('.hero-title')?.classList.add('masks-off'),
   });
+  // Dead targets removed (audit): '.hero-eyebrow' has no element in Hero.tsx
+  // (cinema.css only sets it display:none) and '.hero-sub .reveal-line > span'
+  // matches nothing - the reveal-line spans hold their text directly.
   heroTl
     .to('.hero-title .word .ink', { yPercent: 0, duration: 1.4, stagger: 0.08 }, 0)
-    .to('.hero-eyebrow', { opacity: 1, duration: 1.0 }, 0.15)
     .to('.hero-meta', { opacity: 1, y: 0, duration: 1.0, stagger: 0.08 }, 0.3)
-    .to('.hero-sub .reveal-line > span', { yPercent: 0, duration: 1.0, stagger: 0.08 }, 0.5)
     .to('.hero-cue', { opacity: 1, duration: 0.8 }, 0.9);
 
   /* ---------- HERO PARALLAX + EXIT ZOOM ---------- */
@@ -153,14 +162,23 @@ export function initHomeGsap(): () => void {
     });
   });
 
-  // wheel: convert vertical scroll to horizontal track if pointer is over track
+  // wheel: convert vertical scroll to horizontal track if pointer is over track.
+  // While the strip can still consume the delta it takes the wheel EXCLUSIVELY
+  // (preventDefault stops native scroll, stopPropagation stops Lenis at window
+  // level - otherwise both moved at once). At either end the event passes
+  // through untouched so the page scrolls on; the strip is never a trap.
   const galleryTrack = document.querySelector<HTMLElement>('[data-gallery-track]');
   if (galleryTrack) {
     const onWheel = (e: WheelEvent) => {
-      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-        galleryTrack.scrollLeft += e.deltaY;
-        e.preventDefault();
-      }
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+      const max = galleryTrack.scrollWidth - galleryTrack.clientWidth;
+      if (max <= 0) return;
+      const atStart = e.deltaY < 0 && galleryTrack.scrollLeft <= 0;
+      const atEnd = e.deltaY > 0 && galleryTrack.scrollLeft >= max - 1;
+      if (atStart || atEnd) return; // strip exhausted: hand the wheel to the page
+      e.preventDefault();
+      e.stopPropagation();
+      galleryTrack.scrollLeft += e.deltaY;
     };
     galleryTrack.addEventListener('wheel', onWheel, { passive: false });
     listenerCleanups.push(() => galleryTrack.removeEventListener('wheel', onWheel));

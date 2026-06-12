@@ -23,6 +23,11 @@ export function useSegmentSnap(segments: string[], multi: string[] = []): void {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
+    // Reduced motion: no smooth-scroll hijack, no snapping - native scroll
+    // only, exactly as the OS setting asks. (window.lenis consumers fall back
+    // to native scrolling when the instance is absent.)
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -37,12 +42,11 @@ export function useSegmentSnap(segments: string[], multi: string[] = []): void {
     // anchor jumps + VanishHeader reuse the instance, same as the other pages
     ;(window as unknown as { lenis?: Lenis }).lenis = lenis;
 
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isWide = window.matchMedia('(min-width: 721px)').matches;
     let snap: Snap | undefined;
     let addTimer = 0;
 
-    if (!reduced && isWide) {
+    if (isWide) {
       snap = new Snap(lenis, {
         type: 'proximity',
         duration: 0.9,

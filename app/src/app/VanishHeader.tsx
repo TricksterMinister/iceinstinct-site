@@ -18,13 +18,21 @@ export function VanishHeader() {
     const vaOverlay = overlayRef.current;
     const vaTrigger = triggerRef.current;
     const vaClose = closeRef.current;
-    const lenis = (window as unknown as { lenis?: { stop(): void; start(): void; scrollTo(target: number, opts?: { duration?: number }): void } }).lenis;
+    // Resolve Lenis at CALL time, never at mount time: LenisProvider is this
+    // component's parent, and parent effects run AFTER child effects, so
+    // window.lenis does not exist yet when this effect mounts. A mount-time
+    // capture stays undefined forever and the scroll-lock silently fails.
+    type LenisLike = { stop(): void; start(): void; scrollTo(target: number, opts?: { duration?: number }): void };
+    const getLenis = () => (window as unknown as { lenis?: LenisLike }).lenis;
 
     function openOverlay() {
       if (!vaOverlay) return;
       vaOverlay.classList.add('is-open');
       vaOverlay.setAttribute('aria-hidden', 'false');
-      if (lenis) lenis.stop();
+      // Scroll lock: halt Lenis (it drives the wheel on this page) AND clamp
+      // the native scroller so nothing moves underneath the open menu.
+      getLenis()?.stop();
+      document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
       // stagger reveal of list items
       gsap.fromTo('.va-list li', { y: 40, opacity: 0 }, {
@@ -38,7 +46,8 @@ export function VanishHeader() {
       if (!vaOverlay) return;
       vaOverlay.classList.remove('is-open');
       vaOverlay.setAttribute('aria-hidden', 'true');
-      if (lenis) lenis.start();
+      getLenis()?.start();
+      document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
     }
 
@@ -62,6 +71,7 @@ export function VanishHeader() {
           closeOverlay();
           setTimeout(() => {
             const top = target.getBoundingClientRect().top + window.scrollY;
+            const lenis = getLenis();
             if (lenis) lenis.scrollTo(top, { duration: 1.4 });
             else window.scrollTo({ top, behavior: 'smooth' });
           }, 400);
@@ -75,6 +85,8 @@ export function VanishHeader() {
       if (vaClose) vaClose.removeEventListener('click', closeOverlay);
       document.removeEventListener('keydown', onKey);
       links.forEach((a) => a.removeEventListener('click', onLinkClick));
+      // Never leave the page locked if we unmount while the menu is open.
+      if (vaOverlay?.classList.contains('is-open')) closeOverlay();
     };
   }, []);
 

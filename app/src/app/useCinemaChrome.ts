@@ -83,10 +83,19 @@ export function useCinemaChrome(): void {
     const vaOverlay = document.querySelector<HTMLElement>('.va-overlay');
     const vaClose = document.querySelector<HTMLElement>('.va-close');
 
+    // Resolved at call time: pages that pair this hook with useSegmentSnap get
+    // their Lenis instance from a sibling effect that may run after this one.
+    type LenisLike = { stop(): void; start(): void };
+    const getLenis = () => (window as unknown as { lenis?: LenisLike }).lenis;
+
     function openOverlay() {
       if (!vaOverlay) return;
       vaOverlay.classList.add('is-open');
       vaOverlay.setAttribute('aria-hidden', 'false');
+      // Scroll lock: halt Lenis where it drives the wheel (snap pages) AND
+      // clamp the native scroller, so the page never moves under the menu.
+      getLenis()?.stop();
+      document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
       ctx.add(() => {
         gsap.fromTo(
@@ -105,8 +114,14 @@ export function useCinemaChrome(): void {
       if (!vaOverlay) return;
       vaOverlay.classList.remove('is-open');
       vaOverlay.setAttribute('aria-hidden', 'true');
+      getLenis()?.start();
+      document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
     }
+    // Never leave the page locked if the hook unmounts while the menu is open.
+    cleanups.push(() => {
+      if (vaOverlay?.classList.contains('is-open')) closeOverlay();
+    });
     if (vaTrigger) {
       vaTrigger.addEventListener('click', openOverlay);
       cleanups.push(() => vaTrigger.removeEventListener('click', openOverlay));

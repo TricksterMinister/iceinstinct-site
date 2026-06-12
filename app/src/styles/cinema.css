@@ -108,12 +108,19 @@ a { color: inherit; text-decoration: none; }
 
 /* ========== CURSOR ========== */
 .cursor { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
-.cursor-dot { position: absolute; top: 0; left: 0; width: 6px; height: 6px; background: #fff; border-radius: 50%; transform: translate(-50%, -50%); transition: width 0.35s var(--ease-out-expo), height 0.35s var(--ease-out-expo); }
-.cursor-ring { position: absolute; top: 0; left: 0; width: 36px; height: 36px; border: 1px solid #fff; border-radius: 50%; transform: translate(-50%, -50%); opacity: 0.6; transition: width 0.4s var(--ease-out-expo), height 0.4s var(--ease-out-expo), opacity 0.4s var(--ease-out-expo); }
-.cursor.is-hover .cursor-dot { width: 0; height: 0; }
-.cursor.is-hover .cursor-ring { width: 60px; height: 60px; opacity: 1; }
-.cursor.is-view .cursor-dot { width: 0; height: 0; }
-.cursor.is-view .cursor-ring { width: 80px; height: 80px; opacity: 1; }
+/* Hover growth rides transform: scale() on a ::after (compositor-only) instead
+   of animating width/height (layout + paint every frame). The JS loop owns the
+   dot/ring elements' inline transform for positioning, so the scale lives one
+   level down where it cannot be overwritten. Factors keep the exact px sizes:
+   60/36 = 1.667, 80/36 = 2.222, 0/6 = 0. */
+.cursor-dot { position: absolute; top: 0; left: 0; width: 6px; height: 6px; transform: translate(-50%, -50%); }
+.cursor-dot::after { content: ""; position: absolute; inset: 0; background: #fff; border-radius: 50%; transition: transform 0.35s var(--ease-out-expo); }
+.cursor-ring { position: absolute; top: 0; left: 0; width: 36px; height: 36px; transform: translate(-50%, -50%); }
+.cursor-ring::after { content: ""; position: absolute; inset: 0; border: 1px solid #fff; border-radius: 50%; opacity: 0.6; transition: transform 0.4s var(--ease-out-expo), opacity 0.4s var(--ease-out-expo); }
+.cursor.is-hover .cursor-dot::after { transform: scale(0); }
+.cursor.is-hover .cursor-ring::after { transform: scale(1.667); opacity: 1; }
+.cursor.is-view .cursor-dot::after { transform: scale(0); }
+.cursor.is-view .cursor-ring::after { transform: scale(2.222); opacity: 1; }
 @media (hover: none) { .cursor { display: none; } body { cursor: auto; } }
 @media (hover: hover) and (pointer: fine) { body, a, button { cursor: none; } }
 

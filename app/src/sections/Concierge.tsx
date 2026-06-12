@@ -16,7 +16,7 @@ export function Concierge() {
           <a className="concierge-link" href="/concierge/" data-cursor="link">Explore the concierge <span aria-hidden="true">&rarr;</span></a>
         </div>
         <div className="concierge-image" data-parallax="">
-          <video className="concierge-video" autoPlay muted loop playsInline preload="auto" poster="/assets/video/concierge-poster.webp">
+          <video className="concierge-video" autoPlay muted loop playsInline preload="metadata" poster="/assets/video/concierge-poster.webp" data-idle-video="">
             <source src="/assets/video/concierge-loop.webm?v=2" type="video/webm" />
             <source src="/assets/video/concierge-loop.mp4?v=2" type="video/mp4" />
           </video>

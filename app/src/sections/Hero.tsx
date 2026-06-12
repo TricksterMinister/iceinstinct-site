@@ -2,7 +2,7 @@ export function Hero() {
   return (
     <section className="hero" id="hero">
       {/* Owned brand loop replaces stock Pexels footage (owner: quiet luxury, no stock) */}
-      <video className="hero-video" autoPlay muted loop playsInline preload="auto" poster="/assets/video/hero-poster-v1.jpg">
+      <video className="hero-video" autoPlay muted loop playsInline preload="auto" poster="/assets/video/hero-poster-v1.jpg" data-idle-video="">
         <source src="/assets/video/hero-loop-v1.mp4" type="video/mp4" />
       </video>
       <div className="hero-vignette"></div>

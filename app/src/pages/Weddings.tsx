@@ -171,6 +171,7 @@ export function Weddings() {
                 playsInline
                 poster="/assets/video/wedding-poster-v1.jpg"
                 aria-label="A wedding toast, cocktails catching the light"
+                data-idle-video=""
               >
                 <source src="/assets/video/wedding-loop-v1.mp4" type="video/mp4" />
                 <img src="/assets/video/wedding-poster-v1.jpg" alt="A wedding toast, cocktails catching the light" />

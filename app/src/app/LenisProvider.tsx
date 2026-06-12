@@ -13,6 +13,11 @@ const SECTIONS = ['.hero', '#manifesto', '.founder', '.gallery', '.tiers', '.dua
 
 export function LenisProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
+    // Reduced motion: no smooth-scroll hijack, no snapping - the page scrolls
+    // natively and instantly, exactly as the OS setting asks. (Consumers of
+    // window.lenis already fall back to native scrolling when it is absent.)
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -33,12 +38,11 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
     // 'proximity' = gentle settle toward the nearest segment only once the guest
     // stops near it (never yanks mid-scroll); DISABLED while the tiers section is
     // pinned, so it never fights that horizontal scroll.
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isWide = window.matchMedia('(min-width: 721px)').matches;
     let snap: Snap | undefined;
     let addTimer = 0;
     let pinGuard: ScrollTrigger | undefined;
-    if (!reduced && isWide) {
+    if (isWide) {
       snap = new Snap(lenis, {
         type: 'proximity',
         duration: 0.9,
