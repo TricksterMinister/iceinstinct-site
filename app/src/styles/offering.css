@@ -16,7 +16,7 @@
   --oma-paper:      #f4f1ea;
   --oma-ink:        #1b1714;
   --oma-ink-soft:   #4a443d;
-  --oma-ink-faint:  #8a8276;
+  --oma-ink-faint:  #6e675c;   /* utility grey-ink on ivory: 4.95:1 vs --oma-paper (WCAG AA) */
   --oma-champ:      oklch(88% 0.06 95);     /* light champagne - on dark media */
   --oma-champ-deep: oklch(50% 0.09 72);     /* deep champagne - on ivory */
   --oma-line:       rgba(27, 23, 20, 0.16);
@@ -505,9 +505,21 @@
   font-size: clamp(0.7rem, 0.9vw, 0.95rem);
   color: var(--c-fg-faint);
   margin: 1.4rem auto 0;
+  /* the global p{max-width:62ch} centered a ~482px box - a long geo town-list
+     painted past it and lost its tail off-canvas. Full wrap width instead. */
+  max-width: none;
 }
 @media (max-width: 720px) {
   .oma-fmt3-cols { column-count: 1; }
+}
+
+/* Small phones: --t-h2 computes ~50.7px at 390px, painting the longest CAPS
+   word ("PERFORMANCE" ~7.26em = ~368px) wider than the wrap (390 - 48px padding
+   = 342px) - the word clipped to "PERFORMANC". Mobile headline scale follows
+   the house pattern (.oma-panel-h / .oma-seg-h): 9vw at 390px = 35.1px ->
+   longest word ~255px. Fits with margin; word-break stays a safety net only. */
+@media (max-width: 480px) {
+  .oma-fmt3-title { font-size: clamp(2rem, 9vw, 2.75rem); overflow-wrap: break-word; }
 }
 
 /* mobile: ghost wordmark is decorative + would overflow at nowrap -> hide it small */
@@ -608,7 +620,7 @@ html, body { overflow-x: clip; }
 .oma-ledger-row .lbl{font-family:var(--font-mono);font-weight:500;letter-spacing:.1em;font-size:.78rem;color:var(--oma-champ-deep)}
 .oma-ledger-row .info{display:flex;flex-direction:column;gap:.4rem}
 .oma-ledger-row .nm{font-family:var(--font-display);font-weight:600;letter-spacing:-.01em;font-size:clamp(1.2rem,1.9vw,1.7rem);color:var(--oma-ink);line-height:1}
-.oma-ledger-row .cap{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;font-size:.62rem;color:var(--oma-ink-faint)}
+.oma-ledger-row .cap{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.16em;font-size:.7rem;color:var(--oma-ink-faint)}
 .oma-ledger-row .pr{font-family:var(--font-display);font-weight:500;font-size:clamp(1.05rem,1.5vw,1.35rem);color:var(--oma-ink);white-space:nowrap}
 .oma-ledger-row.is-muted .nm,.oma-ledger-row.is-muted .pr{color:var(--oma-ink-faint)}
 @media(max-width:820px){
@@ -1004,10 +1016,12 @@ body.rail-onlight .tier-nav a.is-current::before{background:oklch(45% 0.1 70 / .
 .oma-panel-h,.oma-panel-intro,
 .closing-title,.closing-lead{text-wrap:balance}
 
-/* Overview foot is a single tagline -> keep it on one line on desktop (wrap only
-   on small screens). Prevents an article/noun split like "the / difference". */
-.oma-fmt3-foot{white-space:nowrap}
-@media (max-width:760px){.oma-fmt3-foot{white-space:normal}}
+/* Overview foot: normal wrapping at full wrap width (max-width:none above).
+   Short taglines still center on one line - wrapping only triggers when a long
+   geo town-list would otherwise overflow off-canvas (the old nowrap clipped
+   line tails like NJ "Alpine"). text-wrap:balance (set above) keeps any
+   two-line split even. */
+.oma-fmt3-foot{white-space:normal}
 
 /* Mobile tap target for the "back to offerings" link */
 @media (max-width:720px){
@@ -1027,6 +1041,17 @@ body.rail-onlight .tier-nav a.is-current::before{background:oklch(45% 0.1 70 / .
   .closing-segment.oma-close > .oma-close-bottom{ flex:0 0 auto; }
   /* footer band sizes to its content (no 3fr/2fr stretch) on phones+small tablets */
   .oma-close-bottom{ grid-template-rows:auto auto; min-height:auto; }
+}
+
+/* Phones/small tablets: a tall closing card (the /work-with-us/ application
+   form) can outgrow one viewport - the hard height:100dvh + overflow clip cut
+   the card and made the form unreachable. Release the lock the same way
+   styles.css does for .inquire-close ("never clip the form"): the segment
+   grows with its content, nothing clips. Doubled class out-specifies the
+   .closing-segment.oma-close overflow:hidden above. */
+@media (max-width:820px){
+  .closing-segment.closing-segment{ height:auto; min-height:100dvh; overflow:visible; }
+  .closing-segment .closing{ height:auto; min-height:0; overflow:visible; }
 }
 
 /* =========================================================================

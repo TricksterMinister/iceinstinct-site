@@ -171,8 +171,17 @@
 .pp-band-cta.pp-band-cta.pp-band-cta::before {
   display: none;
 }
-/* bare text links that joined the family need a real button body */
-.btn-ghost.btn-ghost.btn-ghost { padding: 1.02rem 1.85rem; }
+/* bare text links that joined the family need a real button body.
+   Typography = the closing voice (mono caps, 0.28em tracking) so every ghost
+   on the site speaks with one voice; radius matches btn-primary. */
+.btn-ghost.btn-ghost.btn-ghost {
+  padding: 1.02rem 1.85rem;
+  border-radius: 2px;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: clamp(0.7rem, 0.67rem + 0.15vmin, 0.78rem);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
 .gallery-cta.gallery-cta.gallery-cta { padding: 1.05rem 1.9rem; display: inline-flex; align-items: center; gap: 0.7rem; }
 .tier-go.tier-go.tier-go { text-shadow: 0 1px 0 rgba(255, 248, 226, 0.38); pointer-events: none; }
 
