@@ -15,10 +15,10 @@ const PRESS_PHONE_TEL = 'tel:+19172927859';
 const INQUIRY_URL = '/contact/';
 
 const BIO_SHORT =
-  'Teimuraz Benidze is the founder and Flavor Architect of Ice & Instinct, a private mixology studio serving the New York metropolitan area and New Jersey. The first certified sommelier in Georgia’s history, he brings two decades of wine and service to a single discipline: cocktails composed in the room, for the room.';
+  'Teimuraz Benidze is the founder and Flavor Architect of Ice & Instinct, a private mixology studio serving the New York metropolitan area and New Jersey. The first certified sommelier in Georgia’s history, he brings three decades of wine and service to a single discipline: cocktails composed in the room, for the room.';
 
 const BIO_LONG_PARAS = [
-  'Teimuraz Benidze spent two decades in wine and service before founding Ice & Instinct in 2024. The first certified sommelier in Georgia’s history, he holds four credentials: a Certificat in Wine & Sommellerie from Chateau-Arnoux, France; Leading Qualified Sommelier with the Georgian Sommelier Association (ASI); a Diploma in Wines & Spirits from Enotria Wine World, Moscow; and French Wine Studies with O.N.I.VINS.',
+  'Teimuraz Benidze spent three decades in wine and service, the last ten of them in New York since 2016, before founding Ice & Instinct in 2024. The first certified sommelier in Georgia’s history, he holds four credentials: a Certificat in Wine & Sommellerie from Chateau-Arnoux, France; Leading Qualified Sommelier with the Georgian Sommelier Association (ASI); a Diploma in Wines & Spirits from Enotria Wine World, Moscow; and French Wine Studies with O.N.I.VINS.',
   'Ice & Instinct applies that discipline to cocktails. The studio serves the New York metropolitan area and New Jersey by appointment, in four tiers from The Foundation at $650 to Omakase Improvisation from $3,000 - the no-menu evening the studio defined as its own niche, where the menu is composed live for the room. Professional clear ice is the standard at every tier, the collection holds thirteen signature cocktails, and a team of trusted New York bartenders scales the service from a solo performance to a full bar team for weddings and galas. His title at the studio is Founder & Flavor Architect; it describes the work.',
 ];
 

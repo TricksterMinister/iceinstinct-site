@@ -166,7 +166,7 @@ export function founderPerson(): object {
     name: "Teimuraz Benidze",
     jobTitle: "Founder & Flavor Architect",
     description:
-      "Founder of Ice & Instinct. Two decades of wine and service; the first certified sommelier in Georgia's history.",
+      "Founder of Ice & Instinct. Three decades of wine and service; the first certified sommelier in Georgia's history.",
     knowsAbout: ["Mixology", "Sommellerie", "Wine pairing", "Clear ice craft", "Cigar and cocktail pairing"],
     hasCredential: [
       { "@type": "EducationalOccupationalCredential", name: "Certificat - Wine & Sommellerie", recognizedBy: { "@type": "Organization", name: "Lycee interprofessionnel Louis Martin Bret, Chateau-Arnoux, France" } },

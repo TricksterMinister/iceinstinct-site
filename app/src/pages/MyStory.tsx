@@ -269,7 +269,7 @@ export function MyStory() {
                     <div className="journey-body">
                       <span className="journey-city">New York</span>
                       <p className="journey-note">
-                        Everything pointed here before I knew the city existed. Two decades of fine wine and high service
+                        Everything pointed here before I knew the city existed. Three decades of fine wine and high service
                         have distilled into one thing: the private table as ritual, never transaction - Sukhumi's full
                         table, set again on this side of the world. I have never loved a city more.
                       </p>
@@ -343,7 +343,7 @@ export function MyStory() {
                 Not claimed. <span className="it gold-shine">Certified.</span>
               </h2>
               <p className="record-lede">
-                Two decades of wine and service, on paper. Tap any seal to read it in full.
+                Three decades of wine and service, on paper. Tap any seal to read it in full.
               </p>
             </div>
             <ul className="record-grid reveal">
