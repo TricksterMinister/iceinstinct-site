@@ -14,7 +14,7 @@ export const clearIceWhyItMatters: JournalArticleContent = {
     </>
   ),
   standfirst:
-    'Ice is the largest ingredient in most cocktails and the least examined. It chills, it dilutes, and it decides how the drink tastes ten minutes after it is poured. Here is why we treat it as an ingredient, the simple physics behind clarity, and why hand-cut clear ice is standard at every tier we offer.',
+    'Ice is the largest ingredient in most cocktails and the least examined. It chills, it dilutes, and it decides how the drink tastes ten minutes after it is poured. Here is why we treat it as an ingredient, the simple physics behind clarity, and how professional clear ice, arranged through the Concierge, reaches every evening we serve.',
   date: 'June 10, 2026',
   dateISO: '2026-06-10',
   readTime: '5 min read',
@@ -131,19 +131,21 @@ export const clearIceWhyItMatters: JournalArticleContent = {
       paras: [
         <>
           We do not improvise ice on site, and we do not ask a host&rsquo;s freezer to do
-          production work. Professional clear ice comes from dedicated directional-freezing
-          suppliers, passed to you at supplier cost - the same no-markup rule we apply to
-          spirits. It is then hand-cut for the menu: large cubes for stirred drinks, spears for
-          highballs, pieces sized to the specific glassware of the evening. Thirteen{' '}
+          production work. Professional clear ice comes from specialist directional-freezing
+          suppliers: the Concierge arranges it for every booked evening, billed at supplier cost
+          - the same no-markup rule we apply to spirits. We spec the cut and the cold chain:
+          large cubes for stirred drinks, spears for highballs, pieces sized to the specific
+          glassware of the evening. Thirteen{' '}
           <a href="/gallery/">signature cocktails</a> in the collection, and not all of them
           sit on the same ice.
         </>,
         <>
-          One thing worth stating plainly: clear ice is not an upgrade. It is standard at every{' '}
-          <a href="/offerings/">tier</a>, from The Foundation at $650 to Omakase Improvisation -
-          and it serves the zero-proof program with the same care as the cocktail list. We treat
-          it the way a kitchen treats salt: invisible when right, unmistakable when wrong, and
-          never optional.
+          One thing worth stating plainly: clear ice is not included in the{' '}
+          <a href="/offerings/">tier</a>, and it is not an upsell either. The Concierge arranges
+          it separately for every booked evening, at supplier cost, from The Foundation at $650
+          to Omakase Improvisation - and it serves the zero-proof program with the same care as
+          the cocktail list. We treat it the way a kitchen treats salt: invisible when right,
+          unmistakable when wrong, and never optional.
         </>,
       ],
     },
@@ -156,7 +158,7 @@ export const clearIceWhyItMatters: JournalArticleContent = {
     },
     {
       q: 'Is clear ice included, or is it an upgrade?',
-      a: 'It is standard at every Ice & Instinct tier, from The Foundation at $650 upward. We source professional clear ice from dedicated suppliers at supplier cost, with no markup, and hand-cut it to the menu and glassware of the evening.',
+      a: 'Neither. Clear ice is not included in the tier price, and it is never sold as an upgrade: the Concierge arranges it separately for every booked evening, sourced from specialist suppliers and billed at supplier cost with no markup. We spec the cut to the menu and glassware of the evening.',
     },
     {
       q: 'Can I make clear ice at home?',

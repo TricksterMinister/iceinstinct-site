@@ -33,8 +33,8 @@ export const cigarAndCocktailPairing: JournalArticleContent = {
           Sommeliers do not pair by anecdote. Behind every confident wine match is a small set of
           measurable questions: how much body does each side have, how much sweetness, how much
           bite, and which one will dominate if nothing intervenes. Our founder carries four
-          sommelier credentials, earned across France, Italy, and Georgia, and a
-          quarter-century of hospitality behind them - and the discipline they teach is not
+          sommelier credentials, earned across France, Italy, and Georgia, and three decades
+          of hospitality behind them - and the discipline they teach is not
           about wine at all. It is about balance between two strong personalities at the same
           table.
         </>,

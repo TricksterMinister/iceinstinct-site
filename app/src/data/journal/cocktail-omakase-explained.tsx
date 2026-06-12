@@ -57,8 +57,9 @@ export const cocktailOmakaseExplained: JournalArticleContent = {
         <>
           A cocktail omakase is not a tasting menu with the prices hidden. There is no menu at all.
           No predetermined recipes, no printed cards, no &ldquo;tonight&rsquo;s flight.&rdquo; The
-          mixologist arrives with technique, professional clear ice, and a quarter-century of
-          rooms read correctly - and builds each drink after meeting the person it is for.
+          mixologist arrives with technique, with proper clear ice arranged through the
+          Concierge, and three decades of rooms read correctly - and builds each drink after
+          meeting the person it is for.
         </>,
         <>
           The raw material is the host&rsquo;s own collection. The bottles already on your shelf -
