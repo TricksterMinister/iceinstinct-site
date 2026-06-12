@@ -20,6 +20,7 @@ const cards = [
   { file: 'westchester-greenwich', eyebrow: 'Service Area',    title: 'Westchester <span class="amp">&amp;</span> Greenwich' },
   { file: 'events',                eyebrow: 'Event Bartenders', title: 'On Call, NYC <span class="amp">&amp;</span> NJ' },
   { file: 'work-with-us',          eyebrow: 'The Bench',       title: 'Bartend With Us' },
+  { file: 'journal',               eyebrow: 'Journal',         title: 'Notes on the Craft' },
 ];
 
 const html = (c) => `<!DOCTYPE html>

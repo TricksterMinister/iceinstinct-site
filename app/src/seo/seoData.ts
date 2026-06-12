@@ -124,7 +124,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   '/weddings/': {
     title: "Wedding Bar & Cocktail Service NYC & NJ - Ice & Instinct",
     description:
-      "Wedding bar and cocktail service for NYC and New Jersey. His-and-hers signature cocktails, a full bar team, professional clear ice, and a zero-proof program. From $650.",
+      "Wedding bar and cocktail service for NYC and New Jersey. His-and-hers signatures, a full bar team, professional clear ice, zero-proof program. From $650.",
     canonical: `${SITE}/weddings/`,
     ogTitle: "Wedding Bar & Cocktail Service NYC & NJ - Ice & Instinct",
     ogDescription:
@@ -138,7 +138,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   '/corporate/': {
     title: "Corporate Event Bar Service NYC & NJ - Ice & Instinct",
     description:
-      "Corporate event bar service in NYC and New Jersey. Brand events, client dinners, offsites, product launches. Invoicing, COI on request, W-9 ready. Four tiers from $650.",
+      "Corporate event bar service in NYC and New Jersey. Brand events, client dinners, offsites, launches. Invoicing, COI on request, W-9 ready. Four tiers from $650.",
     canonical: `${SITE}/corporate/`,
     ogTitle: "Corporate Event Bar Service NYC & NJ - Ice & Instinct",
     ogDescription:
@@ -148,9 +148,9 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   },
 
   '/gift/': {
-    title: "Gift an Evening - Private Mixology Gift Certificate, NYC & NJ",
+    title: "Gift an Evening - Mixology Gift Certificate, NYC & NJ",
     description:
-      "Gift an Ice & Instinct evening: a private mixology experience as a framed certificate. Two options, $650 and $900, valid 12 months, date transferable. NYC metro and New Jersey.",
+      "Gift an Ice & Instinct evening: a private mixology experience as a framed certificate. $650 or $900, valid 12 months, date transferable. NYC and New Jersey.",
     canonical: `${SITE}/gift/`,
     ogTitle: "Gift an Evening - Ice & Instinct",
     ogDescription:
@@ -162,7 +162,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   '/events/': {
     title: "Event Bartenders On Call, NYC & New Jersey - Ice & Instinct",
     description:
-      "Vetted event bartenders for birthdays, house parties, weddings and corporate nights across NYC and New Jersey. Flat packages from $450, founder-trained bench, insured, punctual.",
+      "Vetted event bartenders for birthdays, house parties, weddings and corporate nights, NYC and New Jersey. Flat packages from $450, founder-trained, insured.",
     canonical: `${SITE}/events/`,
     ogTitle: "Event Bartenders On Call, NYC & New Jersey - Ice & Instinct",
     ogDescription:
@@ -174,9 +174,9 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   },
 
   '/work-with-us/': {
-    title: "Join the Bench - Event Bartender Work, NYC & NJ - Ice & Instinct",
+    title: "Event Bartender Work, NYC & NJ - Ice & Instinct",
     description:
-      "Paid event bartending work across NYC and New Jersey: flat $180-240 per 4-hour event, same-day Zelle payout, you choose your gigs. Join the vetted bench of a private mixology studio.",
+      "Paid event bartending work in NYC and NJ: flat $180-240 per 4-hour event, same-day Zelle payout, you choose your gigs. Join the bench of a mixology studio.",
     canonical: `${SITE}/work-with-us/`,
     ogTitle: "Join the Bench - Ice & Instinct",
     ogDescription:
@@ -188,9 +188,9 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   },
 
   '/new-jersey/': {
-    title: "Private Bartending & Cocktail Service in New Jersey - Ice & Instinct",
+    title: "Private Bartending in New Jersey - Ice & Instinct",
     description:
-      "Private bartending and cocktail service across New Jersey - the Hoboken and Jersey City waterfront to Short Hills, Summit, and Montclair. Home base in NJ: no tunnel tolls, no Manhattan premium. Four tiers from $650.",
+      "Private bartending and cocktail service across New Jersey, Hoboken to Montclair. Home base in NJ: no tunnel tolls, no Manhattan premium. Four tiers from $650.",
     canonical: `${SITE}/new-jersey/`,
     ogTitle: "Private Bartending in New Jersey - Ice & Instinct",
     ogDescription:
@@ -201,9 +201,9 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   },
 
   '/manhattan/': {
-    title: "Private Bartending & Cocktail Service in Manhattan - Ice & Instinct",
+    title: "Private Bartending in Manhattan - Ice & Instinct",
     description:
-      "Private bartending for Manhattan penthouses, doorman buildings, and terraces. COI and freight elevator handled, compact setups, quiet late-evening close. Four tiers from $650.",
+      "Private bartending for Manhattan penthouses, doorman buildings, and terraces. COI and freight elevator handled, quiet late-evening close. Four tiers from $650.",
     canonical: `${SITE}/manhattan/`,
     ogTitle: "Private Bartending & Cocktail Service in Manhattan - Ice & Instinct",
     ogDescription:
@@ -213,9 +213,9 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   },
 
   '/hamptons/': {
-    title: "Hamptons Private Bartending & Cocktail Service - Ice & Instinct",
+    title: "Hamptons Private Bartending & Cocktails - Ice & Instinct",
     description:
-      "Private bartending and cocktail service for Hamptons estates, Southampton to Montauk. Clear ice transported cold from the studio, a full bar team, multi-day house weekends. Tiers from $650.",
+      "Private bartending for Hamptons estates, Southampton to Montauk. Clear ice transported cold, a full bar team, multi-day house weekends. Tiers from $650.",
     canonical: `${SITE}/hamptons/`,
     ogTitle: "Hamptons Private Bartending & Cocktail Service - Ice & Instinct",
     ogDescription:
@@ -227,7 +227,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   '/westchester-greenwich/': {
     title: "Private Bartending Westchester & Greenwich - Ice & Instinct",
     description:
-      "Private bartending and cocktail service for Scarsdale, Rye, Bedford, and the Greenwich backcountry. Sommelier-led, professional clear ice, discreet service at the house. From $650.",
+      "Private bartending for Scarsdale, Rye, Bedford, and the Greenwich backcountry. Sommelier-led, professional clear ice, discreet service at the house. From $650.",
     canonical: `${SITE}/westchester-greenwich/`,
     ogTitle: "Private Bartending Westchester & Greenwich - Ice & Instinct",
     ogDescription:
@@ -244,50 +244,50 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogTitle: "Journal - Notes on the Craft - Ice & Instinct",
     ogDescription:
       "Field notes from a private mixology studio: cocktail omakase explained, why clear ice matters, and a sommelier's method for cigar and cocktail pairing.",
-    ogImage: "/assets/og/press.png",
+    ogImage: "/assets/og/journal.png",
     jsonLd: [],
   },
 
   '/journal/cocktail-omakase-explained/': {
-    title: "Cocktail Omakase: the No-Menu Evening, Explained - Ice & Instinct",
+    title: "Cocktail Omakase: the No-Menu Evening - Ice & Instinct",
     description:
       "What omakase means when it moves from the sushi counter to the bar: how the no-menu evening works, what the host decides, what it costs, and who books it.",
     canonical: `${SITE}/journal/cocktail-omakase-explained/`,
     ogTitle: "Cocktail Omakase: the No-Menu Evening, Explained - Ice & Instinct",
     ogDescription:
       "No menu, no recipe cards, every drink composed in the moment. How a cocktail omakase evening actually works - from the dialogue with the room to what it costs.",
-    ogImage: "/assets/og/press.png",
+    ogImage: "/assets/og/journal.png",
     jsonLd: [],
   },
 
   '/journal/clear-ice-why-it-matters/': {
-    title: "Clear Ice: Why It Matters and How We Source It - Ice & Instinct",
+    title: "Why Clear Ice Matters and How We Source It - Ice & Instinct",
     description:
       "Ice is an ingredient. How directional freezing makes ice clear, why dense blocks control dilution, and why hand-cut clear ice is standard at every tier.",
     canonical: `${SITE}/journal/clear-ice-why-it-matters/`,
     ogTitle: "Clear Ice: Why It Matters and How We Source It - Ice & Instinct",
     ogDescription:
       "The largest ingredient in most cocktails is the least examined. The simple physics of clarity, the case for dilution control, and how we source and cut our ice.",
-    ogImage: "/assets/og/press.png",
+    ogImage: "/assets/og/journal.png",
     jsonLd: [],
   },
 
   '/journal/cigar-and-cocktail-pairing/': {
-    title: "Cigar and Cocktail Pairing: a Sommelier's Method - Ice & Instinct",
+    title: "Cigar & Cocktail Pairing: Sommelier Method - Ice & Instinct",
     description:
       "A certified sommelier's pairing grammar applied to smoke: matching strength, sweetness, and pacing - and how the Bespoke Cigar Curator runs the ritual.",
     canonical: `${SITE}/journal/cigar-and-cocktail-pairing/`,
     ogTitle: "Cigar and Cocktail Pairing: a Sommelier's Method - Ice & Instinct",
     ogDescription:
       "Structure, sweetness, strength - the grammar of wine service applied to smoke, by the first certified sommelier in the history of Georgia.",
-    ogImage: "/assets/og/press.png",
+    ogImage: "/assets/og/journal.png",
     jsonLd: [],
   },
 
   '/press/': {
     title: "Press & Media - Ice & Instinct",
     description:
-      "Press resources for Ice & Instinct, the private mixology studio serving NYC metro and New Jersey. Founder bios, fact sheet, downloadable images, and the media kit.",
+      "Press resources for Ice & Instinct, the private mixology studio serving NYC and New Jersey. Founder bios, fact sheet, downloadable images, and the media kit.",
     canonical: `${SITE}/press/`,
     ogTitle: "Press & Media - Ice & Instinct",
     ogDescription:

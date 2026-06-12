@@ -20,7 +20,7 @@ const TIERS = [
   { label: 'A', name: 'The Foundation', meta: 'Up to 15 guests · 3 hours', price: 'From $650', href: '/offerings/foundation/' },
   { label: 'B', name: 'Perfection in Simplicity', meta: 'Up to 12 guests · 4 hours', price: 'From $900', href: '/offerings/simplicity/' },
   { label: 'C', name: 'Bespoke Design & Artistry', meta: 'Up to 30 guests · 4 hours', price: 'From $1,800', href: '/offerings/bespoke/' },
-  { label: 'D', name: 'Omakase Improvisation', meta: 'Open-ended', price: 'From $3,000+', href: '/offerings/omakase/' },
+  { label: 'D', name: 'Omakase Improvisation', meta: 'Open-ended', price: 'From $3,000', href: '/offerings/omakase/' },
 ];
 
 /** Manhattan FAQ. Mirrored 1:1 by the FAQPage JSON-LD in /manhattan/index.html. */
