@@ -19,15 +19,19 @@
   letter-spacing: 0.14em;
   font-size: 0.66rem;
   line-height: 1.7;
-  color: var(--oma-ink-faint, oklch(46% 0.02 85));
+  /* --oma-ink-faint (#8a8276) is 3.4:1 on the paper bg - fails AA for this
+     money-terms text. Same warm hue, darker: 4.9:1 on #f4f1ea. */
+  color: oklch(52% 0.02 85);
   margin: clamp(1.2rem, 2.4vh, 1.8rem) 0 0;
   max-width: 56ch;
 }
 
-/* 3. The quiet list on the dark panel: numbered, hairline-ruled rows. */
+/* 3. The quiet list on the dark panel: numbered, hairline-ruled rows.
+      margin-inline auto keeps the capped list centered under the heading. */
 .ww-look {
   list-style: none;
   margin: clamp(2rem, 5vh, 3.2rem) 0 0;
+  margin-inline: auto;
   padding: 0;
   max-width: 760px;
 }

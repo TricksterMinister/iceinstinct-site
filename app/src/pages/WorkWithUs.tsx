@@ -31,7 +31,7 @@ const LOOK_FOR = [
   'Presentation - you look the part in a client’s home',
   'Punctuality - the bench arrives 45 minutes early',
   'Own basic tools - a plus, not a requirement',
-  'Own liability coverage - a plus, or willingness to work under the venue’s',
+  'Own liability coverage - a plus, or willingness to work under the venue’s.',
 ];
 
 const EXPERIENCE_OPTIONS = ['0-2', '2-5', '5+'];

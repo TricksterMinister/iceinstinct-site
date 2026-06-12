@@ -35,7 +35,7 @@
 .gift-title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(2rem, 1.3rem + 3vmin, 3.8rem);
+  font-size: var(--t-h2);
   line-height: 1.02;
   letter-spacing: -0.035em;
   color: var(--c-fg);

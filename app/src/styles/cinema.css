@@ -8,7 +8,7 @@
   --c-bg-soft: oklch(11% 0 0);
   --c-fg: oklch(98% 0 0);                /* chalk white, zero chroma */
   --c-fg-mute: oklch(72% 0 0);
-  --c-fg-faint: oklch(48% 0 0);
+  --c-fg-faint: oklch(58% 0 0); /* 4.8:1 on the 8% bg - AA; matches styles.css base token */
   --c-rule: oklch(20% 0 0);
   /* --c-accent and --c-accent-deep are inherited from /accent.css (loaded before this file). */
 
