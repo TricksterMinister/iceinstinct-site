@@ -1,6 +1,6 @@
 # Ice & Instinct - full site text
 
-> Plain-text rendering of every page on https://www.iceinstinct.com/ for AI engines. Curated facts (prices, policies, contact) live in https://www.iceinstinct.com/llms.txt; this file carries the full page copy. Generated from the prerendered HTML at build time. Last updated: 2026-06-11.
+> Plain-text rendering of every page on https://www.iceinstinct.com/ for AI engines. Curated facts (prices, policies, contact) live in https://www.iceinstinct.com/llms.txt; this file carries the full page copy. Generated from the prerendered HTML at build time. Last updated: 2026-06-12.
 
 ---
 
@@ -663,7 +663,7 @@ By appointment only · Est. 2024
 
 ---
 
-## Gift an Evening - Private Mixology Gift Certificate, NYC & NJ
+## Gift an Evening - Mixology Gift Certificate, NYC & NJ
 URL: https://www.iceinstinct.com/gift/
 
 ← Home
@@ -775,7 +775,7 @@ By appointment only New York Metropolitan Area & New Jersey Est. 2024
 
 ---
 
-## Hamptons Private Bartending & Cocktail Service - Ice & Instinct
+## Hamptons Private Bartending & Cocktails - Ice & Instinct
 URL: https://www.iceinstinct.com/hamptons/
 
 ### Out east, the standard holds.
@@ -871,7 +871,7 @@ Choose the rhythm that fits the house. Every tier scales with a full bar team fo
 A The Foundation Up to 15 guests · 3 hours From $650
 B Perfection in Simplicity Up to 12 guests · 4 hours From $900
 C Bespoke Design & Artistry Up to 30 guests · 4 hours From $1,800
-D Omakase Improvisation Open-ended From $3,000+
+D Omakase Improvisation Open-ended From $3,000
 A flat $500 deposit reserves your date - fully refundable until 14 days before the evening.
 
 #### Before the drive.
@@ -899,7 +899,7 @@ By appointment only Southampton to Montauk Est. 2024
 
 ---
 
-## Cigar and Cocktail Pairing: a Sommelier's Method - Ice & Instinct
+## Cigar & Cocktail Pairing: Sommelier Method - Ice & Instinct
 URL: https://www.iceinstinct.com/journal/cigar-and-cocktail-pairing/
 
 Journal / No 03
@@ -984,7 +984,7 @@ By appointment only New York Metropolitan Area & New Jersey Est. 2024
 
 ---
 
-## Clear Ice: Why It Matters and How We Source It - Ice & Instinct
+## Why Clear Ice Matters and How We Source It - Ice & Instinct
 URL: https://www.iceinstinct.com/journal/clear-ice-why-it-matters/
 
 Journal / No 02
@@ -1060,7 +1060,7 @@ By appointment only New York Metropolitan Area & New Jersey Est. 2024
 
 ---
 
-## Cocktail Omakase: the No-Menu Evening, Explained - Ice & Instinct
+## Cocktail Omakase: the No-Menu Evening - Ice & Instinct
 URL: https://www.iceinstinct.com/journal/cocktail-omakase-explained/
 
 Journal / No 01
@@ -1176,7 +1176,7 @@ By appointment only New York Metropolitan Area & New Jersey Est. 2024
 
 ---
 
-## Private Bartending & Cocktail Service in Manhattan - Ice & Instinct
+## Private Bartending in Manhattan - Ice & Instinct
 URL: https://www.iceinstinct.com/manhattan/
 
 ### The bar comes upstairs.
@@ -1240,7 +1240,7 @@ Choose the rhythm that fits the room. Every tier scales with a full bar team for
 A The Foundation Up to 15 guests · 3 hours From $650
 B Perfection in Simplicity Up to 12 guests · 4 hours From $900
 C Bespoke Design & Artistry Up to 30 guests · 4 hours From $1,800
-D Omakase Improvisation Open-ended From $3,000+
+D Omakase Improvisation Open-ended From $3,000
 A flat $500 deposit reserves your date - fully refundable until 14 days before the evening.
 Marrying in a Manhattan loft venue, or hosting the firm above Madison Avenue? The same building discipline carries through our wedding service
 and corporate service
@@ -1363,7 +1363,7 @@ By appointment only New York Metropolitan Area Est. 2024
 
 ---
 
-## Private Bartending & Cocktail Service in New Jersey - Ice & Instinct
+## Private Bartending in New Jersey - Ice & Instinct
 URL: https://www.iceinstinct.com/new-jersey/
 
 ### Our side of the Hudson.
@@ -1431,7 +1431,7 @@ covers any tier.
 A The Foundation Up to 15 guests · 3 hours From $650
 B Perfection in Simplicity Up to 12 guests · 4 hours From $900
 C Bespoke Design & Artistry Up to 30 guests · 4 hours From $1,800
-D Omakase Improvisation Open-ended From $3,000+
+D Omakase Improvisation Open-ended From $3,000
 A flat $500 deposit reserves your date - fully refundable until 14 days before the evening.
 
 #### Asked from this side.
@@ -2827,7 +2827,7 @@ Choose the rhythm that fits the evening. Every tier travels to Westchester and G
 A The Foundation Up to 15 guests · 3 hours From $650
 B Perfection in Simplicity Up to 12 guests · 4 hours From $900
 C Bespoke Design & Artistry Up to 30 guests · 4 hours From $1,800
-D Omakase Improvisation Open-ended From $3,000+
+D Omakase Improvisation Open-ended From $3,000
 A flat $500 deposit reserves your date - fully refundable until 14 days before the evening.
 
 #### Local questions.
@@ -2855,7 +2855,7 @@ By appointment only Westchester · Greenwich · NYC Metro & New Jersey Est. 2024
 
 ---
 
-## Join the Bench - Event Bartender Work, NYC & NJ - Ice & Instinct
+## Event Bartender Work, NYC & NJ - Ice & Instinct
 URL: https://www.iceinstinct.com/work-with-us/
 
 ### Join the bench
@@ -2891,7 +2891,7 @@ The bench is small on purpose. Every name on it passed one trial shift with the 
 
 - Own basic tools - a plus, not a requirement
 
-- Own liability coverage - a plus, or willingness to work under the venue’s
+- Own liability coverage - a plus, or willingness to work under the venue’s.
 
 Ice & Instinct / Join the Bench
 
