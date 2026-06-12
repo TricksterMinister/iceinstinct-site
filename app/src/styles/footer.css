@@ -167,64 +167,97 @@
    offering.css so non-offering pages (which do not import offering.css)
    get the identical footer. Token fallbacks let it render on the home
    page too, whose cinema.css uses a different token vocabulary.
+   Band-internal sizes are in px (converted 1:1 from rem at the 16px
+   reference root): the home page scales its root font-size fluidly
+   (--t-step-0), and the shared band must not change geometry per shell.
    ===================================================================== */
 
-/* Standalone wrapper: gives the band its own dark stage + height when it is
-   NOT sitting inside the offering closing-segment grid row. */
+/* Standalone wrapper: gives the band its own dark stage when it is NOT
+   sitting inside a closing-segment shell. No forced height - the band
+   below is self-governing, so every page renders the same geometry. */
 .site-footer{
-  display:block;min-height:38vh;
+  display:block;
   background:var(--c-bg, oklch(8% 0 0));
 }
-.site-footer > .oma-close-bottom{min-height:38vh}
 
-/* ---- the band itself (marquee 60% / links 40%) ---- */
+/* ---- the band itself: SELF-GOVERNING, identical on every page ----
+   Marquee row = one fixed clamp() (middle of the old 162-265px spread);
+   links row = content height. No shell may stretch or squeeze it. */
 .oma-close-bottom{
-  min-height:0;display:grid;grid-template-rows:3fr 2fr;overflow:hidden;
+  display:grid;grid-template-rows:clamp(150px,18vh,220px) auto;overflow:hidden;
   background:linear-gradient(180deg,var(--c-bg, oklch(8% 0 0)),oklch(11% 0 0));
 }
-.oma-close-marquee{min-height:0;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid oklch(100% 0 0 / .07);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+/* Shells that flex the band (legal-close, story-close, home/contact closers):
+   it keeps its content height and never shrinks. */
+.closing-segment > .oma-close-bottom{flex:0 0 auto}
+/* Shells that grid the band (offering closing-segment): the CTA row takes
+   the leftover space, the band keeps its own height. Same value offering.css
+   now uses - the doubled class guards the contract from this file (footer.css
+   loads first, so it needs the specificity); minmax floor = the CTA's content
+   so the segment grows instead of clipping it. */
+.closing-segment.closing-segment.oma-close{grid-template-rows:minmax(min-content,1fr) auto}
+/* PRIME DIRECTIVE: a forced-100dvh shell must never clip the band or the
+   content above it. Any closing-segment that hosts the band treats 100dvh
+   as a floor, not a fixed height. */
+.closing-segment:has(> .oma-close-bottom){height:auto;min-height:100dvh}
+/* The marquee row carries its height on the element itself (border-box, so
+   shell padding overrides cannot change the outer size): one geometry on
+   every page, whatever grid-template-rows a shell puts on the band. */
+.oma-close-marquee{box-sizing:border-box;height:clamp(150px,18vh,220px);min-height:0;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid oklch(100% 0 0 / .07);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 /* the marquee moves only while the page moves (--marquee-play set by funnelInit) */
 .oma-close-track{display:inline-flex;gap:.5em;white-space:nowrap;animation:oma-close-slide 38s linear infinite;animation-play-state:var(--marquee-play, paused);will-change:transform}
-.oma-close-track span{font-family:var(--font-display, 'Geist','Inter',ui-sans-serif,system-ui,sans-serif);font-weight:700;font-size:clamp(2.4rem,8vw,7rem);letter-spacing:-.03em;line-height:1;color:transparent;-webkit-text-stroke:1.2px oklch(88% 0.06 95 / .42)}
+.oma-close-track span{font-family:var(--font-display, 'Geist','Inter',ui-sans-serif,system-ui,sans-serif);font-weight:700;font-size:clamp(38.4px,8vw,112px);letter-spacing:-.03em;line-height:1;color:transparent;-webkit-text-stroke:1.2px oklch(88% 0.06 95 / .42)}
 .oma-close-track span em{font-family:var(--font-italic, 'Fraunces','Times New Roman',serif);font-style:italic;color:var(--c-accent, oklch(88% 0.06 95));-webkit-text-stroke:0}
 @keyframes oma-close-slide{to{transform:translateX(-50%)}}
 
 /* footer links - one balanced centered band, not stacked far-left columns */
-.oma-close-foot{min-height:0;width:100%;max-width:1180px;margin:0 auto;padding:0 clamp(1.5rem,5vw,5rem);display:flex;flex-direction:column;justify-content:center;gap:clamp(.7rem,1.8vh,1.2rem);overflow:hidden}
-.oma-close-nav{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.5rem clamp(1.4rem,3vw,2.6rem);font-family:var(--font-mono, 'JetBrains Mono',ui-monospace,'SFMono-Regular',Menlo,monospace);font-size:.74rem;letter-spacing:.04em}
-.oma-close-base{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:clamp(.6rem,1.4vh,1rem);border-top:1px solid oklch(100% 0 0 / .07);font-family:var(--font-mono, 'JetBrains Mono',ui-monospace,'SFMono-Regular',Menlo,monospace);font-size:.64rem;letter-spacing:.06em;color:var(--c-fg-muted, oklch(58% 0 0));font-variant-numeric:tabular-nums}
+/* Foot row = content + this padding. The padding-block value deliberately
+   matches the offering shell's own .oma-close-foot override, so the computed
+   foot height is identical on every page. */
+.oma-close-foot{min-height:0;width:100%;max-width:1180px;margin:0 auto;padding:clamp(8px,1.4vh,17.6px) clamp(24px,5vw,80px);display:flex;flex-direction:column;justify-content:center;gap:clamp(11.2px,1.8vh,19.2px);overflow:hidden}
+.oma-close-nav{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px clamp(22.4px,3vw,41.6px);font-family:var(--font-mono, 'JetBrains Mono',ui-monospace,'SFMono-Regular',Menlo,monospace);font-size:11.84px;letter-spacing:.04em}
+.oma-close-base{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:clamp(9.6px,1.4vh,16px);border-top:1px solid oklch(100% 0 0 / .07);font-family:var(--font-mono, 'JetBrains Mono',ui-monospace,'SFMono-Regular',Menlo,monospace);font-size:10.24px;letter-spacing:.06em;color:var(--c-fg-muted, oklch(58% 0 0));font-variant-numeric:tabular-nums}
 .oma-close-base > span{flex:1 1 0}
 .oma-close-base > span:last-child{text-align:right}
-.oma-close-sign{flex:0 0 auto;display:inline-flex;flex-direction:column;align-items:center;gap:.55rem;font-family:var(--font-italic, 'Fraunces','Times New Roman',serif);font-style:italic;font-size:1rem;letter-spacing:0;color:var(--c-fg-muted, oklch(58% 0 0));text-align:center;transition:color .25s var(--ease, cubic-bezier(0.22,0.61,0.36,1))}
+.oma-close-sign{flex:0 0 auto;display:inline-flex;flex-direction:column;align-items:center;gap:8.8px;font-family:var(--font-italic, 'Fraunces','Times New Roman',serif);font-style:italic;font-size:16px;letter-spacing:0;color:var(--c-fg-muted, oklch(58% 0 0));text-align:center;transition:color .25s var(--ease, cubic-bezier(0.22,0.61,0.36,1))}
 .oma-close-mark{width:30px;height:30px;display:block;object-fit:contain;border-radius:6px;opacity:.92;transition:transform .45s var(--ease, cubic-bezier(0.22,0.61,0.36,1)),opacity .25s ease}
 .oma-close-sign:hover .oma-close-mark{transform:scale(1.06);opacity:1}
 .oma-close-sign em{color:var(--c-accent, oklch(88% 0.06 95))}
 .oma-close-sign:hover{color:var(--c-fg-soft, oklch(78% 0 0))}
 
-.oma-close .lnk{position:relative;color:var(--c-fg-soft, oklch(78% 0 0));transition:color .25s var(--ease, cubic-bezier(0.22,0.61,0.36,1))}
-.oma-close .lnk::after{content:"";position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:var(--c-accent, oklch(88% 0.06 95));transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease, cubic-bezier(0.22,0.61,0.36,1))}
-.oma-close .lnk:hover{color:var(--c-fg, oklch(98% 0 0))}
-.oma-close .lnk:hover::after{transform:scaleX(1)}
+/* Scoped to .oma-close-foot (part of the band markup itself), NOT to the
+   shell's .oma-close class - my-story (.story-close) and the legal pages
+   (.legal-close) omit oma-close on their wrapper, so the old .oma-close .lnk
+   selectors never matched there and the links rendered unstyled. */
+.oma-close-foot .lnk{position:relative;color:var(--c-fg-soft, oklch(78% 0 0));transition:color .25s var(--ease, cubic-bezier(0.22,0.61,0.36,1))}
+.oma-close-foot .lnk::after{content:"";position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:var(--c-accent, oklch(88% 0.06 95));transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease, cubic-bezier(0.22,0.61,0.36,1))}
+.oma-close-foot .lnk:hover{color:var(--c-fg, oklch(98% 0 0))}
+.oma-close-foot .lnk:hover::after{transform:scaleX(1)}
+
+/* Phones + small tablets: the band sizes to its content. Mirrors the 820px
+   breakpoint offering.css uses for its shells, so pages that do not load
+   offering.css (home, gallery, ...) keep the identical band here too. */
+@media(max-width:820px){
+  .oma-close-bottom{grid-template-rows:auto auto}
+  .oma-close-marquee{height:auto;padding-block:clamp(12.8px,3vh,25.6px)}
+}
 
 @media(max-width:640px){
-  /* Standalone footer: size to its content (no fixed 38vh of mostly-empty
-     space) and let the giant scrolling wordmark dominate (~60% of the band),
-     with the links + base kept compact below the hairline. */
-  .site-footer{min-height:auto}
-  .site-footer > .oma-close-bottom{min-height:auto;grid-template-rows:auto auto}
-
   /* Marquee - present but restrained on phones (about half the previous scale)
      so the footer no longer dominates the screen. */
-  .oma-close-marquee{padding-block:clamp(.8rem,3vh,1.6rem)}
   .oma-close-track{gap:.32em}
-  .oma-close-track span{font-size:clamp(3rem,26vw,7rem);letter-spacing:-.04em}
+  .oma-close-track span{font-size:clamp(48px,26vw,112px);letter-spacing:-.04em}
 
-  /* Compact link band so the marquee stays the dominant element (~60%) */
-  .oma-close-foot{gap:clamp(.55rem,1.6vh,.9rem);padding-block:clamp(.7rem,2.2vh,1.2rem)}
-  .oma-close-nav{gap:.3rem 1.2rem;font-size:.76rem}
-  .oma-close-nav .lnk{padding:.72rem .1rem;display:inline-block}
-  .oma-close-sign{padding:.45rem 0}
-  .oma-close-base{flex-direction:column;gap:4px;text-align:center;font-size:.7rem}
+  /* Compact link band so the marquee stays the dominant element (~60%).
+     0,4,0 specificity: offering.css carries a .closing-segment.oma-close
+     .oma-close-foot padding-block override (0,3,0, loaded after this file)
+     that would otherwise give the oma shells a different phone padding than
+     every other page. */
+  .oma-close-bottom .oma-close-foot.oma-close-foot.oma-close-foot{gap:clamp(8.8px,1.6vh,14.4px);padding-block:clamp(11.2px,2.2vh,19.2px)}
+  .oma-close-nav{gap:4.8px 19.2px;font-size:12.16px}
+  .oma-close-nav .lnk{padding:11.52px 1.6px;display:inline-block}
+  .oma-close-sign{padding:7.2px 0}
+  .oma-close-base{flex-direction:column;gap:4px;text-align:center;font-size:11.2px}
   .oma-close-base > span,.oma-close-base > span:last-child{text-align:center}
-  .oma-close-sign{font-size:.9rem}
+  .oma-close-sign{font-size:14.4px}
 }
