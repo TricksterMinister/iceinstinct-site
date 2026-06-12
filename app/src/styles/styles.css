@@ -17,7 +17,7 @@
   --c-fg:          oklch(98% 0 0);    /* near-white chalk */
   --c-fg-soft:     oklch(78% 0 0);    /* steel */
   --c-fg-muted:    oklch(58% 0 0);    /* brushed steel */
-  --c-fg-faint:    oklch(56% 0 0);    /* hairline labels - bumped to AA contrast */
+  --c-fg-faint:    oklch(58% 0 0);    /* hairline labels - 4.85:1 on --c-bg, AA */
 
   /* --- Single accent: defined in /accent.css (loaded before this file).
          To change the site-wide accent, edit /accent.css ONLY. --- */
@@ -1898,6 +1898,17 @@ img.reveal-zoom.is-in { transform: scale(1); }
   background: var(--c-fg);
   transition: width 200ms linear;
 }
+/* Compositor-friendly fill: JS writes --progress as a percentage, and
+   scaleX() accepts percentages (CSS Transforms L2) - so animate transform
+   instead of width. Older engines keep the width fallback above. */
+@supports (transform: scaleX(8%)) {
+  .gallery-progress::after {
+    width: 100%;
+    transform: scaleX(var(--progress, 8%));
+    transform-origin: left center;
+    transition: transform 200ms ease;
+  }
+}
 .gallery-meta-row {
   display: flex;
   justify-content: space-between;
@@ -2854,10 +2865,13 @@ img.reveal-zoom.is-in { transform: scale(1); }
 .closing-frame .inquire-field textarea {
   width: 100%;
   background: oklch(99% 0.006 95);
-  border: 1px solid oklch(78% 0.04 88);
+  /* Border ink: 3.4:1 vs the input paper, 3.2:1 vs the card - a visible UI
+     boundary (WCAG 1.4.11), still the same warm hue. */
+  border: 1px solid oklch(63% 0.04 88);
   color: oklch(22% 0.01 80);
   font-family: var(--font-body, var(--font-display));
-  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.02rem);
+  /* 16px floor: iOS Safari auto-zooms on focus when a field computes < 16px */
+  font-size: max(16px, clamp(0.95rem, 0.9rem + 0.3vw, 1.02rem));
   padding: clamp(0.7rem, 1.3vh, 0.95rem) clamp(0.9rem, 1.8vw, 1.2rem);
   border-radius: 2px;
   transition: border-color 0.3s var(--ease, ease), box-shadow 0.3s var(--ease, ease);
@@ -2918,7 +2932,8 @@ img.reveal-zoom.is-in { transform: scale(1); }
 @media (max-width: 560px) {
   .closing-frame .inquire-row.inquire-row-optional { grid-template-columns: 1fr; }
 }
-.closing-frame .inquire-row-optional .inquire-label { color: oklch(56% 0.02 85); }
+/* Quieter than the primary labels (46%) but still AA: 5.5:1 on the card. */
+.closing-frame .inquire-row-optional .inquire-label { color: oklch(50% 0.02 85); }
 /* Deposit reassurance under the Send button - quiet, small, muted. */
 .closing-frame .inquire-deposit {
   margin: 0;
@@ -2928,6 +2943,32 @@ img.reveal-zoom.is-in { transform: scale(1); }
   font-size: 0.82rem;
   line-height: 1.4;
   color: oklch(50% 0.03 85);
+}
+
+/* Comfortable touch targets on coarse pointers (mirrors the accent.css
+   pattern for buttons): pad the small text links to a >=44px tap box and
+   pull the padding back out with negative margins so the visual rhythm
+   stays untouched. Targets: the contact "WhatsApp / Call" quick links and
+   the footer nav links (.lnk lives in footer.css, loaded after this file,
+   hence the .lnk.lnk specificity bump). */
+@media (pointer: coarse) {
+  .inquire-direct a {
+    display: inline-block;
+    padding-block: 0.85rem;
+    margin-block: -0.85rem;
+    padding-inline: 0.3rem;
+    margin-inline: -0.3rem;
+  }
+  .oma-close-nav .lnk.lnk {
+    display: inline-block;
+    padding-block: 0.85rem;
+    margin-block: -0.85rem;
+  }
+}
+@media (pointer: coarse) and (max-width: 640px) {
+  /* footer.css already pads .72rem at this width and the compact band was
+     designed around it - compensate only the extra .13rem. */
+  .oma-close-nav .lnk.lnk { margin-block: -0.13rem; }
 }
 
 /* -----------------------------------------------------------------
@@ -3421,6 +3462,13 @@ img.reveal-zoom.is-in { transform: scale(1); }
   #faq .faq-list {
     display: grid; grid-template-columns: 1fr 1fr;
     column-gap: clamp(2.5rem, 4vw, 4.5rem); align-items: start;
+  }
+  /* Fewer than 4 questions: a 2-col grid leaves a lone orphan column -
+     run one centered column instead. */
+  #faq .faq-list:not(:has(.faq-item:nth-child(4))) {
+    display: block;
+    max-width: 62rem;
+    margin-inline: auto;
   }
 }
 
