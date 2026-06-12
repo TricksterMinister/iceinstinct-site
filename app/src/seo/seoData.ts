@@ -194,7 +194,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     canonical: `${SITE}/new-jersey/`,
     ogTitle: "Private Bartending in New Jersey - Ice & Instinct",
     ogDescription:
-      "New Jersey is our home base. No tunnel tolls, no Manhattan vendor premium, same-week dates realistic. Four tiers from $650, professional clear ice as standard.",
+      "New Jersey is our home base. No tunnel tolls, no Manhattan vendor premium, same-week dates realistic. Four tiers from $650; clear ice arranged through the Concierge.",
     ogImage: "/assets/og/new-jersey.png",
     // Service + FAQPage JSON-LD hand-authored in the stub head.
     jsonLd: [],
@@ -215,7 +215,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   '/hamptons/': {
     title: "Hamptons Private Bartending & Cocktails - Ice & Instinct",
     description:
-      "Private bartending for Hamptons estates, Southampton to Montauk. Clear ice transported cold, a full bar team, multi-day house weekends. Tiers from $650.",
+      "Private bartending for Hamptons estates, Southampton to Montauk. Concierge-arranged clear ice, a full bar team, multi-day weekends. Tiers from $650.",
     canonical: `${SITE}/hamptons/`,
     ogTitle: "Hamptons Private Bartending & Cocktail Service - Ice & Instinct",
     ogDescription:
@@ -263,11 +263,11 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   '/journal/clear-ice-why-it-matters/': {
     title: "Why Clear Ice Matters and How We Source It - Ice & Instinct",
     description:
-      "Ice is an ingredient. How directional freezing makes ice clear, why dense blocks control dilution, and why hand-cut clear ice is standard at every tier.",
+      "Ice is an ingredient. How directional freezing makes ice clear, why dense blocks control dilution, and how the Concierge arranges specialist clear ice for every evening.",
     canonical: `${SITE}/journal/clear-ice-why-it-matters/`,
     ogTitle: "Clear Ice: Why It Matters and How We Source It - Ice & Instinct",
     ogDescription:
-      "The largest ingredient in most cocktails is the least examined. The simple physics of clarity, the case for dilution control, and how we source and cut our ice.",
+      "The largest ingredient in most cocktails is the least examined. The physics of clarity, dilution control, and how specialist clear ice is sourced.",
     ogImage: "/assets/og/journal.png",
     jsonLd: [],
   },
