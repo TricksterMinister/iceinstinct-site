@@ -378,7 +378,7 @@ export function Gift() {
                 We respond within one business day with the dedication and delivery details.
               </p>
               <p className="closing-included">
-                Professional clear ice and temperature control come standard in every gifted evening.
+                Clear ice and temperature management for the gifted evening are arranged through the Concierge, at supplier cost.
               </p>
               <div className="closing-cta">
                 <a className="btn-primary" href={GIFT_FALLBACK} data-cursor="link">

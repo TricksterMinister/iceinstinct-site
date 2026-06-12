@@ -403,7 +403,8 @@ export function MyStory() {
                   </summary>
                   <div className="faq-a">
                     <p>
-                      I arrive with the full bar kit, precision tools, and professional clear ice as standard. Spirits
+                      I arrive with the full bar kit and precision tools. I do not pour over hotel ice: proper clear
+                      ice is arranged through the Concierge before the evening, billed at supplier cost. Spirits
                       and wine are provided by the host or sourced on your behalf at supplier cost; curated glassware and
                       rentals are arranged through the Concierge.
                     </p>

@@ -80,7 +80,8 @@ export function ConciergePage() {
 
   // "Add to my evening": the guest selects OPTIONAL enhancements (never pays
   // here). The selection persists site-wide and is carried into the booking /
-  // Inquire. Ice & Temperature is standard in every evening, never a toggle.
+  // Inquire. Ice & Temperature is never a toggle: the Concierge arranges it
+  // with every booking, billed separately at supplier cost.
   const [picked, toggle] = useEvening();
   const requestUrl = '/contact/?enhancements=' + encodeURIComponent(picked.join(' | '));
 
@@ -307,7 +308,7 @@ export function ConciergePage() {
                       {e.id === 'ice-temperature' ? (
                         <span className="enh-standard">
                           <span className="enh-standard-mark" aria-hidden="true">✦</span>
-                          Standard in every evening
+                          Arranged with every booking, at supplier cost
                         </span>
                       ) : (
                         <button
@@ -372,8 +373,8 @@ export function ConciergePage() {
                 </a>
               </div>
               <p className="cta-note">
-                Enhancements are arranged with your booking, never bought here. Ice and temperature are standard in
-                every evening; all third-party items are sourced at supplier cost.
+                Enhancements are arranged with your booking, never bought here. Ice and temperature are arranged the
+                same way, as a separate purchase; all third-party items are sourced at supplier cost.
               </p>
               <p className="cta-foot">By appointment only &middot; Est. 2024</p>
             </div>

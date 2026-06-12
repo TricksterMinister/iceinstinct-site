@@ -190,7 +190,7 @@ export function Corporate() {
                 designed for its purpose, not a package pulled from a shelf.
               </p>
               <p>
-                The standard does not move. Professional clear ice, precise temperature, thirteen signature cocktails
+                The standard does not move. Proper clear ice arranged through the Concierge, precise temperature, thirteen signature cocktails
                 refined in private service, and a zero-proof program prepared with the same discipline - so every
                 guest is served with intention, whatever they choose to drink.
               </p>
@@ -398,7 +398,7 @@ export function Corporate() {
                 We respond within one business day with a proposal your team can route.
               </p>
               <p className="closing-included">
-                Every event includes professional clear ice and temperature, sourced at supplier cost.
+                Clear ice and temperature management are not included in the tier: the Concierge arranges both separately, at supplier cost.
               </p>
               <div className="closing-cta">
                 <a className="btn-primary" href="/contact/?occasion=corporate" data-cursor="link">

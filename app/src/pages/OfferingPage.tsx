@@ -34,12 +34,13 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
 
   // Carry the guest's optional enhancements (picked anywhere on the site) into
   // this booking, so the date, deposit and the full evening arrive as one. Ice
-  // is standard, never opt-in. NOTE: the YCBM "NOTES" param prefills only if a
+  // is never an opt-in toggle: the Concierge arranges it separately, billed at
+  // supplier cost. NOTE: the YCBM "NOTES" param prefills only if a
   // booking field with that code exists in the YouCanBook.me form.
   const [evening] = useEvening();
   const bookingUrl =
     evening.length > 0
-      ? `${pkg}&NOTES=${encodeURIComponent('Enhancements requested: ' + evening.join(', ') + '. (Clear ice and temperature included as standard.)')}`
+      ? `${pkg}&NOTES=${encodeURIComponent('Enhancements requested: ' + evening.join(', ') + '. (Clear ice and temperature arranged separately through the Concierge, at supplier cost.)')}`
       : pkg;
 
   // Live deep page sets <body class="cinema-chrome">.
@@ -439,7 +440,7 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
                 {content.closing.lead.split(/(?<=\.)\s+/).flatMap((s, i) => (i === 0 ? [s] : [<br key={i} />, s]))}
               </p>
               <p className="closing-included">
-                Every evening includes professional clear ice and temperature, sourced at supplier cost.
+                Clear ice and temperature management are not included in the tier: the Concierge arranges both separately, at supplier cost.
                 {evening.length > 0 && (
                   <>
                     {' '}Your evening also includes: <strong>{evening.join(', ')}</strong>.
