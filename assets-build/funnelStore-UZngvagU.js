@@ -1,1 +1,0 @@
-import"./EyebrowMark-Mu2rl7Sl.js";let t={temperament:null};const n=new Set;function r(){n.forEach(e=>e())}const a={setTemperament(e){t={...t,temperament:e},r()},getState(){return t},subscribe(e){return n.add(e),()=>n.delete(e)}};export{a as f};

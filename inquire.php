@@ -32,7 +32,7 @@ if ($name === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL
 // Keep header-bound values free of injected newlines.
 $safeName = preg_replace('/[\r\n]+/', ' ', $name);
 
-$to      = 'alchemyandice.nyc@gmail.com';
+$to      = 'hello@iceinstinct.com';
 $subject = 'Ice & Instinct inquiry - ' . $safeName;
 $body    = "New inquiry from iceinstinct.com\n\n"
          . "Name:  " . $name . "\n"

@@ -10,7 +10,7 @@ import { track } from '../lib/track';
 
 const BODY_CLASSES = ['cinema-chrome'];
 
-const EMAIL = 'alchemyandice.nyc@gmail.com';
+const EMAIL = 'hello@iceinstinct.com';
 
 // The qualification selects offer fixed vocabularies; the occasion list also
 // validates the ?occasion= prefill (e.g. /contact/?occasion=wedding) so an

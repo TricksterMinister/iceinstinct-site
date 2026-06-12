@@ -5,11 +5,9 @@ import { useDeepScripts } from '../app/useDeepScripts';
 import { SiteFooter } from '../sections/SiteFooter';
 import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
 
-/* EMAIL SWAP: hello@iceinstinct.com is planned but NOT live yet. When the
- * mailbox goes live, set PRESS_EMAIL to 'hello@iceinstinct.com' and the
- * press-contact block renders the mailto link automatically. Until then,
- * press inquiries route through the form + phone. */
-const PRESS_EMAIL: string | null = null;
+/* hello@iceinstinct.com is live (Hostinger mailbox, forwards to the owner
+ * inbox). The press-contact block renders the mailto link automatically. */
+const PRESS_EMAIL: string | null = 'hello@iceinstinct.com';
 const PRESS_PHONE_DISPLAY = '+1 917 292 7859';
 const PRESS_PHONE_TEL = 'tel:+19172927859';
 const INQUIRY_URL = '/contact/';

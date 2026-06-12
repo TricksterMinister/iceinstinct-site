@@ -6,12 +6,12 @@ import { SiteFooter } from '../sections/SiteFooter';
 import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
 import { track } from '../lib/track';
 
-/* Stripe Payment Links land here later: replace null with the live link per
- * tier and the card CTA switches from the inquiry fallback automatically. */
+/* Stripe Payment Links (live, Ice & Instinct account). Each card CTA points
+ * straight to checkout; null would fall back to the inquiry form. */
 type GiftTier = 'foundation' | 'simplicity';
 const STRIPE_LINKS: Record<GiftTier, string | null> = {
-  foundation: null,
-  simplicity: null,
+  foundation: 'https://buy.stripe.com/6oU28rg6d0yVeRKcEnew800',
+  simplicity: 'https://buy.stripe.com/3cI9AT6vD81ncJCdIrew801',
 };
 const GIFT_FALLBACK = '/contact/?occasion=gift';
 const giftHref = (tier: GiftTier) => STRIPE_LINKS[tier] ?? GIFT_FALLBACK;

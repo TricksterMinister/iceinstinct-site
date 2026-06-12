@@ -1,1 +1,0 @@
-const e=[{name:"Tom R.",event:"Verified Google review",date:"2025",rating:5,quote:"This mixology spot is seriously insane. Best night out in a minute. The drinks are legit fire and the whole vibe is next level."}];export{e as t};
