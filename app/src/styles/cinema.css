@@ -125,7 +125,7 @@ a { color: inherit; text-decoration: none; }
 @media (hover: hover) and (pointer: fine) { body, a, button { cursor: none; } }
 
 /* ========== PAGER (vertical dots, left margin) ========== */
-.pager { position: fixed; left: 1.6rem; top: 50%; transform: translateY(-50%); z-index: 90; display: flex; flex-direction: column; gap: 0.6rem; mix-blend-mode: difference; }
+.pager { position: fixed; left: 1.6rem; top: 50%; transform: translateY(-50%); z-index: 90; display: flex; flex-direction: column; gap: 0.6rem; mix-blend-mode: difference; margin-left: env(safe-area-inset-left, 0px); }
 .pager-dot { appearance: none; background: transparent; width: 28px; height: 28px; border: 1px solid rgba(255, 255, 255, 0.35); border-radius: 50%; display: grid; place-items: center; cursor: none; padding: 0; transition: background 0.4s var(--ease-out-expo), border-color 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo); }
 .pager-dot span { font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.12em; color: rgba(255,255,255,0.55); transition: color 0.4s; }
 .pager-dot:hover { border-color: #fff; transform: scale(1.08); }
@@ -217,7 +217,7 @@ a { color: inherit; text-decoration: none; }
 .hero-sub .reveal-line > span { display: inline-block; }
 
 /* Minimal scroll cue - no circle. A thin champagne line that pulses, under a label. */
-.hero-cue { position: absolute; bottom: 2.4rem; left: 4.4rem; z-index: 6; opacity: 0; display: flex; flex-direction: column; align-items: center; gap: 0.7rem; }
+.hero-cue { position: absolute; bottom: 2.4rem; left: 4.4rem; z-index: 6; opacity: 0; display: flex; flex-direction: column; align-items: center; gap: 0.7rem; margin-bottom: env(safe-area-inset-bottom, 0px); margin-left: env(safe-area-inset-left, 0px); }
 .hero-cue span { display: block; font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--c-fg-mute); text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
 .hero-cue .cue-line { display: block; width: 1px; height: 44px; background: linear-gradient(var(--c-accent), transparent); overflow: hidden; position: relative; }
 .hero-cue .cue-line::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 40%; background: var(--c-accent); animation: cue-fall 1.8s var(--ease-out-quart) infinite; }
@@ -755,7 +755,7 @@ a { color: inherit; text-decoration: none; }
 
   /* Compact, legible mobile menu: number + title on one line, small muted
      subtitle underneath - no huge titles with clipped right-side captions. */
-  .va-overlay { justify-content: flex-start; overflow-y: auto; padding: 4.5rem 1.4rem 2.5rem; }
+  .va-overlay { justify-content: flex-start; overflow-y: auto; padding: max(4.5rem, calc(env(safe-area-inset-top) + 1.5rem)) max(1.4rem, env(safe-area-inset-right)) max(2.5rem, calc(env(safe-area-inset-bottom) + 1rem)) max(1.4rem, env(safe-area-inset-left)); }
   .va-stage { gap: 1.5rem; margin: auto 0; }
   .va-eyebrow { font-size: 0.66rem; letter-spacing: 0.24em; }
   .va-list a {
