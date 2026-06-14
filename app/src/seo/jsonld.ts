@@ -19,9 +19,17 @@ export function organization(): object {
     logo: `${SITE}/assets/icon-512.png`,
     image: `${SITE}/assets/og/home.png`,
     telephone: "+1-917-292-7859",
-    priceRange: "$650-$3000+",
+    email: "hello@iceinstinct.com",
+    priceRange: "$650-$3500",
     foundingDate: "2024",
     founder: { "@id": `${SITE}/#founder` },
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: "hello@iceinstinct.com",
+      contactType: "customer service",
+      areaServed: ["US-NY", "US-NJ"],
+      availableLanguage: ["en"],
+    },
     sameAs: [
       "https://www.instagram.com/iceinstinctnyc/",
       "https://share.google/AKKPuz8ZvIK8uKzfk",
@@ -37,6 +45,18 @@ export function organization(): object {
       { "@type": "Place", name: "The Hamptons" },
       { "@type": "City", name: "Greenwich" },
     ],
+  };
+}
+
+export function website(): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE}/#website`,
+    url: `${SITE}/`,
+    name: "Ice & Instinct",
+    inLanguage: "en",
+    publisher: { "@id": ORG_ID },
   };
 }
 
@@ -175,7 +195,10 @@ export function founderPerson(): object {
       { "@type": "EducationalOccupationalCredential", name: "French Wine Studies", recognizedBy: { "@type": "Organization", name: "O.N.I.VINS - National Bureau of French Wines" } },
     ],
     memberOf: { "@type": "Organization", name: "Georgian Sommelier Association (ASI)" },
-    sameAs: ["https://www.instagram.com/iceinstinctnyc/"],
+    sameAs: [
+      "https://www.wikidata.org/wiki/Q139413110",
+      "https://www.instagram.com/iceinstinctnyc/",
+    ],
     worksFor: { "@id": ORG_ID },
   };
 }

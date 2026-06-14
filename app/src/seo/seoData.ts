@@ -6,6 +6,7 @@
 
 import {
   organization,
+  website,
   cocktailItemList,
   tierService,
   tierItemList,
@@ -35,7 +36,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogDescription:
       "Signature cocktails and omakase improvisation for the highest-tier private hosts. By appointment only.",
     ogImage: "/assets/og/home.png",
-    jsonLd: [organization()],
+    jsonLd: [organization(), founderPerson(), website()],
   },
 
   '/offerings/': {
