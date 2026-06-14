@@ -22,3 +22,30 @@ The Single: один профессиональный бартендер из н
 прибытия = минус 45 мин, дресс-код, список коктейлей, контакт хоста).
 Правило: бартендеру звоним ТОЛЬКО после депозита клиента. Без депозита
 нет брони, без брони нет звонка.
+
+## Прошлым клиентам Instinct (письмо / сообщение, draft - Темо шлёт сам)
+
+> Цель: рассказать про новый event-этаж (/events/) + рефералка 10%. НЕ удешевлять Instinct: Instinct = вечер, который Темо ведёт сам; /events/ = скамейка обученных бартендеров.
+
+Subject: For the next gathering, and the people you know
+
+[Name], working your [event] was a genuine pleasure.
+
+A short note on something new. Alongside the private, omakase evenings I lead
+myself, Ice & Instinct now staffs full event bars: trained bartenders from our
+own bench for weddings, corporate evenings, and larger parties, booked through
+us and held to the same standard.
+
+If you are planning something larger, or someone you know is, point them here:
+iceinstinct.com/events. And if a referral books with us, 10% of it comes back
+to you, simply, as thanks.
+
+Always here when the occasion calls for the room I run myself.
+
+Temo
+Ice & Instinct
+
+## YCBM - депозитная строка (вставить в описание брони / подтверждение)
+
+Securing your date: a 50% deposit confirms the booking; the balance is due on
+the day of the event. Until the deposit is received, the date is not held.
