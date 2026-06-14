@@ -48,6 +48,8 @@ body.cinema-chrome::after {
    No hamburger, no circle. The tick grows and the letters spread on hover. */
 .va-trigger {
   position: fixed; top: 2rem; right: 2.4rem; z-index: 95;
+  /* Respect notch / Dynamic Island on viewport-fit=cover phones (env=0 elsewhere). */
+  margin-top: env(safe-area-inset-top, 0px); margin-right: env(safe-area-inset-right, 0px);
   width: 46px; height: 46px;
   background: transparent; border: 1px solid oklch(88% 0.06 95 / 0.45); border-radius: 50%;
   display: grid; place-items: center; padding: 0;
