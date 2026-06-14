@@ -59,7 +59,10 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
     const el = holdRef.current;
     if (!el) return;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce) {
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    // Pin + scrub jitters against native touch scroll; on touch hold the stage
+    // static (CSS position:sticky already keeps the geometry correct).
+    if (reduce || !finePointer) {
       el.classList.add('is-static');
       return;
     }

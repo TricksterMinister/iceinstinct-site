@@ -35,20 +35,23 @@ export function useMyStory(): void {
       /* ---------- COVER: cinematic parallax ---------- */
       const cover = document.querySelector('.story-cover');
       if (cover) {
+        // Cover parallax is scroll-tied (scrub) - non-touch only, else it jitters
+        // against native touch scroll. On touch the cover holds its rest state.
+        const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
         // portrait slowly scales + drifts as the cover scrolls away
-        gsap.to('.story-cover-img', {
+        if (fine) gsap.to('.story-cover-img', {
           scale: 1.12,
           yPercent: 5,
           ease: 'none',
           scrollTrigger: { trigger: cover, start: 'top top', end: 'bottom top', scrub: true },
         });
         // ghost wordmark drifts up, the id panel lifts and fades
-        gsap.to('.story-cover-ghost', {
+        if (fine) gsap.to('.story-cover-ghost', {
           yPercent: -16,
           ease: 'none',
           scrollTrigger: { trigger: cover, start: 'top top', end: 'bottom top', scrub: true },
         });
-        gsap.to('.story-cover-id', {
+        if (fine) gsap.to('.story-cover-id', {
           yPercent: 32,
           opacity: 0.25,
           ease: 'none',

@@ -136,8 +136,8 @@ export function useCinemaChrome(): void {
     document.addEventListener('keydown', onKeydown);
     cleanups.push(() => document.removeEventListener('keydown', onKeydown));
 
-    /* ---------- GHOST-WORD PARALLAX ---------- */
-    if (!reduced) {
+    /* ---------- GHOST-WORD PARALLAX (non-touch only: scrub jitters against native touch scroll) ---------- */
+    if (!reduced && isFinePointer) {
       ctx.add(() => {
         gsap.utils.toArray<HTMLElement>('.section-bg-word').forEach((el) => {
           gsap.to(el, {

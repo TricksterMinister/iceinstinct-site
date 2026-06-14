@@ -25,6 +25,11 @@ gsap.registerPlugin(ScrollTrigger);
  */
 export function initHomeGsap(): () => void {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Scroll-tied parallax (scrub) only on non-touch. On touch the page scrolls
+  // natively on the compositor while these transforms update main-thread a frame
+  // behind, which jitters every scrubbed element. Touch keeps native-smooth scroll
+  // with the parallax held at its rest state; one-shot reveals still play.
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   const listenerCleanups: Array<() => void> = [];
 
   // Autoplay loops (hero + concierge) idle while offscreen; under reduced
@@ -74,19 +79,21 @@ export function initHomeGsap(): () => void {
     .to('.hero-meta', { opacity: 1, y: 0, duration: 1.0, stagger: 0.08 }, 0.3)
     .to('.hero-cue', { opacity: 1, duration: 0.8 }, 0.9);
 
-  /* ---------- HERO PARALLAX + EXIT ZOOM ---------- */
-  gsap.to('.hero-video', {
-    scale: 1.18,
-    yPercent: 8,
-    ease: 'none',
-    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
-  });
-  gsap.to('.hero-stage', {
-    yPercent: -22,
-    opacity: 0,
-    ease: 'none',
-    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.6 },
-  });
+  /* ---------- HERO PARALLAX + EXIT ZOOM (non-touch only) ---------- */
+  if (finePointer) {
+    gsap.to('.hero-video', {
+      scale: 1.18,
+      yPercent: 8,
+      ease: 'none',
+      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
+    });
+    gsap.to('.hero-stage', {
+      yPercent: -22,
+      opacity: 0,
+      ease: 'none',
+      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.6 },
+    });
+  }
 
   /* ---------- CHAPTER (manifesto) reveals ---------- */
   gsap.utils.toArray<HTMLElement>('.chapter-title .line').forEach((line, i) => {
@@ -101,7 +108,7 @@ export function initHomeGsap(): () => void {
     y: 0, opacity: 1, duration: 1.0, stagger: 0.16, ease: 'expo.out',
     scrollTrigger: { trigger: '.chapter-body', start: 'top 80%' },
   });
-  gsap.to('.chapter-bg-text', {
+  if (finePointer) gsap.to('.chapter-bg-text', {
     yPercent: -22,
     xPercent: 4,
     ease: 'none',
@@ -149,7 +156,7 @@ export function initHomeGsap(): () => void {
       onComplete: () => line.classList.add('masks-off'),
     });
   });
-  gsap.fromTo('.founder-image img', { yPercent: -6, scale: 1.12 }, {
+  if (finePointer) gsap.fromTo('.founder-image img', { yPercent: -6, scale: 1.12 }, {
     yPercent: 6, scale: 1.04, ease: 'none',
     scrollTrigger: { trigger: '.founder', start: 'top bottom', end: 'bottom top', scrub: true },
   });
@@ -208,7 +215,7 @@ export function initHomeGsap(): () => void {
   });
 
   /* ---------- GHOST WORDS PARALLAX (depth: bg-word moves slower than fg) ---------- */
-  gsap.utils.toArray<HTMLElement>('.section-bg-word').forEach((el) => {
+  if (finePointer) gsap.utils.toArray<HTMLElement>('.section-bg-word').forEach((el) => {
     const direction = el.classList.contains('right') ? 1 : -1;
     gsap.to(el, {
       yPercent: -22,
