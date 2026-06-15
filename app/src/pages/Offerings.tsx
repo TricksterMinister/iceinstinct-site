@@ -218,38 +218,11 @@ export function Offerings() {
       </main>
 
       <div className="closing-segment">
-        {/* ================ FINAL CTA ================ */}
-        <section id="final-cta">
-          <div className="container-narrow">
-            <div className="final-cta final-cta--luxe reveal">
-              <span className="cta-corner cta-corner--tl" aria-hidden="true"></span>
-              <span className="cta-corner cta-corner--tr" aria-hidden="true"></span>
-              <span className="cta-corner cta-corner--bl" aria-hidden="true"></span>
-              <span className="cta-corner cta-corner--br" aria-hidden="true"></span>
-              <span className="ornament" aria-hidden="true">
-                &#10022;
-              </span>
-              <h2>
-                Choose the <span className="it">rhythm.</span>
-              </h2>
-              <p className="cta-lead">
-                Tell us about the evening you have in mind. We respond within one business day with a private quote.
-              </p>
-              <div className="final-cta-actions">
-                <a href="/contact/" className="btn btn-primary">
-                  Request a private quote <span className="arrow">→</span>
-                </a>
-                <a href="/my-story/" className="btn btn-ghost">
-                  Meet the Alchemist
-                </a>
-              </div>
-              <p className="cta-foot">By appointment only &middot; Est. 2024</p>
-            </div>
-          </div>
-        </section>
+        <Closing />
         <SiteFooter />
       </div>
     </>
   );
 }
 import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
+import { Closing } from '../sections/Closing';

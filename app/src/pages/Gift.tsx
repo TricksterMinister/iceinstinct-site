@@ -3,6 +3,7 @@ import markUrl from '../assets/ii-mark.png';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
 import { SiteFooter } from '../sections/SiteFooter';
+import { Closing } from '../sections/Closing';
 import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
 import { track } from '../lib/track';
 
@@ -360,47 +361,7 @@ export function Gift() {
 
       {/* CLOSING - framed CTA + footer, the offering closing pattern */}
       <div className="closing-segment oma-close" id="final-cta">
-        <section className="closing">
-          <div className="section-bg-word top right" aria-hidden="true">GIFT</div>
-          <div className="closing-stage">
-            <div className="closing-frame">
-              <span className="closing-corner tl" aria-hidden="true"></span>
-              <span className="closing-corner tr" aria-hidden="true"></span>
-              <span className="closing-corner bl" aria-hidden="true"></span>
-              <span className="closing-corner br" aria-hidden="true"></span>
-              <span className="closing-eyebrow">Ice &amp; Instinct / By appointment</span>
-              <h2 className="closing-title">
-                Give the <span className="it">evening.</span>
-              </h2>
-              <p className="closing-lead">
-                Tell us who it is for and which voucher you have in mind.
-                <br />
-                We respond within one business day with the dedication and delivery details.
-              </p>
-              <p className="closing-included">
-                Clear ice and temperature management for the gifted evening are arranged through the Concierge, at supplier cost.
-              </p>
-              <div className="closing-cta">
-                <a className="btn-primary" href={GIFT_FALLBACK} data-cursor="link">
-                  <span className="btn-label">Arrange a gift</span>
-                  <span className="btn-arr" aria-hidden="true">&rarr;</span>
-                </a>
-                <a className="btn-ghost" href="/offerings/" data-cursor="link">
-                  Explore the tiers
-                </a>
-              </div>
-              <p className="closing-deposit">
-                Vouchers are valid for 12 months from purchase. The date is transferable; scheduling is subject to
-                calendar availability.
-              </p>
-            </div>
-            <p className="closing-meta">
-              <span>By appointment only</span>
-              <span>New York Metropolitan Area &amp; New Jersey</span>
-              <span>Est. 2024</span>
-            </p>
-          </div>
-        </section>
+        <Closing />
 
         <SiteFooter embedded />
       </div>

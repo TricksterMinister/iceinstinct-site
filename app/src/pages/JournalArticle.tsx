@@ -3,6 +3,7 @@ import markUrl from '../assets/ii-mark.png';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
 import { SiteFooter } from '../sections/SiteFooter';
+import { Closing } from '../sections/Closing';
 import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
 import type { JournalArticleContent } from '../data/journal/types';
 
@@ -180,37 +181,7 @@ export function JournalArticle({ article }: JournalArticleProps) {
 
       {/* CLOSING - framed CTA + global footer share one viewport */}
       <div className="closing-segment oma-close" id="final-cta">
-        <section className="closing">
-          <div className="section-bg-word top right" aria-hidden="true">{article.ghost}</div>
-          <div className="closing-stage">
-            <div className="closing-frame">
-              <span className="closing-corner tl" aria-hidden="true"></span>
-              <span className="closing-corner tr" aria-hidden="true"></span>
-              <span className="closing-corner bl" aria-hidden="true"></span>
-              <span className="closing-corner br" aria-hidden="true"></span>
-              <span className="closing-eyebrow">Ice &amp; Instinct / By appointment</span>
-              <h2 className="closing-title">{article.closing.title}</h2>
-              <p className="closing-lead">{article.closing.lead}</p>
-              <div className="closing-cta">
-                <a className="btn-primary" href={article.closing.ctaHref} data-cursor="link">
-                  <span className="btn-label">{article.closing.ctaLabel}</span>
-                  <span className="btn-arr" aria-hidden="true">&rarr;</span>
-                </a>
-                <a className="btn-ghost" href="tel:+19172927859" data-cursor="link">
-                  Call +1 (917) 292-7859
-                </a>
-              </div>
-              <p className="closing-deposit">
-                A flat $500 deposit reserves your date - fully refundable until 14 days before the evening.
-              </p>
-            </div>
-            <p className="closing-meta">
-              <span>By appointment only</span>
-              <span>New York Metropolitan Area &amp; New Jersey</span>
-              <span>Est. 2024</span>
-            </p>
-          </div>
-        </section>
+        <Closing />
 
         <SiteFooter embedded />
       </div>

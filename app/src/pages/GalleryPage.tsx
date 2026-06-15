@@ -220,32 +220,7 @@ export function GalleryPage() {
       </main>
 
       <div className="closing-segment">
-        <section id="final-cta" className="numbered">
-          <div className="container-narrow">
-            <div className="final-cta final-cta--luxe reveal">
-              <span className="cta-corner cta-corner--tl" aria-hidden="true"></span>
-              <span className="cta-corner cta-corner--tr" aria-hidden="true"></span>
-              <span className="cta-corner cta-corner--bl" aria-hidden="true"></span>
-              <span className="cta-corner cta-corner--br" aria-hidden="true"></span>
-              <span className="ornament" aria-hidden="true">
-                &#10022;
-              </span>
-              <h2>
-                Commission a <span className="it">ritual.</span>
-              </h2>
-              <p className="cta-lead">Each composition was built for a single evening. The next one is for yours.</p>
-              <div className="final-cta-actions">
-                <a href="/contact/" className="btn btn-primary">
-                  Request a private quote <span className="arrow">→</span>
-                </a>
-                <a href="/offerings/" className="btn btn-ghost">
-                  See the tiers
-                </a>
-              </div>
-              <p className="cta-foot">By appointment only &middot; Est. 2024</p>
-            </div>
-          </div>
-        </section>
+        <Closing />
         <SiteFooter />
       </div>
 
@@ -272,3 +247,4 @@ export function GalleryPage() {
   );
 }
 import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
+import { Closing } from '../sections/Closing';

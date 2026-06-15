@@ -346,43 +346,11 @@ export function ConciergePage() {
       </main>
 
       <div className="closing-segment">
-        {/* FINAL CTA */}
-        <section id="final-cta">
-          <div className="container-narrow">
-            <div className="final-cta final-cta--luxe reveal">
-              <span className="cta-corner cta-corner--tl" aria-hidden="true"></span>
-              <span className="cta-corner cta-corner--tr" aria-hidden="true"></span>
-              <span className="cta-corner cta-corner--bl" aria-hidden="true"></span>
-              <span className="cta-corner cta-corner--br" aria-hidden="true"></span>
-              <span className="ornament" aria-hidden="true">
-                &#10022;
-              </span>
-              <h2>
-                Pair what you <span className="it">need.</span>
-              </h2>
-              <p className="cta-lead">
-                Tell us which enhancements should accompany your evening, alongside the tier you have in mind. We will
-                return with a single tailored quote within one business day.
-              </p>
-              <div className="final-cta-actions">
-                <a href="/contact/" className="btn btn-primary">
-                  Request a private quote <span className="arrow">&rarr;</span>
-                </a>
-                <a href="/offerings/" className="btn btn-ghost">
-                  See the tiers
-                </a>
-              </div>
-              <p className="cta-note">
-                Enhancements are arranged with your booking, never bought here. Ice and temperature are arranged the
-                same way, as a separate purchase; all third-party items are sourced at supplier cost.
-              </p>
-              <p className="cta-foot">By appointment only &middot; Est. 2024</p>
-            </div>
-          </div>
-        </section>
+        <Closing />
         <SiteFooter />
       </div>
     </>
   );
 }
 import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
+import { Closing } from '../sections/Closing';

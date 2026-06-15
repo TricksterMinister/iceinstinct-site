@@ -3,6 +3,7 @@ import markUrl from '../../assets/ii-mark.png';
 import { useSegmentSnap } from '../../app/useSegmentSnap';
 import { useEffect } from 'react';
 import { SiteFooter } from '../../sections/SiteFooter';
+import { Closing } from '../../sections/Closing';
 import { useCinemaChrome } from '../../app/useCinemaChrome';
 import { useDeepScripts } from '../../app/useDeepScripts';
 import { EyebrowMark, TriggerMark } from '../../app/EyebrowMark';
@@ -156,34 +157,7 @@ export function LegalShell({
 
       {/* Sitewide standard: the closing CTA and the global footer share one viewport. */}
       <div className="closing-segment legal-close" id="final-cta">
-        <section className="closing">
-          <div className="closing-stage">
-            <div className="closing-frame">
-              <span className="closing-corner tl" aria-hidden="true"></span>
-              <span className="closing-corner tr" aria-hidden="true"></span>
-              <span className="closing-corner bl" aria-hidden="true"></span>
-              <span className="closing-corner br" aria-hidden="true"></span>
-              <span className="closing-eyebrow">Ice &amp; Instinct / Legal</span>
-              <h2 className="closing-title">
-                Questions? <span className="it">Answered plainly.</span>
-              </h2>
-              <p className="closing-lead">
-                Write to us about anything on this page. A personal reply within one business day.
-              </p>
-              <div className="closing-cta">
-                <a className="btn-primary" href="/contact/" data-cursor="link">
-                  <span className="btn-label">Begin the conversation</span>
-                  <span className="btn-arr" aria-hidden="true">&rarr;</span>
-                </a>
-              </div>
-            </div>
-            <p className="closing-meta">
-              <span>By appointment only</span>
-              <span>New York Metropolitan Area</span>
-              <span>Est. 2024</span>
-            </p>
-          </div>
-        </section>
+        <Closing />
         <SiteFooter embedded />
       </div>
     </>

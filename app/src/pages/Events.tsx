@@ -4,15 +4,12 @@ import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
 import { useSegmentSnap } from '../app/useSegmentSnap';
 import { SiteFooter } from '../sections/SiteFooter';
+import { Closing } from '../sections/Closing';
 import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
 import { track } from '../lib/track';
 
 /* The ICE floor storefront: vetted event bartenders dispatched by the studio.
- * Flat packages, no hourly meters. The CTA prefills the Contact occasion
- * select via /contact/?occasion=event+staffing (URLSearchParams decodes the
- * plus sign to a space, matching the "event staffing" option exactly). */
-const QUOTE_HREF = '/contact/?occasion=event+staffing';
-
+ * Flat packages, no hourly meters. */
 const PACKAGES = [
   { label: '01', name: 'The Single', meta: '1 bartender · up to 4 hours · up to ~50 guests', price: '$450 flat' },
   { label: '02', name: 'The Single+', meta: '1 bartender + barback · up to 4 hours', price: '$650 flat' },
@@ -334,47 +331,7 @@ export function Events() {
 
       {/* CLOSING - framed CTA + footer, the offering closing pattern */}
       <div className="closing-segment oma-close" id="final-cta">
-        <section className="closing">
-          <div className="section-bg-word top right" aria-hidden="true">ON CALL</div>
-          <div className="closing-stage">
-            <div className="closing-frame">
-              <span className="closing-corner tl" aria-hidden="true"></span>
-              <span className="closing-corner tr" aria-hidden="true"></span>
-              <span className="closing-corner bl" aria-hidden="true"></span>
-              <span className="closing-corner br" aria-hidden="true"></span>
-              <span className="closing-eyebrow">Ice &amp; Instinct / Event Bartenders</span>
-              <h2 className="closing-title">
-                Book the <span className="it">date.</span>
-              </h2>
-              <p className="closing-lead">
-                Tell us the date, the guest count and the hours.
-                <br />
-                A flat quote comes back in one message.
-              </p>
-              <p className="closing-included">
-                Every package includes the bartender, the tools and the bar itself - setup to breakdown, handled end
-                to end.
-              </p>
-              <div className="closing-cta">
-                <a className="btn-primary" href={QUOTE_HREF} data-cursor="link" onClick={() => track('quote_click', { source: 'events_closing' })}>
-                  <span className="btn-label">Get a flat quote</span>
-                  <span className="btn-arr" aria-hidden="true">&rarr;</span>
-                </a>
-                <a className="btn-ghost" href="tel:+19172927859" data-cursor="link">
-                  Call +1 (917) 292-7859
-                </a>
-              </div>
-              <p className="closing-deposit">
-                A 50% deposit reserves your date - the balance is due on the day of the event.
-              </p>
-            </div>
-            <p className="closing-meta">
-              <span>On call</span>
-              <span>NYC Metro &amp; New Jersey</span>
-              <span>Est. 2024</span>
-            </p>
-          </div>
-        </section>
+        <Closing />
 
         <SiteFooter embedded />
       </div>

@@ -7,6 +7,7 @@ import { useDeepScripts } from '../app/useDeepScripts';
 import { useOmakaseSnap } from '../app/useOmakaseSnap';
 import { EtherealShadow } from '../components/EtherealShadow';
 import { SiteFooter } from '../sections/SiteFooter';
+import { Closing } from '../sections/Closing';
 import { useEvening } from '../lib/evening';
 import type { OfferingContent } from './offerings/types';
 
@@ -429,47 +430,7 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
 
       {/* CLOSING - light Свет-1 framed CTA (70%) + dark marquee/footer (30%) */}
       <div className="closing-segment oma-close" id="final-cta">
-        <section className="closing">
-          <div className="section-bg-word top right" aria-hidden="true">{content.ghost}</div>
-          <div className="closing-stage">
-            <div className="closing-frame">
-              <span className="closing-corner tl" aria-hidden="true"></span>
-              <span className="closing-corner tr" aria-hidden="true"></span>
-              <span className="closing-corner bl" aria-hidden="true"></span>
-              <span className="closing-corner br" aria-hidden="true"></span>
-              <span className="closing-eyebrow">Ice &amp; Instinct / By appointment</span>
-              <h2 className="closing-title">{content.closing.title}</h2>
-              <p className="closing-lead">
-                {content.closing.lead.split(/(?<=\.)\s+/).flatMap((s, i) => (i === 0 ? [s] : [<br key={i} />, s]))}
-              </p>
-              <p className="closing-included">
-                Clear ice and temperature management are not included in the tier: the Concierge arranges both separately, at supplier cost.
-                {evening.length > 0 && (
-                  <>
-                    {' '}Your evening also includes: <strong>{evening.join(', ')}</strong>.
-                  </>
-                )}
-              </p>
-              <div className="closing-cta">
-                <a className="btn-primary" href={bookingUrl} data-cursor="link">
-                  <span className="btn-label">Reserve your evening</span>
-                  <span className="btn-arr" aria-hidden="true">&rarr;</span>
-                </a>
-                <a className="btn-ghost" href="/concierge/" data-cursor="link">
-                  Add enhancements
-                </a>
-              </div>
-              <p className="closing-deposit">
-                A flat $500 deposit reserves your date - fully refundable until 14 days before the evening.
-              </p>
-            </div>
-            <p className="closing-meta">
-              <span>By appointment only</span>
-              <span>New York Metropolitan Area</span>
-              <span>Est. 2024</span>
-            </p>
-          </div>
-        </section>
+        <Closing primaryHref={bookingUrl} primaryLabel="Reserve your evening" secondaryLabel="Add enhancements" secondaryHref="/concierge/" deposit="A flat $500 deposit reserves your date - fully refundable until 14 days before the evening." note="Clear ice and temperature management are not included in the tier; the Concierge arranges both separately, at supplier cost." />
 
         <SiteFooter embedded />
       </div>

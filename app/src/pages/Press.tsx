@@ -3,14 +3,11 @@ import markUrl from '../assets/ii-mark.png';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
 import { SiteFooter } from '../sections/SiteFooter';
+import { Closing } from '../sections/Closing';
 import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
 
-/* hello@iceinstinct.com is live (Hostinger mailbox, forwards to the owner
- * inbox). The press-contact block renders the mailto link automatically. */
-const PRESS_EMAIL: string | null = 'hello@iceinstinct.com';
 const PRESS_PHONE_DISPLAY = '+1 917 292 7859';
 const PRESS_PHONE_TEL = 'tel:+19172927859';
-const INQUIRY_URL = '/contact/';
 
 const BIO_SHORT =
   'Teimuraz Benidze is the founder and Flavor Architect of Ice & Instinct, a private mixology studio serving the New York metropolitan area and New Jersey. The first certified sommelier in Georgia’s history, he brings three decades of wine and service to a single discipline: cocktails composed in the room, for the room.';
@@ -324,50 +321,7 @@ export function Press() {
 
       {/* IV. PRESS CONTACT - framed CTA + footer, the offering closing pattern */}
       <div className="closing-segment oma-close" id="press-contact">
-        <section className="closing">
-          <div className="section-bg-word top right" aria-hidden="true">PRESS</div>
-          <div className="closing-stage">
-            <div className="closing-frame">
-              <span className="closing-corner tl" aria-hidden="true"></span>
-              <span className="closing-corner tr" aria-hidden="true"></span>
-              <span className="closing-corner bl" aria-hidden="true"></span>
-              <span className="closing-corner br" aria-hidden="true"></span>
-              <span className="closing-eyebrow">Ice &amp; Instinct / Press contact</span>
-              <h2 className="closing-title">
-                Writing <span className="it">about us?</span>
-              </h2>
-              <p className="closing-lead">
-                Interviews, image requests, fact checks - send a short note through the inquiry form
-                {PRESS_EMAIL ? (
-                  <>
-                    , write to <a href={`mailto:${PRESS_EMAIL}`}>{PRESS_EMAIL}</a>,
-                  </>
-                ) : null}{' '}
-                or call directly.
-                <br />
-                We respond within one business day.
-              </p>
-              <div className="closing-cta">
-                <a className="btn-primary" href={INQUIRY_URL} data-cursor="link">
-                  <span className="btn-label">Send an inquiry</span>
-                  <span className="btn-arr" aria-hidden="true">&rarr;</span>
-                </a>
-                <a className="btn-ghost" href={PRESS_PHONE_TEL} data-cursor="link">
-                  {PRESS_PHONE_DISPLAY}
-                </a>
-              </div>
-              <p className="closing-deposit">
-                Phone and WhatsApp share one number. For background on the founder, see{' '}
-                <a href="/my-story/">My Story</a>.
-              </p>
-            </div>
-            <p className="closing-meta">
-              <span>By appointment only</span>
-              <span>New York Metropolitan Area &amp; New Jersey</span>
-              <span>Est. 2024</span>
-            </p>
-          </div>
-        </section>
+        <Closing />
 
         <SiteFooter embedded />
       </div>

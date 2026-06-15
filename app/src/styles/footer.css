@@ -217,17 +217,24 @@
 .ii-mono-meta-r{margin-left:auto;text-align:right}
 .ii-mono-word{
   display:block;text-decoration:none;
-  font-family:'Fraunces',var(--font-italic, Georgia),serif;
-  font-weight:600;text-transform:uppercase;
-  font-size:clamp(3rem,13.2vw,13.5rem);line-height:.86;letter-spacing:-.04em;
-  color:var(--c-fg, oklch(96% 0 0));white-space:nowrap;
+  font-family:'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-weight:700;text-transform:none;
+  font-size:clamp(3rem,13.5vw,14rem);line-height:.86;letter-spacing:-.05em;white-space:nowrap;
+  /* The duality lives IN the letters: ice-cool (left, "Ice") -> champagne ->
+     ember (right, "Instinct"), clipped to the glyphs themselves. */
+  color:var(--c-accent, oklch(88% 0.06 95));
+  background:linear-gradient(100deg, oklch(96% 0.025 230) 0%, oklch(91% 0.06 110) 38%, oklch(86% 0.10 90) 54%, oklch(77% 0.14 62) 80%, oklch(70% 0.15 48) 100%);
+  background-size:220% 100%;background-position:0% 50%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
-.ii-mono-word em{font-style:italic;font-weight:400;color:var(--c-accent, oklch(88% 0.06 95));font-size:.82em;letter-spacing:0}
-/* the duality thread: ice-blue -> champagne -> ember, a hairline with a soft bleed */
+/* the ampersand: Fraunces italic, inherits the same clipped gradient */
+.ii-mono-word em{font-family:'Fraunces', Georgia, serif;font-style:italic;font-weight:400;font-size:.94em;letter-spacing:0;padding:0 .02em;-webkit-text-fill-color:transparent}
+.ii-mono-word .ii-w-hot{-webkit-text-fill-color:transparent}
+/* neutral structural hairline (the colour/perelivanie now lives in the letters) */
 .ii-mono-rule{
-  height:2px;width:100%;margin:clamp(1.4rem,3.5vh,2.6rem) 0 clamp(1.6rem,4vh,3rem);
-  background:linear-gradient(90deg, oklch(82% 0.07 235), oklch(88% 0.06 95) 48%, oklch(74% 0.16 55));
-  box-shadow:0 0 22px -2px oklch(85% 0.09 120 / .35);
+  height:1px;width:100%;margin:clamp(1.4rem,3.5vh,2.6rem) 0 clamp(1.6rem,4vh,3rem);
+  background:oklch(88% 0.04 95 / 0.20);
 }
 
 /* footer links - one balanced centered band, not stacked far-left columns */
@@ -276,3 +283,82 @@
   .oma-close-base > span,.oma-close-base > span:last-child{text-align:left}
   .oma-close-sign{padding:4px 0;align-items:flex-start;font-size:14.4px}
 }
+
+/* =====================================================================
+   LIVING FOOTER - reveal-on-enter, breathing ice->ember rule, ampersand
+   glow, cursor-tracked sheen. GPU only; breathing runs solely while the
+   footer is on screen (.is-live); fully off under reduced-motion (JS then
+   reveals instantly and never arms). The hidden pre-state needs .ii-armed
+   (JS-set), so with no JS the footer stays fully visible.
+   ===================================================================== */
+.ii-mono-word{position:relative}
+.oma-close-bottom .ii-mono-word{transition:opacity 1s cubic-bezier(.19,1,.22,1),transform 1.1s cubic-bezier(.19,1,.22,1)}
+.oma-close-bottom .ii-mono-rule{transition:transform 1.2s cubic-bezier(.19,1,.22,1) .12s}
+.oma-close-bottom .oma-close-foot{transition:opacity .9s ease .32s,transform .9s cubic-bezier(.19,1,.22,1) .32s}
+.oma-close-bottom.ii-armed .ii-mono-word{opacity:0;transform:translateY(28px)}
+.oma-close-bottom.ii-armed .ii-mono-rule{transform:scaleX(0);transform-origin:left}
+.oma-close-bottom.ii-armed .oma-close-foot{opacity:0;transform:translateY(12px)}
+.oma-close-bottom.is-revealed .ii-mono-word{opacity:1;transform:none}
+.oma-close-bottom.is-revealed .ii-mono-rule{transform:scaleX(1)}
+.oma-close-bottom.is-revealed .oma-close-foot{opacity:1;transform:none}
+
+/* the perelivanie lives IN the letters: the champagne gradient slowly travels
+   across the wordmark. Animated on desktop only (smooth, GPU); on touch the
+   gradient stays static so it never adds paint pressure to native scroll.
+   Paused off-screen via .is-live. */
+@media (hover: hover) and (pointer: fine){
+  .oma-close-bottom.is-live .ii-mono-word{animation:ii-word-flow 9s ease-in-out infinite}
+}
+@keyframes ii-word-flow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+
+/* cursor-tracked champagne light pooling over the wordmark (desktop only) */
+.ii-mono-word::after{content:"";position:absolute;inset:-12% -3%;pointer-events:none;mix-blend-mode:screen;opacity:0;transition:opacity .4s ease;background:radial-gradient(circle at var(--mx,50%) var(--my,50%), oklch(94% 0.08 95 / .26), transparent 56%)}
+.ii-mono-word.is-lit::after{opacity:1}
+
+@media (prefers-reduced-motion: reduce){
+  .oma-close-bottom .ii-mono-word,.oma-close-bottom .ii-mono-rule,.oma-close-bottom .oma-close-foot{transition:none}
+  .oma-close-bottom.is-live .ii-mono-word{animation:none}
+  .ii-mono-word::after{display:none}
+}
+
+/* =====================================================================
+   CLOSING CTA - GLOBAL. The shared <Closing> component sits on every page,
+   so its styling lives here (footer.css is loaded sitewide). Pages that also
+   carry these rules in cinema.css/offering.css override with identical
+   values, so the cream "invitation" card is identical everywhere. Token
+   fallbacks keep it correct on shells with a different token vocabulary.
+   ===================================================================== */
+.closing { position: relative; display: grid; place-items: center; padding: clamp(2.5rem,6vh,5rem) clamp(2.2rem,4vw,5rem); isolation: isolate; overflow: hidden; }
+.closing-segment { min-height: 100dvh; display: flex; flex-direction: column; }
+.closing-segment .closing { height: auto; flex: 1 1 auto; min-height: 0; padding-block: clamp(2.5rem,6vh,5rem); }
+.closing-segment .footer, .closing-segment .site-footer { flex: 0 0 auto; }
+/* warm champagne paper field; the footer below stays dark */
+.closing-segment .closing { background: oklch(94.5% 0.018 95); }
+.closing-stage { position: relative; z-index: 1; width: 100%; max-width: 900px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: clamp(1.6rem,4vh,2.6rem); }
+.closing-frame { position: relative; width: 100%; padding: clamp(2.6rem,6.5vh,4.8rem) clamp(1.8rem,5vw,4.5rem); display: flex; flex-direction: column; align-items: center; gap: clamp(1rem,2.6vh,1.7rem); background: oklch(97% 0.012 96); border: 1px solid oklch(80% 0.04 90); }
+.closing-corner { position: absolute; width: 20px; height: 20px; border: 0 solid oklch(56% 0.09 85); pointer-events: none; }
+.closing-corner.tl { top:-1px; left:-1px; border-top-width:1.5px; border-left-width:1.5px; }
+.closing-corner.tr { top:-1px; right:-1px; border-top-width:1.5px; border-right-width:1.5px; }
+.closing-corner.bl { bottom:-1px; left:-1px; border-bottom-width:1.5px; border-left-width:1.5px; }
+.closing-corner.br { bottom:-1px; right:-1px; border-bottom-width:1.5px; border-right-width:1.5px; }
+.closing-eyebrow { display:flex; flex-direction:column; align-items:center; gap:0.9rem; font-family: var(--f-mono,'JetBrains Mono',ui-monospace,monospace); font-size:0.7rem; letter-spacing:0.34em; text-transform:uppercase; color: oklch(46% 0.03 88); }
+.closing-eyebrow::after { content:""; width:46px; height:1px; background: linear-gradient(90deg, transparent, oklch(58% 0.09 85), transparent); }
+.closing-title { font-family: var(--f-display,'Geist',system-ui,sans-serif); font-weight:700; font-size: clamp(2.2rem,5vw,4rem); line-height:0.98; letter-spacing:-0.03em; color: oklch(20% 0.01 80); }
+.closing-title .it { font-family: var(--f-italic,'Fraunces',Georgia,serif); font-style:italic; text-transform:none; font-weight:350; color: oklch(52% 0.1 82); letter-spacing:0; }
+.closing-lead { font-size: clamp(1rem,0.95rem + 0.4vw,1.18rem); line-height:1.6; color: oklch(40% 0.01 80); max-width:48ch; }
+.closing-cta { display:flex; gap: clamp(0.6rem,1.6vw,1.2rem); margin-top:0.6rem; flex-wrap:wrap; justify-content:center; align-items:center; }
+.closing .btn-primary { position:relative; isolation:isolate; overflow:hidden; display:inline-flex; align-items:center; gap:0.7rem; font-family: var(--f-mono,'JetBrains Mono',ui-monospace,monospace); font-size:0.7rem; letter-spacing:0.28em; text-transform:uppercase; padding:1.05rem 1.9rem; color: oklch(22% 0 0); background:transparent; border:1px solid oklch(34% 0.02 85); transition: color 0.45s; text-decoration:none; }
+.closing .btn-primary::before { content:""; position:absolute; inset:0; z-index:-1; background: oklch(22% 0 0); transform: scaleX(0); transform-origin:left; transition: transform 0.5s cubic-bezier(0.22,1,0.36,1); }
+.closing .btn-primary:hover { color: oklch(96% 0.02 95); }
+.closing .btn-primary:hover::before { transform: scaleX(1); }
+.closing .btn-primary .btn-arr { transition: transform 0.5s cubic-bezier(0.22,1,0.36,1); }
+.closing .btn-primary:hover .btn-arr { transform: translateX(5px); }
+.closing .btn-ghost { position:relative; font-family: var(--f-mono,'JetBrains Mono',ui-monospace,monospace); font-size:0.7rem; letter-spacing:0.28em; text-transform:uppercase; color: oklch(42% 0.01 80); background:none; border:none; padding:1.05rem 0.5rem; transition: color 0.4s; text-decoration:none; }
+.closing .btn-ghost::after { content:""; position:absolute; left:0.5rem; right:0.5rem; bottom:0.7rem; height:1px; background: oklch(56% 0.09 85); transform:scaleX(0); transform-origin:left; transition: transform 0.45s cubic-bezier(0.22,1,0.36,1); }
+.closing .btn-ghost:hover { color: oklch(20% 0 0); }
+.closing .btn-ghost:hover::after { transform: scaleX(1); }
+.closing-meta { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:1.3rem; margin:0; font-family: var(--f-mono,'JetBrains Mono',ui-monospace,monospace); font-size:0.7rem; letter-spacing:0.26em; text-transform:uppercase; color: oklch(42% 0.01 80); }
+.closing-meta span { position:relative; }
+.closing-meta span:not(:first-child)::before { content:""; position:absolute; left:-0.7rem; top:50%; transform:translateY(-50%); width:3px; height:3px; border-radius:50%; background: oklch(56% 0.09 85); }
+.closing-segment .closing .section-bg-word { color: oklch(62% 0.07 88 / 0.16); }
+.closing-deposit { font-family: var(--f-mono,'JetBrains Mono',ui-monospace,monospace); font-size:0.66rem; letter-spacing:0.14em; text-transform:uppercase; color: oklch(46% 0.03 88); max-width:54ch; line-height:1.7; margin:0; }
