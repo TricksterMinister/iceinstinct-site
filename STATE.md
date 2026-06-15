@@ -2,7 +2,19 @@
 
 > Single source of truth for "where are we". Updated at the end of each session. Keep it SHORT.
 
-## LATEST 2026-06-15b - PER-PAGE CLOSING COPY (SHIPPED + LIVE)
+## LATEST 2026-06-15c - SCROLL-CINEMATIC HOME HERO (SHIPPED + LIVE) + MANHATTAN VIDEO PARKED
+Replaced the home hero (ice-cube loop) with a scroll-scrubbed cocktail-assembly hero. SHIPPED: deploy commit `edf5740` -> origin/main; verified LIVE (HTTP 200 on / + /gallery/ + /robots.txt; `scroll-hero` in live HTML, old `hero-loop-v1` gone, frames serve).
+- **What:** GSAP ScrollTrigger PIN + canvas frame-scrub (the pro pattern - sticky is broken here by `overflow:clip` ancestors in sections.css). 160 WebP frames (~4MB) in `app/public/frames/build` (served `/frames/build`). Clip = palindrome (finished -> exploded -> finished): starts AND ends on the assembled drink; scrub finishes at 82% then HOLDS (dwell), then pin RELEASES into Manifesto with no cut. Real `.hero-title`/`.hero-sub` markup = full live size + copy (NOT reinvented - owner was firm on this).
+- **Mobile/touch/reduced-motion:** static finished still (no scrub, no 160-frame preload) for perf.
+- **Files:** `app/src/sections/ScrollHero.tsx` + `.css` (new); `Home.tsx` (Hero -> ScrollHero); `app/src/app/LenisProvider.tsx` (heroGuard drops the full-page snap while the hero is pinned). Old `Hero.tsx` left unused.
+- **Tuning (one number each, ScrollHero.tsx):** scrub length `end:'+=850%'`, dwell `SCRUB_END 0.82`, smoothing `scrub:1`.
+- **Rollback:** `git revert --no-edit edf5740 && git push origin main` (back to ice-cube hero).
+- **Source clips** in `/tmp/ii-cocktail/` are EPHEMERAL (palindrome.mp4, assemble_v2.mp4, exploded_master.png, assembled.png); deployed frames live in the repo.
+
+## NEXT SESSION STARTS HERE -> place the "Мужик Манхэттен" video
+Man-back-to-Manhattan clip is PARKED + committed this session at `assets/video/story-cover-loop.mp4` + `.webm` + `story-cover-poster.webp` (unused/inert for now). Owner found the spot: best fit = **/manhattan/ page hero** - replace the static `geo-manhattan.jpg` (currently a whisky-glass-at-a-Manhattan-window still, same theme) with this video. Owner to CONFIRM placement (full hero bg vs a section) in the new session, then wire it (same `<video>` mp4+webm+poster pattern as `sections/Concierge.tsx`) + deploy. The funnel checklist (memory `funnel-checklist.md`, resume at #2 GBP) is still pending separately.
+
+## SESSION 2026-06-15b - PER-PAGE CLOSING COPY (SHIPPED + LIVE)
 Owner feedback on the closing standardization: keep the shell IDENTICAL everywhere (the "parameter" - card, type scale, button pair, meta), but give each page its OWN logical finale copy. Done + SHIPPED via /ship-close. Pushed `15f4aa9..136ab5a` -> origin/main; verified LIVE (HTTP 200 on / + /gallery/ + /robots.txt; every page's unique ghost word + headline confirmed live; offering-tier deposit/ice-canon + legal default intact). Deploy commit = `136ab5a` (src `7899f97`).
 - **What changed:** 16 pages now pass bespoke `ghost/title/titleEm/lead` props to the one `<Closing>` (all were defaulting to "Begin the conversation"). Home BEGIN, My Story POUR, Offerings CHOOSE (+secondary->Concierge), Concierge HANDLED, Gallery SEEN, Journal TASTE, Journal article NEXT, Press PRESS, Weddings VOWS, Corporate TOAST, Events OCCASION, Gift GIVE, Manhattan NYC, Hamptons HAMPTONS, New Jersey JERSEY, Westchester NORTH. Skin byte-identical (props only, no CSS touched).
 - **Unchanged exceptions:** offering tier page (Reserve + deposit + ice-canon); legal pages keep the default closing (the allowed repeat).
