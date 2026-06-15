@@ -2,11 +2,11 @@
 
 > Single source of truth for "where are we". Updated at the end of each session. Keep it SHORT.
 
-## LATEST 2026-06-15 - FOOTER REDESIGN + CLOSING STANDARD (built + committed, NOT deployed)
-Bottom-of-page reworked with owner, live-previewed each step. ALL committed to local `main` as `11ea557` but **NOT pushed** (not on prod) - awaiting owner's explicit deploy go. Live still = serif footer `6b47cf9`.
+## LATEST 2026-06-15 - FOOTER REDESIGN + CLOSING STANDARD (SHIPPED + LIVE)
+Bottom-of-page reworked with owner, live-previewed each step, then SHIPPED via /ship-close. Pushed `6b47cf9..e00dbcb` -> origin/main; verified LIVE (footer Geist + in-letter gradient confirmed in live CSS; standardized closing on gallery/my-story/etc.; offering ice-canon on prod; / + /gallery/ + /robots.txt = 200). Deploy commit = `11ea557`.
 - **Footer "Monolith":** wordmark in **Geist** (brand display font) + ice->champagne->ember gradient flowing INSIDE the letters (`background-clip:text`; animated desktop, static touch); reveal-on-enter, cursor sheen, breathing; safe-area. Owner approved Geist + in-letter gradient.
 - **Closing CTA standardized:** one `<Closing>` component sitewide (was hand-rolled per page). Cream card + standard copy/buttons/meta. Exceptions: offering tiers (deposit + ice-not-included canon + Reserve->YCBM), contact + work-with-us (own forms). Closing CSS moved to GLOBAL footer.css (fixed gallery/concierge/offerings rendering dark).
-- **TO DEPLOY when owner says:** build is current + already rsynced into `11ea557`, so deploy = `git push origin main` -> verify footer + a few closings live.
+- **DEPLOYED 2026-06-15** via /ship-close; live + verified. Rollback if ever needed: `git revert --no-edit 11ea557 && git push origin main`.
 - ALREADY LIVE this session (on origin/main): safe-area insets (iPhone notch), mobile scroll-jitter fix (gated scrub parallax off touch), founder Wikidata schema. Funnel-prep #3/4/6/7/8 drafted in `docs/business/` (awaiting Temo's hands).
 
 ## NEXT SESSION STARTS HERE -> THE FUNNEL CHECKLIST (memory: funnel-checklist.md)
