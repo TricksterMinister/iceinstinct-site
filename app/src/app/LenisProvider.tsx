@@ -42,6 +42,7 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
     let snap: Snap | undefined;
     let addTimer = 0;
     let pinGuard: ScrollTrigger | undefined;
+    let heroGuard: ScrollTrigger | undefined;
     if (isWide) {
       snap = new Snap(lenis, {
         type: 'proximity',
@@ -66,6 +67,20 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
             onToggle: (self) => { if (self.isActive) snap!.stop(); else snap!.start(); },
           });
         }
+        // The scroll-cinematic hero scrubs a frame sequence over a tall pinned
+        // section - it needs free, gradual scroll, so turn the full-page snap OFF
+        // while it is on screen (same approach as the pinned tiers above), then
+        // hand back to snapping once the guest scrolls past it into the chapters.
+        const heroScrub = document.querySelector<HTMLElement>('.scroll-hero');
+        if (heroScrub) {
+          heroGuard = ScrollTrigger.create({
+            trigger: heroScrub,
+            start: 'top top',
+            end: 'bottom bottom',
+            onToggle: (self) => { if (self.isActive) snap!.stop(); else snap!.start(); },
+          });
+          if (heroGuard.isActive) snap!.stop();
+        }
       };
       addTimer = window.setTimeout(() => { ScrollTrigger.refresh(); addPoints(); }, 400);
     }
@@ -73,6 +88,7 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
     return () => {
       window.clearTimeout(addTimer);
       pinGuard?.kill();
+      heroGuard?.kill();
       snap?.destroy();
       gsap.ticker.remove(raf);
       lenis.destroy();

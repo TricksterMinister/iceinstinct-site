@@ -1,0 +1,29 @@
+/* Scroll-cinematic hero. The section is one viewport tall; GSAP ScrollTrigger
+   pins it and adds the scroll distance (end: +=850%), then releases the pin so
+   the next section continues the scroll with no cut. */
+.scroll-hero{
+  height:100vh; position:relative; overflow:hidden; background:#080808;
+}
+.scroll-hero .sh-canvas{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+.scroll-hero .sh-vignette{
+  position:absolute; inset:0; pointer-events:none;
+  box-shadow:inset 0 0 240px 40px rgba(0,0,0,.78);
+  background:radial-gradient(130% 100% at 50% 50%,transparent 55%,rgba(0,0,0,.45) 100%);
+}
+.scroll-hero .sh-overlay{
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:1.6rem;
+  text-align:center; pointer-events:none; padding:0 6vw;
+  will-change:opacity,transform;
+}
+.scroll-hero .sh-cue{
+  position:absolute; bottom:2.2rem; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:.6rem;
+  font-size:.64rem; letter-spacing:.34em; text-transform:uppercase; color:rgba(243,237,226,.6);
+}
+.scroll-hero .sh-cue-line{
+  width:1px; height:42px; background:linear-gradient(180deg,rgba(216,193,154,.8),transparent);
+  animation:sh-cue 2.2s ease-in-out infinite;
+}
+@keyframes sh-cue{0%,100%{transform:scaleY(.5);opacity:.5}50%{transform:scaleY(1);opacity:1}}
+@media (prefers-reduced-motion:reduce){ .scroll-hero .sh-cue-line{animation:none} }
