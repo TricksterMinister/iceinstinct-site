@@ -2,6 +2,13 @@
 
 > Single source of truth for "where are we". Updated at the end of each session. Keep it SHORT.
 
+## LATEST 2026-06-15 - FOOTER REDESIGN + CLOSING STANDARD (built + committed, NOT deployed)
+Bottom-of-page reworked with owner, live-previewed each step. ALL committed to local `main` as `11ea557` but **NOT pushed** (not on prod) - awaiting owner's explicit deploy go. Live still = serif footer `6b47cf9`.
+- **Footer "Monolith":** wordmark in **Geist** (brand display font) + ice->champagne->ember gradient flowing INSIDE the letters (`background-clip:text`; animated desktop, static touch); reveal-on-enter, cursor sheen, breathing; safe-area. Owner approved Geist + in-letter gradient.
+- **Closing CTA standardized:** one `<Closing>` component sitewide (was hand-rolled per page). Cream card + standard copy/buttons/meta. Exceptions: offering tiers (deposit + ice-not-included canon + Reserve->YCBM), contact + work-with-us (own forms). Closing CSS moved to GLOBAL footer.css (fixed gallery/concierge/offerings rendering dark).
+- **TO DEPLOY when owner says:** build is current + already rsynced into `11ea557`, so deploy = `git push origin main` -> verify footer + a few closings live.
+- ALREADY LIVE this session (on origin/main): safe-area insets (iPhone notch), mobile scroll-jitter fix (gated scrub parallax off touch), founder Wikidata schema. Funnel-prep #3/4/6/7/8 drafted in `docs/business/` (awaiting Temo's hands).
+
 ## NEXT SESSION STARTS HERE -> THE FUNNEL CHECKLIST (memory: funnel-checklist.md)
 Owner directive 2026-06-12: execute the 13-item funnel list ONE BY ONE, together, in order. Position tracked in memory `funnel-checklist.md` (read it FIRST). Critical path 1->2->5.
 - DONE: #1 Purge CDN (Claude via Chrome - llms.txt fresh, max-age=3600, $400 prices gone). #2 partial: GSC verified + sitemap.xml submitted (29 URLs; was indexing 2) + 3 manual index requests then Google daily-quota hit; Bing imported from GSC (www.iceinstinct.com live, feeds ChatGPT/Copilot).
