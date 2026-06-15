@@ -362,7 +362,7 @@ export function Manhattan() {
 
       {/* CLOSING - framed CTA + global footer share one viewport */}
       <div className="closing-segment oma-close" id="final-cta">
-        <Closing />
+        <Closing ghost="NYC" title="Your Manhattan" titleEm="evening, handled." lead="A Tribeca loft, a Park Avenue penthouse - tell us the room and we bring the bar." />
 
         <SiteFooter embedded />
       </div>

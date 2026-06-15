@@ -220,7 +220,7 @@ export function GalleryPage() {
       </main>
 
       <div className="closing-segment">
-        <Closing />
+        <Closing ghost="SEEN" title="You've seen" titleEm="the room." lead="Now picture it as yours - one bar, one night, every detail handled." />
         <SiteFooter />
       </div>
 

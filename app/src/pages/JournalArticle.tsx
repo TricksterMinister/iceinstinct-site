@@ -181,7 +181,7 @@ export function JournalArticle({ article }: JournalArticleProps) {
 
       {/* CLOSING - framed CTA + global footer share one viewport */}
       <div className="closing-segment oma-close" id="final-cta">
-        <Closing />
+        <Closing ghost="NEXT" title="Done reading?" titleEm="Start tasting." lead="Bring the craft you just read about to your own evening." />
 
         <SiteFooter embedded />
       </div>

@@ -555,7 +555,7 @@ export function MyStory() {
         {/* ================ CLOSING - the sitewide standard: framed CTA and the
             global footer SHARE one viewport (closing-segment grid) ================ */}
         <div className="closing-segment story-close" id="final-cta">
-          <Closing />
+          <Closing ghost="POUR" title="Now let me" titleEm="pour for you." lead="Thirty years behind the bar, one evening at a time. Tell me about yours and I will build the night around it." />
           <SiteFooter embedded />
         </div>
       </main>

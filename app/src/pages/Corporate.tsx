@@ -381,7 +381,7 @@ export function Corporate() {
 
       {/* CLOSING - light framed CTA + dark marquee/footer */}
       <div className="closing-segment oma-close" id="final-cta">
-        <Closing />
+        <Closing ghost="TOAST" title="Impress" titleEm="every guest." lead="A bar your clients remember long after the close. Tell us the occasion and the headcount." />
 
         <SiteFooter embedded />
       </div>

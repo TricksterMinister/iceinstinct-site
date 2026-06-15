@@ -218,7 +218,7 @@ export function Offerings() {
       </main>
 
       <div className="closing-segment">
-        <Closing />
+        <Closing ghost="CHOOSE" title="Find the tier" titleEm="that fits the night." lead="From an intimate table to a full celebration, each tier is a complete evening. Tell us which fits yours." secondaryLabel="Speak with the Concierge" secondaryHref="/concierge/" />
         <SiteFooter />
       </div>
     </>

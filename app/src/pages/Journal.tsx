@@ -56,7 +56,7 @@ export function Journal() {
 
       {/* CLOSING - framed CTA + global footer share one viewport */}
       <div className="closing-segment oma-close" id="final-cta">
-        <Closing />
+        <Closing ghost="TASTE" title="Words are nice." titleEm="Tasting is better." lead="Every pour in the journal began at a real table. Bring the craft to yours." />
 
         <SiteFooter embedded />
       </div>

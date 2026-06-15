@@ -321,7 +321,7 @@ export function Press() {
 
       {/* IV. PRESS CONTACT - framed CTA + footer, the offering closing pattern */}
       <div className="closing-segment oma-close" id="press-contact">
-        <Closing />
+        <Closing ghost="PRESS" title="Read about us." titleEm="Now host us." lead="The evenings behind the headlines are available by appointment. Tell us about yours." />
 
         <SiteFooter embedded />
       </div>

@@ -346,7 +346,7 @@ export function ConciergePage() {
       </main>
 
       <div className="closing-segment">
-        <Closing />
+        <Closing ghost="HANDLED" title="Everything else," titleEm="handled." lead="Staffing, glassware, clear ice, the timeline - the Concierge arranges it all so you only host. Tell us what the evening needs." />
         <SiteFooter />
       </div>
     </>

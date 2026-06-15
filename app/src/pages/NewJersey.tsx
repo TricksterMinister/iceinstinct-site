@@ -357,7 +357,7 @@ export function NewJersey() {
 
       {/* CLOSING - framed CTA + global footer share one viewport */}
       <div className="closing-segment oma-close" id="final-cta">
-        <Closing />
+        <Closing ghost="JERSEY" title="Across the river," titleEm="same standard." lead="From Hoboken rooftops to Saddle River estates - tell us the room." />
 
         <SiteFooter embedded />
       </div>

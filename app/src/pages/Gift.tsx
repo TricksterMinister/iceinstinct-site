@@ -361,7 +361,7 @@ export function Gift() {
 
       {/* CLOSING - framed CTA + footer, the offering closing pattern */}
       <div className="closing-segment oma-close" id="final-cta">
-        <Closing />
+        <Closing ghost="GIVE" title="Give" titleEm="the evening." lead="A private bar is the rare gift no one expects and everyone remembers. Tell us who it is for." />
 
         <SiteFooter embedded />
       </div>

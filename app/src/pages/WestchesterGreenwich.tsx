@@ -414,7 +414,7 @@ export function WestchesterGreenwich() {
 
       {/* CLOSING - framed CTA + global footer share one viewport */}
       <div className="closing-segment oma-close" id="final-cta">
-        <Closing />
+        <Closing ghost="NORTH" title="Westchester to Greenwich," titleEm="handled." lead="A Bedford estate, a Greenwich waterfront - tell us the address and the evening." />
 
         <SiteFooter embedded />
       </div>

@@ -331,7 +331,7 @@ export function Events() {
 
       {/* CLOSING - framed CTA + footer, the offering closing pattern */}
       <div className="closing-segment oma-close" id="final-cta">
-        <Closing />
+        <Closing ghost="OCCASION" title="Every occasion" titleEm="deserves a bar." lead="Birthday, anniversary, a Tuesday worth marking - one bartender, built around your table." />
 
         <SiteFooter embedded />
       </div>

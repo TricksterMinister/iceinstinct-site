@@ -465,7 +465,7 @@ export function Weddings() {
 
       {/* CLOSING - framed CTA + global footer share one viewport */}
       <div className="closing-segment oma-close" id="final-cta">
-        <Closing />
+        <Closing ghost="VOWS" title="One bar," titleEm="one unforgettable night." lead="From the first toast to the last pour, the bar is yours alone. Tell us your date." />
 
         <SiteFooter embedded />
       </div>

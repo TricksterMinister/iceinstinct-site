@@ -407,7 +407,7 @@ export function Hamptons() {
 
       {/* CLOSING - framed CTA + global footer share one viewport */}
       <div className="closing-segment oma-close" id="final-cta">
-        <Closing />
+        <Closing ghost="HAMPTONS" title="Your Hamptons" titleEm="night, poured." lead="Oceanfront deck or hedgerow garden - tell us the house and the date." />
 
         <SiteFooter embedded />
       </div>
