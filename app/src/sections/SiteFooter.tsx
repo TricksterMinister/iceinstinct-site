@@ -7,21 +7,30 @@ type SiteFooterProps = {
 };
 
 /**
- * Global site footer. Single source of truth for the footer across every page.
- * Visual reference = the offering closing-segment bottom band (marquee + links).
+ * Global site footer - "Monolith".
+ * Single source of truth for the footer across every page. Norwegian-brutalist
+ * sign-off adapted to the brand: a colossal Fraunces wordmark slab, a hairline
+ * rule that runs ice-blue -> champagne -> ember (the duality thread), a hard
+ * monospace nav grid, and a thin provenance base.
  * Standalone pages render <SiteFooter />; the offering closing uses <SiteFooter embedded />.
+ * Class hooks (.oma-close-bottom / .oma-close-foot) are kept so the offering
+ * closing-segment grid contract in offering.css/footer.css still holds.
  */
 export function SiteFooter({ embedded = false }: SiteFooterProps) {
   const bottom = (
-    <div className="oma-close-bottom">
-      <div className="oma-close-marquee" aria-hidden="true">
-        <div className="oma-close-track">
-          <span>Ice &amp; <em>Instinct</em></span>
-          <span>Ice &amp; <em>Instinct</em></span>
-          <span>Ice &amp; <em>Instinct</em></span>
-          <span>Ice &amp; <em>Instinct</em></span>
-        </div>
+    <div className="oma-close-bottom ii-mono">
+      <div className="ii-mono-top">
+        <a className="ii-mono-mark" href="/" data-logo-slot aria-label="Ice & Instinct - home">
+          <img src={markUrl} alt="" aria-hidden="true" width={34} height={34} draggable={false} />
+        </a>
+        <span className="ii-mono-meta">By appointment only</span>
+        <span className="ii-mono-meta ii-mono-meta-r">New York Metropolitan Area &amp; New Jersey</span>
       </div>
+
+      <a className="ii-mono-word" href="/" aria-label="Ice & Instinct - home">
+        Ice <em>&amp;</em> Instinct
+      </a>
+      <div className="ii-mono-rule" aria-hidden="true"></div>
 
       <footer className="oma-close-foot" role="contentinfo">
         <nav className="oma-close-nav" aria-label="Footer">
@@ -51,17 +60,8 @@ export function SiteFooter({ embedded = false }: SiteFooterProps) {
           <a className="lnk" href="/work-with-us/">Join the Bench</a>
         </nav>
         <div className="oma-close-base">
-          <span>By appointment only &middot; New York Metropolitan Area &amp; New Jersey &middot; <a href="tel:+19172927859" style={{ color: 'inherit', textDecoration: 'none' }}>+1 (917) 292-7859</a></span>
-          <a className="oma-close-sign" href="/" data-logo-slot aria-label="Ice & Instinct - home">
-            <img
-              className="oma-close-mark"
-              src={markUrl}
-              alt=""
-              aria-hidden="true"
-              width={30}
-              height={30}
-              draggable={false}
-            />
+          <span><a href="tel:+19172927859">+1 (917) 292-7859</a> &middot; <a href="mailto:hello@iceinstinct.com">hello@iceinstinct.com</a></span>
+          <a className="oma-close-sign" href="/" aria-label="Ice & Instinct - home">
             <span>Where ritual meets <em>instinct.</em></span>
           </a>
           <span>Est. 2024 &middot; © 2026 Ice &amp; Instinct</span>

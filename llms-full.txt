@@ -1,6 +1,6 @@
 # Ice & Instinct - full site text
 
-> Plain-text rendering of every page on https://www.iceinstinct.com/ for AI engines. Curated facts (prices, policies, contact) live in https://www.iceinstinct.com/llms.txt; this file carries the full page copy. Generated from the prerendered HTML at build time. Last updated: 2026-06-14.
+> Plain-text rendering of every page on https://www.iceinstinct.com/ for AI engines. Curated facts (prices, policies, contact) live in https://www.iceinstinct.com/llms.txt; this file carries the full page copy. Generated from the prerendered HTML at build time. Last updated: 2026-06-15.
 
 ---
 
@@ -144,6 +144,9 @@ Explore the offerings
 
 By appointment only New York Metropolitan Area Est. 2024
 
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
+
 ---
 
 ## Accessibility Statement - Ice & Instinct
@@ -193,6 +196,9 @@ Write to us about anything on this page. A personal reply within one business da
 Begin the conversation
 
 By appointment only New York Metropolitan Area Est. 2024
+
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
 
 ---
 
@@ -302,6 +308,9 @@ See the tiers
 Enhancements are arranged with your booking, never bought here. Ice and temperature are arranged the same way, as a separate purchase; all third-party items are sourced at supplier cost.
 By appointment only · Est. 2024
 
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
+
 ---
 
 ## Inquire - Ice & Instinct
@@ -328,6 +337,9 @@ Prefer to speak? WhatsApp
 Call
 
 By appointment only New York Metropolitan Area Est. 2024
+
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
 
 ---
 
@@ -380,6 +392,9 @@ Write to us about anything on this page. A personal reply within one business da
 Begin the conversation
 
 By appointment only New York Metropolitan Area Est. 2024
+
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
 
 ---
 
@@ -509,6 +524,9 @@ A flat $500 deposit reserves your date - fully refundable until 14 days before t
 
 By appointment only NYC Metro & New Jersey Est. 2024
 
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
+
 ---
 
 ## Event Bartenders On Call, NYC & New Jersey - Ice & Instinct
@@ -619,6 +637,9 @@ A 50% deposit reserves your date - the balance is due on the day of the event.
 
 On call NYC Metro & New Jersey Est. 2024
 
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
+
 ---
 
 ## The Collection - Ice & Instinct
@@ -658,6 +679,9 @@ Request a private quote →
 See the tiers
 
 By appointment only · Est. 2024
+
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
 
 ×
 
@@ -772,6 +796,9 @@ Explore the tiers
 Vouchers are valid for 12 months from purchase. The date is transferable; scheduling is subject to calendar availability.
 
 By appointment only New York Metropolitan Area & New Jersey Est. 2024
+
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
 
 ---
 
@@ -897,6 +924,9 @@ A flat $500 deposit reserves your date - fully refundable until 14 days before t
 
 By appointment only Southampton to Montauk Est. 2024
 
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
+
 ---
 
 ## Cigar & Cocktail Pairing: Sommelier Method - Ice & Instinct
@@ -982,6 +1012,9 @@ A flat $500 deposit reserves your date - fully refundable until 14 days before t
 
 By appointment only New York Metropolitan Area & New Jersey Est. 2024
 
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
+
 ---
 
 ## Why Clear Ice Matters and How We Source It - Ice & Instinct
@@ -1057,6 +1090,9 @@ Call +1 (917) 292-7859
 A flat $500 deposit reserves your date - fully refundable until 14 days before the evening.
 
 By appointment only New York Metropolitan Area & New Jersey Est. 2024
+
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
 
 ---
 
@@ -1144,6 +1180,9 @@ A flat $500 deposit reserves your date - fully refundable until 14 days before t
 
 By appointment only New York Metropolitan Area & New Jersey Est. 2024
 
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
+
 ---
 
 ## Journal - Notes on the Craft - Ice & Instinct
@@ -1173,6 +1212,9 @@ Call +1 (917) 292-7859
 A flat $500 deposit reserves your date - fully refundable until 14 days before the evening.
 
 By appointment only New York Metropolitan Area & New Jersey Est. 2024
+
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
 
 ---
 
@@ -1270,6 +1312,9 @@ A flat $500 deposit reserves your date - fully refundable until 14 days before t
 
 By appointment only Manhattan & the New York Metropolitan Area Est. 2024
 
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
+
 ---
 
 ## My Story - Ice & Instinct, by Teimuraz Benidze
@@ -1360,6 +1405,9 @@ Request a private quote
 See the tiers
 
 By appointment only New York Metropolitan Area Est. 2024
+
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
 
 ---
 
@@ -1456,6 +1504,9 @@ Call +1 (917) 292-7859
 A flat $500 deposit reserves your date - fully refundable until 14 days before the evening.
 
 By appointment only New Jersey & NYC Metro Est. 2024
+
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
 
 ---
 
@@ -1626,6 +1677,9 @@ A flat $500 deposit reserves your date - fully refundable until 14 days before t
 
 By appointment only New York Metropolitan Area Est. 2024
 
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
+
 ---
 
 ## The Foundation - Ice & Instinct, from $650
@@ -1789,6 +1843,9 @@ A flat $500 deposit reserves your date - fully refundable until 14 days before t
 
 By appointment only New York Metropolitan Area Est. 2024
 
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
+
 ---
 
 ## Offerings - Ice & Instinct
@@ -1878,6 +1935,9 @@ Request a private quote →
 Meet the Alchemist
 
 By appointment only · Est. 2024
+
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
 
 ---
 
@@ -2044,6 +2104,9 @@ A flat $500 deposit reserves your date - fully refundable until 14 days before t
 
 By appointment only New York Metropolitan Area Est. 2024
 
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
+
 ---
 
 ## Perfection in Simplicity - Ice & Instinct, from $900
@@ -2205,6 +2268,9 @@ A flat $500 deposit reserves your date - fully refundable until 14 days before t
 
 By appointment only New York Metropolitan Area Est. 2024
 
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
+
 ---
 
 ## Press & Media - Ice & Instinct
@@ -2292,6 +2358,9 @@ Phone and WhatsApp share one number. For background on the founder, see My Story
 .
 
 By appointment only New York Metropolitan Area & New Jersey Est. 2024
+
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
 
 ---
 
@@ -2383,6 +2452,9 @@ Begin the conversation
 
 By appointment only New York Metropolitan Area Est. 2024
 
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
+
 ---
 
 ## Responsible Service & Alcohol Policy - Ice & Instinct
@@ -2457,6 +2529,9 @@ Write to us about anything on this page. A personal reply within one business da
 Begin the conversation
 
 By appointment only New York Metropolitan Area Est. 2024
+
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
 
 ---
 
@@ -2573,6 +2648,9 @@ Write to us about anything on this page. A personal reply within one business da
 Begin the conversation
 
 By appointment only New York Metropolitan Area Est. 2024
+
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
 
 ---
 
@@ -2724,6 +2802,9 @@ A flat $500 deposit reserves your date - fully refundable until 14 days before t
 
 By appointment only New York Metropolitan Area & New Jersey Est. 2024
 
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
+
 ---
 
 ## Private Bartending Westchester & Greenwich - Ice & Instinct
@@ -2850,6 +2931,9 @@ A flat $500 deposit reserves your date - fully refundable until 14 days before t
 
 By appointment only Westchester · Greenwich · NYC Metro & New Jersey Est. 2024
 
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
+
 ---
 
 ## Event Bartender Work, NYC & NJ - Ice & Instinct
@@ -2910,3 +2994,6 @@ Questions first? Text or WhatsApp
 .
 
 The bench NYC Metro & New Jersey Est. 2024
+
+By appointment only New York Metropolitan Area & New Jersey
+Ice & Instinct
