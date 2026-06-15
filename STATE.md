@@ -2,7 +2,14 @@
 
 > Single source of truth for "where are we". Updated at the end of each session. Keep it SHORT.
 
-## LATEST 2026-06-15 - FOOTER REDESIGN + CLOSING STANDARD (SHIPPED + LIVE)
+## LATEST 2026-06-15b - PER-PAGE CLOSING COPY (SHIPPED + LIVE)
+Owner feedback on the closing standardization: keep the shell IDENTICAL everywhere (the "parameter" - card, type scale, button pair, meta), but give each page its OWN logical finale copy. Done + SHIPPED via /ship-close. Pushed `15f4aa9..136ab5a` -> origin/main; verified LIVE (HTTP 200 on / + /gallery/ + /robots.txt; every page's unique ghost word + headline confirmed live; offering-tier deposit/ice-canon + legal default intact). Deploy commit = `136ab5a` (src `7899f97`).
+- **What changed:** 16 pages now pass bespoke `ghost/title/titleEm/lead` props to the one `<Closing>` (all were defaulting to "Begin the conversation"). Home BEGIN, My Story POUR, Offerings CHOOSE (+secondary->Concierge), Concierge HANDLED, Gallery SEEN, Journal TASTE, Journal article NEXT, Press PRESS, Weddings VOWS, Corporate TOAST, Events OCCASION, Gift GIVE, Manhattan NYC, Hamptons HAMPTONS, New Jersey JERSEY, Westchester NORTH. Skin byte-identical (props only, no CSS touched).
+- **Unchanged exceptions:** offering tier page (Reserve + deposit + ice-canon); legal pages keep the default closing (the allowed repeat).
+- **Rollback if needed:** `git revert --no-edit 136ab5a 7899f97 && git push origin main`.
+- **Build note:** worktree had no node_modules - symlinked the main repo's for `npm run build` -> rsync `app/dist/` -> root -> push main (standing deploy recipe). 29 routes prerendered.
+
+## SESSION 2026-06-15 - FOOTER REDESIGN + CLOSING STANDARD (SHIPPED + LIVE)
 Bottom-of-page reworked with owner, live-previewed each step, then SHIPPED via /ship-close. Pushed `6b47cf9..e00dbcb` -> origin/main; verified LIVE (footer Geist + in-letter gradient confirmed in live CSS; standardized closing on gallery/my-story/etc.; offering ice-canon on prod; / + /gallery/ + /robots.txt = 200). Deploy commit = `11ea557`.
 - **Footer "Monolith":** wordmark in **Geist** (brand display font) + ice->champagne->ember gradient flowing INSIDE the letters (`background-clip:text`; animated desktop, static touch); reveal-on-enter, cursor sheen, breathing; safe-area. Owner approved Geist + in-letter gradient.
 - **Closing CTA standardized:** one `<Closing>` component sitewide (was hand-rolled per page). Cream card + standard copy/buttons/meta. Exceptions: offering tiers (deposit + ice-not-included canon + Reserve->YCBM), contact + work-with-us (own forms). Closing CSS moved to GLOBAL footer.css (fixed gallery/concierge/offerings rendering dark).
