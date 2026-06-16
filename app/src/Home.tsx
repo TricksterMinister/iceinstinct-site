@@ -43,9 +43,9 @@ function HomeContent() {
       {/* Real client testimonials. Renders nothing until a real entry exists. */}
       <Proof />
       {/* Begin CTA + Footer read as ONE final segment, one viewport. */}
-      <div className="closing-segment">
+      <div className="closing-segment oma-close" id="final-cta">
         <Closing ghost="BEGIN" title="Begin" titleEm="the evening." lead="One bar, one bartender, one night built entirely around your table. Tell us the date." />
-        <SiteFooter />
+        <SiteFooter embedded />
       </div>
     </>
   );
