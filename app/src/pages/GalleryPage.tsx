@@ -219,9 +219,9 @@ export function GalleryPage() {
 
       </main>
 
-      <div className="closing-segment">
+      <div className="closing-segment oma-close" id="final-cta">
         <Closing ghost="SEEN" title="You've seen" titleEm="the room." lead="Now picture it as yours - one bar, one night, every detail handled." />
-        <SiteFooter />
+        <SiteFooter embedded />
       </div>
 
       {/* Recipe drawer - click a tile: photo left, recipe right. JS toggles .is-open */}
