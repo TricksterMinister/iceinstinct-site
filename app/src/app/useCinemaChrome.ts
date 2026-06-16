@@ -24,6 +24,32 @@ export function useCinemaChrome(): void {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
+    /* ---------- HERO HEADLINE FIT ----------
+       Cap the hero headline to <= 2 lines so a long title (e.g. events) stays
+       balanced like a short one (westchester) instead of growing to 4 lines and
+       dominating / overflowing the hero. Short headlines already fit -> untouched
+       (they keep the full --t-h1 size); only long ones scale down to land on 2 lines. */
+    const fitHeadline = () => {
+      const h = document.querySelector<HTMLElement>('.concierge .concierge-headline');
+      if (!h) return;
+      h.style.fontSize = '';
+      const lineCount = () => h.getBoundingClientRect().height / parseFloat(getComputedStyle(h).lineHeight);
+      let size = parseFloat(getComputedStyle(h).fontSize);
+      let guard = 0;
+      while (lineCount() > 2.05 && size > 48 && guard++ < 60) {
+        size -= 2;
+        h.style.fontSize = size + 'px';
+      }
+    };
+    fitHeadline();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitHeadline).catch(() => {});
+    window.addEventListener('resize', fitHeadline);
+    window.addEventListener('load', fitHeadline);
+    cleanups.push(() => {
+      window.removeEventListener('resize', fitHeadline);
+      window.removeEventListener('load', fitHeadline);
+    });
+
     /* ---------- MAGNETIC CURSOR ---------- */
     if (isFinePointer && !reduced) {
       const cursor = document.querySelector<HTMLElement>('.cursor');
