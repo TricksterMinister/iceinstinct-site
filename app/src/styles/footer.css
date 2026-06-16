@@ -362,3 +362,76 @@
 .closing-meta span:not(:first-child)::before { content:""; position:absolute; left:-0.7rem; top:50%; transform:translateY(-50%); width:3px; height:3px; border-radius:50%; background: oklch(56% 0.09 85); }
 .closing-segment .closing .section-bg-word { color: oklch(62% 0.07 88 / 0.16); }
 .closing-deposit { font-family: var(--f-mono,'JetBrains Mono',ui-monospace,monospace); font-size:0.66rem; letter-spacing:0.14em; text-transform:uppercase; color: oklch(46% 0.03 88); max-width:54ch; line-height:1.7; margin:0; }
+
+/* =====================================================================
+   FINAL SEGMENT STANDARD (approved 2026-06-15)
+   One mirror-identical footer on every page, compacted so the CTA card +
+   footer share exactly one viewport on desktop. Authoritative (!important)
+   so no page stylesheet (cinema.css / offering.css) can drift it - the
+   single global source. Footer compaction + ghost-behind apply everywhere
+   (incl. the two form closings); the hard 100vh lock is desktop-only and
+   skips the forms (.inquire-close / .ww-close), which must scroll. CTA copy
+   stays per-page and fills the remainder.
+   ===================================================================== */
+
+/* (A) FOOTER BAND - byte-identical on every page (kills offering.css per-page
+   padding drift) + compacted to ~328px @1440x900. */
+.closing-segment .oma-close-bottom {
+  flex: 0 0 auto !important;
+  padding-top: clamp(1rem, 2.4vh, 1.7rem) !important;
+  padding-bottom: calc(clamp(0.8rem, 1.8vh, 1.3rem) + env(safe-area-inset-bottom, 0px)) !important;
+}
+.closing-segment .ii-mono-word { font-size: clamp(2rem, 8.2vw, 7rem) !important; }
+.closing-segment .ii-mono-top { margin-bottom: clamp(0.5rem, 1.2vh, 0.95rem) !important; }
+.closing-segment .ii-mono-rule { margin: clamp(0.6rem, 1.5vh, 1.05rem) 0 !important; }
+.closing-segment .oma-close-foot { gap: clamp(7px, 1.3vh, 12px) !important; padding-block: 0 !important; }
+
+/* (B) GHOST WORD - the site's BRUTAL big-letter canon (footer wordmark / chapter
+   bg): Geist heavy, huge, tight, sharp. Anchored TOP-LEFT, bleeding off the left
+   edge behind the card - editorial, never centered (owner: center is out). vmin
+   so it scales on phones too. */
+.closing-segment .closing .section-bg-word {
+  z-index: 0 !important;
+  left: 0 !important; right: auto !important; transform: none !important;
+  text-align: left !important;
+  padding-left: clamp(1rem, 2.5vw, 3rem) !important;
+  font-family: var(--f-display, 'Geist', system-ui, sans-serif) !important;
+  font-weight: 800 !important;
+  font-size: clamp(6rem, 32vmin, 40rem) !important;
+  letter-spacing: -0.05em !important;
+  line-height: 0.82 !important;
+  color: oklch(60% 0.085 86 / 0.34) !important;
+}
+.closing-segment .closing-stage { z-index: 2 !important; }
+
+/* (C) DESKTOP one-viewport lock - standard card pages only (forms scroll).
+   GRID, not flex: the footer row is `auto` (ALWAYS its own content height, can
+   never be squeezed by a tall card), the CTA row is the 1fr remainder. This is
+   what guarantees the footer is byte-identical even on the tall tier cards. */
+@media (min-width: 761px) {
+  .closing-segment:not(.inquire-close):not(.ww-close) {
+    height: 100dvh !important; min-height: 100dvh !important; overflow: hidden !important;
+    display: grid !important; grid-template-rows: minmax(0, 1fr) auto !important;
+  }
+  /* cream CTA STRETCHES to fill its grid row - no dark gap above/below it on
+     pages whose copy is shorter than the row (the "dark band" bug). */
+  .closing-segment:not(.inquire-close):not(.ww-close) > .closing { min-height: 0 !important; height: 100% !important; align-self: stretch !important; }
+  .closing-segment:not(.inquire-close):not(.ww-close) .closing-frame { padding: clamp(1.7rem, 4.4vh, 3.3rem) clamp(1.8rem, 5vw, 4.5rem) !important; gap: clamp(0.6rem, 1.7vh, 1.15rem) !important; }
+  .closing-segment:not(.inquire-close):not(.ww-close) .closing-stage { gap: clamp(0.85rem, 2vh, 1.35rem) !important; }
+  /* tier extras (deposit + ice note) compacted so the tall card fits the CTA row */
+  .closing-segment .closing-deposit { font-size: 0.58rem !important; line-height: 1.4 !important; }
+}
+
+/* (D) MOBILE - keep the wordmark readable; segment grows naturally (no clip). */
+@media (max-width: 760px) {
+  .closing-segment .ii-mono-word { font-size: clamp(2.6rem, 13vw, 4.4rem) !important; }
+}
+
+/* (E) FORMS (contact / the bench) - never clip. Their card IS a form, taller
+   than a CTA; release the one-viewport clip so the segment grows and the footer
+   flows below (a short scroll), with the submit button always reachable. The
+   footer band itself stays the identical 328px. */
+.closing-segment.inquire-close,
+.closing-segment.ww-close { height: auto !important; min-height: 100dvh !important; overflow: visible !important; }
+.closing-segment.inquire-close > .closing,
+.closing-segment.ww-close > .closing { overflow: visible !important; height: auto !important; }
