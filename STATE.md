@@ -2,7 +2,28 @@
 
 > Single source of truth for "where are we". Updated at the end of each session. Keep it SHORT.
 
-## LATEST 2026-06-15c - SCROLL-CINEMATIC HOME HERO (SHIPPED + LIVE) + MANHATTAN VIDEO PARKED
+## LATEST 2026-06-16 - CLOSING SEGMENT STANDARD + HERO HEADLINE AUTO-FIT (BOTH SHIPPED + LIVE)
+Two owner mandates closed via /ship-close. Working tree clean, HEAD `e86fe3a`, nothing unpushed; verified LIVE (robots.txt 200; live `/events/` headline renders 76px / 2 lines = the auto-fit deploy marker, was 112px / 4 lines pre-fix).
+
+### 1. Final-segment standard (closing CTA card + footer = ONE viewport, every page)
+Owner: the closing screen must be ONE standard everywhere - identical SHELL + footer behavior (one 100vh screen, footer whole + static + snapped, no dark gap, no jank), only the COPY stays bespoke per page. The real bug was footer PACKING (deep pages were not loading the closing geometry), NOT copy - earlier "done" claims were wrong and the owner was right to call them out.
+- **Fix lives in `app/src/styles/footer.css`** (new "FINAL SEGMENT STANDARD" block, so it is GLOBAL - every page inherits it): closing-segment locked to `height:100dvh; overflow:hidden; display:grid; grid-template-rows:minmax(0,1fr) auto` so the footer row is content-height + mirror-identical; `.closing` fills via `height:100%; align-self:stretch` (kills the dark gap); the giant ghost word pinned BEHIND the card in the TOP-LEFT corner (`left:0; text-align:left; padding-left`, brutal Geist 800) - NEVER centered (owner firm: "влево или вправо, в углу"). Mobile wordmark + deposit line shrunk to fit.
+- **Forms too** (`.ww-close` = /work-with-us bench form, `.inquire-close` = /contact): same 100dvh grid + field compaction (gaps, input padding, title/lead/deposit sizes) so the FOOTER FITS one viewport on the form pages. Owner's real complaint was "футер не влезает", not scrolling - I had wrongly "released" the forms to scroll first.
+- **Per-page trio:** `closing-segment` -> add `oma-close id="final-cta"`, and `<SiteFooter />` -> `<SiteFooter embedded />` (renders bare `.oma-close-bottom` that packs into the grid). Done in `GalleryPage.tsx`, `ConciergePage.tsx`, `Offerings.tsx`, `Home.tsx`.
+- **Commits:** `38bdd72` `63f861d` `9fbaa3d` `6acbe4c` (per-page embedded + oma-close) -> `4c534ec` (deploy) -> `dcc276a` (the footer.css standard block) -> `499ef7f` (deploy, all 29 routes) -> `a92e826` (forms one-viewport) -> `b36246e` (deploy).
+
+### 2. Hero headline auto-fit (all heroes match WESTCHESTER, the owner's "эталон")
+Owner: every hero identical, all equal to westchester (do NOT touch westchester); the feedback button in the SAME spot on every hero. Root cause was NOT color / overflow / font (those were wrong guesses the owner rejected) - it was LINE COUNT: a long title (events) grew to 4 lines at the same 112px westchester uses for 2, so it dominated the hero.
+- **Fix in `app/src/app/useCinemaChrome.ts`** ("HERO HEADLINE FIT"): measure `.concierge .concierge-headline`; while it wraps past ~2 lines, step the font-size down (floor 48px) until it lands on <=2 lines. Short titles (westchester) already fit so they stay at full `--t-h1` (112px); only long ones scale (events -> 76px / 2 lines). Re-runs on fonts.ready + resize + load.
+- **Commits:** `74e943e` (the fit logic) -> `e86fe3a` (deploy).
+
+**Rollback (whole session, restores prior root too):** `git revert --no-edit 010c5b9..e86fe3a && git push origin main` (reverts all 11 session commits + redeploys). Per-feature: revert just `e86fe3a 74e943e` for the headline, or the `38bdd72..b36246e` range for the closing standard.
+
+### OPEN for next session (deferred polish - owner has NOT green-lit either; the PARKED Manhattan video below is still the bigger standing item)
+- **Hero button anchor (15px):** the feedback/CTA button sits at top=855 on events vs 870 on westchester (15px off). Owner said "push" without pixel-anchoring. To pin it byte-identical on every hero, owner trigger word = "якори кнопку".
+- **THE BENCH ghost cap:** the "THE BENCH" ghost word on /work-with-us still spans full width on live (long word, overflows the corner zone). Crop to the corner (max-width + overflow:clip, or shrink) when owner says "кроп".
+
+## SESSION 2026-06-15c - SCROLL-CINEMATIC HOME HERO (SHIPPED + LIVE) + MANHATTAN VIDEO PARKED
 Replaced the home hero (ice-cube loop) with a scroll-scrubbed cocktail-assembly hero. SHIPPED: deploy commit `edf5740` -> origin/main; verified LIVE (HTTP 200 on / + /gallery/ + /robots.txt; `scroll-hero` in live HTML, old `hero-loop-v1` gone, frames serve).
 - **What:** GSAP ScrollTrigger PIN + canvas frame-scrub (the pro pattern - sticky is broken here by `overflow:clip` ancestors in sections.css). 160 WebP frames (~4MB) in `app/public/frames/build` (served `/frames/build`). Clip = palindrome (finished -> exploded -> finished): starts AND ends on the assembled drink; scrub finishes at 82% then HOLDS (dwell), then pin RELEASES into Manifesto with no cut. Real `.hero-title`/`.hero-sub` markup = full live size + copy (NOT reinvented - owner was firm on this).
 - **Mobile/touch/reduced-motion:** static finished still (no scrub, no 160-frame preload) for perf.
