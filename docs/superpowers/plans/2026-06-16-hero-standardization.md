@@ -138,7 +138,7 @@ git commit -m "feat(hero): add canonical .std-hero photo law (mirrors westcheste
 
 - [ ] **Step 8: Weddings** - in `Weddings.tsx` change `<section className="concierge">` (the hero `<section>` immediately followed by `<span className="hg-base">WEDDINGS</span>`) to `<section className="concierge std-hero">`. No CSS deletion (weddings has no per-page hero rule; this is the page that was showing a COLOUR photo at rest, now fixed).
 
-- [ ] **Step 9: Press** - in `Press.tsx` change `<section className="concierge">` (the hero `<section>` immediately followed by `<span className="hg-base">PRESS</span>`) to `<section className="concierge std-hero">`. No CSS deletion (same colour-at-rest fix as weddings).
+- [ ] **Step 9: Press** - in `Press.tsx` change `<section className="concierge">` (the hero `<section>` immediately followed by `<span className="hg-base">PRESS</span>`) to `<section className="concierge std-hero">`. NOTE (discovered during final review): unlike weddings, `press.css` carried a BARE `.concierge .concierge-image img { filter: grayscale(100%) ... }` override (not under a `*-hero` modifier, so the modifier-grep missed it). It loads after offering.css at equal specificity and shadows the canonical rest filter. Delete that rule block (and its comment) from `press.css` so press follows `.std-hero` purely. Done in follow-up commit `9709f5d`.
 
 - [ ] **Step 10: Confirm no orphaned modifier rules remain**
 
