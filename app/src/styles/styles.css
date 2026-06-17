@@ -1663,6 +1663,10 @@ img.reveal-zoom.is-in { transform: scale(1); }
 /* ===== Inner-page hero (compact, no video) ======================== */
 .page-hero {
   position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: clamp(120px, 16vh, 180px) 0 var(--s-md);
   /* Removed decorative border-bottom (the "lazy designer" hairline). */
   /* Clip the oversized decorative ghost word (.section-bg-word, 192px nowrap)
