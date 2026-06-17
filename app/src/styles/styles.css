@@ -2777,7 +2777,7 @@ img.reveal-zoom.is-in { transform: scale(1); }
 }
 
 /* ===== Legal page (Privacy / Terms) =============================== */
-.legal { padding: clamp(140px, 18vh, 200px) 0 var(--s-2xl); }
+.legal { min-height: 100dvh; display: grid; place-items: center; padding: clamp(140px, 18vh, 200px) 0 var(--s-2xl); }
 .legal-head { max-width: 760px; margin: 0 auto var(--s-lg); text-align: left; }
 .legal-head h1 {
   font-family: var(--font-display);
