@@ -489,6 +489,14 @@
   max-width: 100%;
 }
 .oma-fmt3-cols p:last-child { margin-bottom: 0; }
+/* Wide screens: flow the prose into TWO columns so it uses the width and the
+   section fits ONE viewport instead of a tall single column (Temo: horizontal
+   distribution on wide screens). Mobile stays one centered column below. */
+@media (min-width: 900px) {
+  .oma-fmt3-cols { column-count: 2; column-gap: clamp(2rem, 4vw, 3.5rem); max-width: none; text-align: left; }
+  .oma-fmt3-cols p { margin-bottom: 0.9rem; }
+  .tier-section.oma-fmt3 { padding-top: clamp(2rem, 4vh, 3.5rem); padding-bottom: clamp(2rem, 4vh, 3.5rem); }
+}
 .oma-fmt3-pull {
   font-family: var(--font-italic);
   font-style: italic;
@@ -1024,6 +1032,19 @@ html, body { overflow-x: clip; }
 .oma-step-n{font-family:var(--font-mono);font-weight:500;font-size:clamp(1rem,1.5vw,1.35rem);letter-spacing:.08em;color:var(--c-accent);line-height:1;padding-top:.35rem;font-variant-numeric:tabular-nums}
 .oma-step-body h3{font-family:var(--font-display);font-weight:600;letter-spacing:-.01em;font-size:clamp(1.15rem,1.8vw,1.5rem);line-height:1.12;color:var(--c-fg);margin:0 0 .55rem;display:flex;align-items:center;flex-wrap:wrap;gap:.5rem}
 .oma-step-body p{font-family:var(--font-body);font-weight:350;line-height:1.6;color:var(--c-fg-soft);font-size:clamp(.96rem,1.2vw,1.06rem);margin:0;max-width:74ch}
+
+/* Wide screens: distribute the timeline steps HORIZONTALLY so the panel uses the
+   full width and fits ONE viewport instead of stacking tall (Temo: every segment
+   is one screen, spread across the wide screen, not crammed). Mobile keeps the
+   vertical stack below. */
+@media (min-width: 900px) {
+  .oma-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(225px, 1fr)); gap: 1.4rem 2.6rem; max-width: 1500px; }
+  .oma-step { grid-template-columns: 1fr; gap: 0.45rem; padding: 1rem 0 0; }
+  .oma-step:last-child { border-bottom: none; }
+  .oma-step-body p { max-width: none; font-size: 0.95rem; line-height: 1.5; }
+  .oma-panel { padding-top: clamp(2rem, 4vh, 3.2rem); padding-bottom: clamp(2rem, 4vh, 3.2rem); }
+  .oma-panel-head { margin-bottom: clamp(1.4rem, 2.5vh, 2rem); }
+}
 
 /* VI on the LIGHT panel: timeline ink colours */
 .oma-panel.light .oma-step{border-color:var(--oma-line)}
