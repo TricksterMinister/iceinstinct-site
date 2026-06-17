@@ -298,22 +298,25 @@
    full width and fits ONE viewport instead of stacking tall (Temo: every segment
    one screen, spread across the wide screen). Mobile keeps the vertical stack. */
 @media (min-width: 900px) {
+  .press-bios,
+  .press-facts,
+  .press-assets {
+    min-height: 100dvh;
+    display: grid;
+    align-content: center;
+    padding-top: clamp(2.2rem, 4.5vh, 3.6rem);
+    padding-bottom: clamp(2.2rem, 4.5vh, 3.6rem);
+  }
   .press-bios .press-wrap,
   .press-facts .press-wrap,
   .press-assets .press-wrap {
     display: grid;
     grid-template-columns: minmax(230px, 0.7fr) 2fr;
     gap: clamp(2rem, 3.5vw, 3.5rem);
-    align-items: start;
+    align-items: center;
     max-width: 1460px;
   }
   .press-head { margin-bottom: 0; }
-  .press-bios,
-  .press-facts,
-  .press-assets {
-    padding-top: clamp(2.2rem, 4.5vh, 3.6rem);
-    padding-bottom: clamp(2.2rem, 4.5vh, 3.6rem);
-  }
   .press-asset-grid { --pa-gap: 1.1rem; gap: 1.1rem; }
   .press-asset { flex-basis: calc((100% - 3.3rem) / 4); padding: 0.9rem; }
   .pa-thumb { margin-bottom: 0.6rem; }
