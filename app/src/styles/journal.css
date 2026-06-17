@@ -62,8 +62,8 @@ a.jr-eyebrow-link:hover { color: var(--sec-mute); }
   margin: 0;
   font-family: var(--sec-display);
   font-weight: 700;
-  font-size: clamp(2.4rem, 1.4rem + 4vmin, 4.8rem);
-  line-height: 1.02;
+  font-size: var(--t-h1);
+  line-height: 0.95;
   letter-spacing: -0.04em;
   color: var(--c-fg, oklch(96% 0 0));
   text-wrap: balance;
