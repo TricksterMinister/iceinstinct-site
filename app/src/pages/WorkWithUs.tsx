@@ -215,7 +215,7 @@ export function WorkWithUs() {
 
       <main>
         {/* HERO - Concierge 50/50 technique, static photo (monochrome at rest) */}
-        <section className="concierge ww-hero">
+        <section className="concierge std-hero">
           <div className="section-bg-word hero-ghost" aria-hidden="true">
             <span className="hg-base">THE BENCH</span>
             <span className="hg-glow">THE BENCH</span>

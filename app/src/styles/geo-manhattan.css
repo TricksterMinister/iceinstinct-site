@@ -7,18 +7,6 @@
    4. the quiet cross-link line to /weddings/ and /corporate/.
    Nothing else is restyled. */
 
-/* 1. Hero photo law: grayscale at rest, colour returns on attention.
-      (offering.css ships the video treatment, which keeps colour - this
-      page uses a still, so it follows the photo law.) */
-.geo-hero .concierge-image img {
-  filter: grayscale(100%) contrast(1.06) brightness(0.92);
-  transition: filter 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.geo-hero .concierge-image:hover img,
-.geo-hero .concierge-image:focus-within img {
-  filter: grayscale(0%) contrast(1.02) brightness(0.96);
-}
-
 /* 2. Ledger rows as links: keep the ledger geometry, add quiet affordance. */
 a.geo-tier-link {
   text-decoration: none;

@@ -4,12 +4,6 @@
    2. the mono notes under the package ledger (extras + deposit);
    3. the bridge-section CTA spacing. Nothing else is restyled. */
 
-/* 1. Hero photo: monochrome at rest (offering.css ships the video treatment,
-      which keeps color - this page uses a still, so it follows the photo law). */
-.events-hero .concierge-image img {
-  filter: grayscale(100%) contrast(1.06) brightness(0.92);
-}
-
 /* 2. Notes under the package ledger: extras line + deposit line. */
 .ev-note {
   font-family: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);

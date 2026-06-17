@@ -151,7 +151,7 @@ export function Events() {
 
       <main>
         {/* HERO - Concierge 50/50 technique, static photo (monochrome at rest) */}
-        <section className="concierge events-hero">
+        <section className="concierge std-hero">
           <div className="section-bg-word hero-ghost" aria-hidden="true">
             <span className="hg-base">ON CALL</span>
             <span className="hg-glow">ON CALL</span>

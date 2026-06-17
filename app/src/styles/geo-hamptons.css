@@ -5,16 +5,6 @@
    2. the tier ledger rows work as links without losing the ledger look;
    3. the deposit note under the ledger. Nothing else is restyled. */
 
-/* 1. Hero photo: monochrome at rest; the dusk gold returns on attention. */
-.ham-hero .concierge-image img {
-  filter: grayscale(100%) contrast(1.06) brightness(0.92);
-  transition: filter 0.6s ease;
-}
-.ham-hero .concierge-image:hover img,
-.ham-hero .concierge-image:focus-within img {
-  filter: grayscale(0%) contrast(1.02) brightness(1);
-}
-
 /* 2. Ledger rows as links: keep the ledger geometry, add quiet affordance. */
 a.ham-tier-link {
   text-decoration: none;

@@ -132,7 +132,7 @@ export function Hamptons() {
 
       <main>
         {/* HERO - concierge 50/50 technique, static photo (monochrome at rest) */}
-        <section className="concierge ham-hero">
+        <section className="concierge std-hero">
           <div className="section-bg-word hero-ghost" aria-hidden="true">
             <span className="hg-base">HAMPTONS</span>
             <span className="hg-glow">HAMPTONS</span>

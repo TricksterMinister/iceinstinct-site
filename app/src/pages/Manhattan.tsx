@@ -135,7 +135,7 @@ export function Manhattan() {
 
       <main>
         {/* HERO - concierge 50/50 technique, static photo (monochrome at rest) */}
-        <section className="concierge geo-hero">
+        <section className="concierge std-hero">
           <div className="section-bg-word hero-ghost" aria-hidden="true">
             <span className="hg-base">MANHATTAN</span>
             <span className="hg-glow">MANHATTAN</span>

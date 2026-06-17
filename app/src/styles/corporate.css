@@ -4,12 +4,6 @@
    2. the tier ledger rows work as links without losing the ledger look;
    3. the deposit note + panel CTA spacing. Nothing else is restyled. */
 
-/* 1. Hero photo: monochrome at rest (offering.css ships the video treatment,
-      which keeps color - this page uses a still, so it follows the photo law). */
-.corp-hero .concierge-image img {
-  filter: grayscale(100%) contrast(1.06) brightness(0.92);
-}
-
 /* 2. Ledger rows as links: keep the ledger geometry, add quiet affordance. */
 a.corp-tier-link {
   text-decoration: none;

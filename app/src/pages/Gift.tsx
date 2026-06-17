@@ -187,8 +187,8 @@ export function Gift() {
 
       <main>
         {/* HERO - Concierge 50/50 technique, photo instead of video.
-            gift-hero scopes the photo law (monochrome at rest) in gift.css. */}
-        <section className="concierge gift-hero">
+            std-hero applies the canonical photo law (monochrome at rest). */}
+        <section className="concierge std-hero">
           <div className="section-bg-word hero-ghost" aria-hidden="true">
             <span className="hg-base">GIFT</span>
             <span className="hg-glow">GIFT</span>

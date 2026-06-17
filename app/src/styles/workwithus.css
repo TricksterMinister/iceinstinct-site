@@ -7,11 +7,6 @@
    4. the application form extras (3-select row, inline error, questions line).
    Nothing else is restyled. */
 
-/* 1. Hero photo: monochrome at rest (same law as the events hero still). */
-.ww-hero .concierge-image img {
-  filter: grayscale(100%) contrast(1.06) brightness(0.92);
-}
-
 /* 2. Mono note under the terms ledger (the events .ev-note anatomy). */
 .ww-note {
   font-family: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);

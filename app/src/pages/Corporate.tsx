@@ -134,7 +134,7 @@ export function Corporate() {
 
       <main>
         {/* HERO - Concierge 50/50 technique, static photo (monochrome at rest) */}
-        <section className="concierge corp-hero">
+        <section className="concierge std-hero">
           <div className="section-bg-word hero-ghost" aria-hidden="true">
             <span className="hg-base">CORPORATE</span>
             <span className="hg-glow">CORPORATE</span>

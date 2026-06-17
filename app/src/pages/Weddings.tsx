@@ -154,7 +154,7 @@ export function Weddings() {
 
       <main>
         {/* HERO - concierge 50/50 technique, wedding loop on the right */}
-        <section className="concierge">
+        <section className="concierge std-hero">
           <div className="section-bg-word hero-ghost" aria-hidden="true">
             <span className="hg-base">WEDDINGS</span>
             <span className="hg-glow">WEDDINGS</span>

@@ -178,7 +178,7 @@ export function Press() {
       <main>
         {/* HERO - Concierge 50/50 technique; founder portrait on the right.
             Section 1 of the brief: what the studio is, and the story angle. */}
-        <section className="concierge">
+        <section className="concierge std-hero">
           <div className="section-bg-word hero-ghost" aria-hidden="true">
             <span className="hg-base">PRESS</span>
             <span className="hg-glow">PRESS</span>
