@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
+import { useSegmentSnap } from '../app/useSegmentSnap';
 import { readEvening, useEvening } from '../lib/evening';
 import { readCocktail, readSource } from '../lib/leadContext';
 import { track } from '../lib/track';
@@ -29,6 +30,7 @@ export function Contact() {
 
   useCinemaChrome();
   useDeepScripts();
+  useSegmentSnap(['.closing-segment']);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

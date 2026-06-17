@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import markUrl from '../assets/ii-mark.png';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
+import { useSegmentSnap } from '../app/useSegmentSnap';
 import { SiteFooter } from '../sections/SiteFooter';
 import { Closing } from '../sections/Closing';
 import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
@@ -57,6 +58,10 @@ export function Weddings() {
 
   useCinemaChrome();
   useDeepScripts();
+  useSegmentSnap(
+    ['.concierge', '.faq', '.closing-segment'],
+    ['.tier-section', '.oma-pause', '.oma-panel'],
+  );
 
   /* Hero loop: desktop-only download. The <video> ships without src so small
      screens hold the poster and never spend the 1.5MB+; the src attaches here
