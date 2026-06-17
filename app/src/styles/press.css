@@ -3,13 +3,8 @@
    /press/ reuses offering.css (concierge hero, closing) and sections.css.
    Strict monochrome + champagne, hairlines only - same dialect as gift.css. */
 
-/* ---- hero photo: monochrome at rest (offering.css ships the video
-   treatment, which keeps color - this page uses a still portrait, so it
-   follows the photo law, same values as events/corporate). press.css loads
-   only on /press/, and .concierge is the hero section there. ---- */
-.concierge .concierge-image img {
-  filter: grayscale(100%) contrast(1.06) brightness(0.92);
-}
+/* hero photo now follows the canonical .std-hero law in offering.css
+   (the hero <section> carries `concierge std-hero`); no per-page override here. */
 
 /* ---- hero: the story-angle paragraph under the lead ---- */
 .press-angle {
