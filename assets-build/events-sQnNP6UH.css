@@ -1,0 +1,1 @@
+.ev-note{font-family:var(--font-mono, "JetBrains Mono", ui-monospace, monospace);text-transform:uppercase;letter-spacing:.14em;font-size:.66rem;line-height:1.7;color:#6e685c;margin:clamp(1.2rem,2.4vh,1.8rem) 0 0;max-width:56ch}.ev-note+.ev-note{margin-top:.55rem}.ev-bridge-cta{display:flex;justify-content:center;margin-top:clamp(2rem,4.5vh,3.2rem)}
