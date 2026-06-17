@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import markUrl from '../assets/ii-mark.png';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
-import { useSegmentSnap } from '../app/useSegmentSnap';
 import { SiteFooter } from '../sections/SiteFooter';
 import { Closing } from '../sections/Closing';
 import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
@@ -51,10 +50,6 @@ export function Hamptons() {
 
   useCinemaChrome();
   useDeepScripts();
-  useSegmentSnap(
-    ['.concierge', '.oma-ledger', '.faq', '.closing-segment'],
-    ['.tier-section', '.oma-pause', '.oma-panel'],
-  );
 
   /* Hero ghost: a champagne light follows the cursor and lights the letters
      (same self-contained effect as the tier pages). */

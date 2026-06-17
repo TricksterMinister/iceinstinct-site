@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import markUrl from '../assets/ii-mark.png';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
-import { useSegmentSnap } from '../app/useSegmentSnap';
 import { SiteFooter } from '../sections/SiteFooter';
 import { Closing } from '../sections/Closing';
 import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
@@ -106,9 +105,6 @@ export function Gift() {
 
   useCinemaChrome();
   useDeepScripts();
-  useSegmentSnap(
-    ['.concierge', '.gift-vouchers', '.tier-section', '.oma-panel', '.faq', '.closing-segment'],
-  );
 
   /* Hero ghost: a champagne light follows the cursor and lights the letters
      (same technique as the tier pages). */

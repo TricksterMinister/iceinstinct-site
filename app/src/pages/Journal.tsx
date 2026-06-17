@@ -2,7 +2,6 @@ import { JournalChrome, useJournalPage } from './JournalArticle';
 import { SiteFooter } from '../sections/SiteFooter';
 import { Closing } from '../sections/Closing';
 import { journalIndex } from '../data/journal';
-import { useSegmentSnap } from '../app/useSegmentSnap';
 
 /**
  * /journal/ - the Journal index. A ledger of the published articles: number,
@@ -11,7 +10,6 @@ import { useSegmentSnap } from '../app/useSegmentSnap';
  */
 export function Journal() {
   useJournalPage();
-  useSegmentSnap(['.jr-hero', '.jr-ledger', '.closing-segment']);
 
   return (
     <>

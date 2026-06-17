@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import markUrl from '../assets/ii-mark.png';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
-import { useSegmentSnap } from '../app/useSegmentSnap';
 import { SiteFooter } from '../sections/SiteFooter';
 import { Closing } from '../sections/Closing';
 import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
@@ -100,10 +99,6 @@ type JournalArticleProps = {
 
 export function JournalArticle({ article }: JournalArticleProps) {
   useJournalPage();
-  useSegmentSnap(
-    ['.jr-hero', '.faq.jr-faq', '.closing-segment'],
-    ['.jr-section'],
-  );
 
   return (
     <>

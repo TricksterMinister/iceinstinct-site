@@ -1663,10 +1663,6 @@ img.reveal-zoom.is-in { transform: scale(1); }
 /* ===== Inner-page hero (compact, no video) ======================== */
 .page-hero {
   position: relative;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: clamp(120px, 16vh, 180px) 0 var(--s-md);
   /* Removed decorative border-bottom (the "lazy designer" hairline). */
   /* Clip the oversized decorative ghost word (.section-bg-word, 192px nowrap)
@@ -2781,7 +2777,7 @@ img.reveal-zoom.is-in { transform: scale(1); }
 }
 
 /* ===== Legal page (Privacy / Terms) =============================== */
-.legal { min-height: 100dvh; display: grid; place-items: center; padding: clamp(140px, 18vh, 200px) 0 var(--s-2xl); }
+.legal { padding: clamp(140px, 18vh, 200px) 0 var(--s-2xl); }
 .legal-head { max-width: 760px; margin: 0 auto var(--s-lg); text-align: left; }
 .legal-head h1 {
   font-family: var(--font-display);

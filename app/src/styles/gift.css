@@ -4,9 +4,6 @@
    sections.css (faq ledger). Strict monochrome + champagne, hairlines only. */
 
 .gift-vouchers {
-  min-height: 100dvh;
-  display: grid;
-  place-items: center;
   position: relative;
   background: var(--c-bg);
   border-top: 1px solid var(--c-border-soft);
