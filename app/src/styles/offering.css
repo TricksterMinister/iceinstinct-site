@@ -748,15 +748,18 @@ html, body { overflow-x: clip; }
      behind the words (Temo: the horizontal plashka under the text looked cheap) */
   background:radial-gradient(160% 140% at 50% 50%, rgba(5,5,5,0.2) 0%, transparent 64%);
   text-shadow:0 2px 30px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.7)}
-/* held-stage italic: the SAME gold-shine as every brand italic, with the rest
-   tone pinned to the brand champagne (--c-accent) so it reads gold over the
-   photo (not the dull deep tone). The sweep LOOPS gently here because the text
-   reveal is scroll-scrubbed - there is no single enter moment, so the one-time
-   .lit sweep would play while the text is still invisible and never be seen.
-   Reuses the existing gold-shine-sweep keyframe (which has a built-in pause). */
-.oma-hold-text { --shine-base: var(--c-accent); }
+/* held-stage italic = SOLID brand champagne (the approved gold). The gold-shine
+   GRADIENT grays out over the busy photo (the pale brand champagne washes against
+   the image), so this spot opts OUT of the gradient and uses the solid accent -
+   same colour as the landing-hero italic. Gold over photo and the travelling
+   gradient-shine fight each other; solid keeps it reliably gold. */
 .oma-hold-text .it {
-  animation: gold-shine-sweep 6s cubic-bezier(0.45, 0, 0.2, 1) infinite both;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: var(--c-accent) !important;
+  color: var(--c-accent) !important;
+  animation: none !important;
 }
 .oma-hold-text.is-b{opacity:0}
 /* static fallback (reduced motion): normal flow, no pin */
