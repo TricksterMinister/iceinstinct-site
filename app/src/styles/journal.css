@@ -8,14 +8,14 @@
    ========================================================= */
 .jr-hero {
   position: relative;
-  min-height: 72svh;
+  min-height: 100dvh;
   display: grid;
-  align-content: end;
+  align-content: center;
   overflow: hidden;
   isolation: isolate;
   padding: clamp(8rem, 18vh, 12rem) clamp(1.5rem, 5vw, 6rem) clamp(3rem, 7vh, 5rem);
 }
-.jr-hero-index { min-height: 62svh; }
+.jr-hero-index { min-height: 100dvh; }
 
 /* canonical ghost typography - same voice as the oma-fmt3 ghost */
 .jr-hero-ghost {
@@ -185,6 +185,9 @@ a.jr-eyebrow-link:hover { color: var(--sec-mute); }
    INDEX LEDGER
    ========================================================= */
 .jr-ledger {
+  min-height: 100dvh;
+  display: grid;
+  align-content: center;
   max-width: min(1100px, 92vw);
   margin: 0 auto;
   padding: clamp(1rem, 4vh, 3rem) 0 clamp(4rem, 10vh, 8rem);
