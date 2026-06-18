@@ -744,14 +744,21 @@ html, body { overflow-x: clip; }
 }
 @keyframes oma-scan-shimmer{0%{background-position:125% 0}100%{background-position:-25% 0}}
 .oma-hold-text{position:absolute;left:0;right:0;z-index:2;text-align:center;padding:clamp(2.5rem,7vh,5rem) clamp(1.5rem,6vw,7rem);display:flex;flex-direction:column;align-items:center;will-change:transform,opacity;
-  /* over the dark photo the default deep rest-tone reads gray, and pale champagne
-     reads near-white; use a RICH warm gold here so the italic reads as real
-     gilding (Temo: "позолотить") */
-  --shine-base:oklch(83% 0.15 87);
   /* legibility from text-shadow + a barely-there glow - NO visible scrim band
      behind the words (Temo: the horizontal plashka under the text looked cheap) */
   background:radial-gradient(160% 140% at 50% 50%, rgba(5,5,5,0.2) 0%, transparent 64%);
   text-shadow:0 2px 30px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.7)}
+/* the held-stage italic uses the SAME solid brand champagne as the landing hero
+   (it opts OUT of the gold-shine gradient, which washed out over the photo).
+   Temo: reuse the existing golden-champagne accent, do not invent a tone. */
+.oma-hold-text .it {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: var(--c-accent) !important;
+  color: var(--c-accent) !important;
+  animation: none !important;
+}
 .oma-hold-text.is-b{opacity:0}
 /* static fallback (reduced motion): normal flow, no pin */
 .oma-hold.is-static{height:auto}
