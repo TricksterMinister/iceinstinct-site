@@ -1,7 +1,6 @@
 import { SiteFooter } from '../sections/SiteFooter';
 import markUrl from '../assets/ii-mark.png';
 import { useSegmentSnap } from '../app/useSegmentSnap';
-import { TiersNote } from '../sections/TiersNote';
 import { Faq } from '../sections/Faq';
 import { useEffect } from 'react';
 import { useCinemaChrome } from '../app/useCinemaChrome';
@@ -19,7 +18,7 @@ export function Offerings() {
 
   useCinemaChrome();
   useDeepScripts();
-  useSegmentSnap(['.page-hero', '.vp-shelf', '.tiers-note', '.faq', '.closing-segment']);
+  useSegmentSnap(['.page-hero', '.vp-shelf', '.faq', '.closing-segment']);
 
   return (
     <>
@@ -208,9 +207,6 @@ export function Offerings() {
             </div>
           </div>
         </section>
-
-        {/* Pricing transparency note + team-scaling line, below the tier grid. */}
-        <TiersNote />
 
         {/* FAQ near the bottom, before the closing CTA. */}
         <Faq />

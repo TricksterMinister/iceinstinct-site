@@ -8,7 +8,6 @@ import { ScrollHero } from './sections/ScrollHero';
 import { Manifesto } from './sections/Manifesto';
 import { Duality } from './features/Duality/Duality';
 import { Tiers } from './sections/Tiers';
-import { TiersNote } from './sections/TiersNote';
 import { Concierge } from './sections/Concierge';
 import { Founder } from './sections/Founder';
 import { GalleryTeaser } from './sections/GalleryTeaser';
@@ -32,8 +31,6 @@ function HomeContent() {
       <Founder />
       <GalleryTeaser />
       <Tiers />
-      {/* Pricing transparency note + team-scaling line, directly below the tiers. */}
-      <TiersNote />
       {/* The portal - one spectacular gateway to the two floors: ICE = event
           bartenders (/events/), INSTINCT = the founder's studio (/offerings/).
           Sits at the seam where the tiers block ends and the enhancements begin. */}
