@@ -73,16 +73,29 @@ a.jr-eyebrow-link:hover { color: var(--sec-mute); }
   font-style: italic;
   font-weight: 350;
   letter-spacing: 0;
-  color: var(--c-accent, oklch(88% 0.06 95));
+  /* solid brand champagne (same as the landing-hero italic); opt OUT of the
+     gold-shine gradient, which grays over the dark ghost word (Temo) */
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: var(--c-accent) !important;
+  color: var(--c-accent) !important;
+  animation: none !important;
 }
+
+/* the brand art-direction pass removed kicker eyebrows; drop it on the journal
+   index hero too so the hero matches the other pages (Temo) */
+.jr-hero-index .jr-eyebrow { display: none; }
 
 .jr-standfirst {
   margin: clamp(1.4rem, 3vh, 2.2rem) 0 0;
   max-width: 64ch;
   font-family: var(--sec-body);
-  font-size: clamp(1.05rem, 1rem + 0.4vmin, 1.3rem);
-  line-height: 1.6;
-  color: var(--sec-mute);
+  /* match the brand hero lead exactly: same clamp as .concierge-lead + brighter
+     tone (was the dim --sec-mute + a journal --t-step-1 that resolves small) */
+  font-size: clamp(1.1rem, 1.5vw, 1.45rem);
+  line-height: 1.55;
+  color: var(--c-fg-mute);
 }
 
 .jr-meta {
