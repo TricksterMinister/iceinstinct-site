@@ -718,7 +718,10 @@ html, body { overflow-x: clip; }
 /* THE BRIDGE - sticky-stage scrollytelling (Apple-style chapter): CSS sticky
    owns the geometry so the photo ALWAYS fills the viewport edge to edge;
    GSAP only scrubs the laser, the text swap and the photo breath. */
-.oma-hold{position:relative;height:300svh;background:#050505}
+/* 2 text frames (selection / focus): 200svh = ~1 screen of hold each. Was 300svh
+   = a wasted third screen of dead pin scroll around the photo (Temo: empty space
+   above + below the image). padding:0 so the photo is full-bleed to its neighbours. */
+.oma-hold{position:relative;height:200svh;padding:0;background:#050505}
 .oma-hold-stage{position:sticky;top:0;height:100svh;min-height:100svh;overflow:hidden;display:grid;place-items:center}
 .oma-hold-photo{position:absolute;inset:0;margin:0;overflow:hidden}
 .oma-hold-photo img{width:100%;height:100%;object-fit:cover;display:block;will-change:transform;transform-origin:center}
@@ -741,6 +744,9 @@ html, body { overflow-x: clip; }
 }
 @keyframes oma-scan-shimmer{0%{background-position:125% 0}100%{background-position:-25% 0}}
 .oma-hold-text{position:absolute;left:0;right:0;z-index:2;text-align:center;padding:clamp(2.5rem,7vh,5rem) clamp(1.5rem,6vw,7rem);display:flex;flex-direction:column;align-items:center;will-change:transform,opacity;
+  /* over the dark photo the default deep rest-tone reads gray; lift the italic
+     shine to BRIGHT champagne-gold here (Temo) */
+  --shine-base:oklch(87% 0.11 92);
   /* legibility from text-shadow + a barely-there glow - NO visible scrim band
      behind the words (Temo: the horizontal plashka under the text looked cheap) */
   background:radial-gradient(160% 140% at 50% 50%, rgba(5,5,5,0.2) 0%, transparent 64%);
