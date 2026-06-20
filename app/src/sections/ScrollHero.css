@@ -15,6 +15,9 @@
   align-items:center; justify-content:center; gap:1.6rem;
   text-align:center; pointer-events:none; padding:0 6vw;
   will-change:opacity,transform;
+  /* Hidden by default: the wordmark is revealed at the TAIL of the scrub by
+     ScrollHero.tsx (desktop), or set visible immediately on the lite/mobile path. */
+  opacity:0;
 }
 .scroll-hero .sh-cue{
   position:absolute; bottom:2.2rem; left:50%; transform:translateX(-50%);
