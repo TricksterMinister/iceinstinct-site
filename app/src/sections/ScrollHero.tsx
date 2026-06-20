@@ -8,10 +8,11 @@ gsap.registerPlugin(ScrollTrigger);
 /* Scroll-cinematic hero (GSAP ScrollTrigger pin + canvas frame-scrub). The serve
    plays finished -> apart -> finished; the last stretch holds the finished drink
    (dwell), then the pin RELEASES so the next section continues the scroll - no cut.
-   Light by design: 160 WebP frames (~4MB). On touch/small screens or with reduced
+   Light by design: 160 WebP frames (~6MB), an Old Fashioned built then unbuilt.
+   On touch/small screens or with reduced
    motion it skips the scrub entirely and shows the finished drink as a still. */
 const FRAME_COUNT = 160;
-const framePath = (n: number) => `/frames/build/frame_${String(n).padStart(4, '0')}.webp`;
+const framePath = (n: number) => `/frames/of/frame_${String(n).padStart(4, '0')}.webp`;
 const FINISHED = 1; // palindrome starts AND ends on the finished drink
 
 export function ScrollHero() {
