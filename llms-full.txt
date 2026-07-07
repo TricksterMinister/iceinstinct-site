@@ -1,6 +1,6 @@
 # Ice & Instinct - full site text
 
-> Plain-text rendering of every page on https://www.iceinstinct.com/ for AI engines. Curated facts (prices, policies, contact) live in https://www.iceinstinct.com/llms.txt; this file carries the full page copy. Generated from the prerendered HTML at build time. Last updated: 2026-06-20.
+> Plain-text rendering of every page on https://www.iceinstinct.com/ for AI engines. Curated facts (prices, policies, contact) live in https://www.iceinstinct.com/llms.txt; this file carries the full page copy. Generated from the prerendered HTML at build time. Last updated: 2026-07-07.
 
 ---
 
