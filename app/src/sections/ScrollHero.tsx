@@ -16,12 +16,30 @@ gsap.registerPlugin(ScrollTrigger);
 const FRAME_COUNT = 160;
 const framePath = (n: number) => `/frames/of2/frame_${String(n).padStart(4, '0')}.webp`;
 const FINISHED = 1; // palindrome starts AND ends on the finished drink
+const PEAK = 79;    // frame 80 (index 79): the drink fully apart, suspended - the held "almost-stop" beat
+const LAST = FRAME_COUNT - 1; // frame 160: the reformed serve, where the wordmark lands
 
-const SCRUB_END = 0.66; // drink fully rebuilt by 66% of the pin
-const TEXT_IN0 = 0.70;  // wordmark begins to rise in
-const TEXT_IN1 = 0.84;  // wordmark fully in, then holds to 100% before release
 const clamp01 = (x: number) => (x < 0 ? 0 : x > 1 ? 1 : x);
 const smooth = (t: number) => t * t * (3 - 2 * t);
+
+/* Choreographed scroll->frame map (dwell pacing, not a linear crank).
+   The beats: rest on the finished serve -> deconstruct into its elements ->
+   HOLD at the suspended peak (everything mid-air, the wow beat) -> reassemble,
+   decelerating into the serve -> HOLD on the reformed serve while the wordmark
+   lands. Two "almost stops" give it cinematic logic instead of a constant spin.
+   Returns a frame INDEX 0..LAST. */
+const seg = (p: number, a: number, b: number, f0: number, f1: number) =>
+  f0 + (f1 - f0) * smooth(clamp01((p - a) / (b - a)));
+function frameAt(p: number): number {
+  if (p <= 0.05) return 0;                              // opening hold: the finished Old Fashioned
+  if (p <= 0.34) return seg(p, 0.05, 0.34, 0, PEAK);    // deconstruct into the elements
+  if (p <= 0.46) return PEAK;                           // HOLD: everything suspended mid-air (almost-stop)
+  if (p <= 0.80) return seg(p, 0.46, 0.80, PEAK, LAST); // reassemble, decelerating into the serve
+  return LAST;                                          // HOLD: reformed serve, the name lands
+}
+
+const TEXT_IN0 = 0.80;  // wordmark rises exactly as the serve reforms (synced to the finish)
+const TEXT_IN1 = 0.92;  // wordmark fully in, then holds to release
 
 export function ScrollHero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -110,10 +128,9 @@ export function ScrollHero() {
         invalidateOnRefresh: true,
         onUpdate: (self) => {
           const p = self.progress;
-          // 1. scrub the serve (finished -> apart -> finished) across 0..SCRUB_END
-          const sp = Math.min(p / SCRUB_END, 1);
-          setFrame(Math.floor(sp * (FRAME_COUNT - 1)));
-          // 2. the wordmark rises in only at the tail, then holds (dwell)
+          // 1. choreographed frame map: rest -> deconstruct -> HOLD peak -> reassemble -> HOLD serve
+          setFrame(Math.round(frameAt(p)));
+          // 2. the wordmark lands as the serve reforms, then holds (dwell)
           if (overlay) {
             const e = smooth(clamp01((p - TEXT_IN0) / (TEXT_IN1 - TEXT_IN0)));
             overlay.style.opacity = e.toFixed(3);
