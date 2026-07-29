@@ -44,9 +44,27 @@ export function resolveCtaEvent(href: string): string | null {
 //   call_click         - tel: link
 //   instagram_click    - outbound Instagram link
 let installed = false;
+export function trackPageView(path = typeof window !== 'undefined' ? window.location.pathname : '') {
+  if (typeof window === 'undefined') return;
+  track('page_view', {
+    page_path: path,
+    page_title: document.title,
+    page_location: window.location.href,
+  });
+}
+
 export function initCtaTracking() {
   if (installed || typeof document === 'undefined') return;
   installed = true;
+
+  // Track initial page view
+  trackPageView();
+
+  // Track SPA history navigation (popstate)
+  window.addEventListener('popstate', () => {
+    trackPageView(window.location.pathname);
+  });
+
   document.addEventListener(
     'click',
     (e) => {
