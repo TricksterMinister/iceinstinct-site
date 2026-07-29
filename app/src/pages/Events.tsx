@@ -11,10 +11,10 @@ import { track } from '../lib/track';
 /* The ICE floor storefront: vetted event bartenders dispatched by the studio.
  * Flat packages, no hourly meters. Host provides alcohol & ice. */
 const PACKAGES = [
-  { label: '01', name: 'The Single', meta: '1 pro bartender with tool roll · up to 4h · up to ~50 guests · host provides alcohol & ice', price: '$450 flat' },
-  { label: '02', name: 'The Single+', meta: '1 pro bartender + barback with tool rolls · up to 4 hours', price: '$650 flat' },
-  { label: '03', name: 'The Pair', meta: '2 pro bartenders with tool rolls · up to 4h · 50-100 guests', price: '$850 flat' },
-  { label: '04', name: 'The Wedding', meta: 'A full team scaled to your guest count', price: 'From $1,200' },
+  { label: '01', name: 'The Single', meta: '1 pro bartender with tool roll · up to 4h · up to ~50 guests · host provides alcohol & ice', price: '$450 flat', serviceId: 'jsid13514' },
+  { label: '02', name: 'The Single+', meta: '1 pro bartender + barback with tool rolls · up to 4 hours', price: '$650 flat', serviceId: 'jsid6618667' },
+  { label: '03', name: 'The Pair', meta: '2 pro bartenders with tool rolls · up to 4h · 50-100 guests', price: '$850 flat', serviceId: 'jsid8035136' },
+  { label: '04', name: 'The Wedding', meta: 'A full team scaled to your guest count', price: 'From $1,200', serviceId: 'jsid2605085' },
 ];
 
 const STEPS = [
@@ -200,14 +200,23 @@ export function Events() {
             </div>
             <div className="oma-ledger-rows reveal">
               {PACKAGES.map((p) => (
-                <div className="oma-ledger-row" key={p.label}>
+                <a
+                  key={p.label}
+                  href={`https://enter-ritual.youcanbook.me/?service=${p.serviceId}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="oma-ledger-row"
+                  style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
+                  data-cursor="link"
+                  onClick={() => track('booking_click', { package: p.name, serviceId: p.serviceId })}
+                >
                   <span className="lbl">{p.label}</span>
                   <span className="info">
                     <span className="nm">{p.name}</span>
                     <span className="cap">{p.meta}</span>
                   </span>
-                  <span className="pr">{p.price}</span>
-                </div>
+                  <span className="pr">{p.price} <span className="btn-arr" aria-hidden="true" style={{ fontSize: '0.85em', marginLeft: '0.4em' }}>→</span></span>
+                </a>
               ))}
               <p className="ev-note">Extra hour +$75 per bartender. Clear-ice upgrade +$120.</p>
               <p className="ev-note">A 50% deposit holds your date; the balance is due on the day.</p>
@@ -305,7 +314,7 @@ export function Events() {
           titleEm="on YouCanBook.me."
           lead="Select your date, tell us your event details, and lock your date with a 50% deposit."
           primaryLabel="Book via YouCanBook.me"
-          primaryHref="https://enter-ritual.youcanbook.me/"
+          primaryHref="https://enter-ritual.youcanbook.me/?service=jsid13514"
           secondaryLabel="Have a custom request? Inquire"
           secondaryHref="/contact/"
           deposit="50% deposit holds your date · $450 flat package · host provides alcohol & ice"
