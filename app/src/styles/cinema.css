@@ -667,8 +667,8 @@ a { color: inherit; text-decoration: none; }
 .va-close span:nth-child(2) { transform: rotate(-45deg); }
 
 .va-stage {
-  max-width: 1300px; margin: 0 auto; width: 100%;
-  display: flex; flex-direction: column; gap: clamp(2rem, 5vh, 3.5rem);
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  display: flex; flex-direction: column; gap: clamp(1rem, 2.5vh, 2rem);
 }
 .va-eyebrow {
   font-family: var(--f-mono); font-size: var(--t-step--2); letter-spacing: 0.32em;
@@ -684,38 +684,50 @@ a { color: inherit; text-decoration: none; }
 .va-list li { border-top: 1px solid var(--c-rule); }
 .va-list li:last-child { border-bottom: 1px solid var(--c-rule); }
 .va-list a {
-  display: grid; grid-template-columns: 5rem 1fr auto; align-items: baseline;
-  gap: clamp(1.5rem, 4vw, 4rem);
-  padding: clamp(1rem, 2.5vh, 1.6rem) 0;
+  display: grid;
+  grid-template-columns: 3.5rem 1fr auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 0 clamp(1rem, 3vw, 2.5rem);
+  padding: clamp(0.55rem, 1.4vh, 0.9rem) 0;
   position: relative;
   transition: padding 0.5s var(--ease-out-expo);
+  text-decoration: none;
 }
 .va-list a::before {
   content: ""; position: absolute; inset: 0;
   background: var(--c-accent); transform: scaleX(0); transform-origin: left;
   transition: transform 0.6s var(--ease-out-expo);
-  z-index: -1; opacity: 0.08;
+  z-index: -1; opacity: 0.07;
 }
-.va-list a:hover { padding-left: clamp(1rem, 2vw, 2rem); }
+.va-list a:hover { padding-left: clamp(0.6rem, 1.5vw, 1.4rem); }
 .va-list a:hover::before { transform: scaleX(1); }
 
 .va-list a i {
   font-family: var(--f-mono); font-style: normal;
-  font-size: var(--t-step--1); letter-spacing: 0.2em; color: var(--c-fg-faint);
+  font-size: var(--t-step--2); letter-spacing: 0.18em; color: var(--c-fg-faint);
+  grid-column: 1; grid-row: 1;
+  align-self: center;
 }
 .va-list a b {
   font-family: var(--f-display); font-weight: 700;
-  font-size: clamp(2.4rem, 7vmin, 5rem);
-  letter-spacing: -0.03em;
+  font-size: clamp(1.5rem, 4vmin, 2.8rem);
+  letter-spacing: -0.025em; line-height: 1.05;
   color: var(--c-fg);
   transition: color 0.4s;
+  grid-column: 2; grid-row: 1;
+  align-self: center;
 }
 .va-list a:hover b { color: var(--c-accent); }
 .va-list a em {
   font-family: var(--f-italic); font-style: italic; font-weight: 350;
-  font-size: var(--t-step-1); color: var(--c-accent);
-  letter-spacing: 0;
+  font-size: clamp(0.72rem, 1.1vmin, 0.88rem);
+  color: oklch(62% 0.08 75);
+  letter-spacing: 0.02em;
   text-align: right;
+  grid-column: 3; grid-row: 1;
+  align-self: center;
+  white-space: nowrap;
 }
 
 .va-deep {
@@ -756,7 +768,7 @@ a { color: inherit; text-decoration: none; }
   /* Compact, legible mobile menu: number + title on one line, small muted
      subtitle underneath - no huge titles with clipped right-side captions. */
   .va-overlay { justify-content: flex-start; overflow-y: auto; padding: max(4.5rem, calc(env(safe-area-inset-top) + 1.5rem)) max(1.4rem, env(safe-area-inset-right)) max(2.5rem, calc(env(safe-area-inset-bottom) + 1rem)) max(1.4rem, env(safe-area-inset-left)); }
-  .va-stage { gap: 1.5rem; margin: auto 0; }
+  .va-stage { gap: 1rem; margin: auto 0; }
   .va-eyebrow { font-size: 0.66rem; letter-spacing: 0.24em; }
   .va-list a {
     grid-template-columns: 1.9rem 1fr;
