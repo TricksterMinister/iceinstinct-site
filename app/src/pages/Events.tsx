@@ -27,18 +27,18 @@ const STEPS = [
 const TRUST = [
   {
     n: '01',
-    title: 'A vetted bench',
-    body: 'Every bartender on the bench passes a trial shift with the founder before they ever pour for a guest. The standard is set in person, not on paper.',
+    title: 'Hand-picked & vetted',
+    body: 'No temp staff or agency rosters. Every bartender on our bench is personally interviewed, technique-vetted, and trained in hospitality etiquette by founder Teimuraz Benidze.',
   },
   {
     n: '02',
-    title: 'Responsible service',
-    body: 'We serve guests 21 and over, and we never serve a visibly intoxicated guest. A good evening ends well because the bar keeps it that way.',
+    title: 'Punctual & insured',
+    body: 'Arrives 45 minutes early in crisp studio attire under full commercial liability coverage. Fluent in classic mixology, effortless in pacing, and meticulous at the bar station.',
   },
   {
     n: '03',
-    title: 'Your alcohol & ice, our craft',
-    body: 'The host provides the bottles, ice, glassware, and bar counter. We bring the professional bartender and personal tool roll (shakers, strainers, jiggers, spoons, openers).',
+    title: 'Fully equipped',
+    body: 'Every bartender arrives with their personal professional tool roll - weighted shakers, strainers, Japanese jiggers, and bar spoons. Host provides bottles, ice, glassware, and counter.',
   },
 ];
 
@@ -250,8 +250,8 @@ export function Events() {
                 Who shows <span className="it">up.</span>
               </h2>
               <p className="oma-panel-intro">
-                The bench belongs to a private mixology studio, and it is held to the studio&apos;s standard - not a
-                staffing agency&apos;s roster.
+                The bench belongs to a private mixology studio. Every bartender is held to our standards of craft,
+                discretion, and hospitality - not a staffing agency&apos;s roster.
               </p>
             </header>
             <div className="oma-grid">
