@@ -9,19 +9,19 @@ import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
 import { track } from '../lib/track';
 
 /* The ICE floor storefront: vetted event bartenders dispatched by the studio.
- * Flat packages, no hourly meters. */
+ * Flat packages, no hourly meters. Host provides alcohol & ice. */
 const PACKAGES = [
-  { label: '01', name: 'The Single', meta: '1 bartender · up to 4 hours · up to ~50 guests', price: '$450 flat' },
-  { label: '02', name: 'The Single+', meta: '1 bartender + barback · up to 4 hours', price: '$650 flat' },
-  { label: '03', name: 'The Pair', meta: '2 bartenders · up to 4 hours · 50-100 guests', price: '$850 flat' },
+  { label: '01', name: 'The Single', meta: '1 pro bartender with tool roll · up to 4h · up to ~50 guests · host provides alcohol & ice', price: '$450 flat' },
+  { label: '02', name: 'The Single+', meta: '1 pro bartender + barback with tool rolls · up to 4 hours', price: '$650 flat' },
+  { label: '03', name: 'The Pair', meta: '2 pro bartenders with tool rolls · up to 4h · 50-100 guests', price: '$850 flat' },
   { label: '04', name: 'The Wedding', meta: 'A full team scaled to your guest count', price: 'From $1,200' },
 ];
 
 const STEPS = [
-  { title: 'The date', body: 'Tell us the date, guest count and hours.' },
-  { title: 'The quote', body: 'A flat quote in one message - no hourly surprises.' },
-  { title: 'The deposit', body: 'A 50% deposit books the date.' },
-  { title: 'The arrival', body: 'A vetted bartender from our bench arrives 45 minutes early.' },
+  { title: 'The date', body: 'Select your date on YouCanBook.me and tell us your event details.' },
+  { title: 'The quote', body: 'A flat package quote - no hourly meters or surprise fees.' },
+  { title: 'The deposit', body: 'A 50% deposit locks your date in our calendar.' },
+  { title: 'The arrival', body: 'A vetted bartender from our bench arrives 45 minutes early with personal tool roll.' },
 ];
 
 const TRUST = [
@@ -37,8 +37,8 @@ const TRUST = [
   },
   {
     n: '03',
-    title: 'Your alcohol, our bar',
-    body: 'The host provides the bottles, or we purchase at cost - we run everything else: the tools, the ice, the bar itself, setup to breakdown.',
+    title: 'Your alcohol & ice, our craft',
+    body: 'The host provides the bottles, ice, glassware, and bar counter. We bring the professional bartender and personal tool roll (shakers, strainers, jiggers, spoons, openers).',
   },
 ];
 
@@ -46,11 +46,11 @@ const TRUST = [
 const FAQS = [
   {
     q: 'How much does an event bartender cost?',
-    a: 'Flat packages: one bartender for up to four hours is $450, a pair is $850, full wedding teams from $1,200. Every extra hour is $75 per bartender. No hourly meters, no surprises.',
+    a: 'Flat packages: one bartender for up to four hours is $450, a pair is $850, full wedding teams from $1,200. Every extra hour is $75 per bartender. Host provides alcohol & ice. No hourly meters, no surprises.',
   },
   {
-    q: 'Who provides the alcohol?',
-    a: 'The host does - or we purchase on your behalf at supplier cost with full receipts. We bring the craft, the tools and the bar itself; we never mark up bottles.',
+    q: 'Who provides the alcohol and ice?',
+    a: 'The host provides the bottles, ice, and glassware - or we purchase alcohol on your behalf at supplier cost with full receipts. We bring the professional bartender and personal tool roll; we never mark up bottles or provide bar structure rentals at the $450 tier.',
   },
   {
     q: 'Are the bartenders insured and vetted?',
@@ -211,6 +211,19 @@ export function Events() {
               ))}
               <p className="ev-note">Extra hour +$75 per bartender. Clear-ice upgrade +$120.</p>
               <p className="ev-note">A 50% deposit holds your date; the balance is due on the day.</p>
+              <div style={{ marginTop: '1.5rem', textAlign: 'left' }}>
+                <a
+                  className="btn-primary"
+                  href="https://enter-ritual.youcanbook.me/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cursor="link"
+                  onClick={() => track('booking_click', { source: 'events_packages' })}
+                >
+                  <span className="btn-label">Book a bartender via YouCanBook.me</span>
+                  <span className="btn-arr" aria-hidden="true">→</span>
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -329,9 +342,19 @@ export function Events() {
         </section>
       </main>
 
-      {/* CLOSING - framed CTA + footer, the offering closing pattern */}
+      {/* CLOSING - framed CTA + footer, direct YouCanBook.me scheduling */}
       <div className="closing-segment oma-close" id="final-cta">
-        <Closing ghost="OCCASION" title="Every occasion" titleEm="deserves a bar." lead="Birthday, anniversary, a Tuesday worth marking - one bartender, built around your table." />
+        <Closing
+          ghost="ON CALL"
+          title="Reserve your date"
+          titleEm="on YouCanBook.me."
+          lead="Select your date, tell us your event details, and lock your date with a 50% deposit."
+          primaryLabel="Book via YouCanBook.me"
+          primaryHref="https://enter-ritual.youcanbook.me/"
+          secondaryLabel="Explore the INSTINCT floor"
+          secondaryHref="/offerings/"
+          deposit="50% deposit holds your date · $450 flat package · host provides alcohol & ice"
+        />
 
         <SiteFooter embedded />
       </div>
