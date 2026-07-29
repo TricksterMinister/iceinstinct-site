@@ -203,36 +203,43 @@ export function Contact() {
               </a>
             </li>
             <li>
-              <a href="/instinct/">
+              <a href="/ice/">
                 <i>02</i>
+                <b>ICE</b>
+                <em>Event bartenders on call</em>
+              </a>
+            </li>
+            <li>
+              <a href="/instinct/">
+                <i>03</i>
                 <b>Instinct</b>
                 <em>Private mixology, four tiers</em>
               </a>
             </li>
             <li>
               <a href="/concierge/">
-                <i>03</i>
+                <i>04</i>
                 <b>Concierge</b>
                 <em>Five enhancements</em>
               </a>
             </li>
             <li>
               <a href="/my-story/">
-                <i>04</i>
+                <i>05</i>
                 <b>My Story</b>
                 <em>Teimuraz Benidze</em>
               </a>
             </li>
             <li>
               <a href="/gallery/">
-                <i>05</i>
+                <i>06</i>
                 <b>The Collection</b>
                 <em>Thirteen compositions</em>
               </a>
             </li>
             <li>
               <a href="/contact/">
-                <i>06</i>
+                <i>07</i>
                 <b>Inquire</b>
                 <em>Begin the conversation</em>
               </a>
