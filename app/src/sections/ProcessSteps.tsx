@@ -1,3 +1,5 @@
+import '../styles/offering.css';
+
 /**
  * ProcessSteps — Segment 3 for the INSTINCT / Master Atelier page.
  *
