@@ -2,11 +2,11 @@ import { SiteFooter } from '../sections/SiteFooter';
 import markUrl from '../assets/ii-mark.png';
 import { useSegmentSnap } from '../app/useSegmentSnap';
 import { Faq } from '../sections/Faq';
-import { Founder } from '../sections/Founder';
 import { Tiers } from '../sections/Tiers';
 import { useEffect } from 'react';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
+import { useMyStory } from '../app/useMyStory';
 import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
 import { Closing } from '../sections/Closing';
 
@@ -22,7 +22,8 @@ export function Offerings() {
 
   useCinemaChrome();
   useDeepScripts();
-  useSegmentSnap(['#founder', '#tiers', '.faq', '.closing-segment']);
+  useMyStory();
+  useSegmentSnap(['.story-cover', '#tiers', '.faq', '.closing-segment']);
 
   return (
     <>
@@ -119,8 +120,37 @@ export function Offerings() {
       </header>
 
       <main>
-        {/* ================ SECTION 1 (HERO): FOUNDER / ALCHEMIST ================ */}
-        <Founder />
+        {/* ================ HERO SECTION: FULL-BLEED ALCHEMIST PORTRAIT ================ */}
+        <section className="story-cover" id="cover">
+          <img
+            className="story-cover-img"
+            src="/assets/photos/founder-temo.jpg"
+            alt="Teimuraz Benidze, Founder of Ice & Instinct"
+            fetchPriority="high"
+            width="1920"
+            height="1071"
+          />
+          <div className="story-cover-scrim" aria-hidden="true"></div>
+          <div className="story-cover-ghost" aria-hidden="true">
+            <span className="hg-base">ALCHEMIST</span>
+            <span className="hg-glow">ALCHEMIST</span>
+          </div>
+          <div className="story-cover-id">
+            <h1 className="story-cover-name">
+              Teimuraz <span className="it">Benidze.</span>
+            </h1>
+            <p className="story-cover-role">Founder &amp; Flavor Architect</p>
+            <a
+              href="/my-story/"
+              className="btn-ghost"
+              data-cursor="link"
+              style={{ marginTop: '1.75rem', width: 'fit-content' }}
+            >
+              <span>Meet the Alchemist</span>
+              <span className="btn-arr" aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </section>
 
         {/* ================ SECTION 2: HORIZONTAL SCROLL TIERS RAIL ================ */}
         <Tiers />
