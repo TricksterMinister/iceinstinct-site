@@ -239,3 +239,30 @@ export function initHomeGsap(): () => void {
     listenerCleanups.forEach((fn) => fn());
   };
 }
+
+export function initTiersPin(): () => void {
+  if (typeof window === 'undefined') return () => {};
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isWide = window.matchMedia('(min-width: 721px)').matches;
+  const rail = document.querySelector<HTMLElement>('[data-tiers-rail]');
+  const tiers = document.querySelector<HTMLElement>('.tiers');
+  if (isWide && !reduced && rail && tiers) {
+    const getDistance = () => rail.scrollWidth - window.innerWidth;
+    const st = gsap.to(rail, {
+      x: () => -getDistance(),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: tiers,
+        start: 'top top',
+        end: () => '+=' + getDistance(),
+        pin: true,
+        scrub: 0.5,
+        invalidateOnRefresh: true,
+      },
+    });
+    return () => {
+      st.scrollTrigger?.kill();
+    };
+  }
+  return () => {};
+}

@@ -10,6 +10,8 @@ import { useMyStory } from '../app/useMyStory';
 import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
 import { Closing } from '../sections/Closing';
 
+import { initTiersPin } from '../lib/gsapHome';
+
 export function Offerings() {
   // Live deep page sets <body class="cinema-chrome vp-split closer">. React mounts
   // into #root, so apply the body classes here (and clean them up) to match the
@@ -17,7 +19,11 @@ export function Offerings() {
   useEffect(() => {
     const classes = ['cinema-chrome', 'vp-split', 'closer'];
     document.body.classList.add(...classes);
-    return () => document.body.classList.remove(...classes);
+    const cleanupPin = initTiersPin();
+    return () => {
+      document.body.classList.remove(...classes);
+      cleanupPin();
+    };
   }, []);
 
   useCinemaChrome();
