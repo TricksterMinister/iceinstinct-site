@@ -242,27 +242,38 @@ export function initHomeGsap(): () => void {
 
 export function initTiersPin(): () => void {
   if (typeof window === 'undefined') return () => {};
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const isWide = window.matchMedia('(min-width: 721px)').matches;
-  const rail = document.querySelector<HTMLElement>('[data-tiers-rail]');
-  const tiers = document.querySelector<HTMLElement>('.tiers');
-  if (isWide && !reduced && rail && tiers) {
-    const getDistance = () => rail.scrollWidth - window.innerWidth;
-    const st = gsap.to(rail, {
-      x: () => -getDistance(),
-      ease: 'none',
-      scrollTrigger: {
-        trigger: tiers,
-        start: 'top top',
-        end: () => '+=' + getDistance(),
-        pin: true,
-        scrub: 0.5,
-        invalidateOnRefresh: true,
-      },
-    });
-    return () => {
-      st.scrollTrigger?.kill();
-    };
-  }
-  return () => {};
+  let st: gsap.core.Tween | undefined;
+  let timer = 0;
+
+  const setup = () => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isWide = window.matchMedia('(min-width: 721px)').matches;
+    const rail = document.querySelector<HTMLElement>('[data-tiers-rail]');
+    const tiers = document.querySelector<HTMLElement>('.tiers');
+    if (isWide && !reduced && rail && tiers) {
+      ScrollTrigger.refresh();
+      const getDistance = () => Math.max(0, rail.scrollWidth - window.innerWidth);
+      if (getDistance() > 10) {
+        st = gsap.to(rail, {
+          x: () => -getDistance(),
+          ease: 'none',
+          scrollTrigger: {
+            trigger: tiers,
+            start: 'top top',
+            end: () => '+=' + getDistance(),
+            pin: true,
+            scrub: 0.5,
+            invalidateOnRefresh: true,
+          },
+        });
+      }
+    }
+  };
+
+  timer = window.setTimeout(setup, 300);
+
+  return () => {
+    window.clearTimeout(timer);
+    st?.scrollTrigger?.kill();
+  };
 }

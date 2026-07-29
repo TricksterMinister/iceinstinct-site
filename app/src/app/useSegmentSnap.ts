@@ -46,6 +46,8 @@ export function useSegmentSnap(segments: string[], multi: string[] = []): void {
     let snap: Snap | undefined;
     let addTimer = 0;
 
+    let pinGuard: ScrollTrigger | undefined;
+
     if (isWide) {
       snap = new Snap(lenis, {
         type: 'proximity',
@@ -65,11 +67,22 @@ export function useSegmentSnap(segments: string[], multi: string[] = []): void {
             snap!.addElement(el, { align: ['start'] });
           });
         });
+        const rail = document.querySelector<HTMLElement>('[data-tiers-rail]');
+        const tiers = document.querySelector<HTMLElement>('.tiers');
+        if (rail && tiers) {
+          pinGuard = ScrollTrigger.create({
+            trigger: tiers,
+            start: 'top top',
+            end: () => '+=' + (rail.scrollWidth - window.innerWidth),
+            onToggle: (self) => { if (self.isActive) snap!.stop(); else snap!.start(); },
+          });
+        }
       }, 400);
     }
 
     return () => {
       window.clearTimeout(addTimer);
+      pinGuard?.kill();
       snap?.destroy();
       gsap.ticker.remove(raf);
       lenis.destroy();

@@ -361,7 +361,7 @@ a { color: inherit; text-decoration: none; }
 /* The whole card is the link (stretched overlay). Price, guest count and the
    full description now live on the offering page the card opens - the card
    itself stays sparse: numeral, name, title, and a quiet Explore cue. */
-.tier-stretch { position: absolute; inset: 0; z-index: 2; }
+.tier-stretch { position: absolute; inset: 0; z-index: 10; cursor: pointer; pointer-events: auto; }
 /* Explore: a real, visible button on the tile - matches the site btn-primary
    (champagne outline, mono caps, fills champagne on hover) but smaller and neat.
    Sits just under the title. The whole card is still the link (.tier-stretch);
