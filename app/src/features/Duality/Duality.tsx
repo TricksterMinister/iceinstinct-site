@@ -102,9 +102,9 @@ export function Duality({ onCommit }: { onCommit?: (t: Temperament) => void }) {
     (committed === 'ice' ? ' is-ice' : committed === 'instinct' ? ' is-instinct' : '');
 
   return (
-    <section className={cls} id="duality" aria-label="Ice and Instinct - choose your nature" ref={rootRef}>
+    <section className={cls} id="duality" aria-label="Ice and Instinct - choose your direction" ref={rootRef}>
       <span className="d-tlabel">A Private Mixology Ritual</span>
-      <span className="d-blabel">Choose Your Nature</span>
+      <span className="d-blabel">Choose Your Direction</span>
 
       {/* The connector - large, centred on the seam, binding the two worlds */}
       <span className="d-amp" aria-hidden="true">&amp;</span>
@@ -113,7 +113,7 @@ export function Duality({ onCommit }: { onCommit?: (t: Temperament) => void }) {
         className="d-panel pi"
         role={open ? 'button' : undefined}
         tabIndex={open ? 0 : undefined}
-        aria-label={open ? 'Ice - the cold craft' : undefined}
+        aria-label={open ? 'Ice - event bartenders on call' : undefined}
         onClick={commit('ice')}
         onKeyDown={open ? keyCommit('ice') : undefined}
       >
@@ -127,14 +127,14 @@ export function Duality({ onCommit }: { onCommit?: (t: Temperament) => void }) {
           <span className="d-sub-body">1 pro bartender with tool roll · $450 flat<br />Host provides alcohol &amp; ice</span>
           <a
             href="/events/"
-            className="d-sub-cta btn-primary"
+            className="d-sub-cta btn-ghost"
             data-cursor="link"
             onClick={(e) => {
               e.stopPropagation();
               track('two_floors_click', { door: 'ice' });
             }}
           >
-            <span className="btn-label">Explore Event Staffing ($450)</span>
+            <span>Explore Event Staffing ($450)</span>
             <span className="btn-arr" aria-hidden="true">→</span>
           </a>
           {floorCard('ice', 'instinct')}
@@ -145,7 +145,7 @@ export function Duality({ onCommit }: { onCommit?: (t: Temperament) => void }) {
         className="d-panel pn"
         role={open ? 'button' : undefined}
         tabIndex={open ? 0 : undefined}
-        aria-label={open ? 'Instinct - the living fire' : undefined}
+        aria-label={open ? 'Instinct - founder master atelier' : undefined}
         onClick={commit('instinct')}
         onKeyDown={open ? keyCommit('instinct') : undefined}
       >
@@ -156,17 +156,17 @@ export function Duality({ onCommit }: { onCommit?: (t: Temperament) => void }) {
         </span>
         <span className="d-sub" aria-live="polite">
           <span className="d-sub-title">Founder’s Master Atelier</span>
-          <span className="d-sub-body">Teimuraz Benidze + barback · From $650<br />Signature cocktails &amp; omakase craft</span>
+          <span className="d-sub-body">Teimuraz Benidze + barback · From $650<br />Signature cocktails &amp; sommelier craft</span>
           <a
             href="/offerings/"
-            className="d-sub-cta btn-primary"
+            className="d-sub-cta btn-ghost"
             data-cursor="link"
             onClick={(e) => {
               e.stopPropagation();
               track('two_floors_click', { door: 'instinct' });
             }}
           >
-            <span className="btn-label">Enter Master Atelier ($650+)</span>
+            <span>Enter Master Atelier ($650+)</span>
             <span className="btn-arr" aria-hidden="true">→</span>
           </a>
           {floorCard('instinct', 'ice')}
