@@ -1,3 +1,4 @@
+import '../styles/cinema.css';
 import { SiteFooter } from '../sections/SiteFooter';
 import markUrl from '../assets/ii-mark.png';
 import { useSegmentSnap } from '../app/useSegmentSnap';

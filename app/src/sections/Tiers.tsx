@@ -1,3 +1,5 @@
+import '../styles/cinema.css';
+
 export function Tiers() {
   return (
     <section className="tiers" id="tiers">
@@ -6,7 +8,7 @@ export function Tiers() {
 
         <header className="tiers-intro">
           <h2 className="tiers-headline">
-            <span>Four distinct levels</span>
+            <span>Four distinct levels </span>
             <span className="it">of service.</span>
           </h2>
           <p className="tiers-lead">
