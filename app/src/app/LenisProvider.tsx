@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 // The eight full-viewport chapters of the homepage, in page order (duality, the
 // two-floor portal, now sits between tiers and concierge). Each becomes a snap
 // point so the scroll settles on one segment at a time and the guest can take it in.
-const SECTIONS = ['.hero', '#manifesto', '.founder', '.gallery', '.tiers', '.duality', '.concierge', '.closing-segment'];
+const SECTIONS = ['.hero', '#manifesto', '.duality', '.founder', '.gallery', '.concierge', '.closing-segment'];
 
 export function LenisProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {

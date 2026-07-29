@@ -26,15 +26,15 @@ type Floor = Exclude<Temperament, null>;
 
 const FLOORS: Record<Floor, { line: string; meta: string; cta: string; href: string }> = {
   ice: {
-    line: 'The bench is on call',
-    meta: 'Event bartenders for birthdays, weddings, corporate nights - flat packages from $450',
-    cta: 'Book a bartender',
+    line: 'Event Bartenders on Call',
+    meta: '1 pro bartender with personal tool roll for 4 hours. Host provides alcohol & ice. Flat packages from $450',
+    cta: 'Explore Event Bartenders',
     href: '/events/',
   },
   instinct: {
-    line: 'The founder composes your evening',
-    meta: "Bespoke menus, omakase improvisation, the sommelier's hand - from $650",
-    cta: 'Enter the studio',
+    line: 'Founder’s Master Atelier',
+    meta: 'Teimuraz Benidze + barback. Signature cocktails, omakase mixology, sommelier craft - from $650',
+    cta: 'Enter Master Atelier',
     href: '/offerings/',
   },
 };

@@ -28,13 +28,11 @@ function HomeContent() {
       <Pager />
       <ScrollHero />
       <Manifesto />
+      {/* The portal - one spectacular gateway to the two floors: ICE = event
+          bartenders (/events/), INSTINCT = the founder's studio (/offerings/). */}
+      <Duality />
       <Founder />
       <GalleryTeaser />
-      <Tiers />
-      {/* The portal - one spectacular gateway to the two floors: ICE = event
-          bartenders (/events/), INSTINCT = the founder's studio (/offerings/).
-          Sits at the seam where the tiers block ends and the enhancements begin. */}
-      <Duality />
       <Concierge />
       <Faq />
       {/* Real client testimonials. Renders nothing until a real entry exists. */}
