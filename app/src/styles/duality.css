@@ -126,57 +126,69 @@
 /* Ice = Geist, white, uppercase. Instinct = Fraunces italic, champagne. */
 .ice-h, .inst-h, .ice-v span, .inst-v span { text-shadow: 0 2px 28px rgba(0,0,0,0.55); }
 .ice-h { font-family: var(--f-display); font-weight: 800; text-transform: uppercase;
-  letter-spacing: -0.02em; font-size: clamp(3rem, 8vw, 7rem); color: var(--c-fg); }
+  letter-spacing: -0.02em; font-size: clamp(3.5rem, 9.5vw, 8.5rem); color: var(--c-fg); }
 .ice-v span { font-family: var(--f-display); font-weight: 800; text-transform: uppercase;
-  letter-spacing: -0.01em; font-size: clamp(3rem, 6vw, 5rem); color: oklch(98% 0 0 / 0.95); }
+  letter-spacing: -0.01em; font-size: clamp(3.5rem, 7.5vw, 6.2rem); color: oklch(98% 0 0 / 0.95); }
 .inst-h { font-family: var(--f-italic); font-style: italic; font-weight: 350;
-  letter-spacing: -0.01em; font-size: clamp(3rem, 8vw, 7rem); color: var(--c-accent); }
+  letter-spacing: -0.01em; font-size: clamp(3.5rem, 9.5vw, 8.5rem); color: var(--c-accent); }
 .inst-v span { font-family: var(--f-italic); font-style: italic; font-weight: 350;
-  font-size: clamp(1.9rem, 3.6vw, 3.1rem); color: oklch(88% 0.06 95 / 0.95); }
+  line-height: 0.96; font-size: clamp(2.2rem, 4.2vw, 4.0rem); color: oklch(88% 0.06 95 / 0.95); }
 
-/* per-side sublabel - revealed for the active side.
-   The sub is ANCHORED at the committed (lowest) resting bottom; the higher
-   pre-commit rest position is an upward transform (--d-sub-lift). Position
-   therefore only ever animates on compositor-friendly transform - the layout
-   property `bottom` is static and never transitions. */
+/* per-side sublabel - 100% VISIBLE AT REST with quiet glass scrim */
 .d-sub {
   --d-sub-lift: calc(clamp(3rem, 9vh, 6rem) - clamp(1.8rem, 4.5vh, 3.2rem));
   position: absolute; bottom: clamp(1.8rem, 4.5vh, 3.2rem);
-  left: 0; right: 0; padding: 0 clamp(1.5rem, 4vw, 3rem);
-  display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+  left: 50%; transform: translateX(-50%);
+  width: min(90%, 380px);
+  padding: 1.1rem 1.4rem;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
   z-index: 3;
-  opacity: 0; transform: translateY(calc(12px - var(--d-sub-lift)));
-  pointer-events: none;
-  transition: opacity 0.4s 0.15s var(--ease), transform 0.4s 0.15s var(--ease);
+  opacity: 1;
+  pointer-events: auto;
+  background: oklch(8% 0 0 / 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid oklch(100% 0 0 / 0.12);
+  border-radius: 4px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  text-align: center;
+  transition: opacity 0.4s 0.15s var(--ease), transform 0.4s 0.15s var(--ease), border-color 0.3s var(--ease);
 }
-/* committed: the sub grows by a whole floor card, so it settles lower (the
-   lift collapses to zero) to keep the stack out of the big word's register */
+.d-sub:hover {
+  border-color: var(--c-accent);
+}
+/* committed: the sub grows by a whole floor card, so it settles lower */
 .duality.is-ice .pi .d-sub,
 .duality.is-instinct .pn .d-sub {
-  /* the base .d-sub is pointer-events:none (hover hint layer); the committed
-     reveal is interactive, so re-enable here - not only on .d-floor - so any
-     future child of the revealed sub is clickable too */
   pointer-events: auto;
-  /* the settle-lower move keeps its old `bottom 0.5s` clock, now on transform */
   transition: opacity 0.4s 0.15s var(--ease), transform 0.5s var(--ease);
 }
 .duality:hover .pi:hover .d-sub,
-.duality:hover .pn:hover .d-sub { opacity: 1; transform: translateY(calc(-1 * var(--d-sub-lift))); }
-/* committed state must beat the (0,5,0) hover rule above when the committed
-   panel is hovered: same specificity, later in source */
+.duality:hover .pn:hover .d-sub { opacity: 1; transform: translateX(-50%); }
 .duality.is-ice .d-panel.pi .d-sub,
-.duality.is-instinct .d-panel.pn .d-sub { opacity: 1; transform: none; }
+.duality.is-instinct .d-panel.pn .d-sub { opacity: 1; transform: translateX(-50%); }
 .d-sub-title, .d-sub-body { text-shadow: 0 1px 16px rgba(0,0,0,0.7); }
 .d-sub-title { font-family: var(--f-mono); font-size: var(--t-step--2);
-  letter-spacing: 0.28em; text-transform: uppercase; }
-.pi .d-sub-title { color: oklch(98% 0 0 / 0.5); }
+  letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; }
+.pi .d-sub-title { color: oklch(98% 0 0 / 0.9); }
 .pn .d-sub-title { color: var(--c-accent); }
 .d-sub-body { font-family: var(--f-mono); font-size: var(--t-step--2);
-  font-weight: 300; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.9; }
-/* AA over the panel base inks: white/0.50 = 5.07:1 on pi (12%), champagne/0.58
-   = 5.10:1 on pn (8.5%); the existing text-shadow keeps them legible on photo */
-.pi .d-sub-body { color: oklch(98% 0 0 / 0.5); }
-.pn .d-sub-body { color: oklch(88% 0.06 95 / 0.58); }
+  font-weight: 300; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.6; }
+.pi .d-sub-body { color: oklch(98% 0 0 / 0.75); }
+.pn .d-sub-body { color: oklch(88% 0.06 95 / 0.85); }
+
+.d-sub-cta {
+  margin-top: 0.4rem;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
 /* =========================================================================
    FLOOR CARD - revealed inside the committed panel. The portal now leads

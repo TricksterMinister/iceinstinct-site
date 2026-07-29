@@ -123,8 +123,20 @@ export function Duality({ onCommit }: { onCommit?: (t: Temperament) => void }) {
           {ICE.map((c, i) => <span key={i}>{c}</span>)}
         </span>
         <span className="d-sub" aria-live="polite">
-          <span className="d-sub-title">The Cold Craft</span>
-          <span className="d-sub-body">Discipline. Order.<br />The patience of craft.</span>
+          <span className="d-sub-title">Event Bartenders on Call</span>
+          <span className="d-sub-body">1 pro bartender with tool roll · $450 flat<br />Host provides alcohol &amp; ice</span>
+          <a
+            href="/events/"
+            className="d-sub-cta btn-primary"
+            data-cursor="link"
+            onClick={(e) => {
+              e.stopPropagation();
+              track('two_floors_click', { door: 'ice' });
+            }}
+          >
+            <span className="btn-label">Explore Event Staffing ($450)</span>
+            <span className="btn-arr" aria-hidden="true">→</span>
+          </a>
           {floorCard('ice', 'instinct')}
         </span>
       </div>
@@ -143,8 +155,20 @@ export function Duality({ onCommit }: { onCommit?: (t: Temperament) => void }) {
           {INSTINCT.map((c, i) => <span key={i}>{c}</span>)}
         </span>
         <span className="d-sub" aria-live="polite">
-          <span className="d-sub-title">The Living Fire</span>
-          <span className="d-sub-body">Intuition. The pulse.<br />The whisper that changes everything.</span>
+          <span className="d-sub-title">Founder’s Master Atelier</span>
+          <span className="d-sub-body">Teimuraz Benidze + barback · From $650<br />Signature cocktails &amp; omakase craft</span>
+          <a
+            href="/offerings/"
+            className="d-sub-cta btn-primary"
+            data-cursor="link"
+            onClick={(e) => {
+              e.stopPropagation();
+              track('two_floors_click', { door: 'instinct' });
+            }}
+          >
+            <span className="btn-label">Enter Master Atelier ($650+)</span>
+            <span className="btn-arr" aria-hidden="true">→</span>
+          </a>
           {floorCard('instinct', 'ice')}
         </span>
       </div>
