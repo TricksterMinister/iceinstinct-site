@@ -211,19 +211,6 @@ export function Events() {
               ))}
               <p className="ev-note">Extra hour +$75 per bartender. Clear-ice upgrade +$120.</p>
               <p className="ev-note">A 50% deposit holds your date; the balance is due on the day.</p>
-              <div style={{ marginTop: '1.5rem', textAlign: 'left' }}>
-                <a
-                  className="btn-primary"
-                  href="https://enter-ritual.youcanbook.me/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-cursor="link"
-                  onClick={() => track('booking_click', { source: 'events_packages' })}
-                >
-                  <span className="btn-label">Book a bartender via YouCanBook.me</span>
-                  <span className="btn-arr" aria-hidden="true">→</span>
-                </a>
-              </div>
             </div>
           </div>
         </section>
@@ -279,39 +266,7 @@ export function Events() {
           </div>
         </section>
 
-        {/* IV. THE OTHER FLOOR - bridge up to INSTINCT */}
-        <section className="tier-section oma-fmt3" id="instinct">
-          <div className="oma-fmt3-ghost" aria-hidden="true">Instinct</div>
-          <div className="oma-fmt3-wrap reveal">
-            <div className="oma-fmt3-rule" aria-hidden="true"></div>
-            <header className="oma-fmt3-head">
-              <span className="oma-fmt3-eyebrow">IV &middot; The Other Floor</span>
-              <h2 className="oma-fmt3-title">
-                The founder <span className="it">himself.</span>
-              </h2>
-            </header>
-            <div className="oma-fmt3-cols">
-              <p>
-                Want the founder himself behind the bar - a custom menu, the omakase dialogue? That is our INSTINCT
-                floor.
-              </p>
-              <p>
-                Private mixology evenings designed and led by Teimuraz Benidze, certified sommelier - four tiers,
-                from $650 to $3,000+, by appointment.
-              </p>
-            </div>
-            <p className="oma-fmt3-pull">
-              ICE staffs the date. <span className="it">INSTINCT composes the evening.</span>
-            </p>
-            <div className="ev-bridge-cta">
-              <a className="btn-ghost" href="/offerings/" data-cursor="link" onClick={() => track('instinct_bridge_click', { source: 'events' })}>
-                Explore the INSTINCT floor
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* V. FAQ - mirrored by FAQPage JSON-LD in the stub head */}
+        {/* IV. FAQ - mirrored by FAQPage JSON-LD in the stub head */}
         <section className="faq" id="faq">
           <div className="section-bg-word right" aria-hidden="true">ON CALL</div>
           <div className="faq-stage">
@@ -342,7 +297,7 @@ export function Events() {
         </section>
       </main>
 
-      {/* CLOSING - framed CTA + footer, direct YouCanBook.me scheduling */}
+      {/* CLOSING - single primary CTA to YouCanBook.me + secondary to Contact page */}
       <div className="closing-segment oma-close" id="final-cta">
         <Closing
           ghost="ON CALL"
@@ -351,8 +306,8 @@ export function Events() {
           lead="Select your date, tell us your event details, and lock your date with a 50% deposit."
           primaryLabel="Book via YouCanBook.me"
           primaryHref="https://enter-ritual.youcanbook.me/"
-          secondaryLabel="Explore the INSTINCT floor"
-          secondaryHref="/offerings/"
+          secondaryLabel="Have a custom request? Inquire"
+          secondaryHref="/contact/"
           deposit="50% deposit holds your date · $450 flat package · host provides alcohol & ice"
         />
 
