@@ -314,7 +314,7 @@ export function Events() {
           titleEm="on YouCanBook.me."
           lead="Select your date, tell us your event details, and lock your date with a 50% deposit."
           primaryLabel="Book via YouCanBook.me"
-          primaryHref="https://enter-ritual.youcanbook.me/?service=jsid13514"
+          primaryHref="https://enter-ritual.youcanbook.me/"
           secondaryLabel="Have a custom request? Inquire"
           secondaryHref="/contact/"
           deposit="50% deposit holds your date · $450 flat package · host provides alcohol & ice"
