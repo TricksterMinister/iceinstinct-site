@@ -18,7 +18,7 @@ export function Offerings() {
   // into #root, so apply the body classes here (and clean them up) to match the
   // original DOM.
   useEffect(() => {
-    const classes = ['cinema-chrome', 'vp-split', 'closer'];
+    const classes = ['cinema-chrome', 'closer'];
     document.body.classList.add(...classes);
     const cleanupPin = initTiersPin();
     return () => {
