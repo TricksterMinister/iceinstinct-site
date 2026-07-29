@@ -2,8 +2,8 @@ import '../styles/cinema.css';
 import { SiteFooter } from '../sections/SiteFooter';
 import markUrl from '../assets/ii-mark.png';
 import { useSegmentSnap } from '../app/useSegmentSnap';
-import { Faq } from '../sections/Faq';
 import { Tiers } from '../sections/Tiers';
+import { ProcessSteps } from '../sections/ProcessSteps';
 import { useEffect } from 'react';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
@@ -12,6 +12,38 @@ import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
 import { Closing } from '../sections/Closing';
 
 import { initTiersPin } from '../lib/gsapHome';
+
+type QA = { q: string; a: string };
+const INSTINCT_FAQS: QA[] = [
+  {
+    q: 'Which tier is right for my event?',
+    a: 'It depends on the mood and the room. Seasonal is for intimate gatherings of up to 20 guests wanting impeccable classics. Signature is a curated solo performance with a set menu. Bespoke is built around your theme, palette, and guest profile. Omakase is a fully improvised no-menu experience — tell us the night and we design it live. Tell us the date and guest count and we will guide you.',
+  },
+  {
+    q: 'Is alcohol included in the price?',
+    a: 'No. The tier price covers craft, service, tools, and bar setup. You may provide spirits and wine yourself, or we purchase on your behalf at supplier cost with full receipts — no markup.',
+  },
+  {
+    q: 'Who provides the ice, and why does it matter?',
+    a: 'For every INSTINCT booking, specialty ice is sourced and delivered through us — Michelin-level suppliers, billed at cost. We cannot control quality or the integrity of the cocktail if the ice is not ours. This is coordinated through the Concierge and is not optional.',
+  },
+  {
+    q: 'What does the Concierge coordinate?',
+    a: 'Ice sourcing, curated glassware, bar rental placement, and the rhythm of the evening are all aligned in advance through the Concierge — billed at supplier cost. For Bespoke and Omakase, the Concierge also guides optional enhancements: signature crystal, tableside theatre, or specialty spirits.',
+  },
+  {
+    q: 'Can the menu be customized, and do you offer non-alcoholic options?',
+    a: 'Yes to both. Every tier menu is tailored to your taste, dietary needs, and occasion. A full zero-proof program is available so every guest is served with the same precision and care.',
+  },
+  {
+    q: 'How far ahead should I book?',
+    a: 'Two or more weeks is ideal. Shorter timelines are sometimes possible — ask, and we will tell you honestly what we can do.',
+  },
+  {
+    q: 'How does the deposit and cancellation work?',
+    a: 'A flat $500 deposit reserves your date; the balance is due before the event. Cancellations more than 14 days out receive a full deposit refund. Within 14 days, the deposit is non-refundable but transferable to a future date within 12 months. Within 48 hours of the event, the full booking value is due.',
+  },
+];
 
 export function Offerings() {
   // Live deep page sets <body class="cinema-chrome vp-split closer">. React mounts
@@ -30,7 +62,7 @@ export function Offerings() {
   useCinemaChrome();
   useDeepScripts();
   useMyStory();
-  useSegmentSnap(['.story-cover', '#tiers', '.faq', '.closing-segment']);
+  useSegmentSnap(['.story-cover', '#tiers', '#how-it-works', '#who-shows-up', '#instinct-faq', '.closing-segment']);
 
   return (
     <>
@@ -162,8 +194,38 @@ export function Offerings() {
         {/* ================ SECTION 2: HORIZONTAL SCROLL TIERS RAIL ================ */}
         <Tiers />
 
-        {/* ================ SECTION 3: FAQ ================ */}
-        <Faq />
+        {/* ================ SECTION 3: HOW DOES IT WORK + WHO SHOWS UP ================ */}
+        <ProcessSteps />
+
+        {/* ================ SECTION 4: FAQ (INSTINCT-SPECIFIC) ================ */}
+        <section className="faq" id="instinct-faq">
+          <div className="section-bg-word right" aria-hidden="true">ANSWERS</div>
+          <div className="faq-stage">
+            <header className="faq-intro">
+              <h2 className="faq-headline">
+                <span>Before</span>
+                <span className="it">you ask.</span>
+              </h2>
+              <p className="faq-lead">The honest answers, plainly given.</p>
+            </header>
+            <ul className="faq-list">
+              {INSTINCT_FAQS.map((item, i) => (
+                <li className="faq-item" key={item.q}>
+                  <details className="faq-details">
+                    <summary className="faq-q" data-cursor="link">
+                      <span className="faq-n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                      <span className="faq-q-text">{item.q}</span>
+                      <span className="faq-q-mark" aria-hidden="true"></span>
+                    </summary>
+                    <div className="faq-a">
+                      <p>{item.a}</p>
+                    </div>
+                  </details>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
       </main>
 
       <div className="closing-segment oma-close" id="final-cta">

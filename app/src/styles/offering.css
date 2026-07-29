@@ -1278,3 +1278,118 @@ video { pointer-events: none; }
 }
 .closing-segment .closing .section-bg-word.top { bottom: auto; top: -3vh; }
 .closing-segment .closing .section-bg-word.right { left: auto; right: -1.5vw; transform: none; }
+
+/* =========================================================================
+   PROCESS STEPS — Segment 3 on the INSTINCT / Master Atelier page.
+   Re-uses oma-panel dark/light + oma-steps + oma-grid. These rules add:
+   · mandatory-step highlight (step 03 — Concierge)
+   · Required badge on the step title
+   · Concierge inline CTA inside the step
+   · crew-title italic em beneath the role name
+   · dual-CTA row below the crew grid
+   ========================================================================= */
+
+/* --- Step 03: Concierge mandatory highlight ---------------------------- */
+.process-step--concierge {
+  position: relative;
+  border-color: var(--c-accent) !important;
+}
+.process-step--concierge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, oklch(60% 0.12 75 / 0.07) 0%, transparent 70%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* --- Required badge ---------------------------------------------------- */
+.process-step-badge {
+  display: inline-block;
+  margin-left: 0.75rem;
+  padding: 0.18em 0.6em;
+  font-family: var(--f-mono, monospace);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-bg);
+  background: var(--c-accent);
+  border-radius: 2px;
+  vertical-align: middle;
+  line-height: 1.6;
+}
+
+/* --- Concierge CTA inside step body ------------------------------------ */
+.process-step-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  margin-top: 1rem;
+  font-family: var(--f-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  text-decoration: none;
+  border-bottom: 1px solid oklch(60% 0.12 75 / 0.4);
+  padding-bottom: 0.1em;
+  transition: color 0.2s, border-color 0.2s;
+}
+.process-step-cta:hover {
+  color: oklch(92% 0.1 75);
+  border-color: var(--c-accent);
+}
+
+/* --- Crew title em (italic sub-role line) ------------------------------ */
+.process-crew-title {
+  display: block;
+  font-family: var(--f-italic, serif);
+  font-style: italic;
+  font-weight: 360;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: var(--oma-champ-deep, oklch(60% 0.1 75));
+  margin-top: 0.2rem;
+}
+
+/* --- Dual CTA row beneath crew grid ----------------------------------- */
+.process-who-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  flex-wrap: wrap;
+}
+@media (max-width: 480px) {
+  .process-who-cta { flex-direction: column; gap: 0.9rem; }
+  .process-who-cta .btn-primary,
+  .process-who-cta .btn-ghost { width: 100%; justify-content: center; text-align: center; }
+}
+
+/* Hairline divider before process-how section (same as .chapter::before pattern) */
+.process-how::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: clamp(60px, 12vw, 140px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--c-accent) 30%, var(--c-accent) 70%, transparent);
+  z-index: 5;
+  opacity: 0.7;
+}
+.process-who::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: clamp(60px, 12vw, 140px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--oma-champ-deep, oklch(60% 0.1 75)) 30%, var(--oma-champ-deep, oklch(60% 0.1 75)) 70%, transparent);
+  z-index: 5;
+  opacity: 0.7;
+}
+
