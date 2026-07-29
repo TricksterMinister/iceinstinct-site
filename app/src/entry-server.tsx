@@ -49,6 +49,11 @@ export type { RouteSeo } from './seo/seoData';
 
 const ROUTES: Record<string, () => ReactElement> = {
   '/': () => <Home />,
+  '/instinct/': () => <Offerings />,
+  '/instinct/foundation/': () => <Foundation />,
+  '/instinct/simplicity/': () => <Simplicity />,
+  '/instinct/bespoke/': () => <Bespoke />,
+  '/instinct/omakase/': () => <Omakase />,
   '/offerings/': () => <Offerings />,
   '/offerings/foundation/': () => <Foundation />,
   '/offerings/simplicity/': () => <Simplicity />,
@@ -59,6 +64,7 @@ const ROUTES: Record<string, () => ReactElement> = {
   '/weddings/': () => <Weddings />,
   '/corporate/': () => <Corporate />,
   '/gift/': () => <Gift />,
+  '/ice/': () => <Events />,
   '/events/': () => <Events />,
   '/work-with-us/': () => <WorkWithUs />,
   '/new-jersey/': () => <NewJersey />,

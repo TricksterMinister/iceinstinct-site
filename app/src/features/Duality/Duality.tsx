@@ -29,13 +29,13 @@ const FLOORS: Record<Floor, { line: string; meta: string; cta: string; href: str
     line: 'Event Bartenders on Call',
     meta: '1 pro bartender with personal tool roll for 4 hours. Host provides alcohol & ice. Flat packages from $450',
     cta: 'Explore Event Bartenders',
-    href: '/events/',
+    href: '/ice/',
   },
   instinct: {
     line: 'Founder’s Master Atelier',
     meta: 'Teimuraz Benidze + barback. Signature cocktails, omakase mixology, sommelier craft - from $650',
     cta: 'Enter Master Atelier',
-    href: '/offerings/',
+    href: '/instinct/',
   },
 };
 
@@ -158,7 +158,7 @@ export function Duality({ onCommit }: { onCommit?: (t: Temperament) => void }) {
           <span className="d-sub-title">Founder’s Master Atelier</span>
           <span className="d-sub-body">Teimuraz Benidze + barback · From $650<br />Signature cocktails &amp; sommelier craft</span>
           <a
-            href="/offerings/"
+            href="/instinct/"
             className="d-sub-cta btn-ghost"
             data-cursor="link"
             onClick={(e) => {

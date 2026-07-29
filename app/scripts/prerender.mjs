@@ -12,7 +12,7 @@
 
 import { build } from 'vite';
 import react from '@vitejs/plugin-react';
-import { readFileSync, writeFileSync, rmSync } from 'node:fs';
+import { readFileSync, writeFileSync, rmSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -23,6 +23,11 @@ const r = (...p) => resolve(APP, ...p);
 // route key -> dist html file (relative to dist/)
 const ROUTE_TO_HTML = {
   '/': 'index.html',
+  '/instinct/': 'instinct/index.html',
+  '/instinct/foundation/': 'instinct/foundation/index.html',
+  '/instinct/simplicity/': 'instinct/simplicity/index.html',
+  '/instinct/bespoke/': 'instinct/bespoke/index.html',
+  '/instinct/omakase/': 'instinct/omakase/index.html',
   '/offerings/': 'offerings/index.html',
   '/offerings/foundation/': 'offerings/foundation/index.html',
   '/offerings/simplicity/': 'offerings/simplicity/index.html',
@@ -42,6 +47,7 @@ const ROUTE_TO_HTML = {
   '/journal/clear-ice-why-it-matters/': 'journal/clear-ice-why-it-matters/index.html',
   '/journal/cigar-and-cocktail-pairing/': 'journal/cigar-and-cocktail-pairing/index.html',
   '/press/': 'press/index.html',
+  '/ice/': 'ice/index.html',
   '/events/': 'events/index.html',
   '/work-with-us/': 'work-with-us/index.html',
   '/gallery/': 'gallery/index.html',
@@ -211,7 +217,16 @@ async function main() {
 
     const appHtml = renderRoute(route);
     const file = r('dist', htmlRel);
-    let html = readFileSync(file, 'utf8');
+    mkdirSync(dirname(file), { recursive: true });
+    let templatePath = file;
+    if (!existsSync(file)) {
+      const fallbackRel = htmlRel
+        .replace(/^instinct\//, 'offerings/')
+        .replace(/^ice\//, 'events/');
+      templatePath = r('dist', fallbackRel);
+      if (!existsSync(templatePath)) templatePath = r('dist/index.html');
+    }
+    let html = readFileSync(templatePath, 'utf8');
     if (alreadyPrerendered(html)) {
       console.log(`  skipped (already prerendered) ${route} -> dist/${htmlRel}`);
       continue;

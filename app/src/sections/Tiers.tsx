@@ -25,7 +25,7 @@ export function Tiers() {
             <h3 className="tier-title">Impeccable drinks, <span className="it">seamless service.</span></h3>
             <span className="tier-go" aria-hidden="true">Explore <i>&rarr;</i></span>
           </div>
-          <a className="tier-stretch" href="/offerings/foundation/" data-cursor="link" aria-label="Explore The Foundation"></a>
+          <a className="tier-stretch" href="/instinct/foundation/" data-cursor="link" aria-label="Explore The Foundation"></a>
         </article>
 
         <article className="tier" data-tier="ii">
@@ -39,7 +39,7 @@ export function Tiers() {
             <h3 className="tier-title">Timeless cocktails, <span className="it">quiet precision.</span></h3>
             <span className="tier-go" aria-hidden="true">Explore <i>&rarr;</i></span>
           </div>
-          <a className="tier-stretch" href="/offerings/simplicity/" data-cursor="link" aria-label="Explore Perfection in Simplicity"></a>
+          <a className="tier-stretch" href="/instinct/simplicity/" data-cursor="link" aria-label="Explore Perfection in Simplicity"></a>
         </article>
 
         <article className="tier" data-tier="iii">
@@ -53,7 +53,7 @@ export function Tiers() {
             <h3 className="tier-title">Signature cocktails, <span className="it">tailored to your story.</span></h3>
             <span className="tier-go" aria-hidden="true">Explore <i>&rarr;</i></span>
           </div>
-          <a className="tier-stretch" href="/offerings/bespoke/" data-cursor="link" aria-label="Explore Bespoke Design and Artistry"></a>
+          <a className="tier-stretch" href="/instinct/bespoke/" data-cursor="link" aria-label="Explore Bespoke Design and Artistry"></a>
         </article>
 
         <article className="tier" data-tier="iv">
@@ -67,7 +67,7 @@ export function Tiers() {
             <h3 className="tier-title">No menu. <span className="it">Unrepeatable moments.</span></h3>
             <span className="tier-go" aria-hidden="true">Explore <i>&rarr;</i></span>
           </div>
-          <a className="tier-stretch" href="/offerings/omakase/" data-cursor="link" aria-label="Explore Omakase Improvisation"></a>
+          <a className="tier-stretch" href="/instinct/omakase/" data-cursor="link" aria-label="Explore Omakase Improvisation"></a>
         </article>
 
       </div>

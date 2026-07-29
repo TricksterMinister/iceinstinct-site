@@ -39,6 +39,65 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     jsonLd: [organization(), founderPerson(), website()],
   },
 
+  '/instinct/': {
+    title: "Master Atelier - Ice & Instinct",
+    description:
+      "The founder's private mixology atelier in New York and New Jersey. Four levels of service, signature cocktails, and omakase improvisation by Teimuraz Benidze.",
+    canonical: `${SITE}/instinct/`,
+    ogTitle: "Master Atelier - Ice & Instinct",
+    ogDescription: "Four levels of private mixology service by founder Teimuraz Benidze.",
+    ogImage: "/assets/og/offerings.png",
+    jsonLd: [tierItemList(), offeringsFaq()],
+  },
+
+  '/instinct/foundation/': {
+    title: "The Foundation - Ice & Instinct, from $650",
+    description:
+      "The Foundation tier from Ice & Instinct. Impeccable drinks, delivered by a bartender from the founder's own circle - hand-picked and trusted. From $650, up to 15 guests, 3 hours. New York.",
+    canonical: `${SITE}/instinct/foundation/`,
+    ogTitle: "The Foundation - Ice & Instinct, from $650",
+    ogDescription:
+      "Impeccable drinks, professional presence, seamless execution. The most intimate way to experience the Ice & Instinct standard.",
+    ogImage: "/assets/og/foundation.png",
+    jsonLd: [tierService("foundation")],
+  },
+
+  '/instinct/simplicity/': {
+    title: "Perfection in Simplicity - Ice & Instinct, from $900",
+    description:
+      "The Executive Standard from Ice & Instinct. Timeless classics executed with surgical precision by the Master Mixologist personally. From $900, up to 12 guests, 4 hours.",
+    canonical: `${SITE}/instinct/simplicity/`,
+    ogTitle: "Perfection in Simplicity - Ice & Instinct, from $900",
+    ogDescription:
+      "Timeless cocktails executed with quiet precision by the Master Mixologist personally.",
+    ogImage: "/assets/og/simplicity.png",
+    jsonLd: [tierService("simplicity")],
+  },
+
+  '/instinct/bespoke/': {
+    title: "Bespoke Design & Artistry - Ice & Instinct, from $1,800",
+    description:
+      "Bespoke private commissions from Ice & Instinct. Signature cocktails crafted specifically for your event. From $1,800, up to 30 guests, 4 hours.",
+    canonical: `${SITE}/instinct/bespoke/`,
+    ogTitle: "Bespoke Design & Artistry - Ice & Instinct, from $1,800",
+    ogDescription:
+      "Signature cocktails crafted specifically for your event.",
+    ogImage: "/assets/og/bespoke.png",
+    jsonLd: [tierService("bespoke")],
+  },
+
+  '/instinct/omakase/': {
+    title: "Omakase Improvisation - Ice & Instinct, from $3,000",
+    description:
+      "The flagship omakase experience by Teimuraz Benidze. No menu, no repetition, molecular theatre and live dialogue. From $3,000, up to 25 guests.",
+    canonical: `${SITE}/instinct/omakase/`,
+    ogTitle: "Omakase Improvisation - Ice & Instinct, from $3,000",
+    ogDescription:
+      "The flagship omakase experience by Teimuraz Benidze.",
+    ogImage: "/assets/og/omakase.png",
+    jsonLd: [tierService("omakase")],
+  },
+
   '/offerings/': {
     title: "Offerings - Ice & Instinct",
     description:
@@ -157,6 +216,18 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogDescription:
       "A private mixology evening as a gift: framed certificate, valid 12 months. From $650.",
     ogImage: "/assets/og/gift.png",
+    jsonLd: [],
+  },
+
+  '/ice/': {
+    title: "Event Bartenders On Call, NYC & New Jersey - Ice & Instinct",
+    description:
+      "Vetted event bartenders for birthdays, house parties, weddings and corporate nights, NYC and New Jersey. Flat packages from $450, founder-trained, insured.",
+    canonical: `${SITE}/ice/`,
+    ogTitle: "Event Bartenders On Call, NYC & New Jersey - Ice & Instinct",
+    ogDescription:
+      "A vetted bartender for your date in one call. Flat packages from $450. The bench behind a private mixology studio.",
+    ogImage: "/assets/og/events.png",
     jsonLd: [],
   },
 

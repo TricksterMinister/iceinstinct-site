@@ -83,14 +83,14 @@ export function SiteFooter({ embedded = false }: SiteFooterProps) {
 
       <footer className="oma-close-foot" role="contentinfo">
         <nav className="oma-close-nav" aria-label="Footer">
-          <a className="lnk" href="/offerings/">Offerings</a>
+          <a className="lnk" href="/instinct/">Master Atelier</a>
           <a className="lnk" href="/concierge/">Concierge</a>
           <a className="lnk" href="/gallery/">The Collection</a>
           <a className="lnk" href="/my-story/">My Story</a>
           <a className="lnk" href="/weddings/">Weddings</a>
           <a className="lnk" href="/corporate/">Corporate</a>
           <a className="lnk" href="/gift/">Gift an Evening</a>
-          <a className="lnk" href="/events/">Event Bartenders</a>
+          <a className="lnk" href="/ice/">Event Bartenders</a>
           <a className="lnk" href="/journal/">Journal</a>
           <a className="lnk" href="/press/">Press</a>
           <a className="lnk" href="/contact/">Inquire</a>
