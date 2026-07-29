@@ -1,6 +1,6 @@
 # Ice & Instinct - full site text
 
-> Plain-text rendering of every page on https://www.iceinstinct.com/ for AI engines. Curated facts (prices, policies, contact) live in https://www.iceinstinct.com/llms.txt; this file carries the full page copy. Generated from the prerendered HTML at build time. Last updated: 2026-07-07.
+> Plain-text rendering of every page on https://www.iceinstinct.com/ for AI engines. Curated facts (prices, policies, contact) live in https://www.iceinstinct.com/llms.txt; this file carries the full page copy. Generated from the prerendered HTML at build time. Last updated: 2026-07-29.
 
 ---
 
@@ -19,6 +19,11 @@ Teimuraz Benidze this experience transforms modern mixology into an art form - r
 Every ritual unfolds through precision and emotion: each cocktail crafted in real time, each gesture measured by instinct, each sip designed to leave a memory rather than a taste.
 From private penthouse gatherings to rooftop ceremonies and exclusive brand events, Ice & Instinct brings a rare synthesis of minimalism, theatre, and silent luxury - redefining what it means to serve a drink.
 
+A Private Mixology Ritual Choose Your Nature Ice The Cold Craft Discipline. Order.
+The patience of craft.
+Instinct The Living Fire Intuition. The pulse.
+The whisper that changes everything.
+
 The hand behind the ritual.
 Three decades distilled into a single evening. Led by one alchemist, carried by a team of trusted New York bartenders.
 Meet the Alchemist
@@ -36,35 +41,6 @@ XII Bésame, 2025
 I White Lotus, 2025
 
 View The Collection
-
-#### Four distinct levels of service.
-
-One uncompromising standard, four ways to begin.
-
-I
-The Foundation
-
-##### Impeccable drinks, seamless service.
-
-II
-Perfection in Simplicity
-
-##### Timeless cocktails, quiet precision.
-
-III
-Bespoke Design & Artistry
-
-##### Signature cocktails, tailored to your story.
-
-IV
-Omakase Improvisation
-
-##### No menu. Unrepeatable moments.
-
-A Private Mixology Ritual Choose Your Nature Ice The Cold Craft Discipline. Order.
-The patience of craft.
-Instinct The Living Fire Intuition. The pulse.
-The whisper that changes everything.
 
 #### The Concierge.
 
