@@ -3,7 +3,7 @@ import '../styles/cinema.css';
 export function Tiers() {
   return (
     <section className="tiers" id="tiers">
-      <div className="section-bg-word top left" aria-hidden="true">OFFERINGS</div>
+      <div className="section-bg-word top left" aria-hidden="true">INSTINCT</div>
       <div className="tiers-rail" data-tiers-rail="">
 
         <header className="tiers-intro">
