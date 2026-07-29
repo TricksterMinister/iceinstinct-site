@@ -159,7 +159,7 @@ export function Events() {
           <div className="concierge-stage">
             <div className="concierge-text">
               <h1 className="concierge-headline">
-                Event bartenders,<br /><span className="it" style={{ whiteSpace: 'nowrap' }}>on call</span> &mdash; NYC &amp; New Jersey
+                Event bartenders,<br /><span className="it" style={{ whiteSpace: 'nowrap' }}>on call</span> - NYC &amp; New Jersey
               </h1>
               <p className="concierge-lead">
                 The same studio behind our private mixology evenings keeps a vetted bench of event bartenders. One
