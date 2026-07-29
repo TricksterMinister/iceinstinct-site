@@ -95,7 +95,8 @@ export function ProcessSteps() {
                       className="process-step-cta"
                       data-cursor="link"
                     >
-                      Open Concierge <span aria-hidden="true">&rarr;</span>
+                      <span className="btn-label">Open Concierge</span>
+                      <span className="btn-arr" aria-hidden="true">&rarr;</span>
                     </a>
                   )}
                 </div>
