@@ -215,8 +215,8 @@ export function Events() {
           </div>
         </section>
 
-        {/* II. HOW IT WORKS - light panel, plain 4-step ledger */}
-        <section className="oma-panel light" id="how-it-works">
+        {/* II. HOW IT WORKS - dark panel */}
+        <section className="oma-panel dark" id="how-it-works">
           <div className="oma-panel-wrap reveal">
             <header className="oma-panel-head">
               <div className="oma-panel-rule" aria-hidden="true"></div>
@@ -240,8 +240,8 @@ export function Events() {
           </div>
         </section>
 
-        {/* III. THE STANDARD - dark panel, three trust cells */}
-        <section className="oma-panel dark" id="standard">
+        {/* III. THE STANDARD - light panel */}
+        <section className="oma-panel light" id="standard">
           <div className="oma-panel-wrap reveal">
             <header className="oma-panel-head">
               <div className="oma-panel-rule" aria-hidden="true"></div>
