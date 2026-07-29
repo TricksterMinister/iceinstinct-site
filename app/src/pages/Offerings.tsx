@@ -2,15 +2,14 @@ import { SiteFooter } from '../sections/SiteFooter';
 import markUrl from '../assets/ii-mark.png';
 import { useSegmentSnap } from '../app/useSegmentSnap';
 import { Faq } from '../sections/Faq';
-import { Founder } from '../sections/Founder';
-import { Tiers } from '../sections/Tiers';
 import { useEffect } from 'react';
 import { useCinemaChrome } from '../app/useCinemaChrome';
 import { useDeepScripts } from '../app/useDeepScripts';
-import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
-import { Closing } from '../sections/Closing';
 
 export function Offerings() {
+  // Live deep page sets <body class="cinema-chrome vp-split closer">. React mounts
+  // into #root, so apply the body classes here (and clean them up) to match the
+  // original DOM.
   useEffect(() => {
     const classes = ['cinema-chrome', 'vp-split', 'closer'];
     document.body.classList.add(...classes);
@@ -19,7 +18,7 @@ export function Offerings() {
 
   useCinemaChrome();
   useDeepScripts();
-  useSegmentSnap(['#founder', '#tiers', '.faq', '.closing-segment']);
+  useSegmentSnap(['.page-hero', '.vp-shelf', '.faq', '.closing-segment']);
 
   return (
     <>
@@ -116,30 +115,110 @@ export function Offerings() {
       </header>
 
       <main>
-        {/* I. THE ALCHEMIST / FOUNDER HERO */}
-        <Founder />
+        <section className="page-hero">
+          <div className="section-bg-word" aria-hidden="true">
+            OFFERINGS
+          </div>
+          <div className="container">
+            <h1>
+              Four distinct levels.
+              <br />
+              One <span className="it">standard.</span>
+            </h1>
+            <p className="lead">
+              From the purity of a classic cocktail to the theatre of molecular improvisation. Choose the rhythm that
+              fits your evening.
+            </p>
+          </div>
+        </section>
 
-        {/* II. 4 TIERS HORIZONTAL SCROLL */}
-        <Tiers />
+        {/* ================ 4 TIER GRID ================ */}
+        <section id="tiers" className="vp-shelf">
+          <div className="container">
+            <div className="promise-grid vp-track reveal">
+              <article className="tier-card" style={{ viewTransitionName: 'tier-hero-foundation' }}>
+                <span className="tier-figure" aria-hidden="true">
+                  I
+                </span>
+                <span className="tier-num">i. Foundation</span>
+                <h3>The Foundation</h3>
+                <span className="tier-meta">From $650 · up to 15 guests · 3 hours</span>
+                <p className="tier-blurb">
+                  Impeccable drinks, seamless service. No shortcuts, only intention. The standard from which every other
+                  level departs.
+                </p>
+                <a href="/offerings/foundation/" className="tier-link">
+                  Explore <span className="arrow">→</span>
+                </a>
+              </article>
 
-        {/* III. FREQUENTLY ASKED QUESTIONS */}
+              <article className="tier-card" style={{ viewTransitionName: 'tier-hero-simplicity' }}>
+                <span className="tier-figure" aria-hidden="true">
+                  II
+                </span>
+                <span className="tier-num">ii. Simplicity</span>
+                <h3>Perfection in Simplicity</h3>
+                <span className="tier-meta">From $900 · up to 12 guests · 4 hours</span>
+                <p className="tier-blurb">
+                  Timeless cocktails executed with quiet precision. A masterful solo performance for those who value
+                  craft over theatre.
+                </p>
+                <a href="/offerings/simplicity/" className="tier-link">
+                  Explore <span className="arrow">→</span>
+                </a>
+              </article>
+
+              <article className="tier-card" style={{ viewTransitionName: 'tier-hero-bespoke' }}>
+                <span className="tier-figure" aria-hidden="true">
+                  III
+                </span>
+                <span className="tier-num">iii. Bespoke</span>
+                <h3>Bespoke Design &amp; Artistry</h3>
+                <span className="tier-meta">From $1,800 · up to 30 guests · 4 hours</span>
+                <p className="tier-blurb">
+                  Signature cocktails tailored to your event's theme and vision. Your story, crafted into every glass.
+                </p>
+                <a href="/offerings/bespoke/" className="tier-link">
+                  Explore <span className="arrow">→</span>
+                </a>
+              </article>
+
+              <article className="tier-card" style={{ viewTransitionName: 'tier-hero-omakase' }}>
+                <span className="tier-figure" aria-hidden="true">
+                  IV
+                </span>
+                <span className="tier-num">iv. Omakase</span>
+                <h3>Omakase Improvisation</h3>
+                <span className="tier-meta">From $3,000 · up to 25 guests · open</span>
+                <p className="tier-blurb">
+                  No menu. No repetition. Real-time creation in dialogue with the room. Complete trust. Unrepeatable
+                  moments.
+                </p>
+                <a href="/offerings/omakase/" className="tier-link">
+                  Explore <span className="arrow">→</span>
+                </a>
+              </article>
+            </div>
+            <div className="vp-meta">
+              <span>
+                <span className="pos">04</span> Tiers
+              </span>
+              <span>Explore each tier</span>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ near the bottom, before the closing CTA. */}
         <Faq />
+
       </main>
 
-      {/* IV. CLOSING CTA & FOOTER */}
       <div className="closing-segment oma-close" id="final-cta">
-        <Closing
-          ghost="INSTINCT"
-          title="Have a question before booking?"
-          titleEm="Speak with us."
-          lead="Each of our four tiers is a complete evening. Tell us about your event and we will guide you to the perfect rhythm."
-          primaryLabel="Inquire via Contact"
-          primaryHref="/contact/"
-          secondaryLabel="Explore Concierge"
-          secondaryHref="/concierge/"
-        />
+        <Closing ghost="CHOOSE" title="Find the tier" titleEm="that fits the night." lead="From an intimate table to a full celebration, each tier is a complete evening. Tell us which fits yours." secondaryLabel="Speak with the Concierge" secondaryHref="/concierge/" />
         <SiteFooter embedded />
       </div>
     </>
   );
 }
+import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
+import { Closing } from '../sections/Closing';
