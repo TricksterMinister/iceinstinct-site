@@ -100,7 +100,7 @@ export function Manhattan() {
           <p className="va-eyebrow"><EyebrowMark />Ice &amp; Instinct / Manhattan</p>
           <ul className="va-list">
             <li><a href="/"><i>01</i><b>Home</b><em>The opening view</em></a></li>
-            <li><a href="/offerings/"><i>02</i><b>Offerings</b><em>Four levels, one standard</em></a></li>
+            <li><a href="/instinct/"><i>02</i><b>Instinct</b><em>Private mixology, four tiers</em></a></li>
             <li><a href="/concierge/"><i>03</i><b>Concierge</b><em>Five enhancements</em></a></li>
             <li><a href="/my-story/"><i>04</i><b>My Story</b><em>Teimuraz Benidze</em></a></li>
             <li><a href="/gallery/"><i>05</i><b>The Collection</b><em>Thirteen compositions</em></a></li>
@@ -123,7 +123,7 @@ export function Manhattan() {
               <span className="brand-name">Ice &amp; Instinct</span>
             </a>
             <div className="nav-links">
-              <a href="/offerings/">Offerings</a>
+              <a href="/instinct/">Instinct</a>
               <a href="/concierge/">Concierge</a>
               <a href="/my-story/">My Story</a>
               <a href="/gallery/">Gallery</a>
@@ -323,7 +323,7 @@ export function Manhattan() {
                 same building discipline carries through our <a href="/weddings/">wedding service</a> and{' '}
                 <a href="/corporate/">corporate service</a>. And when the night needs only a steady
                 pair of hands behind the bar, the studio&apos;s vetted bench is on call - see{' '}
-                <a href="/events/">Event Bartenders</a>.
+                <a href="/ice/">ICE</a>.
               </p>
             </div>
           </div>

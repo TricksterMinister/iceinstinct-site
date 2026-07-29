@@ -112,7 +112,7 @@ export const cocktailOmakaseExplained: JournalArticleContent = {
           The host decides the frame: the date, the room, the guest list, the hours, and the
           spirits available. Whether the evening runs on the existing collection or we handle the
           purchase at supplier cost is the host&rsquo;s call - as at every{' '}
-          <a href="/offerings/">Ice &amp; Instinct tier</a>, alcohol is never marked up and never
+          <a href="/instinct/">Ice &amp; Instinct tier</a>, alcohol is never marked up and never
           hidden in the fee.
         </>,
         <>

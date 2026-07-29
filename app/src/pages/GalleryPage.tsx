@@ -86,10 +86,10 @@ export function GalleryPage() {
               </a>
             </li>
             <li>
-              <a href="/offerings/">
+              <a href="/instinct/">
                 <i>02</i>
-                <b>Offerings</b>
-                <em>Four levels, one standard</em>
+                <b>Instinct</b>
+                <em>Private mixology, four tiers</em>
               </a>
             </li>
             <li>
@@ -138,7 +138,7 @@ export function GalleryPage() {
               <span className="brand-name">Ice &amp; Instinct</span>
             </a>
             <div className="nav-links">
-              <a href="/offerings/">Offerings</a>
+              <a href="/instinct/">Instinct</a>
               <a href="/concierge/">Concierge</a>
               <a href="/my-story/">My Story</a>
               <a href="/gallery/" className="is-active">

@@ -145,7 +145,7 @@ export const cigarAndCocktailPairing: JournalArticleContent = {
         </>,
         <>
           The enhancement sits on top of any tier, from an intimate{' '}
-          <a href="/offerings/">private evening</a> to a{' '}
+          <a href="/instinct/">private evening</a> to a{' '}
           <a href="/corporate/">corporate</a> close or the late hours of a{' '}
           <a href="/weddings/">wedding</a>, when the dance floor thins and a smaller circle
           forms outside. That is, historically, exactly where the best pairings happen.

@@ -106,8 +106,8 @@ export function VanishHeader() {
           <p className="va-eyebrow"><EyebrowMark />Ice &amp; Instinct / Menu</p>
           <ul className="va-list" ref={listRef}>
             <li><a href="/" data-cursor="link"><i>01</i><b>Home</b><em>The opening view</em></a></li>
-            <li><a href="/ice/" data-cursor="link"><i>02</i><b>Event Bartenders</b><em>The bench on call ($450 flat)</em></a></li>
-            <li><a href="/instinct/" data-cursor="link"><i>03</i><b>Master Atelier</b><em>Four levels, one standard</em></a></li>
+            <li><a href="/ice/" data-cursor="link"><i>02</i><b>ICE</b><em>Event bartenders on call</em></a></li>
+            <li><a href="/instinct/" data-cursor="link"><i>03</i><b>Instinct</b><em>Private mixology, four tiers</em></a></li>
             <li><a href="/concierge/" data-cursor="link"><i>04</i><b>Concierge</b><em>Five enhancements</em></a></li>
             <li><a href="/my-story/" data-cursor="link"><i>05</i><b>My Story</b><em>Teimuraz Benidze</em></a></li>
             <li><a href="/gallery/" data-cursor="link"><i>06</i><b>The Collection</b><em>Thirteen compositions</em></a></li>

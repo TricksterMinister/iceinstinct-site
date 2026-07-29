@@ -94,8 +94,8 @@ export function Offerings() {
             <li>
               <a href="/instinct/">
                 <i>02</i>
-                <b>Master Atelier</b>
-                <em>Four levels, one standard</em>
+                <b>Instinct</b>
+                <em>Private mixology, four tiers</em>
               </a>
             </li>
             <li>

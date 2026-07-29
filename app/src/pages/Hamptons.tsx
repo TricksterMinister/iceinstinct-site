@@ -97,7 +97,7 @@ export function Hamptons() {
           <p className="va-eyebrow"><EyebrowMark />Ice &amp; Instinct / The Hamptons</p>
           <ul className="va-list">
             <li><a href="/"><i>01</i><b>Home</b><em>The opening view</em></a></li>
-            <li><a href="/offerings/"><i>02</i><b>Offerings</b><em>Four levels, one standard</em></a></li>
+            <li><a href="/instinct/"><i>02</i><b>Instinct</b><em>Private mixology, four tiers</em></a></li>
             <li><a href="/concierge/"><i>03</i><b>Concierge</b><em>Five enhancements</em></a></li>
             <li><a href="/my-story/"><i>04</i><b>My Story</b><em>Teimuraz Benidze</em></a></li>
             <li><a href="/gallery/"><i>05</i><b>The Collection</b><em>Thirteen compositions</em></a></li>
@@ -120,7 +120,7 @@ export function Hamptons() {
               <span className="brand-name">Ice &amp; Instinct</span>
             </a>
             <div className="nav-links">
-              <a href="/offerings/">Offerings</a>
+              <a href="/instinct/">Instinct</a>
               <a href="/concierge/">Concierge</a>
               <a href="/my-story/">My Story</a>
               <a href="/gallery/">Gallery</a>
@@ -202,7 +202,7 @@ export function Hamptons() {
                 <a className="ham-inline" href="/corporate/">corporate page</a>. Everything else -
                 the house weekend, the anniversary, the dinner that earns the drive - begins here.
                 And for the season weekends that need only a bartender, the studio&apos;s vetted
-                bench is on call - see <a className="ham-inline" href="/events/">Event Bartenders</a>.
+                bench is on call - see <a className="ham-inline" href="/ice/">ICE</a>.
               </p>
             </div>
             <p className="oma-fmt3-pull">

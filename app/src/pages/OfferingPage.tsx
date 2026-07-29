@@ -165,7 +165,7 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
           <p className="va-eyebrow"><EyebrowMark />Ice &amp; Instinct / {content.name}</p>
           <ul className="va-list">
             <li><a href="/"><i>01</i><b>Home</b><em>The opening view</em></a></li>
-            <li><a href="/offerings/"><i>02</i><b>Offerings</b><em>Four levels, one standard</em></a></li>
+            <li><a href="/instinct/"><i>02</i><b>Instinct</b><em>Private mixology, four tiers</em></a></li>
             <li><a href="/concierge/"><i>03</i><b>Concierge</b><em>Five enhancements</em></a></li>
             <li><a href="/my-story/"><i>04</i><b>My Story</b><em>Teimuraz Benidze</em></a></li>
             <li><a href="/gallery/"><i>05</i><b>The Collection</b><em>Twelve compositions</em></a></li>
@@ -188,7 +188,7 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
               <span className="brand-name">Ice &amp; Instinct</span>
             </a>
             <div className="nav-links">
-              <a href="/offerings/" className="is-active">Offerings</a>
+              <a href="/instinct/" className="is-active">Instinct</a>
               <a href="/concierge/">Concierge</a>
               <a href="/my-story/">My Story</a>
               <a href="/gallery/">Gallery</a>
@@ -216,7 +216,7 @@ export function OfferingPage({ content }: { content: OfferingContent }) {
           </div>
           <div className="concierge-stage">
             <div className="concierge-text">
-              <a href="/offerings/" className="concierge-back">&larr; Offerings</a>
+              <a href="/instinct/" className="concierge-back">&larr; Instinct</a>
               <h1 className="concierge-headline">{content.hero.headline}</h1>
               <p className="concierge-lead">{content.hero.lead}</p>
               <span className="price">

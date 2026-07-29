@@ -141,7 +141,7 @@ export const clearIceWhyItMatters: JournalArticleContent = {
         </>,
         <>
           One thing worth stating plainly: clear ice is not included in the{' '}
-          <a href="/offerings/">tier</a>, and it is not an upsell either. The Concierge arranges
+          <a href="/instinct/">tier</a>, and it is not an upsell either. The Concierge arranges
           it separately for every booked evening, at supplier cost, from The Foundation at $650
           to Omakase Improvisation - and it serves the zero-proof program with the same care as
           the cocktail list. We treat it the way a kitchen treats salt: invisible when right,
