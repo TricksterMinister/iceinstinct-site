@@ -77,29 +77,33 @@ export function TribecaPage() {
 
       <main>
         <section className="concierge std-hero">
-          <div className="concierge-hero-grid">
-            <div className="concierge-hero-left">
-              <div className="concierge-hero-mark" aria-hidden="true">
-                <img src={markUrl} alt="" width={64} height={64} draggable={false} />
-              </div>
-              <p className="concierge-kicker">Tribeca &amp; SoHo &middot; Lower Manhattan</p>
+          <div className="section-bg-word hero-ghost" aria-hidden="true">
+            <span className="hg-base">TRIBECA</span>
+            <span className="hg-glow">TRIBECA</span>
+          </div>
+          <div className="concierge-stage">
+            <div className="concierge-text">
               <h1 className="concierge-headline">
-                Private Mixology for Tribeca Lofts &amp; SoHo Cast-Iron Residences.
+                Loft mixology in <span className="it">Tribeca &amp; SoHo.</span>
               </h1>
-              <p className="concierge-sub">
+              <p className="concierge-lead">
                 Spacious open-plan lofts, private cobblestone entrances, and exclusive gallery hosts. COI, elevator windows, and discreet late-night execution fully managed.
               </p>
-              <div className="concierge-actions">
-                <a href="/contact/" className="btn-primary" data-cursor="link">
-                  <span className="btn-label">Inquire for Date</span>
-                  <span className="btn-arr" aria-hidden="true">&rarr;</span>
-                </a>
-              </div>
+              <span className="price">
+                From $650 USD
+                <small>Four tiers &middot; Elevator buildings routine &middot; COI on request</small>
+              </span>
+              <a href="/contact/" className="concierge-link">
+                Inquire for date <span aria-hidden="true">&rarr;</span>
+              </a>
             </div>
-            <div className="concierge-hero-right">
-              <figure className="concierge-hero-fig">
-                <img src="/assets/og/manhattan.png" alt="Private bartending in Tribeca" />
-              </figure>
+            <div className="concierge-image">
+              <img
+                src="/assets/photos/geo-manhattan.jpg"
+                alt="Private mixology for Tribeca lofts"
+                loading="eager"
+              />
+              <div className="concierge-image-scrim"></div>
             </div>
           </div>
         </section>

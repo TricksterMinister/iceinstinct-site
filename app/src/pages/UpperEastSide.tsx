@@ -77,29 +77,33 @@ export function UpperEastSidePage() {
 
       <main>
         <section className="concierge std-hero">
-          <div className="concierge-hero-grid">
-            <div className="concierge-hero-left">
-              <div className="concierge-hero-mark" aria-hidden="true">
-                <img src={markUrl} alt="" width={64} height={64} draggable={false} />
-              </div>
-              <p className="concierge-kicker">Upper East Side &middot; Manhattan</p>
+          <div className="section-bg-word hero-ghost" aria-hidden="true">
+            <span className="hg-base">UES</span>
+            <span className="hg-glow">UES</span>
+          </div>
+          <div className="concierge-stage">
+            <div className="concierge-text">
               <h1 className="concierge-headline">
-                Private Bartending &amp; Cocktail Service for Upper East Side Residences.
+                White-glove service on <span className="it">Fifth &amp; Park.</span>
               </h1>
-              <p className="concierge-sub">
+              <p className="concierge-lead">
                 Pre-war co-ops, Fifth Avenue penthouses, and private townhouse receptions. White-glove building compliance, COI issuing, and quiet late-evening close.
               </p>
-              <div className="concierge-actions">
-                <a href="/contact/" className="btn-primary" data-cursor="link">
-                  <span className="btn-label">Inquire for Date</span>
-                  <span className="btn-arr" aria-hidden="true">&rarr;</span>
-                </a>
-              </div>
+              <span className="price">
+                From $650 USD
+                <small>Four tiers &middot; Doorman &amp; co-op compliance &middot; White glove service</small>
+              </span>
+              <a href="/contact/" className="concierge-link">
+                Inquire for date <span aria-hidden="true">&rarr;</span>
+              </a>
             </div>
-            <div className="concierge-hero-right">
-              <figure className="concierge-hero-fig">
-                <img src="/assets/og/manhattan.png" alt="Private mixology Upper East Side" />
-              </figure>
+            <div className="concierge-image">
+              <img
+                src="/assets/photos/geo-manhattan.jpg"
+                alt="Private mixology Upper East Side"
+                loading="eager"
+              />
+              <div className="concierge-image-scrim"></div>
             </div>
           </div>
         </section>
