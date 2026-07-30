@@ -96,15 +96,15 @@ export function Corporate() {
           <span></span>
         </button>
         <div className="va-stage">
-          <p className="va-eyebrow"><EyebrowMark />Ice &amp; Instinct / Corporate</p>
+          <p className="va-eyebrow"><EyebrowMark />Ice &amp; Instinct / Menu</p>
           <ul className="va-list">
-            <li><a href="/"><i>01</i><b>Home</b><em>The opening view</em></a></li>
-            <li><a href="/ice/"><i>02</i><b>ICE</b><em>Event bartenders on call</em></a></li>
-            <li><a href="/instinct/"><i>03</i><b>Instinct</b><em>Private mixology, four tiers</em></a></li>
-            <li><a href="/concierge/"><i>04</i><b>Concierge</b><em>Five enhancements</em></a></li>
-            <li><a href="/my-story/"><i>05</i><b>My Story</b><em>Teimuraz Benidze</em></a></li>
-            <li><a href="/gallery/"><i>06</i><b>The Collection</b><em>Thirteen compositions</em></a></li>
-            <li><a href="/contact/" data-cursor="link"><i>07</i><b>Inquire</b><em>Begin the conversation</em></a></li>
+            <li><a href="/" data-cursor="link"><i>01</i><b>Home</b></a></li>
+            <li><a href="/ice/" data-cursor="link"><i>02</i><b>ICE</b></a></li>
+            <li><a href="/instinct/" data-cursor="link"><i>03</i><b>Instinct</b></a></li>
+            <li><a href="/concierge/" data-cursor="link"><i>04</i><b>Concierge</b></a></li>
+            <li><a href="/my-story/" data-cursor="link"><i>05</i><b>My Story</b></a></li>
+            <li><a href="/gallery/" data-cursor="link"><i>06</i><b>The Collection</b></a></li>
+            <li><a href="/contact/" data-cursor="link"><i>07</i><b>Inquire</b></a></li>
           </ul>
           <div className="va-deep">
             <span className="va-deep-kicker">Explore &middot; Specializations</span>
