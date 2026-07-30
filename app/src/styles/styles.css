@@ -3346,17 +3346,60 @@ img.reveal-zoom.is-in { transform: scale(1); }
 }
 .story-open .story-lede strong { color: var(--c-fg); font-weight: 500; }
 
-@media (max-width: 720px) {
-  /* push the name clear of the menu button / notch */
-  .story-cover-id { top: clamp(5.5rem, 15vh, 8rem); }
-  /* centre the ghost so it bleeds evenly off both edges instead of clipping
-     the leading "A" against the left side */
-  .story-cover-ghost {
-    right: auto; left: 50%; transform: translateX(-50%);
-    bottom: 6vh;
-    font-size: clamp(3rem, 18vw, 6rem);
+@media (max-width: 820px) {
+  /* Mobile story-cover optimization for /instinct/ portrait hero */
+  .story-cover-img {
+    object-position: center 22% !important;
   }
-  .story-cover-ghost.is-lit { transform: translateX(-50%) scale(1.012); }
+  .story-cover-scrim {
+    background:
+      linear-gradient(to bottom, oklch(6% 0 0 / 0.85) 0%, oklch(6% 0 0 / 0.25) 38%, oklch(6% 0 0 / 0.92) 100%),
+      radial-gradient(130% 90% at 50% 100%, oklch(6% 0 0 / 0.8), transparent 70%) !important;
+  }
+  .story-cover-id {
+    top: max(5.2rem, calc(env(safe-area-inset-top) + 4.2rem)) !important;
+    left: 1.4rem !important;
+    right: 1.4rem !important;
+    max-width: calc(100vw - 2.8rem) !important;
+  }
+  .story-cover-name {
+    font-size: clamp(2.4rem, 10vw, 3.8rem) !important;
+    line-height: 1 !important;
+  }
+  .story-cover-role {
+    font-size: clamp(1.2rem, 5vw, 1.7rem) !important;
+    margin-top: 0.4rem !important;
+  }
+  .story-cover-id .btn-ghost,
+  .story-cover-id .btn-primary {
+    margin-top: 1.2rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.6rem !important;
+    padding: 0.75rem 1.4rem !important;
+    background: var(--c-accent) !important;
+    color: #080808 !important;
+    border-radius: 999px !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+  }
+  .story-cover-id .btn-ghost span,
+  .story-cover-id .btn-primary span {
+    color: #080808 !important;
+  }
+  .story-cover-ghost {
+    right: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    bottom: -0.1em !important;
+    font-size: clamp(3.2rem, 13.8vw, 7.5rem) !important;
+    letter-spacing: -0.04em !important;
+  }
+  .story-cover-ghost.is-lit { transform: translateX(-50%) scale(1.012) !important; }
 }
 
 /* =================================================================

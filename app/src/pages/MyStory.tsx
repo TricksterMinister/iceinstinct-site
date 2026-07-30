@@ -119,26 +119,37 @@ export function MyStory() {
       </header>
 
       <main>
-        {/* ================ COVER: full-bleed portrait hero ================ */}
-        <section className="story-cover" id="cover">
-          <img
-            className="story-cover-img"
-            src="/assets/photos/founder-temo.jpg"
-            alt="Teimuraz Benidze, Founder of Ice & Instinct"
-            fetchPriority="high"
-            width="1920"
-            height="1071"
-          />
-          <div className="story-cover-scrim" aria-hidden="true"></div>
-          <div className="story-cover-ghost" aria-hidden="true">
-            <span className="hg-base">ALCHEMIST</span>
-            <span className="hg-glow">ALCHEMIST</span>
+        {/* ================ CHAPTER I OPENING: THE MAN & THE ARTISAN ================ */}
+        <section className="concierge std-hero story-opening-hero" id="cover">
+          <div className="section-bg-word hero-ghost" aria-hidden="true">
+            <span className="hg-base">FOUNDER</span>
+            <span className="hg-glow">FOUNDER</span>
           </div>
-          <div className="story-cover-id">
-            <h1 className="story-cover-name">
-              Teimuraz <span className="it">Benidze.</span>
-            </h1>
-            <p className="story-cover-role">Founder &amp; Flavor Architect</p>
+          <div className="concierge-stage">
+            <div className="concierge-text">
+              <p className="concierge-kicker">01 &middot; THE MAN &amp; THE ARTISAN</p>
+              <h1 className="concierge-headline">
+                Behind the Bar. <span className="it">Ahead of the Craft.</span>
+              </h1>
+              <p className="concierge-lead">
+                Fifteen years spent mastering the exact architecture of luxury cocktail service in New York City. From high-society private galas to bespoke penthouse ateliers, every pour is governed by two quiet principles: absolute clarity and unyielding instinct.
+              </p>
+              <span className="price">
+                Teimuraz Benidze
+                <small>Founder &amp; Master Mixologist &middot; Ice &amp; Instinct Studio</small>
+              </span>
+              <a href="#story-intro" className="concierge-link">
+                Explore the Journey <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+            <div className="concierge-image">
+              <img
+                src="/assets/photos/founder-temo.jpg"
+                alt="Teimuraz Benidze, Founder of Ice &amp; Instinct"
+                loading="eager"
+              />
+              <div className="concierge-image-scrim"></div>
+            </div>
           </div>
         </section>
 

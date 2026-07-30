@@ -17,19 +17,19 @@ type QA = { q: string; a: string };
 const INSTINCT_FAQS: QA[] = [
   {
     q: 'Which tier is right for my event?',
-    a: 'It depends on the mood and the room. Seasonal is for intimate gatherings of up to 20 guests wanting impeccable classics. Signature is a curated solo performance with a set menu. Bespoke is built around your theme, palette, and guest profile. Omakase is a fully improvised no-menu experience — tell us the night and we design it live. Tell us the date and guest count and we will guide you.',
+    a: 'It depends on the mood and the room. Seasonal is for intimate gatherings of up to 20 guests wanting impeccable classics. Signature is a curated solo performance with a set menu. Bespoke is built around your theme, palette, and guest profile. Omakase is a fully improvised no-menu experience &middot; tell us the night and we design it live. Tell us the date and guest count and we will guide you.',
   },
   {
     q: 'Is alcohol included in the price?',
-    a: 'No. The tier price covers craft, service, tools, and bar setup. You may provide spirits and wine yourself, or we purchase on your behalf at supplier cost with full receipts — no markup.',
+    a: 'No. The tier price covers craft, service, tools, and bar setup. You may provide spirits and wine yourself, or we purchase on your behalf at supplier cost with full receipts &middot; no markup.',
   },
   {
     q: 'Who provides the ice, and why does it matter?',
-    a: 'For every INSTINCT booking, specialty ice is sourced and delivered through us — Michelin-level suppliers, billed at cost. We cannot control quality or the integrity of the cocktail if the ice is not ours. This is coordinated through the Concierge and is not optional.',
+    a: 'For every INSTINCT booking, specialty ice is sourced and delivered through us &middot; Michelin-level suppliers, billed at cost. We cannot control quality or the integrity of the cocktail if the ice is not ours. This is coordinated through the Concierge and is not optional.',
   },
   {
     q: 'What does the Concierge coordinate?',
-    a: 'Ice sourcing, curated glassware, bar rental placement, and the rhythm of the evening are all aligned in advance through the Concierge — billed at supplier cost. For Bespoke and Omakase, the Concierge also guides optional enhancements: signature crystal, tableside theatre, or specialty spirits.',
+    a: 'Ice sourcing, curated glassware, bar rental placement, and the rhythm of the evening are all aligned in advance through the Concierge &middot; billed at supplier cost. For Bespoke and Omakase, the Concierge also guides optional enhancements: signature crystal, tableside theatre, or specialty spirits.',
   },
   {
     q: 'Can the menu be customized, and do you offer non-alcoholic options?',
@@ -37,7 +37,7 @@ const INSTINCT_FAQS: QA[] = [
   },
   {
     q: 'How far ahead should I book?',
-    a: 'Two or more weeks is ideal. Shorter timelines are sometimes possible — ask, and we will tell you honestly what we can do.',
+    a: 'Two or more weeks is ideal. Shorter timelines are sometimes possible &middot; ask, and we will tell you honestly what we can do.',
   },
   {
     q: 'How does the deposit and cancellation work?',
@@ -152,7 +152,7 @@ export function Offerings() {
           <div className="story-cover-id">
             <h1 className="story-cover-name">
               Teimuraz <span className="it">Benidze.</span>
-              <span className="sr-only"> — Master Atelier &amp; Private Mixology Tiers</span>
+              <span className="sr-only"> &middot; Master Atelier &amp; Private Mixology Tiers</span>
             </h1>
             <p className="story-cover-role">Founder &amp; Flavor Architect</p>
             <a
@@ -161,7 +161,7 @@ export function Offerings() {
               data-cursor="link"
               style={{ marginTop: '1.75rem', width: 'fit-content' }}
             >
-              <span>Meet the Alchemist</span>
+              <span>Meet Alchemist</span>
               <span className="btn-arr" aria-hidden="true">&rarr;</span>
             </a>
           </div>
