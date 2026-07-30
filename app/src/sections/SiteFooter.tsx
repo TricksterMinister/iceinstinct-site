@@ -102,9 +102,11 @@ export function SiteFooter({ embedded = false }: SiteFooterProps) {
           <a className="lnk" href="/responsible-service/">Responsible Service</a>
         </nav>
         <nav className="oma-close-nav oma-close-areas" aria-label="Service areas">
-          <a className="lnk" href="/new-jersey/">New Jersey</a>
           <a className="lnk" href="/manhattan/">Manhattan</a>
+          <a className="lnk" href="/tribeca/">Tribeca &amp; SoHo</a>
+          <a className="lnk" href="/upper-east-side/">Upper East Side</a>
           <a className="lnk" href="/hamptons/">The Hamptons</a>
+          <a className="lnk" href="/new-jersey/">New Jersey</a>
           <a className="lnk" href="/westchester-greenwich/">Westchester &amp; Greenwich</a>
           <a className="lnk" href="/work-with-us/">Join the Bench</a>
         </nav>

@@ -36,8 +36,15 @@ export function UpperEastSidePage() {
             <li><a href="/concierge/"><i>04</i><b>Concierge</b><em>Five enhancements</em></a></li>
             <li><a href="/my-story/"><i>05</i><b>My Story</b><em>Teimuraz Benidze</em></a></li>
             <li><a href="/gallery/"><i>06</i><b>The Collection</b><em>Thirteen compositions</em></a></li>
-            <li><a href="/contact/"><i>07</i><b>Inquire</b><em>Begin the conversation</em></a></li>
+            <li><a href="/contact/" data-cursor="link"><i>07</i><b>Inquire</b><em>Begin the conversation</em></a></li>
           </ul>
+          <div className="va-deep">
+            <a href="/weddings/" data-cursor="link">Weddings</a>
+            <a href="/corporate/" data-cursor="link">Corporate</a>
+            <a href="/gift/" data-cursor="link">Gift an Evening</a>
+            <a href="/journal/" data-cursor="link">Journal</a>
+            <a href="/press/" data-cursor="link">Press</a>
+          </div>
         </div>
       </div>
 

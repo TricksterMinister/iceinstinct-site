@@ -155,6 +155,13 @@ export function ConciergePage() {
               </a>
             </li>
           </ul>
+          <div className="va-deep">
+            <a href="/weddings/">Weddings</a>
+            <a href="/corporate/">Corporate</a>
+            <a href="/gift/">Gift an Evening</a>
+            <a href="/journal/">Journal</a>
+            <a href="/press/">Press</a>
+          </div>
           <footer className="va-foot">
             <span>New York Metropolitan Area</span>
             <span>EST. 2024</span>

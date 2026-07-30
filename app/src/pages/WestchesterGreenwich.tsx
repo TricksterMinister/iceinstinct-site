@@ -99,12 +99,20 @@ export function WestchesterGreenwich() {
           <p className="va-eyebrow"><EyebrowMark />Ice &amp; Instinct / Westchester &amp; Greenwich</p>
           <ul className="va-list">
             <li><a href="/"><i>01</i><b>Home</b><em>The opening view</em></a></li>
-            <li><a href="/instinct/"><i>02</i><b>Instinct</b><em>Private mixology, four tiers</em></a></li>
-            <li><a href="/concierge/"><i>03</i><b>Concierge</b><em>Five enhancements</em></a></li>
-            <li><a href="/my-story/"><i>04</i><b>My Story</b><em>Teimuraz Benidze</em></a></li>
-            <li><a href="/gallery/"><i>05</i><b>The Collection</b><em>Thirteen compositions</em></a></li>
-            <li><a href="/contact/"><i>06</i><b>Inquire</b><em>Begin the conversation</em></a></li>
+            <li><a href="/ice/"><i>02</i><b>ICE</b><em>Event bartenders on call</em></a></li>
+            <li><a href="/instinct/"><i>03</i><b>Instinct</b><em>Private mixology, four tiers</em></a></li>
+            <li><a href="/concierge/"><i>04</i><b>Concierge</b><em>Five enhancements</em></a></li>
+            <li><a href="/my-story/"><i>05</i><b>My Story</b><em>Teimuraz Benidze</em></a></li>
+            <li><a href="/gallery/"><i>06</i><b>The Collection</b><em>Thirteen compositions</em></a></li>
+            <li><a href="/contact/"><i>07</i><b>Inquire</b><em>Begin the conversation</em></a></li>
           </ul>
+          <div className="va-deep">
+            <a href="/weddings/">Weddings</a>
+            <a href="/corporate/">Corporate</a>
+            <a href="/gift/">Gift an Evening</a>
+            <a href="/journal/">Journal</a>
+            <a href="/press/">Press</a>
+          </div>
           <footer className="va-foot">
             <span>New York Metropolitan Area / By Appointment</span>
             <span>EST. 2024</span>

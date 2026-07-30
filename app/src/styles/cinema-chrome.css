@@ -173,6 +173,23 @@ body.cinema-chrome::after {
   letter-spacing: 0.01em;
   text-align: right; white-space: nowrap;
 }
+.va-deep {
+  flex: none;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 0.5rem 1.2rem;
+  padding-top: clamp(0.6rem, 1.2vh, 1rem);
+  border-top: 1px solid var(--c-rule, oklch(22% 0 0));
+  margin-top: clamp(0.4rem, 0.8vh, 0.8rem);
+}
+.va-deep a {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: clamp(0.65rem, 0.85vw, 0.78rem);
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: oklch(68% 0 0); text-decoration: none;
+  transition: color 0.3s;
+}
+.va-deep a:hover { color: var(--c-accent); }
+
 .va-foot {
   flex: none;
   display: flex; justify-content: space-between;
