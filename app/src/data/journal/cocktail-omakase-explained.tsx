@@ -122,7 +122,7 @@ export const cocktailOmakaseExplained: JournalArticleContent = {
           allergies, spirits someone will not touch, a guest who wants the{' '}
           zero-proof track all evening. Inside those lines, the composition is surrendered. Hosts
           who need to curate every glass are better served by{' '}
-          <a href="/offerings/bespoke/">Bespoke Design &amp; Artistry</a>, where the menu is
+          <a href="/instinct/bespoke/">Bespoke Design &amp; Artistry</a>, where the menu is
           designed with you in advance. Omakase is for the host who has done that already and
           wants to see what happens without the net.
         </>,
@@ -138,7 +138,7 @@ export const cocktailOmakaseExplained: JournalArticleContent = {
       ),
       paras: [
         <>
-          <a href="/offerings/omakase/">Omakase Improvisation</a> is the top tier of our work,
+          <a href="/instinct/omakase/">Omakase Improvisation</a> is the top tier of our work,
           from $3,000, for up to 25 guests - a hard limit, because spontaneous creation does not
           scale past the point where the mixologist can hold every palate in the room in mind. A
           flat $500 deposit reserves the date: fully refundable until 14 days before the evening,
@@ -146,7 +146,7 @@ export const cocktailOmakaseExplained: JournalArticleContent = {
           on your behalf at supplier cost, documented.
         </>,
         <>
-          For scale: our tiers begin at $650 for <a href="/offerings/foundation/">The
+          For scale: our tiers begin at $650 for <a href="/instinct/foundation/">The
           Foundation</a> and step through $900 and $1,800 before omakase. The format also travels
           - it has closed <a href="/corporate/">corporate evenings</a> after the dinner plates
           are cleared, and it makes a singular second act after a{' '}

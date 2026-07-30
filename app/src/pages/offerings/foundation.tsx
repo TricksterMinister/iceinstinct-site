@@ -158,8 +158,8 @@ export const foundationContent: OfferingContent = {
       'The Foundation is the most intimate way into the Ice & Instinct standard. It is not a reduction of quality - it is a focused application of our principles.',
       <>
         For those seeking deeper customization, signature cocktail development, or the personal involvement of the
-        Master Mixologist, we invite you to explore <a href="/offerings/simplicity/">Simplicity</a>,{' '}
-        <a href="/offerings/bespoke/">Bespoke</a>, or <a href="/offerings/omakase/">Omakase</a>.
+        Master Mixologist, we invite you to explore <a href="/instinct/simplicity/">Simplicity</a>,{' '}
+        <a href="/instinct/bespoke/">Bespoke</a>, or <a href="/instinct/omakase/">Omakase</a>.
       </>,
       'Foundation is where many first experience the standard - and return for the evenings that follow.',
     ],

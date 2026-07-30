@@ -17,10 +17,10 @@ import { EyebrowMark, TriggerMark } from '../app/EyebrowMark';
 
 /** The four tiers, one line each, linking to their pages. Live facts only. */
 const TIERS = [
-  { label: 'A', name: 'The Foundation', meta: 'Up to 15 guests · 3 hours', price: 'From $650', href: '/offerings/foundation/' },
-  { label: 'B', name: 'Perfection in Simplicity', meta: 'Up to 12 guests · 4 hours', price: 'From $900', href: '/offerings/simplicity/' },
-  { label: 'C', name: 'Bespoke Design & Artistry', meta: 'Up to 30 guests · 4 hours', price: 'From $1,800', href: '/offerings/bespoke/' },
-  { label: 'D', name: 'Omakase Improvisation', meta: 'Open-ended', price: 'From $3,000', href: '/offerings/omakase/' },
+  { label: 'A', name: 'The Foundation', meta: 'Up to 15 guests · 3 hours', price: 'From $650', href: '/instinct/foundation/' },
+  { label: 'B', name: 'Perfection in Simplicity', meta: 'Up to 12 guests · 4 hours', price: 'From $900', href: '/instinct/simplicity/' },
+  { label: 'C', name: 'Bespoke Design & Artistry', meta: 'Up to 30 guests · 4 hours', price: 'From $1,800', href: '/instinct/bespoke/' },
+  { label: 'D', name: 'Omakase Improvisation', meta: 'Open-ended', price: 'From $3,000', href: '/instinct/omakase/' },
 ];
 
 /** Local FAQ. Mirrored 1:1 by the FAQPage JSON-LD in /new-jersey/index.html. */

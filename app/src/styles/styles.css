@@ -1927,8 +1927,19 @@ img.reveal-zoom.is-in { transform: scale(1); }
   grid-template-columns: repeat(3, 1fr);
   gap: 6px;
 }
-@media (max-width: 880px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 520px) { .gallery-grid { grid-template-columns: 1fr; } }
+.gallery-grid > *:last-child:nth-child(3n + 1) {
+  grid-column: 1 / -1;
+  aspect-ratio: 21 / 9;
+}
+@media (max-width: 880px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid > *:last-child:nth-child(3n + 1) { grid-column: auto; aspect-ratio: 1 / 1.2; }
+  .gallery-grid > *:last-child:nth-child(2n + 1) { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+}
+@media (max-width: 520px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-grid > *:last-child { grid-column: auto; aspect-ratio: 1 / 1.2; }
+}
 
 .gallery-tile {
   position: relative;

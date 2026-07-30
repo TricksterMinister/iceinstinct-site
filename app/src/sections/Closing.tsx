@@ -36,7 +36,7 @@ const DEFAULTS = {
   primaryLabel: 'Request a private quote',
   primaryHref: '/contact/',
   secondaryLabel: 'Explore the offerings',
-  secondaryHref: '/offerings/',
+  secondaryHref: '/instinct/',
 };
 
 export function Closing(props: ClosingProps = {}) {

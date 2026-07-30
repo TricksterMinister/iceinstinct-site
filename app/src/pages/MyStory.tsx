@@ -504,9 +504,9 @@ export function MyStory() {
                   </summary>
                   <div className="faq-a">
                     <p>
-                      <a href="/offerings/foundation/">Foundation</a> hosts up to 15 guests.{' '}
-                      <a href="/offerings/simplicity/">Simplicity</a> up to 12. <a href="/offerings/bespoke/">Bespoke</a>{' '}
-                      up to 30. <a href="/offerings/omakase/">Omakase</a> up to 25. Larger events can be arranged with
+                      <a href="/instinct/foundation/">Foundation</a> hosts up to 15 guests.{' '}
+                      <a href="/instinct/simplicity/">Simplicity</a> up to 12. <a href="/instinct/bespoke/">Bespoke</a>{' '}
+                      up to 30. <a href="/instinct/omakase/">Omakase</a> up to 25. Larger events can be arranged with
                       additional bar staff through custom consultation.
                     </p>
                   </div>
