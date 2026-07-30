@@ -1,6 +1,5 @@
 import { LenisProvider } from './app/LenisProvider';
 import { Cursor } from './app/Cursor';
-import { Pager } from './app/Pager';
 import { VanishHeader } from './app/VanishHeader';
 import { useGsap } from './app/useGsap';
 import { initHomeGsap } from './lib/gsapHome';
@@ -26,7 +25,6 @@ function HomeContent() {
     <>
       <Cursor />
       <VanishHeader />
-      <Pager />
       <ScrollHero />
       <Manifesto />
       {/* The portal - one spectacular gateway to the two floors: ICE = event
