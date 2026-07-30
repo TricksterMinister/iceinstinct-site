@@ -331,6 +331,56 @@
   gap: 1.5rem;
 }
 
+.pp-section .btn-primary {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: clamp(0.74rem, 0.7rem + 0.15vmin, 0.84rem);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  padding: 1.15rem 2.2rem;
+  color: var(--c-accent, oklch(80% 0.08 75));
+  background: transparent;
+  border: 1px solid var(--c-accent, oklch(80% 0.08 75));
+  border-radius: 0;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.45s ease, border-color 0.45s ease;
+}
+
+.pp-section .btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--c-accent, oklch(80% 0.08 75));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pp-section .btn-primary:hover {
+  color: oklch(7% 0 0);
+  border-color: var(--c-accent, oklch(80% 0.08 75));
+}
+
+.pp-section .btn-primary:hover::before {
+  transform: scaleX(1);
+}
+
+.pp-section .btn-primary .btn-arr {
+  display: inline-block;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pp-section .btn-primary:hover .btn-arr {
+  transform: translateX(6px);
+}
+
 /* Interactive Preview Card on Right */
 .pp-card-preview {
   background: oklch(10% 0 0);

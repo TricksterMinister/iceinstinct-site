@@ -1,0 +1,1 @@
+.gallery-tile-desc{font-family:var(--font-italic);font-style:italic;font-weight:350;font-size:.82rem;line-height:1.55;color:var(--c-fg-soft);text-align:center;max-width:30ch;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:5;line-clamp:5;overflow:hidden}@media(max-height:700px){.gallery-tile-desc{-webkit-line-clamp:3;line-clamp:3}}

@@ -4,6 +4,8 @@ import type { Selections } from '../features/Profiler/profilerData';
 import { setCocktail } from '../lib/leadContext';
 import { track } from '../lib/track';
 import markUrl from '../assets/ii-mark.png';
+import '../styles/offering.css';
+import '../styles/profiler.css';
 
 export function PalateProfilerSection() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,14 +24,14 @@ export function PalateProfilerSection() {
     <>
       <section className="pp-section std-hero" id="profiler">
         <div className="section-bg-word top right" aria-hidden="true">PALATE</div>
-        
+
         <div className="pp-wrap reveal">
           <div className="pp-grid">
             <div className="pp-left">
               <div className="pp-mark-badge" aria-hidden="true">
                 <img src={markUrl} alt="" width={48} height={48} draggable={false} />
               </div>
-              <span className="pp-eyebrow">INTERACTIVE PALATE PROFILER &middot; IN REAL TIME</span>
+              <span className="pp-eyebrow">06 &middot; INTERACTIVE PALATE PROFILER</span>
               <h2 className="pp-title">
                 Design the flavor of <span className="it">your evening.</span>
               </h2>
@@ -60,15 +62,23 @@ export function PalateProfilerSection() {
                   setIsOpen(true);
                 }}
                 data-cursor="link"
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setIsOpen(true);
+                  }
+                }}
               >
                 <div className="pp-preview-header">
                   <span className="pp-ph-dot"></span>
-                  <span className="pp-ph-title">Taste Profiler &middot; 3 Steps</span>
+                  <span className="pp-ph-title">Taste Atelier &middot; 3 Steps</span>
                 </div>
-                
+
                 <div className="pp-preview-body">
                   <span className="pp-preview-sub">Select notes &middot; Reveal composition</span>
-                  
+
                   <div className="pp-preview-tags">
                     <span className="pp-tag active">01 &middot; Identity</span>
                     <span className="pp-tag">02 &middot; Balance</span>
