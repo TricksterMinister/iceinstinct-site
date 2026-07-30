@@ -151,8 +151,7 @@ export function Offerings() {
           </div>
           <div className="story-cover-id">
             <h1 className="story-cover-name">
-              Teimuraz <span className="it">Benidze.</span>
-              <span className="sr-only"> &middot; Master Atelier &amp; Private Mixology Tiers</span>
+              <span className="it">Private Mixology</span> Tiers.
             </h1>
             <p className="story-cover-role">Founder &amp; Flavor Architect</p>
             <a
