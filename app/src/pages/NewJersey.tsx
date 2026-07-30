@@ -107,11 +107,14 @@ export function NewJersey() {
             <li><a href="/contact/"><i>07</i><b>Inquire</b><em>Begin the conversation</em></a></li>
           </ul>
           <div className="va-deep">
-            <a href="/weddings/">Weddings</a>
-            <a href="/corporate/">Corporate</a>
-            <a href="/gift/">Gift an Evening</a>
-            <a href="/journal/">Journal</a>
-            <a href="/press/">Press</a>
+            <span className="va-deep-kicker">Explore &middot; Specializations</span>
+            <div className="va-deep-links">
+              <a href="/weddings/">Weddings</a>
+              <a href="/corporate/">Corporate</a>
+              <a href="/gift/">Gift an Evening</a>
+              <a href="/journal/">Journal</a>
+              <a href="/press/">Press</a>
+            </div>
           </div>
           <footer className="va-foot">
             <span>New York Metropolitan Area / By Appointment</span>

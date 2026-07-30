@@ -175,20 +175,36 @@ body.cinema-chrome::after {
 }
 .va-deep {
   flex: none;
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
-  gap: 0.5rem 1.2rem;
-  padding-top: clamp(0.6rem, 1.2vh, 1rem);
+  display: flex; flex-direction: column; gap: clamp(0.4rem, 0.8vh, 0.7rem);
+  padding: clamp(0.6rem, 1.4vh, 1.2rem) 0;
   border-top: 1px solid var(--c-rule, oklch(22% 0 0));
   margin-top: clamp(0.4rem, 0.8vh, 0.8rem);
 }
+.va-deep-kicker {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: clamp(0.58rem, 0.72vw, 0.68rem);
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--c-fg-faint, oklch(48% 0 0));
+}
+.va-deep-links {
+  display: flex; flex-wrap: wrap; align-items: center; gap: clamp(0.4rem, 0.8vw, 0.8rem);
+}
 .va-deep a {
   font-family: var(--font-mono, "JetBrains Mono", monospace);
-  font-size: clamp(0.65rem, 0.85vw, 0.78rem);
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: oklch(68% 0 0); text-decoration: none;
-  transition: color 0.3s;
+  font-size: clamp(0.82rem, 1.05vw, 1rem);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--c-fg, oklch(90% 0 0)); text-decoration: none;
+  padding: clamp(0.35rem, 0.7vh, 0.5rem) clamp(0.85rem, 1.2vw, 1.2rem);
+  border: 1px solid oklch(30% 0 0); border-radius: 999px;
+  background: oklch(10% 0 0);
+  transition: border-color 0.35s, background 0.35s, color 0.35s, transform 0.35s;
 }
-.va-deep a:hover { color: var(--c-accent); }
+.va-deep a:hover {
+  border-color: var(--c-accent);
+  background: oklch(16% 0.03 75 / 0.4);
+  color: var(--c-accent);
+  transform: translateY(-1px);
+}
 
 .va-foot {
   flex: none;
