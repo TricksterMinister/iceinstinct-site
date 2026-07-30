@@ -43,6 +43,7 @@ export function Hero() {
           <span className="row">
             <span className="word"><span className="ink it">Instinct.</span></span>
           </span>
+          <span className="sr-only"> — Private Mixology Studio &amp; Event Bartenders in NYC, New Jersey &amp; The Hamptons</span>
         </h1>
       </div>
 

@@ -82,6 +82,12 @@
 # Custom 404
 ErrorDocument 404 /404.html
 
-# Legacy URLs still indexed by Bing/DDG - reclaim their equity
+# Legacy & secondary URLs — 301 redirect to canonical routes to consolidate SEO authority
 Redirect 301 /the-architect https://www.iceinstinct.com/my-story/
-Redirect 301 /httpswwwiceinstinctcomofferings https://www.iceinstinct.com/offerings/
+Redirect 301 /httpswwwiceinstinctcomofferings https://www.iceinstinct.com/instinct/
+Redirect 301 /offerings/foundation/ https://www.iceinstinct.com/instinct/foundation/
+Redirect 301 /offerings/simplicity/ https://www.iceinstinct.com/instinct/simplicity/
+Redirect 301 /offerings/bespoke/ https://www.iceinstinct.com/instinct/bespoke/
+Redirect 301 /offerings/omakase/ https://www.iceinstinct.com/instinct/omakase/
+Redirect 301 /offerings/ https://www.iceinstinct.com/instinct/
+Redirect 301 /events/ https://www.iceinstinct.com/ice/
