@@ -79,80 +79,107 @@ body.cinema-chrome::after {
 .va-overlay {
   position: fixed; inset: 0; z-index: 110;
   background: oklch(5% 0 0);
-  display: flex; flex-direction: column; justify-content: center;
-  padding: clamp(3rem, 8vh, 6rem) clamp(2rem, 6vw, 6rem);
+  display: flex; flex-direction: column;
+  padding: clamp(1.5rem, 4vh, 3rem) clamp(2rem, 6vw, 5rem) clamp(1.5rem, 3vh, 2.5rem);
+  overflow: hidden;
   opacity: 0; visibility: hidden;
-  transition: opacity 0.6s var(--ease-out-expo), visibility 0.6s;
+  transition: opacity 0.55s var(--ease-out-expo), visibility 0.55s;
 }
 .va-overlay.is-open { opacity: 1; visibility: visible; }
 
 .va-close {
-  position: absolute; top: 1.6rem; right: 1.6rem;
-  width: 64px; height: 64px;
-  background: transparent; border: 1px solid var(--c-accent); border-radius: 50%;
+  position: absolute; top: 1.4rem; right: 1.4rem;
+  width: 52px; height: 52px;
+  background: transparent; border: 1px solid oklch(30% 0 0); border-radius: 50%;
   display: grid; place-items: center; padding: 0;
-  transition: transform 0.5s var(--ease-out-expo), background 0.4s;
+  transition: transform 0.5s var(--ease-out-expo), border-color 0.3s, background 0.4s;
 }
-.va-close:hover { transform: rotate(90deg); background: rgba(255,255,255,0.06); }
-.va-close span { position: absolute; width: 22px; height: 1px; background: var(--c-accent); }
+.va-close:hover { transform: rotate(90deg); border-color: var(--c-accent); background: oklch(12% 0 0); }
+.va-close span { position: absolute; width: 18px; height: 1px; background: var(--c-fg-mute, oklch(58% 0 0)); }
 .va-close span:nth-child(1) { transform: rotate(45deg); }
 .va-close span:nth-child(2) { transform: rotate(-45deg); }
 
+/* Stage stretches to fill the whole overlay height */
 .va-stage {
-  max-width: 1300px; margin: 0 auto; width: 100%;
-  display: flex; flex-direction: column; gap: clamp(2rem, 5vh, 3.5rem);
+  max-width: 1240px; margin: 0 auto; width: 100%;
+  flex: 1;
+  display: flex; flex-direction: column;
+  gap: 0;
+  min-height: 0;
 }
 .va-eyebrow {
   font-family: var(--font-mono, "JetBrains Mono", monospace);
-  font-size: 0.78rem; letter-spacing: 0.32em;
+  font-size: clamp(0.6rem, 0.8dvh, 0.75rem); letter-spacing: 0.32em;
   text-transform: uppercase; color: var(--c-fg-faint, oklch(48% 0 0));
+  display: inline-flex; align-items: center; gap: 0.7rem;
+  flex: none; padding-bottom: clamp(0.6rem, 1.5vh, 1.2rem);
+  border-bottom: 1px solid var(--c-rule, oklch(22% 0 0));
 }
 
-.va-list { list-style: none; display: flex; flex-direction: column; gap: 0; margin: 0; padding: 0; }
-.va-list li { border-top: 1px solid var(--c-rule-dim); }
-.va-list li:last-child { border-bottom: 1px solid var(--c-rule-dim); }
+.va-list {
+  list-style: none;
+  flex: 1; min-height: 0;
+  display: flex; flex-direction: column;
+  margin: 0; padding: 0;
+}
+.va-list li {
+  flex: 1;
+  display: flex; align-items: center;
+  border-top: 1px solid var(--c-rule, oklch(22% 0 0));
+  min-height: 0;
+}
+.va-list li:last-child { border-bottom: 1px solid var(--c-rule, oklch(22% 0 0)); }
+
 .va-list a {
-  display: grid; grid-template-columns: 5rem 1fr auto; align-items: baseline;
-  gap: clamp(1.5rem, 4vw, 4rem);
-  padding: clamp(1rem, 2.5vh, 1.6rem) 0;
+  display: grid;
+  grid-template-columns: clamp(2rem, 4vw, 4rem) 1fr auto;
+  align-items: center;
+  gap: 0 clamp(0.8rem, 2.5vw, 2rem);
+  width: 100%; padding: 0;
   position: relative;
   color: inherit; text-decoration: none;
-  transition: padding 0.5s var(--ease-out-expo);
+  transition: padding-left 0.45s var(--ease-out-expo);
 }
 .va-list a::before {
   content: ""; position: absolute; inset: 0;
   background: var(--c-accent); transform: scaleX(0); transform-origin: left;
-  transition: transform 0.6s var(--ease-out-expo);
-  z-index: -1; opacity: 0.08;
+  transition: transform 0.55s var(--ease-out-expo);
+  z-index: -1; opacity: 0.06;
 }
-.va-list a:hover { padding-left: clamp(1rem, 2vw, 2rem); }
+.va-list a:hover { padding-left: clamp(0.5rem, 1.2vw, 1.2rem); }
 .va-list a:hover::before { transform: scaleX(1); }
+
 .va-list a i {
   font-family: var(--font-mono, "JetBrains Mono", monospace);
   font-style: normal;
-  font-size: 0.92rem; letter-spacing: 0.2em; color: var(--c-fg-faint, oklch(48% 0 0));
+  font-size: clamp(0.58rem, 0.9dvh, 0.72rem);
+  letter-spacing: 0.16em; color: var(--c-fg-faint, oklch(48% 0 0));
 }
 .va-list a b {
   font-family: var(--font-display, "Geist", sans-serif); font-weight: 700;
-  font-size: clamp(2.4rem, 7vmin, 5rem);
-  letter-spacing: -0.03em;
+  font-size: clamp(1.1rem, 6.5dvh / 7, 3rem);
+  letter-spacing: -0.02em; line-height: 1;
   color: var(--c-fg);
-  transition: color 0.4s;
+  transition: color 0.35s;
 }
 .va-list a:hover b { color: var(--c-accent); }
 .va-list a em {
   font-family: var(--font-italic, "Fraunces", serif);
   font-style: italic; font-weight: 350;
-  font-size: 1.3rem; color: var(--c-accent);
-  text-align: right;
+  font-size: clamp(0.65rem, 0.85dvh, 0.85rem);
+  color: oklch(58% 0.08 75);
+  letter-spacing: 0.01em;
+  text-align: right; white-space: nowrap;
 }
 .va-foot {
+  flex: none;
   display: flex; justify-content: space-between;
   font-family: var(--font-mono, "JetBrains Mono", monospace);
-  font-size: 0.78rem;
-  letter-spacing: 0.28em; text-transform: uppercase; color: var(--c-fg-faint, oklch(48% 0 0));
-  padding-top: clamp(1rem, 3vh, 2rem);
-  border-top: 1px solid var(--c-rule-dim);
+  font-size: clamp(0.58rem, 0.75dvh, 0.72rem);
+  letter-spacing: 0.24em; text-transform: uppercase; color: var(--c-fg-faint, oklch(48% 0 0));
+  padding-top: clamp(0.5rem, 1.2vh, 1rem);
+  border-top: 1px solid var(--c-rule, oklch(22% 0 0));
+  margin-top: clamp(0.4rem, 0.8vh, 0.8rem);
 }
 
 /* GHOST WORD BACKDROP for deep pages */
