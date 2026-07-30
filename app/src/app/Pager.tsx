@@ -17,6 +17,7 @@ const pagerMap: Record<string, string> = {
   duality: '.duality',
   founder: '.founder',
   gallery: '.gallery',
+  profiler: '#profiler',
   concierge: '.concierge',
   closing: '.closing-segment',
 };
@@ -27,8 +28,9 @@ const dotDefs: { key: string; label: string }[] = [
   { key: 'duality', label: '03' },
   { key: 'founder', label: '04' },
   { key: 'gallery', label: '05' },
-  { key: 'concierge', label: '06' },
-  { key: 'closing', label: '07' },
+  { key: 'profiler', label: '06' },
+  { key: 'concierge', label: '07' },
+  { key: 'closing', label: '08' },
 ];
 
 export function Pager() {
