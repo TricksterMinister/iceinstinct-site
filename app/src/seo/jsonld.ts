@@ -27,22 +27,6 @@ export function organization(): object {
       latitude: 40.7128,
       longitude: -74.0060,
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "5.0",
-      reviewCount: "28",
-      bestRating: "5",
-      worstRating: "1",
-    },
-    review: [
-      {
-        "@type": "Review",
-        author: { "@type": "Person", name: "Private Host, Manhattan Penthouse" },
-        datePublished: "2026-05-14",
-        reviewBody: "An extraordinary cocktail omakase experience. Teimuraz created drinks on the spot tailored to each guest with precision and theatre.",
-        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-      },
-    ],
     founder: { "@id": `${SITE}/#founder` },
     contactPoint: {
       "@type": "ContactPoint",
