@@ -248,6 +248,120 @@
   color: var(--c-accent);
   line-height: 1;
 }
+
+/* ================================================
+   PALATE PROFILER HOMEPAGE SECTION (.pp-section)
+   ================================================ */
+.pp-section {
+  position: relative;
+  background: var(--c-bg, oklch(7% 0 0));
+  border-top: 1px solid var(--c-rule, oklch(22% 0 0));
+  padding: clamp(4rem, 10vh, 7rem) clamp(1.5rem, 6vw, 6rem);
+  overflow: hidden;
+}
+.pp-wrap {
+  max-width: 1280px; margin: 0 auto; width: 100%;
+}
+.pp-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+.pp-left {
+  display: flex; flex-direction: column; align-items: flex-start;
+}
+.pp-mark-badge {
+  margin-bottom: clamp(1rem, 2vh, 1.6rem);
+  opacity: 0.85;
+}
+.pp-eyebrow {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: clamp(0.66rem, 0.8vw, 0.78rem);
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--c-fg-faint, oklch(48% 0 0));
+  margin-bottom: clamp(0.8rem, 1.8vh, 1.2rem);
+}
+.pp-title {
+  font-family: var(--font-display, "Geist", sans-serif);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  line-height: 1.05; letter-spacing: -0.03em;
+  color: var(--c-fg); margin: 0 0 clamp(1rem, 2vh, 1.5rem);
+}
+.pp-title .it {
+  font-family: var(--font-italic, "Fraunces", serif);
+  font-style: italic; font-weight: 350;
+  color: var(--c-accent);
+}
+.pp-lead {
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  line-height: 1.65; color: var(--c-fg-soft, oklch(72% 0 0));
+  margin: 0 0 clamp(1.6rem, 3.5vh, 2.4rem); max-width: 54ch;
+}
+.pp-cta-btn {
+  cursor: pointer; border: 0;
+}
+
+/* Interactive Preview Card on Right */
+.pp-card-preview {
+  background: oklch(10% 0 0);
+  border: 1px solid oklch(24% 0 0);
+  border-radius: 12px;
+  padding: clamp(1.6rem, 2.5vw, 2.2rem);
+  display: flex; flex-direction: column; gap: 1.2rem;
+  cursor: pointer;
+  transition: border-color 0.4s, transform 0.4s, box-shadow 0.4s;
+  position: relative;
+}
+.pp-card-preview:hover {
+  border-color: var(--c-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+}
+.pp-preview-header {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--c-fg-faint, oklch(52% 0 0));
+  padding-bottom: 0.8rem; border-bottom: 1px solid oklch(18% 0 0);
+}
+.pp-ph-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--c-accent);
+  box-shadow: 0 0 10px var(--c-accent);
+}
+.pp-preview-tags {
+  display: flex; gap: 0.6rem;
+}
+.pp-tag {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: oklch(50% 0 0); padding: 0.3rem 0.6rem; border-radius: 4px;
+  background: oklch(14% 0 0);
+}
+.pp-tag.active {
+  color: var(--c-accent); background: oklch(18% 0.03 75 / 0.4);
+}
+.pp-preview-palates {
+  display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.4rem;
+}
+.pp-p-pill {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.78rem; letter-spacing: 0.1em;
+  color: var(--c-fg); padding: 0.45rem 0.85rem;
+  border: 1px solid oklch(28% 0 0); border-radius: 999px;
+  background: oklch(13% 0 0);
+}
+.pp-preview-hint {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--c-accent); margin: 0; text-align: right; margin-top: 0.4rem;
+}
+
+@media (max-width: 900px) {
+  .pp-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}
 .proof-list.is-single .proof-stars { justify-content: center; }
 .proof-quote p {
   font-family: var(--sec-italic);

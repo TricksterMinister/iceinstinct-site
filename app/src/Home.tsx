@@ -11,6 +11,7 @@ import { Tiers } from './sections/Tiers';
 import { Concierge } from './sections/Concierge';
 import { Founder } from './sections/Founder';
 import { GalleryTeaser } from './sections/GalleryTeaser';
+import { PalateProfilerSection } from './sections/PalateProfilerSection';
 import { Faq } from './sections/Faq';
 import { Proof } from './sections/Proof';
 import { Closing } from './sections/Closing';
@@ -33,6 +34,7 @@ function HomeContent() {
       <Duality />
       <Founder />
       <GalleryTeaser />
+      <PalateProfilerSection />
       <Concierge />
       <Faq />
       {/* Real client testimonials. Renders nothing until a real entry exists. */}
