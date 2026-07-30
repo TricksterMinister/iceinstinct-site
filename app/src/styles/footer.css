@@ -470,6 +470,9 @@
 .closing-segment.ww-close .closing-lead, .closing-segment.inquire-close .closing-lead { font-size: clamp(0.88rem, 1vw, 0.98rem) !important; line-height: 1.4 !important; }
 .closing-frame .inquire-form { gap: clamp(0.28rem, 0.7vh, 0.5rem) !important; margin-top: clamp(0.15rem, 0.5vh, 0.4rem) !important; }
 .closing-frame .inquire-field { gap: 0.2rem !important; }
-.closing-frame .inquire-field input, .closing-frame .inquire-field select, .closing-frame .inquire-field textarea { padding: clamp(0.32rem, 0.68vh, 0.48rem) clamp(0.8rem, 1.5vw, 1rem) !important; }
-.closing-frame .inquire-field textarea { min-height: 1.25em !important; }
+.closing-frame .inquire-field input, .closing-frame .inquire-field select, .closing-frame .inquire-field textarea {
+  padding: clamp(0.5rem, 1vh, 0.75rem) clamp(0.8rem, 1.5vw, 1rem) !important;
+  font-size: 16px !important;
+}
+.closing-frame .inquire-field textarea { min-height: 2.2em !important; }
 .closing-frame .inquire-deposit, .closing-frame .ww-questions { font-size: 0.6rem !important; line-height: 1.3 !important; margin: 0 !important; }
