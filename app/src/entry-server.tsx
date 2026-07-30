@@ -34,6 +34,11 @@ import { JournalArticle } from './pages/JournalArticle';
 import { cocktailOmakaseExplained } from './data/journal/cocktail-omakase-explained';
 import { clearIceWhyItMatters } from './data/journal/clear-ice-why-it-matters';
 import { cigarAndCocktailPairing } from './data/journal/cigar-and-cocktail-pairing';
+import { articleManhattanDoormanCoi } from './data/journal/manhattan-doorman-coi-guide';
+import { articleCateringVsAtelier } from './data/journal/cocktail-catering-vs-mixology-atelier';
+import { articleHamptonsEstateLogistics } from './data/journal/hamptons-estate-cocktail-logistics';
+import { TribecaPage } from './pages/Tribeca';
+import { UpperEastSidePage } from './pages/UpperEastSide';
 import { GalleryPage } from './pages/GalleryPage';
 import { Contact } from './pages/Contact';
 import { Privacy } from './pages/Privacy';
@@ -71,11 +76,16 @@ const ROUTES: Record<string, () => ReactElement> = {
   '/manhattan/': () => <Manhattan />,
   '/hamptons/': () => <Hamptons />,
   '/westchester-greenwich/': () => <WestchesterGreenwich />,
+  '/tribeca/': () => <TribecaPage />,
+  '/upper-east-side/': () => <UpperEastSidePage />,
   '/journal/': () => <Journal />,
   '/press/': () => <Press />,
   '/journal/cocktail-omakase-explained/': () => <JournalArticle article={cocktailOmakaseExplained} />,
   '/journal/clear-ice-why-it-matters/': () => <JournalArticle article={clearIceWhyItMatters} />,
   '/journal/cigar-and-cocktail-pairing/': () => <JournalArticle article={cigarAndCocktailPairing} />,
+  '/journal/manhattan-doorman-coi-guide/': () => <JournalArticle article={articleManhattanDoormanCoi} />,
+  '/journal/cocktail-catering-vs-mixology-atelier/': () => <JournalArticle article={articleCateringVsAtelier} />,
+  '/journal/hamptons-estate-cocktail-logistics/': () => <JournalArticle article={articleHamptonsEstateLogistics} />,
   '/gallery/': () => <GalleryPage />,
   '/contact/': () => <Contact />,
   '/privacy/': () => <Privacy />,

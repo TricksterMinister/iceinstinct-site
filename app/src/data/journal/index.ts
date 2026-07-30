@@ -1,10 +1,36 @@
-// The /journal/ ledger. Order is editorial (newest thinking first), not
-// chronological - all three pillars share a publication date. Mirrored by the
-// ItemList JSON-LD in app/journal/index.html; edit both together.
-
 import type { JournalIndexEntry } from './types';
 
 export const journalIndex: JournalIndexEntry[] = [
+  {
+    slug: 'manhattan-doorman-coi-guide',
+    n: '04',
+    title: 'COI, Freight Elevators & Quiet Hours: Hosting in Manhattan Doorman Buildings',
+    standfirst:
+      'A guide for penthouse and luxury apartment hosts: how we navigate Certificate of Insurance requirements, freight elevator windows, and quiet-hour protocols seamlessly.',
+    date: 'July 29, 2026',
+    dateISO: '2026-07-29',
+    readTime: '5 min read',
+  },
+  {
+    slug: 'cocktail-catering-vs-mixology-atelier',
+    n: '05',
+    title: 'Cocktail Catering vs. Private Mixology Atelier: What Matters for High-Tier Hosts',
+    standfirst:
+      'Understanding the difference between mass event bartending and a private mixology studio. How craft, spirit sourcing, and hospitality design elevate private events.',
+    date: 'July 29, 2026',
+    dateISO: '2026-07-29',
+    readTime: '6 min read',
+  },
+  {
+    slug: 'hamptons-estate-cocktail-logistics',
+    n: '06',
+    title: 'The Hamptons Summer Estate Guide: Clear Ice Logistics & Poolside Service',
+    standfirst:
+      'Navigating outdoor estate events from Southampton to Montauk: temperature control, clear ice transport, and multi-day weekend residency logistics.',
+    date: 'July 29, 2026',
+    dateISO: '2026-07-29',
+    readTime: '5 min read',
+  },
   {
     slug: 'cocktail-omakase-explained',
     n: '01',

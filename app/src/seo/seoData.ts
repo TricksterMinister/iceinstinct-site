@@ -483,4 +483,66 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogImage: "/assets/og/home.png",
     jsonLd: [],
   },
+  '/tribeca/': {
+    title: "Tribeca & SoHo Private Bartending & Mixology - Ice & Instinct",
+    description:
+      "Private mixology and cocktail service for Tribeca lofts, SoHo cast-iron residences, and private galleries. COI & elevator access fully managed.",
+    canonical: `${SITE}/tribeca/`,
+    ogTitle: "Tribeca & SoHo Private Bartending - Ice & Instinct",
+    ogDescription: "Private mixology and cocktail service for Tribeca lofts and SoHo residences.",
+    ogImage: "/assets/og/manhattan.png",
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "Tribeca", item: "/tribeca/" }]),
+      geoService("manhattan"),
+    ],
+  },
+  '/upper-east-side/': {
+    title: "Upper East Side Private Bartending & Cocktail Service - Ice & Instinct",
+    description:
+      "Private bartending for Fifth Avenue penthouses, Fifth & Park Avenue co-ops, and private townhouses. White-glove COI compliance.",
+    canonical: `${SITE}/upper-east-side/`,
+    ogTitle: "Upper East Side Private Bartending - Ice & Instinct",
+    ogDescription: "Private mixology and cocktail service for Upper East Side residences.",
+    ogImage: "/assets/og/manhattan.png",
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "Upper East Side", item: "/upper-east-side/" }]),
+      geoService("manhattan"),
+    ],
+  },
+  '/journal/manhattan-doorman-coi-guide/': {
+    title: "COI & Freight Elevators: Manhattan Penthouse Cocktail Parties - Ice & Instinct",
+    description:
+      "How we navigate Certificate of Insurance requirements, freight elevator windows, and quiet-hour protocols in Manhattan luxury buildings.",
+    canonical: `${SITE}/journal/manhattan-doorman-coi-guide/`,
+    ogTitle: "COI & Freight Elevators: Manhattan Penthouse Cocktail Parties - Ice & Instinct",
+    ogDescription: "A guide to smooth building management compliance for Manhattan penthouse hosts.",
+    ogImage: "/assets/og/journal.png",
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "Journal", item: "/journal/" }, { name: "COI Guide", item: "/journal/manhattan-doorman-coi-guide/" }]),
+    ],
+  },
+  '/journal/cocktail-catering-vs-mixology-atelier/': {
+    title: "Cocktail Catering vs. Private Mixology Atelier - Ice & Instinct",
+    description:
+      "Understanding the difference between mass event bartending and a private mixology studio. Sourcing, clear ice, and guest experience.",
+    canonical: `${SITE}/journal/cocktail-catering-vs-mixology-atelier/`,
+    ogTitle: "Cocktail Catering vs. Private Mixology Atelier - Ice & Instinct",
+    ogDescription: "What sets a private mixology studio apart from conventional event catering.",
+    ogImage: "/assets/og/journal.png",
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "Journal", item: "/journal/" }, { name: "Catering vs Atelier", item: "/journal/cocktail-catering-vs-mixology-atelier/" }]),
+    ],
+  },
+  '/journal/hamptons-estate-cocktail-logistics/': {
+    title: "The Hamptons Summer Estate Guide: Clear Ice Logistics - Ice & Instinct",
+    description:
+      "Navigating outdoor estate events from Southampton to Montauk: clear ice transport in heat, poolside service, and multi-day residencies.",
+    canonical: `${SITE}/journal/hamptons-estate-cocktail-logistics/`,
+    ogTitle: "The Hamptons Summer Estate Guide: Clear Ice Logistics - Ice & Instinct",
+    ogDescription: "Clear ice logistics and poolside cocktail service for Hamptons estate hosts.",
+    ogImage: "/assets/og/journal.png",
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "Journal", item: "/journal/" }, { name: "Hamptons Guide", item: "/journal/hamptons-estate-cocktail-logistics/" }]),
+    ],
+  },
 };
