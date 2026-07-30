@@ -20,14 +20,19 @@ export function organization(): object {
     image: `${SITE}/assets/og/home.png`,
     telephone: "+1-917-292-7859",
     email: "hello@iceinstinct.com",
-    priceRange: "$650-$3500",
+    priceRange: "$$$$ ($450-$3500)",
     foundingDate: "2024",
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 40.7128,
+      longitude: -74.0060,
+    },
     founder: { "@id": `${SITE}/#founder` },
     contactPoint: {
       "@type": "ContactPoint",
       email: "hello@iceinstinct.com",
       contactType: "customer service",
-      areaServed: ["US-NY", "US-NJ"],
+      areaServed: ["US-NY", "US-NJ", "US-CT"],
       availableLanguage: ["en"],
     },
     sameAs: [
@@ -35,16 +40,90 @@ export function organization(): object {
       "https://share.google/AKKPuz8ZvIK8uKzfk",
     ],
     description:
-      "Private mixology studio serving the New York metropolitan area and New Jersey. By appointment only. Signature cocktails, omakase improvisation, and concierge service for the highest-tier private hosts.",
+      "Private mixology studio serving the New York metropolitan area, New Jersey, the Hamptons, and Greenwich CT. By appointment only. Signature cocktails, omakase improvisation, event bartenders, and concierge service.",
     areaServed: [
       { "@type": "City", name: "New York" },
       { "@type": "Place", name: "Manhattan" },
       { "@type": "Place", name: "Brooklyn" },
+      { "@type": "Place", name: "Queens" },
       { "@type": "AdministrativeArea", name: "New Jersey" },
+      { "@type": "City", name: "Hoboken" },
+      { "@type": "City", name: "Jersey City" },
+      { "@type": "City", name: "Montclair" },
       { "@type": "AdministrativeArea", name: "Westchester County" },
+      { "@type": "City", name: "Scarsdale" },
+      { "@type": "City", name: "Rye" },
       { "@type": "Place", name: "The Hamptons" },
+      { "@type": "City", name: "Southampton" },
+      { "@type": "City", name: "East Hampton" },
+      { "@type": "City", name: "Montauk" },
       { "@type": "City", name: "Greenwich" },
     ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Private Mixology & Cocktail Services",
+      itemListElement: [
+        { "@type": "OfferCatalog", name: "Instinct Master Atelier (Private Mixology Tiers)" },
+        { "@type": "OfferCatalog", name: "ICE (Event Bartenders On Call)" },
+        { "@type": "OfferCatalog", name: "Concierge & Custom Enhancements" },
+      ],
+    },
+  };
+}
+
+export function breadcrumbList(items: Array<{ name: string; item: string }>): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((crumb, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: crumb.name,
+      item: crumb.item.startsWith("http") ? crumb.item : `${SITE}${crumb.item}`,
+    })),
+  };
+}
+
+export type GeoRegionKey = "manhattan" | "new-jersey" | "hamptons" | "westchester-greenwich";
+
+const GEO_SPECS: Record<GeoRegionKey, { name: string; url: string; description: string; places: string[] }> = {
+  manhattan: {
+    name: "Private Bartending in Manhattan",
+    url: `${SITE}/manhattan/`,
+    description: "Private mixology and cocktail service for Manhattan penthouses, doorman buildings, and luxury terraces. COI & freight elevator handled.",
+    places: ["Manhattan", "Upper East Side", "Upper West Side", "Tribeca", "SoHo", "Hudson Yards", "Chelsea", "Greenwich Village"],
+  },
+  "new-jersey": {
+    name: "Private Bartending in New Jersey",
+    url: `${SITE}/new-jersey/`,
+    description: "Private mixology and event bartender service across New Jersey, Hoboken to Montclair, Alpine and Short Hills.",
+    places: ["New Jersey", "Hoboken", "Jersey City", "Montclair", "Alpine", "Short Hills", "Summit", "Englewood", "Princeton"],
+  },
+  hamptons: {
+    name: "Hamptons Private Bartending & Cocktail Service",
+    url: `${SITE}/hamptons/`,
+    description: "Private mixology and event bar service for Hamptons estates, Southampton to Montauk.",
+    places: ["The Hamptons", "Southampton", "East Hampton", "Montauk", "Sag Harbor", "Bridgehampton", "Water Mill"],
+  },
+  "westchester-greenwich": {
+    name: "Private Bartending Westchester & Greenwich",
+    url: `${SITE}/westchester-greenwich/`,
+    description: "Private mixology and sommelier-led cocktail service for Scarsdale, Rye, Bedford, and Greenwich CT.",
+    places: ["Westchester County", "Scarsdale", "Rye", "Bedford", "Pound Ridge", "Greenwich CT"],
+  },
+};
+
+export function geoService(key: GeoRegionKey): object {
+  const g = GEO_SPECS[key];
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `${g.name} - Ice & Instinct`,
+    url: g.url,
+    description: g.description,
+    provider: { "@id": ORG_ID },
+    areaServed: g.places.map((p) => ({ "@type": "Place", name: p })),
+    serviceType: "Private Mixology & Cocktail Service",
   };
 }
 

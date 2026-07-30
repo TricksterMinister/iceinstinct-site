@@ -1,9 +1,3 @@
-// Per-route SEO metadata for Ice & Instinct.
-// Titles + descriptions ported from the legacy vanilla site (_legacy-vanilla/*);
-// the home title was written fresh (legacy home was a cinema prototype).
-// canonical = https://www.iceinstinct.com + route key. No trailing index.html.
-// ogImage paths point at branded 1200x630 OG cards under /assets/og/.
-
 import {
   organization,
   website,
@@ -12,6 +6,8 @@ import {
   tierItemList,
   founderPerson,
   offeringsFaq,
+  breadcrumbList,
+  geoService,
 } from "./jsonld";
 
 export type RouteSeo = {
@@ -30,7 +26,7 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   '/': {
     title: "Ice & Instinct - Private Mixology Studio, NYC & New Jersey",
     description:
-      "A private mixology studio serving New York City and New Jersey. Signature cocktails, omakase improvisation, and concierge service for the highest-tier private hosts. By appointment only.",
+      "A private mixology studio serving New York City, New Jersey, the Hamptons, and Greenwich CT. Signature cocktails, omakase improvisation, and event bartenders. By appointment only.",
     canonical: `${SITE}/`,
     ogTitle: "Ice & Instinct - Private Mixology Studio, NYC & New Jersey",
     ogDescription:
@@ -40,14 +36,18 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
   },
 
   '/instinct/': {
-    title: "Master Atelier - Ice & Instinct",
+    title: "Instinct Private Mixology Atelier | NYC, NJ & Hamptons - Ice & Instinct",
     description:
-      "The founder's private mixology atelier in New York and New Jersey. Four levels of service, signature cocktails, and omakase improvisation by Teimuraz Benidze.",
+      "The founder's private mixology atelier in New York and New Jersey. Four tiers of service, signature cocktails, and omakase improvisation by Teimuraz Benidze.",
     canonical: `${SITE}/instinct/`,
-    ogTitle: "Master Atelier - Ice & Instinct",
+    ogTitle: "Instinct Private Mixology Atelier - Ice & Instinct",
     ogDescription: "Four levels of private mixology service by founder Teimuraz Benidze.",
     ogImage: "/assets/og/offerings.png",
-    jsonLd: [tierItemList(), offeringsFaq()],
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "Instinct", item: "/instinct/" }]),
+      tierItemList(),
+      offeringsFaq(),
+    ],
   },
 
   '/instinct/foundation/': {
@@ -59,7 +59,10 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogDescription:
       "Impeccable drinks, professional presence, seamless execution. The most intimate way to experience the Ice & Instinct standard.",
     ogImage: "/assets/og/foundation.png",
-    jsonLd: [tierService("foundation")],
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "Instinct", item: "/instinct/" }, { name: "Foundation", item: "/instinct/foundation/" }]),
+      tierService("foundation"),
+    ],
   },
 
   '/instinct/simplicity/': {
@@ -71,7 +74,10 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogDescription:
       "Timeless cocktails executed with quiet precision by the Master Mixologist personally.",
     ogImage: "/assets/og/simplicity.png",
-    jsonLd: [tierService("simplicity")],
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "Instinct", item: "/instinct/" }, { name: "Simplicity", item: "/instinct/simplicity/" }]),
+      tierService("simplicity"),
+    ],
   },
 
   '/instinct/bespoke/': {
@@ -83,7 +89,10 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogDescription:
       "Signature cocktails crafted specifically for your event.",
     ogImage: "/assets/og/bespoke.png",
-    jsonLd: [tierService("bespoke")],
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "Instinct", item: "/instinct/" }, { name: "Bespoke", item: "/instinct/bespoke/" }]),
+      tierService("bespoke"),
+    ],
   },
 
   '/instinct/omakase/': {
@@ -95,7 +104,10 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogDescription:
       "The flagship omakase experience by Teimuraz Benidze.",
     ogImage: "/assets/og/omakase.png",
-    jsonLd: [tierService("omakase")],
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "Instinct", item: "/instinct/" }, { name: "Omakase", item: "/instinct/omakase/" }]),
+      tierService("omakase"),
+    ],
   },
 
   '/offerings/': {
@@ -166,7 +178,9 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogDescription:
       "Five curated enhancements that augment any service tier: cigars, staff, curation, glassware, ice.",
     ogImage: "/assets/og/concierge.png",
-    jsonLd: [],
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "Concierge", item: "/concierge/" }]),
+    ],
   },
 
   '/my-story/': {
@@ -178,7 +192,10 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogDescription:
       "Founder and flavor architect of Ice & Instinct. Where ritual meets instinct.",
     ogImage: "/assets/og/mystory.png",
-    jsonLd: [founderPerson()],
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "My Story", item: "/my-story/" }]),
+      founderPerson(),
+    ],
   },
 
   '/weddings/': {
@@ -190,9 +207,9 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogDescription:
       "His-and-hers signatures, a scalable bar team, professional clear ice. Wedding bar service for NYC and New Jersey, from $650.",
     ogImage: "/assets/og/weddings.png",
-    // Service + FAQPage JSON-LD are hand-authored in the page stub head;
-    // prerender preserves shell schema and skips this list.
-    jsonLd: [],
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "Weddings", item: "/weddings/" }]),
+    ],
   },
 
   '/corporate/': {
@@ -204,7 +221,9 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogDescription:
       "A bar that is part of the program, not the catering line. Four tiers from $650, invoicing available, zero-proof program, NYC metro and New Jersey.",
     ogImage: "/assets/og/corporate.png",
-    jsonLd: [],
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "Corporate", item: "/corporate/" }]),
+    ],
   },
 
   '/gift/': {
@@ -216,19 +235,23 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogDescription:
       "A private mixology evening as a gift: framed certificate, valid 12 months. From $650.",
     ogImage: "/assets/og/gift.png",
-    jsonLd: [],
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "Gift", item: "/gift/" }]),
+    ],
   },
 
   '/ice/': {
-    title: "Event Bartenders On Call, NYC & New Jersey - Ice & Instinct",
+    title: "ICE - Event Bartenders On Call ($450 Flat), NYC & NJ | Ice & Instinct",
     description:
       "Vetted event bartenders for birthdays, house parties, weddings and corporate nights, NYC and New Jersey. Flat packages from $450, founder-trained, insured.",
     canonical: `${SITE}/ice/`,
-    ogTitle: "Event Bartenders On Call, NYC & New Jersey - Ice & Instinct",
+    ogTitle: "ICE - Event Bartenders On Call ($450 Flat), NYC & NJ | Ice & Instinct",
     ogDescription:
       "A vetted bartender for your date in one call. Flat packages from $450. The bench behind a private mixology studio.",
     ogImage: "/assets/og/events.png",
-    jsonLd: [],
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "ICE", item: "/ice/" }]),
+    ],
   },
 
   '/events/': {
@@ -240,9 +263,9 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogDescription:
       "A vetted bartender for your date in one call. Flat packages from $450. The bench behind a private mixology studio.",
     ogImage: "/assets/og/events.png",
-    // Service + FAQPage + BreadcrumbList JSON-LD are hand-authored in the page
-    // stub head; prerender preserves shell schema and skips this list.
-    jsonLd: [],
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "ICE", item: "/events/" }]),
+    ],
   },
 
   '/work-with-us/': {
@@ -254,38 +277,43 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogDescription:
       "Flat $180-240 per 4-hour event, same-day payout, your choice of gigs. Bartend for a private mixology studio in NYC and NJ.",
     ogImage: "/assets/og/work-with-us.png",
-    // WebPage + BreadcrumbList JSON-LD are hand-authored in the page stub
-    // head; prerender preserves shell schema and skips this list.
-    jsonLd: [],
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "Join the Bench", item: "/work-with-us/" }]),
+    ],
   },
 
   '/new-jersey/': {
-    title: "Private Bartending in New Jersey - Ice & Instinct",
+    title: "Private Bartending & Cocktail Service in New Jersey - Ice & Instinct",
     description:
-      "Private bartending and cocktail service across New Jersey, Hoboken to Montclair. Home base in NJ: no tunnel tolls, no Manhattan premium. Four tiers from $650.",
+      "Private bartending and cocktail service across New Jersey, Hoboken to Montclair, Alpine and Short Hills. Home base in NJ: no tunnel tolls, no Manhattan premium. Four tiers from $650.",
     canonical: `${SITE}/new-jersey/`,
     ogTitle: "Private Bartending in New Jersey - Ice & Instinct",
     ogDescription:
       "New Jersey is our home base. No tunnel tolls, no Manhattan vendor premium, same-week dates realistic. Four tiers from $650; clear ice arranged through the Concierge.",
     ogImage: "/assets/og/new-jersey.png",
-    // Service + FAQPage JSON-LD hand-authored in the stub head.
-    jsonLd: [],
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "New Jersey", item: "/new-jersey/" }]),
+      geoService("new-jersey"),
+    ],
   },
 
   '/manhattan/': {
-    title: "Private Bartending in Manhattan - Ice & Instinct",
+    title: "Private Bartending & Mixology in Manhattan - Ice & Instinct",
     description:
-      "Private bartending for Manhattan penthouses, doorman buildings, and terraces. COI and freight elevator handled, quiet late-evening close. Four tiers from $650.",
+      "Private bartending for Manhattan penthouses, doorman buildings, and luxury terraces. COI and freight elevator handled, quiet late-evening close. Four tiers from $650.",
     canonical: `${SITE}/manhattan/`,
     ogTitle: "Private Bartending & Cocktail Service in Manhattan - Ice & Instinct",
     ogDescription:
       "Doorman buildings handled routinely - COI, freight elevator, quiet close. Private cocktail service for Manhattan apartments and terraces, from $650.",
     ogImage: "/assets/og/manhattan.png",
-    jsonLd: [],
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "Manhattan", item: "/manhattan/" }]),
+      geoService("manhattan"),
+    ],
   },
 
   '/hamptons/': {
-    title: "Hamptons Private Bartending & Cocktails - Ice & Instinct",
+    title: "Hamptons Private Bartending & Cocktail Service - Ice & Instinct",
     description:
       "Private bartending for Hamptons estates, Southampton to Montauk. Concierge-arranged clear ice, a full bar team, multi-day weekends. Tiers from $650.",
     canonical: `${SITE}/hamptons/`,
@@ -293,11 +321,14 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogDescription:
       "Estate kitchens, pool-house bars, and the season's house parties - served to one standard, Southampton to Montauk. Tiers from $650.",
     ogImage: "/assets/og/hamptons.png",
-    jsonLd: [],
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "The Hamptons", item: "/hamptons/" }]),
+      geoService("hamptons"),
+    ],
   },
 
   '/westchester-greenwich/': {
-    title: "Private Bartending Westchester & Greenwich - Ice & Instinct",
+    title: "Private Bartending Westchester & Greenwich CT - Ice & Instinct",
     description:
       "Private bartending for Scarsdale, Rye, Bedford, and the Greenwich backcountry. Sommelier-led, professional clear ice, discreet service at the house. From $650.",
     canonical: `${SITE}/westchester-greenwich/`,
@@ -305,7 +336,10 @@ export const SEO_BY_ROUTE: Record<string, RouteSeo> = {
     ogDescription:
       "Estate dinners in Scarsdale, Rye, Bedford, and the Greenwich backcountry. A sommelier-led bar, professional clear ice, service that ends as quietly as it arrives. From $650.",
     ogImage: "/assets/og/westchester-greenwich.png",
-    jsonLd: [],
+    jsonLd: [
+      breadcrumbList([{ name: "Home", item: "/" }, { name: "Westchester & Greenwich", item: "/westchester-greenwich/" }]),
+      geoService("westchester-greenwich"),
+    ],
   },
 
   '/journal/': {

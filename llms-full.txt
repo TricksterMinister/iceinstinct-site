@@ -1,6 +1,6 @@
 # Ice & Instinct - full site text
 
-> Plain-text rendering of every page on https://www.iceinstinct.com/ for AI engines. Curated facts (prices, policies, contact) live in https://www.iceinstinct.com/llms.txt; this file carries the full page copy. Generated from the prerendered HTML at build time. Last updated: 2026-07-29.
+> Plain-text rendering of every page on https://www.iceinstinct.com/ for AI engines. Curated facts (prices, policies, contact) live in https://www.iceinstinct.com/llms.txt; this file carries the full page copy. Generated from the prerendered HTML at build time. Last updated: 2026-07-30.
 
 ---
 
@@ -731,7 +731,7 @@ Ice & Instinct
 
 ---
 
-## Hamptons Private Bartending & Cocktails - Ice & Instinct
+## Hamptons Private Bartending & Cocktail Service - Ice & Instinct
 URL: https://www.iceinstinct.com/hamptons/
 
 ### Out east, the standard holds.
@@ -853,7 +853,7 @@ Ice & Instinct
 
 ---
 
-## Event Bartenders On Call, NYC & New Jersey - Ice & Instinct
+## ICE - Event Bartenders On Call ($450 Flat), NYC & NJ | Ice & Instinct
 URL: https://www.iceinstinct.com/ice/
 
 ### Event bartenders, on call - NYC & New Jersey
@@ -1284,7 +1284,7 @@ Ice & Instinct
 
 ---
 
-## Master Atelier - Ice & Instinct
+## Instinct Private Mixology Atelier | NYC, NJ & Hamptons - Ice & Instinct
 URL: https://www.iceinstinct.com/instinct/
 
 ### Teimuraz Benidze.
@@ -1999,7 +1999,7 @@ Ice & Instinct
 
 ---
 
-## Private Bartending in Manhattan - Ice & Instinct
+## Private Bartending & Mixology in Manhattan - Ice & Instinct
 URL: https://www.iceinstinct.com/manhattan/
 
 ### The bar comes upstairs.
@@ -2185,7 +2185,7 @@ Ice & Instinct
 
 ---
 
-## Private Bartending in New Jersey - Ice & Instinct
+## Private Bartending & Cocktail Service in New Jersey - Ice & Instinct
 URL: https://www.iceinstinct.com/new-jersey/
 
 ### Our side of the Hudson.
@@ -3576,7 +3576,7 @@ Ice & Instinct
 
 ---
 
-## Private Bartending Westchester & Greenwich - Ice & Instinct
+## Private Bartending Westchester & Greenwich CT - Ice & Instinct
 URL: https://www.iceinstinct.com/westchester-greenwich/
 
 ### Westchester & Greenwich.

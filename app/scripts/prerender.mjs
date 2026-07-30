@@ -90,6 +90,8 @@ function buildHead(seo, hasExistingJsonLd) {
     `<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">`,
     `<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">`,
     `<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">`,
+    `<meta property="og:site_name" content="Ice &amp; Instinct">`,
+    `<meta property="og:locale" content="en_US">`,
     `<meta property="og:title" content="${esc(seo.ogTitle)}">`,
     `<meta property="og:description" content="${esc(seo.ogDescription)}">`,
     `<meta property="og:image" content="${esc(absImage)}">`,
@@ -99,18 +101,15 @@ function buildHead(seo, hasExistingJsonLd) {
     `<meta name="twitter:title" content="${esc(seo.ogTitle)}">`,
     `<meta name="twitter:description" content="${esc(seo.ogDescription)}">`,
     `<meta name="twitter:image" content="${esc(absImage)}">`,
+    `<meta name="geo.region" content="US-NY">`,
+    `<meta name="geo.placename" content="New York">`,
+    `<meta name="geo.position" content="40.7128;-74.0060">`,
+    `<meta name="ICBM" content="40.7128, -74.0060">`,
   ];
 
-  // Only emit SEO_BY_ROUTE JSON-LD when the source HTML did NOT already carry
-  // hand-authored JSON-LD. Several source files ship a richer schema block; we
-  // preserve it rather than overwrite with the leaner SEO_BY_ROUTE version.
-  if (!hasExistingJsonLd) {
-    for (const obj of seo.jsonLd || []) {
-      // JSON-LD does not need HTML-escaping inside a script element; only guard
-      // against a literal </script> sequence breaking out of the element.
-      const json = JSON.stringify(obj).replace(/<\//g, '<\\/');
-      tags.push(`<script type="application/ld+json">${json}</script>`);
-    }
+  for (const obj of seo.jsonLd || []) {
+    const json = JSON.stringify(obj).replace(/<\//g, '<\\/');
+    tags.push(`<script type="application/ld+json">${json}</script>`);
   }
 
   return tags.join('\n  ');

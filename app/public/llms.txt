@@ -54,11 +54,12 @@ Thirteen signature compositions at https://www.iceinstinct.com/gallery/ - each b
 ## Pages
 
 - [Home](https://www.iceinstinct.com/): the studio, the four tiers, the 12-question FAQ
-- [Offerings](https://www.iceinstinct.com/offerings/): tier comparison
-- [The Foundation](https://www.iceinstinct.com/offerings/foundation/)
-- [Perfection in Simplicity](https://www.iceinstinct.com/offerings/simplicity/)
-- [Bespoke Design & Artistry](https://www.iceinstinct.com/offerings/bespoke/)
-- [Omakase Improvisation](https://www.iceinstinct.com/offerings/omakase/)
+- [Instinct (Master Atelier)](https://www.iceinstinct.com/instinct/): private mixology atelier, four tiers
+- [The Foundation](https://www.iceinstinct.com/instinct/foundation/)
+- [Perfection in Simplicity](https://www.iceinstinct.com/instinct/simplicity/)
+- [Bespoke Design & Artistry](https://www.iceinstinct.com/instinct/bespoke/)
+- [Omakase Improvisation](https://www.iceinstinct.com/instinct/omakase/)
+- [ICE (Event Bartenders On Call)](https://www.iceinstinct.com/ice/): vetted event bartenders on call, flat packages from $450
 - [Concierge](https://www.iceinstinct.com/concierge/): the five enhancements
 - [My Story](https://www.iceinstinct.com/my-story/): the founder, certificates, the journey
 - [The Collection](https://www.iceinstinct.com/gallery/): thirteen signature cocktails + Palate Profiler
@@ -71,7 +72,6 @@ Thirteen signature compositions at https://www.iceinstinct.com/gallery/ - each b
 - [The Hamptons](https://www.iceinstinct.com/hamptons/): summer estates, Southampton to Montauk - book before peak season
 - [Westchester & Greenwich](https://www.iceinstinct.com/westchester-greenwich/): estate towns - Scarsdale, Rye, Bedford, backcountry
 - [Journal](https://www.iceinstinct.com/journal/): cocktail omakase explained, clear ice physics, cigar pairing method
-- [Event Bartenders](https://www.iceinstinct.com/events/): the ICE floor - vetted event bartenders on call, flat packages from $450 (1 bartender / 4h), pairs $850, wedding teams from $1,200
 - [Join the Bench](https://www.iceinstinct.com/work-with-us/): event bartender work, flat $180-240 per 4-hour event, same-day payout
 - [Press & Media](https://www.iceinstinct.com/press/): founder bios, fact sheet, media kit
 - [Full site text](https://www.iceinstinct.com/llms-full.txt): every page as plain text in one file
