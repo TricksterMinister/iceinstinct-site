@@ -101,18 +101,19 @@ body.cinema-chrome::after {
 
 /* Stage stretches to fill the whole overlay height */
 .va-stage {
-  max-width: 1240px; margin: 0 auto; width: 100%;
+  max-width: 1280px; margin: 0 auto; width: 100%;
   flex: 1;
   display: flex; flex-direction: column;
+  justify-content: center;
   gap: 0;
   min-height: 0;
 }
 .va-eyebrow {
   font-family: var(--font-mono, "JetBrains Mono", monospace);
-  font-size: clamp(0.6rem, 0.8dvh, 0.75rem); letter-spacing: 0.32em;
+  font-size: clamp(0.72rem, 0.9vw, 0.85rem); letter-spacing: 0.32em;
   text-transform: uppercase; color: var(--c-fg-faint, oklch(48% 0 0));
   display: inline-flex; align-items: center; gap: 0.7rem;
-  flex: none; padding-bottom: clamp(0.6rem, 1.5vh, 1.2rem);
+  flex: none; padding-bottom: clamp(0.8rem, 1.8vh, 1.4rem);
   border-bottom: 1px solid var(--c-rule, oklch(22% 0 0));
 }
 
@@ -120,6 +121,7 @@ body.cinema-chrome::after {
   list-style: none;
   flex: 1; min-height: 0;
   display: flex; flex-direction: column;
+  justify-content: space-evenly;
   margin: 0; padding: 0;
 }
 .va-list li {
@@ -132,10 +134,10 @@ body.cinema-chrome::after {
 
 .va-list a {
   display: grid;
-  grid-template-columns: clamp(2rem, 4vw, 4rem) 1fr auto;
+  grid-template-columns: clamp(3rem, 5vw, 5rem) 1fr auto;
   align-items: center;
-  gap: 0 clamp(0.8rem, 2.5vw, 2rem);
-  width: 100%; padding: 0;
+  gap: 0 clamp(1rem, 3vw, 2.5rem);
+  width: 100%; padding: clamp(0.7rem, 1.5vh, 1.2rem) 0;
   position: relative;
   color: inherit; text-decoration: none;
   transition: padding-left 0.45s var(--ease-out-expo);
@@ -144,21 +146,21 @@ body.cinema-chrome::after {
   content: ""; position: absolute; inset: 0;
   background: var(--c-accent); transform: scaleX(0); transform-origin: left;
   transition: transform 0.55s var(--ease-out-expo);
-  z-index: -1; opacity: 0.06;
+  z-index: -1; opacity: 0.08;
 }
-.va-list a:hover { padding-left: clamp(0.5rem, 1.2vw, 1.2rem); }
+.va-list a:hover { padding-left: clamp(0.8rem, 1.8vw, 1.8rem); }
 .va-list a:hover::before { transform: scaleX(1); }
 
 .va-list a i {
   font-family: var(--font-mono, "JetBrains Mono", monospace);
   font-style: normal;
-  font-size: clamp(0.58rem, 0.9dvh, 0.72rem);
-  letter-spacing: 0.16em; color: var(--c-fg-faint, oklch(48% 0 0));
+  font-size: clamp(0.85rem, 1.1vw, 1.1rem);
+  letter-spacing: 0.18em; color: var(--c-fg-faint, oklch(48% 0 0));
 }
 .va-list a b {
   font-family: var(--font-display, "Geist", sans-serif); font-weight: 700;
-  font-size: clamp(1.1rem, 6.5dvh / 7, 3rem);
-  letter-spacing: -0.02em; line-height: 1;
+  font-size: clamp(2.2rem, 3.8vw, 3.8rem);
+  letter-spacing: -0.025em; line-height: 1.05;
   color: var(--c-fg);
   transition: color 0.35s;
 }
@@ -166,8 +168,8 @@ body.cinema-chrome::after {
 .va-list a em {
   font-family: var(--font-italic, "Fraunces", serif);
   font-style: italic; font-weight: 350;
-  font-size: clamp(0.65rem, 0.85dvh, 0.85rem);
-  color: oklch(58% 0.08 75);
+  font-size: clamp(1rem, 1.3vw, 1.35rem);
+  color: oklch(65% 0.08 75);
   letter-spacing: 0.01em;
   text-align: right; white-space: nowrap;
 }

@@ -669,32 +669,33 @@ a { color: inherit; text-decoration: none; }
 
 /* Stage stretches to fill the whole overlay height */
 .va-stage {
-  max-width: 1240px; margin: 0 auto; width: 100%;
-  flex: 1; /* fill overlay */
+  max-width: 1280px; margin: 0 auto; width: 100%;
+  flex: 1;
   display: flex; flex-direction: column;
+  justify-content: center;
   gap: 0;
   min-height: 0;
 }
-/* Eyebrow — small mono label, fixed height */
+/* Eyebrow — mono label */
 .va-eyebrow {
-  font-family: var(--f-mono); font-size: var(--t-step--2); letter-spacing: 0.32em;
+  font-family: var(--f-mono); font-size: clamp(0.72rem, 0.9vw, 0.85rem); letter-spacing: 0.32em;
   text-transform: uppercase; color: var(--c-fg-faint);
   display: inline-flex; align-items: center; gap: 0.7rem;
-  flex: none; padding-bottom: clamp(0.6rem, 1.5vh, 1.2rem);
+  flex: none; padding-bottom: clamp(0.8rem, 1.8vh, 1.4rem);
   border-bottom: 1px solid var(--c-rule);
 }
 .va-eyebrow-mark {
-  width: 22px; height: 22px; display: block; flex: none;
+  width: 24px; height: 24px; display: block; flex: none;
   border-radius: 4px; object-fit: contain;
 }
 
-/* List — stretches to fill all remaining height */
+/* List — stretches to fill remaining height */
 .va-list {
   list-style: none;
   flex: 1; min-height: 0;
   display: flex; flex-direction: column;
+  justify-content: space-evenly;
 }
-/* Each li gets an exactly equal share of the list height */
 .va-list li {
   flex: 1;
   display: flex; align-items: center;
@@ -705,10 +706,10 @@ a { color: inherit; text-decoration: none; }
 
 .va-list a {
   display: grid;
-  grid-template-columns: clamp(2rem, 4vw, 4rem) 1fr auto;
+  grid-template-columns: clamp(3rem, 5vw, 5rem) 1fr auto;
   align-items: center;
-  gap: 0 clamp(0.8rem, 2.5vw, 2rem);
-  width: 100%; padding: 0;
+  gap: 0 clamp(1rem, 3vw, 2.5rem);
+  width: 100%; padding: clamp(0.7rem, 1.5vh, 1.2rem) 0;
   position: relative;
   transition: padding-left 0.45s var(--ease-out-expo);
   text-decoration: none;
@@ -717,31 +718,31 @@ a { color: inherit; text-decoration: none; }
   content: ""; position: absolute; inset: 0;
   background: var(--c-accent); transform: scaleX(0); transform-origin: left;
   transition: transform 0.55s var(--ease-out-expo);
-  z-index: -1; opacity: 0.06;
+  z-index: -1; opacity: 0.08;
 }
-.va-list a:hover { padding-left: clamp(0.5rem, 1.2vw, 1.2rem); }
+.va-list a:hover { padding-left: clamp(0.8rem, 1.8vw, 1.8rem); }
 .va-list a:hover::before { transform: scaleX(1); }
 
-/* Number — mono, muted, small */
+/* Number — mono, muted, legible */
 .va-list a i {
   font-family: var(--f-mono); font-style: normal;
-  font-size: clamp(0.58rem, 0.9dvh, 0.72rem);
-  letter-spacing: 0.16em; color: var(--c-fg-faint);
+  font-size: clamp(0.85rem, 1.1vw, 1.1rem);
+  letter-spacing: 0.18em; color: var(--c-fg-faint);
 }
-/* Title — scales with dvh so all 7 always fit */
+/* Title — BOLD, LUXURY, IMPRESSIVE DESKTOP SCALE */
 .va-list a b {
   font-family: var(--f-display); font-weight: 700;
-  font-size: clamp(1.1rem, 6.5dvh / 7, 3rem);
-  letter-spacing: -0.02em; line-height: 1;
+  font-size: clamp(2.2rem, 3.8vw, 3.8rem);
+  letter-spacing: -0.025em; line-height: 1.05;
   color: var(--c-fg);
   transition: color 0.35s;
 }
 .va-list a:hover b { color: var(--c-accent); }
-/* Subtitle — italic, bronze, never wraps */
+/* Subtitle — italic, bronze, elegant */
 .va-list a em {
   font-family: var(--f-italic); font-style: italic; font-weight: 350;
-  font-size: clamp(0.65rem, 0.85dvh, 0.85rem);
-  color: oklch(58% 0.08 75);
+  font-size: clamp(1rem, 1.3vw, 1.35rem);
+  color: oklch(65% 0.08 75);
   letter-spacing: 0.01em;
   text-align: right; white-space: nowrap;
 }
