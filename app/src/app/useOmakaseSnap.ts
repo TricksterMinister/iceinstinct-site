@@ -33,6 +33,9 @@ export function useOmakaseSnap(): void {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
+    const isWide = window.matchMedia('(min-width: 721px)').matches;
+    if (!isWide || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -48,16 +51,11 @@ export function useOmakaseSnap(): void {
     // scrolling, matching the homepage behaviour.
     ;(window as unknown as { lenis?: Lenis }).lenis = lenis;
 
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isWide = window.matchMedia('(min-width: 721px)').matches;
     let snap: Snap | undefined;
     let addTimer = 0;
     let pinGuard: ScrollTrigger | undefined;
 
-    if (!reduced && isWide) {
-      // PROXIMITY (soft): only settles when the guest stops near a boundary, so
-      // long reads inside a segment are never interrupted.
-      snap = new Snap(lenis, {
+    snap = new Snap(lenis, {
         type: 'proximity',
         duration: 0.9,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -87,7 +85,6 @@ export function useOmakaseSnap(): void {
       };
       // Defer so the held-stage pin + reveal layout settle first.
       addTimer = window.setTimeout(() => { ScrollTrigger.refresh(); addPoints(); }, 400);
-    }
 
     return () => {
       window.clearTimeout(addTimer);

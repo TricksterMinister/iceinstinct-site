@@ -422,21 +422,45 @@
   .closing-segment .closing-deposit { font-size: 0.58rem !important; line-height: 1.4 !important; }
 }
 
-/* (D) MOBILE - keep the wordmark readable; segment grows naturally (no clip). */
+/* (D) MOBILE - allow section to grow naturally so CTA + Footer are fully visible & scrollable */
 @media (max-width: 760px) {
   .closing-segment .ii-mono-word { font-size: clamp(2.6rem, 13vw, 4.4rem) !important; }
+  .closing-segment,
+  .closing-segment.oma-close,
+  .closing-segment.inquire-close,
+  .closing-segment.ww-close {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .closing-segment > .closing,
+  .closing-segment.inquire-close > .closing,
+  .closing-segment.ww-close > .closing {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  .closing-segment .site-footer,
+  .closing-segment .footer {
+    flex: 0 0 auto !important;
+  }
 }
 
-/* (E) FORMS (contact / the bench) - ALSO one viewport, footer fully visible.
+/* (E) FORMS (contact / the bench) - DESKTOP ONLY: one viewport, footer fully visible.
    Lock to the same 100vh grid (footer = bottom row) and compact the form fields
-   so the whole form + footer fit one screen, nothing clipped. (Forms are taller
-   than a CTA card, so they get extra field/gap compaction here.) */
-.closing-segment.ww-close, .closing-segment.inquire-close {
-  height: 100dvh !important; min-height: 100dvh !important; overflow: hidden !important;
-  display: grid !important; grid-template-rows: minmax(0, 1fr) auto !important;
-}
-.closing-segment.ww-close > .closing, .closing-segment.inquire-close > .closing {
-  min-height: 0 !important; height: 100% !important; overflow: hidden !important; align-self: stretch !important;
+   so the whole form + footer fit one screen, nothing clipped. */
+@media (min-width: 761px) {
+  .closing-segment.ww-close, .closing-segment.inquire-close {
+    height: 100dvh !important; min-height: 100dvh !important; overflow: hidden !important;
+    display: grid !important; grid-template-rows: minmax(0, 1fr) auto !important;
+  }
+  .closing-segment.ww-close > .closing, .closing-segment.inquire-close > .closing {
+    min-height: 0 !important; height: 100% !important; overflow: hidden !important; align-self: stretch !important;
+  }
 }
 .closing-segment.ww-close .closing-frame, .closing-segment.inquire-close .closing-frame {
   padding: clamp(0.7rem, 1.9vh, 1.3rem) clamp(1.6rem, 4vw, 3.5rem) !important; gap: clamp(0.35rem, 1vh, 0.65rem) !important;

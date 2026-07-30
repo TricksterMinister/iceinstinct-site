@@ -26,7 +26,8 @@ export function useSegmentSnap(segments: string[], multi: string[] = []): void {
     // Reduced motion: no smooth-scroll hijack, no snapping - native scroll
     // only, exactly as the OS setting asks. (window.lenis consumers fall back
     // to native scrolling when the instance is absent.)
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const isWide = window.matchMedia('(min-width: 721px)').matches;
+    if (!isWide || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const lenis = new Lenis({
       duration: 1.2,
@@ -42,43 +43,39 @@ export function useSegmentSnap(segments: string[], multi: string[] = []): void {
     // anchor jumps + VanishHeader reuse the instance, same as the other pages
     ;(window as unknown as { lenis?: Lenis }).lenis = lenis;
 
-    const isWide = window.matchMedia('(min-width: 721px)').matches;
     let snap: Snap | undefined;
     let addTimer = 0;
-
     let pinGuard: ScrollTrigger | undefined;
 
-    if (isWide) {
-      snap = new Snap(lenis, {
-        type: 'proximity',
-        duration: 0.9,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        lerp: 0.1,
+    snap = new Snap(lenis, {
+      type: 'proximity',
+      duration: 0.9,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.1,
+    });
+    // Defer so reveal/layout effects settle before measuring snap points.
+    addTimer = window.setTimeout(() => {
+      ScrollTrigger.refresh();
+      segments.forEach((sel) => {
+        const el = document.querySelector<HTMLElement>(sel);
+        if (el) snap!.addElement(el, { align: ['start'] });
       });
-      // Defer so reveal/layout effects settle before measuring snap points.
-      addTimer = window.setTimeout(() => {
-        ScrollTrigger.refresh();
-        segments.forEach((sel) => {
-          const el = document.querySelector<HTMLElement>(sel);
-          if (el) snap!.addElement(el, { align: ['start'] });
+      multi.forEach((sel) => {
+        document.querySelectorAll<HTMLElement>(sel).forEach((el) => {
+          snap!.addElement(el, { align: ['start'] });
         });
-        multi.forEach((sel) => {
-          document.querySelectorAll<HTMLElement>(sel).forEach((el) => {
-            snap!.addElement(el, { align: ['start'] });
-          });
+      });
+      const rail = document.querySelector<HTMLElement>('[data-tiers-rail]');
+      const tiers = document.querySelector<HTMLElement>('.tiers');
+      if (rail && tiers) {
+        pinGuard = ScrollTrigger.create({
+          trigger: tiers,
+          start: 'top top',
+          end: () => '+=' + (rail.scrollWidth - window.innerWidth),
+          onToggle: (self) => { if (self.isActive) snap!.stop(); else snap!.start(); },
         });
-        const rail = document.querySelector<HTMLElement>('[data-tiers-rail]');
-        const tiers = document.querySelector<HTMLElement>('.tiers');
-        if (rail && tiers) {
-          pinGuard = ScrollTrigger.create({
-            trigger: tiers,
-            start: 'top top',
-            end: () => '+=' + (rail.scrollWidth - window.innerWidth),
-            onToggle: (self) => { if (self.isActive) snap!.stop(); else snap!.start(); },
-          });
-        }
-      }, 400);
-    }
+      }
+    }, 400);
 
     return () => {
       window.clearTimeout(addTimer);
