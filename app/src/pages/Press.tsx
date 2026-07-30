@@ -78,6 +78,12 @@ const IMAGE_ASSETS: PressAsset[] = [
     href: '/assets/photos/aviation-v2.png',
     thumb: '/assets/photos/thumbs/aviation-v2.jpg',
   },
+  {
+    name: '1001 Nights',
+    meta: 'Signature cocktail · PNG',
+    href: '/assets/photos/1001-nights-v2.png',
+    thumb: '/assets/photos/1001-nights-v2.png',
+  },
 ];
 
 const DOCUMENT_ASSETS: PressAsset[] = [

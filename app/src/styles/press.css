@@ -168,21 +168,18 @@
    last row sit centered, not against a hole. Basis math reproduces the exact
    1fr column width of the old repeat(3, 1fr) grid. */
 .press-asset-grid {
-  --pa-gap: clamp(1rem, 2.4vw, 2rem);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--pa-gap);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2vw, 1.6rem);
 }
 
 .press-asset {
-  flex: 0 1 calc((100% - 2 * var(--pa-gap)) / 3);
   position: relative;
   display: flex;
   flex-direction: column;
   background: var(--c-bg-soft);
   border: 1px solid color-mix(in oklab, var(--c-border) 85%, transparent);
-  padding: clamp(1.1rem, 2vw, 1.6rem);
+  padding: clamp(1.1rem, 1.8vw, 1.5rem);
   text-decoration: none;
   transition: border-color 0.35s ease;
 }
@@ -193,7 +190,7 @@
   display: block;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  margin-bottom: clamp(1rem, 2vh, 1.4rem);
+  margin-bottom: clamp(0.8rem, 1.6vh, 1.2rem);
 }
 
 .pa-thumb img {
@@ -210,7 +207,7 @@
   display: block;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(1.02rem, 0.95rem + 0.35vmin, 1.25rem);
+  font-size: clamp(1.02rem, 0.95rem + 0.35vmin, 1.2rem);
   letter-spacing: -0.015em;
   color: var(--c-fg);
 }
@@ -222,7 +219,7 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--c-fg-faint);
-  margin-top: 0.45rem;
+  margin-top: 0.4rem;
 }
 
 .pa-act {
@@ -234,15 +231,16 @@
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--c-accent);
-  margin-top: clamp(0.9rem, 1.8vh, 1.3rem);
+  margin-top: auto;
+  padding-top: clamp(0.8rem, 1.6vh, 1.2rem);
 }
 
 /* ---- III. the two documents: wide rows under the image grid ---- */
 .press-doc-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(1rem, 2.4vw, 2rem);
-  margin-top: clamp(1rem, 2.4vw, 2rem);
+  gap: clamp(1rem, 2vw, 1.6rem);
+  margin-top: clamp(1.2rem, 2.4vw, 2rem);
 }
 
 .press-doc {
@@ -251,7 +249,7 @@
   gap: clamp(1rem, 2vw, 1.6rem);
   background: var(--c-bg-soft);
   border: 1px solid color-mix(in oklab, var(--c-border) 85%, transparent);
-  padding: clamp(1.1rem, 2vw, 1.6rem);
+  padding: clamp(1.1rem, 1.8vw, 1.5rem);
   text-decoration: none;
   transition: border-color 0.35s ease;
 }
@@ -273,11 +271,11 @@
 
 .pd-text { flex: 1 1 auto; min-width: 0; }
 
-.press-doc .pa-act { margin-top: 0; }
+.press-doc .pa-act { margin-top: 0; padding-top: 0; }
 
 /* ---- responsive ---- */
 @media (max-width: 980px) {
-  .press-asset { flex-basis: calc((100% - var(--pa-gap)) / 2); }
+  .press-asset-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 880px) {
@@ -290,13 +288,10 @@
 }
 
 @media (max-width: 560px) {
-  .press-asset { flex-basis: 100%; }
+  .press-asset-grid { grid-template-columns: 1fr; }
   .press-doc { flex-wrap: wrap; }
 }
 
-/* Wide screens: lay each press section head-left / content-right so it uses the
-   full width and fits ONE viewport instead of stacking tall (Temo: every segment
-   one screen, spread across the wide screen). Mobile keeps the vertical stack. */
 @media (min-width: 900px) {
   .press-bios,
   .press-facts,
@@ -317,8 +312,6 @@
     max-width: 1460px;
   }
   .press-head { margin-bottom: 0; }
-  .press-asset-grid { --pa-gap: 1.1rem; gap: 1.1rem; }
-  .press-asset { flex-basis: calc((100% - 3.3rem) / 4); padding: 0.9rem; }
   .pa-thumb { margin-bottom: 0.6rem; }
   .press-doc-row { margin-top: 1.1rem; gap: 1.1rem; }
   .press-doc { padding: 1rem; }
